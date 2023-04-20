@@ -3,8 +3,10 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Tooltip, TooltipSize } from './';
+import { PrimaryButton } from '../Button';
 import {
   fireEvent,
+  getByTestId,
   render,
   screen,
   waitFor,
@@ -56,6 +58,33 @@ describe('Tooltip', () => {
     fireEvent.blur(container.querySelector('.test-div'));
     await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
     expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('Tooltip reference element is clickable when Tooltip is disabled', () => {
+    let testCounter = 0;
+    const { container } = render(
+      <Tooltip
+        animate={false}
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        disabled
+        trigger="hover"
+      >
+        <PrimaryButton
+          data-testid="test-button"
+          onClick={() => (testCounter += 1)}
+          text="Test button"
+        />
+      </Tooltip>
+    );
+    const buttonTestElement: HTMLElement = getByTestId(
+      container,
+      'test-button'
+    );
+    fireEvent.mouseOver(buttonTestElement);
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+    fireEvent.click(buttonTestElement);
+    fireEvent.click(buttonTestElement);
+    expect(testCounter).toEqual(2);
   });
 
   test('Tooltip uses custom width and height', async () => {
