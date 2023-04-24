@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.35.2](https://github.com/EightfoldAI/octuple/compare/v2.35.1...v2.35.2) (2023-04-24)
+
+### Bug Fixes
+
+- **avatar group:** avatar group count, maxProps fixes ([#604](https://github.com/EightfoldAI/octuple/issues/604)) ([9bfa3f0](https://github.com/EightfoldAI/octuple/commits/9bfa3f0a21b25d98fd9a512febd16046074ac0a9))
+
 ### [2.35.1](https://github.com/EightfoldAI/octuple/compare/v2.35.0...v2.35.1) (2023-04-17)
 
 ### Bug Fixes
