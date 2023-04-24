@@ -109,11 +109,12 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       </ConditionalWrapper>
     );
 
+    const inlineCount = maxCount
+      ? Math.min(maxCount, numChildren)
+      : numChildren;
+    const showCountAvatar = maxCount && maxCount < numChildren;
+
     if (avatarListProps) {
-      const inlineCount = maxCount
-        ? Math.min(maxCount, numChildren)
-        : numChildren;
-      const showCountAvatar = maxCount && maxCount < numChildren;
       const childrenShown: React.ReactNode[] = avatarListProps?.items.slice(
         0,
         inlineCount
@@ -134,27 +135,18 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       );
     }
 
-    if (!avatarListProps && maxCount && maxCount < numChildren) {
-      const childrenShow: React.ReactElement<
-        any,
-        string | React.JSXElementConstructor<any>
-      >[] = childrenWithProps?.slice(0, maxCount);
+    const childrenShow: React.ReactElement<
+      any,
+      string | React.JSXElementConstructor<any>
+    >[] = childrenWithProps?.slice(0, inlineCount);
+
+    if (showCountAvatar) {
       childrenShow?.push(maxCountItem());
-      return (
-        <div
-          {...rest}
-          ref={ref}
-          className={avatarGroupClassNames}
-          style={style}
-        >
-          {childrenShow}
-        </div>
-      );
     }
 
     return (
       <div {...rest} ref={ref} className={avatarGroupClassNames} style={style}>
-        {childrenWithProps}
+        {childrenShow}
       </div>
     );
   }
