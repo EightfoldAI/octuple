@@ -76,9 +76,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         ])}
       >
         {!!maxProps?.value && maxProps?.value}
-        {!maxProps?.value && avatarListProps
-          ? `+${numChildren - maxCount}`
-          : `+${maxCount}`}
+        {!maxProps?.value && `+${numChildren - maxCount}`}
       </Avatar>
     );
 
@@ -111,48 +109,44 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       </ConditionalWrapper>
     );
 
-    if (avatarListProps && maxCount && maxCount < numChildren) {
+    const inlineCount = maxCount
+      ? Math.min(maxCount, numChildren)
+      : numChildren;
+    const showCountAvatar = maxCount && maxCount < numChildren;
+
+    if (avatarListProps) {
       const childrenShown: React.ReactNode[] = avatarListProps?.items.slice(
         0,
-        maxCount
+        inlineCount
       );
       return (
         <List
           layout={'horizontal'}
           {...rest}
           ref={ref}
-          additionalItem={maxCountAvatar}
+          additionalItem={showCountAvatar ? maxCountAvatar : null}
           classNames={avatarGroupClassNames}
           items={childrenShown}
           renderItem={avatarListProps?.renderItem}
-          renderAdditionalItem={maxCountItem}
+          renderAdditionalItem={showCountAvatar ? maxCountItem : () => null}
           style={style}
           tabIndex={-1}
         />
       );
     }
 
-    if (!avatarListProps && maxCount && maxCount < numChildren) {
-      const childrenShow: React.ReactElement<
-        any,
-        string | React.JSXElementConstructor<any>
-      >[] = childrenWithProps?.slice(0, maxCount);
+    const childrenShow: React.ReactElement<
+      any,
+      string | React.JSXElementConstructor<any>
+    >[] = childrenWithProps?.slice(0, inlineCount);
+
+    if (showCountAvatar) {
       childrenShow?.push(maxCountItem());
-      return (
-        <div
-          {...rest}
-          ref={ref}
-          className={avatarGroupClassNames}
-          style={style}
-        >
-          {childrenShow}
-        </div>
-      );
     }
 
     return (
       <div {...rest} ref={ref} className={avatarGroupClassNames} style={style}>
-        {childrenWithProps}
+        {childrenShow}
       </div>
     );
   }
