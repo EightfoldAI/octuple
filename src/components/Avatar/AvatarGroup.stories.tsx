@@ -81,7 +81,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       onMouseLeave: action('maxcount-mouseleave'),
       tabIndex: 0,
       tooltipProps: {
-        content: 'User 7, User 8, User 9, User 10',
+        content: 'This is a tooltip.',
         theme: TooltipTheme.dark,
       },
     }}
