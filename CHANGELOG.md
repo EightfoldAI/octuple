@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.35.3](https://github.com/EightfoldAI/octuple/compare/v2.35.2...v2.35.3) (2023-04-24)
+
+### Bug Fixes
+
+- accordion: custom theme support ([#605](https://github.com/EightfoldAI/octuple/issues/605)) ([2db5e5a](https://github.com/EightfoldAI/octuple/commits/2db5e5a799cc30f69d8b544d6d5ffefaa6d10eb2))
+
 ### [2.35.2](https://github.com/EightfoldAI/octuple/compare/v2.35.1...v2.35.2) (2023-04-24)
 
 ### Bug Fixes
