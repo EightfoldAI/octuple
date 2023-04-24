@@ -72,7 +72,6 @@ const sampleList: User[] = [
 
 const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
-    {...args}
     animateOnHover
     maxProps={{
       count: 4,
@@ -86,6 +85,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
         theme: TooltipTheme.dark,
       },
     }}
+    {...args}
   >
     <Avatar
       alt={imageProps.alt}
@@ -202,9 +202,10 @@ export const Basic = Basic_Story.bind({});
 
 export const Basic_Spaced = Basic_Story.bind({});
 
+export const Basic_Max_Props_Exceed_Children = Basic_Story.bind({});
+
 const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
-    {...args}
     animateOnHover
     avatarListProps={{
       items: sampleList,
@@ -241,6 +242,7 @@ const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
         theme: TooltipTheme.dark,
       },
     }}
+    {...args}
   />
 );
 
@@ -248,11 +250,12 @@ export const List_Group = List_Story.bind({});
 
 export const List_Group_Spaced = List_Story.bind({});
 
+export const List_Group_Max_Props_Exceed_Children = List_Story.bind({});
+
 const avatarGroupArgs: Object = {
   classNames: 'my-avatar-group-class',
   'data-test-id': 'my-avatar-group-test-id',
   fontSize: '18px',
-  maxProps: {},
   size: '40px',
   style: {},
   type: 'round',
@@ -267,6 +270,13 @@ Basic_Spaced.args = {
   groupVariant: AvatarGroupVariant.Spaced,
 };
 
+Basic_Max_Props_Exceed_Children.args = {
+  ...avatarGroupArgs,
+  maxProps: {
+    count: 10,
+  },
+};
+
 List_Group.args = {
   ...avatarGroupArgs,
 };
@@ -274,4 +284,11 @@ List_Group.args = {
 List_Group_Spaced.args = {
   ...avatarGroupArgs,
   groupVariant: AvatarGroupVariant.Spaced,
+};
+
+List_Group_Max_Props_Exceed_Children.args = {
+  ...avatarGroupArgs,
+  maxProps: {
+    count: 30,
+  },
 };
