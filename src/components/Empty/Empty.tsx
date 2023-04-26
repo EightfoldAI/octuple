@@ -79,7 +79,10 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
         {title && <div className={styles.emptyTitle}>{title}</div>}
         {description && (
           <div
-            className={`${styles.emptyDescription} ${descriptionClassNames}`}
+            className={mergeClasses([
+              styles.emptyDescription,
+              descriptionClassNames,
+            ])}
           >
             {description}
           </div>
