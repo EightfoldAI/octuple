@@ -51,6 +51,7 @@ const emptyArgs: Object = {
   mode: EmptyMode.data,
   style: {},
   title: 'Short Message Here',
+  descriptionClassNames: 'my-description-class',
 };
 
 No_Data.args = {
