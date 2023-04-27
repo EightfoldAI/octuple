@@ -81,6 +81,20 @@ import Layout from './components/Layout';
 
 import { Link } from './components/Link';
 
+import {
+  DefaultLinkButton,
+  LinkButtonIconAlign,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonType,
+  LinkButtonWidth,
+  NeutralLinkButton,
+  PrimaryLinkButton,
+  SecondaryLinkButton,
+  SystemUILinkButton,
+} from './components/LinkButton';
+
 import { List } from './components/List';
 
 import {
@@ -261,6 +275,7 @@ export {
   DatePickerShape,
   DatePickerSize,
   DefaultButton,
+  DefaultLinkButton,
   Dialog,
   DialogHelper,
   DialogSize,
@@ -286,6 +301,12 @@ export {
   LabelSize,
   Layout,
   Link,
+  LinkButtonIconAlign,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonType,
+  LinkButtonWidth,
   List,
   Loader,
   LoaderSize,
@@ -300,6 +321,7 @@ export {
   Navbar,
   NavbarContent,
   NeutralButton,
+  NeutralLinkButton,
   NudgeAnimation,
   OcFile,
   OcThemeName,
@@ -322,6 +344,7 @@ export {
   PopupTheme,
   Portal,
   PrimaryButton,
+  PrimaryLinkButton,
   Progress,
   ProgressSize,
   RadioButton,
@@ -338,6 +361,7 @@ export {
   SelectorSize,
   SearchBox,
   SecondaryButton,
+  SecondaryLinkButton,
   Shape,
   Size,
   Slide,
@@ -366,6 +390,7 @@ export {
   StepperValidationStatus,
   StepperVariant,
   SystemUIButton,
+  SystemUILinkButton,
   Table,
   TablePaginationConfig,
   TableProps,

@@ -104,7 +104,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       );
     }, [nudgeProps?.enabled]);
 
-    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef], styles);
 
     const buttonBaseSharedClassNames: string = mergeClasses([
       classNames,

@@ -95,7 +95,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       );
     }, [nudgeProps?.enabled]);
 
-    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef], styles);
 
     const twoStateButtonClassNames: string = mergeClasses([
       classNames,

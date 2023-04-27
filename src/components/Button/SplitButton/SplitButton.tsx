@@ -71,7 +71,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
     const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
       useRef<HTMLSpanElement>(null);
 
-    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef], styles);
 
     const splitButtonClassNames: string = mergeClasses([
       classNames,
