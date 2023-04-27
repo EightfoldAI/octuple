@@ -9,6 +9,7 @@ import {
   Avatar,
   AvatarGroup,
   AvatarGroupVariant,
+  AvatarPopupProps,
   StatusItemIconAlign,
   StatusItemsPosition,
 } from './components/Avatar';
@@ -228,6 +229,7 @@ export {
   Avatar,
   AvatarGroup,
   AvatarGroupVariant,
+  AvatarPopupProps,
   Badge,
   ButtonIconAlign,
   ButtonShape,
