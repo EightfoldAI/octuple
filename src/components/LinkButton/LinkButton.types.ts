@@ -9,7 +9,7 @@ import {
   ButtonSize as LinkButtonSize,
   ButtonWidth as LinkButtonWidth,
   ButtonShape as LinkButtonShape,
-  ButtonVariant as LinkButtonType,
+  ButtonVariant as LinkButtonVariant,
 } from '../Button';
 
 export {
@@ -18,16 +18,8 @@ export {
   LinkButtonSize,
   LinkButtonWidth,
   LinkButtonShape,
-  LinkButtonType,
+  LinkButtonVariant,
 };
-
-export enum LinkButtonVariant {
-  Default = 'default',
-  Neutral = 'neutral',
-  Primary = 'primary',
-  Secondary = 'secondary',
-  SystemUI = 'systemui',
-}
 
 export interface FloatingLinkButtonProps {
   /**
