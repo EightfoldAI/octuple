@@ -9,7 +9,7 @@ import {
   ButtonSize as LinkButtonSize,
   ButtonWidth as LinkButtonWidth,
   ButtonShape as LinkButtonShape,
-  ButtonType as LinkButtonType,
+  ButtonVariant as LinkButtonType,
 } from '../Button';
 
 export {
@@ -21,15 +21,12 @@ export {
   LinkButtonType,
 };
 
-export interface InternalLinkButtonProps extends LinkButtonProps {
-  /**
-   * Determines the link button type.
-   */
-  type?: LinkButtonType;
-  /**
-   * Ref of the link button
-   */
-  ref?: Ref<HTMLAnchorElement>;
+export enum LinkButtonVariant {
+  Default = 'default',
+  Neutral = 'neutral',
+  Primary = 'primary',
+  Secondary = 'secondary',
+  SystemUI = 'systemui',
 }
 
 export interface FloatingLinkButtonProps {
@@ -120,6 +117,10 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
    */
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   /**
+   * Ref of the link button
+   */
+  ref?: Ref<HTMLAnchorElement>;
+  /**
    * The link button role.
    * @default 'link'
    */
@@ -152,6 +153,12 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
    * @default false
    */
   transparent?: boolean;
+  /**
+   * The link button variant.
+   * variant: `Default`, `Neutral`, `Primary`, `Secondary`, `SystemUI`
+   * @default LinkButtonVariant.Default
+   */
+  variant?: LinkButtonVariant;
   /**
    * If the link button is in loading state
    */

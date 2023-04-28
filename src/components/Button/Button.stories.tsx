@@ -2,17 +2,13 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
-  BaseButton,
+  Button,
   ButtonIconAlign,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
+  ButtonVariant,
   ButtonWidth,
-  DefaultButton,
-  NeutralButton,
-  PrimaryButton,
-  SecondaryButton,
-  SystemUIButton,
 } from './';
 import { IconName } from '../Icon';
 import { NudgeAnimation } from './Nudge';
@@ -154,63 +150,24 @@ export default {
       ],
       control: { type: 'radio' },
     },
-    theme: {
-      options: ['light', 'dark'],
-      control: { type: 'inline-radio' },
-    },
   },
-} as ComponentMeta<typeof BaseButton>;
+} as ComponentMeta<typeof Button>;
 
-const Primary_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args} />
+const Button_Story: ComponentStory<typeof Button> = (args) => (
+  <Button {...args} />
 );
 
-export const Primary = Primary_Button_Story.bind({});
-export const Counter = Primary_Button_Story.bind({});
-
-const Secondary_Button_Story: ComponentStory<typeof SecondaryButton> = (
-  args
-) => <SecondaryButton {...args} />;
-
-export const Secondary = Secondary_Button_Story.bind({});
-
-const Default_Button_Story: ComponentStory<typeof DefaultButton> = (args) => (
-  <DefaultButton {...args} />
-);
-
-export const Default = Default_Button_Story.bind({});
-
-const Neutral_Button_Story: ComponentStory<typeof NeutralButton> = (args) => (
-  <NeutralButton {...args} />
-);
-
-export const Neutral = Neutral_Button_Story.bind({});
-
-const System_UI_Button_Story: ComponentStory<typeof SystemUIButton> = (
-  args
-) => <SystemUIButton {...args} />;
-
-export const System_UI = System_UI_Button_Story.bind({});
-
-const Toggle_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args} />
-);
-
-export const Toggle = Toggle_Button_Story.bind({});
-export const Toggle_With_Counter = Toggle_Button_Story.bind({});
-
-const Split_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args} />
-);
-
-export const Split = Split_Button_Story.bind({});
-export const Split_With_Counter = Split_Button_Story.bind({});
-
-const Floating_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args} />
-);
-
-export const Floating_Button = Floating_Button_Story.bind({});
+export const Primary = Button_Story.bind({});
+export const Counter = Button_Story.bind({});
+export const Secondary = Button_Story.bind({});
+export const Default = Button_Story.bind({});
+export const Neutral = Button_Story.bind({});
+export const System_UI = Button_Story.bind({});
+export const Toggle = Button_Story.bind({});
+export const Toggle_With_Counter = Button_Story.bind({});
+export const Split = Button_Story.bind({});
+export const Split_With_Counter = Button_Story.bind({});
+export const Floating_Button = Button_Story.bind({});
 
 const buttonArgs: Object = {
   alignIcon: ButtonIconAlign.Left,
@@ -221,6 +178,7 @@ const buttonArgs: Object = {
   checked: false,
   classNames: 'my-btn-class',
   'data-test-id': 'my-btn-test-id',
+  counter: 0,
   disabled: false,
   disruptive: false,
   dropShadow: false,
@@ -241,6 +199,7 @@ const buttonArgs: Object = {
     'data-test-id': 'myButtonIconTestId',
   },
   id: 'myButton',
+  loading: false,
   shape: ButtonShape.Pill,
   size: ButtonSize.Medium,
   split: false,
@@ -248,14 +207,14 @@ const buttonArgs: Object = {
   style: {},
   text: 'Button',
   toggle: false,
-  counter: 0,
-  loading: false,
+  variant: ButtonVariant.Default,
 };
 
 Primary.args = {
   ...buttonArgs,
   ariaLabel: 'Primary Button',
   text: 'Primary Button',
+  variant: ButtonVariant.Primary,
 };
 
 Counter.args = {
@@ -263,12 +222,14 @@ Counter.args = {
   ariaLabel: 'Primary Button',
   counter: '8',
   text: 'Primary Button',
+  variant: ButtonVariant.Primary,
 };
 
 Secondary.args = {
   ...buttonArgs,
   ariaLabel: 'Secondary Button',
   text: 'Secondary Button',
+  variant: ButtonVariant.Secondary,
 };
 
 System_UI.args = {
@@ -276,18 +237,21 @@ System_UI.args = {
   ariaLabel: 'System UI Button',
   text: 'System UI Button',
   transparent: false,
+  variant: ButtonVariant.SystemUI,
 };
 
 Default.args = {
   ...buttonArgs,
   ariaLabel: 'Default Button',
   text: 'Default Button',
+  variant: ButtonVariant.Default,
 };
 
 Neutral.args = {
   ...buttonArgs,
   ariaLabel: 'Neutral Button',
   text: 'Neutral Button',
+  variant: ButtonVariant.Neutral,
 };
 
 Toggle.args = {
@@ -308,6 +272,7 @@ Toggle.args = {
   },
   text: 'Toggle Button',
   toggle: true,
+  variant: ButtonVariant.Primary,
 };
 
 Toggle_With_Counter.args = {
@@ -329,6 +294,7 @@ Toggle_With_Counter.args = {
   },
   text: 'Toggle Button',
   toggle: true,
+  variant: ButtonVariant.Primary,
 };
 
 Split.args = {
@@ -343,6 +309,7 @@ Split.args = {
       path: IconName.mdiClockOutline,
     },
   },
+  variant: ButtonVariant.Primary,
 };
 
 Split_With_Counter.args = {
@@ -353,6 +320,7 @@ Split_With_Counter.args = {
   split: true,
   splitButtonChecked: false,
   text: 'Split Button',
+  variant: ButtonVariant.Primary,
 };
 
 Floating_Button.args = {
@@ -368,4 +336,5 @@ Floating_Button.args = {
   },
   shape: ButtonShape.Round,
   text: null,
+  variant: ButtonVariant.Primary,
 };

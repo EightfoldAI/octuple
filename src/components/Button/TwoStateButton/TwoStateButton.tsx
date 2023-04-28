@@ -48,7 +48,6 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       style,
       text,
       toggle,
-      type,
       ...rest
     } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);

@@ -8,7 +8,6 @@ exports[`Link button Link button is default 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="default"
   >
     <span
       class="link-button-text-medium"
@@ -27,7 +26,6 @@ exports[`Link button Link button is large 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="primary"
   >
     <span
       class="link-button-text-large"
@@ -46,7 +44,6 @@ exports[`Link button Link button is loading 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="primary"
   >
     <span
       class="link-button-text-medium"
@@ -78,7 +75,6 @@ exports[`Link button Link button is medium 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="primary"
   >
     <span
       class="link-button-text-medium"
@@ -97,7 +93,6 @@ exports[`Link button Link button is neutral 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="neutral"
   >
     <span
       class="link-button-text-medium"
@@ -116,7 +111,6 @@ exports[`Link button Link button is primary 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="primary"
   >
     <span
       class="link-button-text-medium"
@@ -135,7 +129,6 @@ exports[`Link button Link button is secondary 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="secondary"
   >
     <span
       class="link-button-text-medium"
@@ -154,7 +147,6 @@ exports[`Link button Link button is small 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="primary"
   >
     <span
       class="link-button-text-small"
@@ -173,7 +165,6 @@ exports[`Link button Link button is system ui 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="systemui"
   >
     <span
       class="link-button-text-medium"
@@ -193,7 +184,6 @@ exports[`Link button simulate click on disabled link button 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    type="primary"
   >
     <span
       class="link-button-text-medium"

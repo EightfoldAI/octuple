@@ -2,17 +2,13 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
-  BaseLinkButton,
+  LinkButton,
   LinkButtonIconAlign,
   LinkButtonShape,
   LinkButtonSize,
   LinkButtonTextAlign,
+  LinkButtonVariant,
   LinkButtonWidth,
-  DefaultLinkButton,
-  NeutralLinkButton,
-  PrimaryLinkButton,
-  SecondaryLinkButton,
-  SystemUILinkButton,
 } from '.';
 import { IconName } from '../Icon';
 import { NudgeAnimation } from '../Button/Nudge';
@@ -115,60 +111,34 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof BaseLinkButton>;
+} as ComponentMeta<typeof LinkButton>;
 
-const Primary_Link_Button_Story: ComponentStory<typeof PrimaryLinkButton> = (
-  args
-) => <PrimaryLinkButton {...args} />;
+const Link_Button_Story: ComponentStory<typeof LinkButton> = (args) => (
+  <LinkButton {...args} />
+);
 
-export const Primary = Primary_Link_Button_Story.bind({});
-export const Counter = Primary_Link_Button_Story.bind({});
-
-const Secondary_Link_Button_Story: ComponentStory<
-  typeof SecondaryLinkButton
-> = (args) => <SecondaryLinkButton {...args} />;
-
-export const Secondary = Secondary_Link_Button_Story.bind({});
-
-const Default_Link_Button_Story: ComponentStory<typeof DefaultLinkButton> = (
-  args
-) => <DefaultLinkButton {...args} />;
-
-export const Default = Default_Link_Button_Story.bind({});
-
-const Neutral_Link_Button_Story: ComponentStory<typeof NeutralLinkButton> = (
-  args
-) => <NeutralLinkButton {...args} />;
-
-export const Neutral = Neutral_Link_Button_Story.bind({});
-
-const System_UI_Link_Button_Story: ComponentStory<typeof SystemUILinkButton> = (
-  args
-) => <SystemUILinkButton {...args} />;
-
-export const System_UI = System_UI_Link_Button_Story.bind({});
-
-const Floating_Link_Button_Story: ComponentStory<typeof PrimaryLinkButton> = (
-  args
-) => <PrimaryLinkButton {...args} />;
-
-export const Floating = Floating_Link_Button_Story.bind({});
+export const Primary = Link_Button_Story.bind({});
+export const Counter = Link_Button_Story.bind({});
+export const Secondary = Link_Button_Story.bind({});
+export const Default = Link_Button_Story.bind({});
+export const Neutral = Link_Button_Story.bind({});
+export const System_UI = Link_Button_Story.bind({});
+export const Floating = Link_Button_Story.bind({});
 
 const linkButtonArgs: Object = {
   alignIcon: LinkButtonIconAlign.Left,
   alignText: LinkButtonTextAlign.Center,
   allowDisabledFocus: false,
   ariaLabel: 'Link button',
-  linkButtonWidth: LinkButtonWidth.fitContent,
   classNames: 'my-link-btn-class',
   'data-testid': 'my-link-btn-test-id',
+  counter: 0,
   disabled: false,
   disruptive: false,
   dropShadow: false,
   floatingLinkButtonProps: {
     enabled: false,
   },
-  nudgeProps: null,
   href: 'https://eightfold.ai',
   iconProps: {
     path: IconName.mdiCardsHeart,
@@ -182,20 +152,23 @@ const linkButtonArgs: Object = {
     'data-test-id': 'myLinkButtonIconTestId',
   },
   id: 'myLinkButton',
+  linkButtonWidth: LinkButtonWidth.fitContent,
+  loading: false,
+  nudgeProps: null,
   role: 'link',
   shape: LinkButtonShape.Pill,
   size: LinkButtonSize.Medium,
   style: {},
   target: '_blank',
   text: 'Link button',
-  counter: 0,
-  loading: false,
+  variant: LinkButtonVariant.Default,
 };
 
 Primary.args = {
   ...linkButtonArgs,
   ariaLabel: 'Primary LinkButton',
   text: 'Primary LinkButton',
+  variant: LinkButtonVariant.Primary,
 };
 
 Counter.args = {
@@ -203,12 +176,14 @@ Counter.args = {
   ariaLabel: 'Primary LinkButton',
   counter: '8',
   text: 'Primary LinkButton',
+  variant: LinkButtonVariant.Primary,
 };
 
 Secondary.args = {
   ...linkButtonArgs,
   ariaLabel: 'Secondary LinkButton',
   text: 'Secondary LinkButton',
+  variant: LinkButtonVariant.Secondary,
 };
 
 System_UI.args = {
@@ -216,18 +191,21 @@ System_UI.args = {
   ariaLabel: 'System UI LinkButton',
   text: 'System UI LinkButton',
   transparent: false,
+  variant: LinkButtonVariant.SystemUI,
 };
 
 Default.args = {
   ...linkButtonArgs,
   ariaLabel: 'Default LinkButton',
   text: 'Default LinkButton',
+  variant: LinkButtonVariant.Default,
 };
 
 Neutral.args = {
   ...linkButtonArgs,
   ariaLabel: 'Neutral LinkButton',
   text: 'Neutral LinkButton',
+  variant: LinkButtonVariant.Neutral,
 };
 
 Floating.args = {
@@ -243,4 +221,5 @@ Floating.args = {
   },
   shape: LinkButtonShape.Round,
   text: null,
+  variant: LinkButtonVariant.Primary,
 };

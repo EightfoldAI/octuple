@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PersistentBar, PersistentBarType } from './';
 import { IconName } from '../Icon';
 import { PaginationLayoutOptions } from '../Pagination';
-import { ButtonType } from '../Button';
+import { ButtonVariant, ButtonVariant as ButtonType } from '../Button';
 
 export default {
   title: 'Persistent Bar',
@@ -41,42 +41,17 @@ export default {
   },
 } as ComponentMeta<typeof PersistentBar>;
 
-const Bottom_Bar_With_Text_Story: ComponentStory<typeof PersistentBar> = (
-  args
-) => <PersistentBar {...args} />;
-
-export const BottomBarWithText = Bottom_Bar_With_Text_Story.bind({});
-
-const Bottom_Bar_Secondary_Buttons_Story: ComponentStory<
-  typeof PersistentBar
-> = (args) => <PersistentBar {...args} />;
-
-export const BottomBarSecondaryButtons =
-  Bottom_Bar_Secondary_Buttons_Story.bind({});
-
-const Bottom_Bar_Buttons_On_Left_Story: ComponentStory<typeof PersistentBar> = (
-  args
-) => <PersistentBar {...args} />;
-
-export const BottomBarButtonsOnLeft = Bottom_Bar_Buttons_On_Left_Story.bind({});
-
-const Top_Bar_Buttons_Story: ComponentStory<typeof PersistentBar> = (args) => (
+const Bar_Story: ComponentStory<typeof PersistentBar> = (args) => (
   <PersistentBar {...args} />
 );
 
-export const TopBarButtons = Top_Bar_Buttons_Story.bind({});
-
-const Top_Bar_With_Text_Story: ComponentStory<typeof PersistentBar> = (
-  args
-) => <PersistentBar {...args} />;
-
-export const TopBarWithText = Top_Bar_With_Text_Story.bind({});
-
-const Top_Bar_Pagination_Story: ComponentStory<typeof PersistentBar> = (
-  args
-) => <PersistentBar {...args} />;
-
-export const TopBarPagination = Top_Bar_Pagination_Story.bind({});
+export const BottomBarWithText = Bar_Story.bind({});
+export const BottomBarSecondaryButtons = Bar_Story.bind({});
+export const BottomBarButtonsOnLeft = Bar_Story.bind({});
+export const TopBarButtons = Bar_Story.bind({});
+export const TopBarButtonsLegacy = Bar_Story.bind({});
+export const TopBarWithText = Bar_Story.bind({});
+export const TopBarPagination = Bar_Story.bind({});
 
 const paginationArgs: Object = {
   classNames: 'my-pagination-class',
@@ -198,6 +173,73 @@ BottomBarButtonsOnLeft.args = {
 };
 
 TopBarButtons.args = {
+  ...persistentBarArgs,
+  buttonMenuProps: [
+    {
+      ariaLabel: 'Save Icon Button',
+      iconProps: { path: IconName.mdiBookmark },
+      id: 'myBookmarkButton',
+      text: null,
+      variant: ButtonVariant.Secondary,
+    },
+    {
+      ariaLabel: 'Secondary',
+      classNames: 'my-primary-btn-class',
+      'data-test-id': 'my-primary-btn-test-id',
+      iconProps: null,
+      id: 'myPrimaryButton',
+      text: 'Secondary',
+      variant: ButtonVariant.Secondary,
+    },
+    {
+      ariaLabel: 'Secondary',
+      classNames: 'my-primary-btn-class',
+      'data-test-id': 'my-primary-btn-test-id',
+      iconProps: null,
+      id: 'myPrimaryButton',
+      text: 'Secondary',
+      variant: ButtonVariant.Secondary,
+    },
+    {
+      ariaLabel: 'Secondary',
+      classNames: 'my-primary-btn-class',
+      'data-test-id': 'my-primary-btn-test-id',
+      iconProps: null,
+      id: 'myPrimaryButton',
+      text: 'Secondary',
+      variant: ButtonVariant.Secondary,
+    },
+    {
+      ariaLabel: 'Secondary',
+      classNames: 'my-primary-btn-class',
+      'data-test-id': 'my-primary-btn-test-id',
+      iconProps: null,
+      id: 'myPrimaryButton',
+      text: 'Secondary',
+      variant: ButtonVariant.Secondary,
+    },
+    {
+      ariaLabel: 'Secondary',
+      classNames: 'my-primary-btn-class',
+      'data-test-id': 'my-primary-btn-test-id',
+      iconProps: null,
+      id: 'myPrimaryButton',
+      text: 'Secondary',
+      variant: ButtonVariant.Secondary,
+    },
+    {
+      ariaLabel: 'Save Icon Button',
+      iconProps: { path: IconName.mdiDotsVertical },
+      id: 'myMenuButton',
+      text: null,
+      variant: ButtonVariant.Secondary,
+    },
+  ],
+  type: PersistentBarType.topBarButtons,
+};
+
+// TODO: Remove in Octuple v3.0.0
+TopBarButtonsLegacy.args = {
   ...persistentBarArgs,
   buttonMenuProps: [
     {

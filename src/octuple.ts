@@ -17,10 +17,11 @@ import {
 import { Badge } from './components/Badge';
 
 import {
+  Button,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
   ButtonWidth,
   ButtonIconAlign,
   DefaultButton,
@@ -82,17 +83,14 @@ import Layout from './components/Layout';
 import { Link } from './components/Link';
 
 import {
-  DefaultLinkButton,
+  LinkButton,
   LinkButtonIconAlign,
   LinkButtonShape,
   LinkButtonSize,
   LinkButtonTextAlign,
   LinkButtonType,
+  LinkButtonVariant,
   LinkButtonWidth,
-  NeutralLinkButton,
-  PrimaryLinkButton,
-  SecondaryLinkButton,
-  SystemUILinkButton,
 } from './components/LinkButton';
 
 import { List } from './components/List';
@@ -233,7 +231,7 @@ import { useBoolean } from './hooks/useBoolean';
 
 import { useCanvasDirection } from './hooks/useCanvasDirection';
 
-import { useMatchMedia } from './hooks/useMatchMedia';
+import { Breakpoints, useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
 
@@ -251,11 +249,14 @@ export {
   AvatarGroupVariant,
   AvatarPopupProps,
   Badge,
+  Breakpoints,
+  Button,
   ButtonIconAlign,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
+  ButtonVariant as ButtonType, // TODO: Remove in Octuple v3.0.0, leave in for now to support legacy variant by <Tag /> implementations
   ButtonWidth,
   Card,
   CardSize,
@@ -275,7 +276,6 @@ export {
   DatePickerShape,
   DatePickerSize,
   DefaultButton,
-  DefaultLinkButton,
   Dialog,
   DialogHelper,
   DialogSize,
@@ -301,11 +301,13 @@ export {
   LabelSize,
   Layout,
   Link,
+  LinkButton,
   LinkButtonIconAlign,
   LinkButtonShape,
   LinkButtonSize,
   LinkButtonTextAlign,
   LinkButtonType,
+  LinkButtonVariant,
   LinkButtonWidth,
   List,
   Loader,
@@ -321,7 +323,6 @@ export {
   Navbar,
   NavbarContent,
   NeutralButton,
-  NeutralLinkButton,
   NudgeAnimation,
   OcFile,
   OcThemeName,
@@ -344,7 +345,6 @@ export {
   PopupTheme,
   Portal,
   PrimaryButton,
-  PrimaryLinkButton,
   Progress,
   ProgressSize,
   RadioButton,
@@ -361,7 +361,6 @@ export {
   SelectorSize,
   SearchBox,
   SecondaryButton,
-  SecondaryLinkButton,
   Shape,
   Size,
   Slide,
@@ -390,7 +389,6 @@ export {
   StepperValidationStatus,
   StepperVariant,
   SystemUIButton,
-  SystemUILinkButton,
   Table,
   TablePaginationConfig,
   TableProps,

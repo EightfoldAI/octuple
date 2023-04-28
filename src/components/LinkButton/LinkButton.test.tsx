@@ -3,13 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { LinkButtonSize } from './LinkButton.types';
-import {
-  DefaultLinkButton,
-  NeutralLinkButton,
-  PrimaryLinkButton,
-  SecondaryLinkButton,
-  SystemUILinkButton,
-} from '.';
+import { LinkButton, LinkButtonVariant } from '.';
 import { NudgeAnimation } from '../Button/Nudge';
 import {
   fireEvent,
@@ -35,10 +29,11 @@ describe('Link button', () => {
     const LinkButtonToClick = (): JSX.Element => {
       return (
         <>
-          <PrimaryLinkButton
+          <LinkButton
             data-testid="link-button-1"
             href="https://eightfold.ai"
             text="test LinkButton"
+            variant={LinkButtonVariant.Primary}
           />
         </>
       );
@@ -58,12 +53,13 @@ describe('Link button', () => {
     let testCounter = 0;
     const disabled = false;
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         data-testid="link-button-2"
         disabled={disabled}
         href="https://eightfold.ai"
         onClick={() => (testCounter += 1)}
         text="test LinkButton"
+        variant={LinkButtonVariant.Primary}
       />
     );
     const linkButtonTestElement: HTMLElement = getByTestId(
@@ -82,12 +78,13 @@ describe('Link button', () => {
     let testCounter = 0;
     const disabled = true;
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         data-testid="link-button-3"
         disabled={disabled}
         href="https://eightfold.ai"
         onClick={() => (testCounter += 1)}
         text="test LinkButton"
+        variant={LinkButtonVariant.Primary}
       />
     );
     const linkButtonTestElement: HTMLElement = getByTestId(
@@ -102,7 +99,11 @@ describe('Link button', () => {
 
   test('Link button is default', () => {
     const { container } = render(
-      <DefaultLinkButton href="https://eightfold.ai" text="test default" />
+      <LinkButton
+        href="https://eightfold.ai"
+        text="test default"
+        variant={LinkButtonVariant.Default}
+      />
     );
     expect(
       container.getElementsByClassName('link-button-default')
@@ -112,7 +113,11 @@ describe('Link button', () => {
 
   test('Link button is neutral', () => {
     const { container } = render(
-      <NeutralLinkButton href="https://eightfold.ai" text="test neutral" />
+      <LinkButton
+        href="https://eightfold.ai"
+        text="test neutral"
+        variant={LinkButtonVariant.Neutral}
+      />
     );
     expect(
       container.getElementsByClassName('link-button-neutral')
@@ -122,7 +127,11 @@ describe('Link button', () => {
 
   test('Link button is primary', () => {
     const { container } = render(
-      <PrimaryLinkButton href="https://eightfold.ai" text="test primary" />
+      <LinkButton
+        href="https://eightfold.ai"
+        text="test primary"
+        variant={LinkButtonVariant.Primary}
+      />
     );
     expect(
       container.getElementsByClassName('link-button-primary')
@@ -132,7 +141,11 @@ describe('Link button', () => {
 
   test('Link button is secondary', () => {
     const { container } = render(
-      <SecondaryLinkButton href="https://eightfold.ai" text="test secondary" />
+      <LinkButton
+        href="https://eightfold.ai"
+        text="test secondary"
+        variant={LinkButtonVariant.Secondary}
+      />
     );
     expect(
       container.getElementsByClassName('link-button-secondary')
@@ -142,7 +155,11 @@ describe('Link button', () => {
 
   test('Link button is system ui', () => {
     const { container } = render(
-      <SystemUILinkButton href="https://eightfold.ai" text="test system ui" />
+      <LinkButton
+        href="https://eightfold.ai"
+        text="test system ui"
+        variant={LinkButtonVariant.SystemUI}
+      />
     );
     expect(
       container.getElementsByClassName('link-button-system-ui')
@@ -152,10 +169,11 @@ describe('Link button', () => {
 
   test('Link button is large', () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         size={LinkButtonSize.Large}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     expect(container.getElementsByClassName('link-button-large')).toHaveLength(
@@ -166,10 +184,11 @@ describe('Link button', () => {
 
   test('Link button is medium', () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         size={LinkButtonSize.Medium}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     expect(container.getElementsByClassName('link-button-medium')).toHaveLength(
@@ -180,10 +199,11 @@ describe('Link button', () => {
 
   test('Link button is small', () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         size={LinkButtonSize.Small}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     expect(container.getElementsByClassName('link-button-small')).toHaveLength(
@@ -194,7 +214,7 @@ describe('Link button', () => {
 
   test('Link button nudge is background', async () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         nudgeProps={{
           animation: NudgeAnimation.Background,
@@ -204,6 +224,7 @@ describe('Link button', () => {
         }}
         size={LinkButtonSize.Small}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     await waitFor(() =>
@@ -214,7 +235,7 @@ describe('Link button', () => {
 
   test('Link button nudge is bounce', async () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         nudgeProps={{
           animation: NudgeAnimation.Bounce,
@@ -224,6 +245,7 @@ describe('Link button', () => {
         }}
         size={LinkButtonSize.Small}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     await waitFor(() =>
@@ -234,7 +256,7 @@ describe('Link button', () => {
 
   test('Link button nudge is conic', async () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         nudgeProps={{
           animation: NudgeAnimation.Conic,
@@ -244,6 +266,7 @@ describe('Link button', () => {
         }}
         size={LinkButtonSize.Small}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     await waitFor(() =>
@@ -254,7 +277,7 @@ describe('Link button', () => {
 
   test('Link button nudge is ring', async () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         nudgeProps={{
           animation: NudgeAnimation.Ring,
@@ -264,6 +287,7 @@ describe('Link button', () => {
         }}
         size={LinkButtonSize.Small}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     await waitFor(() =>
@@ -274,7 +298,7 @@ describe('Link button', () => {
 
   test('Link button nudge is size', async () => {
     const { container, rerender } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         nudgeProps={{
           animation: NudgeAnimation.Size,
@@ -284,6 +308,7 @@ describe('Link button', () => {
         }}
         size={LinkButtonSize.Small}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     await waitFor(() =>
@@ -294,11 +319,12 @@ describe('Link button', () => {
 
   test('Link button is loading', () => {
     const { container } = render(
-      <PrimaryLinkButton
+      <LinkButton
         href="https://eightfold.ai"
         loading
         size={LinkButtonSize.Medium}
         text="test"
+        variant={LinkButtonVariant.Primary}
       />
     );
     expect(container.getElementsByClassName('loader')).toHaveLength(1);
