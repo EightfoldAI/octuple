@@ -88,7 +88,6 @@ import {
   LinkButtonShape,
   LinkButtonSize,
   LinkButtonTextAlign,
-  LinkButtonType,
   LinkButtonVariant,
   LinkButtonWidth,
 } from './components/LinkButton';
@@ -306,7 +305,6 @@ export {
   LinkButtonShape,
   LinkButtonSize,
   LinkButtonTextAlign,
-  LinkButtonType,
   LinkButtonVariant,
   LinkButtonWidth,
   List,
