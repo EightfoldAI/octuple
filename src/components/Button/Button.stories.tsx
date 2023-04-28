@@ -150,6 +150,16 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    variant: {
+      options: [
+        ButtonVariant.Default,
+        ButtonVariant.Neutral,
+        ButtonVariant.Primary,
+        ButtonVariant.Secondary,
+        ButtonVariant.SystemUI,
+      ],
+      control: { type: 'radio' },
+    },
   },
 } as ComponentMeta<typeof Button>;
 

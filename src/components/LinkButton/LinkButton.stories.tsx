@@ -110,6 +110,16 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    variant: {
+      options: [
+        LinkButtonVariant.Default,
+        LinkButtonVariant.Neutral,
+        LinkButtonVariant.Primary,
+        LinkButtonVariant.Secondary,
+        LinkButtonVariant.SystemUI,
+      ],
+      control: { type: 'radio' },
+    },
   },
 } as ComponentMeta<typeof LinkButton>;
 
