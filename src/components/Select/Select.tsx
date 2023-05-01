@@ -316,7 +316,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const { target } = event;
       const value: string = target?.value || '';
       const valueLowerCase: string = value?.toLowerCase();
-      console.log(document.activeElement);
       setSearchQuery(value);
       if (loadOptions) {
         return loadOptions(value);
