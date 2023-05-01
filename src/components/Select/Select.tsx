@@ -140,7 +140,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
-    let timeout: ReturnType<typeof setTimeout>;
+    const firstRender: React.MutableRefObject<boolean> = useRef(true);
 
     const getSelectedOptionValues = (): SelectOption['value'][] => {
       return options
@@ -180,6 +180,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
     // Update options on change
     useEffect(() => {
       onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
+
+      // Determine first render to help determine the Select interaction is intentional
+      if (firstRender.current) {
+        firstRender.current = false;
+        return;
+      }
       if (multiple) {
         inputRef.current?.focus();
       } else {
@@ -310,6 +316,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const { target } = event;
       const value: string = target?.value || '';
       const valueLowerCase: string = value?.toLowerCase();
+      console.log(document.activeElement);
       setSearchQuery(value);
       if (loadOptions) {
         return loadOptions(value);
