@@ -10,7 +10,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
     <button
       aria-disabled="true"
       aria-label="Previous"
-      class="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      class="pagination-button pagination-previous button button-neutral button-medium disabled icon-left"
       disabled=""
     >
       <span
@@ -135,7 +135,7 @@ exports[`Pagination Pagination should render as simplified 1`] = `
     <button
       aria-disabled="true"
       aria-label="Previous"
-      class="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      class="pagination-button pagination-previous button button-neutral button-medium disabled icon-left"
       disabled=""
     >
       <span
@@ -208,7 +208,7 @@ exports[`Pagination Pagination should render normally 1`] = `
     <button
       aria-disabled="true"
       aria-label="Previous"
-      class="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      class="pagination-button pagination-previous button button-neutral button-medium disabled icon-left"
       disabled=""
     >
       <span
@@ -458,7 +458,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
     <button
       aria-disabled="true"
       aria-label="Next"
-      class="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
+      class="pagination-button pagination-next button button-neutral button-medium disabled icon-left"
       disabled=""
     >
       <span

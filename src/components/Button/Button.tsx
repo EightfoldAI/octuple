@@ -3,13 +3,14 @@ import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import {
   ButtonIconAlign,
+  ButtonProps,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
+  ButtonVariant,
   ButtonWidth,
-  InternalButtonProps,
   SplitButton,
-} from './';
+} from '.';
 import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { InnerNudge, NudgeAnimation, NudgeProps } from './Nudge';
@@ -22,8 +23,8 @@ import { useNudge } from './Nudge/Hooks/useNudge';
 
 import styles from './button.module.scss';
 
-export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
-  (props: InternalButtonProps, ref: Ref<HTMLButtonElement>) => {
+export const Button: FC<ButtonProps> = React.forwardRef(
+  (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     const {
       alignIcon = ButtonIconAlign.Left,
       alignText = ButtonTextAlign.Center,
@@ -44,10 +45,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       nudgeProps: defaultNudgeProps,
       htmlType,
       iconProps,
-      prefixIconProps,
       id,
+      loading = false,
       onClick,
       onContextMenu,
+      prefixIconProps,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
       split,
@@ -56,8 +58,9 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       style,
       text,
       toggle,
-      type,
-      loading = false,
+      transparent = false,
+      type, // TODO: Remove in Octuple v3.0.0 and use `variant` only.
+      variant = ButtonVariant.Default,
       ...rest
     } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -104,10 +107,36 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       );
     }, [nudgeProps?.enabled]);
 
-    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef], styles);
 
-    const buttonBaseSharedClassNames: string = mergeClasses([
+    // TODO: Remove in Octuple v3.0.0 and use `variant` only.
+    // For now, if `type` has a value use it, else use `variant`.
+    const mergedVariant: ButtonVariant = !!type ? type : variant;
+
+    const buttonSharedClassNames: string = mergeClasses([
       classNames,
+      styles.button,
+      { [styles.buttonDefault]: mergedVariant === ButtonVariant.Default },
+      { [styles.buttonNeutral]: mergedVariant === ButtonVariant.Neutral },
+      { [styles.buttonPrimary]: mergedVariant === ButtonVariant.Primary },
+      { [styles.buttonSecondary]: mergedVariant === ButtonVariant.Secondary },
+      { [styles.buttonSystemUi]: mergedVariant === ButtonVariant.SystemUI },
+      {
+        [styles.buttonDisruptive]:
+          disruptive && mergedVariant === ButtonVariant.Default,
+      },
+      {
+        [styles.buttonPrimaryDisruptive]:
+          disruptive && mergedVariant === ButtonVariant.Primary,
+      },
+      {
+        [styles.buttonSecondaryDisruptive]:
+          disruptive && mergedVariant === ButtonVariant.Secondary,
+      },
+      {
+        [styles.transparent]:
+          transparent && mergedVariant === ButtonVariant.SystemUI,
+      },
       {
         [styles.buttonSmall]:
           mergedSize === ButtonSize.Flex && largeScreenActive,
@@ -133,6 +162,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           shape === ButtonShape.Round && !split && !textExists,
       },
       { [styles.dropShadow]: dropShadow },
+      { [styles.disabled]: allowDisabledFocus || mergedDisabled },
       { [styles.floating]: floatingButtonProps?.enabled },
       { [styles.buttonRtl]: htmlDir === 'rtl' },
       {
@@ -143,8 +173,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       },
     ]);
 
-    const buttonBaseClassNames: string = mergeClasses([
-      buttonBaseSharedClassNames,
+    const buttonClassNames: string = mergeClasses([
+      buttonSharedClassNames,
       { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
       { [styles.splitLeft]: split },
       { [styles.left]: alignText === ButtonTextAlign.Left },
@@ -155,7 +185,6 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       {
         [styles.iconRight]: iconExists && alignIcon === ButtonIconAlign.Right,
       },
-      { [styles.disabled]: allowDisabledFocus || mergedDisabled },
       { [styles.loading]: loading },
     ]);
 
@@ -272,7 +301,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           aria-pressed={toggle ? !!checked : undefined}
           defaultChecked={checked}
           disabled={(!allowDisabledFocus && mergedDisabled) || loading}
-          className={buttonBaseClassNames}
+          className={buttonClassNames}
           id={id}
           onClick={!allowDisabledFocus ? onClick : null}
           style={style}
@@ -315,7 +344,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           <SplitButton
             {...splitButtonProps}
             classNames={
-              buttonBaseSharedClassNames + ' ' + splitButtonProps?.classNames
+              buttonSharedClassNames + ' ' + splitButtonProps?.classNames
             }
             checked={splitButtonChecked}
             disruptive={disruptive}
@@ -327,7 +356,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             shape={shape}
             size={mergedSize}
             split={split}
-            type={type}
+            variant={mergedVariant}
           />
         )}
       </>

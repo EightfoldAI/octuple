@@ -17,10 +17,11 @@ import {
 import { Badge } from './components/Badge';
 
 import {
+  Button,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
   ButtonWidth,
   ButtonIconAlign,
   DefaultButton,
@@ -80,6 +81,16 @@ import { Label, LabelSize } from './components/Label';
 import Layout from './components/Layout';
 
 import { Link } from './components/Link';
+
+import {
+  LinkButton,
+  LinkButtonIconAlign,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonVariant,
+  LinkButtonWidth,
+} from './components/LinkButton';
 
 import { List } from './components/List';
 
@@ -219,7 +230,7 @@ import { useBoolean } from './hooks/useBoolean';
 
 import { useCanvasDirection } from './hooks/useCanvasDirection';
 
-import { useMatchMedia } from './hooks/useMatchMedia';
+import { Breakpoints, useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
 
@@ -237,11 +248,14 @@ export {
   AvatarGroupVariant,
   AvatarPopupProps,
   Badge,
+  Breakpoints,
+  Button,
   ButtonIconAlign,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
+  ButtonVariant as ButtonType, // TODO: Remove in Octuple v3.0.0, leave in for now to support legacy variant by <Tag /> implementations
   ButtonWidth,
   Card,
   CardSize,
@@ -286,6 +300,13 @@ export {
   LabelSize,
   Layout,
   Link,
+  LinkButton,
+  LinkButtonIconAlign,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonVariant,
+  LinkButtonWidth,
   List,
   Loader,
   LoaderSize,
