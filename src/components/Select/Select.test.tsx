@@ -156,6 +156,16 @@ describe('Select', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Renders without stealing focus', () => {
+    const defaultValue = 'option2';
+    const { getByDisplayValue } = render(
+      <Select options={options} defaultValue={defaultValue} />
+    );
+    const select = getByDisplayValue('Option 2');
+    expect(select).toBeTruthy();
+    expect(document.activeElement === select).toBe(false);
+  });
+
   test('Updates the selected value', async () => {
     const defaultValue = 'option2';
     const handleChange = jest.fn();
