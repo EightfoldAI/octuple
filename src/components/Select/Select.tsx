@@ -175,6 +175,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           hideOption: false,
           id: option.text + index,
           object: option.object,
+          role: 'option',
           ...option,
         }))
       );
@@ -226,7 +227,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
       // When dropdown not visible and select is filterable
       // reset the search query and visibility of the options.
-      if (!dropdownVisible && filterable) {
+      if (prevDropdownVisible && !dropdownVisible && filterable) {
         resetSelectOnDropdownHide();
       }
 
@@ -561,6 +562,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         ({ hideOption, ...opt }) => ({
           ...opt,
           classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
+          role: 'option',
         })
       );
       if (filteredOptions.length > 0) {
