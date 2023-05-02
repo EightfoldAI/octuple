@@ -33,8 +33,9 @@ import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { Tooltip, TooltipTheme } from '../Tooltip';
 import { FormItemInputContext } from '../Form/Context';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
-import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
+import { usePreviousState } from '../../hooks/usePreviousState';
 
 import styles from './select.module.scss';
 
@@ -142,6 +143,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const firstRender: React.MutableRefObject<boolean> = useRef(true);
 
+    const prevDropdownVisible: boolean = usePreviousState(dropdownVisible);
+
     const getSelectedOptionValues = (): SelectOption['value'][] => {
       return options
         .filter((option: SelectOption) => option.selected)
@@ -181,16 +184,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
     useEffect(() => {
       onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
 
-      // Determine first render to help determine the Select interaction is intentional
+      // Determine first render to help verify the Select interaction is intentional
       if (firstRender.current) {
         firstRender.current = false;
         return;
       }
-      if (multiple) {
+      if (multiple && prevDropdownVisible) {
         inputRef.current?.focus();
       } else {
         getSelectedOptionText();
-        if (filterable) {
+        if (filterable && prevDropdownVisible) {
           inputRef.current?.focus();
         }
       }
@@ -313,6 +316,21 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const onInputChange = (
       event: React.ChangeEvent<HTMLInputElement>
     ): void => {
+      // When single mode filterable, the input value changes, the dropdown is not previously or
+      // currently visible and there's no currently selected option, ensure the dropdown is visible
+      // to enable filtering when backspace or clear button is used to deselect the previously
+      // selected option and the input is currently focused.
+      if (
+        !dropdownVisible &&
+        !prevDropdownVisible &&
+        filterable &&
+        !multiple &&
+        searchQuery.length !== 0 &&
+        getSelectedOptions().length === 0
+      ) {
+        inputRef.current?.click();
+      }
+
       const { target } = event;
       const value: string = target?.value || '';
       const valueLowerCase: string = value?.toLowerCase();

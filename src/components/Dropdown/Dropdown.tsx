@@ -4,7 +4,6 @@ import React, {
   SyntheticEvent,
   useEffect,
   useImperativeHandle,
-  useRef,
   useState,
 } from 'react';
 import {
@@ -239,6 +238,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           { [child.props.className]: child.props.className },
           { [styles.disabled]: disabled },
         ]);
+        // If there's an id and it does not yet match the state, update dropdownReferenceId.
+        // This compare ensures setState is only called when needed.
         if (child.props.id && dropdownReferenceId !== child.props.id) {
           setReferenceElementId(child.props.id);
         }
