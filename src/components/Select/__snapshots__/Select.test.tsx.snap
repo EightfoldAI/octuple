@@ -45,7 +45,7 @@ exports[`Select Renders with default value 1`] = `
                 />
                 <button
                   aria-disabled="false"
-                  class="icon-button right-icon button button-system-ui button-medium icon-left"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                   type="button"
                 >
                   <span
@@ -188,7 +188,7 @@ exports[`Select Renders with default values when multiple 1`] = `
                 />
                 <button
                   aria-disabled="false"
-                  class="icon-button right-icon button button-system-ui button-medium icon-left"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                   type="button"
                 >
                   <span
@@ -263,7 +263,7 @@ exports[`Select Renders without crashing 1`] = `
                 />
                 <button
                   aria-disabled="false"
-                  class="icon-button right-icon button button-system-ui button-medium icon-left"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                   type="button"
                 >
                   <span
@@ -337,7 +337,7 @@ exports[`Select Select is large 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-large icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-large icon-left"
                 type="button"
               >
                 <span
@@ -410,7 +410,7 @@ exports[`Select Select is medium 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                 type="button"
               >
                 <span
@@ -483,7 +483,7 @@ exports[`Select Select is pill shaped 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium round-shape icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium round-shape icon-left"
                 type="button"
               >
                 <span
@@ -556,7 +556,7 @@ exports[`Select Select is rectangle shaped 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                 type="button"
               >
                 <span
@@ -629,7 +629,7 @@ exports[`Select Select is small 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-small icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-small icon-left"
                 type="button"
               >
                 <span
@@ -702,7 +702,7 @@ exports[`Select Select is underline shaped 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                 type="button"
               >
                 <span

@@ -68,6 +68,7 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         toggle={toggle}
+        transparent={transparent}
         variant={ButtonVariant.SystemUI}
       />
     );
