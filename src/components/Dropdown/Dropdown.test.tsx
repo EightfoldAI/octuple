@@ -78,6 +78,7 @@ const DropdownComponent = (): JSX.Element => {
           path: IconName.mdiChevronDown,
           rotate: visible ? 180 : 0,
         }}
+        id="test-button-id"
       />
     </Dropdown>
   );
@@ -124,5 +125,11 @@ describe('Dropdown', () => {
     expect(
       (container.querySelector('.dropdown-wrapper') as HTMLElement).style.color
     ).toContain('red');
+  });
+
+  test('Should support cloned element id from its props', async () => {
+    render(<DropdownComponent />);
+    const dropdownButton = screen.getByRole('button');
+    expect(dropdownButton.id).toBe('test-button-id');
   });
 });
