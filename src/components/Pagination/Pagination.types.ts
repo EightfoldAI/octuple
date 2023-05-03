@@ -60,6 +60,11 @@ export enum PaginationVisiblePagerCountSizeOptions {
   Large = 'large',
 }
 
+export enum PagerSizeOptions {
+  Small = 'small',
+  Medium = 'medium',
+}
+
 export type PaginationLocale = {
   lang: Locale;
 };
@@ -132,6 +137,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   pageCount?: number;
   /**
+   * Represents the number of pages visible at any given time apart from
+   * Previous, Next, Quick Previous and Quick Next buttons.
+   */
+  pagerSize?: PagerSizeOptions;
+  /**
    * The Pagination pageSize.
    * @default 10
    */
@@ -199,6 +209,7 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   totalText?: string;
   /**
+   * @deprecated Use pagerSize instead.
    * Represents the number of list items (pages) are visible at any given time.
    * @default PaginationVisiblePagerCountSizeOptions.Large
    */

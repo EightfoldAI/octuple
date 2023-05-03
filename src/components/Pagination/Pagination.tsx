@@ -45,6 +45,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       onCurrentChange,
       onSizeChange,
       pageCount,
+      // TODO: Set a default once visiblePagerCountSize is removed
+      pagerSize,
       pageSize = 10,
       pageSizeButtonAriaLabel: defaultPageSizeButtonAriaLabel,
       pageSizes = [10, 20, 30, 40, 50, 100],
@@ -393,6 +395,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                       locale={locale}
                       onCurrentChange={handleCurrentChange}
                       pageCount={getPageCount()}
+                      pagerSize={pagerSize}
                       quickNextIconButtonAriaLabel={
                         quickNextIconButtonAriaLabel
                       }
@@ -412,6 +415,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         locale={locale}
                         onCurrentChange={handleCurrentChange}
                         pageCount={getPageCount()}
+                        pagerSize={pagerSize}
                         quickNextIconButtonAriaLabel={
                           quickNextIconButtonAriaLabel
                         }
