@@ -17,6 +17,12 @@ export const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
 
 export interface DropdownProps {
   /**
+   * The ref of element that should implement the following props:
+   * 'aria-controls', 'aria-expanded', 'aria-haspopup', 'role'
+   * @default child
+   */
+  ariaRef?: React.MutableRefObject<HTMLElement>;
+  /**
    * Class names of the main wrapper
    */
   classNames?: string;
