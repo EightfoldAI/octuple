@@ -722,6 +722,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           {/* When Dropdown is hidden, place Pills outside the reference element */}
           {!dropdownVisible && showPills() ? getPills() : null}
           <Dropdown
+            ariaRef={inputRef}
             width={dropdownWidth}
             closeOnReferenceClick={closeOnReferenceClick}
             {...dropdownProps}
@@ -731,7 +732,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
             overlay={isLoading ? spinner : <OptionMenu options={options} />}
             showDropdown={showDropdown}
-            tabIndex={-1} // Defer focus to the TextInput
             visible={
               dropdownVisible &&
               (showEmptyDropdown ||

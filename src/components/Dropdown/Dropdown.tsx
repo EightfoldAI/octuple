@@ -40,6 +40,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
   React.forwardRef<DropdownRef, DropdownProps>(
     (
       {
+        ariaRef,
         children,
         classNames,
         closeOnDropdownClick = true,
@@ -243,6 +244,27 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (child.props.id && dropdownReferenceId !== child.props.id) {
           setReferenceElementId(child.props.id);
         }
+        // If there's an ariaRef, apply the a11y attributes to it, rather than the immediate child.
+        if (ariaRef && ariaRef.current) {
+          ariaRef.current.setAttribute('aria-controls', dropdownId);
+          ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
+          ariaRef.current.setAttribute('aria-haspopup', 'true');
+
+          if (!ariaRef.current.role) {
+            ariaRef.current.setAttribute('role', 'button');
+          }
+
+          return cloneElement(child, {
+            ...{
+              [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
+            },
+            id: dropdownReferenceId,
+            onClick: handleReferenceClick,
+            onKeyDown: handleReferenceKeyDown,
+            className: referenceWrapperClassNames,
+          });
+        }
+
         return cloneElement(child, {
           ...{
             [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),

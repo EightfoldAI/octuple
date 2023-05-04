@@ -9,13 +9,8 @@ exports[`Select Renders with default value 1`] = `
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        aria-controls="dropdown-"
-        aria-expanded="false"
-        aria-haspopup="true"
         class="reference-wrapper select-input-wrapper"
         id="dropdown-reference"
-        role="button"
-        tabindex="-1"
       >
         <div
           class="input-wrapper input-medium input-stretch right-icon"
@@ -27,12 +22,15 @@ exports[`Select Renders with default value 1`] = `
               class="select-input-group input-group right-icon"
             >
               <input
+                aria-controls="dropdown-"
                 aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select"
                 readonly=""
-                role="combobox"
+                role="button"
                 tabindex="0"
                 type="text"
                 value="Option 2"
@@ -152,13 +150,8 @@ exports[`Select Renders with default values when multiple 1`] = `
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        aria-controls="dropdown-"
-        aria-expanded="false"
-        aria-haspopup="true"
         class="reference-wrapper select-input-wrapper"
         id="dropdown-reference"
-        role="button"
-        tabindex="-1"
       >
         <div
           class="input-wrapper input-medium input-stretch right-icon"
@@ -170,12 +163,15 @@ exports[`Select Renders with default values when multiple 1`] = `
               class="select-input-group input-group right-icon"
             >
               <input
+                aria-controls="dropdown-"
                 aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder=""
                 readonly=""
-                role="combobox"
+                role="button"
                 tabindex="0"
                 type="text"
                 value=""
@@ -227,13 +223,8 @@ exports[`Select Renders without crashing 1`] = `
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        aria-controls="dropdown-"
-        aria-expanded="false"
-        aria-haspopup="true"
         class="reference-wrapper select-input-wrapper"
         id="dropdown-reference"
-        role="button"
-        tabindex="-1"
       >
         <div
           class="input-wrapper input-medium input-stretch right-icon"
@@ -245,12 +236,15 @@ exports[`Select Renders without crashing 1`] = `
               class="select-input-group input-group right-icon"
             >
               <input
+                aria-controls="dropdown-"
                 aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select test"
                 readonly=""
-                role="combobox"
+                role="button"
                 tabindex="0"
                 type="text"
                 value=""
@@ -301,13 +295,8 @@ exports[`Select Select is large 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-large input-stretch right-icon"
@@ -319,12 +308,15 @@ exports[`Select Select is large 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
               readonly=""
-              role="combobox"
+              role="button"
               tabindex="0"
               type="text"
               value=""
@@ -374,13 +366,8 @@ exports[`Select Select is medium 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-medium input-stretch right-icon"
@@ -392,12 +379,15 @@ exports[`Select Select is medium 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
               readonly=""
-              role="combobox"
+              role="button"
               tabindex="0"
               type="text"
               value=""
@@ -447,13 +437,8 @@ exports[`Select Select is pill shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-medium input-stretch right-icon"
@@ -465,12 +450,15 @@ exports[`Select Select is pill shaped 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
               readonly=""
-              role="combobox"
+              role="button"
               tabindex="0"
               type="text"
               value=""
@@ -520,13 +508,8 @@ exports[`Select Select is rectangle shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-medium input-stretch right-icon"
@@ -538,12 +521,15 @@ exports[`Select Select is rectangle shaped 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
               readonly=""
-              role="combobox"
+              role="button"
               tabindex="0"
               type="text"
               value=""
@@ -593,13 +579,8 @@ exports[`Select Select is small 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-small input-stretch right-icon"
@@ -611,12 +592,15 @@ exports[`Select Select is small 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
               readonly=""
-              role="combobox"
+              role="button"
               tabindex="0"
               type="text"
               value=""
@@ -666,13 +650,8 @@ exports[`Select Select is underline shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper underline input-medium input-stretch right-icon"
@@ -684,12 +663,15 @@ exports[`Select Select is underline shaped 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
               readonly=""
-              role="combobox"
+              role="button"
               tabindex="0"
               type="text"
               value=""
