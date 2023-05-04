@@ -250,7 +250,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
           ariaRef.current.setAttribute('aria-haspopup', 'true');
 
-          if (!ariaRef.current.role) {
+          if (ariaRef.current.role === null) {
             ariaRef.current.setAttribute('role', 'button');
           }
 
