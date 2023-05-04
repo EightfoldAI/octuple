@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.1](https://github.com/EightfoldAI/octuple/compare/v2.36.0...v2.36.1) (2023-05-04)
+
+### Bug Fixes
+
+- select: ensure aria attributes target the intended element ([#612](https://github.com/EightfoldAI/octuple/issues/612)) ([387158d](https://github.com/EightfoldAI/octuple/commits/387158d892270c8317eb7a4dab4dfc5c0473398e))
+
 ## [2.36.0](https://github.com/EightfoldAI/octuple/compare/v2.35.3...v2.36.0) (2023-05-03)
 
 ### Features
