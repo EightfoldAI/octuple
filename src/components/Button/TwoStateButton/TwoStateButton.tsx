@@ -48,7 +48,6 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       style,
       text,
       toggle,
-      type,
       ...rest
     } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -95,7 +94,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       );
     }, [nudgeProps?.enabled]);
 
-    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef], styles);
 
     const twoStateButtonClassNames: string = mergeClasses([
       classNames,

@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.1](https://github.com/EightfoldAI/octuple/compare/v2.36.0...v2.36.1) (2023-05-04)
+
+### Bug Fixes
+
+- select: ensure aria attributes target the intended element ([#612](https://github.com/EightfoldAI/octuple/issues/612)) ([387158d](https://github.com/EightfoldAI/octuple/commits/387158d892270c8317eb7a4dab4dfc5c0473398e))
+
+## [2.36.0](https://github.com/EightfoldAI/octuple/compare/v2.35.3...v2.36.0) (2023-05-03)
+
+### Features
+
+- adding style option for Empty description ([#606](https://github.com/EightfoldAI/octuple/issues/606)) ([0539a61](https://github.com/EightfoldAI/octuple/commits/0539a61868990ba4e636a559b2ad919af72424a1))
+- linkbutton: add link button component ([#607](https://github.com/EightfoldAI/octuple/issues/607)) ([8b3d782](https://github.com/EightfoldAI/octuple/commits/8b3d782e20146413b623159ad280aaeb3360aed4))
+
+### Bug Fixes
+
+- dropdown: use id from clone element props if present ([#608](https://github.com/EightfoldAI/octuple/issues/608)) ([6db0dc9](https://github.com/EightfoldAI/octuple/commits/6db0dc90eb628091c45e03cfa7c7d624b06a312c))
+- pagination: Issues with VisiblePagerCountSize ([#610](https://github.com/EightfoldAI/octuple/issues/610)) ([919c7c5](https://github.com/EightfoldAI/octuple/commits/919c7c5248a700a8e866ce2eeeac83ae3e9107b1))
+
+### [2.35.3](https://github.com/EightfoldAI/octuple/compare/v2.35.2...v2.35.3) (2023-04-24)
+
+### Bug Fixes
+
+- accordion: custom theme support ([#605](https://github.com/EightfoldAI/octuple/issues/605)) ([2db5e5a](https://github.com/EightfoldAI/octuple/commits/2db5e5a799cc30f69d8b544d6d5ffefaa6d10eb2))
+
+### [2.35.2](https://github.com/EightfoldAI/octuple/compare/v2.35.1...v2.35.2) (2023-04-24)
+
+### Bug Fixes
+
+- **avatar group:** avatar group count, maxProps fixes ([#604](https://github.com/EightfoldAI/octuple/issues/604)) ([9bfa3f0](https://github.com/EightfoldAI/octuple/commits/9bfa3f0a21b25d98fd9a512febd16046074ac0a9))
+
 ### [2.35.1](https://github.com/EightfoldAI/octuple/compare/v2.35.0...v2.35.1) (2023-04-17)
 
 ### Bug Fixes

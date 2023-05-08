@@ -4,7 +4,6 @@ import React, {
   SyntheticEvent,
   useEffect,
   useImperativeHandle,
-  useRef,
   useState,
 } from 'react';
 import {
@@ -41,6 +40,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
   React.forwardRef<DropdownRef, DropdownProps>(
     (
       {
+        ariaRef,
         children,
         classNames,
         closeOnDropdownClick = true,
@@ -74,8 +74,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       const [closing, setClosing] = useState<boolean>(false);
       const dropdownId: string = uniqueId('dropdown-');
-      const dropdownReferenceId: React.MutableRefObject<string> =
-        useRef<string>(`${dropdownId}reference`);
+      const [dropdownReferenceId, setReferenceElementId] = useState<string>(
+        `${dropdownId}reference`
+      );
 
       let timeout: ReturnType<typeof setTimeout>;
       const { x, y, reference, floating, strategy, update, refs, context } =
@@ -111,9 +112,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          const referenceElement: HTMLElement = document.getElementById(
-            dropdownReferenceId?.current
-          );
+          const referenceElement: HTMLElement =
+            document.getElementById(dropdownReferenceId);
           if (closeOnOutsideClick && closeOnReferenceClick) {
             toggle(false)(e);
           }
@@ -239,11 +239,37 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           { [child.props.className]: child.props.className },
           { [styles.disabled]: disabled },
         ]);
+        // If there's an id and it does not yet match the state, update dropdownReferenceId.
+        // This compare ensures setState is only called when needed.
+        if (child.props.id && dropdownReferenceId !== child.props.id) {
+          setReferenceElementId(child.props.id);
+        }
+        // If there's an ariaRef, apply the a11y attributes to it, rather than the immediate child.
+        if (ariaRef && ariaRef.current) {
+          ariaRef.current.setAttribute('aria-controls', dropdownId);
+          ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
+          ariaRef.current.setAttribute('aria-haspopup', 'true');
+
+          if (!ariaRef.current.hasAttribute('role')) {
+            ariaRef.current.setAttribute('role', 'button');
+          }
+
+          return cloneElement(child, {
+            ...{
+              [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
+            },
+            id: dropdownReferenceId,
+            onClick: handleReferenceClick,
+            onKeyDown: handleReferenceKeyDown,
+            className: referenceWrapperClassNames,
+          });
+        }
+
         return cloneElement(child, {
           ...{
             [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
           },
-          id: dropdownReferenceId?.current,
+          id: dropdownReferenceId,
           onClick: handleReferenceClick,
           onKeyDown: handleReferenceKeyDown,
           className: referenceWrapperClassNames,

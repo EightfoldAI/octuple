@@ -1,17 +1,15 @@
 import React, { FC, Ref } from 'react';
 import {
-  BaseButton,
+  Button,
   ButtonIconAlign,
   ButtonProps,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
 } from '../';
-import { mergeClasses } from '../../../shared/utilities';
 
-import styles from '../button.module.scss';
-
+// TODO: Remove in Octuple v3.0.0, use `<Button variant={ButtonVariant.Primary} />` instead.
 export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
   (
     {
@@ -19,6 +17,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      buttonWidth,
       checked = false,
       classNames,
       counter,
@@ -39,28 +38,21 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
       style,
       text,
       toggle,
-      buttonWidth,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
   ) => {
-    const buttonClassNames: string = mergeClasses([
-      classNames,
-      styles.button,
-      styles.buttonPrimary,
-      { [styles.buttonPrimaryDisruptive]: disruptive },
-    ]);
-
     return (
-      <BaseButton
+      <Button
         {...rest}
         ref={ref}
         alignIcon={alignIcon}
         alignText={alignText}
         allowDisabledFocus={allowDisabledFocus}
         ariaLabel={ariaLabel}
+        buttonWidth={buttonWidth}
         checked={checked}
-        classNames={buttonClassNames}
+        classNames={classNames}
         counter={counter}
         disabled={disabled}
         disruptive={disruptive}
@@ -79,8 +71,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         toggle={toggle}
-        type={ButtonType.Primary}
-        buttonWidth={buttonWidth}
+        variant={ButtonVariant.Primary}
       />
     );
   }

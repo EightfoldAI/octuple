@@ -3,11 +3,11 @@ import { Icon, IconName } from '../Icon';
 import { PersistentBarsProps, PersistentBarType } from './PersistentBar.types';
 import { mergeClasses } from '../../shared/utilities';
 import {
+  ButtonProps,
+  ButtonVariant,
   PrimaryButton,
   DefaultButton,
   SecondaryButton,
-  ButtonType,
-  InternalButtonProps,
 } from '../Button';
 import { Pagination, PaginationLayoutOptions } from '../Pagination';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -177,8 +177,11 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
         role={role}
       >
         {buttonMenuProps &&
-          buttonMenuProps.map((button: InternalButtonProps) => {
-            if (button.type === ButtonType.Secondary) {
+          buttonMenuProps.map((button: ButtonProps) => {
+            if (
+              button.variant === ButtonVariant.Secondary ||
+              button.type === ButtonVariant.Secondary
+            ) {
               return (
                 <SecondaryButton iconProps={button.iconProps} {...button} />
               );

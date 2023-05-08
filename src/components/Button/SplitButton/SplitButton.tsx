@@ -7,7 +7,7 @@ import {
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
   SplitButtonProps,
 } from '../';
 import { Icon, IconName, IconSize } from '../../Icon';
@@ -43,7 +43,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       size = ButtonSize.Medium,
       split,
       style,
-      type,
+      variant,
       ...rest
     } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -71,41 +71,14 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
     const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
       useRef<HTMLSpanElement>(null);
 
-    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef], styles);
 
     const splitButtonClassNames: string = mergeClasses([
       classNames,
       styles.splitButton,
-      {
-        [styles.buttonSmall]:
-          mergedSize === ButtonSize.Flex && largeScreenActive,
-      },
-      {
-        [styles.buttonMedium]:
-          mergedSize === ButtonSize.Flex && mediumScreenActive,
-      },
-      {
-        [styles.buttonMedium]:
-          mergedSize === ButtonSize.Flex && smallScreenActive,
-      },
-      {
-        [styles.buttonLarge]:
-          mergedSize === ButtonSize.Flex && xSmallScreenActive,
-      },
-      { [styles.buttonLarge]: mergedSize === ButtonSize.Large },
-      { [styles.buttonMedium]: mergedSize === ButtonSize.Medium },
-      { [styles.buttonSmall]: mergedSize === ButtonSize.Small },
-      { [styles.pillShape]: shape === ButtonShape.Pill },
-      { [styles.dropShadow]: dropShadow },
       { [styles.splitRight]: split },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
-      },
-      {
-        [styles.buttonConic]:
-          !disruptive &&
-          nudgeProps?.enabled &&
-          nudgeProps?.animation === NudgeAnimation.Conic,
       },
     ]);
 
@@ -130,22 +103,22 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       { [styles.splitDividerLarge]: mergedSize === ButtonSize.Large },
       { [styles.splitDividerMedium]: mergedSize === ButtonSize.Medium },
       { [styles.splitDividerSmall]: mergedSize === ButtonSize.Small },
-      { [styles.splitDividerPrimary]: type === ButtonType.Primary },
+      { [styles.splitDividerPrimary]: variant === ButtonVariant.Primary },
       {
         [styles.splitDividerPrimaryDisruptive]:
-          type === ButtonType.Primary && disruptive,
+          variant === ButtonVariant.Primary && disruptive,
       },
-      { [styles.splitDividerSecondary]: type === ButtonType.Secondary },
+      { [styles.splitDividerSecondary]: variant === ButtonVariant.Secondary },
       {
         [styles.splitDividerSecondaryDisruptive]:
-          type === ButtonType.Secondary && disruptive,
+          variant === ButtonVariant.Secondary && disruptive,
       },
-      { [styles.splitDividerDefault]: type === ButtonType.Default },
-      { [styles.splitDividerNeutral]: type === ButtonType.Neutral },
-      { [styles.splitDividerSystemUi]: type === ButtonType.SystemUI },
+      { [styles.splitDividerDefault]: variant === ButtonVariant.Default },
+      { [styles.splitDividerNeutral]: variant === ButtonVariant.Neutral },
+      { [styles.splitDividerSystemUi]: variant === ButtonVariant.SystemUI },
       {
         [styles.splitDividerDisruptive]:
-          type === ButtonType.Default && disruptive,
+          variant === ButtonVariant.Default && disruptive,
       },
     ]);
 

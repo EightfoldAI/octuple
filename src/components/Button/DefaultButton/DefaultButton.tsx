@@ -1,17 +1,15 @@
 import React, { FC, Ref } from 'react';
 import {
-  BaseButton,
+  Button,
   ButtonIconAlign,
   ButtonProps,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
 } from '../';
-import { mergeClasses } from '../../../shared/utilities';
 
-import styles from '../button.module.scss';
-
+// TODO: Remove in Octuple v3.0.0, use `<Button variant={ButtonVariant.Default} />` instead.
 export const DefaultButton: FC<ButtonProps> = React.forwardRef(
   (
     {
@@ -19,10 +17,12 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      buttonWidth,
       checked = false,
       classNames,
       counter,
       disabled = false,
+      disruptive = false,
       dropShadow = false,
       floatingButtonProps,
       htmlType,
@@ -37,29 +37,21 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
       splitButtonProps,
       style,
       toggle,
-      buttonWidth,
-      disruptive = false,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
   ) => {
-    const buttonClassNames: string = mergeClasses([
-      classNames,
-      styles.button,
-      styles.buttonDefault,
-      { [styles.buttonDisruptive]: disruptive },
-    ]);
-
     return (
-      <BaseButton
+      <Button
         {...rest}
         ref={ref}
         alignIcon={alignIcon}
         alignText={alignText}
         allowDisabledFocus={allowDisabledFocus}
         ariaLabel={ariaLabel}
+        buttonWidth={buttonWidth}
         checked={checked}
-        classNames={buttonClassNames}
+        classNames={classNames}
         counter={counter}
         disabled={disabled}
         dropShadow={dropShadow}
@@ -76,8 +68,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         toggle={toggle}
-        type={ButtonType.Default}
-        buttonWidth={buttonWidth}
+        variant={ButtonVariant.Default}
       />
     );
   }

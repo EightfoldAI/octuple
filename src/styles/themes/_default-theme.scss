@@ -813,4 +813,21 @@
     var(--tooltip-border-color-dark);
   --tooltip-border-light: var(--tooltip-border-width)
     var(--tooltip-border-style) var(--tooltip-border-color-light);
+  // ------ Tooltip theme ------
+
+  // ------ Accordion theme ------
+  --accordion-font-family: var(--font-stack-full);
+  --accordion-body-background-color: var(--background-color);
+  --accordion-body-text-color: var(--text-primary-color);
+  --accordion-border-color: var(--grey-color-20);
+  --accordion-border-style: solid;
+  --accordion-border-width: 1px;
+  --accordion-border: var(--accordion-border-width)
+    var(--accordion-border-style) var(--accordion-border-color);
+  --accordion-rectangle-shape-border-radius: var(--border-radius-s);
+  --accordion-summary-background-color: var(--background-color);
+  --accordion-summary-background-hover-color: var(--grey-color-10);
+  --accordion-summary-text-color: var(--text-primary-color);
+  --accordion-summary-text-hover-color: var(--text-primary-color);
+  --accordion-pill-shape-border-radius: var(--border-radius-xl);
 }

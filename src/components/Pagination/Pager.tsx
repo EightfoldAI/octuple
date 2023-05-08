@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useCallback, useState, Ref } from 'react';
 import {
   PagerProps,
+  PagerSizeOptions,
   PaginationVisiblePagerCountSizeOptions,
 } from './Pagination.types';
 import { ButtonShape, ButtonSize, NeutralButton } from '../Button';
@@ -9,17 +10,16 @@ import { mergeClasses } from '../../shared/utilities';
 
 import styles from './pagination.module.scss';
 
-/** Represents the number of pages from each edge of the list before we show quick buttons. */
-const EDGE_BUFFER_THRESHOLD: number = 5;
-
-/** Represents a list too short to display meaningful quick buttons. */
-const SHORT_LIST_THRESHOLD: number = 10;
-
 /** Represents the number of list items (pages) visible at any given time. */
 const VISIBLE_PAGER_COUNT = {
   [PaginationVisiblePagerCountSizeOptions.Small]: 3,
   [PaginationVisiblePagerCountSizeOptions.Medium]: 5,
   [PaginationVisiblePagerCountSizeOptions.Large]: 7,
+};
+
+const PAGER_SIZE_COUNT = {
+  [PagerSizeOptions.Small]: 5,
+  [PagerSizeOptions.Medium]: 7,
 };
 
 export const Pager: FC<PagerProps> = React.forwardRef(
@@ -33,17 +33,32 @@ export const Pager: FC<PagerProps> = React.forwardRef(
       quickPreviousIconButtonAriaLabel,
       simplified = false,
       showLast = true,
+      pagerSize,
       visiblePagerCountSize = PaginationVisiblePagerCountSizeOptions.Large,
       ...rest
     },
     ref: Ref<HTMLUListElement>
   ) => {
+    /** Represents the number of pages from each edge of the list before we show quick buttons. */
+    let edgeBufferThreshold: number = 5;
+    /** Represents a list too short to display meaningful quick buttons. */
+    let shortListThreshold: number = 10;
+
+    if (pagerSize) {
+      edgeBufferThreshold = PAGER_SIZE_COUNT[pagerSize] - 2;
+      shortListThreshold = PAGER_SIZE_COUNT[pagerSize] + 3;
+    }
     const [_pagers, setPagers] = useState<number[]>([0]);
     const [_quickNextActive, setQuickNextActive] = useState<boolean>(false);
     const [_quickPreviousActive, setQuickPreviousActive] =
       useState<boolean>(false);
 
-    const visiblePagerCount = VISIBLE_PAGER_COUNT?.[visiblePagerCountSize] || 7;
+    // TODO: Remove in Octuple v3.0.0 in favor of pagerSize prop
+    let visiblePagerCount = VISIBLE_PAGER_COUNT?.[visiblePagerCountSize] || 7;
+
+    if (pagerSize) {
+      visiblePagerCount = PAGER_SIZE_COUNT?.[pagerSize] || 7;
+    }
 
     /**
      * Updates the visible range of pages in the UL based upon list
@@ -58,7 +73,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
        * The pageCount is greater than 10.
        * Keeping the quick buttons meaningful.
        */
-      if (pageCount > SHORT_LIST_THRESHOLD) {
+      if (pageCount > shortListThreshold) {
         /**
          * The visible items in the array use a basic threshold.
          * e.g. [1 << 4 5 [6] 7 8 >> 100] where 6 is the currentPage
@@ -67,9 +82,9 @@ export const Pager: FC<PagerProps> = React.forwardRef(
          * the 5 items between the two quick buttons they must represent
          * the correct position in the array.
          */
-        const afterQuickPrevious: boolean = currentPage > EDGE_BUFFER_THRESHOLD;
+        const afterQuickPrevious: boolean = currentPage > edgeBufferThreshold;
         const beforeQuickNext: boolean =
-          currentPage < pageCount - EDGE_BUFFER_THRESHOLD;
+          currentPage < pageCount - edgeBufferThreshold;
 
         /**
          * The currentPage number is greater than the quick previous
@@ -164,8 +179,8 @@ export const Pager: FC<PagerProps> = React.forwardRef(
           </li>
         )}
         {!simplified &&
-          currentPage > EDGE_BUFFER_THRESHOLD &&
-          pageCount > SHORT_LIST_THRESHOLD && (
+          currentPage > edgeBufferThreshold &&
+          pageCount > shortListThreshold && (
             <li>
               <NeutralButton
                 ariaLabel={quickPreviousIconButtonAriaLabel}
@@ -185,7 +200,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                 onMouseEnter={() => setQuickPreviousActive(true)}
                 onMouseLeave={() => setQuickPreviousActive(false)}
                 onClick={() =>
-                  onCurrentChange(currentPage - EDGE_BUFFER_THRESHOLD)
+                  onCurrentChange(currentPage - edgeBufferThreshold)
                 }
                 size={ButtonSize.Medium}
               />
@@ -212,8 +227,8 @@ export const Pager: FC<PagerProps> = React.forwardRef(
             );
           })}
         {!simplified &&
-          currentPage < pageCount - EDGE_BUFFER_THRESHOLD &&
-          pageCount > SHORT_LIST_THRESHOLD && (
+          currentPage < pageCount - edgeBufferThreshold &&
+          pageCount > shortListThreshold && (
             <li>
               <NeutralButton
                 ariaLabel={quickNextIconButtonAriaLabel}
@@ -233,7 +248,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                 onMouseEnter={() => setQuickNextActive(true)}
                 onMouseLeave={() => setQuickNextActive(false)}
                 onClick={() =>
-                  onCurrentChange(currentPage + EDGE_BUFFER_THRESHOLD)
+                  onCurrentChange(currentPage + edgeBufferThreshold)
                 }
                 size={ButtonSize.Medium}
               />

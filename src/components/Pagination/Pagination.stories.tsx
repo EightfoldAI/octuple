@@ -1,11 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-  Pagination,
-  PaginationLayoutOptions,
-  PaginationVisiblePagerCountSizeOptions,
-} from './index';
+import { PagerSizeOptions, Pagination, PaginationLayoutOptions } from './index';
 
 export default {
   title: 'Pagination',
@@ -116,7 +112,7 @@ const paginationArgs: Object = {
   restrictPageSizesPropToSizesLayout: false,
   hideWhenSinglePage: false,
   total: 50,
-  visiblePagerCountSize: PaginationVisiblePagerCountSizeOptions.Large,
+  pagerSize: PagerSizeOptions.Medium,
   'data-test-id': 'myPaginationTestId',
 };
 
