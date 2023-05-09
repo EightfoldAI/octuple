@@ -70,7 +70,7 @@
     "scroll-into-view-if-needed": "2.2.25",
     "shallowequal": "1.1.0",
     "smooth-scroll-into-view-if-needed": "1.1.33",
-    "storybook-dark-mode": "^2.1.1"
+    "storybook-dark-mode": "2.1.1"
   },
   "peerDependencies": {
     "react": ">=16.8",
