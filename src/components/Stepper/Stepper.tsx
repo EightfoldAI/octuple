@@ -441,7 +441,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         currentActiveStepRef.current.scrollIntoView({
           behavior: 'smooth',
           inline: 'start',
-          block: 'start',
+          block: 'nearest',
         });
       }
     }, []);
