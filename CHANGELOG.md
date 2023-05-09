@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.2](https://github.com/EightfoldAI/octuple/compare/v2.36.1...v2.36.2) (2023-05-09)
+
+### Bug Fixes
+
+- stepper: handle scrollIntoView for both layouts on mount ([#613](https://github.com/EightfoldAI/octuple/issues/613)) ([209d5c3](https://github.com/EightfoldAI/octuple/commits/209d5c3cd492991e67cd854632cdf00193b32b6c))
+
 ### [2.36.1](https://github.com/EightfoldAI/octuple/compare/v2.36.0...v2.36.1) (2023-05-04)
 
 ### Bug Fixes
