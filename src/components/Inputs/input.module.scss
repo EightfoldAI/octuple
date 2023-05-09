@@ -1442,7 +1442,7 @@
       height: 100%;
       width: 200%;
       z-index: -1;
-      background: $expandable-header-gradient;
+      background: var(--input-expandable-overlay-gradient);
     }
 
     &.expand-right {

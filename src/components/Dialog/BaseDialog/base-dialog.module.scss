@@ -12,16 +12,17 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px var(--grey-color-20);
 
   align-items: center;
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   justify-content: center;
 
   .dialog {
-    position: absolute;
-    padding: $space-l 0;
     background: var(--background-color);
     border-radius: $border-radius-xl;
     box-shadow: $shadow-object-l;
+    color: var(--text-primary-color);
     opacity: 0;
+    position: absolute;
+    padding: $space-l 0;
 
     .header {
       display: flex;

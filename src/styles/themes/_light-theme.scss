@@ -265,6 +265,12 @@
   --input-error-border-color: var(--error-color);
   --input-error-placeholder-color: var(--error-color);
   --input-disabled-placeholder-text-color: var(--text-tertiary-color);
+  --input-expandable-overlay-gradient: linear-gradient(
+    270deg,
+    hsla(0, 0%, 100%, 0) 22.25%,
+    hsla(0, 0%, 100%, 0.995) 41.17%,
+    var(--background-color) 80.83%
+  );
 
   // ------ Tabs theme ------
   --tab-label: var(--text-secondary-color);
@@ -830,4 +836,7 @@
   --accordion-summary-text-color: var(--text-primary-color);
   --accordion-summary-text-hover-color: var(--text-primary-color);
   --accordion-pill-shape-border-radius: var(--border-radius-xl);
+
+  // Carousel theme
+  --carousel-next-prev-mask-color: rgba(255, 255, 255, 0.92);
 }

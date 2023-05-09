@@ -42,6 +42,7 @@ import { Select } from '../Select';
 import { snack, SnackbarContainer } from '../Snackbar';
 import Upload, { UploadProps } from '../Upload';
 import dayjs, { Dayjs } from 'dayjs';
+import { useDarkMode } from 'storybook-dark-mode';
 
 // locales
 import csCZ from '../Locale/cs_CZ'; // čeština
@@ -115,7 +116,6 @@ import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-tw';
-import { useDarkMode } from 'storybook-dark-mode';
 
 const { Dropzone } = Upload;
 const { RangePicker } = DatePicker;
@@ -352,7 +352,7 @@ const ThemedComponents: FC = () => {
                     target="_blank"
                     href="https://github.com/EightfoldAI/octuple/blob/main/src/styles/themes/_definitions.scss"
                   >
-                    _default-theme.scss
+                    _light-theme.scss
                   </a>{' '}
                   for css variables that can be overwritten using this
                   mechanism. This can also be leveraged to overwrite css
