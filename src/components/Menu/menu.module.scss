@@ -9,7 +9,7 @@
 
     &.large {
       @include octuple-h4();
-      padding: $space-l $space-l $space-xs;
+      padding: $space-ml $space-ml $space-xs;
     }
 
     &.medium {
@@ -19,7 +19,7 @@
 
     &.small {
       @include octuple-h6();
-      padding: $space-m $space-m $space-xs;
+      padding: $space-s $space-s $space-xs;
     }
 
     .heading {

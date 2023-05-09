@@ -47,6 +47,17 @@
     &.bottom {
       width: 100%;
 
+      &.small,
+      &.medium,
+      &.large {
+        height: 100%;
+      }
+    }
+
+    &.top,
+    &.bottom {
+      width: 100%;
+
       &.small {
         height: 480px;
       }
@@ -113,25 +124,40 @@
     &.no-body-padding {
       padding: 0;
 
+      .footer {
+        padding: $space-m $space-xl $space-l $space-xl;
+      }
+
       .header {
         padding: $space-l $space-xl $space-m $space-xl;
       }
 
-      .footer {
-        padding: $space-m $space-xl $space-l $space-xl;
+      &.no-header-padding {
+        .header {
+          padding: 0;
+        }
       }
     }
 
     &.no-header-padding {
       padding: 0;
-      .header {
-        padding: 0;
-      }
+
       .body {
         padding: 0 $space-xl;
       }
+
       .footer {
         padding: $space-m $space-xl $space-l $space-xl;
+      }
+
+      .header {
+        padding: 0;
+      }
+
+      &.no-body-padding {
+        .body {
+          padding: 0;
+        }
       }
     }
   }
@@ -224,6 +250,60 @@
       .header-action-buttons {
         margin-left: calc(-#{$space-xl} / 2);
         margin-right: unset;
+      }
+    }
+  }
+}
+
+@media (max-height: 640px) {
+  .panel-backdrop {
+    .panel {
+      &.top,
+      &.bottom {
+        &.small,
+        &.medium {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 860px) {
+  .panel-backdrop {
+    .panel {
+      &.top,
+      &.bottom {
+        &.large {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .panel-backdrop {
+    .panel {
+      &.left,
+      &.right {
+        &.small,
+        &.medium {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .panel-backdrop {
+    .panel {
+      &.left,
+      &.right {
+        &.large {
+          width: 100%;
+        }
       }
     }
   }

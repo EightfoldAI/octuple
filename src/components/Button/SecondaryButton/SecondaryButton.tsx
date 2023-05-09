@@ -1,17 +1,15 @@
 import React, { FC, Ref } from 'react';
-import { mergeClasses } from '../../../shared/utilities';
 import {
-  BaseButton,
+  Button,
   ButtonIconAlign,
   ButtonProps,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
 } from '../';
 
-import styles from '../button.module.scss';
-
+// TODO: Remove in Octuple v3.0.0, use `<Button variant={ButtonVariant.Secondary} />` instead.
 export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
   (
     {
@@ -19,6 +17,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      buttonWidth,
       checked = false,
       classNames,
       counter,
@@ -30,36 +29,29 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
       iconProps,
       nudgeProps,
       onClick,
-      text,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
       split,
       splitButtonChecked = false,
       splitButtonProps,
       style,
+      text,
       toggle,
-      buttonWidth,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
   ) => {
-    const buttonClassNames: string = mergeClasses([
-      classNames,
-      styles.button,
-      styles.buttonSecondary,
-      { [styles.buttonSecondaryDisruptive]: disruptive },
-    ]);
-
     return (
-      <BaseButton
+      <Button
         {...rest}
         ref={ref}
         alignIcon={alignIcon}
         alignText={alignText}
         allowDisabledFocus={allowDisabledFocus}
         ariaLabel={ariaLabel}
+        buttonWidth={buttonWidth}
         checked={checked}
-        classNames={buttonClassNames}
+        classNames={classNames}
         counter={counter}
         disabled={disabled}
         disruptive={disruptive}
@@ -77,8 +69,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         toggle={toggle}
-        type={ButtonType.Secondary}
-        buttonWidth={buttonWidth}
+        variant={ButtonVariant.Secondary}
       />
     );
   }

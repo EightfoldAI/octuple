@@ -18,6 +18,10 @@ export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
    */
   description?: string;
   /**
+   * The empty component description class names.
+   */
+  descriptionClassNames?: string;
+  /**
    * The empty component mode
    */
   mode?: EmptyMode;

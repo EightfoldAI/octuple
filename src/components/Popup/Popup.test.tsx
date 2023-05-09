@@ -41,38 +41,35 @@ describe('Popup', () => {
     expect(container.querySelector('.popup')).toBeFalsy();
   });
 
-  // TODO: Fix onBlur to use :focus-within, for now people may dismiss Popups by tabbing back to
-  // the trigger and presing the enter key via the useAccessibility hook.
-  test.skip('Popup shows and hides on focus and blur when trigger is hover', async () => {
-    const { container } = render(
+  test('Popup shows and hides on keydown enter and escape when trigger is hover', async () => {
+    const { container, getByText } = render(
       <Popup
         content={<div data-testid="popup-2">This is a popup.</div>}
         trigger="hover"
       >
-        <div className="test-div">test</div>
+        <div className="test-div" tabIndex={0}>
+          test
+        </div>
       </Popup>
     );
-    fireEvent.focus(container.querySelector('.test-div'));
+    const testDiv = getByText('test');
+    testDiv.focus();
+    fireEvent.keyDown(testDiv, {
+      key: 'Enter',
+      code: 'Enter',
+      keyCode: 13,
+      charCode: 13,
+    });
     await waitFor(() => screen.getByTestId('popup-2'));
     expect(container.querySelector('.popup')).toBeTruthy();
-    fireEvent.blur(container.querySelector('.test-div'));
+    fireEvent.keyDown(testDiv, {
+      key: 'Escape',
+      code: 'Escape',
+      keyCode: 27,
+      charCode: 27,
+    });
     await waitForElementToBeRemoved(() => screen.getByTestId('popup-2'));
     expect(container.querySelector('.popup')).toBeFalsy();
-  });
-
-  // For now test that the Popup shows using keyboard
-  test('Popup shows on focus when trigger is hover', async () => {
-    const { container } = render(
-      <Popup
-        content={<div data-testid="popup-2">This is a popup.</div>}
-        trigger="hover"
-      >
-        <div className="test-div">test</div>
-      </Popup>
-    );
-    fireEvent.focus(container.querySelector('.test-div'));
-    await waitFor(() => screen.getByTestId('popup-2'));
-    expect(container.querySelector('.popup')).toBeTruthy();
   });
 
   test('Popup shows and hides on click when trigger is click', async () => {

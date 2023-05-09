@@ -3,8 +3,10 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Tooltip, TooltipSize } from './';
+import { PrimaryButton } from '../Button';
 import {
   fireEvent,
+  getByTestId,
   render,
   screen,
   waitFor,
@@ -58,6 +60,33 @@ describe('Tooltip', () => {
     expect(container.querySelector('.tooltip')).toBeFalsy();
   });
 
+  test('Tooltip reference element is clickable when Tooltip is disabled', () => {
+    let testCounter = 0;
+    const { container } = render(
+      <Tooltip
+        animate={false}
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        disabled
+        trigger="hover"
+      >
+        <PrimaryButton
+          data-testid="test-button"
+          onClick={() => (testCounter += 1)}
+          text="Test button"
+        />
+      </Tooltip>
+    );
+    const buttonTestElement: HTMLElement = getByTestId(
+      container,
+      'test-button'
+    );
+    fireEvent.mouseOver(buttonTestElement);
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+    fireEvent.click(buttonTestElement);
+    fireEvent.click(buttonTestElement);
+    expect(testCounter).toEqual(2);
+  });
+
   test('Tooltip uses custom width and height', async () => {
     const { container } = render(
       <Tooltip
@@ -77,6 +106,49 @@ describe('Tooltip', () => {
     expect(container.querySelector('.tooltip').getAttribute('style')).toContain(
       'width: 500px'
     );
+  });
+
+  test('Tooltip is bordered with no drop shadow', async () => {
+    const { container } = render(
+      <Tooltip
+        bordered
+        content={<div data-testid="tooltipBordered">This is a tooltip.</div>}
+        dropShadow={false}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltipBordered'));
+    expect(container.querySelector('.bordered')).toBeTruthy();
+    expect(container.querySelector('.drop-shadow')).toBeFalsy();
+  });
+
+  test('Tooltip is animated by default', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltipAnimated">This is a tooltip.</div>}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltipAnimated'));
+    expect(container.querySelector('.animate')).toBeTruthy();
+  });
+
+  test('Tooltip not animated', async () => {
+    const { container } = render(
+      <Tooltip
+        animate={false}
+        content={<div data-testid="tooltipNotAnimated">This is a tooltip.</div>}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltipNotAnimated'));
+    expect(container.querySelector('.animate')).toBeFalsy();
   });
 
   test('Tooltip is large', async () => {

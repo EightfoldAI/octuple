@@ -1,7 +1,27 @@
 import React, { Ref } from 'react';
-import { Placement, Strategy } from '@floating-ui/react-dom';
+import { Placement, Strategy } from '@floating-ui/react';
+
+export const ANIMATION_DURATION: number = 200;
+export const NO_ANIMATION_DURATION: number = 10;
+export const PREVENT_DEFAULT_TRIGGERS: string[] = ['contextmenu'];
+export const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
+  click: 'onClick',
+  hover: 'onMouseEnter',
+  contextmenu: 'onContextMenu',
+};
+export const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
+  click: '',
+  hover: 'onMouseLeave',
+  contextmenu: '',
+};
 
 export interface DropdownProps {
+  /**
+   * The ref of element that should implement the following props:
+   * 'aria-controls', 'aria-expanded', 'aria-haspopup', 'role'
+   * @default child
+   */
+  ariaRef?: React.MutableRefObject<HTMLElement>;
   /**
    * Class names of the main wrapper
    */
@@ -11,6 +31,11 @@ export interface DropdownProps {
    * @default true
    */
   closeOnDropdownClick?: boolean;
+  /**
+   * Should close Tooltip on reference click.
+   * @default true
+   */
+  closeOnReferenceClick?: boolean;
   /**
    * Should close dropdown on click outside
    * @default true
@@ -62,10 +87,21 @@ export interface DropdownProps {
    */
   portal?: boolean;
   /**
-   * Positioning strategy for the tooltip
+   * Positioning strategy for the dropdown
    * @default absolute
    */
   positionStrategy?: Strategy;
+  /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * The dropdown aria role.
+   * @default 'listbox'
+   */
+  role?: string;
   /**
    * Callback to control the show/hide behavior of the dropdown.
    * triggered before the visible change
@@ -77,6 +113,10 @@ export interface DropdownProps {
    * Style of the main wrapper
    */
   style?: React.CSSProperties;
+  /**
+   * The optional tab index of the reference element.
+   */
+  tabIndex?: number;
   /**
    * The trigger mode that opens the dropdown
    * @default 'click'

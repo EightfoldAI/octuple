@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { useInterval } from '../../../../hooks/useInterval';
 import { NudgeAnimation, NudgeProps } from '../';
 
-import styles from '../../button.module.scss';
-
 export const useNudge = (
   disruptive: boolean,
   nudgeProps: NudgeProps,
-  refs: React.MutableRefObject<any>[]
+  refs: React.MutableRefObject<any>[],
+  styles: any
 ): void => {
   const [nudgeIterations, setNudgeIterations] = useState<number>(0);
 
@@ -37,19 +36,15 @@ export const useNudge = (
     setNudgeIterations(nudgeIterations + 1);
     if (Math.abs(nudgeIterations % 2) === 1) {
       if (nudgeProps?.animation === NudgeAnimation.Bounce) {
-        refs[0]?.current.classList.add((styles as any)[nudgeProps.animation]);
+        refs[0]?.current.classList.add(styles[nudgeProps.animation]);
       } else {
-        refs[1]?.current.classList.add((styles as any)[nudgeProps?.animation]);
+        refs[1]?.current.classList.add(styles[nudgeProps?.animation]);
       }
     } else {
       if (nudgeProps?.animation === NudgeAnimation.Bounce) {
-        refs[0]?.current.classList.remove(
-          (styles as any)[nudgeProps.animation]
-        );
+        refs[0]?.current.classList.remove(styles[nudgeProps.animation]);
       } else {
-        refs[1]?.current.classList.remove(
-          (styles as any)[nudgeProps?.animation]
-        );
+        refs[1]?.current.classList.remove(styles[nudgeProps?.animation]);
       }
     }
   }, delay());

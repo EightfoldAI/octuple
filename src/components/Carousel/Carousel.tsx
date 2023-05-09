@@ -275,44 +275,84 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       }
     };
 
-    const handleGroupScrollOnWheel = (
+    const isTouchpadVerticalScroll = async (
+      event: React.WheelEvent | WheelEvent
+    ): Promise<boolean> => {
+      const { deltaY } = event;
+      if (deltaY && !Number.isInteger(deltaY)) {
+        return false;
+      }
+      return true;
+    };
+
+    const isTouchpadHorizontalScroll = async (
+      event: React.WheelEvent | WheelEvent
+    ): Promise<boolean> => {
+      const { deltaX } = event;
+      if (deltaX && !Number.isInteger(deltaX)) {
+        return false;
+      }
+      return true;
+    };
+
+    const handleGroupScrollOnWheel = async (
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
-    ): void => {
+    ): Promise<void> => {
+      const touchpadHorizontal: boolean = await isTouchpadHorizontalScroll(
+        event
+      );
+      const touchpadVertical: boolean = await isTouchpadVerticalScroll(event);
       if (event.deltaY < 0 || event.deltaX < 0) {
-        apiObj.scrollNextGroup();
+        // When not touchpad, handle the scroll
+        if (!touchpadHorizontal || !touchpadVertical) {
+          apiObj.scrollNextGroup();
+        }
       } else if (event.deltaY > 0 || event.deltaX > 0) {
-        apiObj.scrollPrevGroup();
+        // When not touchpad, handle the scroll
+        if (!touchpadHorizontal || !touchpadVertical) {
+          apiObj.scrollPrevGroup();
+        }
       }
     };
 
-    const handleSingleItemScrollOnWheel = (
+    const handleSingleItemScrollOnWheel = async (
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
-    ): void => {
+    ): Promise<void> => {
+      const touchpadHorizontal: boolean = await isTouchpadHorizontalScroll(
+        event
+      );
+      const touchpadVertical: boolean = await isTouchpadVerticalScroll(event);
       if (event.deltaY < 0 || event.deltaX < 0) {
-        apiObj.scrollBySingleItem(
-          apiObj.getNextElement(),
-          'smooth',
-          htmlDir === 'rtl' ? 'previous' : 'next',
-          !!props.carouselScrollMenuProps?.gap
-            ? props.carouselScrollMenuProps?.gap
-            : DEFAULT_GAP_WIDTH,
-          apiObj.isFirstItemVisible
-            ? -DEFAULT_GAP_WIDTH
-            : OCCLUSION_AVOIDANCE_BUFFER
-        );
+        // When not touchpad, handle the scroll
+        if (!touchpadHorizontal || !touchpadVertical) {
+          apiObj.scrollBySingleItem(
+            apiObj.getNextElement(),
+            'smooth',
+            htmlDir === 'rtl' ? 'previous' : 'next',
+            !!props.carouselScrollMenuProps?.gap
+              ? props.carouselScrollMenuProps?.gap
+              : DEFAULT_GAP_WIDTH,
+            apiObj.isFirstItemVisible
+              ? -DEFAULT_GAP_WIDTH
+              : OCCLUSION_AVOIDANCE_BUFFER
+          );
+        }
       } else if (event.deltaY > 0 || event.deltaX > 0) {
-        const gapWidth: number = !!props.carouselScrollMenuProps?.gap
-          ? props.carouselScrollMenuProps?.gap
-          : DEFAULT_GAP_WIDTH;
-        apiObj.scrollBySingleItem(
-          apiObj.getPrevElement(),
-          'smooth',
-          htmlDir === 'rtl' ? 'next' : 'previous',
-          gapWidth,
-          apiObj.isLastItemVisible ? gapWidth : OCCLUSION_AVOIDANCE_BUFFER
-        );
+        // When not touchpad, handle the scroll
+        if (!touchpadHorizontal || !touchpadVertical) {
+          const gapWidth: number = !!props.carouselScrollMenuProps?.gap
+            ? props.carouselScrollMenuProps?.gap
+            : DEFAULT_GAP_WIDTH;
+          apiObj.scrollBySingleItem(
+            apiObj.getPrevElement(),
+            'smooth',
+            htmlDir === 'rtl' ? 'next' : 'previous',
+            gapWidth,
+            apiObj.isLastItemVisible ? gapWidth : OCCLUSION_AVOIDANCE_BUFFER
+          );
+        }
       }
     };
 
@@ -336,9 +376,14 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       }
     };
 
-    const preventYScroll = (event: { preventDefault: () => void }): void => {
-      // Prevent document scroll only when hovering over a carousel that may be scrolled.
-      if (mouseEnter && (previousButtonRef.current || nextButtonRef.current)) {
+    const preventYScroll = async (event: WheelEvent): Promise<void> => {
+      const touchpadVertical: boolean = await isTouchpadVerticalScroll(event);
+      // Prevent document scroll only when hovering over a carousel that may be scrolled and when not using touchpad.
+      if (
+        mouseEnter &&
+        (previousButtonRef.current || nextButtonRef.current) &&
+        !touchpadVertical
+      ) {
         event.preventDefault();
       }
     };
@@ -596,7 +641,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                     onCurrentChange={(currentPage: number) =>
                       handleIndicatorClick(currentPage - 1)
                     }
-                    pageSizes={[1]}
+                    restrictPageSizesPropToSizesLayout
+                    pageSize={1}
                     total={itemsNumber}
                   />
                 )}

@@ -23,8 +23,9 @@ const defaultOptions: SelectOption[] = [
   },
   {
     iconProps: { path: IconName.mdiFlagVariant },
-    text: 'Supercalifragilisticexpialidocious',
+    text: 'Supercalifragilisticexpialidocious and another Supercalifragilisticexpialidocious',
     value: 'verylarge',
+    wrap: true,
   },
   {
     iconProps: { path: IconName.mdiAccount },
@@ -192,8 +193,11 @@ With_DefaultValue.args = {
 
 With_DefaultValueMultiple.args = {
   ...Basic.args,
-  defaultValue: ['date', 'account', 'hat'],
+  defaultValue: ['verylarge', 'account', 'hat'],
   multiple: true,
+  style: {
+    width: 324,
+  },
 };
 
 Disabled.args = {

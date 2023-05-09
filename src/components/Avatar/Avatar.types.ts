@@ -4,6 +4,9 @@ import { IconProps } from '../Icon';
 import { ListProps } from '../List';
 import { TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
+import { PopupProps } from '../Popup';
+
+export type Key = React.Key;
 
 export type StatusItemsMap = {
   [key in StatusItemsPosition]?: StatusItemsProps;
@@ -18,6 +21,11 @@ export enum StatusItemsPosition {
   TopLeft = 'topLeft',
   BottomRight = 'bottomRight',
   BottomLeft = 'bottomLeft',
+}
+
+export enum StatusItemIconAlign {
+  Left = 'left',
+  Right = 'right',
 }
 
 export interface AvatarOutlineProps {
@@ -67,24 +75,62 @@ export interface StatusItemsProps extends IconProps {
    * Class for status item wrapper
    */
   wrapperClassName?: string;
+  /**
+   * Status item icon alignment
+   * @default StatusItemIconAlign.Right
+   */
+  alignIcon?: StatusItemIconAlign;
+  /**
+   * Text present with icon
+   */
+  text?: string;
+  /**
+   * Text having length larger than this will not be shown
+   * @default 3
+   */
+  textMaxLength?: number;
 }
 
-export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
+export interface BaseAvatarProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Avatar fallback font size
    * @default '18px'
    */
   fontSize?: string;
   /**
-   * Function that returns avatar index
+   * Function that returns Avatar index
    */
   hashingFunction?: () => number;
+  /**
+   * Unique key of the Avatar
+   */
+  key?: Key;
+  /**
+   * Callback called on Avatar click
+   */
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  /**
+   * Callback called on Avatar keydown
+   */
+  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
+  /**
+   * Callback called on Avatar mouse enter
+   */
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  /**
+   * Callback called on Avatar mouse leave
+   */
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   /**
    * Avatar outline
    *
    * Defaults when `outline` is truthy are `{ outlineColor: 'var(--green-color-60)', outlineOffset: '2px', outlineStyle: 'solid', outlineWidth: '4px' }`
    */
   outline?: AvatarOutlineProps;
+  /**
+   * Avatar Popup props.
+   */
+  popupProps?: AvatarPopupProps;
   /**
    * Should randomise theme
    * @default false
@@ -116,6 +162,8 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
   type?: 'round' | 'square';
 }
 
+export interface AvatarPopupProps extends PopupProps {}
+
 export interface AvatarIconProps extends BaseAvatarProps {
   /**
    * Icon Props
@@ -136,6 +184,10 @@ export interface AvatarProps
    * Image alt text
    */
   alt?: string;
+  /**
+   * Hover tooltip
+   */
+  tooltipProps?: TooltipProps;
 }
 
 interface MaxAvatarProps extends BaseAvatarProps {
@@ -178,6 +230,11 @@ export enum AvatarGroupVariant {
 }
 
 export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
+  /**
+   * The Avatars should animate on hover.
+   * @default false
+   */
+  animateOnHover?: boolean;
   /**
    * Avatar group List props.
    */

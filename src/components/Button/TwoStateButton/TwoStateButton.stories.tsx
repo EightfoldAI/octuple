@@ -2,7 +2,7 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
-  BaseButton,
+  Button,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
@@ -60,7 +60,7 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof BaseButton>;
+} as ComponentMeta<typeof Button>;
 
 const Two_State_Button_Story: ComponentStory<typeof TwoStateButton> = (
   args

@@ -26,9 +26,18 @@ export interface SelectOption extends MenuItemButtonProps {
    */
   hideOption?: boolean;
   /**
-   * The select option id.
+   * The select option element id.
    */
   id?: string;
+  /**
+   * The optional select JSON object.
+   */
+  object?: object;
+  /**
+   * The select option aria role.
+   * @default 'option'
+   */
+  role?: string;
   /**
    * The select option selected state.
    */
@@ -42,6 +51,11 @@ export interface SelectProps
    * @default undefined
    */
   autocomplete?: string;
+  /**
+   * programmatically clear the input when true.
+   * @default false
+   */
+  clear?: boolean;
   /**
    * Whether the select text input is clearable.
    * @default false
@@ -87,6 +101,10 @@ export interface SelectProps
    */
   formItemInput?: boolean;
   /**
+   * The Select input custom class names.
+   */
+  inputClassNames?: string;
+  /**
    * Width of the Select text input.
    * @default TextInputWidth.fitContent
    */
@@ -128,9 +146,10 @@ export interface SelectProps
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   /**
    * Callback called when options are selected/unselected.
-   * @param options {SelectOption[]}
+   * @param values {SelectOption['value'].value[]}
+   * @param options {SelectOption['value'][]}
    */
-  onOptionsChange?: (options: SelectOption[]) => void;
+  onOptionsChange?: (values: SelectOption[], options?: SelectOption[]) => void;
   /**
    * The select options.
    * @default []

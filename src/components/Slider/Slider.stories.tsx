@@ -40,13 +40,13 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingAValue}</div>
       </Stack>
       <Row style={{ marginTop: 100 }}>
@@ -61,7 +61,7 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
           />
         </Col>
       </Row>
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingBValue}</div>
       </Stack>
     </Stack>
@@ -85,13 +85,13 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         onChange={handleChangeA}
         value={transientSlidingAValues}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingAValues[0]}</div>
         <div>{transientSlidingAValues[1]}</div>
       </Stack>
@@ -109,7 +109,7 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
           />
         </Col>
       </Row>
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingBValues[0]}</div>
         <div>{transientSlidingBValues[1]}</div>
       </Stack>
@@ -134,13 +134,13 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingAValue}</div>
       </Stack>
       <Slider
@@ -151,7 +151,7 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
         style={{ marginTop: 100 }}
         value={transientSlidingBValues}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingBValues[0]}</div>
         <div>{transientSlidingBValues[1]}</div>
       </Stack>
@@ -175,7 +175,7 @@ const Custom_Markers_Included_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         onChange={handleChangeA}
@@ -258,13 +258,13 @@ const Dots_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingAValue}</div>
       </Stack>
     </Stack>
@@ -289,17 +289,17 @@ const Toggle_Thumb_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         hideThumb={thumbHidden}
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingAValue}</div>
       </Stack>
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <PrimaryButton
           onClick={toggleThumbVisibility}
           text={thumbHidden ? 'Show thumb' : 'Hide thumb'}
@@ -816,7 +816,7 @@ const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         dotStyle={{
@@ -825,7 +825,7 @@ const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChange}
         value={transientSlidingValue}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingValue}</div>
       </Stack>
     </Stack>
@@ -842,7 +842,7 @@ const Data_Inactive_Story: ComponentStory<typeof Slider> = (args) => {
   };
 
   return (
-    <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+    <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
         dotStyle={{
@@ -851,7 +851,7 @@ const Data_Inactive_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChangeB}
         value={transientSlidingBValues}
       />
-      <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <div>{transientSlidingBValues[0]}</div>
         <div>{transientSlidingBValues[1]}</div>
       </Stack>
@@ -954,7 +954,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
         name: 'blue',
       }}
     >
-      <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+      <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
         <div>
           <Slider {...args} ref={sliderRef} onChange={handleChangeRange} />
           <Slider
@@ -972,11 +972,11 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
             value={targetSlidingValue}
           />
         </div>
-        <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+        <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
           <div>{transientSlidingValues[0]}</div>
           <div>{transientSlidingValues[1]}</div>
         </Stack>
-        <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+        <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
           <PrimaryButton
             iconProps={{
               icomoonIconName: 'employee',

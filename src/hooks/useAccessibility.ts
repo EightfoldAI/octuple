@@ -1,4 +1,5 @@
 import { useCallback, RefObject, useEffect } from 'react';
+import { eventKeys } from '../shared/utilities';
 
 const ACCESSIBILITY_EVENTS_MAP = {
   click: 'keydown',
@@ -16,12 +17,14 @@ export const useAccessibility = (
   const handleAccessibility = useCallback(
     (e) => {
       if (ref.current?.contains?.(e.target)) {
-        if (triggerEvent != 'keydown' || e.key == 'Enter') {
+        if (triggerEvent !== 'keydown' || e.key === eventKeys.ENTER) {
           return onEnter?.();
+        } else if (e.key === eventKeys.ESCAPE) {
+          return onLeave?.(e);
         }
-        return null;
+      } else if (triggerEvent !== 'keydown' && onLeave) {
+        return onLeave?.(e);
       }
-      return onLeave?.(e);
     },
     [ref]
   );

@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link button Link button is default 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-default link-button-medium pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test default
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is large 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-primary link-button-large pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-large"
+    >
+      test
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is loading 1`] = `
+<div>
+  <a
+    aria-disabled="true"
+    class="link-button link-button-primary link-button-medium pill-shape loading"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test
+    </span>
+    <div
+      class="loader-container loader"
+    >
+      <div
+        class="dot medium"
+      />
+      <div
+        class="dot medium"
+      />
+      <div
+        class="dot medium"
+      />
+    </div>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is medium 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-primary link-button-medium pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is neutral 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-neutral link-button-medium pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test neutral
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is primary 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-primary link-button-medium pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test primary
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is secondary 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-secondary link-button-medium pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test secondary
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is small 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-primary link-button-small pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-small"
+    >
+      test
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button Link button is system ui 1`] = `
+<div>
+  <a
+    aria-disabled="false"
+    class="link-button link-button-system-ui link-button-medium pill-shape"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test system ui
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Link button simulate click on disabled link button 1`] = `
+<div>
+  <a
+    aria-disabled="true"
+    class="link-button link-button-primary link-button-medium pill-shape disabled"
+    data-testid="link-button-3"
+    href="https://eightfold.ai"
+    role="link"
+    target="_self"
+  >
+    <span
+      class="link-button-text-medium"
+    >
+      test LinkButton
+    </span>
+  </a>
+</div>
+`;

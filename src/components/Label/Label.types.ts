@@ -1,5 +1,5 @@
 import { ButtonProps } from '../Button';
-import { Placement, Strategy } from '@floating-ui/react-dom';
+import { Placement, Strategy } from '@floating-ui/react';
 import { TooltipTheme, TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 import { Size } from '../ConfigProvider';

@@ -101,4 +101,58 @@ describe('Avatar', () => {
     );
     expect(wrapper.children().length).toEqual(1);
   });
+
+  test('Should render a list group with max count', () => {
+    const imageProps = {
+      src: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg',
+      alt: 'random profile image',
+    };
+
+    interface User {
+      'data-test-id': string;
+      alt: string;
+      children: React.ReactNode;
+      classNames: string;
+      img: string;
+      key: string;
+      name: string;
+      randomiseTheme: boolean;
+    }
+
+    const sampleList: User[] = [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    ].map((i) => ({
+      'data-test-id': `my-avatar-test-id-${i}`,
+      alt: i === 1 ? imageProps.alt : null,
+      children: `U${i}`,
+      classNames: `my-avatar-class-${i}`,
+      img: i === 1 ? imageProps.src : null,
+      key: `key-${i}`,
+      name: `User ${i}`,
+      randomiseTheme: true,
+    }));
+    const wrapper = mount(
+      <AvatarGroup
+        avatarListProps={{
+          items: sampleList,
+          renderItem: (item: User) => (
+            <Avatar
+              alt={item.alt}
+              classNames={item.classNames}
+              data-test-id={item['data-test-id']}
+              hashingFunction={() => 3}
+              randomiseTheme={item.randomiseTheme}
+              src={item.img}
+            >
+              {item.children}
+            </Avatar>
+          ),
+        }}
+        maxProps={{
+          count: 24,
+        }}
+      />
+    );
+    expect(wrapper.children().length).toEqual(1);
+  });
 });

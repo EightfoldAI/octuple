@@ -15,6 +15,7 @@ import styles from './avatar.module.scss';
 export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
   (
     {
+      animateOnHover = false,
       avatarListProps,
       children,
       classNames,
@@ -32,6 +33,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
 
     const avatarGroupClassNames: string = mergeClasses([
       styles.avatarGroup,
+      { [styles.animate]: !!animateOnHover },
       { [styles.spaced]: groupVariant === AvatarGroupVariant.Spaced },
       { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
       classNames,
@@ -67,7 +69,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         size={size}
         type={type}
         fontSize={styles.maxCountFontSize}
-        {...maxProps}
+        {...{ ...maxProps, tooltipProps: undefined }}
         classNames={mergeClasses([
           styles.avatarGroupMaxCount,
           maxProps?.classNames,
@@ -107,47 +109,44 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       </ConditionalWrapper>
     );
 
-    if (avatarListProps && maxCount && maxCount < numChildren) {
+    const inlineCount = maxCount
+      ? Math.min(maxCount, numChildren)
+      : numChildren;
+    const showCountAvatar = maxCount && maxCount < numChildren;
+
+    if (avatarListProps) {
       const childrenShown: React.ReactNode[] = avatarListProps?.items.slice(
         0,
-        maxCount
+        inlineCount
       );
       return (
         <List
           layout={'horizontal'}
           {...rest}
           ref={ref}
-          additionalItem={maxCountAvatar}
+          additionalItem={showCountAvatar ? maxCountAvatar : null}
           classNames={avatarGroupClassNames}
           items={childrenShown}
           renderItem={avatarListProps?.renderItem}
-          renderAdditionalItem={maxCountItem}
+          renderAdditionalItem={showCountAvatar ? maxCountItem : () => null}
           style={style}
+          tabIndex={-1}
         />
       );
     }
 
-    if (!avatarListProps && maxCount && maxCount < numChildren) {
-      const childrenShow: React.ReactElement<
-        any,
-        string | React.JSXElementConstructor<any>
-      >[] = childrenWithProps?.slice(0, maxCount);
+    const childrenShow: React.ReactElement<
+      any,
+      string | React.JSXElementConstructor<any>
+    >[] = childrenWithProps?.slice(0, inlineCount);
+
+    if (showCountAvatar) {
       childrenShow?.push(maxCountItem());
-      return (
-        <div
-          {...rest}
-          ref={ref}
-          className={avatarGroupClassNames}
-          style={style}
-        >
-          {childrenShow}
-        </div>
-      );
     }
 
     return (
       <div {...rest} ref={ref} className={avatarGroupClassNames} style={style}>
-        {childrenWithProps}
+        {childrenShow}
       </div>
     );
   }

@@ -14,6 +14,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       disabled = false,
       fullWidth = true,
       onClick,
+      role = 'link',
       target = '_self',
       underline,
       variant = 'default',
@@ -49,7 +50,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       <a
         {...rest}
         ref={ref}
-        role="link"
+        role={role}
         aria-disabled={disabled}
         className={linkClassNames}
         href={href}
