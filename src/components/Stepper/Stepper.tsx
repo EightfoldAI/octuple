@@ -440,8 +440,15 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       if (scrollToActiveStep && currentActiveStepRef.current) {
         currentActiveStepRef.current.scrollIntoView({
           behavior: 'smooth',
-          inline: 'start',
-          block: 'nearest',
+          ...(layout === 'horizontal'
+            ? {
+                inline: 'start',
+                block: 'nearest',
+              }
+            : {
+                inline: 'nearest',
+                block: 'start',
+              }),
         });
       }
     }, []);
