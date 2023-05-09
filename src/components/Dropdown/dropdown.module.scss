@@ -31,6 +31,7 @@
   z-index: $z-index-400;
   max-height: min(45vh, 600px);
   overflow-y: auto;
+  transition: scale opacity $motion-duration-fast $motion-easing-easeout;
 
   &.open {
     animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
