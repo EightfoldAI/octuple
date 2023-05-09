@@ -121,11 +121,13 @@ const Overlay = () => (
         iconProps={{
           path: item.icon,
         }}
+        role="menuitem"
         style={{
           margin: '4px 0',
         }}
       />
     )}
+    role="menu"
   />
 );
 
@@ -143,6 +145,7 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
           path: IconName.mdiChevronDown,
           rotate: visible ? 180 : 0,
         }}
+        id="octuple-dropdown-button-id"
       />
     </Dropdown>
   );

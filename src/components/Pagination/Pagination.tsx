@@ -4,6 +4,7 @@ import {
   PaginationLayoutOptions,
   PaginationLocale,
   PaginationProps,
+  PaginationVisiblePagerCountSizeOptions,
 } from './index';
 import {
   ButtonIconAlign,
@@ -32,6 +33,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       currentPage = 1,
       dots = false,
       goToText: defaultGoToText,
+      hideWhenSinglePage = false,
       layout = [
         PaginationLayoutOptions.Previous,
         PaginationLayoutOptions.Pager,
@@ -43,6 +45,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       onCurrentChange,
       onSizeChange,
       pageCount,
+      // TODO: Set a default once visiblePagerCountSize is removed
+      pagerSize,
       pageSize = 10,
       pageSizeButtonAriaLabel: defaultPageSizeButtonAriaLabel,
       pageSizes = [10, 20, 30, 40, 50, 100],
@@ -51,8 +55,10 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       quickNextIconButtonAriaLabel: defaultQuickNextIconButtonAriaLabel,
       quickPreviousIconButtonAriaLabel: defaultQuickPreviousIconButtonAriaLabel,
       total = 1,
+      restrictPageSizesPropToSizesLayout = false,
       totalText: defaultTotalText,
       selfControlled = true,
+      visiblePagerCountSize = PaginationVisiblePagerCountSizeOptions.Large,
       'data-test-id': dataTestId,
       ...rest
     } = props;
@@ -138,9 +144,21 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
 
     useEffect((): void => {
       setTotal(total);
-      onSizeChangeHandler?.(
-        pageSizes.indexOf(pageSize) > -1 ? pageSize : pageSizes[0]
-      );
+      if (
+        restrictPageSizesPropToSizesLayout
+          ? layout.includes(PaginationLayoutOptions.Sizes)
+          : true
+      ) {
+        onSizeChangeHandler?.(
+          pageSizes.indexOf(pageSize) > -1 ? pageSize : pageSizes[0]
+        );
+      }
+      if (
+        restrictPageSizesPropToSizesLayout &&
+        !layout.includes(PaginationLayoutOptions.Sizes)
+      ) {
+        setPageCount(Math.ceil(total / _pageSize));
+      }
       jumpToPage?.(currentPage);
     }, []);
 
@@ -377,6 +395,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                       locale={locale}
                       onCurrentChange={handleCurrentChange}
                       pageCount={getPageCount()}
+                      pagerSize={pagerSize}
                       quickNextIconButtonAriaLabel={
                         quickNextIconButtonAriaLabel
                       }
@@ -386,25 +405,30 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                       showLast={
                         !layout.includes(PaginationLayoutOptions.NoLast)
                       }
+                      visiblePagerCountSize={visiblePagerCountSize}
                     />
                   ) : (
-                    <Pager
-                      currentPage={_currentPage}
-                      key="pager"
-                      locale={locale}
-                      onCurrentChange={handleCurrentChange}
-                      pageCount={getPageCount()}
-                      quickNextIconButtonAriaLabel={
-                        quickNextIconButtonAriaLabel
-                      }
-                      quickPreviousIconButtonAriaLabel={
-                        quickPreviousIconButtonAriaLabel
-                      }
-                      simplified={true}
-                      showLast={
-                        !layout.includes(PaginationLayoutOptions.NoLast)
-                      }
-                    />
+                    (hideWhenSinglePage ? moreThanOnePage : true) && (
+                      <Pager
+                        currentPage={_currentPage}
+                        key="pager"
+                        locale={locale}
+                        onCurrentChange={handleCurrentChange}
+                        pageCount={getPageCount()}
+                        pagerSize={pagerSize}
+                        quickNextIconButtonAriaLabel={
+                          quickNextIconButtonAriaLabel
+                        }
+                        quickPreviousIconButtonAriaLabel={
+                          quickPreviousIconButtonAriaLabel
+                        }
+                        simplified={true}
+                        showLast={
+                          !layout.includes(PaginationLayoutOptions.NoLast)
+                        }
+                        visiblePagerCountSize={visiblePagerCountSize}
+                      />
+                    )
                   )}
                   {layout.includes(PaginationLayoutOptions.Next) &&
                     moreThanOnePage && (

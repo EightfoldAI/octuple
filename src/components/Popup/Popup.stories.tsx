@@ -93,6 +93,9 @@ export const Popups = Popup_Story.bind({});
 Popups.args = {
   offset: 8,
   theme: PopupTheme.light,
+  animate: true,
+  bordered: false,
+  dropShadow: true,
   content: (
     <>
       <Stack
@@ -103,7 +106,11 @@ Popups.args = {
       >
         <img
           src="https://static.vscdn.net/images/career_hub/upskilling/more_projects.svg"
-          style={{ height: 172, margin: 4, width: 'calc(100% - 8px)' }}
+          style={{
+            height: 172,
+            margin: 4,
+            width: 'calc(100% - 8px)',
+          }}
         />
         <div className="octuple">
           <div className="octuple-content" style={{ padding: '16px' }}>

@@ -17,7 +17,6 @@ import {
   IntersectionObserverItem,
   ItemOrElement,
   OCCLUSION_AVOIDANCE_BUFFER,
-  ScrollMenuProps,
   scrollToItemOptions,
 } from './Carousel.types';
 import { ScrollMenu, VisibilityContext } from './ScrollMenu/ScrollMenu';
@@ -642,7 +641,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                     onCurrentChange={(currentPage: number) =>
                       handleIndicatorClick(currentPage - 1)
                     }
-                    pageSizes={[1]}
+                    restrictPageSizesPropToSizesLayout
+                    pageSize={1}
                     total={itemsNumber}
                   />
                 )}

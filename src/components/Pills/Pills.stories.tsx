@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Pill, PillSize, PillThemeName, PillType } from './';
+import { Pill, PillIconAlign, PillSize, PillThemeName, PillType } from './';
 import { IconName } from '../Icon';
 import { Stack } from '../Stack';
 
@@ -33,6 +33,10 @@ export default {
     },
     onClose: {
       action: 'close',
+    },
+    alignIcon: {
+      options: [PillIconAlign.Start, PillIconAlign.End],
+      control: { type: 'radio' },
     },
     size: {
       options: [
@@ -67,7 +71,7 @@ const themes: PillThemeName[] = [
 ];
 
 const Default_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" gap="l">
+  <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
     ))}
@@ -77,7 +81,7 @@ const Default_Story: ComponentStory<typeof Pill> = (args) => (
 export const Default = Default_Story.bind({});
 
 const With_Icon_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" gap="l">
+  <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
     ))}
@@ -87,7 +91,7 @@ const With_Icon_Story: ComponentStory<typeof Pill> = (args) => (
 export const With_Icon = With_Icon_Story.bind({});
 
 const Closable_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" gap="l">
+  <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
     ))}
@@ -97,7 +101,7 @@ const Closable_Story: ComponentStory<typeof Pill> = (args) => (
 export const Closable = Closable_Story.bind({});
 
 const Custom_Closable_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" gap="l">
+  <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
     ))}
@@ -107,7 +111,7 @@ const Custom_Closable_Story: ComponentStory<typeof Pill> = (args) => (
 export const Custom_Closable = Custom_Closable_Story.bind({});
 
 const With_Button_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" gap="l">
+  <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
     ))}
@@ -117,7 +121,7 @@ const With_Button_Story: ComponentStory<typeof Pill> = (args) => (
 export const With_Button = With_Button_Story.bind({});
 
 const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" gap="l" style={{ width: 216 }}>
+  <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
     {themes.map((theme) => (
       <Pill
         {...args}
@@ -132,6 +136,7 @@ const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
 export const With_Long_Text = With_Long_Text_Story.bind({});
 
 const pillArgs: Object = {
+  alignIcon: PillIconAlign.Start,
   size: PillSize.Large,
   type: PillType.default,
   label: 'Pill label',

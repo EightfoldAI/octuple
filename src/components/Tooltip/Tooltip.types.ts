@@ -3,6 +3,7 @@ import React, { Ref } from 'react';
 import { OcBaseProps } from '../OcBase';
 
 export const ANIMATION_DURATION: number = 200;
+export const NO_ANIMATION_DURATION: number = 10;
 export const PREVENT_DEFAULT_TRIGGERS: string[] = ['contextmenu'];
 export const TOOLTIP_ARROW_WIDTH: number = 8;
 export const TOOLTIP_DEFAULT_OFFSET: number = TOOLTIP_ARROW_WIDTH;
@@ -35,10 +36,25 @@ export enum TooltipType {
 
 export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   /**
+   * Should animate the Tooltip transitions.
+   * @default true
+   */
+  animate?: boolean;
+  /**
+   * Whether the Tooltip has a border.
+   * @default false
+   */
+  bordered?: boolean;
+  /**
    * Should close Tooltip on click outside.
    * @default true
    */
   closeOnOutsideClick?: boolean;
+  /**
+   * Should close Tooltip on reference click.
+   * @default true
+   */
+  closeOnReferenceClick?: boolean;
   /**
    * Should close Tooltip on body click.
    * @default false
@@ -54,6 +70,11 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   disabled?: boolean;
   /**
+   * Whether the Tooltip has a drop shadow.
+   * @default true
+   */
+  dropShadow?: boolean;
+  /**
    * Timeout in milliseconds to hide the Tooltip.
    * @default 0
    */
@@ -62,6 +83,10 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * Manually control the height of the Tooltip.
    */
   height?: number;
+  /**
+   * Manually control the minimum height of the Tooltip.
+   */
+  minHeight?: number;
   /**
    * Offset of the Tooltip from the reference element.
    * @default 8
@@ -110,6 +135,18 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   ref?: Ref<TooltipRef>;
   /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * Callback executed on reference element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  referenceOnKeydown?: (event: React.KeyboardEvent) => void;
+  /**
    * Callback to control the show/hide behavior of the Tooltip.
    * triggered before the visible change
    * @param show {boolean}
@@ -131,6 +168,12 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * @default light
    */
   theme?: TooltipTheme;
+  /**
+   * Callback executed on tooltip element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  tooltipOnKeydown?: (event: React.KeyboardEvent) => void;
   /**
    * The Tooltip style.
    */

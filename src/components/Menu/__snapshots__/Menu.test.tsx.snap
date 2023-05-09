@@ -11,6 +11,7 @@ exports[`Menu Menu is large 1`] = `
       aria-expanded="true"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >
@@ -23,6 +24,7 @@ exports[`Menu Menu is large 1`] = `
     <div
       class="dropdown-wrapper no-padding open"
       id="dropdown-"
+      role="listbox"
       style="position: absolute; top: 4px; left: 0px;"
       tabindex="0"
     >
@@ -36,11 +38,10 @@ exports[`Menu Menu is large 1`] = `
         >
           <li
             class="menu-item large neutral my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <button
               class="menu-item-button"
+              role="menuitem"
               tabindex="0"
             >
               <span
@@ -79,12 +80,11 @@ exports[`Menu Menu is large 1`] = `
           </li>
           <li
             class="menu-item large neutral disabled my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <button
               class="menu-item-button"
               disabled=""
+              role="menuitem"
               tabindex="0"
             >
               <span
@@ -109,14 +109,12 @@ exports[`Menu Menu is large 1`] = `
           </span>
           <li
             class="menu-item large neutral my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <a
               aria-disabled="false"
               class="link-style full-width menu-link"
               href="https://twitter.com"
-              role="link"
+              role="menuitem"
               tabindex="0"
               target="_blank"
             >
@@ -242,6 +240,7 @@ exports[`Menu Menu is medium 1`] = `
       aria-expanded="true"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >
@@ -254,6 +253,7 @@ exports[`Menu Menu is medium 1`] = `
     <div
       class="dropdown-wrapper no-padding open"
       id="dropdown-"
+      role="listbox"
       style="position: absolute; top: 4px; left: 0px;"
       tabindex="0"
     >
@@ -267,11 +267,10 @@ exports[`Menu Menu is medium 1`] = `
         >
           <li
             class="menu-item medium neutral my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <button
               class="menu-item-button"
+              role="menuitem"
               tabindex="0"
             >
               <span
@@ -310,12 +309,11 @@ exports[`Menu Menu is medium 1`] = `
           </li>
           <li
             class="menu-item medium neutral disabled my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <button
               class="menu-item-button"
               disabled=""
+              role="menuitem"
               tabindex="0"
             >
               <span
@@ -340,14 +338,12 @@ exports[`Menu Menu is medium 1`] = `
           </span>
           <li
             class="menu-item medium neutral my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <a
               aria-disabled="false"
               class="link-style full-width menu-link"
               href="https://twitter.com"
-              role="link"
+              role="menuitem"
               tabindex="0"
               target="_blank"
             >
@@ -473,6 +469,7 @@ exports[`Menu Menu is small 1`] = `
       aria-expanded="true"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >
@@ -485,6 +482,7 @@ exports[`Menu Menu is small 1`] = `
     <div
       class="dropdown-wrapper no-padding open"
       id="dropdown-"
+      role="listbox"
       style="position: absolute; top: 4px; left: 0px;"
       tabindex="0"
     >
@@ -498,11 +496,10 @@ exports[`Menu Menu is small 1`] = `
         >
           <li
             class="menu-item small neutral my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <button
               class="menu-item-button"
+              role="menuitem"
               tabindex="0"
             >
               <span
@@ -541,12 +538,11 @@ exports[`Menu Menu is small 1`] = `
           </li>
           <li
             class="menu-item small neutral disabled my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <button
               class="menu-item-button"
               disabled=""
+              role="menuitem"
               tabindex="0"
             >
               <span
@@ -571,14 +567,12 @@ exports[`Menu Menu is small 1`] = `
           </span>
           <li
             class="menu-item small neutral my-menu-item-class"
-            role="menuitem"
-            tabindex="-1"
           >
             <a
               aria-disabled="false"
               class="link-style full-width menu-link"
               href="https://twitter.com"
-              role="link"
+              role="menuitem"
               tabindex="0"
               target="_blank"
             >
@@ -704,6 +698,7 @@ exports[`Menu Should render a menu button 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >

@@ -87,6 +87,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
       tabIndex={tabIndex}
       {...rest}
       onClick={handleOnClick}
+      role={role}
     >
       {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
       <span className={styles.menuItemWrapper}>
@@ -102,7 +103,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
 
   const secondaryButton = (): JSX.Element => (
     <>
-      <span className={styles.menuSecondaryWrapper}>
+      <span className={styles.menuSecondaryWrapper} role={role}>
         <button
           className={styles.menuOuterButton}
           disabled={disabled}
@@ -153,9 +154,5 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     return dropdownMenuItems ? dropdownMenuButton() : menuButton();
   };
 
-  return (
-    <li role={role} tabIndex={-1} className={menuItemClassNames}>
-      {renderedItem()}
-    </li>
-  );
+  return <li className={menuItemClassNames}>{renderedItem()}</li>;
 };

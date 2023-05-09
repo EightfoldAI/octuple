@@ -442,6 +442,7 @@
   --button-default-active-border-color: var(
     --button-default-active-background-color
   );
+  --button-default-split-divider-color: var(--primary-color-70);
   // ------ Default Button theme ------
 
   // ------ Default Disruptive Button theme ------
@@ -476,7 +477,20 @@
   --button-default-disruptive-active-border-color: var(
     --button-default-disruptive-active-background-color
   );
+  --button-default-disruptive-split-divider-color: var(--disruptive-color-70);
   // ------ Default Disruptive Button theme ------
+
+  // ------ Neutral Button theme ------
+  --button-neutral-text-color: var(--text-secondary-color);
+  --button-neutral-background-color: var(--grey-color-10);
+  --button-neutral-counter-default-text-color: var(--grey-color-80);
+  --button-neutral-hover-text-color: var(--button-neutral-text-color);
+  --button-neutral-hover-background-color: var(--background-color);
+  --button-neutral-focus-visible-background-color: var(--grey-color-10);
+  --button-neutral-active-text-color: var(--button-neutral-text-color);
+  --button-neutral-active-background-color: var(--grey-color-20);
+  --button-neutral-split-divider-color: var(--grey-color-70);
+  // ------ Neutral Button theme ------
 
   // ------ Primary Button theme ------
   --button-primary-text-color: var(--primary-color-80);
@@ -498,6 +512,7 @@
   --button-primary-active-border-color: var(
     --button-primary-active-background-color
   );
+  --button-primary-split-divider-color: var(--primary-color-80);
   // ------ Primary Button theme ------
 
   // ------ Primary Disruptive Button theme ------
@@ -538,6 +553,7 @@
   --button-primary-disruptive-active-border-color: var(
     --button-primary-disruptive-active-background-color
   );
+  --button-primary-disruptive-split-divider-color: var(--disruptive-color-80);
   // ------ Primary Disruptive Button theme ------
 
   // ------ Secondary Button theme ------
@@ -556,6 +572,7 @@
   --button-secondary-active-border-width: var(--button-secondary-border-width);
   --button-secondary-active-border-style: var(--button-secondary-border-style);
   --button-secondary-active-border-color: var(--button-secondary-border-color);
+  --button-secondary-split-divider-color: var(--primary-color-70);
   // ------ Secondary Button theme ------
 
   // ------ Secondary Disruptive Button theme ------
@@ -594,7 +611,38 @@
   --button-secondary-disruptive-active-border-color: var(
     --button-secondary-disruptive-active-background-color
   );
+  --button-secondary-disruptive-split-divider-color: var(--disruptive-color-70);
   // ------ Secondary Disruptive Button theme ------
+
+  // ------ System UI Button theme ------
+  --button-system-ui-text-color: var(--grey-color-60);
+  --button-system-ui-background-color: var(--background-color);
+  --button-system-ui-counter-default-text-color: var(--grey-color-80);
+  --button-system-ui-hover-text-color: var(--button-system-ui-text-color);
+  --button-system-ui-hover-background-color: var(--grey-color-10);
+  --button-system-ui-focus-visible-background-color: var(--background-color);
+  --button-system-ui-active-text-color: var(--button-system-ui-text-color);
+  --button-system-ui-active-background-color: var(--grey-color-20);
+  --button-system-ui-split-divider-color: var(--grey-color-70);
+  // ------ System UI Button theme ------
+
+  // ------ Two State Button theme ------
+  --button-two-state-text-color: var(--grey-color-70);
+  --button-two-state-background-color: var(--grey-color-10);
+  --button-two-state-border-color: var(--button-two-state-background-color);
+  --button-two-state-default-counter-background-color: var(--green-color-20);
+  --button-two-state-hover-counter-background-color: var(--green-color-20);
+  --button-two-state-checked-counter-background-color: var(--green-color-10);
+  --button-two-state-focus-counter-background-color: var(--green-color-20);
+  --button-two-state-active-counter-background-color: var(--green-color-10);
+  --button-two-state-default-counter-text-color: var(--grey-color-80);
+  --button-two-state-hover-text-color: var(--accent-color-70);
+  --button-two-state-hover-background-color: var(--green-color-10);
+  --button-two-state-active-text-color: var(--accent-color);
+  --button-two-state-active-background-color: var(--green-color-20);
+  --button-two-state-checked-text-color: var(--accent-color-80);
+  --button-two-state-checked-background-color: var(--green-color-20);
+  // ------ Two State Button theme ------
 
   // ------ Button Counter theme ------
   --button-counter-default-background-color: var(--grey-color-20);
@@ -750,4 +798,36 @@
   --slider-track-error-border-color: var(--red-color-60);
   --slider-value-text-color: var(--text-secondary-color);
   // ------ Slider theme ------
+
+  // ------ Tooltip theme ------
+  --tooltip-background-color-dark: var(--grey-color-80);
+  --tooltip-background-color-light: var(--background-color);
+  --tooltip-border-color-dark: var(--grey-color-40);
+  --tooltip-border-color-light: var(--grey-color-60);
+  --tooltip-border-radius: var(--border-radius-s);
+  --tooltip-border-style: solid;
+  --tooltip-border-width: 1px;
+  --tooltip-text-color-dark: var(--text-inverse-color);
+  --tooltip-text-color-light: var(--text-primary-color);
+  --tooltip-border-dark: var(--tooltip-border-width) var(--tooltip-border-style)
+    var(--tooltip-border-color-dark);
+  --tooltip-border-light: var(--tooltip-border-width)
+    var(--tooltip-border-style) var(--tooltip-border-color-light);
+  // ------ Tooltip theme ------
+
+  // ------ Accordion theme ------
+  --accordion-font-family: var(--font-stack-full);
+  --accordion-body-background-color: var(--background-color);
+  --accordion-body-text-color: var(--text-primary-color);
+  --accordion-border-color: var(--grey-color-20);
+  --accordion-border-style: solid;
+  --accordion-border-width: 1px;
+  --accordion-border: var(--accordion-border-width)
+    var(--accordion-border-style) var(--accordion-border-color);
+  --accordion-rectangle-shape-border-radius: var(--border-radius-s);
+  --accordion-summary-background-color: var(--background-color);
+  --accordion-summary-background-hover-color: var(--grey-color-10);
+  --accordion-summary-text-color: var(--text-primary-color);
+  --accordion-summary-text-hover-color: var(--text-primary-color);
+  --accordion-pill-shape-border-radius: var(--border-radius-xl);
 }

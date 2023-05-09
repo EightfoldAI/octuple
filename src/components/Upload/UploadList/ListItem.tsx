@@ -16,6 +16,7 @@ const ListItem = React.forwardRef(
       classNames,
       downloadFileText,
       downloadIcon: customDownloadIcon,
+      downloadIconButtonType: downloadIconButtonType,
       file,
       iconRender,
       isImgUrl,
@@ -32,6 +33,8 @@ const ListItem = React.forwardRef(
       previewIcon: customPreviewIcon,
       progress: progressProps,
       removeFileText,
+      removeIconButtonType: removeIconButtonType,
+      replaceButtonType: replaceButtonType,
       replaceFileText,
       removeIcon: customRemoveIcon,
       replaceIcon: customReplaceIcon,
@@ -131,6 +134,7 @@ const ListItem = React.forwardRef(
             ariaLabel: removeFileText,
             classNames: mergeClasses([styles.iconDelete]),
             disruptive: mergedStatus === 'error',
+            htmlType: removeIconButtonType,
             iconProps: {
               path:
                 typeof customRemoveIcon === 'function'
@@ -151,6 +155,7 @@ const ListItem = React.forwardRef(
           {
             classNames: mergeClasses([styles.iconReplace]),
             disruptive: mergedStatus === 'error',
+            htmlType: replaceButtonType,
             iconProps: {
               path:
                 typeof customReplaceIcon === 'function'
@@ -171,6 +176,7 @@ const ListItem = React.forwardRef(
             {
               ariaLabel: downloadFileText,
               classNames: mergeClasses([styles.iconDownload]),
+              htmlType: downloadIconButtonType,
               iconProps: {
                 path:
                   typeof customDownloadIcon === 'function'
@@ -253,7 +259,7 @@ const ListItem = React.forwardRef(
       mergedStatus !== 'uploading' && (
         <span className={styles.uploadListItemActions}>
           {previewIconButton}
-          {mergedStatus === 'done' && downloadIconButton}
+          {downloadIconButton}
           {!maxCount && removeIconButton}
           {maxCount === 1 && replaceButton}
         </span>

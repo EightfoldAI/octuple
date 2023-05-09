@@ -1,5 +1,5 @@
 export * from './Button.types';
-export * from './BaseButton';
+export * from './Button';
 export * from './DefaultButton/DefaultButton';
 export * from './NeutralButton/NeutralButton';
 export * from './PrimaryButton/PrimaryButton';

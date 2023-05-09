@@ -1,17 +1,15 @@
 import React, { FC, Ref } from 'react';
 import {
-  BaseButton,
+  Button,
   ButtonIconAlign,
   ButtonProps,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
 } from '..';
-import { mergeClasses } from '../../../shared/utilities';
 
-import styles from '../button.module.scss';
-
+// TODO: Remove in Octuple v3.0.0, use `<Button variant={ButtonVariant.SystemUI} />` instead.
 export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
   (
     {
@@ -19,6 +17,7 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      buttonWidth,
       checked = false,
       classNames,
       counter,
@@ -37,29 +36,22 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
       splitButtonChecked = false,
       style,
       toggle,
-      buttonWidth,
       transparent = false,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
   ) => {
-    const buttonClassNames: string = mergeClasses([
-      classNames,
-      styles.button,
-      styles.buttonSystemUi,
-      { [styles.transparent]: transparent },
-    ]);
-
     return (
-      <BaseButton
+      <Button
         {...rest}
         ref={ref}
         alignIcon={alignIcon}
         alignText={alignText}
         allowDisabledFocus={allowDisabledFocus}
         ariaLabel={ariaLabel}
+        buttonWidth={buttonWidth}
         checked={checked}
-        classNames={buttonClassNames}
+        classNames={classNames}
         counter={counter}
         disabled={disabled}
         dropShadow={dropShadow}
@@ -76,8 +68,8 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         toggle={toggle}
-        type={ButtonType.SystemUI}
-        buttonWidth={buttonWidth}
+        transparent={transparent}
+        variant={ButtonVariant.SystemUI}
       />
     );
   }

@@ -13,4 +13,13 @@ describe('Empty', () => {
     const wrapper = mount(<Empty description="Test" />);
     expect(wrapper.containsMatchingElement(<Empty />)).toEqual(true);
   });
+
+  test('empty includes the description class name', () => {
+    const wrapper = mount(
+      <Empty description="Test" descriptionClassNames="description-class" />
+    );
+    expect(
+      wrapper.getDOMNode().querySelector('.description-class')
+    ).toBeTruthy();
+  });
 });

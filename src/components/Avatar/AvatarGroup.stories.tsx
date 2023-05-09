@@ -1,8 +1,9 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Avatar, AvatarGroup, AvatarGroupVariant } from '.';
-import { Tooltip, TooltipSize, TooltipTheme } from '../Tooltip';
+import { Avatar, AvatarGroup, AvatarGroupVariant, AvatarPopupProps } from '.';
+import { TooltipSize, TooltipTheme } from '../Tooltip';
 
 export default {
   title: 'Avatar Group',
@@ -47,6 +48,7 @@ interface User {
   img: string;
   key: string;
   name: string;
+  popupProps: AvatarPopupProps;
   randomiseTheme: boolean; // This should be replaced by users profile settings chosen theme.
 }
 
@@ -60,50 +62,99 @@ const sampleList: User[] = [
   img: i === 1 ? imageProps.src : null,
   key: `key-${i}`,
   name: `User ${i}`,
+  popupProps: {
+    closeOnReferenceClick: false,
+    content: `User ${i}`,
+    trigger: 'hover',
+  },
   randomiseTheme: true,
 }));
 
 const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
-    {...args}
+    animateOnHover
     maxProps={{
       count: 4,
+      onClick: action('maxcount-click'),
+      onKeyDown: action('maxcount-keydown'),
+      onMouseEnter: action('maxcount-mouseenter'),
+      onMouseLeave: action('maxcount-mouseleave'),
+      tabIndex: 0,
+      tooltipProps: {
+        content: 'This is a tooltip.',
+        theme: TooltipTheme.dark,
+      },
     }}
+    {...args}
   >
     <Avatar
       alt={imageProps.alt}
       fontSize={args.fontSize}
       hashingFunction={() => 3}
+      onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
+      onMouseEnter={action('avatar-mouseenter')}
+      onMouseLeave={action('avatar-mouseleave')}
       src={imageProps.src}
       size={args.size}
+      tabIndex={0}
       theme={'blue'}
+      tooltipProps={{
+        content: 'User 1',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     />
     <Avatar
       fontSize={args.fontSize}
       hashingFunction={() => 3}
+      onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
+      onMouseEnter={action('avatar-mouseenter')}
+      onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
+      tabIndex={0}
       theme={'green'}
+      tooltipProps={{
+        content: 'User 2',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       AB
     </Avatar>
-    <Tooltip content="User profile">
-      <Avatar
-        fontSize={args.fontSize}
-        hashingFunction={() => 3}
-        size={args.size}
-        theme={'redOrange'}
-        type={args.type}
-      >
-        CD
-      </Avatar>
-    </Tooltip>
     <Avatar
       fontSize={args.fontSize}
       hashingFunction={() => 3}
+      onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
+      onMouseEnter={action('avatar-mouseenter')}
+      onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
+      tabIndex={0}
+      theme={'redOrange'}
+      tooltipProps={{
+        content: 'User 3',
+        theme: TooltipTheme.dark,
+      }}
+      type={args.type}
+    >
+      CD
+    </Avatar>
+    <Avatar
+      fontSize={args.fontSize}
+      hashingFunction={() => 3}
+      onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
+      onMouseEnter={action('avatar-mouseenter')}
+      onMouseLeave={action('avatar-mouseleave')}
+      size={args.size}
+      tabIndex={0}
       theme={'blueViolet'}
+      tooltipProps={{
+        content: 'User 4',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       EF
@@ -111,8 +162,17 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
     <Avatar
       fontSize={args.fontSize}
       hashingFunction={() => 3}
+      onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
+      onMouseEnter={action('avatar-mouseenter')}
+      onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
+      tabIndex={0}
       theme={'yellowGreen'}
+      tooltipProps={{
+        content: 'User 5',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       GH
@@ -120,8 +180,17 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
     <Avatar
       fontSize={args.fontSize}
       hashingFunction={() => 3}
+      onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
+      onMouseEnter={action('avatar-mouseenter')}
+      onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
+      tabIndex={0}
       theme={'violetRed'}
+      tooltipProps={{
+        content: 'User 6',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       IJ
@@ -133,9 +202,11 @@ export const Basic = Basic_Story.bind({});
 
 export const Basic_Spaced = Basic_Story.bind({});
 
+export const Basic_Max_Props_Exceed_Children = Basic_Story.bind({});
+
 const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
-    {...args}
+    animateOnHover
     avatarListProps={{
       items: sampleList,
       renderItem: (item: User) => (
@@ -145,6 +216,11 @@ const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
           data-test-id={item['data-test-id']}
           fontSize={args.fontSize}
           hashingFunction={() => 3}
+          onClick={action('avatar-click')}
+          onKeyDown={action('avatar-keydown')}
+          onMouseEnter={action('avatar-mouseenter')}
+          onMouseLeave={action('avatar-mouseleave')}
+          popupProps={item.popupProps}
           randomiseTheme={item.randomiseTheme}
           size={args.size}
           src={item.img}
@@ -156,12 +232,17 @@ const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
     }}
     maxProps={{
       count: 4,
+      onClick: action('maxcount-click'),
+      onKeyDown: action('maxcount-keydown'),
+      onMouseEnter: action('maxcount-mouseenter'),
+      onMouseLeave: action('maxcount-mouseleave'),
       tooltipProps: {
         content: 'This is a tooltip.',
         size: TooltipSize.Large,
         theme: TooltipTheme.dark,
       },
     }}
+    {...args}
   />
 );
 
@@ -169,11 +250,12 @@ export const List_Group = List_Story.bind({});
 
 export const List_Group_Spaced = List_Story.bind({});
 
+export const List_Group_Max_Props_Exceed_Children = List_Story.bind({});
+
 const avatarGroupArgs: Object = {
   classNames: 'my-avatar-group-class',
   'data-test-id': 'my-avatar-group-test-id',
   fontSize: '18px',
-  maxProps: {},
   size: '40px',
   style: {},
   type: 'round',
@@ -188,6 +270,13 @@ Basic_Spaced.args = {
   groupVariant: AvatarGroupVariant.Spaced,
 };
 
+Basic_Max_Props_Exceed_Children.args = {
+  ...avatarGroupArgs,
+  maxProps: {
+    count: 10,
+  },
+};
+
 List_Group.args = {
   ...avatarGroupArgs,
 };
@@ -195,4 +284,11 @@ List_Group.args = {
 List_Group_Spaced.args = {
   ...avatarGroupArgs,
   groupVariant: AvatarGroupVariant.Spaced,
+};
+
+List_Group_Max_Props_Exceed_Children.args = {
+  ...avatarGroupArgs,
+  maxProps: {
+    count: 30,
+  },
 };

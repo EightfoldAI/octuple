@@ -64,11 +64,12 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
   );
 
   return (
-    <li role={role} tabIndex={-1} className={menuItemClassNames}>
+    <li className={menuItemClassNames}>
       <Link
         classNames={styles.menuLink}
         disabled={disabled}
         fullWidth
+        role={role}
         tabIndex={tabIndex}
         {...rest}
       >

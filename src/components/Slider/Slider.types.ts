@@ -7,15 +7,6 @@ import styles from './slider.module.scss';
 
 // The subtracted integer accounts for rounding in the browser.
 // Other than this, there are no magic numbers.
-const LARGE_INLINE_MARGIN: number = +styles.largeSliderInlineMargin;
-export const LARGE_INLINE_MARGIN_OFFSET: number = LARGE_INLINE_MARGIN * 2 - 4;
-
-const MEDIUM_INLINE_MARGIN: number = +styles.mediumSliderInlineMargin;
-export const MEDIUM_INLINE_MARGIN_OFFSET: number = MEDIUM_INLINE_MARGIN * 2 - 2;
-
-const SMALL_INLINE_MARGIN: number = +styles.smallSliderInlineMargin;
-export const SMALL_INLINE_MARGIN_OFFSET: number = SMALL_INLINE_MARGIN * 2 - 2;
-
 export const LARGE_THUMB_DIAMETER: number = +styles.largeThumbDiameter;
 export const LARGE_THUMB_RADIUS: number = LARGE_THUMB_DIAMETER / 2;
 

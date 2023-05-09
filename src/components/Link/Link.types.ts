@@ -26,6 +26,10 @@ export interface LinkProps
    */
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   /**
+   * The Link role.
+   */
+  role?: string;
+  /**
    * Whether to show the Link underline.
    */
   underline?: boolean;

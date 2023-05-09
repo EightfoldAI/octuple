@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
@@ -9,8 +9,10 @@ import {
   ButtonWidth,
   DefaultButton,
 } from '../Button';
-import { IconName } from '../Icon';
+import { Icon, IconName } from '../Icon';
 import { List } from '../List';
+import { Stack } from '../Stack';
+import { TextInput } from '../Inputs';
 import { render, screen, waitFor } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -46,25 +48,25 @@ const Overlay = () => (
   />
 );
 
+const dropdownProps: object = {
+  trigger: 'click',
+  classNames: 'my-dropdown-class',
+  style: {},
+  dropdownClassNames: 'my-dropdown-class',
+  dropdownStyle: {
+    color: 'red',
+  },
+  placement: 'bottom-start',
+  overlay: Overlay(),
+  offset: 0,
+  positionStrategy: 'absolute',
+  disabled: false,
+  closeOnDropdownClick: true,
+  portal: false,
+};
+
 const DropdownComponent = (): JSX.Element => {
   const [visible, setVisibility] = useState(false);
-
-  const dropdownProps: object = {
-    trigger: 'click',
-    classNames: 'my-dropdown-class',
-    style: {},
-    dropdownClassNames: 'my-dropdown-class',
-    dropdownStyle: {
-      color: 'red',
-    },
-    placement: 'bottom-start',
-    overlay: Overlay(),
-    offset: 0,
-    positionStrategy: 'absolute',
-    disabled: false,
-    closeOnDropdownClick: true,
-    portal: false,
-  };
 
   return (
     <Dropdown
@@ -78,7 +80,38 @@ const DropdownComponent = (): JSX.Element => {
           path: IconName.mdiChevronDown,
           rotate: visible ? 180 : 0,
         }}
+        id="test-button-id"
       />
+    </Dropdown>
+  );
+};
+
+const ComplexDropdownComponent = (): JSX.Element => {
+  const inputRef: React.MutableRefObject<HTMLInputElement> =
+    useRef<HTMLInputElement>(null);
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <Dropdown
+      {...dropdownProps}
+      ariaRef={inputRef}
+      onVisibleChange={(isVisible) => setVisibility(isVisible)}
+    >
+      <div id="wrapper">
+        <Stack direction="horizontal" flexGap="xl">
+          <Icon path={IconName.mdiAccount} />
+          <TextInput
+            ref={inputRef}
+            placeholder={'Select'}
+            iconProps={{
+              path: IconName.mdiChevronDown,
+              rotate: visible ? 180 : 0,
+            }}
+            role="combobox"
+            data-testid="test-input-id"
+          />
+        </Stack>
+      </div>
     </Dropdown>
   );
 };
@@ -124,5 +157,28 @@ describe('Dropdown', () => {
     expect(
       (container.querySelector('.dropdown-wrapper') as HTMLElement).style.color
     ).toContain('red');
+  });
+
+  test('Should support cloned element id from its props', async () => {
+    render(<DropdownComponent />);
+    const dropdownButton = screen.getByRole('button');
+    expect(dropdownButton.id).toBe('test-button-id');
+  });
+
+  test('Should support ariaRef prop for complex dropdown references', async () => {
+    const { container } = render(<ComplexDropdownComponent />);
+    const dropdownAriaRef = screen.getByTestId('test-input-id');
+    expect(dropdownAriaRef.getAttribute('aria-controls')).toBeTruthy();
+    expect(dropdownAriaRef.getAttribute('aria-expanded')).toBe('false');
+    expect(dropdownAriaRef.getAttribute('aria-haspopup')).toBe('true');
+    expect(dropdownAriaRef.getAttribute('role')).toBe('combobox');
+    dropdownAriaRef.click();
+    await waitFor(() => screen.getByText('User profile 1'));
+    const option1 = screen.getByText('User profile 1');
+    expect(option1).toBeTruthy();
+    expect(container.querySelector('.dropdown-wrapper')?.classList).toContain(
+      'my-dropdown-class'
+    );
+    expect(dropdownAriaRef.getAttribute('aria-expanded')).toBe('true');
   });
 });

@@ -22,6 +22,7 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
       children,
       classNames,
       description,
+      descriptionClassNames = '',
       image,
       imageStyle,
       mode = EmptyMode.data,
@@ -77,7 +78,14 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
         </div>
         {title && <div className={styles.emptyTitle}>{title}</div>}
         {description && (
-          <div className={styles.emptyDescription}>{description}</div>
+          <div
+            className={mergeClasses([
+              styles.emptyDescription,
+              descriptionClassNames,
+            ])}
+          >
+            {description}
+          </div>
         )}
         {children && <div className={styles.emptyFooter}>{children}</div>}
       </div>

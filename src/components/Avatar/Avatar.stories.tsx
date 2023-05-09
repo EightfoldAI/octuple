@@ -5,8 +5,9 @@ import { IconName } from '../Icon';
 import {
   Avatar,
   AvatarProps,
-  StatusItemsPosition,
   getStatusItemSizeAndPadding,
+  StatusItemIconAlign,
+  StatusItemsPosition,
 } from './';
 import { Stack } from '../Stack';
 import { TooltipTheme } from '../Tooltip';
@@ -59,7 +60,7 @@ const Avatar_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
 export const Avatar_Icon = Avatar_Icon_Story.bind({});
 
 const Avatar_Round_Story: ComponentStory<typeof Avatar> = (args) => (
-  <Avatar {...args} />
+  <Avatar popupProps={{ content: 'A popup' }} {...args} />
 );
 
 export const Avatar_Round = Avatar_Round_Story.bind({});
@@ -216,6 +217,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           backgroundColor: 'var(--blue-color-20)',
           path: IconName.mdiCalendar,
           text: '20',
+          alignIcon: StatusItemIconAlign.Left,
         },
       },
     },

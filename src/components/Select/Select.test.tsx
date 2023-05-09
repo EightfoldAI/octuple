@@ -5,7 +5,7 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
 import { Select } from './';
 import { sleep } from '../../tests/Utilities';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -42,8 +42,6 @@ describe('Select', () => {
     await sleep();
   }
 
-  const ANIMATION_DURATION: number = 200;
-
   const options = [
     { text: 'Option 1', value: 'option1' },
     { text: 'Option 2', value: 'option2' },
@@ -73,8 +71,7 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
-    const option = getByText('Option 1');
+    const option = await waitFor(() => getByText('Option 1'));
     expect(option).toBeTruthy();
   });
 
@@ -89,8 +86,7 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
-    const option = getByText('Option 1');
+    const option = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option);
     expect(handleChange).toHaveBeenCalledWith(
       ['option1'],
@@ -99,6 +95,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 1',
           value: 'option1',
@@ -119,10 +116,9 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
-    const option1 = getByText('Option 1');
+    const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
-    const option2 = getByText('Option 2');
+    const option2 = await waitFor(() => getByText('Option 2'));
     fireEvent.click(option2);
     expect(handleChange).toHaveBeenCalledWith(
       ['option1', 'option2'],
@@ -131,6 +127,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 1',
           value: 'option1',
@@ -139,6 +136,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 2',
           value: 'option2',
@@ -158,6 +156,16 @@ describe('Select', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Renders without stealing focus', () => {
+    const defaultValue = 'option2';
+    const { getByDisplayValue } = render(
+      <Select options={options} defaultValue={defaultValue} />
+    );
+    const select = getByDisplayValue('Option 2');
+    expect(select).toBeTruthy();
+    expect(document.activeElement === select).toBe(false);
+  });
+
   test('Updates the selected value', async () => {
     const defaultValue = 'option2';
     const handleChange = jest.fn();
@@ -171,8 +179,7 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
-    const option1 = getByText('Option 1');
+    const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
     expect(handleChange).toHaveBeenCalledWith([], []);
     expect(handleChange).toHaveBeenCalledWith(
@@ -182,6 +189,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 2',
           value: 'option2',
@@ -195,6 +203,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 1',
           value: 'option1',
@@ -229,8 +238,7 @@ describe('Select', () => {
     );
     const select = container.querySelector('.select-input');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
-    const option1 = getByText('Option 1');
+    const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
     expect(handleChange).toHaveBeenCalledWith(
       ['option1', 'option2', 'option3'],
@@ -239,6 +247,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 1',
           value: 'option1',
@@ -247,6 +256,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 2',
           value: 'option2',
@@ -255,6 +265,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 3-2',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 3',
           value: 'option3',
@@ -275,7 +286,7 @@ describe('Select', () => {
   test('Handles clearing the selected value', async () => {
     const defaultValue = 'option2';
     const handleChange = jest.fn();
-    const { container, getByPlaceholderText } = render(
+    const { container, getByPlaceholderText, getByText } = render(
       <Select
         options={options}
         defaultValue={defaultValue}
@@ -286,7 +297,7 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
+    await waitFor(() => getByText('Option 1'));
     const clearButton = container.querySelector('.clear-icon-button');
     fireEvent.click(clearButton);
     expect(handleChange).toHaveBeenCalledWith([], []);
@@ -297,6 +308,7 @@ describe('Select', () => {
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
+          role: 'option',
           selected: true,
           text: 'Option 2',
           value: 'option2',
@@ -387,7 +399,6 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
     expect(container.querySelector('.dropdown')).toBeFalsy();
     expect(handleChange).not.toHaveBeenCalled();
   });
@@ -398,19 +409,17 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    await sleep(ANIMATION_DURATION);
-    const listbox = getAllByRole('menuitem');
+    const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
   });
 
   test('Filters the options when input value changes', async () => {
-    const { getByPlaceholderText, getByText, queryByText } = render(
-      <Select options={options} filterable placeholder="Select test" />
-    );
+    const { getAllByRole, getByPlaceholderText, getByText, queryByText } =
+      render(<Select options={options} filterable placeholder="Select test" />);
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     userEvent.type(select, 'Option 1');
-    await sleep(ANIMATION_DURATION);
+    await waitFor(() => getAllByRole('option'));
     const option1 = getByText('Option 1');
     const option2 = queryByText('Option 2');
     const option3 = queryByText('Option 3');

@@ -1,20 +1,21 @@
 import React, { FC, Ref, useEffect, useMemo, useRef, useState } from 'react';
-
-// Styles:
-import styles from './avatar.module.scss';
 import {
   AvatarFallbackProps,
   AvatarIconProps,
   AvatarOutlineProps,
   AvatarProps,
   BaseAvatarProps,
+  StatusItemIconAlign,
   StatusItemsPosition,
   StatusItemsProps,
 } from './';
-import { ConditionalWrapper, mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
-import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { Popup } from '../Popup';
 import { Tooltip } from '../Tooltip';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { ConditionalWrapper, mergeClasses } from '../../shared/utilities';
+
+import styles from './avatar.module.scss';
 
 export const AVATAR_THEME_SET = [
   styles.red,
@@ -43,6 +44,7 @@ export const getStatusItemSizeAndPadding = (
 const StatusItemWrapperPaddingFactor: number = 0.06;
 const DefaultStatusItemMaxTextLength: number = 3;
 const MinStatusItemFontSize: number = 12;
+const StatusItemFontDiff: string = '2px';
 
 const StatusItemOutlineDefaults: React.CSSProperties = {
   outlineColor: 'var(--grey-color-80)',
@@ -152,6 +154,8 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       <>
         {Object.keys(statusItems).map((position: StatusItemsPosition) => {
           const statusItemProps: StatusItemsProps = statusItems[position];
+          const alignIcon: StatusItemIconAlign =
+            statusItemProps.alignIcon ?? StatusItemIconAlign.Right;
           const showStatusItemText: boolean =
             statusItemProps.text &&
             statusItemProps.text.length <=
@@ -159,6 +163,20 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           const wrapperPadding: string | number =
             statusItemProps?.wrapperStyle?.padding ??
             `(${size} * ${StatusItemWrapperPaddingFactor})`;
+          const statusItemTextClasses = mergeClasses([
+            styles.avatarStatusItemText,
+            { [styles.avatarStatusItemTextRtl]: htmlDir === 'rtl' },
+            {
+              [styles.textMarginRight]: alignIcon == StatusItemIconAlign.Right,
+            },
+            { [styles.textMarginLeft]: alignIcon == StatusItemIconAlign.Left },
+          ]);
+          const statusItemIconElement = (
+            <Icon
+              {...statusItemProps}
+              classNames={styles.avatarStatusItemIcon}
+            />
+          );
           return (
             <div
               key={position}
@@ -200,21 +218,21 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {showStatusItemText && (showStatusItemsText[position] ?? true) ? (
+              {alignIcon == StatusItemIconAlign.Left && statusItemIconElement}
+              {showStatusItemText && (showStatusItemsText[position] ?? true) && (
                 <span
                   ref={(el) => (statusItemsRef.current[position] = el)}
                   style={{
-                    fontSize: statusItemProps.size,
                     color: statusItemProps.color,
+                    fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
+                    lineHeight: statusItemProps.size,
                   }}
-                  className={styles.avatarStatusItemText}
+                  className={statusItemTextClasses}
                 >
                   {statusItemProps.text}
                 </span>
-              ) : (
-                ''
               )}
-              <Icon {...statusItemProps} />
+              {alignIcon == StatusItemIconAlign.Right && statusItemIconElement}
             </div>
           );
         })}
@@ -225,7 +243,18 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
   (
-    { children, classNames, style, hashingFunction, theme, randomiseTheme },
+    {
+      children,
+      classNames,
+      hashingFunction,
+      onClick,
+      onKeyDown,
+      onMouseEnter,
+      onMouseLeave,
+      randomiseTheme,
+      style,
+      theme,
+    },
     ref: Ref<HTMLDivElement>
   ) => {
     const colorSetIndex: number = useMemo(() => {
@@ -240,7 +269,6 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
     const avatarClasses: string = mergeClasses([
       styles.wrapperStyle,
-      styles.avatar,
       classNames,
       { [styles.red]: theme === 'red' },
       { [styles.redOrange]: theme === 'redOrange' },
@@ -258,7 +286,16 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
     ]);
 
     return (
-      <div ref={ref} className={avatarClasses} style={style}>
+      <div
+        ref={ref}
+        className={avatarClasses}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        style={style}
+        tabIndex={0}
+      >
         {children}
       </div>
     );
@@ -267,17 +304,35 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
 const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
   (
-    { children, classNames, fontSize, iconProps, style },
+    {
+      children,
+      classNames,
+      fontSize,
+      iconProps,
+      onClick,
+      onKeyDown,
+      onMouseEnter,
+      onMouseLeave,
+      style,
+    },
     ref: Ref<HTMLDivElement>
   ) => {
     const wrapperClasses: string = mergeClasses([
       styles.wrapperStyle,
-      styles.avatar,
       classNames,
     ]);
 
     return (
-      <div ref={ref} className={wrapperClasses} style={style}>
+      <div
+        ref={ref}
+        className={wrapperClasses}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        style={style}
+        tabIndex={0}
+      >
         <Icon size={fontSize} {...iconProps} />
         {children}
       </div>
@@ -288,29 +343,36 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
 export const Avatar: FC<AvatarProps> = React.forwardRef(
   (
     {
-      classNames,
-      src,
       alt,
-      size = '32px',
-      type = 'square',
-      style = {},
-      fontSize = '18px',
-      iconProps,
-      outline,
-      statusItems = {},
       children,
+      classNames,
+      fontSize = '18px',
       hashingFunction,
-      theme,
+      key,
+      iconProps,
+      onClick,
+      onKeyDown,
+      onMouseEnter,
+      onMouseLeave,
+      outline,
+      popupProps = undefined,
       randomiseTheme,
+      size = '32px',
+      src,
+      statusItems = {},
+      style = {},
+      theme,
       tooltipProps = undefined,
+      type = 'square',
     },
     ref: Ref<HTMLDivElement>
   ) => {
-    const imageClasses: string = mergeClasses([
-      styles.avatar,
-      styles.imageStyle,
-      { [styles.roundImage]: type === 'round' },
-    ]);
+    const htmlDir: string = useCanvasDirection();
+
+    const [popupTriggerSize, setPopupTriggerSize] = useState<number>(
+      parseInt(size, 10)
+    );
+    const [popupVisible, setPopupVisibility] = useState<boolean>(false);
 
     let calculatedOutline: AvatarOutlineProps = undefined;
     if (outline !== undefined) {
@@ -328,6 +390,29 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       };
     }
 
+    useEffect(() => {
+      setPopupTriggerSize(parseInt(size, 10));
+    }, [size]);
+
+    const popupClassNames: string = mergeClasses([
+      { [styles.avatarPopup]: popupProps && !!popupVisible },
+      { [styles.avatarPopupVisible]: popupProps && !!popupVisible },
+      { [styles.avatarPopupHidden]: popupProps && !popupVisible },
+      { [styles.round]: type === 'round' },
+    ]);
+
+    const imageClassNames: string = mergeClasses([
+      styles.avatar,
+      styles.imageStyle,
+      popupClassNames,
+    ]);
+
+    const wrapperContainerClassNames: string = mergeClasses([
+      styles.avatarImgWrapper,
+      popupClassNames,
+      classNames,
+    ]);
+
     const wrapperContainerStyle: React.CSSProperties = {
       width: size,
       height: size,
@@ -338,26 +423,71 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       ...(Object.keys(statusItems).length > 0 ? { position: 'relative' } : {}),
     };
 
+    const getPopup = (children: React.ReactNode): JSX.Element => (
+      <Popup
+        closeOnPopupClick={false}
+        key={`${key}-popup`}
+        minHeight={Math.floor(popupTriggerSize + popupTriggerSize / 1.5)}
+        offset={-Math.floor(popupTriggerSize / 2)}
+        onVisibleChange={(isVisible) => setPopupVisibility(isVisible)}
+        placement="bottom-start"
+        popupStyle={{
+          margin:
+            htmlDir === 'rtl'
+              ? `0 ${Math.floor(popupTriggerSize / 4)}px`
+              : `0 -${Math.floor(popupTriggerSize / 4)}px`,
+          padding: `${Math.floor(popupTriggerSize / 3)}px`,
+          paddingTop: `${Math.floor(popupTriggerSize / 1.5)}px`,
+          borderRadius: `${Math.floor(popupTriggerSize / 4)}px`,
+        }}
+        portal
+        tabIndex={-1} // Prevent focus on the reference wrapper, defer to Avatar
+        triggerAbove
+        visibleArrow={false}
+        width={Math.floor(popupTriggerSize * 4)}
+        {...popupProps}
+      >
+        {children}
+      </Popup>
+    );
+
     if (src) {
       return (
         <ConditionalWrapper
-          condition={tooltipProps !== undefined}
+          condition={tooltipProps !== undefined || popupProps !== undefined}
           wrapper={(children: React.ReactNode): JSX.Element => (
-            <Tooltip {...tooltipProps}>{children}</Tooltip>
+            <>
+              {tooltipProps && popupProps === undefined && (
+                <Tooltip
+                  classNames={styles.avatarTooltip}
+                  key={`${key}-tooltip`}
+                  tabIndex={-1}
+                  {...tooltipProps}
+                >
+                  {children}
+                </Tooltip>
+              )}
+              {popupProps && getPopup(children)}
+            </>
           )}
         >
           <div
+            className={wrapperContainerClassNames}
             ref={ref}
             style={wrapperContainerStyle}
-            className={`${classNames} ${styles.avatarImgWrapper}`}
           >
             <img
-              src={src}
-              className={imageClasses}
-              style={calculatedOutline}
               alt={alt}
-              width={size}
+              className={imageClassNames}
               height={size}
+              onClick={onClick}
+              onKeyDown={onKeyDown}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              src={src}
+              style={calculatedOutline}
+              tabIndex={0}
+              width={size}
             />
             <AvatarStatusItems
               outline={calculatedOutline}
@@ -369,22 +499,49 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       );
     }
 
-    const wrapperClasses: string = mergeClasses([classNames, imageClasses]);
+    const wrapperClassNames: string = mergeClasses([
+      imageClassNames,
+      classNames,
+    ]);
+
+    const wrapperChildClassNames: string = mergeClasses([
+      popupClassNames,
+      classNames,
+    ]);
 
     if (iconProps) {
       return (
         <ConditionalWrapper
-          condition={tooltipProps !== undefined}
+          condition={tooltipProps !== undefined || popupProps !== undefined}
           wrapper={(children: React.ReactNode): JSX.Element => (
-            <Tooltip {...tooltipProps}>{children}</Tooltip>
+            <>
+              {tooltipProps && popupProps === undefined && (
+                <Tooltip
+                  classNames={styles.avatarTooltip}
+                  key={`${key}-tooltip`}
+                  tabIndex={-1}
+                  {...tooltipProps}
+                >
+                  <div>{children}</div>
+                </Tooltip>
+              )}
+              {popupProps &&
+                getPopup(
+                  <div className={wrapperChildClassNames}>{children}</div>
+                )}
+            </>
           )}
         >
           <AvatarIcon
-            iconProps={iconProps}
-            classNames={wrapperClasses}
-            style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
+            classNames={wrapperClassNames}
             fontSize={fontSize}
+            iconProps={iconProps}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             ref={ref}
+            style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
           >
             <AvatarStatusItems
               outline={calculatedOutline}
@@ -398,18 +555,37 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
     return (
       <ConditionalWrapper
-        condition={tooltipProps !== undefined}
+        condition={tooltipProps !== undefined || popupProps !== undefined}
         wrapper={(children: React.ReactNode): JSX.Element => (
-          <Tooltip {...tooltipProps}>{children}</Tooltip>
+          <>
+            {tooltipProps && popupProps === undefined && (
+              <Tooltip
+                classNames={styles.avatarTooltip}
+                key={`${key}-tooltip`}
+                tabIndex={-1}
+                {...tooltipProps}
+              >
+                <div>{children}</div>
+              </Tooltip>
+            )}
+            {popupProps &&
+              getPopup(
+                <div className={wrapperChildClassNames}>{children}</div>
+              )}
+          </>
         )}
       >
         <AvatarFallback
-          classNames={wrapperClasses}
-          style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
-          ref={ref}
+          classNames={wrapperClassNames}
           hashingFunction={hashingFunction}
-          theme={theme}
+          onClick={onClick}
+          onKeyDown={onKeyDown}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           randomiseTheme={randomiseTheme}
+          ref={ref}
+          style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
+          theme={theme}
         >
           {children}
           <AvatarStatusItems

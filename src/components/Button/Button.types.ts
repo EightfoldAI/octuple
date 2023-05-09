@@ -33,23 +33,12 @@ export enum ButtonShape {
   Round = 'round',
 }
 
-export enum ButtonType {
+export enum ButtonVariant {
   Default = 'default',
   Neutral = 'neutral',
   Primary = 'primary',
   Secondary = 'secondary',
   SystemUI = 'systemui',
-}
-
-export interface InternalButtonProps extends ButtonProps {
-  /**
-   * Determines the button type.
-   */
-  type?: ButtonType;
-  /**
-   * Ref of the button
-   */
-  ref?: Ref<HTMLButtonElement>;
 }
 
 export interface FloatingButtonProps {
@@ -64,13 +53,13 @@ export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
 
 export interface SplitButtonProps
   extends Omit<
-    InternalButtonProps,
+    ButtonProps,
     'text' | 'htmlType' | 'onContextMenu' | 'splitButtonProps' | 'toggle'
   > {}
 
 export interface TwoStateButtonProps
   extends Omit<
-    InternalButtonProps,
+    ButtonProps,
     | 'alignIcon'
     | 'htmlType'
     | 'iconProps'
@@ -170,6 +159,10 @@ export interface ButtonProps extends NativeButtonProps {
    */
   id?: string;
   /**
+   * If the button is in loading state
+   */
+  loading?: boolean;
+  /**
    * The button onClick event handler.
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -177,6 +170,10 @@ export interface ButtonProps extends NativeButtonProps {
    * The split button click event handler.
    */
   onContextMenu?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * Ref of the button
+   */
+  ref?: Ref<HTMLButtonElement>;
   /**
    * Shape of the button.
    * @default ButtonShape.Pill
@@ -218,7 +215,14 @@ export interface ButtonProps extends NativeButtonProps {
    */
   transparent?: boolean;
   /**
-   * If the button is in loading state
+   * Determines the button type.
+   * @deprecated Use `variant` instead.
+   * @default ButtonVariant.Default
    */
-  loading?: boolean;
+  type?: ButtonVariant;
+  /**
+   * Determines the button variant.
+   * @default ButtonVariant.Default
+   */
+  variant?: ButtonVariant;
 }

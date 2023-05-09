@@ -54,6 +54,17 @@ export enum PaginationLayoutOptions {
   NoLast = 'noLast',
 }
 
+export enum PaginationVisiblePagerCountSizeOptions {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
+}
+
+export enum PagerSizeOptions {
+  Small = 'small',
+  Medium = 'medium',
+}
+
 export type PaginationLocale = {
   lang: Locale;
 };
@@ -89,6 +100,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   goToText?: string;
   /**
+   * Hide pagination when there is a single page.
+   * @default false
+   */
+  hideWhenSinglePage?: boolean;
+  /**
    * The Pagination layout options.
    * @default {PaginationLayoutOptions.Previous, PaginationLayoutOptions.Pager, PaginationLayoutOptions.Next}
    */
@@ -121,6 +137,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   pageCount?: number;
   /**
+   * Represents the number of pages visible at any given time apart from
+   * Previous, Next, Quick Previous and Quick Next buttons.
+   */
+  pagerSize?: PagerSizeOptions;
+  /**
    * The Pagination pageSize.
    * @default 10
    */
@@ -132,6 +153,7 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
   pageSizeButtonAriaLabel?: string;
   /**
    * The Pagination pageSizes array.
+   * pageSizes should be defined when layout uses PaginationLayoutOptions.Sizes
    * @default {[10, 20, 30, 40, 50, 100]}
    */
   pageSizes?: number[];
@@ -156,6 +178,12 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   quickPreviousIconButtonAriaLabel?: string;
   /**
+   * pageSizes should only be defined for Sizes Layout.
+   * Recommended to turn this on as this is going to default behavior in future
+   * @default false
+   */
+  restrictPageSizesPropToSizesLayout?: boolean;
+  /**
    * The Page change is controlled internally.
    * @default true
    */
@@ -171,7 +199,7 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   simplified?: boolean;
   /**
-   * The Pagination total number of pages.
+   * The Pagination total number of items.
    * @default 1
    */
   total: number;
@@ -180,4 +208,10 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    * @default 'Total'
    */
   totalText?: string;
+  /**
+   * @deprecated Use pagerSize instead.
+   * Represents the number of list items (pages) are visible at any given time.
+   * @default PaginationVisiblePagerCountSizeOptions.Large
+   */
+  visiblePagerCountSize?: PaginationVisiblePagerCountSizeOptions;
 }

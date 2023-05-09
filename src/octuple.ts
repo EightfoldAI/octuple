@@ -9,16 +9,19 @@ import {
   Avatar,
   AvatarGroup,
   AvatarGroupVariant,
+  AvatarPopupProps,
+  StatusItemIconAlign,
   StatusItemsPosition,
 } from './components/Avatar';
 
 import { Badge } from './components/Badge';
 
 import {
+  Button,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
   ButtonWidth,
   ButtonIconAlign,
   DefaultButton,
@@ -71,11 +74,23 @@ import Grid, { Col, Row } from './components/Grid';
 
 import { Icon, IconName, IconSize } from './components/Icon';
 
+import { InlineSvgProps, InlineSvg } from './components/InlineSvg';
+
 import { Label, LabelSize } from './components/Label';
 
 import Layout from './components/Layout';
 
 import { Link } from './components/Link';
+
+import {
+  LinkButton,
+  LinkButtonIconAlign,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonVariant,
+  LinkButtonWidth,
+} from './components/LinkButton';
 
 import { List } from './components/List';
 
@@ -94,11 +109,21 @@ import { Navbar, NavbarContent } from './components/Navbar';
 
 import { NudgeAnimation } from './components/Button/Nudge';
 
-import { Pagination, PaginationLayoutOptions } from './components/Pagination';
+import {
+  Pagination,
+  PaginationLayoutOptions,
+  PaginationVisiblePagerCountSizeOptions,
+} from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
-import { Pill, PillSize, PillThemeName, PillType } from './components/Pills';
+import {
+  Pill,
+  PillIconAlign,
+  PillSize,
+  PillThemeName,
+  PillType,
+} from './components/Pills';
 
 import {
   SearchBox,
@@ -205,7 +230,7 @@ import { useBoolean } from './hooks/useBoolean';
 
 import { useCanvasDirection } from './hooks/useCanvasDirection';
 
-import { useMatchMedia } from './hooks/useMatchMedia';
+import { Breakpoints, useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
 
@@ -221,12 +246,16 @@ export {
   Avatar,
   AvatarGroup,
   AvatarGroupVariant,
+  AvatarPopupProps,
   Badge,
+  Breakpoints,
+  Button,
   ButtonIconAlign,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
-  ButtonType,
+  ButtonVariant,
+  ButtonVariant as ButtonType, // TODO: Remove in Octuple v3.0.0, leave in for now to support legacy variant by <Tag /> implementations
   ButtonWidth,
   Card,
   CardSize,
@@ -263,12 +292,21 @@ export {
   IconSize,
   InfoBar,
   InfoBarType,
+  InlineSvgProps,
+  InlineSvg,
   Label,
   LabelAlign,
   LabelPosition,
   LabelSize,
   Layout,
   Link,
+  LinkButton,
+  LinkButtonIconAlign,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonVariant,
+  LinkButtonWidth,
   List,
   Loader,
   LoaderSize,
@@ -288,6 +326,7 @@ export {
   OcThemeName,
   Pagination,
   PaginationLayoutOptions,
+  PaginationVisiblePagerCountSizeOptions,
   Panel,
   PanelHeader,
   PanelPlacement,
@@ -295,6 +334,7 @@ export {
   PersistentBar,
   PersistentBarType,
   Pill,
+  PillIconAlign,
   PillSize,
   PillThemeName,
   PillType,
@@ -335,6 +375,7 @@ export {
   Stack,
   Stat,
   StatThemeName,
+  StatusItemIconAlign,
   StatusItemsPosition,
   StatValidationStatus,
   Step,
