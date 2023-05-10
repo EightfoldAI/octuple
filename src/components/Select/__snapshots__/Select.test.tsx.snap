@@ -9,13 +9,8 @@ exports[`Select Renders with default value 1`] = `
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        aria-controls="dropdown-"
-        aria-expanded="false"
-        aria-haspopup="true"
         class="reference-wrapper select-input-wrapper"
         id="dropdown-reference"
-        role="button"
-        tabindex="-1"
       >
         <div
           class="input-wrapper input-medium input-stretch right-icon"
@@ -27,7 +22,10 @@ exports[`Select Renders with default value 1`] = `
               class="select-input-group input-group right-icon"
             >
               <input
+                aria-controls="dropdown-"
                 aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select"
@@ -45,7 +43,7 @@ exports[`Select Renders with default value 1`] = `
                 />
                 <button
                   aria-disabled="false"
-                  class="icon-button right-icon button button-system-ui button-medium icon-left"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                   type="button"
                 >
                   <span
@@ -152,13 +150,8 @@ exports[`Select Renders with default values when multiple 1`] = `
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        aria-controls="dropdown-"
-        aria-expanded="false"
-        aria-haspopup="true"
         class="reference-wrapper select-input-wrapper"
         id="dropdown-reference"
-        role="button"
-        tabindex="-1"
       >
         <div
           class="input-wrapper input-medium input-stretch right-icon"
@@ -170,7 +163,10 @@ exports[`Select Renders with default values when multiple 1`] = `
               class="select-input-group input-group right-icon"
             >
               <input
+                aria-controls="dropdown-"
                 aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder=""
@@ -188,7 +184,7 @@ exports[`Select Renders with default values when multiple 1`] = `
                 />
                 <button
                   aria-disabled="false"
-                  class="icon-button right-icon button button-system-ui button-medium icon-left"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                   type="button"
                 >
                   <span
@@ -227,13 +223,8 @@ exports[`Select Renders without crashing 1`] = `
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        aria-controls="dropdown-"
-        aria-expanded="false"
-        aria-haspopup="true"
         class="reference-wrapper select-input-wrapper"
         id="dropdown-reference"
-        role="button"
-        tabindex="-1"
       >
         <div
           class="input-wrapper input-medium input-stretch right-icon"
@@ -245,7 +236,10 @@ exports[`Select Renders without crashing 1`] = `
               class="select-input-group input-group right-icon"
             >
               <input
+                aria-controls="dropdown-"
                 aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select test"
@@ -263,7 +257,7 @@ exports[`Select Renders without crashing 1`] = `
                 />
                 <button
                   aria-disabled="false"
-                  class="icon-button right-icon button button-system-ui button-medium icon-left"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                   type="button"
                 >
                   <span
@@ -301,13 +295,8 @@ exports[`Select Select is large 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-large input-stretch right-icon"
@@ -319,7 +308,10 @@ exports[`Select Select is large 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -337,7 +329,7 @@ exports[`Select Select is large 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-large icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-large icon-left"
                 type="button"
               >
                 <span
@@ -374,13 +366,8 @@ exports[`Select Select is medium 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-medium input-stretch right-icon"
@@ -392,7 +379,10 @@ exports[`Select Select is medium 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -410,7 +400,7 @@ exports[`Select Select is medium 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                 type="button"
               >
                 <span
@@ -447,13 +437,8 @@ exports[`Select Select is pill shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-medium input-stretch right-icon"
@@ -465,7 +450,10 @@ exports[`Select Select is pill shaped 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -483,7 +471,7 @@ exports[`Select Select is pill shaped 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium round-shape icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium round-shape icon-left"
                 type="button"
               >
                 <span
@@ -520,13 +508,8 @@ exports[`Select Select is rectangle shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-medium input-stretch right-icon"
@@ -538,7 +521,10 @@ exports[`Select Select is rectangle shaped 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -556,7 +542,7 @@ exports[`Select Select is rectangle shaped 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                 type="button"
               >
                 <span
@@ -593,13 +579,8 @@ exports[`Select Select is small 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper input-small input-stretch right-icon"
@@ -611,7 +592,10 @@ exports[`Select Select is small 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -629,7 +613,7 @@ exports[`Select Select is small 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-small icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-small icon-left"
                 type="button"
               >
                 <span
@@ -666,13 +650,8 @@ exports[`Select Select is underline shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      aria-controls="dropdown-"
-      aria-expanded="false"
-      aria-haspopup="true"
       class="reference-wrapper select-input-wrapper"
       id="dropdown-reference"
-      role="button"
-      tabindex="-1"
     >
       <div
         class="input-wrapper underline input-medium input-stretch right-icon"
@@ -684,7 +663,10 @@ exports[`Select Select is underline shaped 1`] = `
             class="select-input-group input-group right-icon"
           >
             <input
+              aria-controls="dropdown-"
               aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
               class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -702,7 +684,7 @@ exports[`Select Select is underline shaped 1`] = `
               />
               <button
                 aria-disabled="false"
-                class="icon-button right-icon button button-system-ui button-medium icon-left"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
                 type="button"
               >
                 <span
