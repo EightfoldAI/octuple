@@ -116,6 +116,38 @@ const ComplexDropdownComponent = (): JSX.Element => {
   );
 };
 
+const ExternalElementDropdownComponent = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <Stack direction="horizontal" flexGap="xxl">
+      <DefaultButton
+        alignIcon={ButtonIconAlign.Right}
+        checked={visible}
+        data-testid="test-external-button-id"
+        onClick={() => setVisibility(!visible)}
+        text={'External Control'}
+        toggle
+      />
+      <Dropdown
+        {...dropdownProps}
+        visible={visible}
+        onVisibleChange={(isVisible) => setVisibility(isVisible)}
+      >
+        <DefaultButton
+          alignIcon={ButtonIconAlign.Right}
+          text={'Dropdown menu test'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+            rotate: visible ? 180 : 0,
+          }}
+          data-testid="test-button-id"
+        />
+      </Dropdown>
+    </Stack>
+  );
+};
+
 describe('Dropdown', () => {
   beforeAll(() => {
     matchMedia = new MatchMediaMock();
@@ -180,5 +212,24 @@ describe('Dropdown', () => {
       'my-dropdown-class'
     );
     expect(dropdownAriaRef.getAttribute('aria-expanded')).toBe('true');
+  });
+
+  test('Should support visible prop toggle via external element', async () => {
+    const { container } = render(<ExternalElementDropdownComponent />);
+    const externalElement = screen.getByTestId('test-external-button-id');
+    const referenceElement = screen.getByTestId('test-button-id');
+    externalElement.click();
+    await waitFor(() => screen.getByText('User profile 1'));
+    const option1 = screen.getByText('User profile 1');
+    expect(option1).toBeTruthy();
+    expect(container.querySelector('.dropdown-wrapper')?.classList).toContain(
+      'my-dropdown-class'
+    );
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    externalElement.click();
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
   });
 });
