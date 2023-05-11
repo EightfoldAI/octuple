@@ -231,5 +231,8 @@ describe('Dropdown', () => {
       expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
     );
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    externalElement.click();
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(option1).toBeTruthy();
   });
 });
