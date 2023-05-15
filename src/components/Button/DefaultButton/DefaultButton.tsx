@@ -54,6 +54,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
         classNames={classNames}
         counter={counter}
         disabled={disabled}
+        disruptive={disruptive}
         dropShadow={dropShadow}
         floatingButtonProps={floatingButtonProps}
         htmlType={htmlType}
