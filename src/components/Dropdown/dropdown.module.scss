@@ -33,13 +33,17 @@
   overflow-y: auto;
 
   &.open {
-    animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
-      forwards;
+    animation-name: slideUpIn;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easeout;
+    animation-fill-mode: forwards;
   }
 
   &.close {
-    animation: slideUpOut $motion-duration-extra-fast $motion-easing-easeinout
-      0s forwards;
+    animation-name: slideUpOut;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easein;
+    animation-fill-mode: forwards;
   }
 
   &.no-padding {
@@ -65,11 +69,6 @@
   0% {
     opacity: 0;
     transform: scaleY(0.8);
-    transform-origin: 0% 0%;
-  }
-  20% {
-    opacity: 1;
-    transform: scaleY(1);
     transform-origin: 0% 0%;
   }
   100% {
