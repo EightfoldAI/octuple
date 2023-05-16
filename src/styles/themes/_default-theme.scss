@@ -830,4 +830,10 @@
   --accordion-summary-text-color: var(--text-primary-color);
   --accordion-summary-text-hover-color: var(--text-primary-color);
   --accordion-pill-shape-border-radius: var(--border-radius-xl);
+
+  // ------ Empty theme ------
+  --empty-svg-accent-20-color: var(--accent-color-20);
+  --empty-svg-primary-10-color: var(--primary-color-10);
+  --empty-svg-primary-30-color: var(--primary-color-30);
+  --empty-svg-white-color: var(--white-color);
 }

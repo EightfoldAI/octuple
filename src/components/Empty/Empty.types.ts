@@ -2,10 +2,12 @@ import { OcBaseProps } from '../OcBase';
 
 export enum EmptyMode {
   data = 'data',
-  messages = 'messages',
-  tasks = 'tasks',
-  search = 'search',
   error = 'error',
+  messages = 'messages',
+  plan = 'plan',
+  profile = 'profile',
+  search = 'search',
+  tasks = 'tasks',
 }
 
 export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
