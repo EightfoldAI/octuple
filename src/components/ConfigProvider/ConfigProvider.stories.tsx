@@ -58,7 +58,7 @@ import frBE from '../Locale/fr_BE'; // Français (Belgium) TODO: dayjs has no fr
 import frCA from '../Locale/fr_CA'; // Français (Canada)
 import frFR from '../Locale/fr_FR'; // Français
 import heIL from '../Locale/he_IL'; // עברית
-// import hiHI from '../Locale/hi_HI'; // हिंदी TODO: Add Hindi locale
+import hiIN from '../Locale/hi_IN'; // हिंदी
 import hrHR from '../Locale/hr_HR'; // Hrvatski
 import htHT from '../Locale/ht_HT'; // Haitian
 import huHU from '../Locale/hu_HU'; // Magyar
@@ -94,7 +94,7 @@ import 'dayjs/locale/fi';
 import 'dayjs/locale/fr'; // Use fr for fr-BE too
 import 'dayjs/locale/fr-ca';
 import 'dayjs/locale/he';
-// import 'dayjs/locale/hi'; uncomment when Hindi locale is added
+import 'dayjs/locale/hi';
 import 'dayjs/locale/hr';
 import 'dayjs/locale/ht';
 import 'dayjs/locale/hu';
@@ -639,7 +639,7 @@ const localeValues: string[] = [
   'fr_CA',
   'fr_FR',
   'he_IL',
-  // 'hi_HI',
+  'hi_IN',
   'hr_HR',
   'ht_HT',
   'hu_HU',
@@ -703,7 +703,7 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
     fr_CA: frCA,
     fr_FR: frFR,
     he_IL: heIL,
-    // 'hi_HI': hiHI,
+    hi_IN: hiIN,
     hr_HR: hrHR,
     ht_HT: htHT,
     hu_HU: huHU,
@@ -742,6 +742,7 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
       fr_CA: 'fr-ca',
       fr_FR: 'fr',
       he_IL: 'he',
+      hi_IN: 'hi',
       hr_HR: 'hr',
       ht_HT: 'ht',
       hu_HU: 'hu',

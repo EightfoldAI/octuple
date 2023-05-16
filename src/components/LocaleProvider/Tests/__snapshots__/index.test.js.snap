@@ -180,6 +180,16 @@ LoadedCheerio {
 }
 `;
 
+exports[`Locale Provider should display the text as hi 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`Locale Provider should display the text as hr 1`] = `
 LoadedCheerio {
   "length": 0,
