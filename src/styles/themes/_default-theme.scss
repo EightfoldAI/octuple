@@ -1,175 +1,208 @@
 :root {
-  --primary-color-10: #ebf7ff;
-  --primary-color-20: #bce4ff;
-  --primary-color-30: #8ed0fa;
+  // ------ Base colors ------
+  // NOTE: Colors with no annotation are present to support
+  // overall base color palette in increments of 10 percent
+
+  // Primary base colors
+  // Equivalent to Blue (Link) base colors
+  // Distinct to support discreet theming scenarios
+  --primary-color-10: #ebf7ff; // $color-background1-primary (Surface 1)
+  --primary-color-20: #bce4ff; // $color-background2-primary (Surface 2)
+  --primary-color-30: #8ed0fa; // $color-background3-primary (Surface 3)
   --primary-color-40: #68baef;
   --primary-color-50: #47a4df;
-  --primary-color-60: #2c8cc9;
-  --primary-color-70: #146da6;
-  --primary-color-80: #054d7b;
+  --primary-color-60: #2c8cc9; // $color-tertiary (Graphics)
+  --primary-color-70: #146da6; // $color-secondary (Text)
+  --primary-color-80: #054d7b; // $color-primary (Extra high contrast)
   --primary-color-90: #002a47;
   --primary-color-100: #00060a;
-  --primary-color: #054d7b;
-  --accent-color-10: #ebfdff;
-  --accent-color-20: #b0f3fe;
-  --accent-color-30: #7be4f4;
+  --primary-color: #054d7b; // $color-primary (Extra high contrast)
+
+  // Accent base colors
+  --accent-color-10: #ebfdff; // $color-background1-accent (Surface 1)
+  --accent-color-20: #b0f3fe; // $color-background2-accent (Surface 2)
+  --accent-color-30: #7be4f4; // $color-background3-accent (Surface 3)
   --accent-color-40: #50cee1;
   --accent-color-50: #2db3c7;
-  --accent-color-60: #1999ac;
-  --accent-color-70: #0b7b8b;
-  --accent-color-80: #025966;
+  --accent-color-60: #1999ac; // $color-tertiary-accent (Graphics)
+  --accent-color-70: #0b7b8b; // $color-secondary-accent (Text)
+  --accent-color-80: #025966; // $color-primary-accent (Extra high contrast)
   --accent-color-90: #00333b;
   --accent-color-100: #00090a;
-  --accent-color: #025966;
-  --disruptive-color-10: #ffefef;
-  --disruptive-color-20: #ffc6c6;
-  --disruptive-color-30: #ffa3a3;
-  --disruptive-color-40: #f48686;
-  --disruptive-color-50: #e46f6f;
-  --disruptive-color-60: #c45353;
-  --disruptive-color-70: #993838;
-  --disruptive-color-80: #6c2222;
-  --disruptive-color-90: #3b1010;
-  --disruptive-color-100: #0a0202;
-  --disruptive-color: #6c2222;
-  --red-color-10: #ffefef;
-  --red-color-20: #ffc6c6;
-  --red-color-30: #ffa3a3;
+  --accent-color: #025966; // $color-primary-accent (Extra high contrast)
+
+  // Red base colors
+  --red-color-10: #ffefef; // $color-background1-red (Surface 1)
+  --red-color-20: #ffc6c6; // $color-background2-red (Surface 2)
+  --red-color-30: #ffa3a3; // $color-background3-red (Surface 3)
   --red-color-40: #f48686;
   --red-color-50: #e46f6f;
-  --red-color-60: #c45353;
-  --red-color-70: #993838;
-  --red-color-80: #6c2222;
+  --red-color-60: #c45353; // $color-tertiary-red (Graphics)
+  --red-color-70: #993838; // $color-secondary-red (Text)
+  --red-color-80: #6c2222; // $color-primary-red (Extra high contrast)
   --red-color-90: #3b1010;
   --red-color-100: #0a0202;
-  --red-color: #6c2222;
-  --redorange-color-10: #fff2ed;
-  --redorange-color-20: #ffd1bd;
-  --redorange-color-30: #ffb396;
+  --red-color: #6c2222; // $color-primary-red (Extra high contrast)
+
+  // Disruptive base colors
+  // Equivalent to Red base colors
+  // Distinct to support discreet theming scenarios
+  --disruptive-color-10: #ffefef; // $color-background1-disruptive (Surface 1)
+  --disruptive-color-20: #ffc6c6; // $color-background2-disruptive (Surface 2)
+  --disruptive-color-30: #ffa3a3; // $color-background3-disruptive (Surface 3)
+  --disruptive-color-40: #f48686;
+  --disruptive-color-50: #e46f6f;
+  --disruptive-color-60: #c45353; // $color-tertiary-disruptive (Graphics)
+  --disruptive-color-70: #993838; // $color-secondary-disruptive (Text)
+  --disruptive-color-80: #6c2222; // $color-primary-disruptive (Extra high contrast)
+  --disruptive-color-90: #3b1010;
+  --disruptive-color-100: #0a0202;
+  --disruptive-color: #6c2222; // $color-primary-disruptive (Extra high contrast)
+
+  // Red-Orange base colors
+  --redorange-color-10: #fff2ed; // $color-background1-red-orange (Surface 1)
+  --redorange-color-20: #ffd1bd; // $color-background2-red-orange (Surface 2)
+  --redorange-color-30: #ffb396; // $color-background3-red-orange (Surface 3)
   --redorange-color-40: #ff9977;
   --redorange-color-50: #f8845f;
-  --redorange-color-60: #d26743;
-  --redorange-color-70: #a54d2c;
-  --redorange-color-80: #78351a;
+  --redorange-color-60: #d26743; // $color-tertiary-red-orange (Graphics)
+  --redorange-color-70: #a54d2c; // $color-secondary-red-orange (Text)
+  --redorange-color-80: #78351a; // $color-primary-red-orange (Extra high contrast)
   --redorange-color-90: #4c1f0c;
   --redorange-color-100: #1f0c03;
-  --redorange-color: #78351a;
-  --orange-color-10: #fff8eb;
-  --orange-color-20: #ffe3b0;
-  --orange-color-30: #ffcd78;
+  --redorange-color: #78351a; // $color-primary-red-orange (Extra high contrast)
+
+  // Orange base colors
+  --orange-color-10: #fff8eb; // $color-background1-orange (Surface 1)
+  --orange-color-20: #ffe3b0; // $color-background2-orange (Surface 2)
+  --orange-color-30: #ffcd78; // $color-background3-orange (Surface 3)
   --orange-color-40: #ffb650;
   --orange-color-50: #f29d31;
-  --orange-color-60: #ce811a;
-  --orange-color-70: #9d6309;
-  --orange-color-80: #6c4500;
+  --orange-color-60: #ce811a; // $color-tertiary-orange (Graphics)
+  --orange-color-70: #9d6309; // $color-secondary-orange (Text)
+  --orange-color-80: #6c4500; // $color-primary-orange (Extra high contrast)
   --orange-color-90: #3b2600;
   --orange-color-100: #0a0700;
-  --orange-color: #6c4500;
-  --yellow-color-10: #ffffeb;
-  --yellow-color-20: #fff89c;
-  --yellow-color-30: #ffe44e;
+  --orange-color: #6c4500; // $color-primary-orange (Extra high contrast)
+
+  // Yellow base colors
+  --yellow-color-10: #ffffeb; // $color-background1-yellow (Surface 1)
+  --yellow-color-20: #fff89c; // $color-background2-yellow (Surface 2)
+  --yellow-color-30: #ffe44e; // $color-background3-yellow (Surface 3)
   --yellow-color-40: #f1c40f;
   --yellow-color-50: #d6ad00;
-  --yellow-color-60: #ad9300;
-  --yellow-color-70: #857600;
-  --yellow-color-80: #5c5500;
+  --yellow-color-60: #ad9300; // $color-tertiary-yellow (Graphics)
+  --yellow-color-70: #857600; // $color-secondary-yellow (Text)
+  --yellow-color-80: #5c5500; // $color-primary-yellow (Extra high contrast)
   --yellow-color-90: #333100;
   --yellow-color-100: #0a0a00;
-  --yellow-color: #5c5500;
-  --yellowgreen-color-10: #fdfeeb;
-  --yellowgreen-color-20: #f3f5b0;
-  --yellowgreen-color-30: #e2e575;
+  --yellow-color: #5c5500; // $color-primary-yellow (Extra high contrast)
+
+  // Yellow-Green base colors
+  --yellowgreen-color-10: #fdfeeb; // $color-background1-yellow-green (Surface 1)
+  --yellowgreen-color-20: #f3f5b0; // $color-background2-yellow-green (Surface 2)
+  --yellowgreen-color-30: #e2e575; // $color-background3-yellow-green (Surface 3)
   --yellowgreen-color-40: #cacd46;
   --yellowgreen-color-50: #abae1f;
-  --yellowgreen-color-60: #858707;
-  --yellowgreen-color-70: #6d6f00;
-  --yellowgreen-color-80: #525400;
+  --yellowgreen-color-60: #858707; // $color-tertiary-yellow-green (Graphics)
+  --yellowgreen-color-70: #6d6f00; // $color-secondary-yellow-green (Text)
+  --yellowgreen-color-80: #525400; // $color-primary-yellow-green (Extra high contrast)
   --yellowgreen-color-90: #343500;
   --yellowgreen-color-100: #131300;
-  --yellowgreen-color: #525400;
-  --green-color-10: #f0fefa;
-  --green-color-20: #b9f4e4;
-  --green-color-30: #8ce1ca;
+  --yellowgreen-color: #525400; // $color-primary-yellow-green (Extra high contrast)
+
+  // Green base colors
+  --green-color-10: #f0fefa; // $color-background1-green (Surface 1)
+  --green-color-20: #b9f4e4; // $color-background2-green (Surface 2)
+  --green-color-30: #8ce1ca; // $color-background3-green (Surface 3)
   --green-color-40: #67c5ac;
   --green-color-50: #51ab93;
-  --green-color-60: #3d8f79;
-  --green-color-70: #2b715f;
-  --green-color-80: #1b5143;
+  --green-color-60: #3d8f79; // $color-tertiary-green (Graphics)
+  --green-color-70: #2b715f; // $color-secondary-green (Text)
+  --green-color-80: #1b5143; // $color-primary-green (Extra high contrast)
   --green-color-90: #0e2e26;
   --green-color-100: #030a08;
-  --green-color: #1b5143;
-  --bluegreen-color-10: #ebfdff;
-  --bluegreen-color-20: #b0f3fe;
-  --bluegreen-color-30: #7be4f4;
+  --green-color: #1b5143; // $color-primary-green (Extra high contrast)
+
+  // Blue-Green base colors
+  --bluegreen-color-10: #ebfdff; // $color-background1-blue-green (Surface 1)
+  --bluegreen-color-20: #b0f3fe; // $color-background2-blue-green (Surface 2)
+  --bluegreen-color-30: #7be4f4; // $color-background3-blue-green (Surface 3)
   --bluegreen-color-40: #50cee1;
   --bluegreen-color-50: #2db3c7;
-  --bluegreen-color-60: #1999ac;
-  --bluegreen-color-70: #0b7b8b;
-  --bluegreen-color-80: #025966;
+  --bluegreen-color-60: #1999ac; // $color-tertiary-blue-green (Graphics)
+  --bluegreen-color-70: #0b7b8b; // $color-secondary-blue-green (Text)
+  --bluegreen-color-80: #025966; // $color-primary-blue-green (Extra high contrast)
   --bluegreen-color-90: #00333b;
   --bluegreen-color-100: #00090a;
-  --bluegreen-color: #025966;
-  --blue-color-10: #ebf7ff;
-  --blue-color-20: #bce4ff;
-  --blue-color-30: #8ed0fa;
+  --bluegreen-color: #025966; // $color-primary-blue-green (Extra high contrast)
+
+  // Blue (Link) base colors
+  --blue-color-10: #ebf7ff; // $color-background1-blue (Surface 1)
+  --blue-color-20: #bce4ff; // $color-background2-blue (Surface 2)
+  --blue-color-30: #8ed0fa; // $color-background3-blue (Surface 3)
   --blue-color-40: #68baef;
   --blue-color-50: #47a4df;
-  --blue-color-60: #2c8cc9;
-  --blue-color-70: #146da6;
-  --blue-color-80: #054d7b;
+  --blue-color-60: #2c8cc9; // $color-tertiary-blue (Graphics)
+  --blue-color-70: #146da6; // $color-secondary-blue (Text)
+  --blue-color-80: #054d7b; // $color-primary-blue (Extra high contrast)
   --blue-color-90: #002a47;
   --blue-color-100: #00060a;
-  --blue-color: #054d7b;
-  --blueviolet-color-10: #f1f2ff;
-  --blueviolet-color-20: #cacffc;
-  --blueviolet-color-30: #a9b0f5;
+  --blue-color: #054d7b; // $color-primary-blue (Extra high contrast)
+
+  // Blue-Violet base colors
+  --blueviolet-color-10: #f1f2ff; // $color-background1-blue-violet (Surface 1)
+  --blueviolet-color-20: #cacffc; // $color-background2-blue-violet (Surface 2)
+  --blueviolet-color-30: #a9b0f5; // $color-background3-blue-violet (Surface 3)
   --blueviolet-color-40: #8c95e8;
   --blueviolet-color-50: #757ed6;
-  --blueviolet-color-60: #5962b7;
-  --blueviolet-color-70: #414996;
-  --blueviolet-color-80: #2b3271;
+  --blueviolet-color-60: #5962b7; // $color-tertiary-blue-violet (Graphics)
+  --blueviolet-color-70: #414996; // $color-secondary-blue-violet (Text)
+  --blueviolet-color-80: #2b3271; // $color-primary-blue-violet (Extra high contrast)
   --blueviolet-color-90: #191d4a;
   --blueviolet-color-100: #090b1f;
-  --blueviolet-color: #2b3271;
-  --violet-color-10: #fbf6fb;
-  --violet-color-20: #ead3e8;
-  --violet-color-30: #d8b1d4;
+  --blueviolet-color: #2b3271; // $color-primary-blue-violet (Extra high contrast)
+
+  // Violet base colors
+  --violet-color-10: #fbf6fb; // $color-background1-violet (Surface 1)
+  --violet-color-20: #ead3e8; // $color-background2-violet (Surface 2)
+  --violet-color-30: #d8b1d4; // $color-background3-violet (Surface 3)
   --violet-color-40: #c491bf;
   --violet-color-50: #ae72a8;
-  --violet-color-60: #975590;
-  --violet-color-70: #7e3a77;
-  --violet-color-80: #5d2156;
+  --violet-color-60: #975590; // $color-tertiary-violet (Graphics)
+  --violet-color-70: #7e3a77; // $color-secondary-violet (Text)
+  --violet-color-80: #5d2156; // $color-primary-violet (Extra high contrast)
   --violet-color-90: #350e31;
   --violet-color-100: #060106;
-  --violet-color: #5d2156;
-  --violetred-color-10: #fff0f9;
-  --violetred-color-20: #fcc8e7;
-  --violetred-color-30: #f3a5d4;
+  --violet-color: #5d2156; // $color-primary-violet (Extra high contrast)
+
+  // Violet-Red base colors
+  --violetred-color-10: #fff0f9; // $color-background1-violet-red (Surface 1)
+  --violetred-color-20: #fcc8e7; // $color-background2-violet-red (Surface 2)
+  --violetred-color-30: #f3a5d4; // $color-background3-violet-red (Surface 3)
   --violetred-color-40: #e688c0;
   --violetred-color-50: #d36fab;
-  --violetred-color-60: #b5548e;
-  --violetred-color-70: #943d71;
-  --violetred-color-80: #702853;
+  --violetred-color-60: #b5548e; // $color-tertiary-violet-red (Graphics)
+  --violetred-color-70: #943d71; // $color-secondary-violet-red (Text)
+  --violetred-color-80: #702853; // $color-primary-violet-red (Extra high contrast)
   --violetred-color-90: #491635;
   --violetred-color-100: #1f0816;
-  --violetred-color: #702853;
-  --grey-color-10: #f6f7f8;
-  --grey-color-20: #d9dce1;
-  --grey-color-30: #bdc1c9;
+  --violetred-color: #702853; // $color-primary-violet-red (Extra high contrast)
+
+  // Grey (Neutral) base colors
+  --grey-color-10: #f6f7f8; // $color-background1-grey (Surface 1)
+  --grey-color-20: #d9dce1; // $color-background2-grey (Surface 2)
+  --grey-color-30: #bdc1c9; // $color-background3-grey (Surface 3)
   --grey-color-40: #a1a6b1;
   --grey-color-50: #858b98;
-  --grey-color-60: #69717f;
-  --grey-color-70: #4f5666;
-  --grey-color-80: #343c4c;
+  --grey-color-60: #69717f; // $color-tertiary-grey (Graphics)
+  --grey-color-70: #4f5666; // $color-secondary-grey (Text)
+  --grey-color-80: #343c4c; // $color-primary-grey (Extra high contrast)
   --grey-color-90: #1a212e;
   --grey-color-100: #05070a;
-  --grey-color: #343c4c;
-  --background-color: #fff;
-  --border-color: #bec2ca;
-  --text-primary-color: #1a212e;
-  --text-secondary-color: #4f5666;
-  --text-tertiary-color: #69717f;
-  --text-inverse-color: #fff;
+  --grey-color: #343c4c; // $color-primary-grey (Extra high contrast)
+
+  // Success (Validation) base colors
   --success-color: #2b715f;
   --success-background-color: #b9f4e4;
   --success-border-color: #3d8f79;
@@ -179,6 +212,8 @@
   --success-hover-color: #3d8f79;
   --success-hover-background-color: #b9f4e4;
   --success-hover-border-color: #3d8f79;
+
+  // Warning (Validation) base colors
   --warning-color: #9d6309;
   --warning-background-color: #ffe3b0;
   --warning-border-color: #c97e19;
@@ -188,6 +223,8 @@
   --warning-hover-color: #ce811a;
   --warning-hover-background-color: #ffe3b0;
   --warning-hover-border-color: #c97e19;
+
+  // Error (Validation) base colors
   --error-color: #993838;
   --error-background-color: #ffc6c6;
   --error-border-color: #c15151;
@@ -197,16 +234,32 @@
   --error-hover-color: #c45353;
   --error-hover-background-color: #ffc6c6;
   --error-hover-border-color: #c15151;
+
+  --background-color: #fff;
+  --border-color: #bec2ca;
+  --text-primary-color: #1a212e;
+  --text-secondary-color: #4f5666;
+  --text-tertiary-color: #69717f;
+  --text-inverse-color: #fff;
   --info-color: #4f5666;
   --white-color: #fff;
   --black-color: #000;
+  --horizontal-rule-color: var(--grey-color-40);
+  // ------ Base colors ------
+
+  // ------ Font theme ------
   --font-family: 'Source Sans Pro';
   --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   --font-stack-full: var(--font-family), var(--font-stack);
   --font-size: 16px;
-  --backdrop-filter: blur(5px);
+  // ------ Font theme ------
 
+  // ------ Glassmorphism theme ------
+  --backdrop-filter: blur(5px);
+  // ------ Glassmorphism theme ------
+
+  // ------ Link theme ------
   --anchor-color: var(--primary-color-70);
   --anchor-disruptive-color: var(--disruptive-color-70);
   --anchor-neutral-color: var(--grey-color-70);
@@ -227,19 +280,23 @@
   --anchor-neutral-visited-color: var(--violet-color-70);
   --anchor-primary-visited-color: var(--violet-color-70);
   --anchor-secondary-visited-color: var(--violet-color-80);
-  --horizontal-rule-color: var(--grey-color-40);
+  // ------ Link theme ------
 
+  // ------ Focus Visible theme ------
   --focus-visible-shadow-color: var(--blueviolet-color-50);
   --focus-visible-shadow-width: 2px;
   --focus-visible-box-shadow: 0 0 0 var(--focus-visible-shadow-width)
     var(--focus-visible-shadow-color);
+  // ------ Focus Visible theme ------
 
+  // ------ Border Radius theme ------
   --border-radius-xs: 2px;
   --border-radius-s: 4px;
   --border-radius-m: 8px;
   --border-radius-l: 16px;
   --border-radius-xl: 24px;
   --border-radius-round: 50%;
+  // ------ Border Radius theme ------
 
   // ------ Input theme ------
   --input-border-color: var(--grey-color-60);
@@ -304,7 +361,6 @@
   --stat-tab-active-border-color: var(--grey-color-60);
   --stat-tab-hover-background-color: var(--grey-color-20);
   --stat-tab-hover-border-color: var(--grey-color-20);
-
   // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
