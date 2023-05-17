@@ -3,6 +3,8 @@ import { mergeClasses } from '../../shared/utilities';
 import { EmptyMode, EmptyProps } from './Empty.types';
 import { DefaultEmptyDataImg } from './SVG/DefaultEmptyDataImg';
 import { DefaultEmptyMessagesImg } from './SVG/DefaultEmptyMessagesImg';
+import { DefaultEmptyPlanImg } from './SVG/DefaultEmptyPlanImg';
+import { DefaultEmptyProfileImg } from './SVG/DefaultEmptyProfileImg';
 import { DefaultEmptySearchImg } from './SVG/DefaultEmptySearchImg';
 import { DefaultServerErrorImg } from './SVG/DefaultServerErrorImg';
 import { DefaultTasksCompleteImg } from './SVG/DefaultTasksCompleteImg';
@@ -12,6 +14,8 @@ import styles from './empty.module.scss';
 
 const defaultEmptyDataImg = <DefaultEmptyDataImg />;
 const defaultEmptyMessagesImg = <DefaultEmptyMessagesImg />;
+const defaultEmptyPlanImg = <DefaultEmptyPlanImg />;
+const defaultEmptyProfileImg = <DefaultEmptyProfileImg />;
 const defaultEmptySearchImg = <DefaultEmptySearchImg />;
 const defaultServerErrorImg = <DefaultServerErrorImg />;
 const defaultTasksCompleteImg = <DefaultTasksCompleteImg />;
@@ -41,6 +45,10 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
           return defaultServerErrorImg;
         case EmptyMode.messages:
           return defaultEmptyMessagesImg;
+        case EmptyMode.plan:
+          return defaultEmptyPlanImg;
+        case EmptyMode.profile:
+          return defaultEmptyProfileImg;
         case EmptyMode.search:
           return defaultEmptySearchImg;
         case EmptyMode.tasks:

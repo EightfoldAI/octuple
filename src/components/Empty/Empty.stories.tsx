@@ -44,6 +44,8 @@ export const Error_State = Empty_Story.bind({});
 export const Empty_Messages = Empty_Story.bind({});
 export const No_Search_Results = Empty_Story.bind({});
 export const Tasks_Complete = Empty_Story.bind({});
+export const Empty_Plan = Empty_Story.bind({});
+export const Empty_Profile = Empty_Story.bind({});
 export const Custom_Image = Empty_Story.bind({});
 
 const emptyArgs: Object = {
@@ -78,9 +80,25 @@ Tasks_Complete.args = {
   mode: EmptyMode.tasks,
 };
 
+Empty_Plan.args = {
+  ...emptyArgs,
+  mode: EmptyMode.plan,
+};
+
+Empty_Profile.args = {
+  ...emptyArgs,
+  mode: EmptyMode.profile,
+};
+
 Custom_Image.args = {
   ...emptyArgs,
-  image: <Icon color="#8ED0FA" path={IconName.mdiWrenchOutline} size="120px" />,
+  image: (
+    <Icon
+      color="var(--empty-svg-primary-30-color)"
+      path={IconName.mdiWrenchOutline}
+      size="120px"
+    />
+  ),
   imageStyle: {},
   mode: '',
 };
