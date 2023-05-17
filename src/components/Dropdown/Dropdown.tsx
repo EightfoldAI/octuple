@@ -27,6 +27,7 @@ import {
 import { Menu } from '../Menu';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+import { usePreviousState } from '../../hooks/usePreviousState';
 import {
   ConditionalWrapper,
   eventKeys,
@@ -73,6 +74,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       });
 
       const [closing, setClosing] = useState<boolean>(false);
+      const previouslyClosing: boolean = usePreviousState(closing);
+
       const dropdownId: string = uniqueId('dropdown-');
       const [dropdownReferenceId, setReferenceElementId] = useState<string>(
         `${dropdownId}reference`
@@ -90,7 +93,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         (show: boolean, showDropdown = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
           // to control the toggle behaviour
-          const updatedShow = showDropdown(show);
+          const updatedShow: boolean = showDropdown(show);
           if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
             e.preventDefault();
           }
@@ -99,6 +102,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           timeout = setTimeout(
             () => {
               setVisible(updatedShow);
+              if (!previouslyClosing) {
+                setClosing(false);
+              }
               onVisibleChange?.(updatedShow);
             },
             !show ? ANIMATION_DURATION : 0
@@ -114,13 +120,17 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         (e) => {
           const referenceElement: HTMLElement =
             document.getElementById(dropdownReferenceId);
-          if (closeOnOutsideClick && closeOnReferenceClick) {
+          if (closeOnOutsideClick && closeOnReferenceClick && !mergedVisible) {
             toggle(false)(e);
           }
           if (
             !closeOnReferenceClick &&
-            !referenceElement.contains(e.target as Node)
+            !referenceElement.contains(e.target as Node) &&
+            !mergedVisible
           ) {
+            toggle(false)(e);
+          }
+          if (!mergedVisible) {
             toggle(false)(e);
           }
           onClickOutside?.(e);
