@@ -93,12 +93,12 @@ Positive.args = {
 
 Warning.args = {
   ...messageBarArgs,
-  icon: IconName.mdiAlertCircle,
+  icon: IconName.mdiAlert,
   type: MessageBarType.warning,
 };
 
 Disruptive.args = {
   ...messageBarArgs,
-  icon: IconName.mdiInformation,
+  icon: IconName.mdiAlertCircle,
   type: MessageBarType.disruptive,
 };

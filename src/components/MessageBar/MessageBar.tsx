@@ -69,6 +69,7 @@ export const MessageBar: FC<MessageBarsProps> = React.forwardRef(
       }
       switch (type) {
         case MessageBarType.disruptive:
+          return IconName.mdiAlertCircle;
         case MessageBarType.neutral:
           return IconName.mdiInformation;
         case MessageBarType.positive:
