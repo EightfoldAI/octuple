@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageBar MessageBar is Disruptive 1`] = `
+<div>
+  <div
+    class="message-bar disruptive"
+    role="alert"
+  >
+    <span
+      aria-hidden="false"
+      class="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+          style="fill: currentColor;"
+        />
+      </svg>
+    </span>
+    <div
+      class="message"
+    >
+      <h4
+        class="header"
+      >
+        MessageBar header
+      </h4>
+      <div
+        class="inner-message"
+      >
+        MessageBar test disruptive
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageBar MessageBar is Neutral 1`] = `
+<div>
+  <div
+    class="message-bar neutral"
+    role="alert"
+  >
+    <span
+      aria-hidden="false"
+      class="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+          style="fill: currentColor;"
+        />
+      </svg>
+    </span>
+    <div
+      class="message"
+    >
+      <h4
+        class="header"
+      >
+        MessageBar header
+      </h4>
+      <div
+        class="inner-message"
+      >
+        MessageBar test neutral
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageBar MessageBar is Positive 1`] = `
+<div>
+  <div
+    class="message-bar positive"
+    role="alert"
+  >
+    <span
+      aria-hidden="false"
+      class="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+          style="fill: currentColor;"
+        />
+      </svg>
+    </span>
+    <div
+      class="message"
+    >
+      <h4
+        class="header"
+      >
+        MessageBar header
+      </h4>
+      <div
+        class="inner-message"
+      >
+        MessageBar test positive
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageBar MessageBar is Warning 1`] = `
+<div>
+  <div
+    class="message-bar warning"
+    role="alert"
+  >
+    <span
+      aria-hidden="false"
+      class="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
+          style="fill: currentColor;"
+        />
+      </svg>
+    </span>
+    <div
+      class="message"
+    >
+      <h4
+        class="header"
+      >
+        MessageBar header
+      </h4>
+      <div
+        class="inner-message"
+      >
+        MessageBar test warning
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageBar Renders a custom icon when the icon prop uses a custom icon 1`] = `
+<div>
+  <div
+    class="message-bar neutral"
+    role="alert"
+  >
+    <span
+      aria-hidden="false"
+      class="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z"
+          style="fill: currentColor;"
+        />
+      </svg>
+    </span>
+    <div
+      class="message"
+    >
+      <h4
+        class="header"
+      >
+        MessageBar header
+      </h4>
+      <div
+        class="inner-message"
+      >
+        MessageBar test icon
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageBar Renders without crashing 1`] = `
+<div>
+  <div
+    class="message-bar neutral"
+    role="alert"
+  >
+    <span
+      aria-hidden="false"
+      class="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+          style="fill: currentColor;"
+        />
+      </svg>
+    </span>
+    <div
+      class="message"
+    >
+      <h4
+        class="header"
+      >
+        MessageBar header
+      </h4>
+      <div
+        class="inner-message"
+      >
+        MessageBar test content
+      </div>
+    </div>
+  </div>
+</div>
+`;
