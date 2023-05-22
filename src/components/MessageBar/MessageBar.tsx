@@ -63,20 +63,18 @@ export const MessageBar: FC<MessageBarsProps> = React.forwardRef(
       { [styles.disruptive]: type === MessageBarType.disruptive },
     ]);
 
+    const messageBarTypeToIconNameMap = new Map<MessageBarType, IconName>([
+      [MessageBarType.disruptive, IconName.mdiAlertCircle],
+      [MessageBarType.neutral, IconName.mdiInformation],
+      [MessageBarType.positive, IconName.mdiCheckCircle],
+      [MessageBarType.warning, IconName.mdiAlert],
+    ]);
+
     const getIconName = (): IconName => {
       if (icon) {
         return icon;
       }
-      switch (type) {
-        case MessageBarType.disruptive:
-          return IconName.mdiAlertCircle;
-        case MessageBarType.neutral:
-          return IconName.mdiInformation;
-        case MessageBarType.positive:
-          return IconName.mdiCheckCircle;
-        case MessageBarType.warning:
-          return IconName.mdiAlert;
-      }
+      return messageBarTypeToIconNameMap.get(type);
     };
 
     return (
