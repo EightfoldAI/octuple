@@ -4,7 +4,7 @@ exports[`Table.Basic renders correctly RTL 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table table-rtl test-class-name",
+      "class": "table table-row-hover table-rtl test-class-name",
     },
     "children": Array [
       Node {
