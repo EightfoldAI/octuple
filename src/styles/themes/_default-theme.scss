@@ -906,4 +906,11 @@
   --message-bar-text-color: var(--text-primary-color);
   --message-bar-warning-color: var(--orange-color-70);
   // ------ Message Bar theme ------
+
+  // ------ Pill theme ------
+  --pill-large-size-border-radius: var(--border-radius-m);
+  --pill-medium-size-border-radius: 6px;
+  --pill-small-size-border-radius: var(--border-radius-s);
+  --pill-xsmall-size-border-radius: var(--border-radius-s);
+  // ------ Pill theme ------
 }

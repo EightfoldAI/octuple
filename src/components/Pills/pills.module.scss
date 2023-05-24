@@ -4,7 +4,7 @@
   --hover-bg: var(--blue-color-30);
   --hover-label: var(--text-primary-color);
   padding: 5px $space-xs;
-  border-radius: 6px;
+  border-radius: var(--pill-medium-size-border-radius);
   transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
   background: var(--bg);
   color: var(--label);
@@ -133,17 +133,27 @@
   }
 
   &.large {
+    border-radius: var(--pill-large-size-border-radius);
     padding: 10px $space-xs;
   }
 
   &.medium {
-    border-radius: 6px;
+    border-radius: var(--pill-medium-size-border-radius);
     padding: 5px $space-xs;
+  }
+
+  &.small {
+    border-radius: var(--pill-small-size-border-radius);
+    padding: $space-xxs $space-xxs;
+  }
+
+  &.xsmall {
+    border-radius: var(--pill-xsmall-size-border-radius);
+    padding: $space-xxs $space-xxs;
   }
 
   &.small,
   &.xsmall {
-    border-radius: $border-radius-s;
     padding: $space-xxs $space-xxs;
   }
 
