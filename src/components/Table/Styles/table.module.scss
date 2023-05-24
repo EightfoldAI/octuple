@@ -700,6 +700,12 @@
   }
 }
 
+.table-spinner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .table-filter-dropdown {
   &-tree {
     padding: 8px 8px 0;
