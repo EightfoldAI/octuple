@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.37.0](https://github.com/EightfoldAI/octuple/compare/v2.36.2...v2.37.0) (2023-05-23)
+
+### Features
+
+- empty: enable themes and adds two additional modes ([#619](https://github.com/EightfoldAI/octuple/issues/619)) ([2ac0cd0](https://github.com/EightfoldAI/octuple/commits/2ac0cd089880997c00d55d46caed2e4a0b68e2bc))
+
+### Bug Fixes
+
+- button: pass disruptive down from props to button from defaultbutton ([#614](https://github.com/EightfoldAI/octuple/issues/614)) ([ab4a4c9](https://github.com/EightfoldAI/octuple/commits/ab4a4c91e3fc1274aea392c045cbbe5d755318bf))
+- dropdown: fix visible prop ([#616](https://github.com/EightfoldAI/octuple/issues/616)) ([5e9f147](https://github.com/EightfoldAI/octuple/commits/5e9f147ea0a50508fed2c9b85160feaee7526d54))
+- dropdown: tweak css slideupin animation ([#618](https://github.com/EightfoldAI/octuple/issues/618)) ([7a26de0](https://github.com/EightfoldAI/octuple/commits/7a26de00096dbf145eaa558b082247aaebc36338))
+- locale: add support for hi locale ([#602](https://github.com/EightfoldAI/octuple/issues/602)) ([4232b01](https://github.com/EightfoldAI/octuple/commits/4232b01915618c5521531e3a57ef1ffd1007e874))
+
 ### [2.36.2](https://github.com/EightfoldAI/octuple/compare/v2.36.1...v2.36.2) (2023-05-09)
 
 ### Bug Fixes
