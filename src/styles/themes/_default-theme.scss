@@ -886,10 +886,24 @@
   --accordion-summary-text-color: var(--text-primary-color);
   --accordion-summary-text-hover-color: var(--text-primary-color);
   --accordion-pill-shape-border-radius: var(--border-radius-xl);
+  // ------ Accordion theme ------
 
   // ------ Empty theme ------
   --empty-svg-accent-20-color: var(--accent-color-20);
   --empty-svg-primary-10-color: var(--primary-color-10);
   --empty-svg-primary-30-color: var(--primary-color-30);
   --empty-svg-white-color: var(--white-color);
+  // ------ Empty theme ------
+
+  // ------ Message Bar theme ------
+  --message-bar-background-color: var(--background-color);
+  --message-bar-border-radius: var(--border-radius-xs);
+  --message-bar-box-shadow: 0px -1px 2px rgba(15, 20, 31, 0.12),
+    0px 4px 16px rgba(15, 20, 31, 0.16);
+  --message-bar-disruptive-color: var(--disruptive-color-70);
+  --message-bar-neutral-color: var(--grey-color-70);
+  --message-bar-positive-color: var(--green-color-70);
+  --message-bar-text-color: var(--text-primary-color);
+  --message-bar-warning-color: var(--orange-color-70);
+  // ------ Message Bar theme ------
 }

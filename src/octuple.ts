@@ -94,6 +94,8 @@ import {
 
 import { List } from './components/List';
 
+import { MessageBar, MessageBarType } from './components/MessageBar';
+
 import {
   CascadingMenu,
   Menu,
@@ -316,6 +318,8 @@ export {
   MenuItemType,
   MenuVariant,
   MenuSize,
+  MessageBar,
+  MessageBarType,
   Modal,
   ModalSize,
   Navbar,
