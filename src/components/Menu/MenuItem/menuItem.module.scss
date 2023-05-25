@@ -71,7 +71,7 @@
 
   .item-sub-text {
     text-align: left;
-    color: var(--grey-color-60);
+    color: var(--grey-tertiary-color);
     @each $size-name, $size-value in $text-font-size-map {
       &.#{$size-name} {
         font-size: $size-value;
@@ -119,15 +119,15 @@
   }
 
   &.primary {
-    --label: var(--primary-color-70);
+    --label: var(--primary-secondary-color);
 
     &:hover {
-      --background: var(--accent-color-10);
+      --background: var(--accent-background1-color);
     }
 
     &.active,
     &:active {
-      --background: var(--accent-color-20);
+      --background: var(--accent-background2-color);
     }
   }
 
@@ -135,26 +135,26 @@
     --label: var(--disruptive-color);
 
     &:hover {
-      --background: var(--disruptive-color-10);
+      --background: var(--disruptive-background1-color);
     }
 
     &.active,
     &:active {
-      --background: var(--disruptive-color-20);
+      --background: var(--disruptive-background2-color);
     }
   }
 
   &.neutral {
-    --active-background: var(--grey-color-10);
+    --active-background: var(--grey-background1-color);
     --label: var(--grey-color-90);
 
     &:hover {
-      --background: var(--grey-color-10);
+      --background: var(--grey-background1-color);
     }
 
     &.active,
     &:active {
-      --background: var(--grey-color-20);
+      --background: var(--grey-background2-color);
     }
   }
 
@@ -214,7 +214,7 @@
 }
 
 .menu-item-sub-header {
-  color: var(--grey-color-60);
+  color: var(--grey-tertiary-color);
   padding: $space-s $space-xxs $space-s;
   border-bottom: solid 1px var(--border-color);
   margin: 0 $space-m $space-m;
@@ -270,9 +270,9 @@
     &.disruptive {
       &:focus-visible,
       &:focus-within {
-        background-color: var(--disruptive-color-10);
+        background-color: var(--disruptive-background1-color);
         box-shadow: 0 0 0 var(--focus-visible-shadow-width)
-          var(--disruptive-color-80);
+          var(--disruptive-color);
       }
     }
 
