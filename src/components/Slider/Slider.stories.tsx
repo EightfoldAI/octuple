@@ -1078,7 +1078,7 @@ Custom_Markers_Included.args = {
     37: '37%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },
@@ -1095,7 +1095,7 @@ Custom_Markers_Excluded.args = {
     37: '37%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },
@@ -1111,7 +1111,7 @@ Custom_Markers_With_Step.args = {
     30: '30%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },
@@ -1127,7 +1127,7 @@ Custom_Markers_Null_Step.args = {
     37: '37%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },

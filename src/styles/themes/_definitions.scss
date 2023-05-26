@@ -73,7 +73,7 @@ $table-header-foreground-color: var(--table-header-foreground-color);
 $table-header-sort-background-color: var(--table-header-sort-background-color);
 $table-header-icon-color: var(--table-header-icon-color);
 $table-header-icon-hover-color: var(--table-header-icon-hover-color);
-$table-header-color: var(--grey-color-60);
+$table-header-color: var(--grey-tertiary-color);
 $table-body-sort-backgroud-color: var(--table-body-sort-backgroud-color);
 $table-row-hover-background-color: var(--table-row-hover-background-color);
 $table-row-selected-foregroud-color: var(--table-row-selected-foregroud-color);
@@ -114,10 +114,10 @@ $table-sticky-scroll-bar-active-background-color: transparent; // constant
 // Tree
 
 $tree-bg: var(--background-color);
-$tree-border-color: var(--grey-color-20);
+$tree-border-color: var(--grey-background2-color);
 $tree-directory-selected-color: var(--white-color);
 $tree-directory-selected-bg: var(--primary-color);
-$tree-node-hover-bg: var(--grey-color-10);
+$tree-node-hover-bg: var(--grey-background1-color);
 $tree-node-selected-bg: var(--primary-color);
 
 // Picker

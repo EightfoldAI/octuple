@@ -76,8 +76,8 @@ $multi-select-count-offset: 54px;
   }
 
   .selected-option {
-    background-color: var(--primary-color-10);
-    color: var(--primary-color-80);
+    background-color: var(--primary-background1-color);
+    color: var(--primary-color);
   }
 
   &.select-large {
@@ -156,7 +156,7 @@ $multi-select-count-offset: 54px;
 }
 
 .select-menu-empty {
-  color: var(--grey-color-60);
+  color: var(--grey-tertiary-color);
   margin: $space-m;
   position: relative;
 }

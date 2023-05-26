@@ -37,7 +37,7 @@
       }
 
       .checkmark {
-        border: $space-xxxs solid var(--grey-color-70);
+        border: $space-xxxs solid var(--grey-secondary-color);
         border-radius: $border-radius-xs;
         height: $checkmark-medium-height;
         width: $checkmark-medium-width;
@@ -66,7 +66,7 @@
         }
 
         &.toggle {
-          border: $space-xxxs solid var(--grey-color-70);
+          border: $space-xxxs solid var(--grey-secondary-color);
           border-radius: $toggle-medium-height;
           min-height: $toggle-medium-height;
           height: $toggle-medium-height;
@@ -79,8 +79,8 @@
           width: $toggle-medium-width;
 
           &:after {
-            background-color: var(--grey-color-70);
-            border: solid var(--grey-color-70);
+            background-color: var(--grey-secondary-color);
+            border: solid var(--grey-secondary-color);
             border-radius: 50%;
             border-width: $space-xxxs;
             content: '';
@@ -101,16 +101,16 @@
 
     &:not(.disabled):not([disabled]):active + label {
       .checkmark {
-        border: $space-xxxs solid var(--primary-color-70);
-        background-color: var(--accent-color-30);
+        border: $space-xxxs solid var(--primary-secondary-color);
+        background-color: var(--accent-background3-color);
 
         &.toggle {
-          border: $space-xxxs solid var(--primary-color-70);
-          background-color: var(--accent-color-30);
+          border: $space-xxxs solid var(--primary-secondary-color);
+          background-color: var(--accent-background3-color);
 
           &:after {
-            background-color: var(--primary-color-70);
-            border-color: var(--primary-color-70);
+            background-color: var(--primary-secondary-color);
+            border-color: var(--primary-secondary-color);
           }
         }
       }
@@ -118,16 +118,16 @@
 
     &:not(.disabled):not([disabled]):hover + label {
       .checkmark {
-        border: $space-xxxs solid var(--primary-color-70);
-        background-color: var(--accent-color-10);
+        border: $space-xxxs solid var(--primary-secondary-color);
+        background-color: var(--accent-background1-color);
 
         &.toggle {
-          border: $space-xxxs solid var(--primary-color-70);
-          background-color: var(--accent-color-10);
+          border: $space-xxxs solid var(--primary-secondary-color);
+          background-color: var(--accent-background1-color);
 
           &:after {
-            background-color: var(--primary-color-70);
-            border-color: var(--primary-color-70);
+            background-color: var(--primary-secondary-color);
+            border-color: var(--primary-secondary-color);
           }
         }
       }
@@ -144,23 +144,23 @@
         $motion-delay-s;
 
       .checkmark {
-        background-color: var(--accent-color-30);
-        border: $space-xxxs solid var(--primary-color-70);
+        background-color: var(--accent-background3-color);
+        border: $space-xxxs solid var(--primary-secondary-color);
 
         &.toggle {
-          background-color: var(--accent-color-30);
-          border: $space-xxxs solid var(--primary-color-70);
+          background-color: var(--accent-background3-color);
+          border: $space-xxxs solid var(--primary-secondary-color);
 
           &:after {
-            background-color: var(--primary-color-70);
-            border-color: var(--primary-color-70);
+            background-color: var(--primary-secondary-color);
+            border-color: var(--primary-secondary-color);
           }
         }
       }
 
       .checkmark {
         &:after {
-          border-color: var(--primary-color-70);
+          border-color: var(--primary-secondary-color);
           opacity: 1;
           transform: rotate(45deg) scale(0.7);
           transition: all $motion-duration-extra-fast $motion-ease-out-back
@@ -169,8 +169,8 @@
 
         &.toggle {
           &:after {
-            background-color: var(--primary-color-70);
-            border-color: var(--primary-color-70);
+            background-color: var(--primary-secondary-color);
+            border-color: var(--primary-secondary-color);
             left: $toggle-medium-after-left-checked;
             opacity: 1;
             transform: none;
@@ -184,17 +184,17 @@
     &:not(.disabled):not([disabled]):active + label {
       .checkmark {
         transform: scale(0.98);
-        background-color: var(--accent-color-10);
-        border: $space-xxxs solid var(--primary-color-70);
+        background-color: var(--accent-background1-color);
+        border: $space-xxxs solid var(--primary-secondary-color);
 
         &.toggle {
           transform: scale(0.98);
-          background-color: var(--accent-color-10);
-          border: $space-xxxs solid var(--primary-color-70);
+          background-color: var(--accent-background1-color);
+          border: $space-xxxs solid var(--primary-secondary-color);
 
           &:after {
-            background-color: var(--primary-color-70);
-            border-color: var(--primary-color-70);
+            background-color: var(--primary-secondary-color);
+            border-color: var(--primary-secondary-color);
           }
         }
       }
@@ -202,16 +202,16 @@
 
     &:not(.disabled):not([disabled]):hover + label {
       .checkmark {
-        background-color: var(--accent-color-20);
-        border: $space-xxxs solid var(--primary-color-70);
+        background-color: var(--accent-background2-color);
+        border: $space-xxxs solid var(--primary-secondary-color);
 
         &.toggle {
-          background-color: var(--accent-color-20);
-          border: $space-xxxs solid var(--primary-color-70);
+          background-color: var(--accent-background2-color);
+          border: $space-xxxs solid var(--primary-secondary-color);
 
           &:after {
-            background-color: var(--primary-color-70);
-            border-color: var(--primary-color-70);
+            background-color: var(--primary-secondary-color);
+            border-color: var(--primary-secondary-color);
           }
         }
       }
@@ -550,15 +550,15 @@
       &:focus-visible + label {
         .checkmark {
           outline: none;
-          border: $space-xxxs solid var(--grey-color-70);
+          border: $space-xxxs solid var(--grey-secondary-color);
 
           &.toggle {
             outline: none;
-            border: $space-xxxs solid var(--grey-color-70);
+            border: $space-xxxs solid var(--grey-secondary-color);
 
             &:after {
-              background-color: var(--primary-color-70);
-              border-color: var(--primary-color-70);
+              background-color: var(--primary-secondary-color);
+              border-color: var(--primary-secondary-color);
             }
           }
         }
@@ -584,15 +584,15 @@
         &:focus-visible + label {
           .checkmark {
             outline: none;
-            border: $space-xxxs solid var(--grey-color-70);
+            border: $space-xxxs solid var(--grey-secondary-color);
 
             &.toggle {
               outline: none;
-              border: $space-xxxs solid var(--grey-color-70);
+              border: $space-xxxs solid var(--grey-secondary-color);
 
               &:after {
-                background-color: var(--primary-color-70);
-                border-color: var(--primary-color-70);
+                background-color: var(--primary-secondary-color);
+                border-color: var(--primary-secondary-color);
               }
             }
           }

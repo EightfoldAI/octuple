@@ -198,7 +198,7 @@ const ThemedComponents: FC = () => {
           style={{
             textTransform: 'capitalize',
             marginLeft: '4px',
-            color: 'var(--accent-color-30)',
+            color: 'var(--accent-background3-color)',
           }}
         >
           | Accent

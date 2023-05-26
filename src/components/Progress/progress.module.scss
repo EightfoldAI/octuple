@@ -19,9 +19,9 @@
   }
 
   &-inner {
-    background-color: var(--accent-color-10);
+    background-color: var(--accent-background1-color);
     border-radius: 100px;
-    border: 1px solid var(--primary-color-60);
+    border: 1px solid var(--primary-tertiary-color);
     display: inline-block;
     overflow: hidden;
     position: relative;
@@ -36,7 +36,7 @@
   }
 
   &-circle-trail {
-    stroke: var(--accent-color-10);
+    stroke: var(--accent-background1-color);
   }
 
   &-circle-path {
@@ -45,13 +45,13 @@
 
   &-inner:not(.progress-circle-gradient) {
     .progress-circle-path {
-      stroke: var(--primary-color-60);
+      stroke: var(--primary-tertiary-color);
     }
   }
 
   &-success-bg,
   &-bg {
-    background-color: var(--primary-color-60);
+    background-color: var(--primary-tertiary-color);
     border-radius: 100px;
     position: relative;
     transition: all 0.4s $motion-easing-easeout 0s;
@@ -107,9 +107,9 @@
     }
 
     &-item {
-      background: var(--accent-color-10);
+      background: var(--accent-background1-color);
       border-radius: 100px;
-      border: 1px solid var(--primary-color-60);
+      border: 1px solid var(--primary-tertiary-color);
       flex-shrink: 0;
       margin-bottom: $space-xxs;
       margin-right: $space-xxs;
@@ -117,7 +117,7 @@
       transition: background $motion-duration-extra-fast;
 
       &-active {
-        background: var(--primary-color-60);
+        background: var(--primary-tertiary-color);
       }
     }
 
@@ -152,7 +152,7 @@
     }
 
     .progress-inner {
-      background-color: var(--disruptive-color-10);
+      background-color: var(--disruptive-background1-color);
       border-color: var(--error-color);
     }
   }
