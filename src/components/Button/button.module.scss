@@ -412,13 +412,13 @@
 
   &:hover:not([disabled]) {
     .counter {
-      background: var(--button-counter-hover-background-color);
+      background-color: var(--button-counter-hover-background-color);
     }
   }
 
   &:active:not([disabled]) {
     .counter {
-      background: var(--button-counter-active-background-color);
+      background-color: var(--button-counter-active-background-color);
     }
   }
 
