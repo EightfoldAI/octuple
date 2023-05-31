@@ -1,7 +1,7 @@
 .tag-pills {
-  --bg: var(--blue-color-20);
+  --bg: var(--blue-background2-color);
   --label: var(--blue-color);
-  --hover-bg: var(--blue-color-30);
+  --hover-bg: var(--blue-background3-color);
   --hover-label: var(--text-primary-color);
   padding: $space-xxs $space-s;
   border-radius: $border-radius-m;
@@ -46,81 +46,81 @@
   }
 
   &.red {
-    --bg: var(--red-color-20);
+    --bg: var(--red-background2-color);
     --label: var(--red-color);
-    --hover-bg: var(--red-color-30);
+    --hover-bg: var(--red-background3-color);
   }
 
   &.red-orange {
-    --bg: var(--redorange-color-20);
+    --bg: var(--redorange-background2-color);
     --label: var(--redorange-color);
-    --hover-bg: var(--redorange-color-30);
+    --hover-bg: var(--redorange-background3-color);
   }
 
   &.orange {
-    --bg: var(--orange-color-20);
+    --bg: var(--orange-background2-color);
     --label: var(--orange-color);
-    --hover-bg: var(--orange-color-30);
+    --hover-bg: var(--orange-background3-color);
   }
 
   &.yellow {
-    --bg: var(--yellow-color-20);
+    --bg: var(--yellow-background2-color);
     --label: var(--yellow-color);
-    --hover-bg: var(--yellow-color-30);
+    --hover-bg: var(--yellow-background3-color);
   }
 
   &.yellow-green {
-    --bg: var(--yellowgreen-color-20);
+    --bg: var(--yellowgreen-background2-color);
     --label: var(--yellowgreen-color);
-    --hover-bg: var(--yellowgreen-color-30);
+    --hover-bg: var(--yellowgreen-background3-color);
   }
 
   &.green {
-    --bg: var(--green-color-20);
+    --bg: var(--green-background2-color);
     --label: var(--green-color);
-    --hover-bg: var(--green-color-30);
+    --hover-bg: var(--green-background3-color);
   }
 
   &.blue-green {
-    --bg: var(--bluegreen-color-20);
+    --bg: var(--bluegreen-background2-color);
     --label: var(--bluegreen-color);
-    --hover-bg: var(--bluegreen-color-30);
+    --hover-bg: var(--bluegreen-background3-color);
   }
 
   &.blue {
-    --bg: var(--blue-color-20);
+    --bg: var(--blue-background2-color);
     --label: var(--blue-color);
   }
 
   &.blue-violet {
-    --bg: var(--blueviolet-color-20);
+    --bg: var(--blueviolet-background2-color);
     --label: var(--blueviolet-color);
-    --hover-bg: var(--blueviolet-color-30);
+    --hover-bg: var(--blueviolet-background3-color);
   }
 
   &.violet {
-    --bg: var(--violet-color-20);
+    --bg: var(--violet-background2-color);
     --label: var(--violet-color);
-    --hover-bg: var(--violet-color-30);
+    --hover-bg: var(--violet-background3-color);
   }
 
   &.violet-red {
-    --bg: var(--violetred-color-20);
+    --bg: var(--violetred-background2-color);
     --label: var(--violetred-color);
-    --hover-bg: var(--violetred-color-30);
+    --hover-bg: var(--violetred-background3-color);
   }
 
   &.grey {
-    --bg: var(--grey-color-20);
+    --bg: var(--grey-background2-color);
     --label: var(--grey-color);
-    --hover-bg: var(--grey-color-30);
+    --hover-bg: var(--grey-background3-color);
   }
 
   &.white {
     --bg: var(--white-color);
-    --label: var(--grey-color-60);
-    --hover-bg: var(--grey-color-10);
-    border: 1px solid var(--grey-color-60);
+    --label: var(--grey-tertiary-color);
+    --hover-bg: var(--grey-background1-color);
+    border: 1px solid var(--grey-tertiary-color);
   }
 
   &:hover:not(.tag-pills-disabled) {

@@ -102,17 +102,15 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
       hashingFunction: () => 0,
       size: '32px',
       outline: {
-        // outlineColor: 'var(--green-color-60)',
         outlineOffset: '1px',
-        // outlineStyle: 'solid',
         outlineWidth: '2px',
       },
       statusItems: {
         [StatusItemsPosition.Bottom]: {
           ...statusItemProps,
           ariaLabel: 'Clock icon',
-          backgroundColor: 'var(--green-color-20)',
-          color: 'var(--green-color-70)',
+          backgroundColor: 'var(--green-background2-color)',
+          color: 'var(--green-secondary-color)',
           wrapperStyle: { padding: '2px' },
           path: IconName.mdiHome,
           size: '6px',
@@ -120,8 +118,8 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
         [StatusItemsPosition.TopRight]: {
           ...statusItemProps,
           ariaLabel: 'Pencil icon',
-          backgroundColor: 'var(--green-color-20)',
-          color: 'var(--green-color-70)',
+          backgroundColor: 'var(--green-background2-color)',
+          color: 'var(--green-secondary-color)',
           wrapperStyle: { padding: '2px' },
           path: IconName.mdiPencil,
           size: '6px',
@@ -134,7 +132,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
       fontSize: '48px',
       hashingFunction: () => 0,
       outline: {
-        outlineColor: 'var(--blue-color-60)',
+        outlineColor: 'var(--blue-tertiary-color)',
         outlineOffset: '2px',
         outlineStyle: 'solid',
         outlineWidth: '4px',
@@ -143,11 +141,11 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
         [StatusItemsPosition.TopRight]: {
           ...statusItemProps,
           ariaLabel: 'Pencil icon',
-          backgroundColor: 'var(--red-color-20)',
-          color: 'var(--red-color-70)',
+          backgroundColor: 'var(--red-background2-color)',
+          color: 'var(--red-secondary-color)',
           onClick: () => alert('Clicked pencil icon'),
           outline: {
-            outlineColor: 'var(--red-color-60)',
+            outlineColor: 'var(--red-tertiary-color)',
             outlineOffset: '0px',
             outlineStyle: 'solid',
             outlineWidth: '2px',
@@ -156,8 +154,8 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
         [StatusItemsPosition.Bottom]: {
           ...statusItemProps,
           ariaLabel: 'Clock icon',
-          backgroundColor: 'var(--grey-color-10)',
-          color: 'var(--grey-color-70)',
+          backgroundColor: 'var(--grey-background1-color)',
+          color: 'var(--grey-secondary-color)',
           onClick: () => alert('Clicked clock icon'),
           outline: {},
           path: IconName.mdiClock,
@@ -193,28 +191,28 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
         [StatusItemsPosition.Left]: {
           ...statusItemProps,
           ariaLabel: 'Magnify icon',
-          backgroundColor: 'var(--blue-color-20)',
+          backgroundColor: 'var(--blue-background2-color)',
           onClick: () => alert('Clicked magnify icon'),
           path: IconName.mdiMagnify,
         },
         [StatusItemsPosition.TopLeft]: {
           ...statusItemProps,
           ariaLabel: 'Clock icon',
-          backgroundColor: 'var(--red-color-30)',
+          backgroundColor: 'var(--red-background3-color)',
           onClick: () => alert('Clicked clock icon'),
           path: IconName.mdiClock,
           text: '3000',
         },
         [StatusItemsPosition.Top]: {
           ...statusItemProps,
-          backgroundColor: 'var(--red-color-30)',
+          backgroundColor: 'var(--red-background3-color)',
           path: IconName.mdiBell,
           text: '4',
           textMaxLength: 2,
         },
         [StatusItemsPosition.Right]: {
           ...statusItemProps,
-          backgroundColor: 'var(--blue-color-20)',
+          backgroundColor: 'var(--blue-background2-color)',
           path: IconName.mdiCalendar,
           text: '20',
           alignIcon: StatusItemIconAlign.Left,
@@ -267,7 +265,7 @@ Avatar_Icon.args = {
     path: IconName.mdiBell,
   },
   style: {
-    backgroundColor: 'var(--accent-color-20)',
+    backgroundColor: 'var(--accent-background2-color)',
   },
 };
 
@@ -284,7 +282,7 @@ Avatar_Round_Icon.args = {
     path: IconName.mdiBell,
   },
   style: {
-    backgroundColor: 'var(--accent-color-20)',
+    backgroundColor: 'var(--accent-background2-color)',
   },
   type: 'round',
 };

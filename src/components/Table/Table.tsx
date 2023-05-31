@@ -689,10 +689,18 @@ function InternalTable<RecordType extends object = any>(
     }
   }
 
-  if (typeof loading === 'boolean') {
-    return <Spinner size={SpinnerSize.Large} />;
+  if (typeof loading === 'boolean' && loading) {
+    return (
+      <div className={styles.tableSpinner}>
+        <Spinner />
+      </div>
+    );
   } else if (typeof loading === 'object') {
-    return <Spinner size={SpinnerSize.Large} />;
+    return (
+      <div className={styles.tableSpinner}>
+        <Spinner {...loading} />
+      </div>
+    );
   }
 
   const renderEmpty = (

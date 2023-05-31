@@ -101,6 +101,10 @@ export default {
     onRowHoverLeave: {
       action: 'onMouseLeave',
     },
+    loading: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
   },
 } as ComponentMeta<typeof Component>;
 
@@ -1412,6 +1416,7 @@ const tableArgs: Object = {
   bordered: true,
   classNames: 'my-table-class',
   id: 'myTableId',
+  loading: false,
   columns: basicCols,
   dataSource: data,
   pagination: {
