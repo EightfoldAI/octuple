@@ -3,8 +3,8 @@
   --label: var(--blue-color);
   --hover-bg: var(--blue-background3-color);
   --hover-label: var(--text-primary-color);
-  padding: $space-xxs $space-s;
-  border-radius: $border-radius-m;
+  padding: 5px $space-xs;
+  border-radius: var(--pill-medium-size-border-radius);
   transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
   background: var(--bg);
   color: var(--label);
@@ -13,17 +13,23 @@
   align-items: center;
 
   .label {
-    font-family: $octuple-font-family;
-    font-size: $text-font-size-5;
+    font-family: var(--font-stack-full);
     font-weight: $text-font-weight-semibold;
+
+    &.large {
+      font-size: $text-font-size-5;
+      line-height: $text-line-height-3;
+    }
 
     &.medium {
       font-size: $text-font-size-3;
+      line-height: $text-line-height-2;
     }
 
     &.small,
     &.xsmall {
       font-size: $text-font-size-2;
+      line-height: $text-line-height-1;
     }
 
     &.line-clamp {
@@ -120,7 +126,35 @@
     --bg: var(--white-color);
     --label: var(--grey-tertiary-color);
     --hover-bg: var(--grey-background1-color);
-    border: 1px solid var(--grey-tertiary-color);
+
+    &:not(.xsmall) {
+      border: 1px solid var(--grey-tertiary-color);
+    }
+  }
+
+  &.large {
+    border-radius: var(--pill-large-size-border-radius);
+    padding: 10px $space-xs;
+  }
+
+  &.medium {
+    border-radius: var(--pill-medium-size-border-radius);
+    padding: 5px $space-xs;
+  }
+
+  &.small {
+    border-radius: var(--pill-small-size-border-radius);
+    padding: $space-xxs $space-xxs;
+  }
+
+  &.xsmall {
+    border-radius: var(--pill-xsmall-size-border-radius);
+    padding: $space-xxs $space-xxs;
+  }
+
+  &.small,
+  &.xsmall {
+    padding: $space-xxs $space-xxs;
   }
 
   &:hover:not(.tag-pills-disabled) {
