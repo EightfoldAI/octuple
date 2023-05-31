@@ -242,7 +242,7 @@
       &:after {
         animation: $motion-duration-fast $motion-easing-easeinout 1
           nudgeRingMedium;
-        border: $space-xxs solid var(--primary-color-20);
+        border: $space-xxs solid var(--primary-background2-color);
         border-radius: 100%;
         content: '';
         height: 14px;
@@ -484,14 +484,14 @@
 }
 
 .button-primary {
-  --button-counter-default-background-color: var(--accent-color-10);
-  --button-counter-hover-background-color: var(--accent-color-20);
-  --button-counter-checked-background-color: var(--accent-color-10);
-  --button-counter-focus-background-color: var(--accent-color-10);
-  --button-counter-active-background-color: var(--accent-color-10);
+  --button-counter-default-background-color: var(--accent-background1-color);
+  --button-counter-hover-background-color: var(--accent-background2-color);
+  --button-counter-checked-background-color: var(--accent-background1-color);
+  --button-counter-focus-background-color: var(--accent-background1-color);
+  --button-counter-active-background-color: var(--accent-background1-color);
 
   color: var(--button-primary-text-color);
-  background-color: var(--button-primary-background-color);
+  background: var(--button-primary-background-color);
   border-width: var(--button-primary-border-width);
   border-style: var(--button-primary-border-style);
   border-color: var(--button-primary-border-color);
@@ -512,7 +512,7 @@
 
   &:hover:not([disabled]) {
     color: var(--button-primary-hover-text-color);
-    background-color: var(--button-primary-hover-background-color);
+    background: var(--button-primary-hover-background-color);
     border-width: var(--button-primary-hover-border-width);
     border-style: var(--button-primary-hover-border-style);
     border-color: var(--button-primary-hover-border-color);
@@ -520,7 +520,7 @@
 
   &:active:not([disabled]) {
     color: var(--button-primary-active-text-color);
-    background-color: var(--button-primary-active-background-color);
+    background: var(--button-primary-active-background-color);
     border-width: var(--button-primary-active-border-width);
     border-style: var(--button-primary-active-border-style);
     border-color: var(--button-primary-active-border-color);
@@ -528,21 +528,21 @@
 }
 
 .button-secondary {
-  --button-counter-default-background-color: var(--primary-color-20);
-  --button-counter-hover-background-color: var(--primary-color-20);
-  --button-counter-checked-background-color: var(--primary-color-10);
-  --button-counter-focus-background-color: var(--primary-color-20);
-  --button-counter-active-background-color: var(--primary-color-10);
+  --button-counter-default-background-color: var(--primary-background2-color);
+  --button-counter-hover-background-color: var(--primary-background2-color);
+  --button-counter-checked-background-color: var(--primary-background1-color);
+  --button-counter-focus-background-color: var(--primary-background2-color);
+  --button-counter-active-background-color: var(--primary-background1-color);
 
   color: var(--button-secondary-text-color);
-  background-color: var(--button-secondary-background-color);
+  background: var(--button-secondary-background-color);
   border-width: var(--button-secondary-border-width);
   border-style: var(--button-secondary-border-style);
   border-color: var(--button-secondary-border-color);
 
   &:hover:not([disabled]) {
     color: var(--button-secondary-hover-text-color);
-    background-color: var(--button-secondary-hover-background-color);
+    background: var(--button-secondary-hover-background-color);
     border-width: var(--button-secondary-hover-border-width);
     border-style: var(--button-secondary-hover-border-style);
     border-color: var(--button-secondary-hover-border-color);
@@ -550,7 +550,7 @@
 
   &:active:not([disabled]) {
     color: var(--button-secondary-active-text-color);
-    background-color: var(--button-secondary-active-background-color);
+    background: var(--button-secondary-active-background-color);
     border-width: var(--button-secondary-active-border-width);
     border-style: var(--button-secondary-active-border-style);
     border-color: var(--button-secondary-active-border-color);
@@ -606,22 +606,26 @@
 }
 
 .button-primary-disruptive {
-  --button-counter-default-background-color: var(--disruptive-color-10);
-  --button-counter-hover-background-color: var(--disruptive-color-20);
-  --button-counter-checked-background-color: var(--disruptive-color-10);
-  --button-counter-focus-background-color: var(--disruptive-color-10);
-  --button-counter-active-background-color: var(--disruptive-color-10);
-  --button-counter-default-text-color: var(--disruptive-color-80);
+  --button-counter-default-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-counter-hover-background-color: var(--disruptive-background2-color);
+  --button-counter-checked-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-counter-focus-background-color: var(--disruptive-background1-color);
+  --button-counter-active-background-color: var(--disruptive-background1-color);
+  --button-counter-default-text-color: var(--disruptive-color);
 
   color: var(--button-primary-disruptive-text-color);
-  background-color: var(--button-primary-disruptive-background-color);
+  background: var(--button-primary-disruptive-background-color);
   border-width: var(--button-primary-disruptive-border-width);
   border-style: var(--button-primary-disruptive-border-style);
   border-color: var(--button-primary-disruptive-border-color);
 
   &:hover:not([disabled]) {
     color: var(--button-primary-disruptive-hover-text-color);
-    background-color: var(--button-primary-disruptive-hover-background-color);
+    background: var(--button-primary-disruptive-hover-background-color);
     border-width: var(--button-primary-disruptive-hover-border-width);
     border-style: var(--button-primary-disruptive-hover-border-style);
     border-color: var(--button-primary-disruptive-hover-border-color);
@@ -629,7 +633,7 @@
 
   &:active:not([disabled]) {
     color: var(--button-primary-disruptive-active-text-color);
-    background-color: var(--button-primary-disruptive-active-background-color);
+    background: var(--button-primary-disruptive-active-background-color);
     border-width: var(--button-primary-disruptive-active-border-width);
     border-style: var(--button-primary-disruptive-active-border-style);
     border-color: var(--button-primary-disruptive-active-border-color);
@@ -637,22 +641,26 @@
 }
 
 .button-secondary-disruptive {
-  --button-counter-default-background-color: var(--disruptive-color-20);
-  --button-counter-hover-background-color: var(--disruptive-color-20);
-  --button-counter-checked-background-color: var(--disruptive-color-10);
-  --button-counter-focus-background-color: var(--disruptive-color-20);
-  --button-counter-active-background-color: var(--disruptive-color-10);
-  --button-counter-default-text-color: var(--disruptive-color-80);
+  --button-counter-default-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-counter-hover-background-color: var(--disruptive-background2-color);
+  --button-counter-checked-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-counter-focus-background-color: var(--disruptive-background2-color);
+  --button-counter-active-background-color: var(--disruptive-background1-color);
+  --button-counter-default-text-color: var(--disruptive-color);
 
   color: var(--button-secondary-disruptive-text-color);
-  background-color: var(--button-secondary-disruptive-background-color);
+  background: var(--button-secondary-disruptive-background-color);
   border-width: var(--button-secondary-disruptive-border-width);
   border-style: var(--button-secondary-disruptive-border-style);
   border-color: var(--button-secondary-disruptive-border-color);
 
   &:hover:not([disabled]) {
     color: var(--button-secondary-disruptive-hover-text-color);
-    background-color: var(--button-secondary-disruptive-hover-background-color);
+    background: var(--button-secondary-disruptive-hover-background-color);
     border-width: var(--button-secondary-disruptive-hover-border-width);
     border-style: var(--button-secondary-disruptive-hover-border-style);
     border-color: var(--button-secondary-disruptive-hover-border-color);
@@ -660,9 +668,7 @@
 
   &:active:not([disabled]) {
     color: var(--button-secondary-disruptive-active-text-color);
-    background-color: var(
-      --button-secondary-disruptive-active-background-color
-    );
+    background: var(--button-secondary-disruptive-active-background-color);
     border-width: var(--button-secondary-disruptive-active-border-width);
     border-style: var(--button-secondary-disruptive-active-border-style);
     border-color: var(--button-secondary-disruptive-active-border-color);
@@ -670,14 +676,14 @@
 }
 
 .button-default {
-  --button-counter-default-background-color: var(--primary-color-20);
-  --button-counter-hover-background-color: var(--primary-color-20);
-  --button-counter-checked-background-color: var(--primary-color-10);
-  --button-counter-focus-background-color: var(--primary-color-20);
-  --button-counter-active-background-color: var(--primary-color-10);
+  --button-counter-default-background-color: var(--primary-background2-color);
+  --button-counter-hover-background-color: var(--primary-background2-color);
+  --button-counter-checked-background-color: var(--primary-background1-color);
+  --button-counter-focus-background-color: var(--primary-background2-color);
+  --button-counter-active-background-color: var(--primary-background1-color);
 
   color: var(--button-default-text-color);
-  background-color: var(--button-default-background-color);
+  background: var(--button-default-background-color);
   border-width: var(--button-default-border-width);
   border-style: var(--button-default-border-style);
   border-color: var(--button-default-border-color);
@@ -698,7 +704,7 @@
 
   &:hover:not([disabled]) {
     color: var(--button-default-hover-text-color);
-    background-color: var(--button-default-hover-background-color);
+    background: var(--button-default-hover-background-color);
     border-width: var(--button-default-hover-border-width);
     border-style: var(--button-default-hover-border-style);
     border-color: var(--button-default-hover-border-color);
@@ -706,7 +712,7 @@
 
   &:active:not([disabled]) {
     color: var(--button-default-active-text-color);
-    background-color: var(--button-default-active-background-color);
+    background: var(--button-default-active-background-color);
     border-width: var(--button-default-active-border-width);
     border-style: var(--button-default-active-border-style);
     border-color: var(--button-default-active-border-color);
@@ -714,22 +720,26 @@
 }
 
 .button-disruptive {
-  --button-counter-default-background-color: var(--disruptive-color-20);
-  --button-counter-hover-background-color: var(--disruptive-color-20);
-  --button-counter-checked-background-color: var(--disruptive-color-10);
-  --button-counter-focus-background-color: var(--disruptive-color-20);
-  --button-counter-active-background-color: var(--disruptive-color-10);
-  --button-counter-default-text-color: var(--disruptive-color-80);
+  --button-counter-default-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-counter-hover-background-color: var(--disruptive-background2-color);
+  --button-counter-checked-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-counter-focus-background-color: var(--disruptive-background2-color);
+  --button-counter-active-background-color: var(--disruptive-background1-color);
+  --button-counter-default-text-color: var(--disruptive-color);
 
   color: var(--button-default-disruptive-text-color);
-  background-color: var(--button-default-disruptive-background-color);
+  background: var(--button-default-disruptive-background-color);
   border-width: var(--button-default-disruptive-border-width);
   border-style: var(--button-default-disruptive-border-style);
   border-color: var(--button-default-disruptive-border-color);
 
   &:hover:not([disabled]) {
     color: var(--button-default-disruptive-hover-text-color);
-    background-color: var(--button-default-disruptive-hover-background-color);
+    background: var(--button-default-disruptive-hover-background-color);
     border-width: var(--button-default-disruptive-hover-border-width);
     border-style: var(--button-default-disruptive-hover-border-style);
     border-color: var(--button-default-disruptive-hover-border-color);
@@ -737,7 +747,7 @@
 
   &:active:not([disabled]) {
     color: var(--button-default-disruptive-active-text-color);
-    background-color: var(--button-default-disruptive-active-background-color);
+    background: var(--button-default-disruptive-active-background-color);
     border-width: var(--button-default-disruptive-active-border-width);
     border-style: var(--button-default-disruptive-active-border-style);
     border-color: var(--button-default-disruptive-active-border-color);
@@ -752,7 +762,7 @@
   --bg: var(--button-neutral-background-color);
   --color: var(--button-neutral-text-color);
   color: var(--color);
-  background-color: var(--bg);
+  background: var(--bg);
 
   &:hover:not([disabled]) {
     --bg: var(--button-neutral-hover-background-color);
@@ -799,7 +809,7 @@
   }
 
   &:not(.transparent) {
-    background-color: var(--bg);
+    background: var(--bg);
   }
 
   &:not(.transparent):not([disabled]):hover {
@@ -1289,22 +1299,22 @@
     &.button-secondary-disruptive {
       &.focus-visible,
       &:focus-visible {
-        color: var(--disruptive-color-80);
+        color: var(--disruptive-color);
       }
     }
 
     &.button-disruptive {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(--disruptive-color-10);
-        color: var(--disruptive-color-80);
+        background: var(--disruptive-background1-color);
+        color: var(--disruptive-color);
       }
     }
 
     &.button-neutral {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(--button-neutral-focus-visible-background-color);
+        background: var(--button-neutral-focus-visible-background-color);
 
         &.drop-shadow {
           box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
@@ -1315,9 +1325,7 @@
     &.button-system-ui {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(
-          --button-system-ui-focus-visible-background-color
-        );
+        background: var(--button-system-ui-focus-visible-background-color);
 
         &.drop-shadow {
           box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;

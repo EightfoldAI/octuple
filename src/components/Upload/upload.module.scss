@@ -115,7 +115,7 @@ $upload-picture-card-size: 104px;
       }
 
       &:hover &-info {
-        background-color: var(--grey-color-10);
+        background-color: var(--grey-background1-color);
       }
 
       &:hover &-card-actions-button {
@@ -496,8 +496,8 @@ $upload-picture-card-size: 104px;
       }
 
       a {
-        --bg: var(--primary-color-10);
-        --color: var(--primary-color-70);
+        --bg: var(--primary-background1-color);
+        --color: var(--primary-secondary-color);
         color: var(--color);
         background-color: var(--bg);
         border-radius: 50%;
@@ -528,8 +528,8 @@ $upload-picture-card-size: 104px;
         }
 
         &:active:not([disabled]) {
-          --bg: var(--primary-color-20);
-          color: var(--primary-color-80);
+          --bg: var(--primary-background2-color);
+          color: var(--primary-color);
         }
 
         &:has(.icon-view) {
@@ -653,7 +653,7 @@ $upload-picture-card-size: 104px;
     }
 
     &:focus-within:not(.upload-disabled) &:hover:not(.upload-disabled) {
-      border-color: var(--primary-color-70);
+      border-color: var(--primary-secondary-color);
     }
   }
 

@@ -9,7 +9,7 @@
     padding: $space-xs;
 
     &:focus-visible {
-      outline: $space-xxxs solid var(--primary-color-80);
+      outline: $space-xxxs solid var(--primary-color);
     }
 
     &.disabled {
