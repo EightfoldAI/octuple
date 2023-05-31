@@ -3,7 +3,7 @@
 exports[`Pill Pill should render as closable 1`] = `
 <div>
   <div
-    class="tag-pills blue"
+    class="tag-pills blue medium"
   >
     <span
       class="label medium"
@@ -38,7 +38,7 @@ exports[`Pill Pill should render as closable 1`] = `
 exports[`Pill Pill should render normally 1`] = `
 <div>
   <div
-    class="tag-pills blue read-only"
+    class="tag-pills blue medium read-only"
   >
     <span
       class="label medium"
@@ -52,7 +52,7 @@ exports[`Pill Pill should render normally 1`] = `
 exports[`Pill Pill should render with a theme 1`] = `
 <div>
   <div
-    class="tag-pills white read-only"
+    class="tag-pills white medium read-only"
   >
     <span
       class="label medium"
@@ -66,7 +66,7 @@ exports[`Pill Pill should render with a theme 1`] = `
 exports[`Pill Pill should render with button 1`] = `
 <div>
   <div
-    class="tag-pills blue"
+    class="tag-pills blue medium"
   >
     <span
       class="label medium"
@@ -109,7 +109,7 @@ exports[`Pill Pill should render with button 1`] = `
 exports[`Pill Pill should render with icon 1`] = `
 <div>
   <div
-    class="tag-pills blue read-only"
+    class="tag-pills blue medium read-only"
   >
     <span
       aria-hidden="false"
@@ -139,7 +139,7 @@ exports[`Pill Pill should render with icon 1`] = `
 exports[`Pill Pill should render with icon to the end of its label 1`] = `
 <div>
   <div
-    class="tag-pills blue read-only"
+    class="tag-pills blue medium read-only"
   >
     <span
       class="label medium"
