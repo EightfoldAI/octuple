@@ -132,21 +132,10 @@
           }
         }
 
-        &.table-row:hover td,
-        td.table-cell-row-hover {
-          background: $table-row-hover-background-color;
-        }
-
         &.table-row-selected {
           td {
             background: $table-row-selected-background-color;
             border-color: rgba(0, 0, 0, 0.03);
-          }
-
-          &:hover {
-            td {
-              background: $table-row-selected-hover-background-color;
-            }
           }
         }
       }
@@ -333,6 +322,10 @@
       width: $table-selection-column-width + 18px;
     }
 
+    &-column-bordered &-selection-col {
+      width: $table-selection-column-width + 18px;
+    }
+
     table tr th,
     table tr td {
       &.table-selection-column {
@@ -374,12 +367,6 @@
           &:nth-child(odd) {
             td {
               background-color: $table-background-alternate-color;
-            }
-
-            &:hover {
-              td {
-                background-color: $table-row-hover-background-color;
-              }
             }
           }
         }
@@ -693,6 +680,39 @@
 
           &-active {
             background-color: $table-sticky-scroll-bar-active-background-color;
+          }
+        }
+      }
+    }
+
+    &-row-hover {
+      .table-tbody {
+        tr {
+          &.table-row:hover td,
+          td.table-cell-row-hover {
+            background: $table-row-hover-background-color;
+          }
+
+          &.table-row-selected {
+            &:hover {
+              td {
+                background: $table-row-selected-hover-background-color;
+              }
+            }
+          }
+        }
+      }
+
+      &.table-alternate {
+        tbody {
+          tr {
+            &:nth-child(odd) {
+              &:hover {
+                td {
+                  background-color: $table-row-hover-background-color;
+                }
+              }
+            }
           }
         }
       }

@@ -395,6 +395,11 @@ export interface TableProps<RecordType>
    */
   collapseText?: string;
   /**
+   * Show only the Table column borders.
+   * @default false
+   */
+  columnBordered?: boolean;
+  /**
    * The Table columns.
    */
   columns?: ColumnsType<RecordType>;
@@ -491,6 +496,11 @@ export interface TableProps<RecordType>
    * Show only the Table cell bottom borders.
    */
   rowBordered?: boolean;
+  /**
+   * Enables row background hover color.
+   * @default true
+   */
+  rowHoverBackgroundEnabled?: boolean;
   /**
    * Configure Table Row selection.
    */
