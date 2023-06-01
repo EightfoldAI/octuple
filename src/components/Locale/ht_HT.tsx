@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/ht_HT';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ht_HT';
 import Dialog from '../Dialog/BaseDialog/Locale/ht_HT';
 import InfoBar from '../InfoBar/Locale/ht_HT';
@@ -15,6 +16,7 @@ const typeTemplate =
 
 const localeValues: Locale = {
   locale: 'fr',
+  Breadcrumb,
   DatePicker,
   Dialog,
   Form: {
