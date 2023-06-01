@@ -136,7 +136,7 @@
 
       &.active {
         .badge {
-          background-color: var(--primary-color-10);
+          background-color: var(--primary-background1-color);
         }
       }
 
@@ -318,123 +318,123 @@
       }
 
       &.red {
-        --active-border: var(--red-color-60);
-        --bg: var(--red-color-10);
-        --border: var(--red-color-10);
-        --icon: var(--red-color-70);
-        --icon-bg: var(--red-color-20);
-        --hover-bg: var(--red-color-20);
-        --hover-border: var(--red-color-20);
+        --active-border: var(--red-tertiary-color);
+        --bg: var(--red-background1-color);
+        --border: var(--red-background1-color);
+        --icon: var(--red-secondary-color);
+        --icon-bg: var(--red-background2-color);
+        --hover-bg: var(--red-background2-color);
+        --hover-border: var(--red-background2-color);
       }
 
       &.red-orange {
-        --active-border: var(--redorange-color-60);
-        --bg: var(--redorange-color-10);
-        --border: var(--redorange-color-10);
-        --icon: var(--redorange-color-70);
-        --icon-bg: var(--redorange-color-20);
-        --hover-bg: var(--redorange-color-20);
-        --hover-border: var(--redorange-color-20);
+        --active-border: var(--redorange-tertiary-color);
+        --bg: var(--redorange-background1-color);
+        --border: var(--redorange-background1-color);
+        --icon: var(--redorange-secondary-color);
+        --icon-bg: var(--redorange-background2-color);
+        --hover-bg: var(--redorange-background2-color);
+        --hover-border: var(--redorange-background2-color);
       }
 
       &.orange {
-        --active-border: var(--orange-color-60);
-        --bg: var(--orange-color-10);
-        --border: var(--orange-color-10);
-        --icon: var(--orange-color-70);
-        --icon-bg: var(--orange-color-20);
-        --hover-bg: var(--orange-color-20);
-        --hover-border: var(--orange-color-20);
+        --active-border: var(--orange-tertiary-color);
+        --bg: var(--orange-background1-color);
+        --border: var(--orange-background1-color);
+        --icon: var(--orange-secondary-color);
+        --icon-bg: var(--orange-background2-color);
+        --hover-bg: var(--orange-background2-color);
+        --hover-border: var(--orange-background2-color);
       }
 
       &.yellow {
-        --active-border: var(--yellow-color-60);
-        --bg: var(--yellow-color-10);
-        --border: var(--yellow-color-10);
-        --icon: var(--yellow-color-70);
-        --icon-bg: var(--yellow-color-20);
-        --hover-bg: var(--yellow-color-20);
-        --hover-border: var(--yellow-color-20);
+        --active-border: var(--yellow-tertiary-color);
+        --bg: var(--yellow-background1-color);
+        --border: var(--yellow-background1-color);
+        --icon: var(--yellow-secondary-color);
+        --icon-bg: var(--yellow-background2-color);
+        --hover-bg: var(--yellow-background2-color);
+        --hover-border: var(--yellow-background2-color);
       }
 
       &.yellow-green {
         --active-border: var(--yellowgreen-color-60);
-        --bg: var(--yellowgreen-color-10);
-        --border: var(--yellowgreen-color-10);
+        --bg: var(--yellowgreen-background1-color);
+        --border: var(--yellowgreen-background1-color);
         --icon: var(--yellowgreen-color-70);
-        --icon-bg: var(--yellowgreen-color-20);
-        --hover-bg: var(--yellowgreen-color-20);
-        --hover-border: var(--yellowgreen-color-20);
+        --icon-bg: var(--yellowgreen-background2-color);
+        --hover-bg: var(--yellowgreen-background2-color);
+        --hover-border: var(--yellowgreen-background2-color);
       }
 
       &.green {
-        --active-border: var(--green-color-60);
-        --bg: var(--green-color-10);
-        --border: var(--green-color-10);
-        --icon: var(--green-color-70);
-        --icon-bg: var(--green-color-20);
-        --hover-bg: var(--green-color-20);
-        --hover-border: var(--green-color-20);
+        --active-border: var(--green-tertiary-color);
+        --bg: var(--green-background1-color);
+        --border: var(--green-background1-color);
+        --icon: var(--green-secondary-color);
+        --icon-bg: var(--green-background2-color);
+        --hover-bg: var(--green-background2-color);
+        --hover-border: var(--green-background2-color);
       }
 
       &.blue-green {
-        --active-border: var(--bluegreen-color-60);
-        --bg: var(--bluegreen-color-10);
-        --border: var(--bluegreen-color-10);
-        --icon: var(--bluegreen-color-70);
-        --icon-bg: var(--bluegreen-color-20);
-        --hover-bg: var(--bluegreen-color-20);
-        --hover-border: var(--bluegreen-color-20);
+        --active-border: var(--bluegreen-tertiary-color);
+        --bg: var(--bluegreen-background1-color);
+        --border: var(--bluegreen-background1-color);
+        --icon: var(--bluegreen-secondary-color);
+        --icon-bg: var(--bluegreen-background2-color);
+        --hover-bg: var(--bluegreen-background2-color);
+        --hover-border: var(--bluegreen-background2-color);
       }
 
       &.blue {
-        --active-border: var(--blue-color-60);
-        --bg: var(--blue-color-10);
-        --border: var(--blue-color-10);
-        --icon: var(--blue-color-70);
-        --icon-bg: var(--blue-color-20);
-        --hover-bg: var(--blue-color-20);
-        --hover-border: var(--blue-color-20);
+        --active-border: var(--blue-tertiary-color);
+        --bg: var(--blue-background1-color);
+        --border: var(--blue-background1-color);
+        --icon: var(--blue-secondary-color);
+        --icon-bg: var(--blue-background2-color);
+        --hover-bg: var(--blue-background2-color);
+        --hover-border: var(--blue-background2-color);
       }
 
       &.blue-violet {
-        --active-border: var(--blueviolet-color-60);
-        --bg: var(--blueviolet-color-10);
-        --border: var(--blueviolet-color-10);
-        --icon: var(--blueviolet-color-70);
-        --icon-bg: var(--blueviolet-color-20);
-        --hover-bg: var(--blueviolet-color-20);
-        --hover-border: var(--blueviolet-color-20);
+        --active-border: var(--blueviolet-tertiary-color);
+        --bg: var(--blueviolet-background1-color);
+        --border: var(--blueviolet-background1-color);
+        --icon: var(--blueviolet-secondary-color);
+        --icon-bg: var(--blueviolet-background2-color);
+        --hover-bg: var(--blueviolet-background2-color);
+        --hover-border: var(--blueviolet-background2-color);
       }
 
       &.violet {
-        --active-border: var(--violet-color-60);
-        --bg: var(--violet-color-10);
-        --border: var(--violet-color-10);
-        --icon: var(--violet-color-70);
-        --icon-bg: var(--violet-color-20);
-        --hover-bg: var(--violet-color-20);
-        --hover-border: var(--violet-color-20);
+        --active-border: var(--violet-tertiary-color);
+        --bg: var(--violet-background1-color);
+        --border: var(--violet-background1-color);
+        --icon: var(--violet-secondary-color);
+        --icon-bg: var(--violet-background2-color);
+        --hover-bg: var(--violet-background2-color);
+        --hover-border: var(--violet-background2-color);
       }
 
       &.violet-red {
-        --active-border: var(--violetred-color-60);
-        --bg: var(--violetred-color-10);
-        --border: var(--violetred-color-10);
-        --icon: var(--violetred-color-70);
-        --icon-bg: var(--violetred-color-20);
-        --hover-bg: var(--violetred-color-20);
-        --hover-border: var(--violetred-color-20);
+        --active-border: var(--violetred-tertiary-color);
+        --bg: var(--violetred-background1-color);
+        --border: var(--violetred-background1-color);
+        --icon: var(--violetred-secondary-color);
+        --icon-bg: var(--violetred-background2-color);
+        --hover-bg: var(--violetred-background2-color);
+        --hover-border: var(--violetred-background2-color);
       }
 
       &.grey {
-        --active-border: var(--grey-color-60);
-        --bg: var(--grey-color-10);
-        --border: var(--grey-color-10);
-        --icon: var(--grey-color-70);
-        --icon-bg: var(--grey-color-20);
-        --hover-bg: var(--grey-color-20);
-        --hover-border: var(--grey-color-20);
+        --active-border: var(--grey-tertiary-color);
+        --bg: var(--grey-background1-color);
+        --border: var(--grey-background1-color);
+        --icon: var(--grey-secondary-color);
+        --icon-bg: var(--grey-background2-color);
+        --hover-bg: var(--grey-background2-color);
+        --hover-border: var(--grey-background2-color);
       }
 
       &.status-error {

@@ -101,6 +101,10 @@ export default {
     onRowHoverLeave: {
       action: 'onMouseLeave',
     },
+    loading: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
   },
 } as ComponentMeta<typeof Component>;
 
@@ -1248,7 +1252,8 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
         columnCount={mergedColumns.length}
         columnWidth={(index: number) => {
           const { width } = mergedColumns[index];
-          return totalHeight > scroll!.y! && index === mergedColumns.length - 1
+          return totalHeight > Number(scroll!.y!) &&
+            index === mergedColumns.length - 1
             ? (width as number) - scrollbarSize - 1
             : (width as number);
         }}
@@ -1365,6 +1370,8 @@ export const Header_Bordered = Table_Base_Story.bind({});
 export const Inner_Bordered = Table_Base_Story.bind({});
 export const Outer_Bordered = Table_Base_Story.bind({});
 export const Row_Bordered = Table_Base_Story.bind({});
+export const Column_Bordered = Table_Base_Story.bind({});
+export const Row_Hover_Background_Disabled = Table_Base_Story.bind({});
 export const Small = Table_Base_Story.bind({});
 export const Medium = Table_Base_Story.bind({});
 export const Large = Table_Base_Story.bind({});
@@ -1409,6 +1416,7 @@ const tableArgs: Object = {
   bordered: true,
   classNames: 'my-table-class',
   id: 'myTableId',
+  loading: false,
   columns: basicCols,
   dataSource: data,
   pagination: {
@@ -1464,6 +1472,17 @@ Row_Bordered.args = {
   ...tableArgs,
   bordered: false,
   rowBordered: true,
+};
+
+Column_Bordered.args = {
+  ...tableArgs,
+  bordered: false,
+  columnBordered: true,
+};
+
+Row_Hover_Background_Disabled.args = {
+  ...tableArgs,
+  rowHoverBackgroundEnabled: false,
 };
 
 Small.args = {

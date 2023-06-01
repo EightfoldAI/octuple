@@ -4,7 +4,7 @@ exports[`Table.Expand renders fixed column correctly work 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right",
+      "class": "table table-row-hover table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right",
     },
     "children": Array [
       Node {

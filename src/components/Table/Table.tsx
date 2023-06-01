@@ -78,6 +78,7 @@ function InternalTable<RecordType extends object = any>(
     children,
     classNames,
     collapseText: defaultCollapseText,
+    columnBordered = false,
     columns,
     dataSource,
     emptyText: defaultEmptyText,
@@ -103,6 +104,7 @@ function InternalTable<RecordType extends object = any>(
     pagination,
     rowBordered = false,
     rowClassName,
+    rowHoverBackgroundEnabled = true,
     rowKey,
     rowSelection,
     scroll,
@@ -687,10 +689,18 @@ function InternalTable<RecordType extends object = any>(
     }
   }
 
-  if (typeof loading === 'boolean') {
-    return <Spinner size={SpinnerSize.Large} />;
+  if (typeof loading === 'boolean' && loading) {
+    return (
+      <div className={styles.tableSpinner}>
+        <Spinner />
+      </div>
+    );
   } else if (typeof loading === 'object') {
-    return <Spinner size={SpinnerSize.Large} />;
+    return (
+      <div className={styles.tableSpinner}>
+        <Spinner {...loading} />
+      </div>
+    );
   }
 
   const renderEmpty = (
@@ -748,7 +758,11 @@ function InternalTable<RecordType extends object = any>(
                 { [styles.tableBordered]: bordered },
                 {
                   [styles.tableCellBordered]:
-                    !bordered && !rowBordered && !innerBordered && cellBordered,
+                    !bordered &&
+                    !rowBordered &&
+                    !innerBordered &&
+                    !columnBordered &&
+                    cellBordered,
                 },
                 {
                   [styles.tableHeaderBordered]:
@@ -767,7 +781,10 @@ function InternalTable<RecordType extends object = any>(
                 },
                 {
                   [styles.tableInnerBordered]:
-                    !bordered && !rowBordered && innerBordered,
+                    !bordered &&
+                    !rowBordered &&
+                    !columnBordered &&
+                    innerBordered,
                 },
                 {
                   [styles.tableOuterBordered]: !bordered && outerBordered,
@@ -775,6 +792,13 @@ function InternalTable<RecordType extends object = any>(
                 {
                   [styles.tableRowBordered]:
                     !bordered && !innerBordered && rowBordered,
+                },
+                {
+                  [styles.tableColumnBordered]:
+                    !bordered && !innerBordered && columnBordered,
+                },
+                {
+                  [styles.tableRowHover]: rowHoverBackgroundEnabled,
                 },
                 { [styles.tableEmpty]: rawData.length === 0 },
               ])}
