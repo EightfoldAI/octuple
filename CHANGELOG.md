@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.38.0](https://github.com/EightfoldAI/octuple/compare/v2.37.0...v2.38.0) (2023-06-02)
+
+### Features
+
+- messagebar: add message bar component ([#622](https://github.com/EightfoldAI/octuple/issues/622)) ([421d785](https://github.com/EightfoldAI/octuple/commits/421d7854baea35cb062fa04e5e7b1d9c1e639ae0))
+- rename background-color to background ([#628](https://github.com/EightfoldAI/octuple/issues/628)) ([71c490b](https://github.com/EightfoldAI/octuple/commits/71c490b3a6a52beaa44f56932a89f875375d810f))
+- table: adds column border and disable row bg hover color props ([#624](https://github.com/EightfoldAI/octuple/issues/624)) ([78a333d](https://github.com/EightfoldAI/octuple/commits/78a333dc5d047674ce2b838859b31fe4321a1527))
+
+### Bug Fixes
+
+- css: global css variable name alignment with design specification ([#625](https://github.com/EightfoldAI/octuple/issues/625)) ([26c16fd](https://github.com/EightfoldAI/octuple/commits/26c16fd7913f8e5efbaa2300e927a841fba8c174))
+- pill: ensure pill heights match latest design specification ([#626](https://github.com/EightfoldAI/octuple/issues/626)) ([3576613](https://github.com/EightfoldAI/octuple/commits/357661381851d3d38c66368bb0c6ed170fd320ef))
+- select: ensure medium and large pills fit inside inputs of same size ([#630](https://github.com/EightfoldAI/octuple/issues/630)) ([156800d](https://github.com/EightfoldAI/octuple/commits/156800d0bebc49d0e0f6ce2a8fd611d427e9e008))
+- table: fix loading compare and updates default spinner size and position ([#627](https://github.com/EightfoldAI/octuple/issues/627)) ([b0b830e](https://github.com/EightfoldAI/octuple/commits/b0b830e25f10ff9cf5cdb2d03fb831b0ce0d7639))
+
 ## [2.37.0](https://github.com/EightfoldAI/octuple/compare/v2.36.2...v2.37.0) (2023-05-23)
 
 ### Features
