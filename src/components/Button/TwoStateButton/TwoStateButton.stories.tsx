@@ -102,6 +102,7 @@ Two_State_Button.args = {
     'data-test-id': 'myTwoStateButtonIconTwoTestId',
   },
   id: 'myTwoStateButton',
+  loading: false,
   shape: ButtonShape.Pill,
   size: ButtonSize.Medium,
   style: {},

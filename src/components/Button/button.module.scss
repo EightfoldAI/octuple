@@ -510,6 +510,10 @@
     }
   }
 
+  .loader-dot {
+    background: var(--button-primary-text-color);
+  }
+
   &:hover:not([disabled]) {
     color: var(--button-primary-hover-text-color);
     background: var(--button-primary-hover-background-color);
@@ -539,6 +543,10 @@
   border-width: var(--button-secondary-border-width);
   border-style: var(--button-secondary-border-style);
   border-color: var(--button-secondary-border-color);
+
+  .loader-dot {
+    background: var(--button-secondary-text-color);
+  }
 
   &:hover:not([disabled]) {
     color: var(--button-secondary-hover-text-color);
@@ -623,6 +631,10 @@
   border-style: var(--button-primary-disruptive-border-style);
   border-color: var(--button-primary-disruptive-border-color);
 
+  .loader-dot {
+    background: var(--button-primary-disruptive-text-color);
+  }
+
   &:hover:not([disabled]) {
     color: var(--button-primary-disruptive-hover-text-color);
     background: var(--button-primary-disruptive-hover-background-color);
@@ -658,6 +670,10 @@
   border-style: var(--button-secondary-disruptive-border-style);
   border-color: var(--button-secondary-disruptive-border-color);
 
+  .loader-dot {
+    background: var(--button-secondary-disruptive-text-color);
+  }
+
   &:hover:not([disabled]) {
     color: var(--button-secondary-disruptive-hover-text-color);
     background: var(--button-secondary-disruptive-hover-background-color);
@@ -687,6 +703,10 @@
   border-width: var(--button-default-border-width);
   border-style: var(--button-default-border-style);
   border-color: var(--button-default-border-color);
+
+  .loader-dot {
+    background: var(--button-default-text-color);
+  }
 
   &.button-conic {
     border-color: transparent;
@@ -737,6 +757,10 @@
   border-style: var(--button-default-disruptive-border-style);
   border-color: var(--button-default-disruptive-border-color);
 
+  .loader-dot {
+    background: var(--button-default-disruptive-text-color);
+  }
+
   &:hover:not([disabled]) {
     color: var(--button-default-disruptive-hover-text-color);
     background: var(--button-default-disruptive-hover-background-color);
@@ -764,6 +788,10 @@
   color: var(--color);
   background: var(--bg);
 
+  .loader-dot {
+    background: var(--color);
+  }
+
   &:hover:not([disabled]) {
     --bg: var(--button-neutral-hover-background-color);
     --color: var(--button-neutral-hover-text-color);
@@ -783,6 +811,10 @@
   --bg: var(--button-system-ui-background-color);
   --color: var(--button-system-ui-text-color);
   color: var(--color);
+
+  .loader-dot {
+    background: var(--color);
+  }
 
   .inner-nudge {
     &.background {
@@ -947,8 +979,16 @@
 
   --bg: var(--button-two-state-background-color);
   --color: var(--button-two-state-text-color);
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--color);
+
+  .loader {
+    background: var(--button-two-state-background-color);
+  }
+
+  .loader-dot {
+    background: var(--color);
+  }
 
   .counter {
     background-color: var(--button-counter-default-background-color);
