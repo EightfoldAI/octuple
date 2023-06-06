@@ -177,6 +177,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           }
           if (
             !closeOnReferenceClick &&
+            referenceElement &&
             !referenceElement.contains(e.target as Node)
           ) {
             toggle(false)(e);
