@@ -568,6 +568,14 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       }
     };
 
+    const onSliderHitTargetClick = (
+      event: React.MouseEvent<HTMLDivElement>
+    ): void => {
+      event.preventDefault();
+
+      onSliderMouseDown(event);
+    };
+
     const onSliderMouseDown = (
       event: React.MouseEvent<HTMLDivElement>
     ): void => {
@@ -726,6 +734,14 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               ref={sliderRef}
               className={mergeClasses(styles.slider, classNames)}
             >
+              <div
+                className={styles.sliderHitTarget}
+                onClick={
+                  !allowDisabledFocus && !readOnly
+                    ? onSliderHitTargetClick
+                    : null
+                }
+              />
               <div
                 ref={railRef}
                 className={mergeClasses([
