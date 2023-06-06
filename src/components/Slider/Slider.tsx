@@ -841,6 +841,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     styles.sliderTooltip,
                     tooltipProps?.classNames,
                   ])}
+                  closeOnReferenceClick={false}
                   content={getTooltipContentByValue(val)}
                   key={`value-tooltip-${index}`}
                   offset={thumbGeometry().diameter + THUMB_TOOLTIP_Y_OFFSET}
