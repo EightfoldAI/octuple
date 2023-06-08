@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.38.2](https://github.com/EightfoldAI/octuple/compare/v2.38.1...v2.38.2) (2023-06-08)
+
+### Features
+
+- custom fonts support via configProvider ([29ddf8c](https://github.com/EightfoldAI/octuple/commits/29ddf8c29ab56ef7c48acc3b951e7169b1eca0ec))
+
+### Bug Fixes
+
+- remove unnecessary import ([af7d48a](https://github.com/EightfoldAI/octuple/commits/af7d48aa539a1def0452d4d667bf9c1d6609839f))
+
 ### [2.38.1](https://github.com/EightfoldAI/octuple/compare/v2.38.0...v2.38.1) (2023-06-08)
 
 ### Bug Fixes
