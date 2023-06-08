@@ -116,7 +116,6 @@ import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-tw';
-import { Theme } from '@storybook/theming';
 
 const { Dropzone } = Upload;
 const { RangePicker } = DatePicker;
