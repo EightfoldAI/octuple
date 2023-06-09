@@ -3,6 +3,7 @@ import {
   IRegisterFont,
   FontOptions,
   OcFont,
+  CustomFont,
 } from './Font.types';
 import {
   IGetStyle,
@@ -27,6 +28,24 @@ interface Options {
   csp?: { nonce?: string };
   prepend?: boolean;
   mark?: string;
+}
+
+function getCustomFontsCss(customFonts: CustomFont[]): string {
+  let css = '';
+  for (const font of customFonts) {
+    css += `@font-face {
+      font-family: '${font.fontFamily}';
+      src: ${font.src};
+    `;
+
+    if (font.fontWeight) css += `font-weight: ${font.fontWeight};\n`;
+    if (font.fontStyle) css += `font-style: ${font.fontStyle};\n`;
+    if (font.unicodeRange) css += `unicode-range: ${font.unicodeRange};\n`;
+
+    css += `font-display: swap; }\n`;
+  }
+
+  return css;
 }
 
 export function getStyle(themeOptions: ThemeOptions): IGetStyle {
@@ -206,15 +225,18 @@ function getContainer(option: Options): Element {
 export function injectCSS(
   variables: Variables,
   id: string,
+  customFonts: CustomFont[] = [],
   option: Options = {}
 ): HTMLStyleElement {
   const css = `
-          :root {
-            ${Object.keys(variables)
-              .map((key) => `--${key}: ${variables[key]};`)
-              .join('\n')}
-          }
-          `.trim();
+    :root {
+      ${Object.keys(variables)
+        .map((key) => `--${key}: ${variables[key]};`)
+        .join('\n')}
+    }
+    ${getCustomFontsCss(customFonts)}
+  `.trim();
+
   const styleNode: HTMLStyleElement =
     (document.getElementById(id) as HTMLStyleElement) ||
     document.createElement('style');
@@ -242,7 +264,11 @@ export function injectCSS(
 
 export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
   const { themeName, light, variables } = getStyle(themeOptions);
-  const styleNode: HTMLStyleElement = injectCSS(variables, THEME_CONTAINER_ID);
+  const styleNode: HTMLStyleElement = injectCSS(
+    variables,
+    THEME_CONTAINER_ID,
+    themeOptions.customTheme?.customFonts
+  );
   return {
     themeName,
     light,

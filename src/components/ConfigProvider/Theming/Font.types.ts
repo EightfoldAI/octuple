@@ -1,5 +1,13 @@
 import { Value, Variables } from './Theming.types';
 
+export interface CustomFont {
+  fontFamily: string;
+  src: string;
+  fontStyle?: string;
+  fontWeight?: string;
+  unicodeRange?: string;
+}
+
 export interface OcBaseFont {
   fontFamily?: Value;
   fontSize?: number;

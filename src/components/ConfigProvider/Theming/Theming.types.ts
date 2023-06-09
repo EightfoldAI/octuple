@@ -1,3 +1,4 @@
+import { CustomFont } from './Font.types';
 import { TabsTheme } from '../../Tabs';
 import { NavbarTheme } from '../../Navbar';
 
@@ -43,6 +44,7 @@ export interface OcBaseTheme {
   tabsTheme?: TabsTheme;
   navbarTheme?: NavbarTheme;
   varTheme?: VarTheme;
+  customFonts?: CustomFont[];
 }
 
 export interface OcTheme extends OcBaseTheme {
