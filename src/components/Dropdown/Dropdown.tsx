@@ -130,9 +130,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           ) {
             toggle(false)(e);
           }
-          if (!mergedVisible) {
-            toggle(false)(e);
-          }
           onClickOutside?.(e);
         },
         mergedVisible
