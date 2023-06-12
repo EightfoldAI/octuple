@@ -4,7 +4,7 @@ exports[`Table.Basic custom components renders fixed column and header correctly
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table table-fixed-header table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right",
+      "class": "table table-row-hover table-fixed-header table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right",
     },
     "children": Array [
       Node {

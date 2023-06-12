@@ -113,6 +113,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     onRow,
     onHeaderRow,
     transformColumns,
+    rowHoverBackgroundEnabled = true,
     sticky,
     headerClassName,
     onRowHoverEnter,
@@ -713,6 +714,9 @@ function OcTable<RecordType extends DefaultRecordType>(
       className={mergeClasses([
         styles.table,
         { [styles.tableBordered]: bordered },
+        {
+          [styles.tableRowHover]: rowHoverBackgroundEnabled,
+        },
         { [styles.tableRtl]: direction === 'rtl' },
         { [styles.tablePingLeft]: pingedLeft },
         { [styles.tablePingRight]: pingedRight },

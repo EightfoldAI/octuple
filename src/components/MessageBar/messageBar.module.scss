@@ -1,0 +1,64 @@
+.message-bar {
+  align-items: start;
+  background-color: var(--message-bar-background-color);
+  border-radius: var(--message-bar-border-radius);
+  border-left: solid $space-xs var(--message-bar-neutral-color);
+  box-shadow: var(--message-bar-box-shadow);
+  color: var(--message-bar-neutral-color);
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font-stack-full);
+  gap: $space-xs;
+  padding: $space-ml;
+  width: 100%;
+
+  &.neutral {
+    border-left: solid $space-xs var(--message-bar-neutral-color);
+    color: var(--message-bar-neutral-color);
+  }
+
+  &.positive {
+    border-left: solid $space-xs var(--message-bar-positive-color);
+    color: var(--message-bar-positive-color);
+  }
+
+  &.warning {
+    border-left: solid $space-xs var(--message-bar-warning-color);
+    color: var(--message-bar-warning-color);
+  }
+
+  &.disruptive {
+    border-left: solid $space-xs var(--message-bar-disruptive-color);
+    color: var(--message-bar-disruptive-color);
+  }
+
+  .icon {
+    color: inherit;
+    padding-top: $space-xxxs;
+  }
+
+  .message {
+    align-items: flex-start;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: $space-xs;
+
+    .header {
+      @include octuple-h4();
+      color: inherit;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+    .inner-message {
+      color: var(--message-bar-text-color);
+    }
+  }
+
+  .actions {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: $space-m;
+  }
+}

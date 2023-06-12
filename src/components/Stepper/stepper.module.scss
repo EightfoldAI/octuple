@@ -809,195 +809,265 @@
       .step .content .circle-button.circle-primary-button,
       .step .content .circle-button.circle-secondary-button {
         &.red {
-          --step-default-active-background-color: var(--red-color-20);
-          --step-default-active-border-color: var(--red-color-60);
-          --step-default-active-icon-color: var(--red-color-80);
+          --step-default-active-background-color: var(--red-background2-color);
+          --step-default-active-border-color: var(--red-tertiary-color);
+          --step-default-active-icon-color: var(--red-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--red-color-60);
-          --step-default-icon-color: var(--red-color-70);
-          --step-default-hover-background-color: var(--red-color-10);
-          --step-default-hover-border-color: var(--red-color-60);
-          --step-default-hover-icon-color: var(--red-color-70);
-          --stepper-line-color: var(--red-color-60);
-          --step-default-complete-background-color: var(--red-color-20);
-          --step-default-complete-border-color: var(--red-color-20);
-          --step-default-complete-icon-color: var(--red-color-70);
+          --step-default-border-color: var(--red-tertiary-color);
+          --step-default-icon-color: var(--red-secondary-color);
+          --step-default-hover-background-color: var(--red-background1-color);
+          --step-default-hover-border-color: var(--red-tertiary-color);
+          --step-default-hover-icon-color: var(--red-secondary-color);
+          --stepper-line-color: var(--red-tertiary-color);
+          --step-default-complete-background-color: var(
+            --red-background2-color
+          );
+          --step-default-complete-border-color: var(--red-background2-color);
+          --step-default-complete-icon-color: var(--red-secondary-color);
         }
 
         &.red-orange {
-          --step-default-active-background-color: var(--redorange-color-20);
-          --step-default-active-border-color: var(--redorange-color-60);
-          --step-default-active-icon-color: var(--redorange-color-80);
+          --step-default-active-background-color: var(
+            --redorange-background2-color
+          );
+          --step-default-active-border-color: var(--redorange-tertiary-color);
+          --step-default-active-icon-color: var(--redorange-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--redorange-color-60);
-          --step-default-icon-color: var(--redorange-color-70);
-          --step-default-hover-background-color: var(--redorange-color-10);
-          --step-default-hover-border-color: var(--redorange-color-60);
-          --step-default-hover-icon-color: var(--redorange-color-70);
-          --stepper-line-color: var(--redorange-color-60);
-          --step-default-complete-background-color: var(--redorange-color-20);
-          --step-default-complete-border-color: var(--redorange-color-20);
-          --step-default-complete-icon-color: var(--redorange-color-70);
+          --step-default-border-color: var(--redorange-tertiary-color);
+          --step-default-icon-color: var(--redorange-secondary-color);
+          --step-default-hover-background-color: var(
+            --redorange-background1-color
+          );
+          --step-default-hover-border-color: var(--redorange-tertiary-color);
+          --step-default-hover-icon-color: var(--redorange-secondary-color);
+          --stepper-line-color: var(--redorange-tertiary-color);
+          --step-default-complete-background-color: var(
+            --redorange-background2-color
+          );
+          --step-default-complete-border-color: var(
+            --redorange-background2-color
+          );
+          --step-default-complete-icon-color: var(--redorange-secondary-color);
         }
 
         &.orange {
-          --step-default-active-background-color: var(--orange-color-20);
-          --step-default-active-border-color: var(--orange-color-60);
-          --step-default-active-icon-color: var(--orange-color-80);
+          --step-default-active-background-color: var(
+            --orange-background2-color
+          );
+          --step-default-active-border-color: var(--orange-tertiary-color);
+          --step-default-active-icon-color: var(--orange-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--orange-color-60);
-          --step-default-icon-color: var(--orange-color-70);
-          --step-default-hover-background-color: var(--orange-color-10);
-          --step-default-hover-border-color: var(--orange-color-60);
-          --step-default-hover-icon-color: var(--orange-color-70);
-          --stepper-line-color: var(--orange-color-60);
-          --step-default-complete-background-color: var(--orange-color-20);
-          --step-default-complete-border-color: var(--orange-color-20);
-          --step-default-complete-icon-color: var(--orange-color-70);
+          --step-default-border-color: var(--orange-tertiary-color);
+          --step-default-icon-color: var(--orange-secondary-color);
+          --step-default-hover-background-color: var(
+            --orange-background1-color
+          );
+          --step-default-hover-border-color: var(--orange-tertiary-color);
+          --step-default-hover-icon-color: var(--orange-secondary-color);
+          --stepper-line-color: var(--orange-tertiary-color);
+          --step-default-complete-background-color: var(
+            --orange-background2-color
+          );
+          --step-default-complete-border-color: var(--orange-background2-color);
+          --step-default-complete-icon-color: var(--orange-secondary-color);
         }
 
         &.yellow {
-          --step-default-active-background-color: var(--yellow-color-20);
-          --step-default-active-border-color: var(--yellow-color-60);
-          --step-default-active-icon-color: var(--yellow-color-80);
+          --step-default-active-background-color: var(
+            --yellow-background2-color
+          );
+          --step-default-active-border-color: var(--yellow-tertiary-color);
+          --step-default-active-icon-color: var(--yellow-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--yellow-color-60);
-          --step-default-icon-color: var(--yellow-color-70);
-          --step-default-hover-background-color: var(--yellow-color-10);
-          --step-default-hover-border-color: var(--yellow-color-60);
-          --step-default-hover-icon-color: var(--yellow-color-70);
-          --stepper-line-color: var(--yellow-color-60);
-          --step-default-complete-background-color: var(--yellow-color-20);
-          --step-default-complete-border-color: var(--yellow-color-20);
-          --step-default-complete-icon-color: var(--yellow-color-70);
+          --step-default-border-color: var(--yellow-tertiary-color);
+          --step-default-icon-color: var(--yellow-secondary-color);
+          --step-default-hover-background-color: var(
+            --yellow-background1-color
+          );
+          --step-default-hover-border-color: var(--yellow-tertiary-color);
+          --step-default-hover-icon-color: var(--yellow-secondary-color);
+          --stepper-line-color: var(--yellow-tertiary-color);
+          --step-default-complete-background-color: var(
+            --yellow-background2-color
+          );
+          --step-default-complete-border-color: var(--yellow-background2-color);
+          --step-default-complete-icon-color: var(--yellow-secondary-color);
         }
 
         &.yellow-green {
-          --step-default-active-background-color: var(--yellowgreen-color-20);
-          --step-default-active-border-color: var(--yellowgreen-color-60);
-          --step-default-active-icon-color: var(--yellowgreen-color-80);
+          --step-default-active-background-color: var(
+            --yellowgreen-background2-color
+          );
+          --step-default-active-border-color: var(--yellowgreen-tertiary-color);
+          --step-default-active-icon-color: var(--yellowgreen-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--yellowgreen-color-60);
-          --step-default-icon-color: var(--yellowgreen-color-70);
-          --step-default-hover-background-color: var(--yellowgreen-color-10);
-          --step-default-hover-border-color: var(--yellowgreen-color-60);
-          --step-default-hover-icon-color: var(--yellowgreen-color-70);
-          --stepper-line-color: var(--yellowgreen-color-60);
-          --step-default-complete-background-color: var(--yellowgreen-color-20);
-          --step-default-complete-border-color: var(--yellowgreen-color-20);
-          --step-default-complete-icon-color: var(--yellowgreen-color-70);
+          --step-default-border-color: var(--yellowgreen-tertiary-color);
+          --step-default-icon-color: var(--yellowgreen-secondary-color);
+          --step-default-hover-background-color: var(
+            --yellowgreen-background1-color
+          );
+          --step-default-hover-border-color: var(--yellowgreen-tertiary-color);
+          --step-default-hover-icon-color: var(--yellowgreen-secondary-color);
+          --stepper-line-color: var(--yellowgreen-tertiary-color);
+          --step-default-complete-background-color: var(
+            --yellowgreen-background2-color
+          );
+          --step-default-complete-border-color: var(
+            --yellowgreen-background2-color
+          );
+          --step-default-complete-icon-color: var(
+            --yellowgreen-secondary-color
+          );
         }
 
         &.green {
-          --step-default-active-background-color: var(--green-color-20);
-          --step-default-active-border-color: var(--green-color-60);
-          --step-default-active-icon-color: var(--green-color-80);
+          --step-default-active-background-color: var(
+            --green-background2-color
+          );
+          --step-default-active-border-color: var(--green-tertiary-color);
+          --step-default-active-icon-color: var(--green-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--green-color-60);
-          --step-default-icon-color: var(--green-color-70);
-          --step-default-hover-background-color: var(--green-color-10);
-          --step-default-hover-border-color: var(--green-color-60);
-          --step-default-hover-icon-color: var(--green-color-70);
-          --stepper-line-color: var(--green-color-60);
-          --step-default-complete-background-color: var(--green-color-20);
-          --step-default-complete-border-color: var(--green-color-20);
-          --step-default-complete-icon-color: var(--green-color-70);
+          --step-default-border-color: var(--green-tertiary-color);
+          --step-default-icon-color: var(--green-secondary-color);
+          --step-default-hover-background-color: var(--green-background1-color);
+          --step-default-hover-border-color: var(--green-tertiary-color);
+          --step-default-hover-icon-color: var(--green-secondary-color);
+          --stepper-line-color: var(--green-tertiary-color);
+          --step-default-complete-background-color: var(
+            --green-background2-color
+          );
+          --step-default-complete-border-color: var(--green-background2-color);
+          --step-default-complete-icon-color: var(--green-secondary-color);
         }
 
         &.blue-green {
-          --step-default-active-background-color: var(--bluegreen-color-20);
-          --step-default-active-border-color: var(--bluegreen-color-60);
-          --step-default-active-icon-color: var(--bluegreen-color-80);
+          --step-default-active-background-color: var(
+            --bluegreen-background2-color
+          );
+          --step-default-active-border-color: var(--bluegreen-tertiary-color);
+          --step-default-active-icon-color: var(--bluegreen-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--bluegreen-color-60);
-          --step-default-icon-color: var(--bluegreen-color-70);
-          --step-default-hover-background-color: var(--bluegreen-color-10);
-          --step-default-hover-border-color: var(--bluegreen-color-60);
-          --step-default-hover-icon-color: var(--bluegreen-color-70);
-          --stepper-line-color: var(--bluegreen-color-60);
-          --step-default-complete-background-color: var(--bluegreen-color-20);
-          --step-default-complete-border-color: var(--bluegreen-color-20);
-          --step-default-complete-icon-color: var(--bluegreen-color-70);
+          --step-default-border-color: var(--bluegreen-tertiary-color);
+          --step-default-icon-color: var(--bluegreen-secondary-color);
+          --step-default-hover-background-color: var(
+            --bluegreen-background1-color
+          );
+          --step-default-hover-border-color: var(--bluegreen-tertiary-color);
+          --step-default-hover-icon-color: var(--bluegreen-secondary-color);
+          --stepper-line-color: var(--bluegreen-tertiary-color);
+          --step-default-complete-background-color: var(
+            --bluegreen-background2-color
+          );
+          --step-default-complete-border-color: var(
+            --bluegreen-background2-color
+          );
+          --step-default-complete-icon-color: var(--bluegreen-secondary-color);
         }
 
         &.blue {
-          --step-default-active-background-color: var(--blue-color-20);
-          --step-default-active-border-color: var(--blue-color-60);
-          --step-default-active-icon-color: var(--blue-color-80);
+          --step-default-active-background-color: var(--blue-background2-color);
+          --step-default-active-border-color: var(--blue-tertiary-color);
+          --step-default-active-icon-color: var(--blue-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--blue-color-60);
-          --step-default-icon-color: var(--blue-color-70);
-          --step-default-hover-background-color: var(--blue-color-10);
-          --step-default-hover-border-color: var(--blue-color-60);
-          --step-default-hover-icon-color: var(--blue-color-70);
-          --stepper-line-color: var(--blue-color-60);
-          --step-default-complete-background-color: var(--blue-color-20);
-          --step-default-complete-border-color: var(--blue-color-20);
-          --step-default-complete-icon-color: var(--blue-color-70);
+          --step-default-border-color: var(--blue-tertiary-color);
+          --step-default-icon-color: var(--blue-secondary-color);
+          --step-default-hover-background-color: var(--blue-background1-color);
+          --step-default-hover-border-color: var(--blue-tertiary-color);
+          --step-default-hover-icon-color: var(--blue-secondary-color);
+          --stepper-line-color: var(--blue-tertiary-color);
+          --step-default-complete-background-color: var(
+            --blue-background2-color
+          );
+          --step-default-complete-border-color: var(--blue-background2-color);
+          --step-default-complete-icon-color: var(--blue-secondary-color);
         }
 
         &.blue-violet {
-          --step-default-active-background-color: var(--blueviolet-color-20);
-          --step-default-active-border-color: var(--blueviolet-color-60);
-          --step-default-active-icon-color: var(--blueviolet-color-80);
+          --step-default-active-background-color: var(
+            --blueviolet-background2-color
+          );
+          --step-default-active-border-color: var(--blueviolet-tertiary-color);
+          --step-default-active-icon-color: var(--blueviolet-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--blueviolet-color-60);
-          --step-default-icon-color: var(--blueviolet-color-70);
-          --step-default-hover-background-color: var(--blueviolet-color-10);
-          --step-default-hover-border-color: var(--blueviolet-color-60);
-          --step-default-hover-icon-color: var(--blueviolet-color-70);
-          --stepper-line-color: var(--blueviolet-color-60);
-          --step-default-complete-background-color: var(--blueviolet-color-20);
-          --step-default-complete-border-color: var(--blueviolet-color-20);
-          --step-default-complete-icon-color: var(--blueviolet-color-70);
+          --step-default-border-color: var(--blueviolet-tertiary-color);
+          --step-default-icon-color: var(--blueviolet-secondary-color);
+          --step-default-hover-background-color: var(
+            --blueviolet-background1-color
+          );
+          --step-default-hover-border-color: var(--blueviolet-tertiary-color);
+          --step-default-hover-icon-color: var(--blueviolet-secondary-color);
+          --stepper-line-color: var(--blueviolet-tertiary-color);
+          --step-default-complete-background-color: var(
+            --blueviolet-background2-color
+          );
+          --step-default-complete-border-color: var(
+            --blueviolet-background2-color
+          );
+          --step-default-complete-icon-color: var(--blueviolet-secondary-color);
         }
 
         &.violet {
-          --step-default-active-background-color: var(--violet-color-20);
-          --step-default-active-border-color: var(--violet-color-60);
-          --step-default-active-icon-color: var(--violet-color-80);
+          --step-default-active-background-color: var(
+            --violet-background2-color
+          );
+          --step-default-active-border-color: var(--violet-tertiary-color);
+          --step-default-active-icon-color: var(--violet-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--violet-color-60);
-          --step-default-icon-color: var(--violet-color-70);
-          --step-default-hover-background-color: var(--violet-color-10);
-          --step-default-hover-border-color: var(--violet-color-60);
-          --step-default-hover-icon-color: var(--violet-color-70);
-          --stepper-line-color: var(--violet-color-60);
-          --step-default-complete-background-color: var(--violet-color-20);
-          --step-default-complete-border-color: var(--violet-color-20);
-          --step-default-complete-icon-color: var(--violet-color-70);
+          --step-default-border-color: var(--violet-tertiary-color);
+          --step-default-icon-color: var(--violet-secondary-color);
+          --step-default-hover-background-color: var(
+            --violet-background1-color
+          );
+          --step-default-hover-border-color: var(--violet-tertiary-color);
+          --step-default-hover-icon-color: var(--violet-secondary-color);
+          --stepper-line-color: var(--violet-tertiary-color);
+          --step-default-complete-background-color: var(
+            --violet-background2-color
+          );
+          --step-default-complete-border-color: var(--violet-background2-color);
+          --step-default-complete-icon-color: var(--violet-secondary-color);
         }
 
         &.violet-red {
-          --step-default-active-background-color: var(--violetred-color-20);
-          --step-default-active-border-color: var(--violetred-color-60);
-          --step-default-active-icon-color: var(--violetred-color-80);
+          --step-default-active-background-color: var(
+            --violetred-background2-color
+          );
+          --step-default-active-border-color: var(--violetred-tertiary-color);
+          --step-default-active-icon-color: var(--violetred-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--violetred-color-60);
-          --step-default-icon-color: var(--violetred-color-70);
-          --step-default-hover-background-color: var(--violetred-color-10);
-          --step-default-hover-border-color: var(--violetred-color-60);
-          --step-default-hover-icon-color: var(--violetred-color-70);
-          --stepper-line-color: var(--violetred-color-60);
-          --step-default-complete-background-color: var(--violetred-color-20);
-          --step-default-complete-border-color: var(--violetred-color-20);
-          --step-default-complete-icon-color: var(--violetred-color-70);
+          --step-default-border-color: var(--violetred-tertiary-color);
+          --step-default-icon-color: var(--violetred-secondary-color);
+          --step-default-hover-background-color: var(
+            --violetred-background1-color
+          );
+          --step-default-hover-border-color: var(--violetred-tertiary-color);
+          --step-default-hover-icon-color: var(--violetred-secondary-color);
+          --stepper-line-color: var(--violetred-tertiary-color);
+          --step-default-complete-background-color: var(
+            --violetred-background2-color
+          );
+          --step-default-complete-border-color: var(
+            --violetred-background2-color
+          );
+          --step-default-complete-icon-color: var(--violetred-secondary-color);
         }
 
         &.grey {
-          --step-default-active-background-color: var(--grey-color-20);
-          --step-default-active-border-color: var(--grey-color-60);
-          --step-default-active-icon-color: var(--grey-color-80);
+          --step-default-active-background-color: var(--grey-background2-color);
+          --step-default-active-border-color: var(--grey-tertiary-color);
+          --step-default-active-icon-color: var(--grey-color);
           --step-default-background-color: var(--background-color);
-          --step-default-border-color: var(--grey-color-60);
-          --step-default-icon-color: var(--grey-color-70);
-          --step-default-hover-background-color: var(--grey-color-10);
-          --step-default-hover-border-color: var(--grey-color-60);
-          --step-default-hover-icon-color: var(--grey-color-70);
-          --stepper-line-color: var(--grey-color-60);
-          --step-default-complete-background-color: var(--grey-color-20);
-          --step-default-complete-border-color: var(--grey-color-20);
-          --step-default-complete-icon-color: var(--grey-color-70);
+          --step-default-border-color: var(--grey-tertiary-color);
+          --step-default-icon-color: var(--grey-secondary-color);
+          --step-default-hover-background-color: var(--grey-background1-color);
+          --step-default-hover-border-color: var(--grey-tertiary-color);
+          --step-default-hover-icon-color: var(--grey-secondary-color);
+          --stepper-line-color: var(--grey-tertiary-color);
+          --step-default-complete-background-color: var(
+            --grey-background2-color
+          );
+          --step-default-complete-border-color: var(--grey-background2-color);
+          --step-default-complete-icon-color: var(--grey-secondary-color);
         }
 
         &.error {
@@ -1080,195 +1150,289 @@
         .step .content .circle,
         .step .content .circle-button.circle-default-button {
           &.red {
-            --step-timeline-active-background-color: var(--red-color-20);
-            --step-timeline-active-border-color: var(--red-color-60);
-            --step-timeline-active-icon-color: var(--red-color-80);
-            --step-timeline-background-color: var(--red-color-10);
-            --step-timeline-border-color: var(--red-color-10);
-            --step-timeline-icon-color: var(--red-color-70);
+            --step-timeline-active-background-color: var(
+              --red-background2-color
+            );
+            --step-timeline-active-border-color: var(--red-tertiary-color);
+            --step-timeline-active-icon-color: var(--red-color);
+            --step-timeline-background-color: var(--red-background1-color);
+            --step-timeline-border-color: var(--red-background1-color);
+            --step-timeline-icon-color: var(--red-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--red-color-60);
-            --step-timeline-hover-icon-color: var(--red-color-70);
-            --step-timeline-complete-background-color: var(--red-color-10);
-            --step-timeline-complete-border-color: var(--red-color-10);
-            --step-timeline-complete-icon-color: var(--red-color-70);
+            --step-timeline-hover-border-color: var(--red-tertiary-color);
+            --step-timeline-hover-icon-color: var(--red-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --red-background1-color
+            );
+            --step-timeline-complete-border-color: var(--red-background1-color);
+            --step-timeline-complete-icon-color: var(--red-secondary-color);
           }
 
           &.red-orange {
-            --step-timeline-active-background-color: var(--redorange-color-20);
-            --step-timeline-active-border-color: var(--redorange-color-60);
-            --step-timeline-active-icon-color: var(--redorange-color-80);
-            --step-timeline-background-color: var(--redorange-color-10);
-            --step-timeline-border-color: var(--redorange-color-10);
-            --step-timeline-icon-color: var(--redorange-color-70);
-            --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--redorange-color-60);
-            --step-timeline-hover-icon-color: var(--redorange-color-70);
-            --step-timeline-complete-background-color: var(
-              --redorange-color-10
+            --step-timeline-active-background-color: var(
+              --redorange-background2-color
             );
-            --step-timeline-complete-border-color: var(--redorange-color-10);
-            --step-timeline-complete-icon-color: var(--redorange-color-70);
+            --step-timeline-active-border-color: var(
+              --redorange-tertiary-color
+            );
+            --step-timeline-active-icon-color: var(--redorange-color);
+            --step-timeline-background-color: var(
+              --redorange-background1-color
+            );
+            --step-timeline-border-color: var(--redorange-background1-color);
+            --step-timeline-icon-color: var(--redorange-secondary-color);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--redorange-tertiary-color);
+            --step-timeline-hover-icon-color: var(--redorange-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --redorange-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --redorange-background1-color
+            );
+            --step-timeline-complete-icon-color: var(
+              --redorange-secondary-color
+            );
           }
 
           &.orange {
-            --step-timeline-active-background-color: var(--orange-color-20);
-            --step-timeline-active-border-color: var(--orange-color-60);
-            --step-timeline-active-icon-color: var(--orange-color-80);
-            --step-timeline-background-color: var(--orange-color-10);
-            --step-timeline-border-color: var(--orange-color-10);
-            --step-timeline-icon-color: var(--orange-color-70);
+            --step-timeline-active-background-color: var(
+              --orange-background2-color
+            );
+            --step-timeline-active-border-color: var(--orange-tertiary-color);
+            --step-timeline-active-icon-color: var(--orange-color);
+            --step-timeline-background-color: var(--orange-background1-color);
+            --step-timeline-border-color: var(--orange-background1-color);
+            --step-timeline-icon-color: var(--orange-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--orange-color-60);
-            --step-timeline-hover-icon-color: var(--orange-color-70);
-            --step-timeline-complete-background-color: var(--orange-color-10);
-            --step-timeline-complete-border-color: var(--orange-color-10);
-            --step-timeline-complete-icon-color: var(--orange-color-70);
+            --step-timeline-hover-border-color: var(--orange-tertiary-color);
+            --step-timeline-hover-icon-color: var(--orange-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --orange-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --orange-background1-color
+            );
+            --step-timeline-complete-icon-color: var(--orange-secondary-color);
           }
 
           &.yellow {
-            --step-timeline-active-background-color: var(--yellow-color-20);
-            --step-timeline-active-border-color: var(--yellow-color-60);
-            --step-timeline-active-icon-color: var(--yellow-color-80);
-            --step-timeline-background-color: var(--yellow-color-10);
-            --step-timeline-border-color: var(--yellow-color-10);
-            --step-timeline-icon-color: var(--yellow-color-70);
+            --step-timeline-active-background-color: var(
+              --yellow-background2-color
+            );
+            --step-timeline-active-border-color: var(--yellow-tertiary-color);
+            --step-timeline-active-icon-color: var(--yellow-color);
+            --step-timeline-background-color: var(--yellow-background1-color);
+            --step-timeline-border-color: var(--yellow-background1-color);
+            --step-timeline-icon-color: var(--yellow-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--yellow-color-60);
-            --step-timeline-hover-icon-color: var(--yellow-color-70);
-            --step-timeline-complete-background-color: var(--yellow-color-10);
-            --step-timeline-complete-border-color: var(--yellow-color-10);
-            --step-timeline-complete-icon-color: var(--yellow-color-70);
+            --step-timeline-hover-border-color: var(--yellow-tertiary-color);
+            --step-timeline-hover-icon-color: var(--yellow-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --yellow-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --yellow-background1-color
+            );
+            --step-timeline-complete-icon-color: var(--yellow-secondary-color);
           }
 
           &.yellow-green {
             --step-timeline-active-background-color: var(
-              --yellowgreen-color-20
+              --yellowgreen-background2-color
             );
-            --step-timeline-active-border-color: var(--yellowgreen-color-60);
-            --step-timeline-active-icon-color: var(--yellowgreen-color-80);
-            --step-timeline-background-color: var(--yellowgreen-color-10);
-            --step-timeline-border-color: var(--yellowgreen-color-10);
-            --step-timeline-icon-color: var(--yellowgreen-color-70);
+            --step-timeline-active-border-color: var(
+              --yellowgreen-tertiary-color
+            );
+            --step-timeline-active-icon-color: var(--yellowgreen-color);
+            --step-timeline-background-color: var(
+              --yellowgreen-background1-color
+            );
+            --step-timeline-border-color: var(--yellowgreen-background1-color);
+            --step-timeline-icon-color: var(--yellowgreen-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--yellowgreen-color-60);
-            --step-timeline-hover-icon-color: var(--yellowgreen-color-70);
-            --step-timeline-complete-background-color: var(
-              --yellowgreen-color-10
+            --step-timeline-hover-border-color: var(
+              --yellowgreen-tertiary-color
             );
-            --step-timeline-complete-border-color: var(--yellowgreen-color-10);
-            --step-timeline-complete-icon-color: var(--yellowgreen-color-70);
+            --step-timeline-hover-icon-color: var(
+              --yellowgreen-secondary-color
+            );
+            --step-timeline-complete-background-color: var(
+              --yellowgreen-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --yellowgreen-background1-color
+            );
+            --step-timeline-complete-icon-color: var(
+              --yellowgreen-secondary-color
+            );
           }
 
           &.green {
-            --step-timeline-active-background-color: var(--green-color-20);
-            --step-timeline-active-border-color: var(--green-color-60);
-            --step-timeline-active-icon-color: var(--green-color-80);
-            --step-timeline-background-color: var(--green-color-10);
-            --step-timeline-border-color: var(--green-color-10);
-            --step-timeline-icon-color: var(--green-color-70);
+            --step-timeline-active-background-color: var(
+              --green-background2-color
+            );
+            --step-timeline-active-border-color: var(--green-tertiary-color);
+            --step-timeline-active-icon-color: var(--green-color);
+            --step-timeline-background-color: var(--green-background1-color);
+            --step-timeline-border-color: var(--green-background1-color);
+            --step-timeline-icon-color: var(--green-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--green-color-60);
-            --step-timeline-hover-icon-color: var(--green-color-70);
-            --step-timeline-complete-background-color: var(--green-color-10);
-            --step-timeline-complete-border-color: var(--green-color-10);
-            --step-timeline-complete-icon-color: var(--green-color-70);
+            --step-timeline-hover-border-color: var(--green-tertiary-color);
+            --step-timeline-hover-icon-color: var(--green-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --green-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --green-background1-color
+            );
+            --step-timeline-complete-icon-color: var(--green-secondary-color);
           }
 
           &.blue-green {
-            --step-timeline-active-background-color: var(--bluegreen-color-20);
-            --step-timeline-active-border-color: var(--bluegreen-color-60);
-            --step-timeline-active-icon-color: var(--bluegreen-color-80);
-            --step-timeline-background-color: var(--bluegreen-color-10);
-            --step-timeline-border-color: var(--bluegreen-color-10);
-            --step-timeline-icon-color: var(--bluegreen-color-70);
-            --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--bluegreen-color-60);
-            --step-timeline-hover-icon-color: var(--bluegreen-color-70);
-            --step-timeline-complete-background-color: var(
-              --bluegreen-color-10
+            --step-timeline-active-background-color: var(
+              --bluegreen-background2-color
             );
-            --step-timeline-complete-border-color: var(--bluegreen-color-10);
-            --step-timeline-complete-icon-color: var(--bluegreen-color-70);
+            --step-timeline-active-border-color: var(
+              --bluegreen-tertiary-color
+            );
+            --step-timeline-active-icon-color: var(--bluegreen-color);
+            --step-timeline-background-color: var(
+              --bluegreen-background1-color
+            );
+            --step-timeline-border-color: var(--bluegreen-background1-color);
+            --step-timeline-icon-color: var(--bluegreen-secondary-color);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--bluegreen-tertiary-color);
+            --step-timeline-hover-icon-color: var(--bluegreen-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --bluegreen-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --bluegreen-background1-color
+            );
+            --step-timeline-complete-icon-color: var(
+              --bluegreen-secondary-color
+            );
           }
 
           &.blue {
-            --step-timeline-active-background-color: var(--blue-color-20);
-            --step-timeline-active-border-color: var(--blue-color-60);
-            --step-timeline-active-icon-color: var(--blue-color-80);
-            --step-timeline-background-color: var(--blue-color-10);
-            --step-timeline-border-color: var(--blue-color-10);
-            --step-timeline-icon-color: var(--blue-color-70);
+            --step-timeline-active-background-color: var(
+              --blue-background2-color
+            );
+            --step-timeline-active-border-color: var(--blue-tertiary-color);
+            --step-timeline-active-icon-color: var(--blue-color);
+            --step-timeline-background-color: var(--blue-background1-color);
+            --step-timeline-border-color: var(--blue-background1-color);
+            --step-timeline-icon-color: var(--blue-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--blue-color-60);
-            --step-timeline-hover-icon-color: var(--blue-color-70);
-            --step-timeline-complete-background-color: var(--blue-color-10);
-            --step-timeline-complete-border-color: var(--blue-color-10);
-            --step-timeline-complete-icon-color: var(--blue-color-70);
+            --step-timeline-hover-border-color: var(--blue-tertiary-color);
+            --step-timeline-hover-icon-color: var(--blue-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --blue-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --blue-background1-color
+            );
+            --step-timeline-complete-icon-color: var(--blue-secondary-color);
           }
 
           &.blue-violet {
-            --step-timeline-active-background-color: var(--blueviolet-color-20);
-            --step-timeline-active-border-color: var(--blueviolet-color-60);
-            --step-timeline-active-icon-color: var(--blueviolet-color-80);
-            --step-timeline-background-color: var(--blueviolet-color-10);
-            --step-timeline-border-color: var(--blueviolet-color-10);
-            --step-timeline-icon-color: var(--blueviolet-color-70);
-            --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--blueviolet-color-60);
-            --step-timeline-hover-icon-color: var(--blueviolet-color-70);
-            --step-timeline-complete-background-color: var(
-              --blueviolet-color-10
+            --step-timeline-active-background-color: var(
+              --blueviolet-background2-color
             );
-            --step-timeline-complete-border-color: var(--blueviolet-color-10);
-            --step-timeline-complete-icon-color: var(--blueviolet-color-70);
+            --step-timeline-active-border-color: var(
+              --blueviolet-tertiary-color
+            );
+            --step-timeline-active-icon-color: var(--blueviolet-color);
+            --step-timeline-background-color: var(
+              --blueviolet-background1-color
+            );
+            --step-timeline-border-color: var(--blueviolet-background1-color);
+            --step-timeline-icon-color: var(--blueviolet-secondary-color);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(
+              --blueviolet-tertiary-color
+            );
+            --step-timeline-hover-icon-color: var(--blueviolet-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --blueviolet-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --blueviolet-background1-color
+            );
+            --step-timeline-complete-icon-color: var(
+              --blueviolet-secondary-color
+            );
           }
 
           &.violet {
-            --step-timeline-active-background-color: var(--violet-color-20);
-            --step-timeline-active-border-color: var(--violet-color-60);
-            --step-timeline-active-icon-color: var(--violet-color-80);
-            --step-timeline-background-color: var(--violet-color-10);
-            --step-timeline-border-color: var(--violet-color-10);
-            --step-timeline-icon-color: var(--violet-color-70);
+            --step-timeline-active-background-color: var(
+              --violet-background2-color
+            );
+            --step-timeline-active-border-color: var(--violet-tertiary-color);
+            --step-timeline-active-icon-color: var(--violet-color);
+            --step-timeline-background-color: var(--violet-background1-color);
+            --step-timeline-border-color: var(--violet-background1-color);
+            --step-timeline-icon-color: var(--violet-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--violet-color-60);
-            --step-timeline-hover-icon-color: var(--violet-color-70);
-            --step-timeline-complete-background-color: var(--violet-color-10);
-            --step-timeline-complete-border-color: var(--violet-color-10);
-            --step-timeline-complete-icon-color: var(--violet-color-70);
+            --step-timeline-hover-border-color: var(--violet-tertiary-color);
+            --step-timeline-hover-icon-color: var(--violet-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --violet-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --violet-background1-color
+            );
+            --step-timeline-complete-icon-color: var(--violet-secondary-color);
           }
 
           &.violet-red {
-            --step-timeline-active-background-color: var(--violetred-color-20);
-            --step-timeline-active-border-color: var(--violetred-color-60);
-            --step-timeline-active-icon-color: var(--violetred-color-80);
-            --step-timeline-background-color: var(--violetred-color-10);
-            --step-timeline-border-color: var(--violetred-color-10);
-            --step-timeline-icon-color: var(--violetred-color-70);
-            --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--violetred-color-60);
-            --step-timeline-hover-icon-color: var(--violetred-color-70);
-            --step-timeline-complete-background-color: var(
-              --violetred-color-10
+            --step-timeline-active-background-color: var(
+              --violetred-background2-color
             );
-            --step-timeline-complete-border-color: var(--violetred-color-10);
-            --step-timeline-complete-icon-color: var(--violetred-color-70);
+            --step-timeline-active-border-color: var(
+              --violetred-tertiary-color
+            );
+            --step-timeline-active-icon-color: var(--violetred-color);
+            --step-timeline-background-color: var(
+              --violetred-background1-color
+            );
+            --step-timeline-border-color: var(--violetred-background1-color);
+            --step-timeline-icon-color: var(--violetred-secondary-color);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--violetred-tertiary-color);
+            --step-timeline-hover-icon-color: var(--violetred-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --violetred-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --violetred-background1-color
+            );
+            --step-timeline-complete-icon-color: var(
+              --violetred-secondary-color
+            );
           }
 
           &.grey {
-            --step-timeline-active-background-color: var(--grey-color-20);
-            --step-timeline-active-border-color: var(--grey-color-60);
-            --step-timeline-active-icon-color: var(--grey-color-80);
-            --step-timeline-background-color: var(--grey-color-10);
-            --step-timeline-border-color: var(--grey-color-10);
-            --step-timeline-icon-color: var(--grey-color-70);
+            --step-timeline-active-background-color: var(
+              --grey-background2-color
+            );
+            --step-timeline-active-border-color: var(--grey-tertiary-color);
+            --step-timeline-active-icon-color: var(--grey-color);
+            --step-timeline-background-color: var(--grey-background1-color);
+            --step-timeline-border-color: var(--grey-background1-color);
+            --step-timeline-icon-color: var(--grey-secondary-color);
             --step-timeline-hover-background-color: var(--background-color);
-            --step-timeline-hover-border-color: var(--grey-color-60);
-            --step-timeline-hover-icon-color: var(--grey-color-70);
-            --step-timeline-complete-background-color: var(--grey-color-10);
-            --step-timeline-complete-border-color: var(--grey-color-10);
-            --step-timeline-complete-icon-color: var(--grey-color-70);
+            --step-timeline-hover-border-color: var(--grey-tertiary-color);
+            --step-timeline-hover-icon-color: var(--grey-secondary-color);
+            --step-timeline-complete-background-color: var(
+              --grey-background1-color
+            );
+            --step-timeline-complete-border-color: var(
+              --grey-background1-color
+            );
+            --step-timeline-complete-icon-color: var(--grey-secondary-color);
           }
 
           &.error {

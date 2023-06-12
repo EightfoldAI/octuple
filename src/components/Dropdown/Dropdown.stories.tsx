@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
@@ -10,6 +10,7 @@ import {
 import { Icon, IconName } from '../Icon';
 import { Dropdown } from './';
 import { List } from '../List';
+import { Stack } from '../Stack';
 
 export default {
   title: 'Dropdown',
@@ -192,6 +193,37 @@ const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
 
 export const Dropdown_Div = Dropdown_Div_Story.bind({});
 
+const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
+  const [visible, setVisibility] = useState(false);
+  return (
+    <Stack direction="horizontal" flexGap="xxl">
+      <DefaultButton
+        alignIcon={ButtonIconAlign.Right}
+        checked={visible}
+        onClick={() => setVisibility(!visible)}
+        text={'External Control'}
+        toggle
+      />
+      <Dropdown
+        {...args}
+        visible={visible}
+        onVisibleChange={(isVisible) => setVisibility(isVisible)}
+      >
+        <DefaultButton
+          alignIcon={ButtonIconAlign.Right}
+          text={'Click button start'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+            rotate: visible ? 180 : 0,
+          }}
+        />
+      </Dropdown>
+    </Stack>
+  );
+};
+
+export const Dropdown_External = Dropdown_External_Story.bind({});
+
 const dropdownArgs: Object = {
   trigger: 'click',
   classNames: 'my-dropdown-class',
@@ -216,5 +248,9 @@ Dropdown_Div.args = {
 };
 
 Dropdown_IconButton.args = {
+  ...dropdownArgs,
+};
+
+Dropdown_External.args = {
   ...dropdownArgs,
 };

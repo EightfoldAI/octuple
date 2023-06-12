@@ -503,6 +503,11 @@ export interface OcTableProps<RecordType = unknown> {
    */
   rowClassName?: string | RowClassName<RecordType>;
   /**
+   * Enables row background hover color.
+   * @default true
+   */
+  rowHoverBackgroundEnabled?: boolean;
+  /**
    * Table Row's unique key.
    * May be a string or function that returns a string.
    */
