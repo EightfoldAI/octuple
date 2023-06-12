@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.39.0](https://github.com/EightfoldAI/octuple/compare/v2.38.0...v2.39.0) (2023-06-12)
+
+### Features
+
+- icon: add collapse icon for kanban ([#637](https://github.com/EightfoldAI/octuple/issues/637)) ([0f05959](https://github.com/EightfoldAI/octuple/commits/0f0595977081d62dab8341ec0dabcdf3ae6cdb98))
+- icon: add icons to support integration system simplification ([#634](https://github.com/EightfoldAI/octuple/issues/634)) ([693ee85](https://github.com/EightfoldAI/octuple/commits/693ee85436c32099183acc3d7240e8b5c85a9497))
+- icon: add icons to support kanban view ([#632](https://github.com/EightfoldAI/octuple/issues/632)) ([f94efac](https://github.com/EightfoldAI/octuple/commits/f94efac518d04d004ff367f400ff34958c246c1f))
+
+### Bug Fixes
+
+- button: ensure loading dots use text color and enable two state loader ([#636](https://github.com/EightfoldAI/octuple/issues/636)) ([94f7759](https://github.com/EightfoldAI/octuple/commits/94f77599b00b2ca72017352306a95a5a356e76c0))
+- select: Update selected option based on defaultValue when isLoading changes. ([#631](https://github.com/EightfoldAI/octuple/issues/631)) ([1e0417a](https://github.com/EightfoldAI/octuple/commits/1e0417a6a8d01b68bcb739bdd75c1a7c62c7a240))
+- slider: increase vertical hit target and handle segmented gap clicks ([#635](https://github.com/EightfoldAI/octuple/issues/635)) ([b4cad7b](https://github.com/EightfoldAI/octuple/commits/b4cad7b8dde7e01e78cc1aab9eb333e3d7058c5f))
+
 ## [2.38.0](https://github.com/EightfoldAI/octuple/compare/v2.37.0...v2.38.0) (2023-06-02)
 
 ### Features
