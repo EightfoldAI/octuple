@@ -14,11 +14,11 @@ export default {
             <section>
               <h1>Message Bar</h1>
               <p>
-                These alret banners run across the whole viewport of the
+                These alert banners run across the whole viewport of the
                 interface. They are to be put at the top of the page to alert
-                the important message to the user. Depending on the severeity
-                and context of the alert, these banners can have close button on
-                the right and another CTA for the users to take action.
+                the important message to the user. Depending on the severity and
+                context of the alert, these banners can have close button on the
+                right and another CTA for the users to take action.
               </p>
             </section>
             <section>

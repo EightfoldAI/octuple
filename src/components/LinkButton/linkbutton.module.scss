@@ -9,6 +9,7 @@
   text-decoration: none;
   transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
   white-space: nowrap;
+  width: max-content;
   position: relative;
   z-index: 0;
 
