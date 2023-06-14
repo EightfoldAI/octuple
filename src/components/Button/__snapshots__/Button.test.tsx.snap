@@ -46,13 +46,13 @@ exports[`Button Button is loading 1`] = `
       class="loader-container loader"
     >
       <div
-        class="dot medium"
+        class="loader-dot dot medium"
       />
       <div
-        class="dot medium"
+        class="loader-dot dot medium"
       />
       <div
-        class="dot medium"
+        class="loader-dot dot medium"
       />
     </div>
   </button>

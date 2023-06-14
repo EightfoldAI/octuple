@@ -4,7 +4,7 @@ exports[`Table.Basic renders correctly basic 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table test-class-name",
+      "class": "table table-row-hover test-class-name",
     },
     "children": Array [
       Node {

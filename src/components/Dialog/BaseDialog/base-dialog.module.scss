@@ -1,5 +1,6 @@
-$dialog-body-top-shadow: inset 0 11px 8px -10px var(--grey-color-20);
-$dialog-body-bottom-shadow: inset 0 -11px 8px -10px var(--grey-color-20);
+$dialog-body-top-shadow: inset 0 11px 8px -10px var(--grey-background2-color);
+$dialog-body-bottom-shadow: inset 0 -11px 8px -10px
+  var(--grey-background2-color);
 
 .dialog-backdrop {
   &:not(.modeless) {

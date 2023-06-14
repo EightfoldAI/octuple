@@ -39,7 +39,7 @@ export default {
 } as ComponentMeta<typeof Row>;
 
 const Basic_Story: ComponentStory<typeof Row> = (args) => (
-  <div style={{ border: '1px solid var(--primary-color-70)' }}>
+  <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
       <Col {...args} span={6} push={6}>
         col-6 1
@@ -124,7 +124,7 @@ export const Basic = Basic_Story.bind({});
 
 const style: React.CSSProperties = {
   background: 'var(--primary-color-40)',
-  border: '2px solid var(--primary-color-70)',
+  border: '2px solid var(--primary-secondary-color)',
   padding: '8px 0',
 };
 
@@ -198,7 +198,7 @@ const Vertical_Gutter_Story: ComponentStory<typeof Row> = (args) => (
 export const Vertical_Gutter = Vertical_Gutter_Story.bind({});
 
 const Column_Offset_Story: ComponentStory<typeof Row> = (args) => (
-  <div style={{ border: '1px solid var(--primary-color-70)' }}>
+  <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
       <Col {...args} span={4}>
         col-4
@@ -226,7 +226,7 @@ const Column_Offset_Story: ComponentStory<typeof Row> = (args) => (
 export const Column_Offset = Column_Offset_Story.bind({});
 
 const Grid_Sort_Story: ComponentStory<typeof Row> = (args) => (
-  <div style={{ border: '1px solid var(--primary-color-70)' }}>
+  <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
       <Col {...args} span={8} push={4}>
         col-8 col-push-4
@@ -241,7 +241,7 @@ const Grid_Sort_Story: ComponentStory<typeof Row> = (args) => (
 export const Grid_Sort = Grid_Sort_Story.bind({});
 
 const Typesetting_Story: ComponentStory<typeof Row> = (args) => (
-  <div style={{ border: '1px solid var(--primary-color-70)' }}>
+  <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row justify="start">
       <Col {...args} span={2}>
         col-2
@@ -337,7 +337,7 @@ const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = (
   <p
     style={{
       background: 'var(--primary-color-40)',
-      border: '2px solid var(--primary-color-70)',
+      border: '2px solid var(--primary-secondary-color)',
       height: `${props.value}px`,
     }}
   >
@@ -649,7 +649,7 @@ export const Playground = Playground_Story.bind({});
 const basicArgs: Object = {
   style: {
     background: 'var(--primary-color-40)',
-    border: '1px solid var(--primary-color-70)',
+    border: '1px solid var(--primary-secondary-color)',
     padding: '16px 0',
     textAlign: 'center',
   },

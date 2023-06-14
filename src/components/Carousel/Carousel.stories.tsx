@@ -41,7 +41,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--grey-color-20)',
+          background: 'var(--grey-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -50,7 +50,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--green-color-20)',
+          background: 'var(--green-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -59,7 +59,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--violet-color-20)',
+          background: 'var(--violet-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -68,7 +68,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--blue-color-20)',
+          background: 'var(--blue-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -126,7 +126,7 @@ Scroller.args = {
         key={item.key}
         style={{
           alignItems: 'center',
-          background: 'var(--grey-color-20)',
+          background: 'var(--grey-background2-color)',
           boxShadow:
             '0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16)',
           display: 'flex',
@@ -154,7 +154,7 @@ Scroller_Single.args = {
         key={item.key}
         style={{
           alignItems: 'center',
-          background: 'var(--grey-color-20)',
+          background: 'var(--grey-background2-color)',
           boxShadow:
             '0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16)',
           display: 'flex',

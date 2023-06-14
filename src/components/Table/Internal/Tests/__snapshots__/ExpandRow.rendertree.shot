@@ -4,7 +4,7 @@ exports[`Table.Expand renders tree row correctly 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table",
+      "class": "table table-row-hover",
     },
     "children": Array [
       Node {
