@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.39.1](https://github.com/EightfoldAI/octuple/compare/v2.39.0...v2.39.1) (2023-06-14)
+
+### Bug Fixes
+
+- select: revert update selected option based on defaultValue when isLoading ([#643](https://github.com/EightfoldAI/octuple/issues/643)) ([6a481f7](https://github.com/EightfoldAI/octuple/commits/6a481f7361c4dcde666beeea27064198434293b4))
+
 ## [2.39.0](https://github.com/EightfoldAI/octuple/compare/v2.38.0...v2.39.0) (2023-06-12)
 
 ### Features
