@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'ソートをキャンセル',
     scrollLeftAriaLabelText: '左にスクロール',
     scrollRightAriaLabelText: '右にスクロール',
+    selectAllRowsText: 'すべての行を選択',
+    selectRowText: '行を選択',
   },
 };
 

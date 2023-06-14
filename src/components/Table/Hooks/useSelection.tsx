@@ -45,9 +45,11 @@ interface UseSelectionConfig<RecordType> {
   childrenColumnName: string;
   emptyText: React.ReactNode | (() => React.ReactNode);
   emptyTextDetails?: string;
+  selectAllRowsText?: string;
   selectionAllText: string;
   selectInvertText: string;
   selectNoneText: string;
+  selectRowText?: string;
   getPopupContainer?: GetPopupContainer;
 }
 
@@ -106,9 +108,11 @@ export default function useSelection<RecordType>(
     getRowKey,
     expandType,
     childrenColumnName,
+    selectAllRowsText,
     selectionAllText,
     selectInvertText,
     selectNoneText,
+    selectRowText,
     getPopupContainer,
   } = config;
 
@@ -430,13 +434,15 @@ export default function useSelection<RecordType>(
         title = !hideSelectAll && (
           <div className={styles.tableSelectionColumn}>
             <CheckBox
+              ariaLabel={selectAllRowsText}
               checked={
                 !allDisabled
                   ? !!flattedData.length && checkedCurrentAll
                   : allDisabledAndChecked
               }
               classNames={styles.selectionCheckbox}
-              id={'selectAllCheckBox'}
+              id="selectAllCheckBox"
+              label={selectAllRowsText}
               onChange={onSelectAllChange}
               disabled={flattedData.length === 0 || allDisabled}
             />
@@ -459,17 +465,19 @@ export default function useSelection<RecordType>(
           return {
             node: (
               <RadioButton
+                ariaLabel={selectRowText}
+                label={selectRowText}
                 {...checkboxPropsMap.get(key)}
                 checked={checked}
-                name={'oc-table-radio-group'}
                 classNames={styles.selectionRadiobutton}
                 id={`selectRadioButton-${key}`}
-                onClick={(e) => e.stopPropagation()}
+                name="oc-table-radio-group"
                 onChange={(event) => {
                   if (!keySet.has(key)) {
                     triggerSingleSelection(key, true, [key], event.nativeEvent);
                   }
                 }}
+                onClick={(e) => e.stopPropagation()}
               />
             ),
             checked,
@@ -486,6 +494,8 @@ export default function useSelection<RecordType>(
           return {
             node: (
               <CheckBox
+                ariaLabel={selectRowText}
+                label={selectRowText}
                 {...checkboxProps}
                 checked={checked}
                 classNames={styles.selectionCheckbox}

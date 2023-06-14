@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Kliknij, aby anulować sortowanie',
     scrollLeftAriaLabelText: 'Przewiń w lewo',
     scrollRightAriaLabelText: 'Przewiń w prawo',
+    selectAllRowsText: 'Zaznaczanie wszystkich wierszy',
+    selectRowText: 'Wybierz wiersz',
   },
 };
 

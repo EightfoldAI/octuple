@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Klikni pro zrušení řazení',
     scrollLeftAriaLabelText: 'Posuňte se doleva',
     scrollRightAriaLabelText: 'Posuňte se doprava',
+    selectAllRowsText: 'Vybrat všechny řádky',
+    selectRowText: 'Vyberte řádek',
   },
 };
 

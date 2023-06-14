@@ -20,6 +20,6 @@ $border: $border-width solid $border-color;
 }
 
 @mixin table-border() {
-  border: $table-border;
+  border: var(--table-border);
   border-radius: $table-border-radius;
 }
