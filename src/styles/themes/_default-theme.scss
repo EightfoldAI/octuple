@@ -427,9 +427,19 @@
   --tab-pill-large-padding: 8px;
   --tab-pill-medium-padding: 6px;
   --tab-pill-small-padding: 4px;
+  --tab-pill-border-color: var(--grey-background1-color);
+  --tab-pill-border-style: solid;
+  --tab-pill-border-width: 1px;
+  --tab-pill-border: var(--tab-pill-border-width) var(--tab-pill-border-style)
+    var(--tab-pill-border-color);
   --tab-pill-label: var(--text-secondary-color);
   --tab-pill-active-label: var(--primary-color);
   --tab-pill-active-background: var(--primary-background2-color);
+  --tab-pill-active-border-color: var(--primary-tertiary-color);
+  --tab-pill-active-border-style: solid;
+  --tab-pill-active-border-width: 1px;
+  --tab-pill-active-border: var(--tab-pill-active-border-width)
+    var(--tab-pill-active-border-style) var(--tab-pill-active-border-color);
   --tab-pill-hover-label: var(--primary-color);
   --tab-pill-background: var(--grey-background1-color);
   --tab-underline: var(--border-color);
@@ -516,8 +526,8 @@
   --table-border-color: var(--grey-background2-color);
   --table-border-active-color: transparent;
   --table-header-background-color: var(--background-color);
-  --table-header-foreground-color: var(--text-primary-color);
-  --table-header-icon-color: var(--grey-color-40);
+  --table-header-foreground-color: var(--grey-tertiary-color);
+  --table-header-icon-color: var(--grey-tertiary-color);
   --table-header-icon-hover-color: var(--primary-color);
   --table-header-cell-split-color: var(--grey-background2-color);
   --table-body-sort-background-color: var(--background-color);
@@ -540,6 +550,11 @@
   --table-border-radius: var(--border-radius-xl);
   --table-border-style: solid;
   --table-border-width: 1px;
+  --table-border-active-width: 2px;
+  --table-border: var(--table-border-width) var(--table-border-style)
+    var(--table-border-color);
+  --table-border-active: var(--table-border-active-width)
+    var(--table-border-style) var(--table-border-active-color);
   --table-padding-vertical: 8px;
   --table-padding-horizontal: 16px;
   --table-padding-vertical-lg: 24px;
@@ -1047,4 +1062,9 @@
   --pill-small-size-border-radius: var(--border-radius-s);
   --pill-xsmall-size-border-radius: var(--border-radius-s);
   // ------ Pill theme ------
+
+  // ------ Match Score theme ------
+  --match-score-background-color: var(--primary-tertiary-color);
+  --match-score-text-color: var(--primary-secondary-color);
+  // ------ Match Score theme ------
 }

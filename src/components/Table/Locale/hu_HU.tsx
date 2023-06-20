@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Kattintson a rendezés megszakításához',
     scrollLeftAriaLabelText: 'Görgetés balra',
     scrollRightAriaLabelText: 'Görgetés jobbra',
+    selectAllRowsText: 'Válassza ki az összes sort',
+    selectRowText: 'Válassza ki a sort',
   },
 };
 

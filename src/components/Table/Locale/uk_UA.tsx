@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Натисніть, щоб скасувати сортування',
     scrollLeftAriaLabelText: 'Прокручування вліво',
     scrollRightAriaLabelText: 'Прокручування вправо',
+    selectAllRowsText: 'Виділення всіх рядків',
+    selectRowText: 'Виділення рядка',
   },
 };
 
