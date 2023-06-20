@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Sıralamayı iptal etmek için tıklayın',
     scrollLeftAriaLabelText: 'Sola kaydırın',
     scrollRightAriaLabelText: 'Sağa kaydırın',
+    selectAllRowsText: 'Tüm satırları seç',
+    selectRowText: 'Satır seç',
   },
 };
 

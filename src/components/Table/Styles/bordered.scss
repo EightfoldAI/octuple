@@ -7,7 +7,7 @@
       @include table-border();
 
       .table-title {
-        border: $table-border;
+        border: var(--table-border);
         border-bottom: 0;
       }
 
@@ -19,8 +19,7 @@
         tbody tr td,
         tfoot tr th,
         tfoot tr td {
-          border-right: $table-border-width $table-border-style
-            $table-border-color;
+          border-right: var(--table-border);
         }
 
         tbody tr td,
@@ -33,7 +32,7 @@
 
         thead {
           tr th {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
 
           tr th {
@@ -48,13 +47,13 @@
         tbody tr,
         tfoot tr {
           .table-cell-fix-right-first:after {
-            border-right: $table-border-style;
+            border-right: var(--table-border-style);
           }
         }
 
         tbody {
           tr:not(:last-of-type) td {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
 
           tr:last-of-type td {
@@ -73,7 +72,7 @@
             top: 0;
             right: 1px;
             bottom: 0;
-            border-right: $table-border;
+            border-right: var(--table-border);
             content: '';
           }
         }
@@ -121,7 +120,7 @@
       }
 
       .table-footer {
-        border: $table-border;
+        border: var(--table-border);
         border-top: 0;
       }
 
@@ -131,14 +130,14 @@
         }
 
         &-scrollbar:not([rowspan]) {
-          box-shadow: 0 1px 0 1px $table-header-background-color;
+          box-shadow: 0 1px 0 1px var(--table-header-background-color);
         }
       }
     }
 
     &-cell-bordered {
       .table-title {
-        border: $table-border;
+        border: var(--table-border);
         border-bottom: 0;
       }
 
@@ -158,8 +157,7 @@
             border-left: none;
           }
 
-          border-right: $table-border-width $table-border-style
-            $table-border-color;
+          border-right: var(--table-border);
 
           &:last-of-type {
             border-right: none;
@@ -168,7 +166,7 @@
 
         thead {
           tr th {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
 
           tr th {
@@ -181,13 +179,13 @@
         tbody tr,
         tfoot tr {
           .table-cell-fix-right-first:after {
-            border-right: $table-border-style;
+            border-right: var(--table-border-style);
           }
         }
 
         tbody {
           tr:not(:last-of-type) td {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
         }
       }
@@ -202,7 +200,7 @@
             top: 0;
             right: 1px;
             bottom: 0;
-            border-right: $table-border;
+            border-right: var(--table-border);
             content: '';
           }
         }
@@ -237,7 +235,7 @@
       }
 
       .table-footer {
-        border: $table-border;
+        border: var(--table-border);
         border-top: 0;
       }
 
@@ -247,14 +245,14 @@
         }
 
         &-scrollbar:not([rowspan]) {
-          box-shadow: 0 1px 0 1px $table-header-background-color;
+          box-shadow: 0 1px 0 1px var(--table-header-background-color);
         }
       }
     }
 
     &-header-bordered {
       .table-title {
-        border: $table-border;
+        border: var(--table-border);
         border-bottom: 0;
       }
 
@@ -268,8 +266,7 @@
             border-left: none;
           }
 
-          border-right: $table-border-width $table-border-style
-            $table-border-color;
+          border-right: var(--table-border);
         }
 
         tbody tr td,
@@ -280,7 +277,7 @@
 
         thead {
           tr th {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
 
           tr th {
@@ -294,7 +291,7 @@
         tbody tr,
         tfoot tr {
           .table-cell-fix-right-first:after {
-            border-right: $table-border-style;
+            border-right: var(--table-border-style);
           }
         }
 
@@ -315,7 +312,7 @@
             top: 0;
             right: 1px;
             bottom: 0;
-            border-right: $table-border;
+            border-right: var(--table-border);
             content: '';
           }
         }
@@ -350,7 +347,7 @@
       }
 
       .table-footer {
-        border: $table-border;
+        border: var(--table-border);
       }
 
       .table-cell {
@@ -359,7 +356,7 @@
         }
 
         &-scrollbar:not([rowspan]) {
-          box-shadow: 0 1px 0 1px $table-header-background-color;
+          box-shadow: 0 1px 0 1px var(--table-header-background-color);
         }
       }
     }
@@ -368,7 +365,7 @@
       table {
         thead {
           tr th {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
         }
       }
@@ -376,7 +373,7 @@
 
     &-inner-bordered {
       .table-title {
-        border: $table-border;
+        border: var(--table-border);
         border-bottom: 0;
       }
 
@@ -397,8 +394,7 @@
         tbody tr td,
         tfoot tr th,
         tfoot tr td {
-          border-right: $table-border-width $table-border-style
-            $table-border-color;
+          border-right: var(--table-border);
         }
 
         tbody tr td,
@@ -411,7 +407,7 @@
 
         thead {
           tr th {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
 
           tr th {
@@ -425,13 +421,13 @@
         tbody tr,
         tfoot tr {
           .table-cell-fix-right-first:after {
-            border-right: $table-border-style;
+            border-right: var(--table-border-style);
           }
         }
 
         tbody {
           tr:not(:last-of-type) td {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
         }
       }
@@ -446,7 +442,7 @@
             top: 0;
             right: 1px;
             bottom: 0;
-            border-right: $table-border;
+            border-right: var(--table-border);
             content: '';
           }
         }
@@ -481,7 +477,7 @@
       }
 
       .table-footer {
-        border: $table-border;
+        border: var(--table-border);
         border-top: 0;
       }
 
@@ -491,7 +487,7 @@
         }
 
         &-scrollbar:not([rowspan]) {
-          box-shadow: 0 1px 0 1px $table-header-background-color;
+          box-shadow: 0 1px 0 1px var(--table-header-background-color);
         }
       }
     }
@@ -502,7 +498,7 @@
 
     &-row-bordered {
       .table-title {
-        border-bottom: $table-border;
+        border-bottom: var(--table-border);
       }
 
       table {
@@ -511,7 +507,7 @@
 
         thead {
           tr th {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
 
           tr th {
@@ -523,7 +519,7 @@
 
         tbody {
           tr:not(:last-of-type) td {
-            border-bottom: $table-border;
+            border-bottom: var(--table-border);
           }
         }
       }
@@ -557,7 +553,7 @@
       }
 
       .table-footer {
-        border-top: $table-border;
+        border-top: var(--table-border);
       }
 
       .table-cell {
@@ -566,14 +562,14 @@
         }
 
         &-scrollbar:not([rowspan]) {
-          box-shadow: 0 1px 0 1px $table-header-background-color;
+          box-shadow: 0 1px 0 1px var(--table-header-background-color);
         }
       }
     }
 
     &-column-bordered {
       .table-title:not(:last-of-type) {
-        border-right: $table-border;
+        border-right: var(--table-border);
       }
 
       table {
@@ -582,7 +578,7 @@
 
         thead {
           tr th:not(:last-of-type) {
-            border-right: $table-border;
+            border-right: var(--table-border);
           }
 
           tr th {
@@ -594,7 +590,7 @@
 
         tbody {
           tr td:not(:last-of-type) {
-            border-right: $table-border;
+            border-right: var(--table-border);
           }
         }
       }
@@ -628,7 +624,7 @@
       }
 
       .table-footer {
-        border-right: $table-border;
+        border-right: var(--table-border);
       }
 
       .table-cell {
@@ -637,7 +633,7 @@
         }
 
         &-scrollbar:not([rowspan]) {
-          box-shadow: 0 1px 0 1px $table-header-background-color;
+          box-shadow: 0 1px 0 1px var(--table-header-background-color);
         }
       }
     }

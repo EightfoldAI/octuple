@@ -526,8 +526,8 @@
   --table-border-color: var(--grey-background2-color);
   --table-border-active-color: transparent;
   --table-header-background-color: var(--background-color);
-  --table-header-foreground-color: var(--text-primary-color);
-  --table-header-icon-color: var(--grey-color-40);
+  --table-header-foreground-color: var(--grey-tertiary-color);
+  --table-header-icon-color: var(--grey-tertiary-color);
   --table-header-icon-hover-color: var(--primary-color);
   --table-header-cell-split-color: var(--grey-background2-color);
   --table-body-sort-background-color: var(--background-color);
@@ -550,6 +550,11 @@
   --table-border-radius: var(--border-radius-xl);
   --table-border-style: solid;
   --table-border-width: 1px;
+  --table-border-active-width: 2px;
+  --table-border: var(--table-border-width) var(--table-border-style)
+    var(--table-border-color);
+  --table-border-active: var(--table-border-active-width)
+    var(--table-border-style) var(--table-border-active-color);
   --table-padding-vertical: 8px;
   --table-padding-horizontal: 16px;
   --table-padding-vertical-lg: 24px;

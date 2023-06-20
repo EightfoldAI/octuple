@@ -84,6 +84,14 @@ export type Locale = {
    * The Table `Scroll left` string
    */
   scrollLeftAriaLabelText?: string;
+  /**
+   * The Table `Select all rows` string
+   */
+  selectAllRowsText?: string;
+  /**
+   * The Table `Select row` string
+   */
+  selectRowText?: string;
 };
 
 // ==================== Row =====================

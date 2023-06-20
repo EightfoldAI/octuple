@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Click para cancelar ordenamiento',
     scrollLeftAriaLabelText: 'Desplácese hacia la izquierda',
     scrollRightAriaLabelText: 'Desplácese hacia la derecha',
+    selectAllRowsText: 'Seleccionar todas las filas',
+    selectRowText: 'Seleccionar fila',
   },
 };
 

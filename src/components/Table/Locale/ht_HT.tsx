@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Klike sou anile klasman',
     scrollLeftAriaLabelText: 'Woulo kite',
     scrollRightAriaLabelText: 'Woulo liv',
+    selectAllRowsText: 'Chwazi tout ranje yo',
+    selectRowText: 'Chwazi ranje',
   },
 };
 

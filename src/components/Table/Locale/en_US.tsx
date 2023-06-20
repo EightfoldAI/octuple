@@ -20,6 +20,8 @@ const locale: TableLocale = {
     cancelSortText: 'Click to cancel sorting',
     scrollLeftAriaLabelText: 'Scroll left',
     scrollRightAriaLabelText: 'Scroll right',
+    selectAllRowsText: 'Select all rows',
+    selectRowText: 'Select row',
   },
 };
 
