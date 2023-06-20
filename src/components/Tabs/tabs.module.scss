@@ -124,17 +124,20 @@
     --tab-label: var(--tab-pill-label);
     --tab-active-label: var(--tab-pill-active-label);
     --tab-active-background: var(--tab-pill-active-background);
+    --tab-active-border: var(--tab-pill-active-border);
     --tab-hover-label: var(--tab-pill-hover-label);
     background-color: var(--tab-pill-background);
-    width: fit-content;
     border-radius: var(--tab-pill-border-radius);
     padding: var(--tab-pill-medium-padding);
+    width: fit-content;
 
     .tab {
-      padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+      border: var(--tab-pill-border);
       border-radius: var(--tab-pill-border-radius);
+      padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
 
       &.active {
+        border: var(--tab-pill-active-border);
         .badge {
           background-color: var(--primary-background1-color);
         }

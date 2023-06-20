@@ -427,9 +427,19 @@
   --tab-pill-large-padding: 8px;
   --tab-pill-medium-padding: 6px;
   --tab-pill-small-padding: 4px;
+  --tab-pill-border-color: var(--grey-background1-color);
+  --tab-pill-border-style: solid;
+  --tab-pill-border-width: 1px;
+  --tab-pill-border: var(--tab-pill-border-width) var(--tab-pill-border-style)
+    var(--tab-pill-border-color);
   --tab-pill-label: var(--text-secondary-color);
   --tab-pill-active-label: var(--primary-color);
   --tab-pill-active-background: var(--primary-background2-color);
+  --tab-pill-active-border-color: var(--primary-tertiary-color);
+  --tab-pill-active-border-style: solid;
+  --tab-pill-active-border-width: 1px;
+  --tab-pill-active-border: var(--tab-pill-active-border-width)
+    var(--tab-pill-active-border-style) var(--tab-pill-active-border-color);
   --tab-pill-hover-label: var(--primary-color);
   --tab-pill-background: var(--grey-background1-color);
   --tab-underline: var(--border-color);
@@ -1052,4 +1062,9 @@
   --pill-small-size-border-radius: var(--border-radius-s);
   --pill-xsmall-size-border-radius: var(--border-radius-s);
   // ------ Pill theme ------
+
+  // ------ Match Score theme ------
+  --match-score-background-color: var(--primary-tertiary-color);
+  --match-score-text-color: var(--primary-secondary-color);
+  // ------ Match Score theme ------
 }
