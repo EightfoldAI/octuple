@@ -44,7 +44,7 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
   alignIcon?: LinkButtonIconAlign;
   /**
    * The link button text alignment.
-   * @default ButtonTextAlign.Center
+   * @default LinkButtonTextAlign.Center
    */
   alignText?: LinkButtonTextAlign;
   /**
@@ -119,12 +119,12 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
   role?: string;
   /**
    * Shape of the link button.
-   * @default ButtonShape.Pill
+   * @default LinkButtonShape.Pill
    */
   shape?: LinkButtonShape | Shape;
   /**
    * The link button size.
-   * @default ButtonSize.Medium
+   * @default LinkButtonSize.Medium
    */
   size?: LinkButtonSize | Size;
   /**
