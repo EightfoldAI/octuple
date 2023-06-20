@@ -214,7 +214,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           opt.selected,
       }));
       setOptions(updatedOptions);
-    }, [defaultValue, isLoading]);
+    }, [defaultValue]);
 
     useEffect(() => {
       // When filterable and not multiple if the input value does not match
