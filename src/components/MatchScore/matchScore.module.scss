@@ -1,13 +1,14 @@
-$indicator-size: 12px;
+$indicator-size: $space-s;
 
 .match-score-container {
   display: flex;
   align-items: center;
 
   .label {
-    color: var(--primary-secondary-color);
-    font-family: $octuple-font-family;
+    color: var(--match-score-text-color);
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-3;
+    line-height: $indicator-size;
     margin: 0;
     margin-left: $space-xxs;
   }
@@ -16,22 +17,23 @@ $indicator-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--primary-tertiary-color);
+    border: 1px solid var(--match-score-background-color);
     box-sizing: border-box;
     height: $indicator-size;
     width: $indicator-size;
     border-radius: 50%;
+    margin-top: $space-xxxs;
     margin-right: $space-xxs;
 
     &.full {
-      background: var(--accent-background3-color);
+      background: var(--match-score-background-color);
     }
 
     &.half {
-      background: var(--accent-background3-color);
+      background: var(--match-score-background-color);
       background: linear-gradient(
         to right,
-        var(--accent-background3-color) 50%,
+        var(--match-score-background-color) 50%,
         transparent 50%
       );
 
@@ -39,7 +41,7 @@ $indicator-size: 12px;
         content: '';
         height: $indicator-size;
         width: 1px;
-        background: var(--primary-tertiary-color);
+        background: var(--match-score-background-color);
       }
     }
   }
@@ -57,7 +59,7 @@ $indicator-size: 12px;
       &.half {
         background: linear-gradient(
           to left,
-          var(--accent-background3-color) 50%,
+          var(--match-score-background-color) 50%,
           transparent 50%
         );
       }
