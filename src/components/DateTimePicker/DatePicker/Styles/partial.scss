@@ -48,8 +48,8 @@ $picker-time-partial-cell-height: 28px;
       bottom: 0;
       left: 0;
       z-index: 1;
-      border: $picker-border-width $picker-border-style
-        $picker-border-color-active;
+      border: var(--picker-border-width) var(--picker-border-style)
+        var(--picker-border-color-active);
       border-radius: var(--border-radius-round);
       content: '';
     }
@@ -66,8 +66,8 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-selected,
   &-in-view.picker-cell-range-start,
   &-in-view.picker-cell-range-end {
-    background: $picker-cell-background-color-active;
-    color: $picker-cell-foreground-color-active;
+    background: var(--picker-cell-background-color-active);
+    color: var(--picker-cell-foreground-color-active);
   }
 
   &-in-view.picker-cell-range-start:not(&-range-start-single),
@@ -97,9 +97,9 @@ $picker-time-partial-cell-height: 28px;
       top: 50%;
       z-index: 0;
       height: 24px;
-      border-top: $picker-border-width dashed
+      border-top: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
-      border-bottom: $picker-border-width dashed
+      border-bottom: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
       transform: translateY(-50%);
       transition: all $motion-duration-extra-fast;
@@ -154,7 +154,7 @@ $picker-time-partial-cell-height: 28px;
   .picker-date-partial
     &-in-view.picker-cell-in-range.picker-cell-range-hover-start
     &:after {
-    right: -5px - $picker-border-width;
+    right: -5px - var(--picker-border-width);
     left: 0;
   }
 
@@ -162,7 +162,7 @@ $picker-time-partial-cell-height: 28px;
     &-in-view.picker-cell-in-range.picker-cell-range-hover-end
     &:after {
     right: 0;
-    left: -5px - $picker-border-width;
+    left: -5px - var(--picker-border-width);
   }
 
   &-range-hover.picker-cell-range-start:after {
@@ -179,7 +179,7 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-range-hover-edge-start:not(&-range-hover-edge-start-near-range):after,
   &-in-view.picker-cell-range-hover-start:after {
     left: 6px;
-    border-left: $picker-border-width dashed
+    border-left: var(--picker-border-width) dashed
       $picker-date-hover-range-border-color;
     border-top-left-radius: $picker-border-radius;
     border-bottom-left-radius: $picker-border-radius;
@@ -191,7 +191,7 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-range-hover-edge-end:not(&-range-hover-edge-end-near-range):after,
   &-in-view.picker-cell-range-hover-end:after {
     right: 6px;
-    border-right: $picker-border-width dashed
+    border-right: var(--picker-border-width) dashed
       $picker-date-hover-range-border-color;
     border-top-right-radius: $picker-border-radius;
     border-bottom-right-radius: $picker-border-radius;
@@ -213,13 +213,13 @@ $picker-time-partial-cell-height: 28px;
     display: inline-flex;
     flex-direction: column;
     text-align: center;
-    background: $picker-input-background-color;
-    border: $picker-border-width $picker-border-style $picker-border-color;
+    background: var(--picker-input-background-color);
+    border: var(--picker-border);
     border-radius: $picker-border-radius;
     outline: none;
 
     &-focused {
-      border-color: $picker-border-color-active;
+      border-color: var(--picker-border-color-active);
     }
   }
 
@@ -238,9 +238,8 @@ $picker-time-partial-cell-height: 28px;
   &-header {
     display: flex;
     padding: 0 $space-xs;
-    color: $picker-header-cell-foreground-color;
-    border-bottom: $picker-border-width $picker-border-style
-      $picker-border-color;
+    color: var(--picker-header-cell-foreground-color);
+    border-bottom: var(--picker-border);
 
     > * {
       flex: none;
@@ -255,8 +254,8 @@ $picker-time-partial-cell-height: 28px;
 
   &-content {
     width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
 
     th,
     td {
@@ -267,7 +266,7 @@ $picker-time-partial-cell-height: 28px;
 
     th {
       height: 30px;
-      color: $picker-header-cell-foreground-color;
+      color: var(--picker-header-cell-foreground-color);
       line-height: 30px;
     }
   }
@@ -278,7 +277,7 @@ $picker-time-partial-cell-height: 28px;
     cursor: pointer;
 
     &-in-view {
-      color: $picker-cell-foreground-color;
+      color: var(--picker-cell-foreground-color);
     }
 
     @include picker-cell-inner();
@@ -308,10 +307,11 @@ $picker-time-partial-cell-height: 28px;
     min-width: 100%;
     line-height: $picker-text-height - 2 * $picker-border-width;
     text-align: center;
-    border-bottom: $picker-border-width $picker-border-style transparent;
+    border-bottom: var(--picker-border-width) var(--picker-border-style)
+      transparent;
 
     .picker-partial {
-      border-top: $picker-border-width $picker-border-style $picker-border-color;
+      border-top: var(--picker-border);
     }
 
     &-extra {
@@ -320,8 +320,7 @@ $picker-time-partial-cell-height: 28px;
       text-align: left;
 
       &:not(:last-child) {
-        border-bottom: $picker-border-width $picker-border-style
-          $picker-border-color;
+        border-bottom: var(--picker-border);
       }
     }
   }
@@ -377,26 +376,26 @@ $picker-time-partial-cell-height: 28px;
 
     .picker-cell-range-hover-start:after {
       left: $hover-cell-fixed-distance;
-      border-left: $picker-border-width dashed
+      border-left: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
       border-radius: $picker-border-radius 0 0 $picker-border-radius;
 
       .picker-partial-rtl {
         right: $hover-cell-fixed-distance;
-        border-right: $picker-border-width dashed
+        border-right: var(--picker-border-width) dashed
           $picker-date-hover-range-border-color;
         border-radius: 0 $picker-border-radius $picker-border-radius 0;
       }
     }
     .picker-cell-range-hover-end:after {
       right: $hover-cell-fixed-distance;
-      border-right: $picker-border-width dashed
+      border-right: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
       border-radius: 0 $picker-border-radius $picker-border-radius 0;
 
       .picker-partial-rtl {
         left: $hover-cell-fixed-distance;
-        border-left: $picker-border-width dashed
+        border-left: var(--picker-border-width) dashed
           $picker-date-hover-range-border-color;
         border-radius: $picker-border-radius 0 0 $picker-border-radius;
       }
@@ -428,10 +427,10 @@ $picker-time-partial-cell-height: 28px;
 
       &-selected td,
       &-selected:hover td {
-        background: $picker-cell-background-color-active;
+        background: var(--picker-cell-background-color-active);
 
         &.picker-cell-week {
-          color: $picker-cell-foreground-color-active;
+          color: var(--picker-cell-foreground-color-active);
         }
 
         &.picker-cell-today .picker-cell-inner:before {
@@ -463,8 +462,7 @@ $picker-time-partial-cell-height: 28px;
     display: flex;
 
     .picker-time-partial {
-      border-left: $picker-border-width $picker-border-style
-        $picker-border-color;
+      border-left: var(--picker-border);
     }
 
     .picker-date-partial,
@@ -516,8 +514,7 @@ $picker-time-partial-cell-height: 28px;
       }
 
       &:not(:first-child) {
-        border-left: $picker-border-width $picker-border-style
-          $picker-border-color;
+        border-left: var(--picker-border);
       }
 
       &-active {
@@ -539,7 +536,7 @@ $picker-time-partial-cell-height: 28px;
             height: $picker-time-partial-cell-height;
             margin: 0;
             padding: 0 0 0 (($picker-time-partial-column-width - 28px) / 2);
-            color: $picker-cell-foreground-color;
+            color: var(--picker-cell-foreground-color);
             line-height: $picker-time-partial-cell-height;
             border-radius: 0;
             cursor: pointer;
@@ -552,7 +549,8 @@ $picker-time-partial-cell-height: 28px;
 
           &-selected {
             .picker-time-partial-cell-inner {
-              background: $picker-cell-foreground-color-active;
+              background: var(--picker-cell-foreground-color-active);
+              border: 1px solid var(--picker-cell-selected-border-color-active);
             }
           }
 
@@ -565,18 +563,6 @@ $picker-time-partial-cell-height: 28px;
           }
         }
       }
-    }
-  }
-}
-
-// Fix IE11 render bug by css hacks
-/* stylelint-disable selector-type-no-unknown,selector-no-vendor-prefix */
-_:-ms-fullscreen,
-:root {
-  .picker-range-wrapper {
-    .picker-month-partial .picker-cell,
-    .picker-year-partial .picker-cell {
-      padding: 21px 0;
     }
   }
 }

@@ -100,14 +100,14 @@
 
       .picker-date-partial.picker-cell-in-view.picker-cell-in-range.picker-cell-range-hover-start
         &:after {
-        left: -5px - $picker-border-width;
+        left: -5px - var(--picker-border-width);
         right: 0;
       }
 
       .picker-date-partial.picker-cell-in-view.picker-cell-in-range.picker-cell-range-hover-end
         &:after {
         left: 0;
-        right: -5px - $picker-border-width;
+        right: -5px - var(--picker-border-width);
       }
 
       &-range-hover.picker-cell-range-start:after {
@@ -137,7 +137,7 @@
       &-in-view.picker-cell-range-hover-start:after {
         right: 6px;
         left: 0;
-        border-right: $picker-border-width dashed
+        border-right: var(--picker-border-width) dashed
           $picker-date-hover-range-border-color;
         border-left: none;
         border-radius: 0 $picker-border-radius $picker-border-radius 0;
@@ -151,7 +151,7 @@
         right: 0;
         left: 6px;
         border-right: none;
-        border-left: $picker-border-width dashed
+        border-left: var(--picker-border-width) dashed
           $picker-date-hover-range-border-color;
         border-radius: $picker-border-radius 0 0 $picker-border-radius;
       }
@@ -167,9 +167,9 @@
         > &-in-view.picker-cell-end.picker-cell-range-hover.picker-cell-range-hover-edge-end:first-child:after {
         right: 6px;
         left: 6px;
-        border-right: $picker-border-width dashed
+        border-right: var(--picker-border-width) dashed
           $picker-date-hover-range-border-color;
-        border-left: $picker-border-width dashed
+        border-left: var(--picker-border-width) dashed
           $picker-date-hover-range-border-color;
         border-radius: $picker-border-radius;
       }
