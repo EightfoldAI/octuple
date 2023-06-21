@@ -179,7 +179,26 @@ export const Select: FC<SelectProps> = React.forwardRef(
           ...option,
         }))
       );
-    }, [_options, isLoading]);
+    }, [_options]);
+
+    // Populate options on isLoading change
+    useEffect(() => {
+      const selected: SelectOption[] = options.filter(
+        (opt: SelectOption) => opt.selected
+      );
+      setOptions(
+        _options.map((option: SelectOption, index: number) => ({
+          selected:
+            !!selected.find((opt) => opt.value === option.value) ||
+            option.value === defaultValue,
+          hideOption: false,
+          id: option.text + index,
+          object: option.object,
+          role: 'option',
+          ...option,
+        }))
+      );
+    }, [isLoading]);
 
     // Update options on change
     useEffect(() => {
