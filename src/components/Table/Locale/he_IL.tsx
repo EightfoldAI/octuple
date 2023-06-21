@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'לחץ כדי לבטל את המיון',
     scrollLeftAriaLabelText: 'גלילה שמאלה',
     scrollRightAriaLabelText: 'גלילה ימינה',
+    selectAllRowsText: 'בחירת כל השורות',
+    selectRowText: 'בחר שורה',
   },
 };
 

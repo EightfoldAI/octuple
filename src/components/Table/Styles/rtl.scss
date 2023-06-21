@@ -47,7 +47,7 @@
         }
 
         .table-column-sorter {
-          margin-right: 4px;
+          margin-right: $space-xxs;
           margin-left: 0;
         }
 
@@ -120,8 +120,7 @@
             tbody tr td,
             tfoot tr th,
             tfoot tr td {
-              border-left: $table-border-width $table-border-style
-                $table-border-color;
+              border-left: var(--table-border);
               border-right: none;
             }
 
@@ -129,8 +128,7 @@
             tfoot tr th,
             tfoot tr td {
               &:last-of-type {
-                border-left: $table-border-width $table-border-style
-                  $table-border-color;
+                border-left: var(--table-border);
                 border-right: none;
               }
             }
@@ -139,7 +137,7 @@
             tbody tr,
             tfoot tr {
               .table-cell-fix-right-first:after {
-                border-left: $table-border-style;
+                border-left: var(--table-border-style);
                 border-right: none;
               }
             }
@@ -148,7 +146,7 @@
           table tbody tr td {
             .table-expanded-row-fixed {
               &:after {
-                border-left: $table-border;
+                border-left: var(--table-border);
                 border-right: none;
                 left: 1px;
                 right: unset;
@@ -180,8 +178,7 @@
                 border-right: none;
               }
 
-              border-left: $table-border-width $table-border-style
-                $table-border-color;
+              border-left: var(--table-border);
 
               &:last-of-type {
                 border-left: none;
@@ -191,7 +188,7 @@
             tbody tr,
             tfoot tr {
               .table-cell-fix-right-first:after {
-                border-left: $table-border-style;
+                border-left: var(--table-border-style);
               }
             }
           }
@@ -199,7 +196,7 @@
           table tbody tr td {
             .table-expanded-row-fixed {
               &:after {
-                border-left: $table-border;
+                border-left: var(--table-border);
                 border-right: unset;
                 left: 1px;
                 right: unset;
@@ -217,8 +214,7 @@
                 border-right: none;
               }
 
-              border-left: $table-border-width $table-border-style
-                $table-border-color;
+              border-left: var(--table-border);
 
               &:last-of-type {
                 border-left: none;
@@ -229,7 +225,7 @@
             tbody tr,
             tfoot tr {
               .table-cell-fix-right-first:after {
-                border-left: $table-border-style;
+                border-left: var(--table-border-style);
               }
             }
           }
@@ -237,7 +233,7 @@
           table tbody tr td {
             .table-expanded-row-fixed {
               &:after {
-                border-left: $table-border;
+                border-left: var(--table-border);
                 border-right: unset;
                 left: 1px;
                 right: unset;
@@ -257,8 +253,7 @@
                 border-right: none;
               }
 
-              border-left: $table-border-width $table-border-style
-                $table-border-color;
+              border-left: var(--table-border);
 
               &:last-of-type {
                 border-left: none;
@@ -269,7 +264,7 @@
             tbody tr,
             tfoot tr {
               .table-cell-fix-right-first:after {
-                border-left: $table-border-style;
+                border-left: var(--table-border-style);
               }
             }
           }
@@ -277,7 +272,7 @@
           table tbody tr td {
             .table-expanded-row-fixed {
               &:after {
-                border-left: $table-border;
+                border-left: var(--table-border);
                 border-right: unset;
                 left: 1px;
                 right: unset;

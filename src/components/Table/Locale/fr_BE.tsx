@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Annuler le tri',
     scrollLeftAriaLabelText: 'Faites défiler vers la gauche',
     scrollRightAriaLabelText: 'Faites défiler vers la droite',
+    selectAllRowsText: 'Sélectionner toutes les lignes',
+    selectRowText: 'Sélectionner une ligne',
   },
 };
 
