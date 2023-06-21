@@ -1,59 +1,4 @@
 // BEGIN: VARIABLE COLOR DEFINITIONS
-
-$color-background1-red: var(--red-color-10);
-$color-background1-orange: var(--orange-color-10);
-$color-background1-yellow: var(--yellow-color-10);
-$color-background1-green: var(--green-color-10);
-$color-background1-blue-green: var(--bluegreen-color-10);
-$color-background1-blue: var(--blue-color-10);
-$color-background1-violet: var(--violet-color-10);
-$color-background1-grey: var(--grey-color-10);
-
-$color-background2-red: var(--red-color-20);
-$color-background2-orange: var(--orange-color-20);
-$color-background2-yellow: var(--yellow-color-20);
-$color-background2-green: var(--green-color-20);
-$color-background2-blue-green: var(--bluegreen-color-20);
-$color-background2-blue: var(--blue-color-20);
-$color-background2-violet: var(--violet-color-20);
-$color-background2-grey: var(--grey-color-20);
-
-$color-background3-red: var(--red-color-30);
-$color-background3-orange: var(--orange-color-30);
-$color-background3-yellow: var(--yellow-color-30);
-$color-background3-green: var(--green-color-30);
-$color-background3-blue-green: var(--bluegreen-color-30);
-$color-background3-blue: var(--blue-color-30);
-$color-background3-violet: var(--violet-color-30);
-$color-background3-grey: var(--grey-color-30);
-
-$color-primary-red: var(--red-color-80);
-$color-primary-orange: var(--orange-color-80);
-$color-primary-yellow: var(--yellow-color-80);
-$color-primary-green: var(--green-color-80);
-$color-primary-blue-green: var(--bluegreen-color-80);
-$color-primary-blue: var(--blue-color-80);
-$color-primary-violet: var(--violet-color-80);
-$color-primary-grey: var(--grey-color-80);
-
-$color-secondary-red: var(--red-color-70);
-$color-secondary-orange: var(--orange-color-70);
-$color-secondary-yellow: var(--yellow-color-70);
-$color-secondary-green: var(--green-color-70);
-$color-secondary-blue-green: var(--bluegreen-color-70);
-$color-secondary-blue: var(--blue-color-70);
-$color-secondary-violet: var(--violet-color-70);
-$color-secondary-grey: var(--grey-color-70);
-
-$color-tertiary-red: var(--red-color-60);
-$color-tertiary-orange: var(--orange-color-60);
-$color-tertiary-yellow: var(--yellow-color-60);
-$color-tertiary-green: var(--green-color-60);
-$color-tertiary-blue-green: var(--bluegreen-color-60);
-$color-tertiary-blue: var(--blue-color-60);
-$color-tertiary-violet: var(--violet-color-60);
-$color-tertiary-grey: var(--grey-color-60);
-
 $input-field-color-enabled: var(--grey-color-40);
 
 // Gradient Definitions
@@ -120,59 +65,16 @@ $layout-trigger-color: var(--white-color);
 
 // Table
 
-$table-background-color: var(--table-background-color);
-$table-foreground-color: var(--table-foreground-color);
-$table-background-alternate-color: var(--table-background-alternate-color);
-$table-header-background-color: var(--table-header-background-color);
-$table-header-foreground-color: var(--table-header-foreground-color);
-$table-header-sort-background-color: var(--table-header-sort-background-color);
-$table-header-icon-color: var(--table-header-icon-color);
-$table-header-icon-hover-color: var(--table-header-icon-hover-color);
-$table-header-color: var(--grey-color-60);
-$table-body-sort-backgroud-color: var(--table-body-sort-backgroud-color);
-$table-row-hover-background-color: var(--table-row-hover-background-color);
-$table-row-selected-foregroud-color: var(--table-row-selected-foregroud-color);
-$table-row-selected-background-color: var(
-  --table-row-selected-background-color
-);
-$table-row-selected-hover-background-color: var(
-  --table-row-selected-hover-background-color
-);
-$table-row-expanded-background-color: var(
-  --table-row-expanded-background-color
-);
-$table-border-color: var(--table-border-color);
-$table-border-active-color: var(--table-border-active-color);
-$table-border-width: var(--table-border-width);
-$table-border-style: var(--table-border-style);
-$table-border: $table-border-width $table-border-style $table-border-color;
-$table-box-shadow: var(--table-box-shadow);
-$table-fixed-left-box-shadow: var(--table-fixed-left-box-shadow);
-$table-fixed-right-box-shadow: var(--table-fixed-right-box-shadow);
-$table-footer-background-color: var(--table-footer-background-color);
-$table-footer-foreground-color: var(--table-footer-foreground-color);
-$table-header-cell-split-color: var(--table-header-cell-split-color);
-$table-header-sort-active-background-color: var(
-  --table-header-sort-active-background-color
-);
-$table-fixed-header-sort-active-background-color: $table-header-sort-active-background-color;
-$table-header-filter-active-background-color: var(
-  --table-header-filter-active-background-color
-);
-$table-header-filter-buttons-background-color: var(
-  --table-header-filter-buttons-background-color
-);
-$table-expand-icon-background-color: var(--table-expand-icon-background-color);
 $table-sticky-scroll-bar-background-color: transparent; // constant
 $table-sticky-scroll-bar-active-background-color: transparent; // constant
 
 // Tree
 
 $tree-bg: var(--background-color);
-$tree-border-color: var(--grey-color-20);
+$tree-border-color: var(--grey-background2-color);
 $tree-directory-selected-color: var(--white-color);
 $tree-directory-selected-bg: var(--primary-color);
-$tree-node-hover-bg: var(--grey-color-10);
+$tree-node-hover-bg: var(--grey-background1-color);
 $tree-node-selected-bg: var(--primary-color);
 
 // Picker

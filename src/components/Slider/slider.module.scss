@@ -138,6 +138,18 @@ $small-min-label-offset-with-steps: 0;
     }
   }
 
+  .rail-marker-segments {
+    pointer-events: none;
+  }
+
+  .slider-hit-target {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
   .slider-rail,
   .slider-track,
   .rail-marker-segments {

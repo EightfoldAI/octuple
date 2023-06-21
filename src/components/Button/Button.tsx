@@ -258,7 +258,13 @@ export const Button: FC<ButtonProps> = React.forwardRef(
     };
 
     const getButtonLoader = (): JSX.Element =>
-      loading && <Loader classNames={styles.loader} size={getLoaderSize()} />;
+      loading && (
+        <Loader
+          classNames={styles.loader}
+          dotClassNames={styles.loaderDot}
+          size={getLoaderSize()}
+        />
+      );
 
     const getButtonIcon = (): JSX.Element => (
       <Icon

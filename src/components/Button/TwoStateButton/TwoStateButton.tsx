@@ -13,6 +13,7 @@ import {
 import { Badge } from '../../Badge';
 import { Icon, IconSize } from '../../Icon';
 import { InnerNudge, NudgeAnimation, NudgeProps } from '../Nudge';
+import { Loader, LoaderSize } from '../../Loader';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
@@ -41,6 +42,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       iconOneProps,
       iconTwoProps,
       id,
+      loading = false,
       nudgeProps: defaultNudgeProps,
       onClick,
       shape = ButtonShape.Pill,
@@ -126,6 +128,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       { [styles.left]: alignText === ButtonTextAlign.Left },
       { [styles.right]: alignText === ButtonTextAlign.Right },
       { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+      { [styles.loading]: loading },
       { [styles.buttonRtl]: htmlDir === 'rtl' },
     ]);
 
@@ -177,6 +180,36 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       return iconSize;
     };
 
+    const getLoaderSize = (): LoaderSize => {
+      let loaderSize: LoaderSize;
+      if (size === ButtonSize.Flex && largeScreenActive) {
+        loaderSize = LoaderSize.Small;
+      } else if (
+        size === ButtonSize.Flex &&
+        (mediumScreenActive || smallScreenActive)
+      ) {
+        loaderSize = LoaderSize.Medium;
+      } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+        loaderSize = LoaderSize.Large;
+      } else if (size === ButtonSize.Large) {
+        loaderSize = LoaderSize.Large;
+      } else if (size === ButtonSize.Medium) {
+        loaderSize = LoaderSize.Medium;
+      } else if (size === ButtonSize.Small) {
+        loaderSize = LoaderSize.Small;
+      }
+      return loaderSize;
+    };
+
+    const getButtonLoader = (): JSX.Element =>
+      loading && (
+        <Loader
+          classNames={styles.loader}
+          dotClassNames={styles.loaderDot}
+          size={getLoaderSize()}
+        />
+      );
+
     const getButtonIcon = (position: string): JSX.Element => (
       <Icon
         {...(position === 'left' ? iconOneProps : iconTwoProps)}
@@ -197,11 +230,11 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         {...rest}
         ref={mergedRef}
         aria-checked={toggle ? !!checked : undefined}
-        aria-disabled={mergedDisabled}
+        aria-disabled={mergedDisabled || loading}
         aria-label={ariaLabel}
         aria-pressed={toggle ? !!checked : undefined}
         defaultChecked={checked}
-        disabled={!allowDisabledFocus && mergedDisabled}
+        disabled={(!allowDisabledFocus && mergedDisabled) || loading}
         className={twoStateButtonClassNames}
         id={id}
         onClick={!allowDisabledFocus ? onClick : null}
@@ -228,6 +261,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             {counterExists && (
               <Badge classNames={badgeClassNames}>{counter}</Badge>
             )}
+            {getButtonLoader()}
           </span>
           <span className={styles.column}>
             {iconTwoExists && getButtonIcon('right')}

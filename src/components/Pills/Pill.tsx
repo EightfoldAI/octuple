@@ -63,6 +63,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
 
     const labelClassNames: string = mergeClasses([
       styles.label,
+      { [styles.large]: size === PillSize.Large },
       { [styles.medium]: size === PillSize.Medium },
       { [styles.small]: size === PillSize.Small },
       { [styles.xsmall]: size === PillSize.XSmall },
@@ -73,6 +74,9 @@ export const Pill: FC<PillProps> = React.forwardRef(
       styles.tagPills,
       classNames,
       (styles as any)[theme],
+      { [styles.large]: size === PillSize.Large },
+      { [styles.medium]: size === PillSize.Medium },
+      { [styles.small]: size === PillSize.Small },
       { [styles.xsmall]: size === PillSize.XSmall },
       { [styles.tagPillsDisabled]: mergedDisabled },
       { [styles.tagPillsRtl]: htmlDir === 'rtl' },

@@ -202,7 +202,7 @@ export default function generatePicker<DateType>(
       ]);
 
       const iconColor = (): string => {
-        let color: string = 'var(--grey-color-60)';
+        let color: string = 'var(--grey-tertiary-color)';
         if (mergedStatus === 'error') {
           color = 'var(--error-color)';
         } else if (mergedStatus === 'warning') {

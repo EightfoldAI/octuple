@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.40.0](https://github.com/EightfoldAI/octuple/compare/v2.39.1...v2.40.0) (2023-06-20)
+
+### Bug Fixes
+
+- linkbutton: ensure default width matches min and max width ([#640](https://github.com/EightfoldAI/octuple/issues/640)) ([ffe5abf](https://github.com/EightfoldAI/octuple/commits/ffe5abf86ecefc1626f05a6b40cd2bd6d92b68e5))
+- matchscore: color contrast and vertical alignment fix up ([#641](https://github.com/EightfoldAI/octuple/issues/641)) ([5353f90](https://github.com/EightfoldAI/octuple/commits/5353f90646321aea40de68425dc2d47b72b57594))
+- table: various accessibility improvements ([#644](https://github.com/EightfoldAI/octuple/issues/644)) ([4cec71c](https://github.com/EightfoldAI/octuple/commits/4cec71cf06a041f28dd4c20279998fadef4f6746))
+- tabs: pill variant color contrast fix up ([#642](https://github.com/EightfoldAI/octuple/issues/642)) ([33646f6](https://github.com/EightfoldAI/octuple/commits/33646f6929a70ab34ecdc783ff7e059eb0754e6c))
+
+### [2.39.1](https://github.com/EightfoldAI/octuple/compare/v2.39.0...v2.39.1) (2023-06-14)
+
+### Bug Fixes
+
+- select: revert update selected option based on defaultValue when isLoading ([#643](https://github.com/EightfoldAI/octuple/issues/643)) ([6a481f7](https://github.com/EightfoldAI/octuple/commits/6a481f7361c4dcde666beeea27064198434293b4))
+
+## [2.39.0](https://github.com/EightfoldAI/octuple/compare/v2.38.0...v2.39.0) (2023-06-12)
+
+### Features
+
+- icon: add collapse icon for kanban ([#637](https://github.com/EightfoldAI/octuple/issues/637)) ([0f05959](https://github.com/EightfoldAI/octuple/commits/0f0595977081d62dab8341ec0dabcdf3ae6cdb98))
+- icon: add icons to support integration system simplification ([#634](https://github.com/EightfoldAI/octuple/issues/634)) ([693ee85](https://github.com/EightfoldAI/octuple/commits/693ee85436c32099183acc3d7240e8b5c85a9497))
+- icon: add icons to support kanban view ([#632](https://github.com/EightfoldAI/octuple/issues/632)) ([f94efac](https://github.com/EightfoldAI/octuple/commits/f94efac518d04d004ff367f400ff34958c246c1f))
+
+### Bug Fixes
+
+- button: ensure loading dots use text color and enable two state loader ([#636](https://github.com/EightfoldAI/octuple/issues/636)) ([94f7759](https://github.com/EightfoldAI/octuple/commits/94f77599b00b2ca72017352306a95a5a356e76c0))
+- select: Update selected option based on defaultValue when isLoading changes. ([#631](https://github.com/EightfoldAI/octuple/issues/631)) ([1e0417a](https://github.com/EightfoldAI/octuple/commits/1e0417a6a8d01b68bcb739bdd75c1a7c62c7a240))
+- slider: increase vertical hit target and handle segmented gap clicks ([#635](https://github.com/EightfoldAI/octuple/issues/635)) ([b4cad7b](https://github.com/EightfoldAI/octuple/commits/b4cad7b8dde7e01e78cc1aab9eb333e3d7058c5f))
+
+## [2.38.0](https://github.com/EightfoldAI/octuple/compare/v2.37.0...v2.38.0) (2023-06-02)
+
+### Features
+
+- messagebar: add message bar component ([#622](https://github.com/EightfoldAI/octuple/issues/622)) ([421d785](https://github.com/EightfoldAI/octuple/commits/421d7854baea35cb062fa04e5e7b1d9c1e639ae0))
+- rename background-color to background ([#628](https://github.com/EightfoldAI/octuple/issues/628)) ([71c490b](https://github.com/EightfoldAI/octuple/commits/71c490b3a6a52beaa44f56932a89f875375d810f))
+- table: adds column border and disable row bg hover color props ([#624](https://github.com/EightfoldAI/octuple/issues/624)) ([78a333d](https://github.com/EightfoldAI/octuple/commits/78a333dc5d047674ce2b838859b31fe4321a1527))
+
+### Bug Fixes
+
+- css: global css variable name alignment with design specification ([#625](https://github.com/EightfoldAI/octuple/issues/625)) ([26c16fd](https://github.com/EightfoldAI/octuple/commits/26c16fd7913f8e5efbaa2300e927a841fba8c174))
+- pill: ensure pill heights match latest design specification ([#626](https://github.com/EightfoldAI/octuple/issues/626)) ([3576613](https://github.com/EightfoldAI/octuple/commits/357661381851d3d38c66368bb0c6ed170fd320ef))
+- select: ensure medium and large pills fit inside inputs of same size ([#630](https://github.com/EightfoldAI/octuple/issues/630)) ([156800d](https://github.com/EightfoldAI/octuple/commits/156800d0bebc49d0e0f6ce2a8fd611d427e9e008))
+- table: fix loading compare and updates default spinner size and position ([#627](https://github.com/EightfoldAI/octuple/issues/627)) ([b0b830e](https://github.com/EightfoldAI/octuple/commits/b0b830e25f10ff9cf5cdb2d03fb831b0ce0d7639))
+
+## [2.37.0](https://github.com/EightfoldAI/octuple/compare/v2.36.2...v2.37.0) (2023-05-23)
+
+### Features
+
+- empty: enable themes and adds two additional modes ([#619](https://github.com/EightfoldAI/octuple/issues/619)) ([2ac0cd0](https://github.com/EightfoldAI/octuple/commits/2ac0cd089880997c00d55d46caed2e4a0b68e2bc))
+
+### Bug Fixes
+
+- button: pass disruptive down from props to button from defaultbutton ([#614](https://github.com/EightfoldAI/octuple/issues/614)) ([ab4a4c9](https://github.com/EightfoldAI/octuple/commits/ab4a4c91e3fc1274aea392c045cbbe5d755318bf))
+- dropdown: fix visible prop ([#616](https://github.com/EightfoldAI/octuple/issues/616)) ([5e9f147](https://github.com/EightfoldAI/octuple/commits/5e9f147ea0a50508fed2c9b85160feaee7526d54))
+- dropdown: tweak css slideupin animation ([#618](https://github.com/EightfoldAI/octuple/issues/618)) ([7a26de0](https://github.com/EightfoldAI/octuple/commits/7a26de00096dbf145eaa558b082247aaebc36338))
+- locale: add support for hi locale ([#602](https://github.com/EightfoldAI/octuple/issues/602)) ([4232b01](https://github.com/EightfoldAI/octuple/commits/4232b01915618c5521531e3a57ef1ffd1007e874))
+
 ### [2.36.2](https://github.com/EightfoldAI/octuple/compare/v2.36.1...v2.36.2) (2023-05-09)
 
 ### Bug Fixes

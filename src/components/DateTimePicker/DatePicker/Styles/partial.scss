@@ -3,10 +3,10 @@
 $picker-partial-width: $picker-partial-cell-width * 7 + $space-s * 2 + 4;
 $disabled-color: rgba(0, 0, 0, 0.25);
 $picker-partial-cell-height: 24px;
-$picker-basic-cell-hover-color: var(--grey-color-10);
+$picker-basic-cell-hover-color: var(--grey-background1-color);
 $picker-basic-cell-active-with-range-color: var(--primary-color-40);
 $picker-date-hover-range-border-color: var(--primary-color-40);
-$picker-date-hover-range-color: var(--primary-color-30);
+$picker-date-hover-range-color: var(--primary-background3-color);
 $picker-partial-without-time-cell-height: 64px;
 $picker-time-partial-column-height: 224px;
 $picker-time-partial-column-width: 56px;
@@ -334,11 +334,11 @@ $picker-time-partial-cell-height: 28px;
     color: var(--primary-color);
 
     &:hover {
-      color: var(--primary-color-70);
+      color: var(--primary-secondary-color);
     }
 
     &:active {
-      color: var(--primary-color-80);
+      color: var(--primary-color);
     }
 
     &-disabled {

@@ -111,7 +111,7 @@
   }
 
   &-header {
-    border-bottom: 1px solid var(--grey-color-20);
+    border-bottom: 1px solid var(--grey-background2-color);
     display: flex;
     margin: 0 $space-m $space-m $space-m;
     padding: $space-m 0 $space-s 0;
@@ -1079,7 +1079,7 @@
 
   &-status-error &-input {
     input {
-      color: var(--disruptive-color-80);
+      color: var(--disruptive-color);
     }
   }
 

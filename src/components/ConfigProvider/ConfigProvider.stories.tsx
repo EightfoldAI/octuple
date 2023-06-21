@@ -14,6 +14,7 @@ import { Icon, IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
 import {
   ConfigProvider,
+  CustomFont,
   FontOptions,
   OcThemeName,
   ThemeOptions,
@@ -119,6 +120,94 @@ import 'dayjs/locale/zh-tw';
 const { Dropzone } = Upload;
 const { RangePicker } = DatePicker;
 
+const customFonts: CustomFont[] = [
+  {
+    fontFamily: 'Noto Serif',
+    src: `url(https://fonts.gstatic.com/s/notoserif/v22/ga6iaw1J5X9T9RW6j9bNVls-hfgvz8JcMofYTa32J4wsL2JAlAhZqFCTyscKpKrCzi0iNaA.woff2) format('woff2')`,
+  },
+  {
+    fontFamily: 'Pacifico',
+    src: `url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6K6MmBp0u-zK4.woff2) format('woff2')`,
+    unicodeRange:
+      'U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F',
+  },
+  /* cyrillic */
+  {
+    fontFamily: 'Pacifico',
+    src: `url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6D6MmBp0u-zK4.woff2) format('woff2')`,
+    unicodeRange: 'U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116',
+  },
+  /* vietnamese */
+  {
+    fontFamily: 'Pacifico',
+    src: `url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6I6MmBp0u-zK4.woff2) format('woff2')`,
+    unicodeRange:
+      'U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB',
+  },
+  /* latin-ext */
+  {
+    fontFamily: 'Pacifico',
+    src: `url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6J6MmBp0u-zK4.woff2) format('woff2')`,
+    unicodeRange:
+      'U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF',
+  },
+  /* latin */
+  {
+    fontFamily: 'Pacifico',
+    src: `url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2')`,
+    unicodeRange:
+      'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
+  },
+];
+
+const distinctCustomFonts = customFonts.filter(
+  (font, index, self) =>
+    self.findIndex((f) => f.fontFamily === font.fontFamily) === index
+);
+
+const customFontItems = [
+  {
+    ariaLabel: 'Source Sans Pro',
+    id: 'font-1',
+    label: 'Source Sans Pro',
+    name: 'font',
+    value: 'Source Sans Pro',
+    style: {
+      fontFamily: 'Source Sans Pro',
+    },
+  },
+  {
+    ariaLabel: 'Roboto',
+    id: 'font-2',
+    label: 'Roboto',
+    name: 'font',
+    value: 'Roboto',
+    style: {
+      fontFamily: 'Roboto',
+    },
+  },
+  ...distinctCustomFonts.map((font, index) => ({
+    ariaLabel: font.fontFamily,
+    id: `font-${3 + index}`,
+    label: font.fontFamily,
+    name: 'font',
+    value: font.fontFamily,
+    style: {
+      fontFamily: font.fontFamily,
+    },
+  })),
+];
+
+const addCustomFontsToThemeOptions = (
+  themeOptions: ThemeOptions
+): ThemeOptions => {
+  if (!themeOptions.customTheme) {
+    themeOptions.customTheme = {};
+  }
+  themeOptions.customTheme.customFonts = [...customFonts];
+  return themeOptions;
+};
+
 export default {
   title: 'Config Provider',
   parameters: {
@@ -181,6 +270,26 @@ const ThemedComponents: FC = () => {
     ...(i === 4 ? { disabled: true } : {}),
   }));
 
+  const updateThemeOptions = (opts: ThemeOptions) => {
+    // Ensure options has a customTheme so existing doesn't get
+    // blown away by object spread.
+    opts.customTheme = opts.customTheme || { ...themeOptions.customTheme };
+
+    const newThemeOptions = {
+      ...themeOptions,
+      ...opts,
+    };
+
+    // If themeOptions isn't custom, ensure any previously set custom
+    // colors don't linger and interfer with named color palette.
+    if (newThemeOptions.name !== 'custom') {
+      newThemeOptions.customTheme.primaryColor = undefined;
+      newThemeOptions.customTheme.accentColor = undefined;
+    }
+
+    setThemeOptions(addCustomFontsToThemeOptions(newThemeOptions));
+  };
+
   return (
     <Stack direction="vertical" flexGap="xxl">
       <h1 style={{ marginBottom: 0 }}>
@@ -198,7 +307,7 @@ const ThemedComponents: FC = () => {
           style={{
             textTransform: 'capitalize',
             marginLeft: '4px',
-            color: 'var(--accent-color-30)',
+            color: 'var(--accent-background3-color)',
           }}
         >
           | Accent
@@ -206,11 +315,11 @@ const ThemedComponents: FC = () => {
       </h1>
       <Stack direction="horizontal" flexGap="m" style={{ marginTop: 0 }}>
         <div>
-          <p>Predefined</p>
+          <p>Color palette</p>
           <select
             value={themeOptions.name}
             onChange={(e) => {
-              setThemeOptions({
+              updateThemeOptions({
                 name: e.target.value as OcThemeName,
               });
             }}
@@ -221,66 +330,52 @@ const ThemedComponents: FC = () => {
                 {theme}
               </option>
             ))}
+            <option value="custom" key="custom">
+              custom
+            </option>
           </select>
         </div>
-        <div>
-          <p>Custom Primary</p>
-          <CompactPicker
-            color={customPrimaryColor}
-            onChange={async (color) => {
-              setThemeOptions({
-                name: 'custom',
-                customTheme: {
-                  primaryColor: color.hex,
-                  accentColor: customAccentColor,
-                },
-              });
-              setCustomPrimaryColor(color.hex);
-            }}
-          />
-        </div>
-        <div>
-          <p>Custom Accent</p>
-          <CompactPicker
-            color={customAccentColor}
-            onChange={async (color) => {
-              setThemeOptions({
-                name: 'custom',
-                customTheme: {
-                  primaryColor: customPrimaryColor,
-                  accentColor: color.hex,
-                },
-              });
-              setCustomAccentColor(color.hex);
-            }}
-          />
-        </div>
+        {themeOptions.name === 'custom' && (
+          <>
+            <div>
+              <p>Custom Primary</p>
+              <CompactPicker
+                color={customPrimaryColor}
+                onChange={async (color) => {
+                  updateThemeOptions({
+                    name: 'custom',
+                    customTheme: {
+                      primaryColor: color.hex,
+                      accentColor: customAccentColor,
+                    },
+                  });
+                  setCustomPrimaryColor(color.hex);
+                }}
+              />
+            </div>
+            <div>
+              <p>Custom Accent</p>
+              <CompactPicker
+                color={customAccentColor}
+                onChange={async (color) => {
+                  updateThemeOptions({
+                    name: 'custom',
+                    customTheme: {
+                      primaryColor: customPrimaryColor,
+                      accentColor: color.hex,
+                    },
+                  });
+                  setCustomAccentColor(color.hex);
+                }}
+              />
+            </div>
+          </>
+        )}
         <div>
           <p>Custom Font</p>
           <RadioGroup
             value={customFont}
-            items={[
-              {
-                ariaLabel: 'Source Sans Pro',
-                id: 'font-1',
-                label: 'Source Sans Pro',
-                name: 'font',
-                value: 'Source Sans Pro',
-                style: {
-                  fontFamily: 'Source Sans Pro',
-                },
-              },
-              {
-                ariaLabel: 'Roboto',
-                id: 'font-2',
-                label: 'Roboto',
-                name: 'font',
-                value: 'Roboto',
-                style: {
-                  fontFamily: 'Roboto',
-                },
-              },
-            ]}
+            items={customFontItems}
             onChange={async (e) => {
               setFontOptions({
                 customFont: {
@@ -317,7 +412,7 @@ const ThemedComponents: FC = () => {
                   (varThemeRef?.current || { value: null }).value || `{}`;
 
                 const newVarTheme = JSON.parse(jsonStrVal);
-                setThemeOptions({
+                updateThemeOptions({
                   ...themeOptions,
                   customTheme: {
                     ...themeOptions.customTheme,
@@ -619,6 +714,7 @@ const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
 
 const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
+  addCustomFontsToThemeOptions(args.themeOptions);
   return <ConfigProvider {...args} />;
 };
 

@@ -1,4 +1,11 @@
 :root {
+  // ------ Base colors ------
+  // NOTE: Colors with no annotation are present to support
+  // overall base color palette in increments of 10 percent
+
+  // Primary base colors
+  // Equivalent to Blue (Link) base colors
+  // Distinct to support discreet theming scenarios
   --primary-color-10: #ebf7ff;
   --primary-color-20: #bce4ff;
   --primary-color-30: #8ed0fa;
@@ -9,7 +16,15 @@
   --primary-color-80: #054d7b;
   --primary-color-90: #002a47;
   --primary-color-100: #00060a;
-  --primary-color: #054d7b;
+
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  // Accent base colors
   --accent-color-10: #ebfdff;
   --accent-color-20: #b0f3fe;
   --accent-color-30: #7be4f4;
@@ -20,29 +35,55 @@
   --accent-color-80: #025966;
   --accent-color-90: #00333b;
   --accent-color-100: #00090a;
-  --accent-color: #025966;
-  --disruptive-color-10: #ffefef;
-  --disruptive-color-20: #ffc6c6;
-  --disruptive-color-30: #ffa3a3;
-  --disruptive-color-40: #f48686;
-  --disruptive-color-50: #e46f6f;
-  --disruptive-color-60: #c45353;
-  --disruptive-color-70: #993838;
-  --disruptive-color-80: #6c2222;
-  --disruptive-color-90: #3b1010;
-  --disruptive-color-100: #0a0202;
-  --disruptive-color: #6c2222;
+
+  --accent-background1-color: var(--accent-color-10); // Surface 1
+  --accent-background2-color: var(--accent-color-20); // Surface 2
+  --accent-background3-color: var(--accent-color-30); // Surface 3
+  --accent-tertiary-color: var(--accent-color-60); // Graphics
+  --accent-secondary-color: var(--accent-color-70); // Text
+  --accent-color: var(--accent-color-80); // Extra high contrast
+
+  // Red base colors
   --red-color-10: #ffefef;
   --red-color-20: #ffc6c6;
   --red-color-30: #ffa3a3;
   --red-color-40: #f48686;
   --red-color-50: #e46f6f;
-  --red-color-60: #c45353;
+  --red-color-60: #c15151;
   --red-color-70: #993838;
   --red-color-80: #6c2222;
   --red-color-90: #3b1010;
   --red-color-100: #0a0202;
-  --red-color: #6c2222;
+
+  --red-background1-color: var(--red-color-10); // Surface 1
+  --red-background2-color: var(--red-color-20); // Surface 2
+  --red-background3-color: var(--red-color-30); // Surface 3
+  --red-tertiary-color: var(--red-color-60); // Graphics
+  --red-secondary-color: var(--red-color-70); // Text
+  --red-color: var(--red-color-80); // Extra high contrast
+
+  // Disruptive base colors
+  // Equivalent to Red base colors
+  // Distinct to support discreet theming scenarios
+  --disruptive-color-10: #ffefef;
+  --disruptive-color-20: #ffc6c6;
+  --disruptive-color-30: #ffa3a3;
+  --disruptive-color-40: #f48686;
+  --disruptive-color-50: #e46f6f;
+  --disruptive-color-60: #c15151;
+  --disruptive-color-70: #993838;
+  --disruptive-color-80: #6c2222;
+  --disruptive-color-90: #3b1010;
+  --disruptive-color-100: #0a0202;
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  // Red-Orange base colors
   --redorange-color-10: #fff2ed;
   --redorange-color-20: #ffd1bd;
   --redorange-color-30: #ffb396;
@@ -53,29 +94,53 @@
   --redorange-color-80: #78351a;
   --redorange-color-90: #4c1f0c;
   --redorange-color-100: #1f0c03;
-  --redorange-color: #78351a;
+
+  --redorange-background1-color: var(--redorange-color-10); // Surface 1
+  --redorange-background2-color: var(--redorange-color-20); // Surface 2
+  --redorange-background3-color: var(--redorange-color-30); // Surface 3
+  --redorange-tertiary-color: var(--redorange-color-60); // Graphics
+  --redorange-secondary-color: var(--redorange-color-70); // Text
+  --redorange-color: var(--redorange-color-80); // Extra high contrast
+
+  // Orange base colors
   --orange-color-10: #fff8eb;
   --orange-color-20: #ffe3b0;
   --orange-color-30: #ffcd78;
   --orange-color-40: #ffb650;
   --orange-color-50: #f29d31;
-  --orange-color-60: #ce811a;
+  --orange-color-60: #c97e19;
   --orange-color-70: #9d6309;
   --orange-color-80: #6c4500;
   --orange-color-90: #3b2600;
   --orange-color-100: #0a0700;
-  --orange-color: #6c4500;
+
+  --orange-background1-color: var(--orange-color-10); // Surface 1
+  --orange-background2-color: var(--orange-color-20); // Surface 2
+  --orange-background3-color: var(--orange-color-30); // Surface 3
+  --orange-tertiary-color: var(--orange-color-60); // Graphics
+  --orange-secondary-color: var(--orange-color-70); // Text
+  --orange-color: var(--orange-color-80); // Extra high contrast
+
+  // Yellow base colors
   --yellow-color-10: #ffffeb;
   --yellow-color-20: #fff89c;
   --yellow-color-30: #ffe44e;
   --yellow-color-40: #f1c40f;
   --yellow-color-50: #d6ad00;
-  --yellow-color-60: #ad9300;
+  --yellow-color-60: #a88f00;
   --yellow-color-70: #857600;
   --yellow-color-80: #5c5500;
   --yellow-color-90: #333100;
   --yellow-color-100: #0a0a00;
-  --yellow-color: #5c5500;
+
+  --yellow-background1-color: var(--yellow-color-10); // Surface 1
+  --yellow-background2-color: var(--yellow-color-20); // Surface 2
+  --yellow-background3-color: var(--yellow-color-30); // Surface 3
+  --yellow-tertiary-color: var(--yellow-color-60); // Graphics
+  --yellow-secondary-color: var(--yellow-color-70); // Text
+  --yellow-color: var(--yellow-color-80); // Extra high contrast
+
+  // Yellow-Green base colors
   --yellowgreen-color-10: #fdfeeb;
   --yellowgreen-color-20: #f3f5b0;
   --yellowgreen-color-30: #e2e575;
@@ -86,7 +151,15 @@
   --yellowgreen-color-80: #525400;
   --yellowgreen-color-90: #343500;
   --yellowgreen-color-100: #131300;
-  --yellowgreen-color: #525400;
+
+  --yellowgreen-background1-color: var(--yellowgreen-color-10); // Surface 1
+  --yellowgreen-background2-color: var(--yellowgreen-color-20); // Surface 2
+  --yellowgreen-background3-color: var(--yellowgreen-color-30); // Surface 3
+  --yellowgreen-tertiary-color: var(--yellowgreen-color-60); // Graphics
+  --yellowgreen-secondary-color: var(--yellowgreen-color-70); // Text
+  --yellowgreen-color: var(--yellowgreen-color-80); // Extra high contrast
+
+  // Green base colors
   --green-color-10: #f0fefa;
   --green-color-20: #b9f4e4;
   --green-color-30: #8ce1ca;
@@ -97,7 +170,15 @@
   --green-color-80: #1b5143;
   --green-color-90: #0e2e26;
   --green-color-100: #030a08;
-  --green-color: #1b5143;
+
+  --green-background1-color: var(--green-color-10); // Surface 1
+  --green-background2-color: var(--green-color-20); // Surface 2
+  --green-background3-color: var(--green-color-30); // Surface 3
+  --green-tertiary-color: var(--green-color-60); // Graphics
+  --green-secondary-color: var(--green-color-70); // Text
+  --green-color: var(--green-color-80); // Extra high contrast
+
+  // Blue-Green base colors
   --bluegreen-color-10: #ebfdff;
   --bluegreen-color-20: #b0f3fe;
   --bluegreen-color-30: #7be4f4;
@@ -108,7 +189,15 @@
   --bluegreen-color-80: #025966;
   --bluegreen-color-90: #00333b;
   --bluegreen-color-100: #00090a;
-  --bluegreen-color: #025966;
+
+  --bluegreen-background1-color: var(--bluegreen-color-10); // Surface 1
+  --bluegreen-background2-color: var(--bluegreen-color-20); // Surface 2
+  --bluegreen-background3-color: var(--bluegreen-color-30); // Surface 3
+  --bluegreen-tertiary-color: var(--bluegreen-color-60); // Graphics
+  --bluegreen-secondary-color: var(--bluegreen-color-70); // Text
+  --bluegreen-color: var(--bluegreen-color-80); // Extra high contrast
+
+  // Blue (Link) base colors
   --blue-color-10: #ebf7ff;
   --blue-color-20: #bce4ff;
   --blue-color-30: #8ed0fa;
@@ -119,7 +208,15 @@
   --blue-color-80: #054d7b;
   --blue-color-90: #002a47;
   --blue-color-100: #00060a;
-  --blue-color: #054d7b;
+
+  --blue-background1-color: var(--blue-color-10); // Surface 1
+  --blue-background2-color: var(--blue-color-20); // Surface 2
+  --blue-background3-color: var(--blue-color-30); // Surface 3
+  --blue-tertiary-color: var(--blue-color-60); // Graphics
+  --blue-secondary-color: var(--blue-color-70); // Text
+  --blue-color: var(--blue-color-80); // Extra high contrast
+
+  // Blue-Violet base colors
   --blueviolet-color-10: #f1f2ff;
   --blueviolet-color-20: #cacffc;
   --blueviolet-color-30: #a9b0f5;
@@ -130,7 +227,15 @@
   --blueviolet-color-80: #2b3271;
   --blueviolet-color-90: #191d4a;
   --blueviolet-color-100: #090b1f;
-  --blueviolet-color: #2b3271;
+
+  --blueviolet-background1-color: var(--blueviolet-color-10); // Surface 1
+  --blueviolet-background2-color: var(--blueviolet-color-20); // Surface 2
+  --blueviolet-background3-color: var(--blueviolet-color-30); // Surface 3
+  --blueviolet-tertiary-color: var(--blueviolet-color-60); // Graphics
+  --blueviolet-secondary-color: var(--blueviolet-color-70); // Text
+  --blueviolet-color: var(--blueviolet-color-80); // Extra high contrast
+
+  // Violet base colors
   --violet-color-10: #fbf6fb;
   --violet-color-20: #ead3e8;
   --violet-color-30: #d8b1d4;
@@ -141,7 +246,15 @@
   --violet-color-80: #5d2156;
   --violet-color-90: #350e31;
   --violet-color-100: #060106;
-  --violet-color: #5d2156;
+
+  --violet-background1-color: var(--violet-color-10); // Surface 1
+  --violet-background2-color: var(--violet-color-20); // Surface 2
+  --violet-background3-color: var(--violet-color-30); // Surface 3
+  --violet-tertiary-color: var(--violet-color-60); // Graphics
+  --violet-secondary-color: var(--violet-color-70); // Text
+  --violet-color: var(--violet-color-80); // Extra high contrast
+
+  // Violet-Red base colors
   --violetred-color-10: #fff0f9;
   --violetred-color-20: #fcc8e7;
   --violetred-color-30: #f3a5d4;
@@ -152,7 +265,15 @@
   --violetred-color-80: #702853;
   --violetred-color-90: #491635;
   --violetred-color-100: #1f0816;
-  --violetred-color: #702853;
+
+  --violetred-background1-color: var(--violetred-color-10); // Surface 1
+  --violetred-background2-color: var(--violetred-color-20); // Surface 2
+  --violetred-background3-color: var(--violetred-color-30); // Surface 3
+  --violetred-tertiary-color: var(--violetred-color-60); // Graphics
+  --violetred-secondary-color: var(--violetred-color-70); // Text
+  --violetred-color: var(--violetred-color-80); // Extra high contrast
+
+  // Grey (Neutral) base colors
   --grey-color-10: #f6f7f8;
   --grey-color-20: #d9dce1;
   --grey-color-30: #bdc1c9;
@@ -163,13 +284,15 @@
   --grey-color-80: #343c4c;
   --grey-color-90: #1a212e;
   --grey-color-100: #05070a;
-  --grey-color: #343c4c;
-  --background-color: #fff;
-  --border-color: #bec2ca;
-  --text-primary-color: #1a212e;
-  --text-secondary-color: #4f5666;
-  --text-tertiary-color: #69717f;
-  --text-inverse-color: #fff;
+
+  --grey-background1-color: var(--grey-color-10); // Surface 1
+  --grey-background2-color: var(--grey-color-20); // Surface 2
+  --grey-background3-color: var(--grey-color-30); // Surface 3
+  --grey-tertiary-color: var(--grey-color-60); // Graphics
+  --grey-secondary-color: var(--grey-color-70); // Text
+  --grey-color: var(--grey-color-80); // Extra high contrast
+
+  // Success (Validation) base colors
   --success-color: #2b715f;
   --success-background-color: #b9f4e4;
   --success-border-color: #3d8f79;
@@ -179,6 +302,8 @@
   --success-hover-color: #3d8f79;
   --success-hover-background-color: #b9f4e4;
   --success-hover-border-color: #3d8f79;
+
+  // Warning (Validation) base colors
   --warning-color: #9d6309;
   --warning-background-color: #ffe3b0;
   --warning-border-color: #c97e19;
@@ -188,6 +313,8 @@
   --warning-hover-color: #ce811a;
   --warning-hover-background-color: #ffe3b0;
   --warning-hover-border-color: #c97e19;
+
+  // Error (Validation) base colors
   --error-color: #993838;
   --error-background-color: #ffc6c6;
   --error-border-color: #c15151;
@@ -197,62 +324,82 @@
   --error-hover-color: #c45353;
   --error-hover-background-color: #ffc6c6;
   --error-hover-border-color: #c15151;
+
+  --background-color: #fff;
+  --border-color: #bec2ca;
+  --text-primary-color: #1a212e;
+  --text-secondary-color: #4f5666;
+  --text-tertiary-color: #69717f;
+  --text-inverse-color: #fff;
   --info-color: #4f5666;
   --white-color: #fff;
   --black-color: #000;
+  --horizontal-rule-color: var(--grey-color-40);
+  // ------ Base colors ------
+
+  // ------ Font theme ------
   --font-family: 'Source Sans Pro';
   --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   --font-stack-full: var(--font-family), var(--font-stack);
   --font-size: 16px;
-  --backdrop-filter: blur(5px);
+  // ------ Font theme ------
 
-  --anchor-color: var(--primary-color-70);
-  --anchor-disruptive-color: var(--disruptive-color-70);
-  --anchor-neutral-color: var(--grey-color-70);
-  --anchor-primary-color: var(--primary-color-70);
+  // ------ Glassmorphism theme ------
+  --backdrop-filter: blur(5px);
+  // ------ Glassmorphism theme ------
+
+  // ------ Link theme ------
+  --anchor-color: var(--primary-secondary-color);
+  --anchor-disruptive-color: var(--disruptive-secondary-color);
+  --anchor-neutral-color: var(--grey-secondary-color);
+  --anchor-primary-color: var(--primary-secondary-color);
   --anchor-secondary-color: var(--grey-color-90);
-  --anchor-active-color: var(--primary-color-80);
-  --anchor-disruptive-active-color: var(--disruptive-color-80);
-  --anchor-neutral-active-color: var(--grey-color-80);
-  --anchor-primary-active-color: var(--primary-color-80);
+  --anchor-active-color: var(--primary-color);
+  --anchor-disruptive-active-color: var(--disruptive-color);
+  --anchor-neutral-active-color: var(--grey-color);
+  --anchor-primary-active-color: var(--primary-color);
   --anchor-secondary-active-color: var(--grey-color-90);
   --anchor-hover-color: var(--primary-color-90);
-  --anchor-disruptive-hover-color: var(--disruptive-color-70);
-  --anchor-neutral-hover-color: var(--primary-color-70);
-  --anchor-primary-hover-color: var(--primary-color-70);
-  --anchor-secondary-hover-color: var(--primary-color-70);
-  --anchor-visited-color: var(--violet-color-70);
-  --anchor-disruptive-visited-color: var(--violet-color-70);
-  --anchor-neutral-visited-color: var(--violet-color-70);
-  --anchor-primary-visited-color: var(--violet-color-70);
-  --anchor-secondary-visited-color: var(--violet-color-80);
-  --horizontal-rule-color: var(--grey-color-40);
+  --anchor-disruptive-hover-color: var(--disruptive-secondary-color);
+  --anchor-neutral-hover-color: var(--primary-secondary-color);
+  --anchor-primary-hover-color: var(--primary-secondary-color);
+  --anchor-secondary-hover-color: var(--primary-secondary-color);
+  --anchor-visited-color: var(--violet-secondary-color);
+  --anchor-disruptive-visited-color: var(--violet-secondary-color);
+  --anchor-neutral-visited-color: var(--violet-secondary-color);
+  --anchor-primary-visited-color: var(--violet-secondary-color);
+  --anchor-secondary-visited-color: var(--violet-color);
+  // ------ Link theme ------
 
+  // ------ Focus Visible theme ------
   --focus-visible-shadow-color: var(--blueviolet-color-50);
   --focus-visible-shadow-width: 2px;
   --focus-visible-box-shadow: 0 0 0 var(--focus-visible-shadow-width)
     var(--focus-visible-shadow-color);
+  // ------ Focus Visible theme ------
 
+  // ------ Border Radius theme ------
   --border-radius-xs: 2px;
   --border-radius-s: 4px;
   --border-radius-m: 8px;
   --border-radius-l: 16px;
   --border-radius-xl: 24px;
   --border-radius-round: 50%;
+  // ------ Border Radius theme ------
 
   // ------ Input theme ------
-  --input-border-color: var(--grey-color-60);
-  --input-border-color-active: var(--grey-color-80);
+  --input-border-color: var(--grey-tertiary-color);
+  --input-border-color-active: var(--grey-color);
   --input-border-color-hover: var(--input-border-color-active);
-  --input-border-color-underline-active: var(--primary-color-70);
+  --input-border-color-underline-active: var(--primary-secondary-color);
   --input-border-color-underline-hover: var(--input-border-color-active);
   --input-background-color: var(--background-color);
-  --input-border-color: var(--grey-color-60);
-  --input-border-color-active: var(--grey-color-80);
+  --input-border-color: var(--grey-tertiary-color);
+  --input-border-color-active: var(--grey-color);
   --input-text-color: var(--text-primary-color);
   --input-placeholder-text-color: var(--text-secondary-color);
-  --input-readonly-background-color: var(--grey-color-10);
+  --input-readonly-background-color: var(--grey-background1-color);
   --input-readonly-text-color: var(--text-primary-color);
   --input-success-text-color: var(--text-primary-color);
   --input-success-border-color: var(--input-border-color);
@@ -269,22 +416,32 @@
   // ------ Tabs theme ------
   --tab-label: var(--text-secondary-color);
   --tab-background: transparent;
-  --tab-active-label: var(--primary-color-70);
+  --tab-active-label: var(--primary-secondary-color);
   --tab-active-background: transparent;
   --tab-hover-label: var(--primary-color);
   --tab-hover-background: transparent;
-  --tab-indicator-color: var(--primary-color-70);
+  --tab-indicator-color: var(--primary-secondary-color);
   --tab-small-active-background: transparent;
   --tab-small-hover-background: transparent;
   --tab-pill-border-radius: var(--border-radius-xl);
   --tab-pill-large-padding: 8px;
   --tab-pill-medium-padding: 6px;
   --tab-pill-small-padding: 4px;
+  --tab-pill-border-color: var(--grey-background1-color);
+  --tab-pill-border-style: solid;
+  --tab-pill-border-width: 1px;
+  --tab-pill-border: var(--tab-pill-border-width) var(--tab-pill-border-style)
+    var(--tab-pill-border-color);
   --tab-pill-label: var(--text-secondary-color);
-  --tab-pill-active-label: var(--primary-color-80);
-  --tab-pill-active-background: var(--primary-color-20);
+  --tab-pill-active-label: var(--primary-color);
+  --tab-pill-active-background: var(--primary-background2-color);
+  --tab-pill-active-border-color: var(--primary-tertiary-color);
+  --tab-pill-active-border-style: solid;
+  --tab-pill-active-border-width: 1px;
+  --tab-pill-active-border: var(--tab-pill-active-border-width)
+    var(--tab-pill-active-border-style) var(--tab-pill-active-border-color);
   --tab-pill-hover-label: var(--primary-color);
-  --tab-pill-background: var(--grey-color-10);
+  --tab-pill-background: var(--grey-background1-color);
   --tab-underline: var(--border-color);
   // ------ Tabs theme ------
 
@@ -300,11 +457,10 @@
   --stat-tab-background-color: var(--background-color);
   --stat-tab-border-color: var(--stat-tab-background-color);
   --stat-tab-icon-color: var(--stat-tab-label-color);
-  --stat-tab-icon-background-color: var(--grey-color-20);
-  --stat-tab-active-border-color: var(--grey-color-60);
-  --stat-tab-hover-background-color: var(--grey-color-20);
-  --stat-tab-hover-border-color: var(--grey-color-20);
-
+  --stat-tab-icon-background-color: var(--grey-background2-color);
+  --stat-tab-active-border-color: var(--grey-tertiary-color);
+  --stat-tab-hover-background-color: var(--grey-background2-color);
+  --stat-tab-hover-border-color: var(--grey-background2-color);
   // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
@@ -313,7 +469,7 @@
   --navbar-text-hover-background: var(--navbar-background);
   --navbar-text-hover-color: var(--primary-color);
   --navbar-backdrop-filter: var(--backdrop-filter);
-  --navbar-border-bottom: 1px solid var(--grey-color-20);
+  --navbar-border-bottom: 1px solid var(--grey-background2-color);
   --navbar-box-shadow: none;
   // ------ Navbar theme ------
 
@@ -323,67 +479,82 @@
   --picker-border-color: var(--input-border-color);
   --picker-border-color-active: var(--input-border-color-active);
   --picker-cell-background-color: var(--background-color);
-  --picker-cell-background-color-active: var(--primary-color-20);
-  --picker-cell-background-color-hover: var(--accent-color-30);
-  --picker-cell-today-background-color: var(--accent-color-30);
+  --picker-cell-background-color-active: var(--primary-background2-color);
+  --picker-cell-background-color-hover: var(--accent-background3-color);
+  --picker-cell-today-background-color: var(--accent-background3-color);
   --picker-cell-today-foreground-color: var(--primary-color);
-  --picker-cell-selected-background-color-active: var(--accent-color-30);
-  --picker-cell-range-start-background-color-hover: var(--accent-color-30);
-  --picker-cell-range-start-background-color-active: var(--accent-color-30);
-  --picker-cell-range-end-background-color-hover: var(--accent-color-30);
-  --picker-cell-range-end-background-color-active: var(--accent-color-30);
+  --picker-cell-selected-background-color-active: var(
+    --accent-background3-color
+  );
+  --picker-cell-range-start-background-color-hover: var(
+    --accent-background3-color
+  );
+  --picker-cell-range-start-background-color-active: var(
+    --accent-background3-color
+  );
+  --picker-cell-range-end-background-color-hover: var(
+    --accent-background3-color
+  );
+  --picker-cell-range-end-background-color-active: var(
+    --accent-background3-color
+  );
   --picker-cell-foreground-color: var(--text-tertiary-color);
   --picker-cell-foreground-color-active: var(--primary-color);
   --picker-cell-foreground-color-hover: var(--primary-color);
   --picker-column-background-color: var(--background-color);
-  --picker-column-background-color-active: var(--primary-color-20);
-  --picker-column-background-color-hover: var(--primary-color-20);
+  --picker-column-background-color-active: var(--primary-background2-color);
+  --picker-column-background-color-hover: var(--primary-background2-color);
   --picker-column-foreground-color: var(--text-secondary-color);
   --picker-column-foreground-color-active: var(--primary-color);
   --picker-column-foreground-color-hover: var(--primary-color);
-  --picker-header-cell-foreground-color: var(--grey-color-60);
+  --picker-header-cell-foreground-color: var(--grey-tertiary-color);
   --picker-input-active-bar-color: var(--primary-color);
   --picker-input-background-color: var(--background-color);
   --picker-input-border-color-active: var(--primary-color-40);
   --picker-input-border-color-hover: var(--primary-color-40);
-  --picker-input-clear-icon-color: var(--grey-color-60);
-  --picker-input-clear-icon-color-active: var(--grey-color-60);
+  --picker-input-clear-icon-color: var(--grey-tertiary-color);
+  --picker-input-clear-icon-color-active: var(--grey-tertiary-color);
   --picker-input-foreground-color: var(--text-primary-color);
-  --picker-input-placeholder-color: var(--grey-color-60);
+  --picker-input-placeholder-color: var(--grey-tertiary-color);
   --picker-outline-color: var(--primary-color-40);
   // ------ Picker theme ------
 
   // ------ Table theme ------
   --table-background-color: var(--background-color);
   --table-foreground-color: var(--text-primary-color);
-  --table-background-alternate-color: var(--grey-color-10);
-  --table-border-color: var(--grey-color-20);
+  --table-background-alternate-color: var(--grey-background1-color);
+  --table-border-color: var(--grey-background2-color);
   --table-border-active-color: transparent;
   --table-header-background-color: var(--background-color);
-  --table-header-foreground-color: var(--text-primary-color);
-  --table-header-icon-color: var(--grey-color-40);
-  --table-header-icon-hover-color: var(--primary-color-80);
-  --table-header-cell-split-color: var(--grey-color-20);
+  --table-header-foreground-color: var(--grey-tertiary-color);
+  --table-header-icon-color: var(--grey-tertiary-color);
+  --table-header-icon-hover-color: var(--primary-color);
+  --table-header-cell-split-color: var(--grey-background2-color);
   --table-body-sort-background-color: var(--background-color);
   --table-header-sort-background-color: var(--background-color);
-  --table-header-sort-active-background-color: var(--grey-color-10);
+  --table-header-sort-active-background-color: var(--grey-background1-color);
   --table-header-filter-background-color: var(--background-color);
-  --table-header-filter-active-background-color: var(--grey-color-10);
+  --table-header-filter-active-background-color: var(--grey-background1-color);
   --table-header-filter-dropdown-background-color: var(--background-color);
   --table-header-filter-buttons-background-color: var(--background-color);
   --table-expand-icon-background-color: var(--background-color);
-  --table-row-hover-background-color: var(--accent-color-10);
-  --table-row-selected-background-color: var(--grey-color-10);
-  --table-row-selected-hover-background-color: var(--accent-color-10);
+  --table-row-hover-background-color: var(--accent-background1-color);
+  --table-row-selected-background-color: var(--grey-background1-color);
+  --table-row-selected-hover-background-color: var(--accent-background1-color);
   --table-row-selected-foregroud-color: var(--text-primary-color);
-  --table-row-expanded-background-color: var(--grey-color-10);
-  --table-body-selected-sort-background-color: var(--grey-color-10);
+  --table-row-expanded-background-color: var(--grey-background1-color);
+  --table-body-selected-sort-background-color: var(--grey-background1-color);
   --table-footer-background-color: var(--background-color);
   --table-footer-foreground-color: var(--text-primary-color);
 
   --table-border-radius: var(--border-radius-xl);
   --table-border-style: solid;
   --table-border-width: 1px;
+  --table-border-active-width: 2px;
+  --table-border: var(--table-border-width) var(--table-border-style)
+    var(--table-border-color);
+  --table-border-active: var(--table-border-active-width)
+    var(--table-border-style) var(--table-border-active-color);
   --table-padding-vertical: 8px;
   --table-padding-horizontal: 16px;
   --table-padding-vertical-lg: 24px;
@@ -414,17 +585,17 @@
   --button-round-shape-border-radius: var(--border-radius-round);
   --button-pill-shape-border-radius: var(--border-radius-xl);
   --button-nudge-background-color-primary: var(--white-color);
-  --button-nudge-background-color-secondary: var(--accent-color-20);
+  --button-nudge-background-color-secondary: var(--accent-background2-color);
   --button-nudge-background-color-tertiary: var(--white-color);
-  --button-nudge-gradient-color-one: var(--primary-color-60);
-  --button-nudge-gradient-color-two: var(--primary-color-20);
-  --button-nudge-gradient-color-three: var(--primary-color-60);
+  --button-nudge-gradient-color-one: var(--primary-tertiary-color);
+  --button-nudge-gradient-color-two: var(--primary-background2-color);
+  --button-nudge-gradient-color-three: var(--primary-tertiary-color);
   // TODO: button text/font related vars
   // ------ Generic button vars ------
 
   // ------ Default Button theme ------
-  --button-default-text-color: var(--primary-color-70);
-  --button-default-background-color: var(--primary-color-10);
+  --button-default-text-color: var(--primary-secondary-color);
+  --button-default-background-color: var(--primary-background1-color);
   --button-default-border-width: 0;
   --button-default-border-style: solid;
   --button-default-border-color: var(--button-default-background-color);
@@ -435,25 +606,29 @@
   --button-default-hover-border-color: var(
     --button-default-hover-background-color
   );
-  --button-default-active-text-color: var(--primary-color-80);
-  --button-default-active-background-color: var(--primary-color-20);
+  --button-default-active-text-color: var(--primary-color);
+  --button-default-active-background-color: var(--primary-background2-color);
   --button-default-active-border-width: var(--button-default-border-width);
   --button-default-active-border-style: var(--button-default-border-style);
   --button-default-active-border-color: var(
     --button-default-active-background-color
   );
-  --button-default-split-divider-color: var(--primary-color-70);
+  --button-default-split-divider-color: var(--primary-secondary-color);
   // ------ Default Button theme ------
 
   // ------ Default Disruptive Button theme ------
-  --button-default-disruptive-text-color: var(--disruptive-color-70);
-  --button-default-disruptive-background-color: var(--disruptive-color-10);
+  --button-default-disruptive-text-color: var(--disruptive-secondary-color);
+  --button-default-disruptive-background-color: var(
+    --disruptive-background1-color
+  );
   --button-default-disruptive-border-width: 0;
   --button-default-disruptive-border-style: solid;
   --button-default-disruptive-border-color: var(
     --button-default-disruptive-background-color
   );
-  --button-default-disruptive-hover-text-color: var(--disruptive-color-70);
+  --button-default-disruptive-hover-text-color: var(
+    --disruptive-secondary-color
+  );
   --button-default-disruptive-hover-background-color: var(--background-color);
   --button-default-disruptive-hover-border-width: var(
     --button-default-disruptive-border-width
@@ -464,9 +639,9 @@
   --button-default-disruptive-hover-border-color: var(
     --button-default-disruptive-hover-background-color
   );
-  --button-default-disruptive-active-text-color: var(--disruptive-color-80);
+  --button-default-disruptive-active-text-color: var(--disruptive-color);
   --button-default-disruptive-active-background-color: var(
-    --disruptive-color-20
+    --disruptive-background2-color
   );
   --button-default-disruptive-active-border-width: var(
     --button-default-disruptive-border-width
@@ -477,47 +652,53 @@
   --button-default-disruptive-active-border-color: var(
     --button-default-disruptive-active-background-color
   );
-  --button-default-disruptive-split-divider-color: var(--disruptive-color-70);
+  --button-default-disruptive-split-divider-color: var(
+    --disruptive-secondary-color
+  );
   // ------ Default Disruptive Button theme ------
 
   // ------ Neutral Button theme ------
   --button-neutral-text-color: var(--text-secondary-color);
-  --button-neutral-background-color: var(--grey-color-10);
-  --button-neutral-counter-default-text-color: var(--grey-color-80);
+  --button-neutral-background-color: var(--grey-background1-color);
+  --button-neutral-counter-default-text-color: var(--grey-color);
   --button-neutral-hover-text-color: var(--button-neutral-text-color);
   --button-neutral-hover-background-color: var(--background-color);
-  --button-neutral-focus-visible-background-color: var(--grey-color-10);
+  --button-neutral-focus-visible-background-color: var(
+    --grey-background1-color
+  );
   --button-neutral-active-text-color: var(--button-neutral-text-color);
-  --button-neutral-active-background-color: var(--grey-color-20);
-  --button-neutral-split-divider-color: var(--grey-color-70);
+  --button-neutral-active-background-color: var(--grey-background2-color);
+  --button-neutral-split-divider-color: var(--grey-secondary-color);
   // ------ Neutral Button theme ------
 
   // ------ Primary Button theme ------
-  --button-primary-text-color: var(--primary-color-80);
-  --button-primary-background-color: var(--accent-color-20);
+  --button-primary-text-color: var(--primary-color);
+  --button-primary-background-color: var(--accent-background2-color);
   --button-primary-border-width: 0;
   --button-primary-border-style: solid;
   --button-primary-border-color: var(--button-primary-background-color);
   --button-primary-hover-text-color: var(--button-primary-text-color);
-  --button-primary-hover-background-color: var(--accent-color-10);
+  --button-primary-hover-background-color: var(--accent-background1-color);
   --button-primary-hover-border-width: var(--button-primary-border-width);
   --button-primary-hover-border-style: var(--button-primary-border-style);
   --button-primary-hover-border-color: var(
     --button-primary-hover-background-color
   );
   --button-primary-active-text-color: var(--button-primary-text-color);
-  --button-primary-active-background-color: var(--accent-color-30);
+  --button-primary-active-background-color: var(--accent-background3-color);
   --button-primary-active-border-width: var(--button-primary-border-width);
   --button-primary-active-border-style: var(--button-primary-border-style);
   --button-primary-active-border-color: var(
     --button-primary-active-background-color
   );
-  --button-primary-split-divider-color: var(--primary-color-80);
+  --button-primary-split-divider-color: var(--primary-color);
   // ------ Primary Button theme ------
 
   // ------ Primary Disruptive Button theme ------
-  --button-primary-disruptive-text-color: var(--disruptive-color-80);
-  --button-primary-disruptive-background-color: var(--disruptive-color-20);
+  --button-primary-disruptive-text-color: var(--disruptive-color);
+  --button-primary-disruptive-background-color: var(
+    --disruptive-background2-color
+  );
   --button-primary-disruptive-border-width: 0;
   --button-primary-disruptive-border-style: solid;
   --button-primary-disruptive-border-color: var(
@@ -527,7 +708,7 @@
     --button-primary-disruptive-text-color
   );
   --button-primary-disruptive-hover-background-color: var(
-    --disruptive-color-10
+    --disruptive-background1-color
   );
   --button-primary-disruptive-hover-border-width: var(
     --button-primary-disruptive-border-width
@@ -542,7 +723,7 @@
     --button-primary-disruptive-text-color
   );
   --button-primary-disruptive-active-background-color: var(
-    --disruptive-color-30
+    --disruptive-background3-color
   );
   --button-primary-disruptive-active-border-width: var(
     --button-primary-disruptive-border-width
@@ -553,39 +734,39 @@
   --button-primary-disruptive-active-border-color: var(
     --button-primary-disruptive-active-background-color
   );
-  --button-primary-disruptive-split-divider-color: var(--disruptive-color-80);
+  --button-primary-disruptive-split-divider-color: var(--disruptive-color);
   // ------ Primary Disruptive Button theme ------
 
   // ------ Secondary Button theme ------
-  --button-secondary-text-color: var(--primary-color-70);
+  --button-secondary-text-color: var(--primary-secondary-color);
   --button-secondary-background-color: var(--background-color);
   --button-secondary-border-width: 1px;
   --button-secondary-border-style: solid;
-  --button-secondary-border-color: var(--accent-color-60);
+  --button-secondary-border-color: var(--accent-tertiary-color);
   --button-secondary-hover-text-color: var(--button-secondary-text-color);
-  --button-secondary-hover-background-color: var(--accent-color-10);
+  --button-secondary-hover-background-color: var(--accent-background1-color);
   --button-secondary-hover-border-width: var(--button-secondary-border-width);
   --button-secondary-hover-border-style: var(--button-secondary-border-style);
   --button-secondary-hover-border-color: var(--button-secondary-border-color);
   --button-secondary-active-text-color: var(--button-secondary-text-color);
-  --button-secondary-active-background-color: var(--accent-color-20);
+  --button-secondary-active-background-color: var(--accent-background2-color);
   --button-secondary-active-border-width: var(--button-secondary-border-width);
   --button-secondary-active-border-style: var(--button-secondary-border-style);
   --button-secondary-active-border-color: var(--button-secondary-border-color);
-  --button-secondary-split-divider-color: var(--primary-color-70);
+  --button-secondary-split-divider-color: var(--primary-secondary-color);
   // ------ Secondary Button theme ------
 
   // ------ Secondary Disruptive Button theme ------
-  --button-secondary-disruptive-text-color: var(--disruptive-color-70);
+  --button-secondary-disruptive-text-color: var(--disruptive-secondary-color);
   --button-secondary-disruptive-background-color: var(--background-color);
   --button-secondary-disruptive-border-width: 1px;
   --button-secondary-disruptive-border-style: solid;
-  --button-secondary-disruptive-border-color: var(--disruptive-color-70);
+  --button-secondary-disruptive-border-color: var(--disruptive-secondary-color);
   --button-secondary-disruptive-hover-text-color: var(
     --button-secondary-disruptive-text-color
   );
   --button-secondary-disruptive-hover-background-color: var(
-    --disruptive-color-10
+    --disruptive-background1-color
   );
   --button-secondary-disruptive-hover-border-width: var(
     --button-secondary-disruptive-border-width
@@ -600,7 +781,7 @@
     --button-secondary-disruptive-text-color
   );
   --button-secondary-disruptive-active-background-color: var(
-    --disruptive-color-20
+    --disruptive-background2-color
   );
   --button-secondary-disruptive-active-border-width: var(
     --button-secondary-disruptive-border-width
@@ -611,56 +792,68 @@
   --button-secondary-disruptive-active-border-color: var(
     --button-secondary-disruptive-active-background-color
   );
-  --button-secondary-disruptive-split-divider-color: var(--disruptive-color-70);
+  --button-secondary-disruptive-split-divider-color: var(
+    --disruptive-secondary-color
+  );
   // ------ Secondary Disruptive Button theme ------
 
   // ------ System UI Button theme ------
-  --button-system-ui-text-color: var(--grey-color-60);
+  --button-system-ui-text-color: var(--grey-tertiary-color);
   --button-system-ui-background-color: var(--background-color);
-  --button-system-ui-counter-default-text-color: var(--grey-color-80);
+  --button-system-ui-counter-default-text-color: var(--grey-color);
   --button-system-ui-hover-text-color: var(--button-system-ui-text-color);
-  --button-system-ui-hover-background-color: var(--grey-color-10);
+  --button-system-ui-hover-background-color: var(--grey-background1-color);
   --button-system-ui-focus-visible-background-color: var(--background-color);
   --button-system-ui-active-text-color: var(--button-system-ui-text-color);
-  --button-system-ui-active-background-color: var(--grey-color-20);
-  --button-system-ui-split-divider-color: var(--grey-color-70);
+  --button-system-ui-active-background-color: var(--grey-background2-color);
+  --button-system-ui-split-divider-color: var(--grey-secondary-color);
   // ------ System UI Button theme ------
 
   // ------ Two State Button theme ------
-  --button-two-state-text-color: var(--grey-color-70);
-  --button-two-state-background-color: var(--grey-color-10);
+  --button-two-state-text-color: var(--grey-secondary-color);
+  --button-two-state-background-color: var(--grey-background1-color);
   --button-two-state-border-color: var(--button-two-state-background-color);
-  --button-two-state-default-counter-background-color: var(--green-color-20);
-  --button-two-state-hover-counter-background-color: var(--green-color-20);
-  --button-two-state-checked-counter-background-color: var(--green-color-10);
-  --button-two-state-focus-counter-background-color: var(--green-color-20);
-  --button-two-state-active-counter-background-color: var(--green-color-10);
-  --button-two-state-default-counter-text-color: var(--grey-color-80);
-  --button-two-state-hover-text-color: var(--accent-color-70);
-  --button-two-state-hover-background-color: var(--green-color-10);
+  --button-two-state-default-counter-background-color: var(
+    --green-background2-color
+  );
+  --button-two-state-hover-counter-background-color: var(
+    --green-background2-color
+  );
+  --button-two-state-checked-counter-background-color: var(
+    --green-background1-color
+  );
+  --button-two-state-focus-counter-background-color: var(
+    --green-background2-color
+  );
+  --button-two-state-active-counter-background-color: var(
+    --green-background1-color
+  );
+  --button-two-state-default-counter-text-color: var(--grey-color);
+  --button-two-state-hover-text-color: var(--accent-secondary-color);
+  --button-two-state-hover-background-color: var(--green-background1-color);
   --button-two-state-active-text-color: var(--accent-color);
-  --button-two-state-active-background-color: var(--green-color-20);
-  --button-two-state-checked-text-color: var(--accent-color-80);
-  --button-two-state-checked-background-color: var(--green-color-20);
+  --button-two-state-active-background-color: var(--green-background2-color);
+  --button-two-state-checked-text-color: var(--accent-color);
+  --button-two-state-checked-background-color: var(--green-background2-color);
   // ------ Two State Button theme ------
 
   // ------ Button Counter theme ------
-  --button-counter-default-background-color: var(--grey-color-20);
-  --button-counter-hover-background-color: var(--grey-color-20);
-  --button-counter-checked-background-color: var(--grey-color-10);
-  --button-counter-focus-background-color: var(--grey-color-20);
-  --button-counter-active-background-color: var(--grey-color-10);
-  --button-counter-default-text-color: var(--primary-color-80);
+  --button-counter-default-background-color: var(--grey-background2-color);
+  --button-counter-hover-background-color: var(--grey-background2-color);
+  --button-counter-checked-background-color: var(--grey-background1-color);
+  --button-counter-focus-background-color: var(--grey-background2-color);
+  --button-counter-active-background-color: var(--grey-background1-color);
+  --button-counter-default-text-color: var(--primary-color);
   // ------ Button Counter theme ------
 
   // ------ Badge theme ------
   --badge-font-family: var(--font-stack-full);
-  --badge-background-color: var(--grey-color-20);
+  --badge-background-color: var(--grey-background2-color);
   --badge-border-radius: 6px;
-  --badge-text-color: var(--grey-color-80);
-  --badge-active-background-color: var(--primary-color-20);
-  --badge-active-text-color: var(--primary-color-80);
-  --badge-disruptive-background-color: var(--disruptive-color-20);
+  --badge-text-color: var(--grey-color);
+  --badge-active-background-color: var(--primary-background2-color);
+  --badge-active-text-color: var(--primary-color);
+  --badge-disruptive-background-color: var(--disruptive-background2-color);
   --badge-disruptive-text-color: var(--disruptive-color);
   // ------ Badge theme ------
 
@@ -676,7 +869,7 @@
   --card-background-color: var(--background-color);
   --card-font-family: var(--font-stack-full);
   --card-text-color: var(--black-color);
-  --card-border-color: var(--grey-color-20);
+  --card-border-color: var(--grey-background2-color);
   --card-border-radius: var(--border-radius-xl);
   --card-border-width: 1px;
   --card-border-style: solid;
@@ -685,57 +878,61 @@
   --card-hover-box-shadow: 0 4px 16px 0 #0f141f29;
 
   // TODO: component implementation
-  --card-selected-border: 1px solid var(--blue-color-60);
+  --card-selected-border: 1px solid var(--blue-tertiary-color);
   --card-selected-box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
-  --card-hover-border: 1px solid var(--grey-color-30);
+  --card-hover-border: 1px solid var(--grey-background3-color);
   // ------ Card theme ------
 
   // ------ Info Bar theme ------
   --info-bar-border-radius: var(--border-radius-xl);
-  --info-bar-background-color: var(--grey-color-10);
-  --info-bar-button-active-background-color: var(--grey-color-20);
+  --info-bar-background-color: var(--grey-background1-color);
+  --info-bar-button-active-background-color: var(--grey-background2-color);
   --info-bar-button-hover-background-color: var(--background-color);
   --info-bar-text-color: var(--text-secondary-color);
-  --info-bar-positive-background-color: var(--green-color-10);
-  --info-bar-positive-button-active-background-color: var(--green-color-20);
-  --info-bar-positive-text-color: var(--green-color-70);
-  --info-bar-warning-background-color: var(--orange-color-10);
-  --info-bar-warning-button-active-background-color: var(--orange-color-20);
-  --info-bar-warning-text-color: var(--orange-color-70);
-  --info-bar-disruptive-background-color: var(--disruptive-color-10);
-  --info-bar-disruptive-button-active-background-color: var(
-    --disruptive-color-20
+  --info-bar-positive-background-color: var(--green-background1-color);
+  --info-bar-positive-button-active-background-color: var(
+    --green-background2-color
   );
-  --info-bar-disruptive-text-color: var(--disruptive-color-70);
+  --info-bar-positive-text-color: var(--green-secondary-color);
+  --info-bar-warning-background-color: var(--orange-background1-color);
+  --info-bar-warning-button-active-background-color: var(
+    --orange-background2-color
+  );
+  --info-bar-warning-text-color: var(--orange-secondary-color);
+  --info-bar-disruptive-background-color: var(--disruptive-background1-color);
+  --info-bar-disruptive-button-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --info-bar-disruptive-text-color: var(--disruptive-secondary-color);
   // ------ Info Bar theme ------
 
   // ------ Stepper/Timeline theme ------
-  --stepper-line-color: var(--primary-color-60);
+  --stepper-line-color: var(--primary-tertiary-color);
   --stepper-line-horizontal-offset: 6px;
   --stepper-line-width: 1px;
   --stepper-line-vertical-offset: 14px;
-  --step-default-active-background-color: var(--accent-color-20);
-  --step-default-active-border-color: var(--accent-color-60);
-  --step-default-active-icon-color: var(--primary-color-80);
+  --step-default-active-background-color: var(--accent-background2-color);
+  --step-default-active-border-color: var(--accent-tertiary-color);
+  --step-default-active-icon-color: var(--primary-color);
   --step-default-background-color: var(--background-color);
   --step-default-box-shadow: 0 0 0 2px var(--background-color);
-  --step-default-border-color: var(--accent-color-60);
-  --step-default-icon-color: var(--primary-color-80);
-  --step-default-hover-background-color: var(--accent-color-10);
+  --step-default-border-color: var(--accent-tertiary-color);
+  --step-default-icon-color: var(--primary-color);
+  --step-default-hover-background-color: var(--accent-background1-color);
   --step-default-hover-border-color: var(--step-default-active-border-color);
   --step-default-hover-icon-color: var(--step-default-icon-color);
-  --step-default-complete-background-color: var(--accent-color-20);
+  --step-default-complete-background-color: var(--accent-background2-color);
   --step-default-complete-border-color: var(
     --step-default-active-background-color
   );
-  --step-default-complete-icon-color: var(--primary-color-80);
-  --step-timeline-active-background-color: var(--primary-color-20);
-  --step-timeline-active-border-color: var(--primary-color-60);
-  --step-timeline-active-icon-color: var(--primary-color-80);
-  --step-timeline-background-color: var(--primary-color-10);
+  --step-default-complete-icon-color: var(--primary-color);
+  --step-timeline-active-background-color: var(--primary-background2-color);
+  --step-timeline-active-border-color: var(--primary-tertiary-color);
+  --step-timeline-active-icon-color: var(--primary-color);
+  --step-timeline-background-color: var(--primary-background1-color);
   --step-timeline-box-shadow: 0 0 0 2px var(--background-color);
   --step-timeline-border-color: var(--step-timeline-background-color);
-  --step-timeline-icon-color: var(--primary-color-70);
+  --step-timeline-icon-color: var(--primary-secondary-color);
   --step-timeline-hover-background-color: var(--background-color);
   --step-timeline-hover-border-color: var(--step-timeline-active-border-color);
   --step-timeline-hover-icon-color: var(--step-timeline-icon-color);
@@ -746,9 +943,9 @@
   --step-timeline-complete-icon-color: var(--step-timeline-icon-color);
 
   // ------ Highlight box theme ------
-  --highlight-background-color: var(--yellowgreen-color-10);
-  --highlight-border-color: var(--yellowgreen-color-30);
-  --highlight-foreground-color: var(--yellowgreen-color-80);
+  --highlight-background-color: var(--yellowgreen-background1-color);
+  --highlight-border-color: var(--yellowgreen-background3-color);
+  --highlight-foreground-color: var(--yellowgreen-color);
   // ------ Highlight box theme ------
 
   // ------ Dropdown theme ------
@@ -756,7 +953,7 @@
   // ------ Dropdown theme ------
 
   // ------ Skeleton theme ------
-  --skeleton-background-color: var(--grey-color-10);
+  --skeleton-background-color: var(--grey-background1-color);
   --skeleton-shimmer-color: #eaedf1;
   --skeleton-wave-background: linear-gradient(
     90deg,
@@ -771,39 +968,47 @@
   // ------ Spinner theme ------
 
   // ------ Slider theme ------
-  --slider-data-active-mark-one-background-color: var(--grey-color-30);
-  --slider-data-active-mark-one-border-color: var(--grey-color-60);
-  --slider-data-dot-background-color: var(--grey-color-10);
-  --slider-data-inactive-mark-one-background-color: var(--violet-color-30);
-  --slider-data-inactive-mark-one-border-color: var(--violetred-color-60);
-  --slider-data-inactive-mark-two-background-color: var(--blue-color-30);
-  --slider-data-inactive-mark-two-border-color: var(--blueviolet-color-60);
-  --slider-data-inactive-mark-three-background-color: var(--orange-color-30);
-  --slider-data-inactive-mark-three-border-color: var(--orange-color-60);
-  --slider-data-rail-background-color: var(--grey-color-30);
-  --slider-data-rail-border-color: var(--grey-color-60);
-  --slider-extremity-text-color: var(--grey-color-60);
-  --slider-benchmark-background-color: var(--grey-color-30);
-  --slider-benchmark-border-color: var(--grey-color-60);
-  --slider-rail-background-color: var(--accent-color-10);
-  --slider-rail-border-color: var(--primary-color-60);
-  --slider-thumb-color: var(--accent-color-20);
-  --slider-track-background-color: var(--primary-color-60);
-  --slider-track-border-color: var(--primary-color-60);
-  --slider-track-success-background-color: var(--green-color-30);
-  --slider-track-success-border-color: var(--green-color-60);
-  --slider-track-warning-background-color: var(--orange-color-30);
-  --slider-track-warning-border-color: var(--orange-color-60);
-  --slider-track-error-background-color: var(--red-color-30);
-  --slider-track-error-border-color: var(--red-color-60);
+  --slider-data-active-mark-one-background-color: var(--grey-background3-color);
+  --slider-data-active-mark-one-border-color: var(--grey-tertiary-color);
+  --slider-data-dot-background-color: var(--grey-background1-color);
+  --slider-data-inactive-mark-one-background-color: var(
+    --violet-background3-color
+  );
+  --slider-data-inactive-mark-one-border-color: var(--violetred-tertiary-color);
+  --slider-data-inactive-mark-two-background-color: var(
+    --blue-background3-color
+  );
+  --slider-data-inactive-mark-two-border-color: var(
+    --blueviolet-tertiary-color
+  );
+  --slider-data-inactive-mark-three-background-color: var(
+    --orange-background3-color
+  );
+  --slider-data-inactive-mark-three-border-color: var(--orange-tertiary-color);
+  --slider-data-rail-background-color: var(--grey-background3-color);
+  --slider-data-rail-border-color: var(--grey-tertiary-color);
+  --slider-extremity-text-color: var(--grey-tertiary-color);
+  --slider-benchmark-background-color: var(--grey-background3-color);
+  --slider-benchmark-border-color: var(--grey-tertiary-color);
+  --slider-rail-background-color: var(--accent-background1-color);
+  --slider-rail-border-color: var(--primary-tertiary-color);
+  --slider-thumb-color: var(--accent-background2-color);
+  --slider-track-background-color: var(--primary-tertiary-color);
+  --slider-track-border-color: var(--primary-tertiary-color);
+  --slider-track-success-background-color: var(--green-background3-color);
+  --slider-track-success-border-color: var(--green-tertiary-color);
+  --slider-track-warning-background-color: var(--orange-background3-color);
+  --slider-track-warning-border-color: var(--orange-tertiary-color);
+  --slider-track-error-background-color: var(--red-background3-color);
+  --slider-track-error-border-color: var(--red-tertiary-color);
   --slider-value-text-color: var(--text-secondary-color);
   // ------ Slider theme ------
 
   // ------ Tooltip theme ------
-  --tooltip-background-color-dark: var(--grey-color-80);
+  --tooltip-background-color-dark: var(--grey-color);
   --tooltip-background-color-light: var(--background-color);
   --tooltip-border-color-dark: var(--grey-color-40);
-  --tooltip-border-color-light: var(--grey-color-60);
+  --tooltip-border-color-light: var(--grey-tertiary-color);
   --tooltip-border-radius: var(--border-radius-s);
   --tooltip-border-style: solid;
   --tooltip-border-width: 1px;
@@ -819,21 +1024,47 @@
   --accordion-font-family: var(--font-stack-full);
   --accordion-body-background-color: var(--background-color);
   --accordion-body-text-color: var(--text-primary-color);
-  --accordion-border-color: var(--grey-color-20);
+  --accordion-border-color: var(--grey-background2-color);
   --accordion-border-style: solid;
   --accordion-border-width: 1px;
   --accordion-border: var(--accordion-border-width)
     var(--accordion-border-style) var(--accordion-border-color);
   --accordion-rectangle-shape-border-radius: var(--border-radius-s);
   --accordion-summary-background-color: var(--background-color);
-  --accordion-summary-background-hover-color: var(--grey-color-10);
+  --accordion-summary-background-hover-color: var(--grey-background1-color);
   --accordion-summary-text-color: var(--text-primary-color);
   --accordion-summary-text-hover-color: var(--text-primary-color);
   --accordion-pill-shape-border-radius: var(--border-radius-xl);
+  // ------ Accordion theme ------
 
   // ------ Empty theme ------
   --empty-svg-accent-20-color: var(--accent-color-20);
   --empty-svg-primary-10-color: var(--primary-color-10);
   --empty-svg-primary-30-color: var(--primary-color-30);
   --empty-svg-white-color: var(--white-color);
+  // ------ Empty theme ------
+
+  // ------ Message Bar theme ------
+  --message-bar-background-color: var(--background-color);
+  --message-bar-border-radius: var(--border-radius-xs);
+  --message-bar-box-shadow: 0px -1px 2px rgba(15, 20, 31, 0.12),
+    0px 4px 16px rgba(15, 20, 31, 0.16);
+  --message-bar-disruptive-color: var(--disruptive-color-70);
+  --message-bar-neutral-color: var(--grey-color-70);
+  --message-bar-positive-color: var(--green-color-70);
+  --message-bar-text-color: var(--text-primary-color);
+  --message-bar-warning-color: var(--orange-color-70);
+  // ------ Message Bar theme ------
+
+  // ------ Pill theme ------
+  --pill-large-size-border-radius: var(--border-radius-m);
+  --pill-medium-size-border-radius: 6px;
+  --pill-small-size-border-radius: var(--border-radius-s);
+  --pill-xsmall-size-border-radius: var(--border-radius-s);
+  // ------ Pill theme ------
+
+  // ------ Match Score theme ------
+  --match-score-background-color: var(--primary-tertiary-color);
+  --match-score-text-color: var(--primary-secondary-color);
+  // ------ Match Score theme ------
 }
