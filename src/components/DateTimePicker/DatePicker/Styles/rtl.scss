@@ -80,8 +80,6 @@
       height: $picker-partial-cell-height;
       line-height: $picker-partial-cell-height;
       border-radius: $picker-border-radius;
-      transition: background $motion-duration-extra-fast,
-        border $motion-duration-extra-fast;
 
       &-in-view.picker-cell-range-start:before {
         left: 0;

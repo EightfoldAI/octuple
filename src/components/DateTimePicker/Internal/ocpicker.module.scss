@@ -194,7 +194,7 @@
       &:hover {
         background: var(--picker-cell-background-color-hover);
         color: var(--picker-cell-foreground-color-hover);
-        outline: 1px solid var(--picker-cell-selected-border-color-active);
+        outline: 1px solid var(--picker-cell-border-color-hover);
       }
     }
 
@@ -209,15 +209,15 @@
       outline: 1px solid var(--picker-cell-today-background-color);
 
       &:hover {
-        outline: 1px solid var(--picker-cell-selected-border-color-active);
+        outline: 1px solid var(--picker-cell-border-color-hover);
       }
     }
 
     &-in-range {
       background: var(--picker-cell-background-color-hover);
-      box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-        0 1px 0 0 var(--picker-cell-selected-border-color-active);
-      color: var(--picker-cell-foreground-color-active);
+      box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+        0 1px 0 0 var(--picker-cell-border-color-hover);
+      color: var(--picker-cell-foreground-color-hover);
 
       .picker-cell-inner {
         outline: none;
@@ -230,7 +230,7 @@
       &.picker-cell-today {
         .picker-cell-inner {
           background: var(--picker-cell-background-color-hover);
-          color: var(--picker-cell-foreground-color-active);
+          color: var(--picker-cell-foreground-color-hover);
           outline: none;
 
           &:hover {
@@ -243,21 +243,21 @@
       &.picker-cell-range-hover-end {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
-        outline: 1px solid var(--picker-cell-selected-border-color-active);
+        outline: 1px solid var(--picker-cell-border-color-hover);
       }
     }
 
     &-range-hover {
       background: var(--picker-cell-background-color-hover);
-      box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-        0 1px 0 0 var(--picker-cell-selected-border-color-active);
+      box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+        0 1px 0 0 var(--picker-cell-border-color-hover);
       color: var(--picker-cell-foreground-color-hover);
     }
 
     &-range-hover-start {
       background: var(--picker-cell-range-start-background-color-hover);
       color: var(--picker-cell-foreground-color-hover);
-      outline: 1px solid var(--picker-cell-selected-border-color-active);
+      outline: 1px solid var(--picker-cell-border-color-hover);
 
       .picker-cell-inner {
         background: var(--picker-cell-range-start-background-color-hover);
@@ -281,7 +281,7 @@
     &-range-hover-end {
       background: var(--picker-cell-range-end-background-color-hover);
       color: var(--picker-cell-foreground-color-hover);
-      outline: 1px solid var(--picker-cell-selected-border-color-active);
+      outline: 1px solid var(--picker-cell-border-color-hover);
 
       .picker-cell-inner {
         background: var(--picker-cell-range-end-background-color-hover);
@@ -304,15 +304,15 @@
 
     &-selected > &-inner,
     &-selected.picker-cell-today > &-inner {
-      background: var(--picker-cell-selected-background-color-active);
+      background: var(--picker-cell-background-color-active);
       color: var(--picker-cell-foreground-color-active);
-      outline: 1px solid var(--picker-cell-selected-border-color-active);
+      outline: 1px solid var(--picker-cell-border-color-active);
     }
 
     &-range-start {
       background: var(--picker-cell-range-start-background-color-active);
       color: var(--picker-cell-foreground-color-active);
-      outline: 1px solid var(--picker-cell-selected-border-color-active);
+      outline: 1px solid var(--picker-cell-border-color-active);
 
       .picker-cell-inner {
         background: var(--picker-cell-range-start-background-color-active);
@@ -342,7 +342,7 @@
     &-range-end {
       background: var(--picker-cell-range-end-background-color-active);
       color: var(--picker-cell-foreground-color-active);
-      outline: 1px solid var(--picker-cell-selected-border-color-active);
+      outline: 1px solid var(--picker-cell-border-color-active);
 
       .picker-cell-inner {
         background: var(--picker-cell-range-end-background-color-active);
@@ -498,19 +498,19 @@
 
   &-large &-decade-partial {
     .picker-cell-inner {
-      width: 120px;
+      width: $picker-cell-decade-width-l;
     }
   }
 
   &-medium &-decade-partial {
     .picker-cell-inner {
-      width: 96px;
+      width: $picker-cell-decade-width-m;
     }
   }
 
   &-small &-decade-partial {
     .picker-cell-inner {
-      width: 88px;
+      width: $picker-cell-decade-width-s;
     }
   }
 
@@ -676,7 +676,7 @@
   &-year-partial,
   &-month-partial {
     .picker-cell-inner {
-      width: 88px;
+      width: $picker-cell-year-month-width-m;
     }
   }
 
@@ -684,7 +684,7 @@
     .picker-year-partial,
     .picker-month-partial {
       .picker-cell-inner {
-        width: 104px;
+        width: $picker-cell-year-month-width-l;
       }
     }
   }
@@ -693,7 +693,7 @@
     .picker-year-partial,
     .picker-month-partial {
       .picker-cell-inner {
-        width: 88px;
+        width: $picker-cell-year-month-width-m;
       }
     }
   }
@@ -702,7 +702,7 @@
     .picker-year-partial,
     .picker-month-partial {
       .picker-cell-inner {
-        width: 76px;
+        width: $picker-cell-year-month-width-s;
       }
     }
   }
@@ -712,9 +712,9 @@
       &:hover:not(&-selected) {
         .picker-cell {
           background: var(--picker-cell-background-color-hover);
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active);
-          color: var(--picker-cell-foreground-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+            0 1px 0 0 var(--picker-cell-border-color-hover);
+          color: var(--picker-cell-foreground-color-hover);
           outline: none;
 
           .picker-cell-inner {
@@ -738,17 +738,17 @@
         .picker-cell:first-of-type {
           border-bottom-left-radius: $picker-cell-border-radius-m;
           border-top-left-radius: $picker-cell-border-radius-m;
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active),
-            -1px 0 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+            0 1px 0 0 var(--picker-cell-border-color-hover),
+            -1px 0 0 0 var(--picker-cell-border-color-hover);
         }
 
         .picker-cell:last-of-type {
           border-bottom-right-radius: $picker-cell-border-radius-m;
           border-top-right-radius: $picker-cell-border-radius-m;
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active),
-            1px 0 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+            0 1px 0 0 var(--picker-cell-border-color-hover),
+            1px 0 0 0 var(--picker-cell-border-color-hover);
         }
 
         &:has(.picker-cell-in-range) {
@@ -789,8 +789,8 @@
       &-selected {
         .picker-cell {
           background: var(--picker-cell-background-color-active);
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active);
           color: var(--picker-cell-foreground-color-active);
           outline: none;
 
@@ -819,17 +819,17 @@
         .picker-cell:first-of-type {
           border-bottom-left-radius: $picker-cell-border-radius-m;
           border-top-left-radius: $picker-cell-border-radius-m;
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active),
-            -1px 0 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active),
+            -1px 0 0 0 var(--picker-cell-border-color-active);
         }
 
         .picker-cell:last-of-type {
           border-bottom-right-radius: $picker-cell-border-radius-m;
           border-top-right-radius: $picker-cell-border-radius-m;
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active),
-            1px 0 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active),
+            1px 0 0 0 var(--picker-cell-border-color-active);
         }
 
         &:hover {
@@ -878,8 +878,8 @@
       &:has(.picker-cell-range-hover-end) {
         .picker-cell {
           background: var(--picker-cell-background-color-active);
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active);
           color: var(--picker-cell-foreground-color-active);
           outline: none;
 
@@ -908,9 +908,9 @@
         .picker-cell:last-of-type {
           border-bottom-right-radius: $picker-cell-border-radius-m;
           border-top-right-radius: $picker-cell-border-radius-m;
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active),
-            1px 0 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active),
+            1px 0 0 0 var(--picker-cell-border-color-active);
         }
 
         &:hover {
@@ -932,8 +932,8 @@
       &:has(.picker-cell-range-hover-start) {
         .picker-cell {
           background: var(--picker-cell-background-color-active);
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active);
           color: var(--picker-cell-foreground-color-active);
           outline: none;
 
@@ -962,9 +962,9 @@
         .picker-cell:first-of-type {
           border-bottom-left-radius: $picker-cell-border-radius-m;
           border-top-left-radius: $picker-cell-border-radius-m;
-          box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-            0 1px 0 0 var(--picker-cell-selected-border-color-active),
-            -1px 0 0 0 var(--picker-cell-selected-border-color-active);
+          box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+            0 1px 0 0 var(--picker-cell-border-color-active),
+            -1px 0 0 0 var(--picker-cell-border-color-active);
         }
 
         &:hover {
@@ -1447,8 +1447,8 @@
       }
 
       &-selected > &-inner {
-        background: var(--picker-cell-selected-background-color-active);
-        outline: 1px solid var(--picker-cell-selected-border-color-active);
+        background: var(--picker-cell-background-color-active);
+        outline: 1px solid var(--picker-cell-border-color-active);
         border-radius: $picker-cell-border-radius-m;
         color: var(--picker-cell-foreground-color-active);
       }
@@ -1486,11 +1486,12 @@
         margin: 0 $space-xxs $space-xxs;
         padding: 0;
 
-        &:hover > .picker-time-partial-cell-inner {
+        &:hover:not(.picker-time-partial-cell-selected)
+          > .picker-time-partial-cell-inner {
           background: var(--picker-cell-background-color-hover);
-          outline: 1px solid var(--picker-cell-selected-border-color-active);
+          outline: 1px solid var(--picker-cell-border-color-hover);
           border-radius: $picker-cell-border-radius-m;
-          color: var(--picker-cell-foreground-color-active);
+          color: var(--picker-cell-foreground-color-hover);
         }
       }
     }
@@ -2012,9 +2013,9 @@
             border-top-left-radius: 0;
             border-bottom-right-radius: $picker-cell-border-radius-m;
             border-top-right-radius: $picker-cell-border-radius-m;
-            box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-              0 1px 0 0 var(--picker-cell-selected-border-color-active),
-              1px 0 0 0 var(--picker-cell-selected-border-color-active);
+            box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+              0 1px 0 0 var(--picker-cell-border-color-hover),
+              1px 0 0 0 var(--picker-cell-border-color-hover);
           }
 
           .picker-cell:last-of-type {
@@ -2022,9 +2023,9 @@
             border-top-left-radius: $picker-cell-border-radius-m;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-            box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-              0 1px 0 0 var(--picker-cell-selected-border-color-active),
-              -1px 0 0 0 var(--picker-cell-selected-border-color-active);
+            box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-hover),
+              0 1px 0 0 var(--picker-cell-border-color-hover),
+              -1px 0 0 0 var(--picker-cell-border-color-hover);
           }
 
           &:has(.picker-cell-range-hover-end) {
@@ -2073,9 +2074,9 @@
             border-top-left-radius: 0;
             border-bottom-right-radius: $picker-cell-border-radius-m;
             border-top-right-radius: $picker-cell-border-radius-m;
-            box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-              0 1px 0 0 var(--picker-cell-selected-border-color-active),
-              1px 0 0 0 var(--picker-cell-selected-border-color-active);
+            box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+              0 1px 0 0 var(--picker-cell-border-color-active),
+              1px 0 0 0 var(--picker-cell-border-color-active);
           }
 
           .picker-cell:last-of-type {
@@ -2083,9 +2084,9 @@
             border-top-left-radius: $picker-cell-border-radius-m;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-            box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-              0 1px 0 0 var(--picker-cell-selected-border-color-active),
-              -1px 0 0 0 var(--picker-cell-selected-border-color-active);
+            box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+              0 1px 0 0 var(--picker-cell-border-color-active),
+              -1px 0 0 0 var(--picker-cell-border-color-active);
           }
 
           &:hover {
@@ -2130,9 +2131,9 @@
             border-top-left-radius: $picker-cell-border-radius-m;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-            box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-              0 1px 0 0 var(--picker-cell-selected-border-color-active),
-              -1px 0 0 0 var(--picker-cell-selected-border-color-active);
+            box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+              0 1px 0 0 var(--picker-cell-border-color-active),
+              -1px 0 0 0 var(--picker-cell-border-color-active);
           }
         }
 
@@ -2150,9 +2151,9 @@
             border-top-left-radius: 0;
             border-bottom-right-radius: $picker-cell-border-radius-m;
             border-top-right-radius: $picker-cell-border-radius-m;
-            box-shadow: 0 -1px 0 0 var(--picker-cell-selected-border-color-active),
-              0 1px 0 0 var(--picker-cell-selected-border-color-active),
-              1px 0 0 0 var(--picker-cell-selected-border-color-active);
+            box-shadow: 0 -1px 0 0 var(--picker-cell-border-color-active),
+              0 1px 0 0 var(--picker-cell-border-color-active),
+              1px 0 0 0 var(--picker-cell-border-color-active);
           }
         }
       }

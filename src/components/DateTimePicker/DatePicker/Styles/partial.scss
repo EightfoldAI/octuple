@@ -20,8 +20,6 @@ $picker-time-partial-cell-height: 28px;
   height: $picker-partial-cell-height;
   line-height: $picker-partial-cell-height;
   border-radius: $picker-border-radius;
-  transition: background $motion-duration-extra-fast,
-    border $motion-duration-extra-fast;
 
   &:before {
     position: absolute;
@@ -31,7 +29,6 @@ $picker-time-partial-cell-height: 28px;
     z-index: 1;
     height: $picker-partial-cell-height;
     transform: translateY(-50%);
-    transition: all $motion-duration-extra-fast;
     content: '';
   }
 
@@ -48,8 +45,7 @@ $picker-time-partial-cell-height: 28px;
       bottom: 0;
       left: 0;
       z-index: 1;
-      border: var(--picker-border-width) var(--picker-border-style)
-        var(--picker-border-color-active);
+      border: var(--picker-border-active);
       border-radius: var(--border-radius-round);
       content: '';
     }
@@ -102,7 +98,6 @@ $picker-time-partial-cell-height: 28px;
       border-bottom: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
       transform: translateY(-50%);
-      transition: all $motion-duration-extra-fast;
       content: '';
     }
   }
@@ -146,7 +141,6 @@ $picker-time-partial-cell-height: 28px;
       bottom: 0;
       z-index: -1;
       background: $picker-date-hover-range-color;
-      transition: all $motion-duration-extra-fast;
       content: '';
     }
   }
@@ -359,46 +353,12 @@ $picker-time-partial-cell-height: 28px;
   &-year-partial,
   &-quarter-partial,
   &-month-partial {
-    $hover-cell-fixed-distance: (
-      (
-          (($picker-partial-width - $space-xs * 2) / 3) -
-            $picker-cell-year-month-width
-        ) / 2
-    );
-
     .picker-body {
       padding: 0 $space-xs;
     }
 
     .picker-cell-inner {
-      width: $picker-cell-year-month-width;
-    }
-
-    .picker-cell-range-hover-start:after {
-      left: $hover-cell-fixed-distance;
-      border-left: var(--picker-border-width) dashed
-        $picker-date-hover-range-border-color;
-      border-radius: $picker-border-radius 0 0 $picker-border-radius;
-
-      .picker-partial-rtl {
-        right: $hover-cell-fixed-distance;
-        border-right: var(--picker-border-width) dashed
-          $picker-date-hover-range-border-color;
-        border-radius: 0 $picker-border-radius $picker-border-radius 0;
-      }
-    }
-    .picker-cell-range-hover-end:after {
-      right: $hover-cell-fixed-distance;
-      border-right: var(--picker-border-width) dashed
-        $picker-date-hover-range-border-color;
-      border-radius: 0 $picker-border-radius $picker-border-radius 0;
-
-      .picker-partial-rtl {
-        left: $hover-cell-fixed-distance;
-        border-left: var(--picker-border-width) dashed
-          $picker-date-hover-range-border-color;
-        border-radius: $picker-border-radius 0 0 $picker-border-radius;
-      }
+      width: $picker-cell-year-month-width-m;
     }
   }
 
@@ -417,10 +377,6 @@ $picker-time-partial-cell-height: 28px;
     }
 
     &-row {
-      td {
-        transition: background $motion-duration-extra-fast;
-      }
-
       &:hover td {
         background: $picker-basic-cell-hover-color;
       }
@@ -465,11 +421,6 @@ $picker-time-partial-cell-height: 28px;
       border-left: var(--picker-border);
     }
 
-    .picker-date-partial,
-    .picker-time-partial {
-      transition: opacity $motion-duration-extra-fast;
-    }
-
     &-active {
       .picker-date-partial,
       .picker-time-partial {
@@ -500,7 +451,6 @@ $picker-time-partial-cell-height: 28px;
       overflow-y: hidden;
       text-align: left;
       list-style: none;
-      transition: background $motion-duration-extra-fast;
 
       &:after {
         display: block;
@@ -540,7 +490,6 @@ $picker-time-partial-cell-height: 28px;
             line-height: $picker-time-partial-cell-height;
             border-radius: 0;
             cursor: pointer;
-            transition: background $motion-duration-extra-fast;
 
             &:hover {
               background: $picker-basic-cell-hover-color;
@@ -550,7 +499,7 @@ $picker-time-partial-cell-height: 28px;
           &-selected {
             .picker-time-partial-cell-inner {
               background: var(--picker-cell-foreground-color-active);
-              border: 1px solid var(--picker-cell-selected-border-color-active);
+              border: 1px solid var(--picker-cell-border-color-active);
             }
           }
 
