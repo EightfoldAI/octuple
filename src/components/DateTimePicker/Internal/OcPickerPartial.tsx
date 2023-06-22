@@ -503,7 +503,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
           { [styles.pickerSmall]: size === DatePickerSize.Small },
           classNames,
           {
-            ['picker-partial-has-range']:
+            [styles.pickerPartialHasRange]:
               rangedValue && rangedValue[0] && rangedValue[1],
           },
           {
@@ -520,12 +520,16 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
       >
         {partialNode}
         {extraFooter && (
-          <div className={styles.pickerFooterExtra}>{extraFooter}</div>
+          <div className={styles.pickerFooterExtra}>
+            <div className={styles.pickerFooterExtraBorder}>{extraFooter}</div>
+          </div>
         )}
         {rangesNode || todayNode ? (
           <div className={styles.pickerFooter}>
-            {rangesNode}
-            {todayNode}
+            <div className={styles.pickerFooterBorder}>
+              {rangesNode}
+              {todayNode}
+            </div>
           </div>
         ) : null}
       </div>
