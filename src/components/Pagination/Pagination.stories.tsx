@@ -50,53 +50,32 @@ export default {
   },
 } as ComponentMeta<typeof Pagination>;
 
-const Basic_Few_Story: ComponentStory<typeof Pagination> = (args) => (
+const Pagination_Story: ComponentStory<typeof Pagination> = (args) => (
   <Pagination {...args} />
 );
 
-export const Basic_Few = Basic_Few_Story.bind({});
+export const Basic_Few = Pagination_Story.bind({});
+export const Basic_Many = Pagination_Story.bind({});
+export const Dots = Pagination_Story.bind({});
+export const Total_Item_Count = Pagination_Story.bind({});
+export const Change_Page_Size = Pagination_Story.bind({});
+export const Jump_To = Pagination_Story.bind({});
+export const All_Combined = Pagination_Story.bind({});
+export const Simplified = Pagination_Story.bind({});
 
-const Basic_Many_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const Basic_Many = Basic_Many_Story.bind({});
-
-const Dots_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const Dots = Dots_Story.bind({});
-
-const Total_Item_Count_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const Total_Item_Count = Total_Item_Count_Story.bind({});
-
-const Change_Page_Size_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const Change_Page_Size = Change_Page_Size_Story.bind({});
-
-const Jump_To_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const Jump_To = Jump_To_Story.bind({});
-
-const All_Combined_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const All_Combined = All_Combined_Story.bind({});
-
-const Simplified_Story: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
-
-export const Simplified = Simplified_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic_Few',
+  'Basic_Many',
+  'Dots',
+  'Total_Item_Count',
+  'Change_Page_Size',
+  'Jump_To',
+  'All_Combined',
+  'Simplified',
+];
 
 const paginationArgs: Object = {
   classNames: 'my-pagination-class',

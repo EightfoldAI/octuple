@@ -169,7 +169,7 @@ const Time_Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
 
 const Single_Borderless_Story: ComponentStory<typeof TimePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'xxl'}>
+    <Stack direction={'vertical'} flexGap={'xxl'}>
       <TimePicker {...args} />
     </Stack>
   );
@@ -177,7 +177,7 @@ const Single_Borderless_Story: ComponentStory<typeof TimePicker> = (args) => {
 
 const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'xxl'}>
+    <Stack direction={'vertical'} flexGap={'xxl'}>
       <RangePicker {...args} />
     </Stack>
   );
@@ -185,7 +185,7 @@ const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
 
 const Single_Status_Story: ComponentStory<typeof TimePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'xxl'}>
+    <Stack direction={'vertical'} flexGap={'xxl'}>
       <TimePicker {...args} status={'error'} />
       <TimePicker {...args} status={'warning'} />
     </Stack>
@@ -194,7 +194,7 @@ const Single_Status_Story: ComponentStory<typeof TimePicker> = (args) => {
 
 const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'xxl'}>
+    <Stack direction={'vertical'} flexGap={'xxl'}>
       <TimePicker.RangePicker {...args} status={'error'} />
       <TimePicker.RangePicker {...args} status={'warning'} />
     </Stack>
@@ -212,6 +212,23 @@ export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Disabled',
+  'Controlled',
+  'Hour_and_Minute',
+  'Interval',
+  'Extra_Footer',
+  'Time_Range_Picker',
+  'Single_Borderless',
+  'Range_Borderless',
+  'Single_Status',
+  'Range_Status',
+];
 
 const pickerArgs: Object = {
   classNames: 'my-picker-class',

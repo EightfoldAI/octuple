@@ -67,6 +67,15 @@ export const Basic = Label_Story.bind({});
 export const Default_Info_Button = Label_Story.bind({});
 export const Custom_Button = Label_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Default_Info_Button',
+  'Custom_Button',
+];
+
 Basic.args = {
   text: 'This is a label',
   size: LabelSize.Medium,

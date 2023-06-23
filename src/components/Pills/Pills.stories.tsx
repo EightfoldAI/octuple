@@ -70,55 +70,13 @@ const themes: PillThemeName[] = [
   'white',
 ];
 
-const Default_Story: ComponentStory<typeof Pill> = (args) => (
+const Pill_Story: ComponentStory<typeof Pill> = (args) => (
   <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
     ))}
   </Stack>
 );
-
-export const Default = Default_Story.bind({});
-
-const With_Icon_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" flexGap="l">
-    {themes.map((theme) => (
-      <Pill {...args} label={theme} theme={theme} key={theme} />
-    ))}
-  </Stack>
-);
-
-export const With_Icon = With_Icon_Story.bind({});
-
-const Closable_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" flexGap="l">
-    {themes.map((theme) => (
-      <Pill {...args} label={theme} theme={theme} key={theme} />
-    ))}
-  </Stack>
-);
-
-export const Closable = Closable_Story.bind({});
-
-const Custom_Closable_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" flexGap="l">
-    {themes.map((theme) => (
-      <Pill {...args} label={theme} theme={theme} key={theme} />
-    ))}
-  </Stack>
-);
-
-export const Custom_Closable = Custom_Closable_Story.bind({});
-
-const With_Button_Story: ComponentStory<typeof Pill> = (args) => (
-  <Stack direction="vertical" flexGap="l">
-    {themes.map((theme) => (
-      <Pill {...args} label={theme} theme={theme} key={theme} />
-    ))}
-  </Stack>
-);
-
-export const With_Button = With_Button_Story.bind({});
 
 const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
   <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
@@ -133,7 +91,24 @@ const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
   </Stack>
 );
 
+export const Default = Pill_Story.bind({});
+export const With_Icon = Pill_Story.bind({});
+export const Closable = Pill_Story.bind({});
+export const Custom_Closable = Pill_Story.bind({});
+export const With_Button = Pill_Story.bind({});
 export const With_Long_Text = With_Long_Text_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Default',
+  'With_Icon',
+  'Closable',
+  'Custom_Closable',
+  'With_Button',
+  'With_Long_Text',
+];
 
 const pillArgs: Object = {
   alignIcon: PillIconAlign.Start,

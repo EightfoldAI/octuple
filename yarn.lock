@@ -3108,7 +3108,7 @@
   dependencies:
     "@storybook/node-logger" "^6.1.14"
     css-loader "^3.6.0"
-    postcss "^7.0.35"
+    postcss "^7.0.36"
     postcss-loader "^4.2.0"
     style-loader "^1.3.0"
 
@@ -5729,7 +5729,7 @@ autoprefixer@^9.8.6:
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     picocolors "^0.2.1"
-    postcss "^7.0.32"
+    postcss "^7.0.36"
     postcss-value-parser "^4.1.0"
 
 axe-core@^4.2.0, axe-core@^4.3.5:
@@ -5842,7 +5842,7 @@ babel-plugin-named-asset-import@0.3.8:
   resolved "https://registry.yarnpkg.com/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-0.3.8.tgz#6b7fa43c59229685368683c28bc9734f24524cc2"
   integrity sha512-WXiAc++qo7XcJ1ZnTYGtLxmBCVbddAml3CEXgWaBzNzLNoxtQ8AiGEFDMOhot9XjTCQbvP5E77Fj9Gk924f00Q==
 
-babel-plugin-named-exports-order@^0.0.2:
+babel-plugin-named-exports-order@0.0.2, babel-plugin-named-exports-order@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-named-exports-order/-/babel-plugin-named-exports-order-0.0.2.tgz#ae14909521cf9606094a2048239d69847540cb09"
   integrity sha512-OgOYHOLoRK+/mvXU9imKHlG6GkPLYrUCvFXG/CM93R/aNNO8pOOF4aS+S8CCHMDQoNSeiOYEZb/G6RwL95Jktw==
@@ -7518,7 +7518,7 @@ css-loader@^3.6.0:
     icss-utils "^4.1.1"
     loader-utils "^1.4.2"
     normalize-path "^3.0.0"
-    postcss "^7.0.32"
+    postcss "^7.0.36"
     postcss-modules-extract-imports "^2.0.0"
     postcss-modules-local-by-default "^3.0.2"
     postcss-modules-scope "^2.2.0"
@@ -13659,7 +13659,7 @@ postcss-flexbugs-fixes@^4.2.1:
   resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.2.1.tgz#9218a65249f30897deab1033aced8578562a6690"
   integrity sha512-9SiofaZ9CWpQWxOwRh1b/r85KD5y7GgvsNt1056k6OYLvWUun0czCvogfJgylC22uJTwW1KzY3Gz65NZRlvoiQ==
   dependencies:
-    postcss "^7.0.26"
+    postcss "^7.0.36"
 
 postcss-focus-visible@^6.0.1:
   version "6.0.4"
@@ -13818,7 +13818,7 @@ postcss-modules-extract-imports@^2.0.0:
   resolved "https://registry.yarnpkg.com/postcss-modules-extract-imports/-/postcss-modules-extract-imports-2.0.0.tgz#818719a1ae1da325f9832446b01136eeb493cd7e"
   integrity sha512-LaYLDNS4SG8Q5WAWqIJgdHPJrDDr/Lv775rMBFUbgjTz6j34lUznACHcdRWroPvXANP2Vj7yNK57vp9eFqzLWQ==
   dependencies:
-    postcss "^7.0.5"
+    postcss "^7.0.36"
 
 postcss-modules-extract-imports@^3.0.0:
   version "3.0.0"
@@ -13831,7 +13831,7 @@ postcss-modules-local-by-default@^3.0.2:
   integrity sha512-e3xDq+LotiGesympRlKNgaJ0PCzoUIdpH0dj47iWAui/kyTgh3CiAr1qP54uodmJhl6p9rN6BoNcdEDVJx9RDw==
   dependencies:
     icss-utils "^4.1.1"
-    postcss "^7.0.32"
+    postcss "^7.0.36"
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.1.0"
 
@@ -13849,7 +13849,7 @@ postcss-modules-scope@^2.2.0:
   resolved "https://registry.yarnpkg.com/postcss-modules-scope/-/postcss-modules-scope-2.2.0.tgz#385cae013cc7743f5a7d7602d1073a89eaae62ee"
   integrity sha512-YyEgsTMRpNd+HmyC7H/mh3y+MeFWevy7V1evVhJWewmMbjDHIbZbOXICC2y+m1xI1UVfIT1HMW/O04Hxyu9oXQ==
   dependencies:
-    postcss "^7.0.6"
+    postcss "^7.0.36"
     postcss-selector-parser "^6.0.0"
 
 postcss-modules-scope@^3.0.0:
@@ -13865,7 +13865,7 @@ postcss-modules-values@^3.0.0:
   integrity sha512-1//E5jCBrZ9DmRX+zCtmQtRSV6PV42Ix7Bzj9GbwJceduuf7IqP8MgeTXuRDHOWj2m0VzZD5+roFWDuU8RQjcg==
   dependencies:
     icss-utils "^4.0.0"
-    postcss "^7.0.6"
+    postcss "^7.0.36"
 
 postcss-modules-values@^4.0.0:
   version "4.0.0"
@@ -15118,7 +15118,7 @@ resolve-url-loader@4.0.0:
     adjust-sourcemap-loader "^4.0.0"
     convert-source-map "^1.7.0"
     loader-utils "^2.0.0"
-    postcss "^7.0.35"
+    postcss "^7.0.36"
     source-map "0.6.1"
 
 resolve-url@^0.2.1:

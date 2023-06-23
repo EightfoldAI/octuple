@@ -1004,6 +1004,24 @@ export const With_Benchmark = With_Benchmark_Story.bind({});
 export const Data_Inactive = Data_Inactive_Story.bind({});
 export const Data_Active = Data_Active_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Standard_Slider',
+  'Range_Slider',
+  'Inline_Extemity_Labels',
+  'Custom_Markers_Included',
+  'Custom_Markers_Excluded',
+  'Custom_Markers_With_Step',
+  'Custom_Markers_Null_Step',
+  'Dots',
+  'Toggle_Thumb',
+  'With_Benchmark',
+  'Data_Inactive',
+  'Data_Active',
+];
+
 const sliderArgs: Object = {
   allowDisabledFocus: false,
   ariaLabel: 'Slider',

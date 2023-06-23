@@ -82,19 +82,20 @@ const Single_Story: ComponentStory<typeof Accordion> = (args) => (
   <Accordion {...args} />
 );
 
+const List_Story: ComponentStory<typeof List> = (args) => <List {...args} />;
+
 export const Single = Single_Story.bind({});
+export const List_Vertical = List_Story.bind({});
+export const List_Horizontal = List_Story.bind({});
 
-const List_Vertical_Story: ComponentStory<typeof List> = (args) => (
-  <List {...args} />
-);
-
-export const List_Vertical = List_Vertical_Story.bind({});
-
-const List_Horizontal_Story: ComponentStory<typeof List> = (args) => (
-  <List {...args} />
-);
-
-export const List_Horizontal = List_Horizontal_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Single',
+  'List_Vertical',
+  'List_Horizontal',
+];
 
 Single.args = {
   children: (

@@ -20,6 +20,7 @@ import {
   ThemeOptions,
   useConfig,
 } from './';
+import { Label } from '../Label';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
@@ -281,22 +282,34 @@ const ThemedComponents: FC = () => {
     };
 
     // If themeOptions isn't custom, ensure any previously set custom
-    // colors don't linger and interfer with named color palette.
+    // colors don't linger and interfere with named color palette.
     if (newThemeOptions.name !== 'custom') {
-      newThemeOptions.customTheme.primaryColor = undefined;
-      newThemeOptions.customTheme.accentColor = undefined;
+      newThemeOptions.customTheme = undefined;
     }
 
     setThemeOptions(addCustomFontsToThemeOptions(newThemeOptions));
   };
 
+  const themeSelectOptions: SelectOption[] = themes.map(
+    (theme: OcThemeName) => ({
+      text: theme,
+      value: theme,
+    })
+  );
+
+  const onThemeOptionChange = (options: SelectOption[]) => {
+    options.forEach((option: SelectOption) => {
+      console.log(option);
+      updateThemeOptions({ name: option as unknown as OcThemeName });
+    });
+  };
+
   return (
     <Stack direction="vertical" flexGap="xxl">
       <h1 style={{ marginBottom: 0 }}>
-        Selected Theme:
+        Selected theme:
         <span
           style={{
-            textTransform: 'capitalize',
             marginLeft: '4px',
             color: 'var(--primary-color)',
           }}
@@ -305,7 +318,6 @@ const ThemedComponents: FC = () => {
         </span>
         <span
           style={{
-            textTransform: 'capitalize',
             marginLeft: '4px',
             color: 'var(--accent-background3-color)',
           }}
@@ -315,30 +327,28 @@ const ThemedComponents: FC = () => {
       </h1>
       <Stack direction="horizontal" flexGap="m" style={{ marginTop: 0 }}>
         <div>
-          <p>Color palette</p>
-          <select
-            value={themeOptions.name}
-            onChange={(e) => {
-              updateThemeOptions({
-                name: e.target.value as OcThemeName,
-              });
+          <Label htmlFor="colorPalette" text="Color palette" />
+          <Select
+            defaultValue="blue"
+            dropdownProps={{
+              closeOnDropdownClick: true,
             }}
-            style={{ fontSize: '1rem' }}
-          >
-            {themes.map((theme) => (
-              <option value={theme} key={theme}>
-                {theme}
-              </option>
-            ))}
-            <option value="custom" key="custom">
-              custom
-            </option>
-          </select>
+            id="colorPalette"
+            onOptionsChange={onThemeOptionChange}
+            options={[
+              ...themeSelectOptions,
+              {
+                text: 'custom',
+                value: 'custom',
+              },
+            ]}
+            size={SelectSize.Small}
+          />
         </div>
         {themeOptions.name === 'custom' && (
           <>
             <div>
-              <p>Custom Primary</p>
+              <Label text="Custom Primary" />
               <CompactPicker
                 color={customPrimaryColor}
                 onChange={async (color) => {
@@ -354,7 +364,7 @@ const ThemedComponents: FC = () => {
               />
             </div>
             <div>
-              <p>Custom Accent</p>
+              <Label text="Custom Accent" />
               <CompactPicker
                 color={customAccentColor}
                 onChange={async (color) => {
@@ -372,8 +382,9 @@ const ThemedComponents: FC = () => {
           </>
         )}
         <div>
-          <p>Custom Font</p>
+          <Label htmlFor="customFont" text="Custom Font" />
           <RadioGroup
+            id="customFont"
             value={customFont}
             items={customFontItems}
             onChange={async (e) => {
@@ -718,8 +729,6 @@ const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
   return <ConfigProvider {...args} />;
 };
 
-export const Theming = Theming_Story.bind({});
-
 const localeValues: string[] = [
   'cs_CZ',
   'da_DK',
@@ -937,7 +946,7 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
         <p>Locale</p>
         <Select
           defaultValue={localeValue}
-          filterable={true}
+          filterable
           options={localeOptions}
           onOptionsChange={onLocaleChange}
           size={SelectSize.Small}
@@ -972,7 +981,13 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
   );
 };
 
+export const Theming = Theming_Story.bind({});
 export const Locale = Locale_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Theming', 'Locale'];
 
 const providerArgs = {
   focusVisibleOptions: {
