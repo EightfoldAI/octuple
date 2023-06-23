@@ -103,7 +103,7 @@ export default {
   },
 } as ComponentMeta<typeof Panel>;
 
-const Small_Story: ComponentStory<typeof Panel> = (args) => {
+const Panel_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -121,50 +121,6 @@ const Small_Story: ComponentStory<typeof Panel> = (args) => {
     </>
   );
 };
-
-export const Small = Small_Story.bind({});
-
-const Medium_Story: ComponentStory<typeof Panel> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
-      <Panel
-        {...args}
-        footer={
-          <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
-          </div>
-        }
-        visible={visible}
-        onClose={() => setVisible(false)}
-      />
-    </>
-  );
-};
-
-export const Medium = Medium_Story.bind({});
-
-const Large_Story: ComponentStory<typeof Panel> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
-      <Panel
-        {...args}
-        footer={
-          <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
-          </div>
-        }
-        visible={visible}
-        onClose={() => setVisible(false)}
-      />
-    </>
-  );
-};
-
-export const Large = Large_Story.bind({});
 
 const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<Record<string, boolean>>({});
@@ -225,92 +181,6 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
   );
 };
 
-export const Stacked = Stacked_Story.bind({});
-
-const Left_Story: ComponentStory<typeof Panel> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
-      <Panel
-        {...args}
-        footer={
-          <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
-          </div>
-        }
-        visible={visible}
-        onClose={() => setVisible(false)}
-      />
-    </>
-  );
-};
-
-export const Left = Left_Story.bind({});
-
-const Bottom_Story: ComponentStory<typeof Panel> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
-      <Panel
-        {...args}
-        footer={
-          <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
-          </div>
-        }
-        visible={visible}
-        onClose={() => setVisible(false)}
-      />
-    </>
-  );
-};
-
-export const Bottom = Bottom_Story.bind({});
-
-const Top_Story: ComponentStory<typeof Panel> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
-      <Panel
-        {...args}
-        footer={
-          <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
-          </div>
-        }
-        visible={visible}
-        onClose={() => setVisible(false)}
-      />
-    </>
-  );
-};
-
-export const Top = Top_Story.bind({});
-
-const Header_Actions_Story: ComponentStory<typeof Panel> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
-      <Panel
-        {...args}
-        footer={
-          <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
-          </div>
-        }
-        visible={visible}
-        onClose={() => setVisible(false)}
-      />
-    </>
-  );
-};
-
-export const Header_Actions = Header_Actions_Story.bind({});
-
 const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
@@ -360,7 +230,30 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
   );
 };
 
+export const Small = Panel_Story.bind({});
+export const Medium = Panel_Story.bind({});
+export const Large = Panel_Story.bind({});
+export const Stacked = Stacked_Story.bind({});
+export const Left = Panel_Story.bind({});
+export const Bottom = Panel_Story.bind({});
+export const Top = Panel_Story.bind({});
+export const Header_Actions = Panel_Story.bind({});
 export const Panel_Header = Panel_Header_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Small',
+  'Medium',
+  'Large',
+  'Stacked',
+  'Left',
+  'Bottom',
+  'Top',
+  'Header_Actions',
+  'Panel_Header',
+];
 
 const panelArgs: Object = {
   size: PanelSize.small,

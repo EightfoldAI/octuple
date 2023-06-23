@@ -47,41 +47,21 @@ const imageProps = {
   alt: 'random profile image',
 };
 
-const Avatar_Default_Story: ComponentStory<typeof Avatar> = (args) => (
+const Avatar_Story: ComponentStory<typeof Avatar> = (args) => (
   <Avatar {...args} />
 );
-
-export const Avatar_Default = Avatar_Default_Story.bind({});
-
-const Avatar_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
-  <Avatar {...args} />
-);
-
-export const Avatar_Icon = Avatar_Icon_Story.bind({});
 
 const Avatar_Round_Story: ComponentStory<typeof Avatar> = (args) => (
   <Avatar popupProps={{ content: 'A popup' }} {...args} />
 );
 
-export const Avatar_Round = Avatar_Round_Story.bind({});
-
-const Avatar_Round_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
-  <Avatar {...args} />
-);
-
-export const Avatar_Round_Icon = Avatar_Round_Icon_Story.bind({});
-
 const Avatar_Fallback_Theme_Story: ComponentStory<typeof Avatar> = (args) => (
   <Avatar {...args} theme="green" />
 );
 
-export const Avatar_Fallback_Theme = Avatar_Fallback_Theme_Story.bind({});
-
 const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
   <Avatar {...args} hashingFunction={() => 3} />
 );
-
-export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
 
 const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
   const avatarSize = 100;
@@ -230,13 +210,32 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
   );
 };
 
-export const Avatar_StatusItem = Avatar_StatusItem_Story.bind({});
-
 const Avatar_Tooltip_Story: ComponentStory<typeof Avatar> = (args) => (
   <Avatar {...args} theme="red" />
 );
 
+export const Avatar_Default = Avatar_Story.bind({});
+export const Avatar_Icon = Avatar_Story.bind({});
+export const Avatar_Round = Avatar_Round_Story.bind({});
+export const Avatar_Round_Icon = Avatar_Story.bind({});
+export const Avatar_Fallback_Theme = Avatar_Fallback_Theme_Story.bind({});
+export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
+export const Avatar_StatusItem = Avatar_StatusItem_Story.bind({});
 export const Avatar_Tooltip = Avatar_Tooltip_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Avatar_Default',
+  'Avatar_Icon',
+  'Avatar_Round',
+  'Avatar_Round_Icon',
+  'Avatar_Fallback_Theme',
+  'Avatar_Fallback_Hashing',
+  'Avatar_StatusItem',
+  'Avatar_Tooltip',
+];
 
 const avatarArgs: Object = {
   children: 'JD',

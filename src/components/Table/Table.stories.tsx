@@ -1410,6 +1410,47 @@ export const Virtual_List: FC = () => {
   );
 };
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Bordered',
+  'Cell_Bordered',
+  'Header_Bordered',
+  'Inner_Bordered',
+  'Outer_Bordered',
+  'Row_Bordered',
+  'Column_Bordered',
+  'Row_Hover_Background_Disabled',
+  'Small',
+  'Medium',
+  'Large',
+  'Empty',
+  'Header_Grouping',
+  'Header_And_Footer',
+  'Fixed_Header',
+  'Fixed_Columns',
+  'Fixed_Columns_and_Header',
+  'Fixed_Columns_with_Scroller',
+  'Fixed_Columns_and_Header_with_Scroller',
+  'Selection',
+  'Expandable_Row',
+  'Order_Select_And_Expand_Column',
+  'Colspan_Rows',
+  'Sort',
+  'Sort_Multiple',
+  'Summary',
+  'Filter',
+  'Ellipsis',
+  'Ellipsis_With_Tooltip',
+  'Responsive',
+  'Tree',
+  'Nested',
+  'Page_Sizes',
+  'Virtual_List',
+];
+
 const tableArgs: Object = {
   alternateRowColor: true,
   headerClassName: 'my-header',

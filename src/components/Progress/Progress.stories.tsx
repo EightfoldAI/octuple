@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Progress, { ProgressSize } from '.';
@@ -33,7 +33,7 @@ export default {
 
 const Line_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} fullWidth>
+    <Stack direction={'vertical'} flexGap={'s'} fullWidth>
       <Progress
         {...args}
         percent={30}
@@ -62,7 +62,7 @@ const Line_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Small_Line_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} style={{ width: 200 }}>
+    <Stack direction={'vertical'} flexGap={'s'} style={{ width: 200 }}>
       <Progress
         {...args}
         percent={30}
@@ -99,7 +99,7 @@ const Small_Line_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Circle_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} fullWidth>
+    <Stack direction={'vertical'} flexGap={'s'} fullWidth>
       <Progress {...args} type={'circle'} percent={75} />
       <Progress {...args} type={'circle'} percent={70} status={'exception'} />
       <Progress {...args} type={'circle'} percent={100} />
@@ -109,7 +109,7 @@ const Circle_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Small_Circle_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} style={{ width: 200 }}>
+    <Stack direction={'vertical'} flexGap={'s'} style={{ width: 200 }}>
       <Progress
         {...args}
         type={'circle'}
@@ -138,7 +138,7 @@ const Small_Circle_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Dashboard_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} style={{ width: 200 }}>
+    <Stack direction={'vertical'} flexGap={'s'} style={{ width: 200 }}>
       <Progress {...args} type="dashboard" percent={75} />
       <Progress {...args} type="dashboard" percent={75} gapDegree={30} />
     </Stack>
@@ -147,7 +147,7 @@ const Dashboard_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Line_Cap_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} style={{ width: 200 }}>
+    <Stack direction={'vertical'} flexGap={'s'} style={{ width: 200 }}>
       <Progress {...args} strokeLinecap={'butt'} percent={75} />
       <Progress {...args} strokeLinecap={'butt'} type={'circle'} percent={75} />
       <Progress
@@ -162,7 +162,7 @@ const Line_Cap_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Steps_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'l'} fullWidth>
+    <Stack direction={'vertical'} flexGap={'l'} fullWidth>
       <Progress
         {...args}
         percent={50}
@@ -195,7 +195,7 @@ const Steps_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Success_Segment_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'l'} fullWidth>
+    <Stack direction={'vertical'} flexGap={'l'} fullWidth>
       <Tooltip
         content={'3 done / 3 in progress / 4 to do'}
         offset={-24}
@@ -242,7 +242,7 @@ const Success_Segment_Story: ComponentStory<typeof Progress> = (args) => {
 
 const Gradient_Story: ComponentStory<typeof Progress> = (args) => {
   return (
-    <Stack direction={'vertical'} gap={'s'} fullWidth>
+    <Stack direction={'vertical'} flexGap={'s'} fullWidth>
       <Progress
         {...args}
         strokeColor={{
@@ -297,6 +297,21 @@ export const Line_Cap = Line_Cap_Story.bind({});
 export const Steps = Steps_Story.bind({});
 export const Success_Segment = Success_Segment_Story.bind({});
 export const Gradient = Gradient_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Line',
+  'Small_Line',
+  'Circle',
+  'Small_Circle',
+  'Dashboard',
+  'Line_Cap',
+  'Steps',
+  'Success_Segment',
+  'Gradient',
+];
 
 const progressArgs: Object = {
   classNames: 'my-progress',

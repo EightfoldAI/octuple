@@ -50,18 +50,14 @@ const Default_Story: ComponentStory<typeof Skeleton> = (args) => (
   <Skeleton {...args} />
 );
 
-export const Default = Default_Story.bind({});
-
 const Child_Wrapper_Story: ComponentStory<typeof Skeleton> = (args) => (
   <Skeleton {...args}>
     <DefaultButton text={'Sample button'} />
   </Skeleton>
 );
 
-export const ChildWrapper = Child_Wrapper_Story.bind({});
-
-const SampleUsage_Story: ComponentStory<typeof Skeleton> = (args) => (
-  <Stack direction="vertical" gap="xs" style={{ width: 210 }}>
+const Sample_Usage_Story: ComponentStory<typeof Skeleton> = (args) => (
+  <Stack direction="vertical" flexGap="xs" style={{ width: 210 }}>
     <Skeleton
       width={210}
       height={10}
@@ -83,7 +79,14 @@ const SampleUsage_Story: ComponentStory<typeof Skeleton> = (args) => (
   </Stack>
 );
 
-export const Sample_Usage = SampleUsage_Story.bind({});
+export const Default = Default_Story.bind({});
+export const Child_Wrapper = Child_Wrapper_Story.bind({});
+export const Sample_Usage = Sample_Usage_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Default', 'Child_Wrapper', 'Sample_Usage'];
 
 const skeletonArgs: SkeletonProps = {
   animating: true,
@@ -98,7 +101,7 @@ Default.args = {
   variant: SkeletonVariant.Rectangular,
 };
 
-ChildWrapper.args = {
+Child_Wrapper.args = {
   ...skeletonArgs,
   variant: SkeletonVariant.Pill,
 };

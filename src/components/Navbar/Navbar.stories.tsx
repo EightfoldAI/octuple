@@ -150,5 +150,10 @@ const Theme_Story: ComponentStory<typeof Navbar> = (args) => {
 export const Basic = Basic_Story.bind({});
 export const Theme = Theme_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Basic', 'Theme'];
+
 Basic.args = {};
 Theme.args = {};

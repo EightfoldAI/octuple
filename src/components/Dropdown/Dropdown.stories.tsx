@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
@@ -152,8 +152,6 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-export const Dropdown_Button = Dropdown_Button_Story.bind({});
-
 const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
@@ -174,8 +172,6 @@ const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
-
 const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
@@ -190,8 +186,6 @@ const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
     </Dropdown>
   );
 };
-
-export const Dropdown_Div = Dropdown_Div_Story.bind({});
 
 const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
@@ -222,7 +216,20 @@ const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
+export const Dropdown_Button = Dropdown_Button_Story.bind({});
+export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
+export const Dropdown_Div = Dropdown_Div_Story.bind({});
 export const Dropdown_External = Dropdown_External_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Dropdown_Button',
+  'Dropdown_IconButton',
+  'Dropdown_Div',
+  'Dropdown_External',
+];
 
 const dropdownArgs: Object = {
   trigger: 'click',

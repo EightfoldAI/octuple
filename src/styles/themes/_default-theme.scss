@@ -478,40 +478,48 @@
   --picker-foreground-color: var(--text-secondary-color);
   --picker-border-color: var(--input-border-color);
   --picker-border-color-active: var(--input-border-color-active);
+  --picker-border-style: solid;
+  --picker-border-width: 1px;
+  --picker-border: var(--picker-border-width) var(--picker-border-style)
+    var(--picker-border-color);
+  --picker-border-active: var(--picker-border-width) var(--picker-border-style)
+    var(--picker-border-color-active);
+
   --picker-cell-background-color: var(--background-color);
-  --picker-cell-background-color-active: var(--primary-background2-color);
-  --picker-cell-background-color-hover: var(--accent-background3-color);
-  --picker-cell-today-background-color: var(--accent-background3-color);
-  --picker-cell-today-foreground-color: var(--primary-color);
-  --picker-cell-selected-background-color-active: var(
-    --accent-background3-color
-  );
-  --picker-cell-range-start-background-color-hover: var(
-    --accent-background3-color
-  );
-  --picker-cell-range-start-background-color-active: var(
-    --accent-background3-color
-  );
-  --picker-cell-range-end-background-color-hover: var(
-    --accent-background3-color
-  );
-  --picker-cell-range-end-background-color-active: var(
-    --accent-background3-color
-  );
+  --picker-cell-background-color-active: var(--accent-background2-color);
+  --picker-cell-background-color-hover: var(--primary-background2-color);
+  --picker-cell-border-color-active: var(--primary-tertiary-color);
+  --picker-cell-border-color-hover: var(--primary-tertiary-color);
+  --picker-cell-border: var(--picker-border-width) var(--picker-border-style)
+    var(--picker-background-color);
   --picker-cell-foreground-color: var(--text-tertiary-color);
   --picker-cell-foreground-color-active: var(--primary-color);
   --picker-cell-foreground-color-hover: var(--primary-color);
+  --picker-cell-today-background-color: var(--primary-background2-color);
+  --picker-cell-today-foreground-color: var(--primary-color);
+  --picker-cell-range-start-background-color-hover: var(
+    --accent-background2-color
+  );
+  --picker-cell-range-start-background-color-active: var(
+    --accent-background2-color
+  );
+  --picker-cell-range-end-background-color-hover: var(
+    --accent-background2-color
+  );
+  --picker-cell-range-end-background-color-active: var(
+    --accent-background2-color
+  );
+
   --picker-column-background-color: var(--background-color);
   --picker-column-background-color-active: var(--primary-background2-color);
-  --picker-column-background-color-hover: var(--primary-background2-color);
-  --picker-column-foreground-color: var(--text-secondary-color);
   --picker-column-foreground-color-active: var(--primary-color);
-  --picker-column-foreground-color-hover: var(--primary-color);
+
   --picker-header-cell-foreground-color: var(--grey-tertiary-color);
+
   --picker-input-active-bar-color: var(--primary-color);
   --picker-input-background-color: var(--background-color);
-  --picker-input-border-color-active: var(--primary-color-40);
-  --picker-input-border-color-hover: var(--primary-color-40);
+  --picker-input-border-color-active: var(--input-border-color-active);
+  --picker-input-border-color-hover: var(--input-border-color-active);
   --picker-input-clear-icon-color: var(--grey-tertiary-color);
   --picker-input-clear-icon-color-active: var(--grey-tertiary-color);
   --picker-input-foreground-color: var(--text-primary-color);
