@@ -66,8 +66,6 @@ const Default_Story: ComponentStory<typeof Snackbar> = (args) => (
   </>
 );
 
-export const Default = Default_Story.bind({});
-
 const Closable_Story: ComponentStory<typeof Snackbar> = (args) => (
   <>
     <DefaultButton
@@ -78,8 +76,6 @@ const Closable_Story: ComponentStory<typeof Snackbar> = (args) => (
     <SnackbarContainer />
   </>
 );
-
-export const Closable = Closable_Story.bind({});
 
 const With_Action_Story: ComponentStory<typeof Snackbar> = (args) => (
   <>
@@ -92,7 +88,14 @@ const With_Action_Story: ComponentStory<typeof Snackbar> = (args) => (
   </>
 );
 
+export const Default = Default_Story.bind({});
+export const Closable = Closable_Story.bind({});
 export const With_Action = With_Action_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Default', 'Closable', 'With_Action'];
 
 const snackArgs: Object = {
   position: 'top-center',

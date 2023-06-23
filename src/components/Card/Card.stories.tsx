@@ -31,17 +31,15 @@ export default {
   },
 } as ComponentMeta<typeof Card>;
 
-const Base_Card_Story: ComponentStory<typeof Card> = (args) => (
-  <Card {...args} />
-);
+const Card_Story: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const BaseCard = Base_Card_Story.bind({});
+export const BaseCard = Card_Story.bind({});
+export const CustomCard = Card_Story.bind({});
 
-const Custom_Card_Story: ComponentStory<typeof Card> = (args) => (
-  <Card {...args} />
-);
-
-export const CustomCard = Custom_Card_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['BaseCard', 'CustomCard'];
 
 const baseCardArgs: Object = {
   dropShadow: true,

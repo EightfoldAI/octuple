@@ -120,8 +120,6 @@ const Basic_Story: ComponentStory<typeof Row> = (args) => (
   </div>
 );
 
-export const Basic = Basic_Story.bind({});
-
 const style: React.CSSProperties = {
   background: 'var(--primary-color-40)',
   border: '2px solid var(--primary-secondary-color)',
@@ -145,8 +143,6 @@ const Horizontal_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-export const Horizontal_Gutter = Horizontal_Gutter_Story.bind({});
-
 const Responsive_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
     <Col {...args} span={3}>
@@ -163,8 +159,6 @@ const Responsive_Gutter_Story: ComponentStory<typeof Row> = (args) => (
     </Col>
   </Row>
 );
-
-export const Responsive_Gutter = Responsive_Gutter_Story.bind({});
 
 const Vertical_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   <Row gutter={[16, 16]}>
@@ -195,8 +189,6 @@ const Vertical_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-export const Vertical_Gutter = Vertical_Gutter_Story.bind({});
-
 const Column_Offset_Story: ComponentStory<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
@@ -223,8 +215,6 @@ const Column_Offset_Story: ComponentStory<typeof Row> = (args) => (
   </div>
 );
 
-export const Column_Offset = Column_Offset_Story.bind({});
-
 const Grid_Sort_Story: ComponentStory<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
@@ -237,8 +227,6 @@ const Grid_Sort_Story: ComponentStory<typeof Row> = (args) => (
     </Row>
   </div>
 );
-
-export const Grid_Sort = Grid_Sort_Story.bind({});
 
 const Typesetting_Story: ComponentStory<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
@@ -329,8 +317,6 @@ const Typesetting_Story: ComponentStory<typeof Row> = (args) => (
   </div>
 );
 
-export const Typesetting = Typesetting_Story.bind({});
-
 const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = (
   props
 ) => (
@@ -392,8 +378,6 @@ const Alignment_Story: ComponentStory<typeof Row> = (args) => (
   </>
 );
 
-export const Alignment = Alignment_Story.bind({});
-
 const Order_Normal_Story: ComponentStory<typeof Row> = (args) => (
   <Row>
     <Col {...args} span={3} order={4}>
@@ -410,8 +394,6 @@ const Order_Normal_Story: ComponentStory<typeof Row> = (args) => (
     </Col>
   </Row>
 );
-
-export const Order_Normal = Order_Normal_Story.bind({});
 
 const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
   <Row>
@@ -458,8 +440,6 @@ const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-export const Order_Responsive = Order_Responsive_Story.bind({});
-
 const Percentage_Columns_Story: ComponentStory<typeof Row> = (args) => (
   <Row>
     <Col {...args} flex={2}>
@@ -471,8 +451,6 @@ const Percentage_Columns_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-export const Percentage_Columns = Percentage_Columns_Story.bind({});
-
 const Fill_Rest_Story: ComponentStory<typeof Row> = (args) => (
   <Row>
     <Col {...args} flex="100px">
@@ -483,8 +461,6 @@ const Fill_Rest_Story: ComponentStory<typeof Row> = (args) => (
     </Col>
   </Row>
 );
-
-export const Fill_Rest = Fill_Rest_Story.bind({});
 
 const Raw_Flex_Style_Story: ComponentStory<typeof Row> = (args) => (
   <>
@@ -507,8 +483,6 @@ const Raw_Flex_Style_Story: ComponentStory<typeof Row> = (args) => (
     </Row>
   </>
 );
-
-export const Raw_Flex_Style = Raw_Flex_Style_Story.bind({});
 
 const Responsive_Story: ComponentStory<typeof Row> = (args) => (
   <Row>
@@ -542,17 +516,15 @@ const Responsive_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-export const Responsive = Responsive_Story.bind({});
-
 const { useBreakpoint } = Grid;
 
 const useBreakPoint_Story: FC = () => {
   const screens = useBreakpoint();
 
   return (
-    <Stack gap="m" direction="vertical">
+    <Stack flexGap="m" direction="vertical">
       <div>Current break point:</div>
-      <Stack gap="l" direction="horizontal">
+      <Stack flexGap="l" direction="horizontal">
         {Object.entries(screens)
           .filter((screen) => !!screen[1])
           .map((screen) => (
@@ -562,8 +534,6 @@ const useBreakPoint_Story: FC = () => {
     </Stack>
   );
 };
-
-export const useBreakPoint = useBreakPoint_Story.bind({});
 
 const gutters: Record<string, number> = {};
 const vgutters: Record<string, number> = {};
@@ -601,7 +571,7 @@ const Playground_Story: FC = () => {
   }
 
   return (
-    <Stack direction="vertical" gap="l" justify="flex-start" fullWidth>
+    <Stack direction="vertical" flexGap="l" justify="flex-start" fullWidth>
       <span>Horizontal Gutter: </span>
       <div style={{ width: '50%' }}>
         <Slider
@@ -644,7 +614,44 @@ const Playground_Story: FC = () => {
   );
 };
 
+export const Basic = Basic_Story.bind({});
+export const Horizontal_Gutter = Horizontal_Gutter_Story.bind({});
+export const Responsive_Gutter = Responsive_Gutter_Story.bind({});
+export const Vertical_Gutter = Vertical_Gutter_Story.bind({});
+export const Column_Offset = Column_Offset_Story.bind({});
+export const Grid_Sort = Grid_Sort_Story.bind({});
+export const Typesetting = Typesetting_Story.bind({});
+export const Alignment = Alignment_Story.bind({});
+export const Order_Normal = Order_Normal_Story.bind({});
+export const Order_Responsive = Order_Responsive_Story.bind({});
+export const Percentage_Columns = Percentage_Columns_Story.bind({});
+export const Fill_Rest = Fill_Rest_Story.bind({});
+export const Raw_Flex_Style = Raw_Flex_Style_Story.bind({});
+export const Responsive = Responsive_Story.bind({});
+export const useBreakPoint = useBreakPoint_Story.bind({});
 export const Playground = Playground_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Horizontal_Gutter',
+  'Responsive_Gutter',
+  'Vertical_Gutter',
+  'Column_Offset',
+  'Grid_Sort',
+  'Typesetting',
+  'Alignment',
+  'Order_Normal',
+  'Order_Responsive',
+  'Percentage_Columns',
+  'Fill_Rest',
+  'Raw_Flex_Style',
+  'Responsive',
+  'useBreakPoint',
+  'Playground',
+];
 
 const basicArgs: Object = {
   style: {

@@ -90,8 +90,6 @@ export default {
 
 const Basic_Story: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
 
-export const Basic = Basic_Story.bind({});
-
 const Icomoon_Story: ComponentStory<typeof Icon> = (args) => (
   <ConfigProvider
     icomoonIconSet={iconSet}
@@ -103,20 +101,14 @@ const Icomoon_Story: ComponentStory<typeof Icon> = (args) => (
   </ConfigProvider>
 );
 
+export const Basic = Basic_Story.bind({});
 export const Icomoon = Icomoon_Story.bind({});
+export const Icomoon_Multicolor = Icomoon_Story.bind({});
 
-const Icomoon_Multicolor_Story: ComponentStory<typeof Icon> = (args) => (
-  <ConfigProvider
-    icomoonIconSet={iconSet}
-    themeOptions={{
-      name: 'blue',
-    }}
-  >
-    <Icon {...args} />
-  </ConfigProvider>
-);
-
-export const Icomoon_Multicolor = Icomoon_Multicolor_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Basic', 'Icomoon', 'Icomoon_Multicolor'];
 
 const iconArgs: Object = {
   path: IconName.mdiCardsHeart,

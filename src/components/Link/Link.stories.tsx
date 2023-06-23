@@ -83,6 +83,26 @@ export const Secondary_Disabled = Link_Story.bind({});
 export const Neutral_Disabled = Link_Story.bind({});
 export const Disruptive_Disabled = Link_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Default',
+  'Primary',
+  'Secondary',
+  'Neutral',
+  'Disruptive',
+  'Primary_Underline',
+  'Secondary_Underline',
+  'Neutral_Underline',
+  'Disruptive_Underline',
+  'Default_Disabled',
+  'Primary_Disabled',
+  'Secondary_Disabled',
+  'Neutral_Disabled',
+  'Disruptive_Disabled',
+];
+
 const linkArgs: Object = {
   classNames: 'my-link-class',
   children: (

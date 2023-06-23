@@ -179,6 +179,23 @@ export const Split = Button_Story.bind({});
 export const Split_With_Counter = Button_Story.bind({});
 export const Floating_Button = Button_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Primary',
+  'Counter',
+  'Secondary',
+  'Default',
+  'Neutral',
+  'System_UI',
+  'Toggle',
+  'Toggle_With_Counter',
+  'Split',
+  'Split_With_Counter',
+  'Floating_Button',
+];
+
 const buttonArgs: Object = {
   alignIcon: ButtonIconAlign.Left,
   alignText: ButtonTextAlign.Center,
