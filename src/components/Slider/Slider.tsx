@@ -841,6 +841,9 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     styles.sliderTooltip,
                     tooltipProps?.classNames,
                   ])}
+                  wrapperClassNames={
+                    mergedDisabled ? styles.hideSliderTooltip : ''
+                  }
                   closeOnReferenceClick={false}
                   content={getTooltipContentByValue(val)}
                   key={`value-tooltip-${index}`}

@@ -136,6 +136,11 @@ $small-min-label-offset-with-steps: 0;
     &-tooltip {
       min-width: max-content;
     }
+
+    .hide-slider-tooltip {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 
   .rail-marker-segments {
