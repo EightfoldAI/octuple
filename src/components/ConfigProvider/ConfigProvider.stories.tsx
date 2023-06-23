@@ -330,9 +330,6 @@ const ThemedComponents: FC = () => {
           <Label htmlFor="colorPalette" text="Color palette" />
           <Select
             defaultValue="blue"
-            dropdownProps={{
-              closeOnDropdownClick: true,
-            }}
             id="colorPalette"
             onOptionsChange={onThemeOptionChange}
             options={[
