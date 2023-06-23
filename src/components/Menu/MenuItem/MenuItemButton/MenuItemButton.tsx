@@ -17,6 +17,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   disabled,
   dropdownMenuItems,
   dropdownMenuProps,
+  htmlType = 'button',
   iconProps,
   onClick,
   role = 'menuitem',
@@ -85,6 +86,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
       className={styles.menuItemButton}
       disabled={disabled}
       tabIndex={tabIndex}
+      type={htmlType}
       {...rest}
       onClick={handleOnClick}
       role={role}
@@ -108,6 +110,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           className={styles.menuOuterButton}
           disabled={disabled}
           tabIndex={tabIndex}
+          type={htmlType}
           {...rest}
           onClick={handleOnClick}
         >
