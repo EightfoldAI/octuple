@@ -76,76 +76,6 @@ $tree-directory-selected-bg: var(--primary-color);
 $tree-node-hover-bg: var(--grey-background1-color);
 $tree-node-selected-bg: var(--primary-color);
 
-// Picker
-
-$picker-background-color: var(--picker-background-color);
-$picker-foreground-color: var(--picker-foreground-color);
-
-$picker-border-color: var(--picker-border-color);
-$picker-border-color-active: var(--picker-border-color-active);
-$picker-border-style: solid;
-$picker-border-width: 1px;
-$picker-border: $picker-border-width $picker-border-style $picker-border-color;
-
-$picker-box-shadow: $shadow-object-m;
-$picker-cell-background-color: var(--picker-cell-background-color);
-$picker-cell-today-background-color: var(--picker-cell-today-background-color);
-$picker-cell-today-foreground-color: var(--picker-cell-today-foreground-color);
-$picker-cell-selected-background-color-active: var(
-  --picker-cell-selected-background-color-active
-);
-$picker-cell-background-color-active: var(
-  --picker-cell-background-color-active
-);
-$picker-cell-range-start-background-color-hover: var(
-  --picker-cell-range-start-background-color-hover
-);
-$picker-cell-range-start-background-color-active: var(
-  --picker-cell-range-start-background-color-active
-);
-$picker-cell-range-end-background-color-hover: var(
-  --picker-cell-range-end-background-color-hover
-);
-$picker-cell-range-end-background-color-active: var(
-  --picker-cell-range-end-background-color-active
-);
-$picker-cell-background-color-hover: var(--picker-cell-background-color-hover);
-$picker-cell-border: $picker-border-width $picker-border-style
-  $picker-background-color;
-$picker-cell-foreground-color: var(--picker-cell-foreground-color);
-$picker-cell-foreground-color-active: var(
-  --picker-cell-foreground-color-active
-);
-$picker-cell-foreground-color-hover: var(--picker-cell-foreground-color-hover);
-$picker-column-background-color: var(--bpicker-column-background-color);
-$picker-column-background-color-active: var(
-  --picker-column-background-color-active
-);
-$picker-column-background-color-hover: var(
-  --picker-column-background-color-hover
-);
-$picker-column-foreground-color: var(--picker-column-foreground-color);
-$picker-column-foreground-color-active: var(
-  --picker-column-foreground-color-active
-);
-$picker-column-foreground-color-hover: var(
-  --picker-column-foreground-color-hover
-);
-$picker-header-cell-foreground-color: var(
-  --picker-header-cell-foreground-color
-);
-$picker-input-active-bar-color: var(--picker-input-active-bar-color);
-$picker-input-background-color: var(--picker-input-background-color);
-$picker-input-border-color-active: var(--picker-input-border-color-active);
-$picker-input-border-color-hover: var(--picker-input-border-color-hover);
-$picker-input-clear-icon-color: var(--picker-input-clear-icon-color);
-$picker-input-clear-icon-color-active: var(
-  --picker-input-clear-icon-color-active
-);
-$picker-input-foreground-color: var(--picker-input-foreground-color);
-$picker-input-placeholder-color: var(--picker-input-placeholder-color);
-$picker-outline-color: var(--picker-outline-color);
-
 // END: VARIABLE COLOR DEFINITIONS
 
 // BEGIN: NON-COLOR DEFINITIONS
@@ -417,6 +347,8 @@ $tree-child-padding: 18px;
 
 $picker-arrow-size: 8px;
 $picker-border-radius: $border-radius-m;
+$picker-border-width: 1px;
+$picker-box-shadow: $shadow-object-m;
 $picker-cell-border-radius-l: 24px;
 $picker-cell-border-radius-m: 18px;
 $picker-cell-border-radius-s: 14px;
@@ -426,13 +358,24 @@ $picker-cell-height-s: 28px;
 $picker-cell-width-l: 44px;
 $picker-cell-width-m: 36px;
 $picker-cell-width-s: 28px;
-$picker-cell-year-month-width: 56px;
+$picker-cell-year-month-width-l: 104px;
+$picker-cell-year-month-width-m: 88px;
+$picker-cell-year-month-width-s: 76px;
+$picker-cell-decade-width-l: 120px;
+$picker-cell-decade-width-m: 96px;
+$picker-cell-decade-width-s: 88px;
 $picker-font-size-l: $text-font-size-4;
 $picker-font-size-m: $text-font-size-3;
 $picker-font-size-s: $text-font-size-2;
 $picker-header-height-l: 44px;
 $picker-header-height-m: 36px;
 $picker-header-height-s: 28px;
+$picker-header-cell-height-l: 46px;
+$picker-header-cell-height-m: 38px;
+$picker-header-cell-height-s: 30px;
+$picker-header-cell-width-l: 46px;
+$picker-header-cell-width-m: 38px;
+$picker-header-cell-width-s: 30px;
 $picker-input-height-m: 36px;
 $picker-input-height-l: 44px;
 $picker-input-height-s: 28px;
@@ -448,6 +391,7 @@ $picker-outline-blur: 0;
 $picker-outline-style: solid;
 $picker-outline-width: 1px;
 $picker-partial-cell-width: 32px;
+$picker-partial-border-radius: $border-radius-l;
 
 // DatePicker
 

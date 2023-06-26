@@ -992,9 +992,15 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       <>
         <div className={styles.pickerPartials}>{partials}</div>
         {extraNode && (
-          <div className={styles.pickerFooterExtra}>{extraNode}</div>
+          <div className={styles.pickerFooterExtra}>
+            <div className={styles.pickerFooterExtraBorder}>{extraNode}</div>
+          </div>
         )}
-        {rangesNode && <div className={styles.pickerFooter}>{rangesNode}</div>}
+        {rangesNode && (
+          <div className={styles.pickerFooter}>
+            <div className={styles.pickerFooterBorder}>{rangesNode}</div>
+          </div>
+        )}
       </>
     );
 

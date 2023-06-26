@@ -86,6 +86,11 @@ export interface MenuItemButtonProps
    */
   dropdownMenuProps?: NestedDropdownMenuProps;
   /**
+   * The button html type.
+   * @default 'button'
+   */
+  htmlType?: 'button' | 'submit' | 'reset';
+  /**
    * Menu item icon props
    */
   iconProps?: MenuIconProps;

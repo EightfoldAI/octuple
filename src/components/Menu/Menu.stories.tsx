@@ -426,6 +426,18 @@ export const Menu_Sub_Header = Menu_Sub_Header_Story.bind({});
 export const Menu_Footer = Menu_Header_Story.bind({});
 export const Cascading_Menu = Cascading_Menu_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic_Menu',
+  'Link_Menu',
+  'Menu_Header',
+  'Menu_Sub_Header',
+  'Menu_Footer',
+  'Cascading_Menu',
+];
+
 const menuArgs: object = {
   variant: MenuVariant.neutral,
   size: MenuSize.medium,

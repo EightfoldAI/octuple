@@ -127,15 +127,15 @@ $picker-input-padding-vertical: max(
       scrollbar-width: thin;
 
       &::-webkit-scrollbar {
-        background-color: $picker-background-color;
+        background-color: var(--picker-background-color);
         height: 16px;
         width: 16px;
       }
 
       &::-webkit-scrollbar-corner {
-        background-color: $picker-background-color;
-        border: 1px solid $picker-background-color;
-        border-bottom-right-radius: $picker-border-radius;
+        background-color: var(--picker-background-color);
+        border: 1px solid var(--picker-background-color);
+        border-bottom-right-radius: $picker-partial-border-radius;
       }
 
       &::-webkit-scrollbar-thumb {
@@ -147,14 +147,14 @@ $picker-input-padding-vertical: max(
 
       &::-webkit-scrollbar-track {
         -webkit-box-shadow: none;
-        background-color: $picker-background-color;
+        background-color: var(--picker-background-color);
       }
     }
   }
 }
 
 // Input placeholder text mixin
-@mixin placeholder($color: $picker-input-placeholder-color) {
+@mixin placeholder($color: var(--picker-input-placeholder-color)) {
   // Firefox
   &::-moz-placeholder {
     opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
@@ -194,20 +194,20 @@ $picker-input-padding-vertical: max(
 
 // Input visual states
 @mixin active(
-  $borderColor: $picker-border-color-active,
-  $hoverBorderColor: $picker-input-border-color-active,
-  $outlineColor: $picker-outline-color
+  $borderColor: var(--picker-border-color-active),
+  $hoverBorderColor: var(--picker-input-border-color-active),
+  $outlineColor: var(--picker-outline-color)
 ) {
   border-color: $hoverBorderColor;
   box-shadow: $picker-input-outline-offset $picker-outline-blur
     $picker-outline-width $outlineColor;
-  border-right-width: $picker-border-width;
+  border-right-width: var(--picker-border-width);
   outline: 0;
 }
 
-@mixin hover($color: $picker-input-border-color-hover) {
+@mixin hover($color: var(--picker-input-border-color-hover)) {
   border-color: $color;
-  border-right-width: $picker-border-width;
+  border-right-width: var(--picker-border-width);
 }
 
 @mixin disabled() {

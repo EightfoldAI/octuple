@@ -21,7 +21,7 @@
 
   &-status-success {
     input {
-      @include placeholder($picker-input-foreground-color);
+      @include placeholder(var(--picker-input-foreground-color));
     }
 
     border-color: var(--border-color);

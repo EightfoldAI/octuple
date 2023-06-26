@@ -82,7 +82,7 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-const Small_Story: ComponentStory<typeof Modal> = (args) => {
+const Modal_Story: ComponentStory<typeof Modal> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -91,56 +91,6 @@ const Small_Story: ComponentStory<typeof Modal> = (args) => {
     </>
   );
 };
-
-export const Small = Small_Story.bind({});
-
-const Medium_Story: ComponentStory<typeof Modal> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
-      <Modal {...args} onClose={() => setVisible(false)} visible={visible} />
-    </>
-  );
-};
-
-export const Medium = Medium_Story.bind({});
-
-const Large_Story: ComponentStory<typeof Modal> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
-      <Modal {...args} onClose={() => setVisible(false)} visible={visible} />
-    </>
-  );
-};
-
-export const Large = Large_Story.bind({});
-
-const XLarge_Story: ComponentStory<typeof Modal> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
-      <Modal {...args} onClose={() => setVisible(false)} visible={visible} />
-    </>
-  );
-};
-
-export const XLarge = XLarge_Story.bind({});
-
-const Fullscreen_Story: ComponentStory<typeof Modal> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
-      <Modal {...args} onClose={() => setVisible(false)} visible={visible} />
-    </>
-  );
-};
-
-export const Fullscreen = Fullscreen_Story.bind({});
 
 const Scrollable_Story: ComponentStory<typeof Modal> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -162,19 +112,26 @@ const Scrollable_Story: ComponentStory<typeof Modal> = (args) => {
   );
 };
 
+export const Small = Modal_Story.bind({});
+export const Medium = Modal_Story.bind({});
+export const Large = Modal_Story.bind({});
+export const XLarge = Modal_Story.bind({});
+export const Fullscreen = Modal_Story.bind({});
 export const Scrollable = Scrollable_Story.bind({});
+export const Header_Actions = Modal_Story.bind({});
 
-const Header_Actions_Story: ComponentStory<typeof Modal> = (args) => {
-  const [visible, setVisible] = useState<boolean>(false);
-  return (
-    <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
-      <Modal {...args} onClose={() => setVisible(false)} visible={visible} />
-    </>
-  );
-};
-
-export const Header_Actions = Header_Actions_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Small',
+  'Medium',
+  'Large',
+  'XLarge',
+  'Fullscreen',
+  'Scrollable',
+  'Header_Actions',
+];
 
 const modalArgs: Object = {
   size: ModalSize.small,
