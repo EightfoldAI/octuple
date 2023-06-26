@@ -6,11 +6,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import {
-  fillRef,
-  isStyleSupport,
-  mergeClasses,
-} from '../../../../shared/utilities';
+import { fillRef, mergeClasses } from '../../../../shared/utilities';
 import ColGroup from '../ColGroup';
 import type { ColumnsType, ColumnType } from '../OcTable.types';
 import { FixedHeaderProps } from './FixedHolder.types';
@@ -56,11 +52,8 @@ const FixedHolder = forwardRef<HTMLDivElement, FixedHeaderProps<unknown>>(
     ref
   ) => {
     const { scrollbarSize, isSticky } = useContext(TableContext);
-    const supportedScrollbarSize: number = isStyleSupport('scrollbar-gutter')
-      ? 0
-      : scrollbarSize;
     const combinationScrollBarSize: number =
-      isSticky && !fixHeader ? 0 : supportedScrollbarSize;
+      isSticky && !fixHeader ? 0 : scrollbarSize;
     const scrollRef: React.MutableRefObject<HTMLDivElement> =
       useRef<HTMLDivElement>(null);
 
@@ -90,7 +83,7 @@ const FixedHolder = forwardRef<HTMLDivElement, FixedHeaderProps<unknown>>(
 
     // Check if all flattenColumns has width
     const allFlattenColumnsWithWidth: boolean = useMemo(
-      () => flattenColumns.every((column) => column.width >= 0),
+      () => flattenColumns.every((column) => Number(column.width) >= 0),
       [flattenColumns]
     );
 

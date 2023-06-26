@@ -20,7 +20,7 @@ LoadedCheerio {
               Node {
                 "attribs": Object {
                   "class": "table-content",
-                  "style": "overflow:overlay;overflow-y:hidden",
+                  "style": "overflow:auto;overflow-y:hidden",
                 },
                 "children": Array [
                   Node {

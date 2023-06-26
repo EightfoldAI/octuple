@@ -693,7 +693,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "table-body",
-                "style": "overflow: overlay; max-height: 100px;",
+                "style": "overflow: auto; max-height: 100px;",
               },
               "children": Array [
                 Node {
@@ -3699,7 +3699,7 @@ LoadedCheerio {
           Node {
             "attribs": Object {
               "class": "table-body",
-              "style": "overflow: overlay; max-height: 100px;",
+              "style": "overflow: auto; max-height: 100px;",
             },
             "children": Array [
               Node {

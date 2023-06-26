@@ -61,8 +61,12 @@ $picker-input-padding-vertical: max(
 
   &::-webkit-scrollbar {
     background-color: transparent;
-    height: 16px;
-    width: 16px;
+    height: $space-m;
+    width: $space-m;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
   }
 
   &::-webkit-scrollbar-corner {
@@ -71,6 +75,9 @@ $picker-input-padding-vertical: max(
 
   &::-webkit-scrollbar-thumb {
     background-color: transparent;
+    border: 5px solid transparent;
+    border-radius: $border-radius-xl;
+    box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
   }
 
   &::-webkit-scrollbar-track {
@@ -78,78 +85,8 @@ $picker-input-padding-vertical: max(
     background-color: transparent;
   }
 
-  @supports (overflow: overlay) {
-    overflow: overlay;
-
-    &:focus-within,
-    &:focus-visible,
-    &:hover,
-    &:hover:focus {
-      &::-webkit-scrollbar {
-        display: block;
-        height: 16px;
-        width: 16px;
-      }
-
-      &::-webkit-scrollbar-button {
-        display: none;
-      }
-
-      &::-webkit-scrollbar-corner {
-        background-color: transparent;
-      }
-
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
-
-      &::-webkit-scrollbar-track-piece {
-        background-color: transparent;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border: 5px solid transparent;
-        border-radius: 24px;
-        box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-      }
-    }
-  }
-
-  @supports not (overflow: overlay) {
-    overflow: auto;
-
-    &:focus-within,
-    &:focus-visible,
-    &:hover,
-    &:hover:focus {
-      -ms-overflow-style: none;
-      scrollbar-width: thin;
-
-      &::-webkit-scrollbar {
-        background-color: var(--picker-background-color);
-        height: 16px;
-        width: 16px;
-      }
-
-      &::-webkit-scrollbar-corner {
-        background-color: var(--picker-background-color);
-        border: 1px solid var(--picker-background-color);
-        border-bottom-right-radius: $picker-partial-border-radius;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border: 5px solid transparent;
-        border-radius: 24px;
-        box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-      }
-
-      &::-webkit-scrollbar-track {
-        -webkit-box-shadow: none;
-        background-color: var(--picker-background-color);
-      }
-    }
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
   }
 }
 
