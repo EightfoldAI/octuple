@@ -43,6 +43,7 @@ exports[`Menu Menu is large 1`] = `
               class="menu-item-button"
               role="menuitem"
               tabindex="0"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -86,6 +87,7 @@ exports[`Menu Menu is large 1`] = `
               disabled=""
               role="menuitem"
               tabindex="0"
+              type="button"
             >
               <span
                 class="menu-item-wrapper"
@@ -272,6 +274,7 @@ exports[`Menu Menu is medium 1`] = `
               class="menu-item-button"
               role="menuitem"
               tabindex="0"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -315,6 +318,7 @@ exports[`Menu Menu is medium 1`] = `
               disabled=""
               role="menuitem"
               tabindex="0"
+              type="button"
             >
               <span
                 class="menu-item-wrapper"
@@ -501,6 +505,7 @@ exports[`Menu Menu is small 1`] = `
               class="menu-item-button"
               role="menuitem"
               tabindex="0"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -544,6 +549,7 @@ exports[`Menu Menu is small 1`] = `
               disabled=""
               role="menuitem"
               tabindex="0"
+              type="button"
             >
               <span
                 class="menu-item-wrapper"
