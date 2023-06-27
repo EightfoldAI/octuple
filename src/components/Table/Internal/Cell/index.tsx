@@ -181,7 +181,7 @@ function Cell<RecordType extends DefaultRecordType>(
     fixedStyle.position = 'sticky';
     fixedStyle.right = fixRight as number;
 
-    if (fixRight === VERTICAL_SCROLL_OFFSET) {
+    if (fixRight <= VERTICAL_SCROLL_OFFSET) {
       fixedStyle.borderRightColor = 'transparent';
     }
   }
