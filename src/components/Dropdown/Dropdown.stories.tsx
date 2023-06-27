@@ -231,37 +231,6 @@ export const __namedExportsOrder = [
   'Dropdown_External',
 ];
 
-const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
-  const [visible, setVisibility] = useState(false);
-  return (
-    <Stack direction="horizontal" flexGap="xxl">
-      <DefaultButton
-        alignIcon={ButtonIconAlign.Right}
-        checked={visible}
-        onClick={() => setVisibility(!visible)}
-        text={'External Control'}
-        toggle
-      />
-      <Dropdown
-        {...args}
-        visible={visible}
-        onVisibleChange={(isVisible) => setVisibility(isVisible)}
-      >
-        <DefaultButton
-          alignIcon={ButtonIconAlign.Right}
-          text={'Click button start'}
-          iconProps={{
-            path: IconName.mdiChevronDown,
-            rotate: visible ? 180 : 0,
-          }}
-        />
-      </Dropdown>
-    </Stack>
-  );
-};
-
-export const Dropdown_External = Dropdown_External_Story.bind({});
-
 const dropdownArgs: Object = {
   trigger: 'click',
   classNames: 'my-dropdown-class',
