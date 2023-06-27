@@ -16,6 +16,8 @@ import {
 
 import { Badge } from './components/Badge';
 
+import { Breadcrumb } from './components/Breadcrumb';
+
 import {
   Button,
   ButtonShape,
@@ -250,6 +252,7 @@ export {
   AvatarGroupVariant,
   AvatarPopupProps,
   Badge,
+  Breadcrumb,
   Breakpoints,
   Button,
   ButtonIconAlign,

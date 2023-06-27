@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/hr_HR';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/hr_HR';
 import Dialog from '../Dialog/BaseDialog/Locale/hr_HR';
 import InfoBar from '../InfoBar/Locale/hr_HR';
@@ -17,6 +18,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Molimo označite',
   },
+  Breadcrumb,
   DatePicker,
   Dialog,
   Form: {

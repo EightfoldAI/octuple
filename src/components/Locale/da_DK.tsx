@@ -1,4 +1,5 @@
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/da_DK';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/da_DK';
 import Dialog from '../Dialog/BaseDialog/Locale/da_DK';
 import InfoBar from '../InfoBar/Locale/da_DK';
@@ -11,6 +12,7 @@ import Upload from '../Upload/Locale/da_DK';
 
 const localeValues: Locale = {
   locale: 'da',
+  Breadcrumb,
   DatePicker,
   Dialog,
   InfoBar,

@@ -119,6 +119,7 @@ exports[`Menu Menu is large 1`] = `
               role="menuitem"
               tabindex="0"
               target="_blank"
+              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -136,7 +137,7 @@ exports[`Menu Menu is large 1`] = `
             </a>
           </li>
           <div
-            class="menu-item-custom large"
+            class="menu-item-custom large my-menu-item-class"
           >
             <div
               aria-label="Radio Group"
@@ -350,6 +351,7 @@ exports[`Menu Menu is medium 1`] = `
               role="menuitem"
               tabindex="0"
               target="_blank"
+              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -367,7 +369,7 @@ exports[`Menu Menu is medium 1`] = `
             </a>
           </li>
           <div
-            class="menu-item-custom medium"
+            class="menu-item-custom medium my-menu-item-class"
           >
             <div
               aria-label="Radio Group"
@@ -581,6 +583,7 @@ exports[`Menu Menu is small 1`] = `
               role="menuitem"
               tabindex="0"
               target="_blank"
+              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -598,7 +601,7 @@ exports[`Menu Menu is small 1`] = `
             </a>
           </li>
           <div
-            class="menu-item-custom small"
+            class="menu-item-custom small my-menu-item-class"
           >
             <div
               aria-label="Radio Group"
