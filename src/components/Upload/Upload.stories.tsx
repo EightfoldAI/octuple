@@ -624,6 +624,23 @@ export const Image_List = Image_List_Story.bind({});
 export const Image_Editor = Image_Editor_Story.bind({});
 export const Basic_Deferred_API = Basic_Deferred_API_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Basic_With_Upload_List',
+  'Drag_and_Drop_Single_Small',
+  'Drag_and_Drop_Multiple_Small',
+  'Drag_and_Drop_Single_Medium',
+  'Drag_and_Drop_Multiple_Medium',
+  'Drag_and_Drop_Single_Large',
+  'Drag_and_Drop_Multiple_Large',
+  'Image_List',
+  'Image_Editor',
+  'Basic_Deferred_API',
+];
+
 const uploadArgs: Object = {};
 
 Basic.args = {

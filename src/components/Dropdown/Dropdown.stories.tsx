@@ -152,8 +152,6 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-export const Dropdown_Button = Dropdown_Button_Story.bind({});
-
 const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
@@ -174,8 +172,6 @@ const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
-
 const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
@@ -191,7 +187,49 @@ const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
+const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
+  const [visible, setVisibility] = useState(false);
+  return (
+    <Stack direction="horizontal" flexGap="xxl">
+      <DefaultButton
+        alignIcon={ButtonIconAlign.Right}
+        checked={visible}
+        onClick={() => setVisibility(!visible)}
+        text={'External Control'}
+        toggle
+      />
+      <Dropdown
+        {...args}
+        visible={visible}
+        onVisibleChange={(isVisible) => setVisibility(isVisible)}
+      >
+        <DefaultButton
+          alignIcon={ButtonIconAlign.Right}
+          text={'Click button start'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+            rotate: visible ? 180 : 0,
+          }}
+        />
+      </Dropdown>
+    </Stack>
+  );
+};
+
+export const Dropdown_Button = Dropdown_Button_Story.bind({});
+export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
 export const Dropdown_Div = Dropdown_Div_Story.bind({});
+export const Dropdown_External = Dropdown_External_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Dropdown_Button',
+  'Dropdown_IconButton',
+  'Dropdown_Div',
+  'Dropdown_External',
+];
 
 const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);

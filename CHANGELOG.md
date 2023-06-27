@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.40.0](https://github.com/EightfoldAI/octuple/compare/v2.39.1...v2.40.0) (2023-06-20)
+
+### Bug Fixes
+
+- linkbutton: ensure default width matches min and max width ([#640](https://github.com/EightfoldAI/octuple/issues/640)) ([ffe5abf](https://github.com/EightfoldAI/octuple/commits/ffe5abf86ecefc1626f05a6b40cd2bd6d92b68e5))
+- matchscore: color contrast and vertical alignment fix up ([#641](https://github.com/EightfoldAI/octuple/issues/641)) ([5353f90](https://github.com/EightfoldAI/octuple/commits/5353f90646321aea40de68425dc2d47b72b57594))
+- table: various accessibility improvements ([#644](https://github.com/EightfoldAI/octuple/issues/644)) ([4cec71c](https://github.com/EightfoldAI/octuple/commits/4cec71cf06a041f28dd4c20279998fadef4f6746))
+- tabs: pill variant color contrast fix up ([#642](https://github.com/EightfoldAI/octuple/issues/642)) ([33646f6](https://github.com/EightfoldAI/octuple/commits/33646f6929a70ab34ecdc783ff7e059eb0754e6c))
+
+### [2.39.1](https://github.com/EightfoldAI/octuple/compare/v2.39.0...v2.39.1) (2023-06-14)
+
+### Bug Fixes
+
+- select: revert update selected option based on defaultValue when isLoading ([#643](https://github.com/EightfoldAI/octuple/issues/643)) ([6a481f7](https://github.com/EightfoldAI/octuple/commits/6a481f7361c4dcde666beeea27064198434293b4))
+
 ## [2.39.0](https://github.com/EightfoldAI/octuple/compare/v2.38.0...v2.39.0) (2023-06-12)
 
 ### Features

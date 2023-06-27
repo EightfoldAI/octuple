@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/ru_RU';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ru_RU';
 import Dialog from '../Dialog/BaseDialog/Locale/ru_RU';
 import InfoBar from '../InfoBar/Locale/ru_RU';
@@ -17,6 +18,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Пожалуйста выберите',
   },
+  Breadcrumb,
   DatePicker,
   Dialog,
   Form: {

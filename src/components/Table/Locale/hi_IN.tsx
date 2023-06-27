@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'सॉर्टिंग रद्द करने के लिए क्लिक करें',
     scrollLeftAriaLabelText: 'बाईं ओर स्क्रॉल करें',
     scrollRightAriaLabelText: 'दाईं ओर स्क्रॉल करें',
+    selectAllRowsText: 'सभी पंक्तियों का चयन करें',
+    selectRowText: 'पंक्ति का चयन करें',
   },
 };
 

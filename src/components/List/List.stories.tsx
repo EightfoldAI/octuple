@@ -53,17 +53,15 @@ const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
   img: '',
 }));
 
-const Vertical_Story: ComponentStory<typeof List> = (args) => (
-  <List {...args} />
-);
+const List_Story: ComponentStory<typeof List> = (args) => <List {...args} />;
 
-export const Vertical = Vertical_Story.bind({});
+export const Vertical = List_Story.bind({});
+export const Horizontal = List_Story.bind({});
 
-const Horizontal_Story: ComponentStory<typeof List> = (args) => (
-  <List {...args} />
-);
-
-export const Horizontal = Horizontal_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Vertical', 'Horizontal'];
 
 const listArgs: Object = {
   items: sampleList,

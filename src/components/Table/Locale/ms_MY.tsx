@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Klik untuk membatalkan pengisihan',
     scrollLeftAriaLabelText: 'Skrol ke kiri',
     scrollRightAriaLabelText: 'Skrol ke kanan',
+    selectAllRowsText: 'Pilih semua baris',
+    selectRowText: 'Pilih baris',
   },
 };
 

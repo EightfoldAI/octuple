@@ -151,17 +151,35 @@ const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
 );
 
 export type SelectStory = ComponentStory<React.FC<SelectProps>>;
+
 export const Basic: SelectStory = Basic_Story.bind({});
 export const Dynamic_Width: SelectStory = Basic_Story.bind({});
-export const With_DefaultValue: SelectStory = Basic_Story.bind({});
-export const With_DefaultValueMultiple: SelectStory = Basic_Story.bind({});
+export const With_Default_Value: SelectStory = Basic_Story.bind({});
+export const With_Default_Value_Multiple: SelectStory = Basic_Story.bind({});
 export const Disabled: SelectStory = Basic_Story.bind({});
 export const With_Clear: SelectStory = Basic_Story.bind({});
 export const Options_Disabled: SelectStory = Basic_Story.bind({});
 export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
-export const Multiple_With_NoFilter: SelectStory = Basic_Story.bind({});
+export const Multiple_With_No_Filter: SelectStory = Basic_Story.bind({});
 export const Dynamic: SelectStory = Dynamic_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Dynamic_Width',
+  'With_Default_Value',
+  'With_Default_Value_Multiple',
+  'Disabled',
+  'With_Clear',
+  'Options_Disabled',
+  'Filterable',
+  'Multiple',
+  'Multiple_With_No_Filter',
+  'Dynamic',
+];
 
 const SelectArgs: SelectProps = {
   classNames: 'octuple-select-class',
@@ -186,12 +204,12 @@ Dynamic_Width.args = {
   },
 };
 
-With_DefaultValue.args = {
+With_Default_Value.args = {
   ...Basic.args,
   defaultValue: 'hat',
 };
 
-With_DefaultValueMultiple.args = {
+With_Default_Value_Multiple.args = {
   ...Basic.args,
   defaultValue: ['verylarge', 'account', 'hat'],
   multiple: true,
@@ -201,10 +219,10 @@ With_DefaultValueMultiple.args = {
 };
 
 Disabled.args = {
-  ...With_DefaultValue.args,
+  ...With_Default_Value.args,
   disabled: true,
   textInputProps: {
-    ...With_DefaultValue.args.textInputProps,
+    ...With_Default_Value.args.textInputProps,
     disabled: true,
   },
 };
@@ -223,9 +241,9 @@ Options_Disabled.args = {
 };
 
 With_Clear.args = {
-  ...With_DefaultValue.args,
+  ...With_Default_Value.args,
   textInputProps: {
-    ...With_DefaultValue.args.textInputProps,
+    ...With_Default_Value.args.textInputProps,
     clearable: true,
   },
 };
@@ -252,7 +270,7 @@ Multiple.args = {
   },
 };
 
-Multiple_With_NoFilter.args = {
+Multiple_With_No_Filter.args = {
   ...Basic.args,
   filterable: false,
   multiple: true,

@@ -141,6 +141,12 @@ export interface ColumnType<RecordType>
    */
   responsive?: Breakpoint[];
   /**
+   * The Table header column show sorter default icon.
+   * overrides `showSorterDefaultIcon` in Table.
+   * @default true
+   */
+  showSorterDefaultIcon?: boolean;
+  /**
    * The Table header column show next sorter direction tooltip.
    * Set as the property of Tooltip if its type is object.
    * overrides `showSorterTooltip` in Table.
@@ -518,6 +524,11 @@ export interface TableProps<RecordType>
     scrollToFirstRowOnChange?: boolean;
   };
   /**
+   * The Table select all rows text.
+   * @default 'Select all rows'
+   */
+  selectAllRowsText?: string;
+  /**
    * The Table select all text.
    * @default 'Select all data'
    */
@@ -532,6 +543,16 @@ export interface TableProps<RecordType>
    * @default 'Clear all data'
    */
   selectNoneText?: string;
+  /**
+   * The Table select row text.
+   * @default 'Select row'
+   */
+  selectRowText?: string;
+  /**
+   * The Table header column show sorter default icon.
+   * @default true
+   */
+  showSorterDefaultIcon?: boolean;
   /**
    * The Table header column show next sorter direction tooltip.
    * Set as the property of Tooltip if its type is object.

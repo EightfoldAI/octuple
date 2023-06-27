@@ -28,23 +28,20 @@ export default {
   },
 } as ComponentMeta<typeof Badge>;
 
-const Badge_Default_Story: ComponentStory<typeof Badge> = (args) => (
-  <Badge {...args} />
-);
+const Badge_Story: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
 
-export const Badge_Default = Badge_Default_Story.bind({});
+export const Badge_Default = Badge_Story.bind({});
+export const Badge_Active = Badge_Story.bind({});
+export const Badge_Disruptive = Badge_Story.bind({});
 
-const Badge_Active_Story: ComponentStory<typeof Badge> = (args) => (
-  <Badge {...args} />
-);
-
-export const Badge_Active = Badge_Active_Story.bind({});
-
-const Badge_Disruptive_Story: ComponentStory<typeof Badge> = (args) => (
-  <Badge {...args} />
-);
-
-export const Badge_Disruptive = Badge_Disruptive_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Badge_Default',
+  'Badge_Active',
+  'Badge_Disruptive',
+];
 
 const badgeArgs: Object = {
   active: false,

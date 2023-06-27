@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'ยกเลิกการเรียงลําดับ',
     scrollLeftAriaLabelText: 'เลื่อนไปทางซ้าย',
     scrollRightAriaLabelText: 'เลื่อนไปทางขวา',
+    selectAllRowsText: 'เลือกแถวทั้งหมด',
+    selectRowText: 'เลือกแถว',
   },
 };
 

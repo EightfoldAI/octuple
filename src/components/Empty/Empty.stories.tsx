@@ -48,6 +48,20 @@ export const Empty_Plan = Empty_Story.bind({});
 export const Empty_Profile = Empty_Story.bind({});
 export const Custom_Image = Empty_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'No_Data',
+  'Error_State',
+  'Empty_Messages',
+  'No_Search_Results',
+  'Tasks_Complete',
+  'Empty_Plan',
+  'Empty_Profile',
+  'Custom_Image',
+];
+
 const emptyArgs: Object = {
   description: 'More detail on how might the user be able to get around this',
   mode: EmptyMode.data,
