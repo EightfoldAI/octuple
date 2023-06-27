@@ -178,7 +178,7 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                "style": "position: sticky; right: 0px;",
+                                "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
                               "children": Array [
                                 Node {
@@ -305,7 +305,7 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -377,7 +377,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
@@ -857,7 +857,7 @@ LoadedCheerio {
                                 Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
@@ -968,7 +968,7 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                      "style": "position: sticky; right: 0px;",
+                                      "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                     },
                                     "children": Array [
                                       Node {
@@ -1032,7 +1032,7 @@ LoadedCheerio {
                                     "prev": Node {
                                       "attribs": Object {
                                         "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                        "style": "position: sticky; right: 0px;",
+                                        "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                       },
                                       "children": Array [
                                         Node {
@@ -1115,7 +1115,7 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -1226,7 +1226,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
@@ -1290,7 +1290,7 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                      "style": "position: sticky; right: 0px;",
+                                      "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                     },
                                     "children": Array [
                                       Node {
@@ -1814,7 +1814,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                              "style": "position: sticky; right: 0px;",
+                              "style": "position: sticky; right: 0px; border-right-color: transparent;",
                             },
                             "children": Array [
                               Node {
@@ -1941,7 +1941,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                "style": "position: sticky; right: 0px;",
+                                "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
                               "children": Array [
                                 Node {
@@ -2013,7 +2013,7 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -2493,7 +2493,7 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -2604,7 +2604,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
@@ -2668,7 +2668,7 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                      "style": "position: sticky; right: 0px;",
+                                      "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                     },
                                     "children": Array [
                                       Node {
@@ -2751,7 +2751,7 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                "style": "position: sticky; right: 0px;",
+                                "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
                               "children": Array [
                                 Node {
@@ -2862,7 +2862,7 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -2926,7 +2926,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
@@ -4006,7 +4006,7 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                "style": "position: sticky; right: 0px;",
+                                "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
                               "children": Array [
                                 Node {
@@ -4117,7 +4117,7 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -4181,7 +4181,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
@@ -4264,7 +4264,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                              "style": "position: sticky; right: 0px;",
+                              "style": "position: sticky; right: 0px; border-right-color: transparent;",
                             },
                             "children": Array [
                               Node {
@@ -4375,7 +4375,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                "style": "position: sticky; right: 0px;",
+                                "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
                               "children": Array [
                                 Node {
@@ -4439,7 +4439,7 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -4938,7 +4938,7 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                "style": "position: sticky; right: 0px;",
+                                "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
                               "children": Array [
                                 Node {
@@ -5065,7 +5065,7 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                  "style": "position: sticky; right: 0px;",
+                                  "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
                                 "children": Array [
                                   Node {
@@ -5137,7 +5137,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-right table-cell-fix-right-last",
-                                    "style": "position: sticky; right: 0px;",
+                                    "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
                                   "children": Array [
                                     Node {
