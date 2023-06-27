@@ -144,8 +144,6 @@ const Medium_Story: ComponentStory<typeof Dialog> = (args) => {
   );
 };
 
-export const Medium = Medium_Story.bind({});
-
 const Small_Story: ComponentStory<typeof Dialog> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
@@ -166,18 +164,30 @@ const Small_Story: ComponentStory<typeof Dialog> = (args) => {
   );
 };
 
-export const Small = Small_Story.bind({});
-
 const DialogHelper_Story: ComponentStory<typeof Dialog> = (args) => (
   <>
     <PrimaryButton
       text={'Open dialog'}
-      onClick={() => dialogHelper.show({ ...args })}
+      onClick={() =>
+        dialogHelper.show({
+          ...args,
+          onClose: () => dialogHelper.close(),
+          onCancel: () => dialogHelper.close(),
+          onOk: () => dialogHelper.close(),
+        })
+      }
     />
   </>
 );
 
+export const Medium = Medium_Story.bind({});
+export const Small = Small_Story.bind({});
 export const DialogHelper = DialogHelper_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Medium', 'Small', 'DialogHelper'];
 
 const dialogArgs: Object = {
   size: DialogSize.medium,

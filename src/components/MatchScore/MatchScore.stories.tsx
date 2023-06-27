@@ -57,10 +57,13 @@ const Default_Story: ComponentStory<typeof MatchScore> = (args) => (
 );
 
 export const Default = Default_Story.bind({});
-
 export const Custom_Label = Default_Story.bind({});
-
 export const Without_Label = Default_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Default', 'Custom_Label', 'Without_Label'];
 
 const matchScoreArgs: Object = {
   classNames: 'my-match-score-class',

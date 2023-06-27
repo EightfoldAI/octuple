@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: '单击以取消排序',
     scrollLeftAriaLabelText: '向左滚动',
     scrollRightAriaLabelText: '向右滚动',
+    selectAllRowsText: '选择所有行',
+    selectRowText: '选择行',
   },
 };
 

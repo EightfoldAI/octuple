@@ -17,7 +17,6 @@ import { Select, SelectOption } from '../Select';
 import DatePicker from '../DateTimePicker/DatePicker';
 import { Stack } from '../Stack';
 import enUS from '../Locale/en_US';
-import zhCN from '../Locale/zh_CN';
 import { ConfigProvider, Shape, Size } from '../ConfigProvider';
 import { Slider } from '../Slider';
 import { snack, SnackbarContainer } from '../Snackbar';
@@ -143,7 +142,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
       themeOptions={{ name: 'blue' }}
       locale={enUS}
       children={
-        <Stack direction={'vertical'} gap={'l'} fullWidth>
+        <Stack direction={'vertical'} flexGap={'l'} fullWidth>
           <CheckBox
             checked={componentDisabled}
             label={'Form disabled'}
@@ -178,7 +177,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
                 ]}
               />
             </Form.Item>
-            <Form.Item noStyle label={'Slider'} name={'slider'}>
+            <Form.Item label={'Slider'} name={'slider'}>
               <Slider step={1} max={100} min={1} value={50} />
             </Form.Item>
             <Form.Item
@@ -354,7 +353,7 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
               }
             </Form.Item>
             <Form.Item {...actionsLayout}>
-              <Stack direction={'horizontal'} gap={'m'} fullWidth>
+              <Stack direction={'horizontal'} flexGap={'m'} fullWidth>
                 <PrimaryButton htmlType={'submit'} text={'Submit'} />
                 <SecondaryButton
                   htmlType={'button'}
@@ -384,7 +383,7 @@ const Form_Story: ComponentStory<typeof Form> = (args) => {
       themeOptions={{ name: 'blue' }}
       locale={enUS}
       children={
-        <Stack direction={'vertical'} gap={'l'} fullWidth>
+        <Stack direction={'vertical'} flexGap={'l'} fullWidth>
           <Form
             {...args}
             labelCol={{ span: 3 }}
@@ -543,7 +542,7 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
               <TextInput placeholder={'Placeholder'} />
             </Form.Item>
             <Form.Item>
-              <Stack direction={'horizontal'} gap={'m'}>
+              <Stack direction={'horizontal'} flexGap={'m'}>
                 <PrimaryButton htmlType={'submit'} text={'Submit'} />
                 <SecondaryButton
                   htmlType={'button'}
@@ -569,7 +568,7 @@ const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
       themeOptions={{ name: 'blue' }}
       locale={enUS}
       children={
-        <Stack direction={'vertical'} gap={'l'}>
+        <Stack direction={'vertical'} flexGap={'l'}>
           <Form form={form} layout="vertical" autoComplete="off">
             <Form.Item
               name={'foo'}
@@ -646,7 +645,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                     required={false}
                     key={field.key}
                   >
-                    <Stack direction={'horizontal'} gap={'m'}>
+                    <Stack direction={'horizontal'} flexGap={'m'}>
                       <Form.Item
                         {...field}
                         validateTrigger={['onChange', 'onBlur']}
@@ -1092,7 +1091,7 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
           wrapperCol={{ span: 10 }}
         >
           <Form.Item label={'Username'}>
-            <Stack direction={'horizontal'} gap={'m'}>
+            <Stack direction={'horizontal'} flexGap={'m'}>
               <Form.Item
                 name={'username'}
                 noStyle
@@ -1147,7 +1146,7 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
             </Stack>
           </Form.Item>
           <Form.Item label="Date of Birth">
-            <Stack direction={'horizontal'} gap={'xxs'}>
+            <Stack direction={'horizontal'} flexGap={'xxs'}>
               <Form.Item
                 name={'year'}
                 rules={[{ required: true }]}
@@ -1224,7 +1223,7 @@ const PriceInput: FC<PriceInputProps> = ({ value = {}, onChange }) => {
   };
 
   return (
-    <Stack direction={'horizontal'} gap={'s'} fullWidth>
+    <Stack direction={'horizontal'} flexGap={'s'} fullWidth>
       <TextInput
         numbersOnly
         value={value.number || number}
@@ -1480,7 +1479,7 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
                       <li key={index}>
                         <Stack
                           direction={'horizontal'}
-                          gap={'xs'}
+                          flexGap={'xs'}
                           style={{ marginBottom: 8 }}
                         >
                           <Avatar
@@ -1506,7 +1505,7 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
                     ))}
                   </ul>
                 ) : (
-                  <Stack direction={'horizontal'} gap={'s'} fullWidth>
+                  <Stack direction={'horizontal'} flexGap={'s'} fullWidth>
                     <Icon path={IconName.mdiAccount} />
                     <span>
                       {' '}
@@ -2093,6 +2092,44 @@ export const Dates_and_Times = Dates_and_Times_Story.bind({});
 export const Manual_Form_Data = Manual_Form_Data_Story.bind({});
 export const Custom_Validation = Custom_Validation_Story.bind({});
 export const Dynamic_Rules = Dynamic_Rules_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Disabled',
+  'Methods',
+  'Flex',
+  'Large',
+  'Medium',
+  'Small',
+  'Rectangle',
+  'Pill',
+  'Underline',
+  'Horizontal',
+  'Vertical',
+  'Inline',
+  'Label_Wrap',
+  'Required',
+  'Required_Hidden',
+  'Optional',
+  'Non_Blocking',
+  'Watch_Hooks',
+  'Dynamic_Form_Item',
+  'Dynamic_Form_Nest_Items',
+  'Complex_Dynamic_Form_Items',
+  'Nest',
+  'Complex_Form_Control',
+  'Custom_Form_Controls',
+  'Store_Form_Data',
+  'Control_Between_Forms',
+  'Form_In_Modal',
+  'Dates_and_Times',
+  'Manual_Form_Data',
+  'Custom_Validation',
+  'Dynamic_Rules',
+];
 
 const formArgs: Object = {
   disabled: false,

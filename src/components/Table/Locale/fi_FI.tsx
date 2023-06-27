@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Peruuta lajittelu',
     scrollLeftAriaLabelText: 'Vieritä vasemmalle',
     scrollRightAriaLabelText: 'Vieritä oikealle',
+    selectAllRowsText: 'Valitse kaikki rivit',
+    selectRowText: 'Valitse rivi',
   },
 };
 

@@ -125,6 +125,17 @@ export const Stat_Group_Read_Only = Stat_Story.bind({});
 export const Stat_Group_Theme = Stat_Story.bind({});
 export const Stat_Item_Theme_Override = Stat_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Stat_Medium',
+  'Stat_Small',
+  'Stat_Group_Read_Only',
+  'Stat_Group_Theme',
+  'Stat_Item_Theme_Override',
+];
+
 const tabsArgs: Object = {
   bordered: true,
   divider: true,

@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/nb_NO';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/nb_NO';
 import Dialog from '../Dialog/BaseDialog/Locale/nb_NO';
 import InfoBar from '../InfoBar/Locale/nb_NO';
@@ -17,6 +18,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vennligst velg',
   },
+  Breadcrumb,
   DatePicker,
   Dialog,
   Form: {

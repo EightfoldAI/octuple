@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Κάντε κλικ για να ακυρώσετε την ταξινόμηση',
     scrollLeftAriaLabelText: 'Κύλιση προς τα αριστερά',
     scrollRightAriaLabelText: 'Κύλιση προς τα δεξιά',
+    selectAllRowsText: 'Επιλογή όλων των γραμμών',
+    selectRowText: 'Επιλογή γραμμής',
   },
 };
 

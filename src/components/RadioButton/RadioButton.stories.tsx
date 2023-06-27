@@ -133,8 +133,6 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => {
   );
 };
 
-export const Radio_Button = RadioButton_Story.bind({});
-
 const RadioButtonLongText_Story: ComponentStory<typeof RadioButton> = (
   args
 ) => {
@@ -157,8 +155,6 @@ const RadioButtonLongText_Story: ComponentStory<typeof RadioButton> = (
   );
 };
 
-export const Radio_Button_Long_Text = RadioButtonLongText_Story.bind({});
-
 const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
   const [selected1, setSelected1] = useState<RadioButtonValue>(args.value);
 
@@ -177,8 +173,6 @@ const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
   );
 };
 
-export const Radio_Group = RadioGroup_Story.bind({});
-
 const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
   const [selected2a, setSelected2a] = useState<RadioButtonValue>('label1');
   const [selected2b, setSelected2b] = useState<RadioButtonValue>('label1');
@@ -196,7 +190,7 @@ const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
   };
 
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <Label text="Group 1" />
       <RadioButton
         {...args}
@@ -263,8 +257,6 @@ const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
   );
 };
 
-export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
-
 const RadioButton_With_Custom_Label_Story: ComponentStory<
   typeof RadioButton
 > = (args) => {
@@ -285,9 +277,6 @@ const RadioButton_With_Custom_Label_Story: ComponentStory<
   );
 };
 
-export const RadioButton_With_Custom_Label =
-  RadioButton_With_Custom_Label_Story.bind({});
-
 const RadioGroup_With_Custom_Label_Story: ComponentStory<typeof RadioGroup> = (
   args
 ) => {
@@ -304,8 +293,26 @@ const RadioGroup_With_Custom_Label_Story: ComponentStory<typeof RadioGroup> = (
   );
 };
 
+export const Radio_Button = RadioButton_Story.bind({});
+export const Radio_Button_Long_Text = RadioButtonLongText_Story.bind({});
+export const Radio_Group = RadioGroup_Story.bind({});
+export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
+export const RadioButton_With_Custom_Label =
+  RadioButton_With_Custom_Label_Story.bind({});
 export const RadioGroup_With_Custom_Label =
   RadioGroup_With_Custom_Label_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Radio_Button',
+  'Radio_Button_Long_Text',
+  'Radio_Group',
+  'Bespoke_Radio_Group',
+  'RadioButton_With_Custom_Label',
+  'RadioGroup_With_Custom_Label',
+];
 
 const radioButtonArgs: Object = {
   allowDisabledFocus: false,

@@ -135,6 +135,19 @@ export const Neutral = Link_Button_Story.bind({});
 export const System_UI = Link_Button_Story.bind({});
 export const Floating = Link_Button_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Primary',
+  'Counter',
+  'Secondary',
+  'Default',
+  'Neutral',
+  'System_UI',
+  'Floating',
+];
+
 const linkButtonArgs: Object = {
   alignIcon: LinkButtonIconAlign.Left,
   alignText: LinkButtonTextAlign.Center,

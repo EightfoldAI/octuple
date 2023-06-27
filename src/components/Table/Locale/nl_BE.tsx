@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Klik om sorteren te annuleren',
     scrollLeftAriaLabelText: 'Scroll naar links',
     scrollRightAriaLabelText: 'Scroll naar rechts',
+    selectAllRowsText: 'Alle rijen selecteren',
+    selectRowText: 'Rij selecteren',
   },
 };
 

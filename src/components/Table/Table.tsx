@@ -108,9 +108,12 @@ function InternalTable<RecordType extends object = any>(
     rowKey,
     rowSelection,
     scroll,
+    selectAllRowsText: defaultSelectAllRowsText,
     selectInvertText: defaultSelectInvertText,
     selectionAllText: defaultSelectionAllText,
     selectNoneText: defaultSelectNoneText,
+    selectRowText: defaultSelectRowText,
+    showSorterDefaultIcon = true,
     showSorterTooltip = true,
     size = TableSize.Medium,
     sortDirections,
@@ -213,6 +216,9 @@ function InternalTable<RecordType extends object = any>(
   const [emptyTextDetails, setEmptyTextDetails] = useState<string>(
     defaultEmptyTextDetails
   );
+  const [selectAllRowsText, setSelectAllRowsText] = useState<string>(
+    defaultSelectAllRowsText
+  );
   const [selectInvertText, setSelectInvertText] = useState<string>(
     defaultSelectInvertText
   );
@@ -222,6 +228,8 @@ function InternalTable<RecordType extends object = any>(
   const [selectionAllText, setSelectionAllText] = useState<string>(
     defaultSelectionAllText
   );
+  const [selectRowText, setSelectRowText] =
+    useState<string>(defaultSelectRowText);
   const [expandText, setExpandText] = useState<string>(defaultExpandText);
   const [collapseText, setCollapseText] = useState<string>(defaultCollapseText);
   const [triggerDescText, setTriggerDescText] = useState<string>(
@@ -276,6 +284,11 @@ function InternalTable<RecordType extends object = any>(
         ? props.emptyTextDetails
         : mergedLocale.lang!.emptyTextDetails
     );
+    setSelectAllRowsText(
+      props.selectAllRowsText
+        ? props.selectAllRowsText
+        : mergedLocale.lang!.selectAllRowsText
+    );
     setSelectInvertText(
       props.selectInvertText
         ? props.selectInvertText
@@ -290,6 +303,11 @@ function InternalTable<RecordType extends object = any>(
       props.selectionAllText
         ? props.selectionAllText
         : mergedLocale.lang!.selectionAllText
+    );
+    setSelectRowText(
+      props.selectRowText
+        ? props.selectRowText
+        : mergedLocale.lang!.selectRowText
     );
     setExpandText(
       props.expandText ? props.expandText : mergedLocale.lang!.expandText
@@ -416,6 +434,7 @@ function InternalTable<RecordType extends object = any>(
       sortDirections: sortDirections || ['ascend', 'descend'],
       triggerAscText,
       triggerDescText,
+      showSorterDefaultIcon,
       showSorterTooltip,
     });
   const sortedData = useMemo(
@@ -576,9 +595,11 @@ function InternalTable<RecordType extends object = any>(
       expandType,
       childrenColumnName,
       getPopupContainer,
+      selectAllRowsText,
       selectionAllText,
       selectInvertText,
       selectNoneText,
+      selectRowText,
     }
   );
 
