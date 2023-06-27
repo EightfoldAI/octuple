@@ -31,7 +31,7 @@ describe('Table.Scroll', () => {
     const wrapper = mount(createTable({ scroll: { x: 100 } }));
     expect(wrapper.find('table').props().style.width).toEqual(100);
     expect(wrapper.find('.table-content').props().style.overflow).toEqual(
-      'overlay'
+      'auto'
     );
   });
 
@@ -47,9 +47,7 @@ describe('Table.Scroll', () => {
 
   it('renders scroll.x and scroll.y are both true', () => {
     const wrapper = mount(createTable({ scroll: { x: 200, y: 200 } }));
-    expect(wrapper.find('.table-body').props().style.overflow).toEqual(
-      'overlay'
-    );
+    expect(wrapper.find('.table-body').props().style.overflow).toEqual('auto');
   });
 
   it('fire scroll event', () => {
