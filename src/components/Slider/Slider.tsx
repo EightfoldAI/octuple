@@ -750,7 +750,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     [styles.data]: type === 'data',
                   },
                   {
-                    [styles.sliderRailOpacity]: !!hideTrack || !!showMarkers,
+                    [styles.sliderRailOpacity]: !!hideRail || !!showMarkers,
                   },
                 ])}
                 onMouseDown={
@@ -791,7 +791,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                       <div
                         className={mergeClasses(styles.railMarkerSegment, {
                           [styles.data]: type === 'data',
-                          [styles.active]: isMarkerSegmentActive(mark.value),
+                          [styles.active]:
+                            !hideRail && isMarkerSegmentActive(mark.value),
                           [styles.success]:
                             isMarkerSegmentActive(mark.value) &&
                             !!trackStatus &&
@@ -806,7 +807,11 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                             trackStatus === SliderTrackStatus.Error,
                           [styles.railMarkerSegmentHidden]:
                             index === markers.length - 1,
-                          [styles.railMarkerSegmentOpacity]: !!hideTrack,
+                          [styles.railMarkerSegmentOpacity]:
+                            (!!hideRail &&
+                              !!hideTrack &&
+                              isMarkerSegmentActive(mark.value)) ||
+                            (!!hideTrack && !isMarkerSegmentActive(mark.value)),
                         })}
                         key={index}
                         onMouseDown={
