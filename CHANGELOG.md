@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.41.0](https://github.com/EightfoldAI/octuple/compare/v2.40.0...v2.41.0) (2023-06-27)
+
+### Features
+
+- breadcrumb: add breadcrumb component ([#629](https://github.com/EightfoldAI/octuple/issues/629)) ([6748a1e](https://github.com/EightfoldAI/octuple/commits/6748a1e2ba6ae9c9f5e672d9a9f5a172f19ae20f))
+
+### Bug Fixes
+
+- menu: add htmltype prop to menu item button ([#654](https://github.com/EightfoldAI/octuple/issues/654)) ([9a6141a](https://github.com/EightfoldAI/octuple/commits/9a6141aef77fd647f7ad6856d0bbc0c21667f188))
+- picker: color contrast ratio fixes ([#647](https://github.com/EightfoldAI/octuple/issues/647)) ([fea047d](https://github.com/EightfoldAI/octuple/commits/fea047dd58738af1f34a7f8cca48f42eee69dc80))
+- select: Update selected option based on defaultValue when isLoading changes ([#646](https://github.com/EightfoldAI/octuple/issues/646)) ([844a3a3](https://github.com/EightfoldAI/octuple/commits/844a3a3631425a67e899225a442b699a64db961d))
+- slider: ensure tooltip is visually hidden when slider is disabled ([#651](https://github.com/EightfoldAI/octuple/issues/651)) ([b810ba8](https://github.com/EightfoldAI/octuple/commits/b810ba8610640e89fdd486dc2559cde078a968ad))
+- slider: fixes hidetrack and hiderail props typos and ommissions ([#656](https://github.com/EightfoldAI/octuple/issues/656)) ([0c00967](https://github.com/EightfoldAI/octuple/commits/0c00967028e25da78fd0a13ce09a926110f29b21))
+- table: updates scrollable div by removing deprecated css property ([#655](https://github.com/EightfoldAI/octuple/issues/655)) ([ee4c5d6](https://github.com/EightfoldAI/octuple/commits/ee4c5d6f1491fc724c7b8f61dc2f72377d666351))
+
 ## [2.40.0](https://github.com/EightfoldAI/octuple/compare/v2.39.1...v2.40.0) (2023-06-20)
 
 ### Bug Fixes
