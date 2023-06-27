@@ -640,7 +640,7 @@
 
     &-column-bordered {
       .table-title:not(:last-of-type) {
-        border-right: $table-border;
+        border-right: var(--table-border);
       }
 
       table {
@@ -649,7 +649,7 @@
 
         thead {
           tr th:not(:last-of-type) {
-            border-right: $table-border;
+            border-right: var(--table-border);
           }
 
           tr th {
@@ -661,7 +661,7 @@
 
         tbody {
           tr td:not(:last-of-type) {
-            border-right: $table-border;
+            border-right: var(--table-border);
           }
         }
       }
@@ -695,7 +695,7 @@
       }
 
       .table-footer {
-        border-right: $table-border;
+        border-right: var(--table-border);
       }
 
       .table-cell {
