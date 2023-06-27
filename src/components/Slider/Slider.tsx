@@ -792,7 +792,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                         className={mergeClasses(styles.railMarkerSegment, {
                           [styles.data]: type === 'data',
                           [styles.active]:
-                            !hideRail && isMarkerSegmentActive(mark.value),
+                            !hideTrack && isMarkerSegmentActive(mark.value),
                           [styles.success]:
                             isMarkerSegmentActive(mark.value) &&
                             !!trackStatus &&
@@ -811,7 +811,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                             (!!hideRail &&
                               !!hideTrack &&
                               isMarkerSegmentActive(mark.value)) ||
-                            (!!hideTrack && !isMarkerSegmentActive(mark.value)),
+                            (!!hideRail && !isMarkerSegmentActive(mark.value)),
                         })}
                         key={index}
                         onMouseDown={
