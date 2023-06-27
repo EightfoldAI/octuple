@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/ja_JP';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ja_JP';
 import Dialog from '../Dialog/BaseDialog/Locale/ja_JP';
 import InfoBar from '../InfoBar/Locale/ja_JP';
@@ -14,6 +15,7 @@ const typeTemplate = '${label}は有効な${type}ではありません';
 
 const localeValues: Locale = {
   locale: 'ja',
+  Breadcrumb,
   DatePicker,
   Dialog,
   Form: {

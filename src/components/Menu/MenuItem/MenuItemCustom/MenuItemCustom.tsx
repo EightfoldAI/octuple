@@ -6,6 +6,7 @@ import { MenuSize } from '../../Menu.types';
 import styles from '../menuItem.module.scss';
 
 export const MenuItemCustom: FC<MenuItemCustomProps> = ({
+  classNames,
   index,
   onChange,
   size = MenuSize.medium,
@@ -18,6 +19,7 @@ export const MenuItemCustom: FC<MenuItemCustomProps> = ({
       [styles.medium]: size === MenuSize.medium,
       [styles.small]: size === MenuSize.small,
     },
+    classNames,
   ]);
 
   return (

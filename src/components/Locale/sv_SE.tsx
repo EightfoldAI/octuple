@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Breadcrumb from '../Breadcrumb/Locale/sv_SE';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/sv_SE';
 import Dialog from '../Dialog/BaseDialog/Locale/sv_SE';
 import InfoBar from '../InfoBar/Locale/sv_SE';
@@ -17,6 +18,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vänligen välj',
   },
+  Breadcrumb,
   DatePicker,
   Dialog,
   Form: {
