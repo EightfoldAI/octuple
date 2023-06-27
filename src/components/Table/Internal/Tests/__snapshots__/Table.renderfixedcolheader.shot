@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table-container",
+          "class": "table-container table-container-horizontally-scrollable",
         },
         "children": Array [
           Node {
