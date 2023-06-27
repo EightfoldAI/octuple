@@ -297,4 +297,40 @@ describe('Slider', () => {
     );
     expect(container1.getElementsByClassName('error')).toHaveLength(1);
   });
+
+  test('should hide track', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} hideTrack />
+    );
+    expect(
+      container1.getElementsByClassName('slider-track-opacity')
+    ).toHaveLength(1);
+    expect(
+      container1.getElementsByClassName('slider-rail-opacity')
+    ).toHaveLength(0);
+  });
+
+  test('should hide rail', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} hideRail />
+    );
+    expect(
+      container1.getElementsByClassName('slider-rail-opacity')
+    ).toHaveLength(1);
+    expect(
+      container1.getElementsByClassName('slider-track-opacity')
+    ).toHaveLength(0);
+  });
+
+  test('should hide rail and track', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} hideRail hideTrack />
+    );
+    expect(
+      container1.getElementsByClassName('slider-rail-opacity')
+    ).toHaveLength(1);
+    expect(
+      container1.getElementsByClassName('slider-track-opacity')
+    ).toHaveLength(1);
+  });
 });
