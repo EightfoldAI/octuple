@@ -1,6 +1,6 @@
 .selector {
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   position: relative;
   width: fit-content;
 
@@ -35,14 +35,17 @@
       }
 
       .radio-button {
-        border: $space-xxxs solid var(--grey-secondary-color);
+        background: var(--radio-button-background-color);
+        border: var(--radio-button-border);
         border-radius: 50%;
         height: $radio-medium-height;
         width: $radio-medium-width;
         min-height: $radio-medium-height;
         min-width: $radio-medium-width;
         position: relative;
-        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+        transition: background $motion-duration-extra-fast
+            $motion-easing-easeinout 0s,
+          border $motion-duration-extra-fast $motion-easing-easeinout 0s;
         width: $radio-medium-width;
 
         &:after {
@@ -50,9 +53,9 @@
           left: $radio-medium-after-left;
           width: $radio-medium-after-width;
           height: $radio-medium-after-height;
-          background-color: var(--primary-secondary-color);
+          background: var(--radio-button-pip-color);
           border-radius: 50%;
-          border: solid 1px var(--primary-secondary-color);
+          border: solid 1px var(--radio-button-pip-color);
           content: '';
           position: absolute;
           transform: scale(0);
@@ -68,15 +71,15 @@
 
     &:not(.disabled):not([disabled]):hover + label {
       .radio-button {
-        background-color: var(--accent-background2-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--radio-button-hover-background-color);
+        border: var(--radio-button-hover-border);
       }
     }
 
     &:not(.disabled):not([disabled]):active + label {
       .radio-button {
-        background-color: var(--accent-background3-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--radio-button-active-background-color);
+        border: var(--radio-button-active-border);
       }
     }
   }
@@ -90,11 +93,13 @@
     }
 
     & + label {
-      transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+      transition: background $motion-duration-extra-fast
+          $motion-easing-easeinout 0s,
+        border $motion-duration-extra-fast $motion-easing-easeinout 0s;
 
       .radio-button {
-        background-color: var(--accent-background3-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--radio-button-checked-background-color);
+        border: var(--radio-button-checked-border);
       }
 
       .radio-button:after {
@@ -109,16 +114,16 @@
 
     &:not(.disabled):not([disabled]):hover + label {
       .radio-button {
-        background-color: var(--accent-background2-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--radio-button-checked-hover-background-color);
+        border: var(--radio-button-checked-hover-border);
       }
     }
 
     &:not(.disabled):not([disabled]):active + label {
       .radio-button {
         transform: scale(0.98);
-        background-color: var(--accent-background1-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--radio-button-checked-active-background-color);
+        border: var(--radio-button-checked-active-border);
       }
     }
   }
@@ -337,15 +342,22 @@
     &:checked {
       &:focus-visible + label {
         .radio-button {
-          outline: $space-xxxs solid var(--primary-color-50);
+          outline: var(--focus-visible-outline);
+          outline-offset: $selector-outline-offset;
         }
       }
     }
 
     &:focus-visible + label {
       .radio-button {
-        outline: $space-xxxs solid var(--primary-color-50);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        border: var(--radio-button-focus-visible-border);
+        outline: var(--focus-visible-outline);
+        outline-offset: $selector-outline-offset;
+
+        &:after {
+          background: var(--radio-button-focus-visible-pip-color);
+          border-color: var(--radio-button-focus-visible-pip-color);
+        }
       }
     }
 
@@ -361,7 +373,7 @@
       &:focus-visible + label {
         .radio-button {
           outline: none;
-          border: $space-xxxs solid var(--grey-secondary-color);
+          border: var(--radio-button-border);
         }
       }
     }
@@ -381,7 +393,7 @@
         &:focus-visible + label {
           .radio-button {
             outline: none;
-            border: $space-xxxs solid var(--grey-secondary-color);
+            border: var(--radio-button-border);
           }
         }
       }
