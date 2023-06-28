@@ -43,9 +43,7 @@
         min-height: $radio-medium-height;
         min-width: $radio-medium-width;
         position: relative;
-        transition: background $motion-duration-extra-fast
-            $motion-easing-easeinout 0s,
-          border $motion-duration-extra-fast $motion-easing-easeinout 0s;
+        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
         width: $radio-medium-width;
 
         &:after {
@@ -93,9 +91,7 @@
     }
 
     & + label {
-      transition: background $motion-duration-extra-fast
-          $motion-easing-easeinout 0s,
-        border $motion-duration-extra-fast $motion-easing-easeinout 0s;
+      transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
 
       .radio-button {
         background: var(--radio-button-checked-background-color);
