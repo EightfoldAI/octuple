@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Klicka för att avbryta sortering',
     scrollLeftAriaLabelText: 'Bläddra åt vänster',
     scrollRightAriaLabelText: 'Bläddra åt höger',
+    selectAllRowsText: 'Markera alla rader',
+    selectRowText: 'Markera rad',
   },
 };
 

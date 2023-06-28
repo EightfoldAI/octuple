@@ -84,7 +84,7 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
-const Default_Story: ComponentStory<typeof Tabs> = (args) => {
+const Tabs_Story: ComponentStory<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
     <Tabs
@@ -95,139 +95,36 @@ const Default_Story: ComponentStory<typeof Tabs> = (args) => {
   );
 };
 
-export const Default = Default_Story.bind({});
+export const Default = Tabs_Story.bind({});
+export const Default_Underlined = Tabs_Story.bind({});
+export const Default_Loader = Tabs_Story.bind({});
+export const Small = Tabs_Story.bind({});
+export const With_Badge = Tabs_Story.bind({});
+export const Icon = Tabs_Story.bind({});
+export const Icon_Label = Tabs_Story.bind({});
+export const Scrollable = Tabs_Story.bind({});
+export const Pill_Default = Tabs_Story.bind({});
+export const Pill_With_Badge = Tabs_Story.bind({});
+export const Pill_Icon = Tabs_Story.bind({});
+export const Pill_Icon_Label = Tabs_Story.bind({});
 
-export const DefaultUnderlined = Default_Story.bind({});
-
-const Default_Loading_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const DefaultLoader = Default_Loading_Story.bind({});
-
-const Small_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Small = Small_Story.bind({});
-
-const With_Badge_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const With_Badge = With_Badge_Story.bind({});
-
-const Icon_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Icon = Icon_Story.bind({});
-
-const Icon_Label_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Icon_Label = Icon_Label_Story.bind({});
-
-const Scrollable_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Scrollable = Scrollable_Story.bind({});
-
-const Pill_Default_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Pill_Default = Pill_Default_Story.bind({});
-
-const Pill_With_Badge_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Pill_With_Badge = Pill_With_Badge_Story.bind({});
-
-const Pill_Icon_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Pill_Icon = Pill_Icon_Story.bind({});
-
-const Pill_Icon_Label_Story: ComponentStory<typeof Tabs> = (args) => {
-  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
-  return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
-  );
-};
-
-export const Pill_Icon_Label = Pill_Icon_Label_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Default',
+  'Default_Underlined',
+  'Default_Loader',
+  'Small',
+  'With_Badge',
+  'Icon',
+  'Icon_Label',
+  'Scrollable',
+  'Pill_Default',
+  'Pill_With_Badge',
+  'Pill_Icon',
+  'Pill_Icon_Label',
+];
 
 const tabsArgs: Object = {
   scrollable: false,
@@ -242,12 +139,12 @@ Default.args = {
   ...tabsArgs,
 };
 
-DefaultUnderlined.args = {
+Default_Underlined.args = {
   ...tabsArgs,
   underlined: true,
 };
 
-DefaultLoader.args = {
+Default_Loader.args = {
   ...tabsArgs,
   children: badgeTabs.map((tab, index) => (
     <Tab key={tab.value} {...tab} loading={index % 2 === 0} />

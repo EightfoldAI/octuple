@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: '정렬을 취소하려면 클릭하십시오.',
     scrollLeftAriaLabelText: '왼쪽으로 스크롤',
     scrollRightAriaLabelText: '오른쪽으로 스크롤',
+    selectAllRowsText: '모든 행 선택',
+    selectRowText: '행 선택',
   },
 };
 

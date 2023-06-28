@@ -95,7 +95,7 @@ const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
   };
 
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <DatePicker {...args} onChange={onChange} />
       <DatePicker {...args} onChange={onChange} picker="week" />
       <DatePicker {...args} onChange={onChange} picker="month" />
@@ -113,7 +113,7 @@ const Single_Picker_Disabled_Story: ComponentStory<typeof DatePicker> = (
   };
 
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <DatePicker {...args} onChange={onChange} />
       <DatePicker {...args} defaultValue={dayjs('2015-06-06', dateFormat)} />
     </Stack>
@@ -143,7 +143,7 @@ const Single_Picker_Disabled_Date_and_Time_Story: ComponentStory<
     disabledSeconds: () => [55, 56],
   });
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <DatePicker
         {...args}
         format="YYYY-MM-DD HH:mm:ss"
@@ -178,7 +178,7 @@ const { RangePicker } = DatePicker;
 
 const Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} />
       <RangePicker {...args} picker="week" />
       <RangePicker {...args} picker="month" />
@@ -218,7 +218,7 @@ const Range_Picker_Disabled_Story: ComponentStory<typeof RangePicker> = (
   args
 ) => {
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} />
       <RangePicker
         {...args}
@@ -264,7 +264,7 @@ const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
   };
 
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} disabledDate={disabledDate} />
       <RangePicker
         {...args}
@@ -294,7 +294,7 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
   };
 
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <RangePicker
         {...args}
         ranges={{
@@ -372,7 +372,7 @@ const customFormat: DatePickerProps['format'] = (value) =>
 
 const Date_Format_Basic_Story: ComponentStory<typeof DatePicker> = (args) => {
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <DatePicker
         {...args}
         defaultValue={dayjs('2023/01/01', dateFormat)}
@@ -416,7 +416,12 @@ const Date_Format_Range_Story: ComponentStory<typeof RangePicker> = (args) => (
 );
 
 const Extra_Footer_Story: ComponentStory<typeof DatePicker> = (args) => (
-  <DatePicker {...args} renderExtraFooter={() => 'extra footer'} />
+  <DatePicker
+    {...args}
+    renderExtraFooter={() => (
+      <span style={{ color: 'var(--text-primary-color)' }}>extra footer</span>
+    )}
+  />
 );
 
 const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (
@@ -455,7 +460,7 @@ const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
 
 const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <DatePicker {...args} status="error" />
       <DatePicker {...args} status="warning" />
     </Stack>
@@ -464,7 +469,7 @@ const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
 
 const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
-    <Stack direction="vertical" gap="m">
+    <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} status="error" />
       <RangePicker {...args} status="warning" />
     </Stack>
@@ -495,6 +500,30 @@ export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Single_Picker',
+  'Single_Picker_Disabled',
+  'Single_Picker_Disabled_Date_and_Time',
+  'Single_Picker_Choose_Time',
+  'Range_Picker',
+  'Range_Picker_Disabled',
+  'Range_Picker_Disabled_Date_and_Time',
+  'Range_Picker_Choose_Time',
+  'Preset_Ranges',
+  'Select_Range_By_Day_Limit',
+  'Date_Format_Basic',
+  'Date_Format_Range',
+  'Extra_Footer',
+  'Customized_Date_Styling',
+  'Single_Borderless',
+  'Range_Borderless',
+  'Single_Status',
+  'Range_Status',
+];
 
 const pickerArgs: Object = {
   classNames: 'my-picker-class',

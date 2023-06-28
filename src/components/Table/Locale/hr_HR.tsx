@@ -19,6 +19,8 @@ const locale: TableLocale = {
     cancelSortText: 'Kliknite da biste otkazali sortiranje',
     scrollLeftAriaLabelText: 'Pomicanje ulijevo',
     scrollRightAriaLabelText: 'Pomicanje udesno',
+    selectAllRowsText: 'Odaberi sve retke',
+    selectRowText: 'Odabir retka',
   },
 };
 

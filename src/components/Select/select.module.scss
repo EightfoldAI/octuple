@@ -1,4 +1,4 @@
-$input-padding-horizontal: 8px;
+$input-padding-horizontal: $space-xs;
 $multi-select-count-offset: 54px;
 
 // Export values for typescript consumption.
@@ -63,6 +63,7 @@ $multi-select-count-offset: 54px;
     text-align: center;
     display: flex;
     justify-content: center;
+    padding: 3px $space-xs;
     pointer-events: all;
 
     span {
@@ -73,27 +74,33 @@ $multi-select-count-offset: 54px;
 
   .multi-select-count {
     margin-right: $space-xs;
+    padding: 3px $space-xs;
   }
 
   .selected-option {
-    background-color: var(--primary-color-10);
-    color: var(--primary-color-80);
+    background-color: var(--primary-background1-color);
+    color: var(--primary-color);
   }
 
   &.select-large {
     .multi-select-pills {
       top: 7px;
+
+      .multi-select-count,
+      .multi-select-pill {
+        padding: 3px $space-xs;
+      }
     }
 
     .select-clear-button {
       bottom: 0;
       height: 44px;
-      padding: 4px 8px;
-      width: 32px;
+      padding: $space-xxs $space-xs;
+      width: $space-xl;
     }
 
     .select-clear-button-start {
-      left: 2px;
+      left: $space-xxxs;
       right: unset;
     }
 
@@ -106,17 +113,22 @@ $multi-select-count-offset: 54px;
   &.select-medium {
     .multi-select-pills {
       top: 5px;
+
+      .multi-select-count,
+      .multi-select-pill {
+        padding: 3px $space-xs;
+      }
     }
 
     .select-clear-button {
-      bottom: 4px;
+      bottom: $space-xxs;
       height: 28px;
-      padding: 4px 6px;
+      padding: $space-xxs 6px;
       width: 28px;
     }
 
     .select-clear-button-start {
-      left: 2px;
+      left: $space-xxxs;
       right: unset;
     }
 
@@ -128,23 +140,23 @@ $multi-select-count-offset: 54px;
 
   &.select-small {
     .multi-select-pills {
-      top: 4px;
+      top: $space-xxs;
 
       .multi-select-count,
       .multi-select-pill {
-        padding: 2px 12px;
+        padding: $space-xxxs $space-s;
       }
     }
 
     .select-clear-button {
-      bottom: 2px;
-      height: 24px;
-      padding: 2px 4px;
-      width: 24px;
+      bottom: $space-xxxs;
+      height: $space-l;
+      padding: $space-xxxs $space-xxs;
+      width: $space-l;
     }
 
     .select-clear-button-start {
-      left: 2px;
+      left: $space-xxxs;
       right: unset;
     }
 
@@ -156,7 +168,7 @@ $multi-select-count-offset: 54px;
 }
 
 .select-menu-empty {
-  color: var(--grey-color-60);
+  color: var(--grey-tertiary-color);
   margin: $space-m;
   position: relative;
 }

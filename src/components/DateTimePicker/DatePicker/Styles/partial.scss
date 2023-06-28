@@ -3,10 +3,10 @@
 $picker-partial-width: $picker-partial-cell-width * 7 + $space-s * 2 + 4;
 $disabled-color: rgba(0, 0, 0, 0.25);
 $picker-partial-cell-height: 24px;
-$picker-basic-cell-hover-color: var(--grey-color-10);
+$picker-basic-cell-hover-color: var(--grey-background1-color);
 $picker-basic-cell-active-with-range-color: var(--primary-color-40);
 $picker-date-hover-range-border-color: var(--primary-color-40);
-$picker-date-hover-range-color: var(--primary-color-30);
+$picker-date-hover-range-color: var(--primary-background3-color);
 $picker-partial-without-time-cell-height: 64px;
 $picker-time-partial-column-height: 224px;
 $picker-time-partial-column-width: 56px;
@@ -20,8 +20,6 @@ $picker-time-partial-cell-height: 28px;
   height: $picker-partial-cell-height;
   line-height: $picker-partial-cell-height;
   border-radius: $picker-border-radius;
-  transition: background $motion-duration-extra-fast,
-    border $motion-duration-extra-fast;
 
   &:before {
     position: absolute;
@@ -31,7 +29,6 @@ $picker-time-partial-cell-height: 28px;
     z-index: 1;
     height: $picker-partial-cell-height;
     transform: translateY(-50%);
-    transition: all $motion-duration-extra-fast;
     content: '';
   }
 
@@ -48,8 +45,7 @@ $picker-time-partial-cell-height: 28px;
       bottom: 0;
       left: 0;
       z-index: 1;
-      border: $picker-border-width $picker-border-style
-        $picker-border-color-active;
+      border: var(--picker-border-active);
       border-radius: var(--border-radius-round);
       content: '';
     }
@@ -66,8 +62,8 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-selected,
   &-in-view.picker-cell-range-start,
   &-in-view.picker-cell-range-end {
-    background: $picker-cell-background-color-active;
-    color: $picker-cell-foreground-color-active;
+    background: var(--picker-cell-background-color-active);
+    color: var(--picker-cell-foreground-color-active);
   }
 
   &-in-view.picker-cell-range-start:not(&-range-start-single),
@@ -97,12 +93,11 @@ $picker-time-partial-cell-height: 28px;
       top: 50%;
       z-index: 0;
       height: 24px;
-      border-top: $picker-border-width dashed
+      border-top: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
-      border-bottom: $picker-border-width dashed
+      border-bottom: var(--picker-border-width) dashed
         $picker-date-hover-range-border-color;
       transform: translateY(-50%);
-      transition: all $motion-duration-extra-fast;
       content: '';
     }
   }
@@ -146,7 +141,6 @@ $picker-time-partial-cell-height: 28px;
       bottom: 0;
       z-index: -1;
       background: $picker-date-hover-range-color;
-      transition: all $motion-duration-extra-fast;
       content: '';
     }
   }
@@ -154,7 +148,7 @@ $picker-time-partial-cell-height: 28px;
   .picker-date-partial
     &-in-view.picker-cell-in-range.picker-cell-range-hover-start
     &:after {
-    right: -5px - $picker-border-width;
+    right: -5px - var(--picker-border-width);
     left: 0;
   }
 
@@ -162,7 +156,7 @@ $picker-time-partial-cell-height: 28px;
     &-in-view.picker-cell-in-range.picker-cell-range-hover-end
     &:after {
     right: 0;
-    left: -5px - $picker-border-width;
+    left: -5px - var(--picker-border-width);
   }
 
   &-range-hover.picker-cell-range-start:after {
@@ -179,7 +173,7 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-range-hover-edge-start:not(&-range-hover-edge-start-near-range):after,
   &-in-view.picker-cell-range-hover-start:after {
     left: 6px;
-    border-left: $picker-border-width dashed
+    border-left: var(--picker-border-width) dashed
       $picker-date-hover-range-border-color;
     border-top-left-radius: $picker-border-radius;
     border-bottom-left-radius: $picker-border-radius;
@@ -191,7 +185,7 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-range-hover-edge-end:not(&-range-hover-edge-end-near-range):after,
   &-in-view.picker-cell-range-hover-end:after {
     right: 6px;
-    border-right: $picker-border-width dashed
+    border-right: var(--picker-border-width) dashed
       $picker-date-hover-range-border-color;
     border-top-right-radius: $picker-border-radius;
     border-bottom-right-radius: $picker-border-radius;
@@ -213,13 +207,13 @@ $picker-time-partial-cell-height: 28px;
     display: inline-flex;
     flex-direction: column;
     text-align: center;
-    background: $picker-input-background-color;
-    border: $picker-border-width $picker-border-style $picker-border-color;
+    background: var(--picker-input-background-color);
+    border: var(--picker-border);
     border-radius: $picker-border-radius;
     outline: none;
 
     &-focused {
-      border-color: $picker-border-color-active;
+      border-color: var(--picker-border-color-active);
     }
   }
 
@@ -238,9 +232,8 @@ $picker-time-partial-cell-height: 28px;
   &-header {
     display: flex;
     padding: 0 $space-xs;
-    color: $picker-header-cell-foreground-color;
-    border-bottom: $picker-border-width $picker-border-style
-      $picker-border-color;
+    color: var(--picker-header-cell-foreground-color);
+    border-bottom: var(--picker-border);
 
     > * {
       flex: none;
@@ -255,8 +248,8 @@ $picker-time-partial-cell-height: 28px;
 
   &-content {
     width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
 
     th,
     td {
@@ -267,7 +260,7 @@ $picker-time-partial-cell-height: 28px;
 
     th {
       height: 30px;
-      color: $picker-header-cell-foreground-color;
+      color: var(--picker-header-cell-foreground-color);
       line-height: 30px;
     }
   }
@@ -278,7 +271,7 @@ $picker-time-partial-cell-height: 28px;
     cursor: pointer;
 
     &-in-view {
-      color: $picker-cell-foreground-color;
+      color: var(--picker-cell-foreground-color);
     }
 
     @include picker-cell-inner();
@@ -308,10 +301,11 @@ $picker-time-partial-cell-height: 28px;
     min-width: 100%;
     line-height: $picker-text-height - 2 * $picker-border-width;
     text-align: center;
-    border-bottom: $picker-border-width $picker-border-style transparent;
+    border-bottom: var(--picker-border-width) var(--picker-border-style)
+      transparent;
 
     .picker-partial {
-      border-top: $picker-border-width $picker-border-style $picker-border-color;
+      border-top: var(--picker-border);
     }
 
     &-extra {
@@ -320,8 +314,7 @@ $picker-time-partial-cell-height: 28px;
       text-align: left;
 
       &:not(:last-child) {
-        border-bottom: $picker-border-width $picker-border-style
-          $picker-border-color;
+        border-bottom: var(--picker-border);
       }
     }
   }
@@ -334,11 +327,11 @@ $picker-time-partial-cell-height: 28px;
     color: var(--primary-color);
 
     &:hover {
-      color: var(--primary-color-70);
+      color: var(--primary-secondary-color);
     }
 
     &:active {
-      color: var(--primary-color-80);
+      color: var(--primary-color);
     }
 
     &-disabled {
@@ -360,46 +353,12 @@ $picker-time-partial-cell-height: 28px;
   &-year-partial,
   &-quarter-partial,
   &-month-partial {
-    $hover-cell-fixed-distance: (
-      (
-          (($picker-partial-width - $space-xs * 2) / 3) -
-            $picker-cell-year-month-width
-        ) / 2
-    );
-
     .picker-body {
       padding: 0 $space-xs;
     }
 
     .picker-cell-inner {
-      width: $picker-cell-year-month-width;
-    }
-
-    .picker-cell-range-hover-start:after {
-      left: $hover-cell-fixed-distance;
-      border-left: $picker-border-width dashed
-        $picker-date-hover-range-border-color;
-      border-radius: $picker-border-radius 0 0 $picker-border-radius;
-
-      .picker-partial-rtl {
-        right: $hover-cell-fixed-distance;
-        border-right: $picker-border-width dashed
-          $picker-date-hover-range-border-color;
-        border-radius: 0 $picker-border-radius $picker-border-radius 0;
-      }
-    }
-    .picker-cell-range-hover-end:after {
-      right: $hover-cell-fixed-distance;
-      border-right: $picker-border-width dashed
-        $picker-date-hover-range-border-color;
-      border-radius: 0 $picker-border-radius $picker-border-radius 0;
-
-      .picker-partial-rtl {
-        left: $hover-cell-fixed-distance;
-        border-left: $picker-border-width dashed
-          $picker-date-hover-range-border-color;
-        border-radius: $picker-border-radius 0 0 $picker-border-radius;
-      }
+      width: $picker-cell-year-month-width-m;
     }
   }
 
@@ -418,20 +377,16 @@ $picker-time-partial-cell-height: 28px;
     }
 
     &-row {
-      td {
-        transition: background $motion-duration-extra-fast;
-      }
-
       &:hover td {
         background: $picker-basic-cell-hover-color;
       }
 
       &-selected td,
       &-selected:hover td {
-        background: $picker-cell-background-color-active;
+        background: var(--picker-cell-background-color-active);
 
         &.picker-cell-week {
-          color: $picker-cell-foreground-color-active;
+          color: var(--picker-cell-foreground-color-active);
         }
 
         &.picker-cell-today .picker-cell-inner:before {
@@ -463,13 +418,7 @@ $picker-time-partial-cell-height: 28px;
     display: flex;
 
     .picker-time-partial {
-      border-left: $picker-border-width $picker-border-style
-        $picker-border-color;
-    }
-
-    .picker-date-partial,
-    .picker-time-partial {
-      transition: opacity $motion-duration-extra-fast;
+      border-left: var(--picker-border);
     }
 
     &-active {
@@ -502,7 +451,6 @@ $picker-time-partial-cell-height: 28px;
       overflow-y: hidden;
       text-align: left;
       list-style: none;
-      transition: background $motion-duration-extra-fast;
 
       &:after {
         display: block;
@@ -516,8 +464,7 @@ $picker-time-partial-cell-height: 28px;
       }
 
       &:not(:first-child) {
-        border-left: $picker-border-width $picker-border-style
-          $picker-border-color;
+        border-left: var(--picker-border);
       }
 
       &-active {
@@ -539,11 +486,10 @@ $picker-time-partial-cell-height: 28px;
             height: $picker-time-partial-cell-height;
             margin: 0;
             padding: 0 0 0 (($picker-time-partial-column-width - 28px) / 2);
-            color: $picker-cell-foreground-color;
+            color: var(--picker-cell-foreground-color);
             line-height: $picker-time-partial-cell-height;
             border-radius: 0;
             cursor: pointer;
-            transition: background $motion-duration-extra-fast;
 
             &:hover {
               background: $picker-basic-cell-hover-color;
@@ -552,7 +498,8 @@ $picker-time-partial-cell-height: 28px;
 
           &-selected {
             .picker-time-partial-cell-inner {
-              background: $picker-cell-foreground-color-active;
+              background: var(--picker-cell-foreground-color-active);
+              border: 1px solid var(--picker-cell-border-color-active);
             }
           }
 
@@ -565,18 +512,6 @@ $picker-time-partial-cell-height: 28px;
           }
         }
       }
-    }
-  }
-}
-
-// Fix IE11 render bug by css hacks
-/* stylelint-disable selector-type-no-unknown,selector-no-vendor-prefix */
-_:-ms-fullscreen,
-:root {
-  .picker-range-wrapper {
-    .picker-month-partial .picker-cell,
-    .picker-year-partial .picker-cell {
-      padding: 21px 0;
     }
   }
 }

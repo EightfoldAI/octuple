@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ConfigProvider } from '../ConfigProvider';
@@ -8,6 +8,7 @@ import { Link } from '../Link';
 import { Dropdown } from '../Dropdown';
 import { Avatar } from '../Avatar';
 import { List } from '../List';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
   title: 'Navbar',
@@ -54,7 +55,7 @@ const ProfileDropdown = () => {
     <Dropdown
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
       overlay={<Overlay />}
-      dropdownStyle={{ color: '#212121' }}
+      dropdownStyle={{ color: 'var(--grey-color)' }}
     >
       <div style={{ display: 'flex' }}>
         <Avatar
@@ -69,10 +70,17 @@ const ProfileDropdown = () => {
 };
 
 const Basic_Story: ComponentStory<typeof Navbar> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   return (
     <ConfigProvider
       themeOptions={{
         name: 'blue',
+        dark,
       }}
     >
       <div style={{ height: '250px' }}>
@@ -98,6 +106,12 @@ const Basic_Story: ComponentStory<typeof Navbar> = (args) => {
 
 const Theme_Story: ComponentStory<typeof Navbar> = (args) => {
   const linkRef = useRef(null);
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   return (
     <ConfigProvider
       themeOptions={{
@@ -110,6 +124,7 @@ const Theme_Story: ComponentStory<typeof Navbar> = (args) => {
             textHoverBackground: '#8FA394',
           },
         },
+        dark,
       }}
     >
       <div style={{ height: '250px' }}>
@@ -149,6 +164,11 @@ const Theme_Story: ComponentStory<typeof Navbar> = (args) => {
 
 export const Basic = Basic_Story.bind({});
 export const Theme = Theme_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Basic', 'Theme'];
 
 Basic.args = {};
 Theme.args = {};

@@ -31,29 +31,24 @@ export default {
   },
 } as ComponentMeta<typeof InfoBar>;
 
-const Neutral_Story: ComponentStory<typeof InfoBar> = (args) => (
+const InfoBar_Story: ComponentStory<typeof InfoBar> = (args) => (
   <InfoBar {...args} />
 );
 
-export const Neutral = Neutral_Story.bind({});
+export const Neutral = InfoBar_Story.bind({});
+export const Positive = InfoBar_Story.bind({});
+export const Warning = InfoBar_Story.bind({});
+export const Disruptive = InfoBar_Story.bind({});
 
-const Positive_Story: ComponentStory<typeof InfoBar> = (args) => (
-  <InfoBar {...args} />
-);
-
-export const Positive = Positive_Story.bind({});
-
-const Warning_Story: ComponentStory<typeof InfoBar> = (args) => (
-  <InfoBar {...args} />
-);
-
-export const Warning = Warning_Story.bind({});
-
-const Disruptive_Story: ComponentStory<typeof InfoBar> = (args) => (
-  <InfoBar {...args} />
-);
-
-export const Disruptive = Disruptive_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Neutral',
+  'Positive',
+  'Warning',
+  'Disruptive',
+];
 
 const infoBarArgs: Object = {
   actionButtonProps: {

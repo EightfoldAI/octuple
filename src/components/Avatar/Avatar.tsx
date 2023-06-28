@@ -47,14 +47,14 @@ const MinStatusItemFontSize: number = 12;
 const StatusItemFontDiff: string = '2px';
 
 const StatusItemOutlineDefaults: React.CSSProperties = {
-  outlineColor: 'var(--grey-color-80)',
+  outlineColor: 'var(--grey-color)',
   outlineOffset: '0px',
   outlineStyle: 'solid',
   outlineWidth: '2px',
 };
 
 const AvatarOutlineDefaults: React.CSSProperties = {
-  outlineColor: 'var(--green-color-60)',
+  outlineColor: 'var(--green-tertiary-color)',
   outlineOffset: '2px',
   outlineStyle: 'solid',
   outlineWidth: '4px',

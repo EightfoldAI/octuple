@@ -1,5 +1,6 @@
 import React from 'react';
 import memoizeOne from 'memoize-one';
+import type { BreadcrumbLocale } from '../Breadcrumb/Breadcrumb.types';
 import type { DialogLocale } from '../Dialog/BaseDialog/BaseDialog.types';
 import type { PaginationLocale } from '../Pagination';
 import type { PanelLocale } from '../Panel';
@@ -14,6 +15,7 @@ import LocaleContext from './Context';
 export interface Locale {
   locale: string;
   global?: Record<string, any>;
+  Breadcrumb?: BreadcrumbLocale;
   DatePicker?: DatePickerLocale;
   Dialog?: DialogLocale;
   Form?: {

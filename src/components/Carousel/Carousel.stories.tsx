@@ -41,7 +41,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--grey-color-20)',
+          background: 'var(--grey-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -50,7 +50,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--green-color-20)',
+          background: 'var(--green-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -59,7 +59,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--violet-color-20)',
+          background: 'var(--violet-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -68,7 +68,7 @@ const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
     <Slide>
       <div
         style={{
-          background: 'var(--blue-color-20)',
+          background: 'var(--blue-background2-color)',
           height: 400,
           width: '100%',
         }}
@@ -98,6 +98,11 @@ export const Slider = Slide_Story.bind({});
 export const Scroller = Scroll_Story.bind({});
 export const Scroller_Single = Scroll_Story.bind({});
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Slider', 'Scroller', 'Scroller_Single'];
+
 const carouselArgs: Object = {
   classNames: 'my-carousel',
   controls: true,
@@ -126,7 +131,7 @@ Scroller.args = {
         key={item.key}
         style={{
           alignItems: 'center',
-          background: 'var(--grey-color-20)',
+          background: 'var(--grey-background2-color)',
           boxShadow:
             '0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16)',
           display: 'flex',
@@ -154,7 +159,7 @@ Scroller_Single.args = {
         key={item.key}
         style={{
           alignItems: 'center',
-          background: 'var(--grey-color-20)',
+          background: 'var(--grey-background2-color)',
           boxShadow:
             '0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16)',
           display: 'flex',

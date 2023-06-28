@@ -4,7 +4,7 @@ exports[`Table.Basic renders correctly column children undefined 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table",
+      "class": "table table-row-hover",
     },
     "children": Array [
       Node {

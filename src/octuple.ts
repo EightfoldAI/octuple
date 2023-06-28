@@ -16,6 +16,8 @@ import {
 
 import { Badge } from './components/Badge';
 
+import { Breadcrumb } from './components/Breadcrumb';
+
 import {
   Button,
   ButtonShape,
@@ -94,6 +96,8 @@ import {
 } from './components/LinkButton';
 
 import { List } from './components/List';
+
+import { MessageBar, MessageBarType } from './components/MessageBar';
 
 import {
   CascadingMenu,
@@ -249,6 +253,7 @@ export {
   AvatarGroupVariant,
   AvatarPopupProps,
   Badge,
+  Breadcrumb,
   Breakpoints,
   Button,
   ButtonIconAlign,
@@ -317,6 +322,8 @@ export {
   MenuItemType,
   MenuVariant,
   MenuSize,
+  MessageBar,
+  MessageBarType,
   Modal,
   ModalSize,
   Navbar,

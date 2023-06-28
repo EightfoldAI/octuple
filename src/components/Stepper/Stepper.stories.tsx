@@ -130,7 +130,7 @@ export default {
   },
 } as ComponentMeta<typeof Stepper>;
 
-const Default_Story: ComponentStory<typeof Stepper> = (args) => {
+const Stepper_Story: ComponentStory<typeof Stepper> = (args) => {
   const workflow: Step[] = [1, 2, 3, 4, 5].map((i: number) => ({
     index: i,
     content: `Step label ${i}`,
@@ -146,18 +146,36 @@ const Default_Story: ComponentStory<typeof Stepper> = (args) => {
   );
 };
 
-export const Default_Horizontal_Small = Default_Story.bind({});
-export const Default_Horizontal_Small_Required = Default_Story.bind({});
-export const Default_Horizontal_Small_Read_Only = Default_Story.bind({});
-export const Default_Horizontal_Medium = Default_Story.bind({});
-export const Default_Horizontal_Medium_Required = Default_Story.bind({});
-export const Default_Horizontal_Medium_Read_Only = Default_Story.bind({});
-export const Default_Horizontal_Medium_Active_Scroll = Default_Story.bind({});
-export const Default_Vertical = Default_Story.bind({});
-export const Default_Vertical_Required = Default_Story.bind({});
-export const Default_Vertical_Read_Only = Default_Story.bind({});
-export const Default_Vertical_Scroll = Default_Story.bind({});
-export const Default_Vertical_Active_Scroll = Default_Story.bind({});
+export const Default_Horizontal_Small = Stepper_Story.bind({});
+export const Default_Horizontal_Small_Required = Stepper_Story.bind({});
+export const Default_Horizontal_Small_Read_Only = Stepper_Story.bind({});
+export const Default_Horizontal_Medium = Stepper_Story.bind({});
+export const Default_Horizontal_Medium_Required = Stepper_Story.bind({});
+export const Default_Horizontal_Medium_Read_Only = Stepper_Story.bind({});
+export const Default_Horizontal_Medium_Active_Scroll = Stepper_Story.bind({});
+export const Default_Vertical = Stepper_Story.bind({});
+export const Default_Vertical_Required = Stepper_Story.bind({});
+export const Default_Vertical_Read_Only = Stepper_Story.bind({});
+export const Default_Vertical_Scroll = Stepper_Story.bind({});
+export const Default_Vertical_Active_Scroll = Stepper_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Default_Horizontal_Small',
+  'Default_Horizontal_Small_Required',
+  'Default_Horizontal_Small_Read_Only',
+  'Default_Horizontal_Medium',
+  'Default_Horizontal_Medium_Required',
+  'Default_Horizontal_Medium_Read_Only',
+  'Default_Horizontal_Medium_Active_Scroll',
+  'Default_Vertical',
+  'Default_Vertical_Required',
+  'Default_Vertical_Read_Only',
+  'Default_Vertical_Scroll',
+  'Default_Vertical_Active_Scroll',
+];
 
 const stepperArgs: Object = {
   activeStepIndex: 2,

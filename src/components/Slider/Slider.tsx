@@ -568,6 +568,14 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       }
     };
 
+    const onSliderHitTargetClick = (
+      event: React.MouseEvent<HTMLDivElement>
+    ): void => {
+      event.preventDefault();
+
+      onSliderMouseDown(event);
+    };
+
     const onSliderMouseDown = (
       event: React.MouseEvent<HTMLDivElement>
     ): void => {
@@ -727,6 +735,14 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               className={mergeClasses(styles.slider, classNames)}
             >
               <div
+                className={styles.sliderHitTarget}
+                onClick={
+                  !allowDisabledFocus && !readOnly
+                    ? onSliderHitTargetClick
+                    : null
+                }
+              />
+              <div
                 ref={railRef}
                 className={mergeClasses([
                   styles.sliderRail,
@@ -825,6 +841,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     styles.sliderTooltip,
                     tooltipProps?.classNames,
                   ])}
+                  wrapperClassNames={
+                    mergedDisabled ? styles.hideSliderTooltip : ''
+                  }
+                  closeOnReferenceClick={false}
                   content={getTooltipContentByValue(val)}
                   key={`value-tooltip-${index}`}
                   offset={thumbGeometry().diameter + THUMB_TOOLTIP_Y_OFFSET}

@@ -16,6 +16,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       onClick,
       role = 'link',
       target = '_self',
+      title,
       underline,
       variant = 'default',
       style,
@@ -57,6 +58,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
         onClick={handleOnClick}
         style={style}
         target={target}
+        title={`${title}`}
         data-test-id={dataTestId}
       >
         {children}

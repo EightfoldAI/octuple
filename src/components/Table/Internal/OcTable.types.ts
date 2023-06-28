@@ -84,6 +84,14 @@ export type Locale = {
    * The Table `Scroll left` string
    */
   scrollLeftAriaLabelText?: string;
+  /**
+   * The Table `Select all rows` string
+   */
+  selectAllRowsText?: string;
+  /**
+   * The Table `Select row` string
+   */
+  selectRowText?: string;
 };
 
 // ==================== Row =====================
@@ -502,6 +510,11 @@ export interface OcTableProps<RecordType = unknown> {
    * The custom class name of Table row.
    */
   rowClassName?: string | RowClassName<RecordType>;
+  /**
+   * Enables row background hover color.
+   * @default true
+   */
+  rowHoverBackgroundEnabled?: boolean;
   /**
    * Table Row's unique key.
    * May be a string or function that returns a string.

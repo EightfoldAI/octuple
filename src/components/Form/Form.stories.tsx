@@ -17,7 +17,6 @@ import { Select, SelectOption } from '../Select';
 import DatePicker from '../DateTimePicker/DatePicker';
 import { Stack } from '../Stack';
 import enUS from '../Locale/en_US';
-import zhCN from '../Locale/zh_CN';
 import { ConfigProvider, Shape, Size } from '../ConfigProvider';
 import { Slider } from '../Slider';
 import { snack, SnackbarContainer } from '../Snackbar';
@@ -25,6 +24,7 @@ import { Icon, IconName } from '../Icon';
 import { Link } from '../Link';
 import { Modal, ModalSize } from '../Modal';
 import { Avatar } from '../Avatar';
+import { useDarkMode } from 'storybook-dark-mode';
 
 const { RangePicker, TimePicker } = DatePicker;
 
@@ -67,6 +67,12 @@ export default {
 } as ComponentMeta<typeof Form>;
 
 const Basic_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -76,7 +82,7 @@ const Basic_Story: ComponentStory<typeof Form> = (args) => {
   };
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -133,6 +139,12 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
   };
   const [selected, setSelected] = useState<RadioButtonValue>('apple');
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const radioChangeGroupHandler = (
     e?: React.ChangeEvent<HTMLInputElement>
   ): void => {
@@ -140,10 +152,10 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
   };
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
-        <Stack direction={'vertical'} gap={'l'} fullWidth>
+        <Stack direction={'vertical'} flexGap={'l'} fullWidth>
           <CheckBox
             checked={componentDisabled}
             label={'Form disabled'}
@@ -178,7 +190,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
                 ]}
               />
             </Form.Item>
-            <Form.Item noStyle label={'Slider'} name={'slider'}>
+            <Form.Item label={'Slider'} name={'slider'}>
               <Slider step={1} max={100} min={1} value={50} />
             </Form.Item>
             <Form.Item
@@ -248,6 +260,12 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
     },
   ];
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const onSelectChange = (options: SelectOption[]) => {
     if (!options) {
       return onReset();
@@ -297,7 +315,7 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Stack fullWidth>
@@ -354,7 +372,7 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
               }
             </Form.Item>
             <Form.Item {...actionsLayout}>
-              <Stack direction={'horizontal'} gap={'m'} fullWidth>
+              <Stack direction={'horizontal'} flexGap={'m'} fullWidth>
                 <PrimaryButton htmlType={'submit'} text={'Submit'} />
                 <SecondaryButton
                   htmlType={'button'}
@@ -374,6 +392,12 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
 const Form_Story: ComponentStory<typeof Form> = (args) => {
   const [selected, setSelected] = useState<RadioButtonValue>('apple');
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const radioChangeGroupHandler = (
     e?: React.ChangeEvent<HTMLInputElement>
   ): void => {
@@ -381,10 +405,10 @@ const Form_Story: ComponentStory<typeof Form> = (args) => {
   };
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
-        <Stack direction={'vertical'} gap={'l'} fullWidth>
+        <Stack direction={'vertical'} flexGap={'l'} fullWidth>
           <Form
             {...args}
             labelCol={{ span: 3 }}
@@ -455,9 +479,15 @@ const Form_Story: ComponentStory<typeof Form> = (args) => {
 };
 
 const Layout_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form {...args}>
@@ -477,9 +507,15 @@ const Layout_Story: ComponentStory<typeof Form> = (args) => {
 };
 
 const Label_Wrap_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form {...args} labelCol={{ flex: '120px' }} wrapperCol={{ flex: 1 }}>
@@ -497,6 +533,12 @@ const Label_Wrap_Story: ComponentStory<typeof Form> = (args) => {
 
 const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
   const [form] = Form.useForm();
+
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
 
   const onFinish = () => {
     snack.servePositive({
@@ -520,7 +562,7 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <>
@@ -543,7 +585,7 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
               <TextInput placeholder={'Placeholder'} />
             </Form.Item>
             <Form.Item>
-              <Stack direction={'horizontal'} gap={'m'}>
+              <Stack direction={'horizontal'} flexGap={'m'}>
                 <PrimaryButton htmlType={'submit'} text={'Submit'} />
                 <SecondaryButton
                   htmlType={'button'}
@@ -564,12 +606,18 @@ const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
   const [form] = Form.useForm<{ foo: string; bar: number }>();
   const fooValue = Form.useWatch('foo', form);
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
-        <Stack direction={'vertical'} gap={'l'}>
+        <Stack direction={'vertical'} flexGap={'l'}>
           <Form form={form} layout="vertical" autoComplete="off">
             <Form.Item
               name={'foo'}
@@ -581,7 +629,9 @@ const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
               <TextInput htmlType={'number'} />
             </Form.Item>
           </Form>
-          <pre>Foo: {fooValue}</pre>
+          <pre style={{ color: 'var(--text-primary-color)' }}>
+            Foo: {fooValue}
+          </pre>
         </Stack>
       }
     />
@@ -589,6 +639,12 @@ const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
 };
 
 const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const formItemLayout = {
     labelCol: {
       xs: { span: 12 },
@@ -612,7 +668,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -646,7 +702,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                     required={false}
                     key={field.key}
                   >
-                    <Stack direction={'horizontal'} gap={'m'}>
+                    <Stack direction={'horizontal'} flexGap={'m'}>
                       <Form.Item
                         {...field}
                         validateTrigger={['onChange', 'onBlur']}
@@ -719,13 +775,19 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
 };
 
 const Dynamic_Form_Nest_Items_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -806,6 +868,12 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
 ) => {
   const [form] = Form.useForm();
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const areaOptions: SelectOption[] = [
     {
       selected: true,
@@ -874,7 +942,7 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -982,6 +1050,12 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
 };
 
 const Nest_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const layout = {
     labelCol: { span: 2 },
     wrapperCol: { span: 8 },
@@ -1006,7 +1080,7 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -1055,6 +1129,13 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
 
 const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
   const [form] = Form.useForm();
+
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const defaultOptions: SelectOption[] = [
     {
       text: 'Seattle',
@@ -1080,7 +1161,7 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -1092,7 +1173,7 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
           wrapperCol={{ span: 10 }}
         >
           <Form.Item label={'Username'}>
-            <Stack direction={'horizontal'} gap={'m'}>
+            <Stack direction={'horizontal'} flexGap={'m'}>
               <Form.Item
                 name={'username'}
                 noStyle
@@ -1147,7 +1228,7 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
             </Stack>
           </Form.Item>
           <Form.Item label="Date of Birth">
-            <Stack direction={'horizontal'} gap={'xxs'}>
+            <Stack direction={'horizontal'} flexGap={'xxs'}>
               <Form.Item
                 name={'year'}
                 rules={[{ required: true }]}
@@ -1224,7 +1305,7 @@ const PriceInput: FC<PriceInputProps> = ({ value = {}, onChange }) => {
   };
 
   return (
-    <Stack direction={'horizontal'} gap={'s'} fullWidth>
+    <Stack direction={'horizontal'} flexGap={'s'} fullWidth>
       <TextInput
         numbersOnly
         value={value.number || number}
@@ -1243,6 +1324,12 @@ const PriceInput: FC<PriceInputProps> = ({ value = {}, onChange }) => {
 };
 
 const Custom_Form_Controls_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const checkPrice = (_: any, value: { number: number }) => {
     if (value.number > 0) {
       return Promise.resolve();
@@ -1256,7 +1343,7 @@ const Custom_Form_Controls_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -1323,13 +1410,19 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({
 );
 
 const Store_Form_Data_Story: ComponentStory<typeof Form> = () => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const [fields, setFields] = useState<FieldData[]>([
     { name: ['username'], value: 'Octuple' },
   ]);
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <>
@@ -1339,7 +1432,9 @@ const Store_Form_Data_Story: ComponentStory<typeof Form> = () => {
               setFields(newFields);
             }}
           />
-          <pre>{JSON.stringify(fields, null, 2)}</pre>
+          <pre style={{ color: 'var(--text-primary-color)' }}>
+            {JSON.stringify(fields, null, 2)}
+          </pre>
         </>
       }
     />
@@ -1429,6 +1524,12 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
 const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
   const [visible, setVisible] = useState(false);
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const showUserModal = () => {
     setVisible(true);
   };
@@ -1443,7 +1544,7 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form.Provider
@@ -1480,7 +1581,7 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
                       <li key={index}>
                         <Stack
                           direction={'horizontal'}
-                          gap={'xs'}
+                          flexGap={'xs'}
                           style={{ marginBottom: 8 }}
                         >
                           <Avatar
@@ -1506,7 +1607,7 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
                     ))}
                   </ul>
                 ) : (
-                  <Stack direction={'horizontal'} gap={'s'} fullWidth>
+                  <Stack direction={'horizontal'} flexGap={'s'} fullWidth>
                     <Icon path={IconName.mdiAccount} />
                     <span>
                       {' '}
@@ -1652,6 +1753,12 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
 const Form_In_Modal_Story: ComponentStory<typeof Form> = () => {
   const [visible, setVisible] = useState(false);
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const onDecline = (values: any) => {
     console.log('Received values of form: ', values);
     setVisible(false);
@@ -1659,7 +1766,7 @@ const Form_In_Modal_Story: ComponentStory<typeof Form> = () => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <>
@@ -1684,6 +1791,12 @@ const Form_In_Modal_Story: ComponentStory<typeof Form> = () => {
 };
 
 const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const formItemLayout = {
     labelCol: {
       xs: { span: 12 },
@@ -1699,7 +1812,7 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
       {
         type: 'object' as const,
         required: true,
-        message: 'Please select time.',
+        message: 'Please select a date or time.',
       },
     ],
   };
@@ -1708,7 +1821,7 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
       {
         type: 'array' as const,
         required: true,
-        message: 'Please select time.',
+        message: 'Please select a date or time.',
       },
     ],
   };
@@ -1739,7 +1852,7 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form
@@ -1792,6 +1905,12 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
 const Manual_Form_Data_Story: ComponentStory<typeof Form> = (args) => {
   type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const validatePrimeNumber = (
     number: number
   ): {
@@ -1837,7 +1956,7 @@ const Manual_Form_Data_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form {...args}>
@@ -1862,6 +1981,12 @@ const Manual_Form_Data_Story: ComponentStory<typeof Form> = (args) => {
 };
 
 const Custom_Validation_Story: ComponentStory<typeof Form> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const formItemLayout = {
     labelCol: {
       xs: { span: 12 },
@@ -1875,7 +2000,7 @@ const Custom_Validation_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form {...args} {...formItemLayout}>
@@ -1978,6 +2103,12 @@ const Dynamic_Rules_Story: ComponentStory<typeof Form> = (args) => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = useState(false);
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const formItemLayout = {
     labelCol: { span: 2 },
     wrapperCol: { span: 10 },
@@ -2007,7 +2138,7 @@ const Dynamic_Rules_Story: ComponentStory<typeof Form> = (args) => {
 
   return (
     <ConfigProvider
-      themeOptions={{ name: 'blue' }}
+      themeOptions={{ name: 'blue', dark }}
       locale={enUS}
       children={
         <Form {...args} form={form} name={'dynamic-rule'}>
@@ -2093,6 +2224,44 @@ export const Dates_and_Times = Dates_and_Times_Story.bind({});
 export const Manual_Form_Data = Manual_Form_Data_Story.bind({});
 export const Custom_Validation = Custom_Validation_Story.bind({});
 export const Dynamic_Rules = Dynamic_Rules_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Disabled',
+  'Methods',
+  'Flex',
+  'Large',
+  'Medium',
+  'Small',
+  'Rectangle',
+  'Pill',
+  'Underline',
+  'Horizontal',
+  'Vertical',
+  'Inline',
+  'Label_Wrap',
+  'Required',
+  'Required_Hidden',
+  'Optional',
+  'Non_Blocking',
+  'Watch_Hooks',
+  'Dynamic_Form_Item',
+  'Dynamic_Form_Nest_Items',
+  'Complex_Dynamic_Form_Items',
+  'Nest',
+  'Complex_Form_Control',
+  'Custom_Form_Controls',
+  'Store_Form_Data',
+  'Control_Between_Forms',
+  'Form_In_Modal',
+  'Dates_and_Times',
+  'Manual_Form_Data',
+  'Custom_Validation',
+  'Dynamic_Rules',
+];
 
 const formArgs: Object = {
   disabled: false,

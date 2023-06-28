@@ -18,7 +18,7 @@ export default {
               <p>
                 Persistent bars are sticky sections that can be used to
                 highlight a few actions that are out of the view to be displayed
-                inside the view. For example, if there’s a very long form with
+                inside the view. For example, if there's a very long form with
                 Save and Cancel buttons at the bottom, we can use the bottom bar
                 to show those two buttons in the view. We are making these bars
                 to be flexible in height and also allowing any component to be
@@ -41,17 +41,30 @@ export default {
   },
 } as ComponentMeta<typeof PersistentBar>;
 
-const Bar_Story: ComponentStory<typeof PersistentBar> = (args) => (
+const PersistentBar_Story: ComponentStory<typeof PersistentBar> = (args) => (
   <PersistentBar {...args} />
 );
 
-export const BottomBarWithText = Bar_Story.bind({});
-export const BottomBarSecondaryButtons = Bar_Story.bind({});
-export const BottomBarButtonsOnLeft = Bar_Story.bind({});
-export const TopBarButtons = Bar_Story.bind({});
-export const TopBarButtonsLegacy = Bar_Story.bind({});
-export const TopBarWithText = Bar_Story.bind({});
-export const TopBarPagination = Bar_Story.bind({});
+export const Bottom_Bar_With_Text = PersistentBar_Story.bind({});
+export const Bottom_Bar_Secondary_Buttons = PersistentBar_Story.bind({});
+export const Bottom_Bar_Buttons_On_Left = PersistentBar_Story.bind({});
+export const Top_Bar_Buttons = PersistentBar_Story.bind({});
+export const Top_Bar_Buttons_Legacy = PersistentBar_Story.bind({});
+export const Top_Bar_With_Text = PersistentBar_Story.bind({});
+export const Top_Bar_Pagination = PersistentBar_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Bottom_Bar_With_Text',
+  'Bottom_Bar_Secondary_Buttons',
+  'Bottom_Bar_Buttons_On_Left',
+  'Top_Bar_Buttons',
+  'Top_Bar_Buttons_Legacy',
+  'Top_Bar_With_Text',
+  'Top_Bar_Pagination',
+];
 
 const paginationArgs: Object = {
   classNames: 'my-pagination-class',
@@ -91,7 +104,7 @@ const persistentBarArgs: Object = {
   paginationTotal: 150,
 };
 
-BottomBarWithText.args = {
+Bottom_Bar_With_Text.args = {
   ...persistentBarArgs,
   actionButtonOneProps: {
     ariaLabel: 'Primary',
@@ -114,7 +127,7 @@ BottomBarWithText.args = {
   type: PersistentBarType.bottomBarWithText,
 };
 
-BottomBarSecondaryButtons.args = {
+Bottom_Bar_Secondary_Buttons.args = {
   ...persistentBarArgs,
   actionButtonOneProps: {
     ariaLabel: 'Default',
@@ -143,7 +156,7 @@ BottomBarSecondaryButtons.args = {
   type: PersistentBarType.bottomBarSecondaryButtons,
 };
 
-BottomBarButtonsOnLeft.args = {
+Bottom_Bar_Buttons_On_Left.args = {
   ...persistentBarArgs,
   actionButtonOneProps: {
     ariaLabel: 'Default',
@@ -172,7 +185,7 @@ BottomBarButtonsOnLeft.args = {
   type: PersistentBarType.bottomBarButtonsOnLeft,
 };
 
-TopBarButtons.args = {
+Top_Bar_Buttons.args = {
   ...persistentBarArgs,
   buttonMenuProps: [
     {
@@ -239,7 +252,7 @@ TopBarButtons.args = {
 };
 
 // TODO: Remove in Octuple v3.0.0
-TopBarButtonsLegacy.args = {
+Top_Bar_Buttons_Legacy.args = {
   ...persistentBarArgs,
   buttonMenuProps: [
     {
@@ -305,14 +318,14 @@ TopBarButtonsLegacy.args = {
   type: PersistentBarType.topBarButtons,
 };
 
-TopBarWithText.args = {
+Top_Bar_With_Text.args = {
   ...persistentBarArgs,
   type: PersistentBarType.topBarWithText,
   content: 'Body2 is used for supporting text.',
   title: 'Header 4 as Title:',
 };
 
-TopBarPagination.args = {
+Top_Bar_Pagination.args = {
   ...persistentBarArgs,
   type: PersistentBarType.topBarPagination,
   paginationArgs,

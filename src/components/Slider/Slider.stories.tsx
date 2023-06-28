@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slider, SliderSize, SliderTrackStatus } from './';
 import { Stack } from '../Stack';
@@ -6,6 +6,7 @@ import { Col, Row } from '../Grid';
 import { PrimaryButton } from '../Button';
 import { useArgs } from '@storybook/client-api';
 import { ConfigProvider } from '../ConfigProvider';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
   title: 'Slider',
@@ -47,7 +48,9 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingAValue}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingAValue}
+        </div>
       </Stack>
       <Row style={{ marginTop: 100 }}>
         <Col span={6} push={3}>
@@ -62,7 +65,9 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
         </Col>
       </Row>
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValue}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValue}
+        </div>
       </Stack>
     </Stack>
   );
@@ -92,8 +97,12 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingAValues}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValues[0]}</div>
-        <div>{transientSlidingAValues[1]}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingAValues[0]}
+        </div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingAValues[1]}
+        </div>
       </Stack>
       <Row style={{ marginTop: 100 }}>
         <Col span={6} push={3}>
@@ -110,8 +119,12 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
         </Col>
       </Row>
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValues[0]}</div>
-        <div>{transientSlidingBValues[1]}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValues[0]}
+        </div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValues[1]}
+        </div>
       </Stack>
     </Stack>
   );
@@ -141,7 +154,9 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingAValue}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingAValue}
+        </div>
       </Stack>
       <Slider
         {...args}
@@ -152,8 +167,12 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingBValues}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValues[0]}</div>
-        <div>{transientSlidingBValues[1]}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValues[0]}
+        </div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValues[1]}
+        </div>
       </Stack>
     </Stack>
   );
@@ -265,7 +284,9 @@ const Dots_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingAValue}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingAValue}
+        </div>
       </Stack>
     </Stack>
   );
@@ -297,7 +318,9 @@ const Toggle_Thumb_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingAValue}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingAValue}
+        </div>
       </Stack>
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <PrimaryButton
@@ -826,7 +849,9 @@ const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingValue}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingValue}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingValue}
+        </div>
       </Stack>
     </Stack>
   );
@@ -852,8 +877,12 @@ const Data_Inactive_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingBValues}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValues[0]}</div>
-        <div>{transientSlidingBValues[1]}</div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValues[0]}
+        </div>
+        <div style={{ color: 'var(--text-primary-color)' }}>
+          {transientSlidingBValues[1]}
+        </div>
       </Stack>
     </Stack>
   );
@@ -875,6 +904,12 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
   const handleChangeTarget = (val: number): void => {
     setTargetSlidingValue(val);
   };
+
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
 
   const updateMarks = (
     value?: number,
@@ -952,6 +987,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       icomoonIconSet={iconSet}
       themeOptions={{
         name: 'blue',
+        dark,
       }}
     >
       <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
@@ -973,8 +1009,12 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
           />
         </div>
         <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-          <div>{transientSlidingValues[0]}</div>
-          <div>{transientSlidingValues[1]}</div>
+          <div style={{ color: 'var(--text-primary-color)' }}>
+            {transientSlidingValues[0]}
+          </div>
+          <div style={{ color: 'var(--text-primary-color)' }}>
+            {transientSlidingValues[1]}
+          </div>
         </Stack>
         <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
           <PrimaryButton
@@ -1003,6 +1043,24 @@ export const Toggle_Thumb = Toggle_Thumb_Story.bind({});
 export const With_Benchmark = With_Benchmark_Story.bind({});
 export const Data_Inactive = Data_Inactive_Story.bind({});
 export const Data_Active = Data_Active_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Standard_Slider',
+  'Range_Slider',
+  'Inline_Extemity_Labels',
+  'Custom_Markers_Included',
+  'Custom_Markers_Excluded',
+  'Custom_Markers_With_Step',
+  'Custom_Markers_Null_Step',
+  'Dots',
+  'Toggle_Thumb',
+  'With_Benchmark',
+  'Data_Inactive',
+  'Data_Active',
+];
 
 const sliderArgs: Object = {
   allowDisabledFocus: false,
@@ -1078,7 +1136,7 @@ Custom_Markers_Included.args = {
     37: '37%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },
@@ -1095,7 +1153,7 @@ Custom_Markers_Excluded.args = {
     37: '37%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },
@@ -1111,7 +1169,7 @@ Custom_Markers_With_Step.args = {
     30: '30%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },
@@ -1127,7 +1185,7 @@ Custom_Markers_Null_Step.args = {
     37: '37%',
     100: {
       style: {
-        color: 'var(--red-color-70)',
+        color: 'var(--red-secondary-color)',
       },
       label: <strong>100%</strong>,
     },

@@ -8,7 +8,8 @@ $tree-node-hightlight-color: inherit;
   @include reset-component();
   background: var(--background-color);
   border-radius: $tree-border-radius-base;
-  font-family: $octuple-font-family;
+  color: var(--text-primary-color);
+  font-family: var(--font-stack-full);
   transition: background-color 0.3s;
 
   &-focused:not(:hover):not(&-active-focused) {
@@ -184,7 +185,7 @@ $tree-node-hightlight-color: inherit;
     min-height: $tree-title-height;
     margin: 0;
     padding: 0 4px;
-    color: inherit;
+    color: var(--text-primary-color);
     line-height: $tree-title-height;
     background: transparent;
     border-radius: $tree-border-radius-base;

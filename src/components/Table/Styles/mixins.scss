@@ -1,5 +1,5 @@
 $border-width: 1px;
-$border-color: var(--grey-color-20);
+$border-color: var(--grey-background2-color);
 $border: $border-width solid $border-color;
 
 @mixin operation-unit() {
@@ -11,15 +11,15 @@ $border: $border-width solid $border-color;
 
   &:focus,
   &:hover {
-    color: var(--primary-color-80);
+    color: var(--primary-color);
   }
 
   &:active {
-    color: var(--primary-color-80);
+    color: var(--primary-color);
   }
 }
 
 @mixin table-border() {
-  border: $table-border;
+  border: var(--table-border);
   border-radius: $table-border-radius;
 }

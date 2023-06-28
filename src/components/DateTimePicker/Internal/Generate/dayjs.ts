@@ -43,6 +43,7 @@ const localeMap: IlocaleMapObject = {
   fr_CA: 'fr-ca', // Français (Canada)
   fr_FR: 'fr', // Français
   he_IL: 'he', // עברית
+  hi_IN: 'hi', // हिंदी
   hr_HR: 'hr', // Hrvatski
   ht_HT: 'ht', // Haitian
   hu_HU: 'hu', // Magyar

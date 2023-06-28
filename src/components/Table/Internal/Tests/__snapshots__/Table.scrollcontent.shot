@@ -4,7 +4,7 @@ exports[`Table.Basic custom components scroll content with scroll 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table table-fixed-header table-scroll-horizontal",
+      "class": "table table-row-hover table-fixed-header table-scroll-horizontal",
     },
     "children": Array [
       Node {

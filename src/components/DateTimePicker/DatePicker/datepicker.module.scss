@@ -11,11 +11,11 @@
   );
 
   align-items: center;
-  background: $picker-background-color;
-  border: $picker-border-width $picker-border-style $picker-border-color;
+  background: var(--picker-background-color);
+  border: var(--picker-border);
   border-radius: $picker-border-radius;
   display: inline-flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   position: relative;
   transition: border $motion-duration-extra-fast,
     box-shadow $motion-duration-extra-fast;
@@ -25,7 +25,7 @@
   }
 
   &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-    @include active();
+    @include hover();
   }
 
   &-disabled {
@@ -101,14 +101,14 @@
   }
 
   &-separator {
-    color: $picker-foreground-color;
+    color: var(--picker-foreground-color);
     cursor: default;
     display: inline-block;
     position: relative;
-    top: 8px;
+    top: $space-xs;
 
     .picker-focused {
-      color: $picker-foreground-color;
+      color: var(--picker-foreground-color);
     }
 
     .picker-range-separator {
@@ -148,7 +148,7 @@
       bottom: -$picker-border-width;
       height: $space-xxxs;
       margin-left: $picker-input-padding-horizontal-l;
-      background: $picker-input-active-bar-color;
+      background: var(--picker-input-active-bar-color);
       opacity: 0;
       transition: all $motion-duration-extra-fast;
       pointer-events: none;

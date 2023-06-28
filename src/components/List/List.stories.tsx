@@ -53,22 +53,20 @@ const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
   img: '',
 }));
 
-const Vertical_Story: ComponentStory<typeof List> = (args) => (
-  <List {...args} />
-);
+const List_Story: ComponentStory<typeof List> = (args) => <List {...args} />;
 
-export const Vertical = Vertical_Story.bind({});
+export const Vertical = List_Story.bind({});
+export const Horizontal = List_Story.bind({});
 
-const Horizontal_Story: ComponentStory<typeof List> = (args) => (
-  <List {...args} />
-);
-
-export const Horizontal = Horizontal_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Vertical', 'Horizontal'];
 
 const listArgs: Object = {
   items: sampleList,
   footer: (
-    <div style={{ paddingLeft: '16px' }}>
+    <div style={{ color: 'var(--text-primary-color)', paddingLeft: '16px' }}>
       <h3>Footer</h3>
     </div>
   ),
@@ -80,14 +78,14 @@ const listArgs: Object = {
     </div>
   ),
   header: (
-    <div style={{ paddingLeft: '16px' }}>
+    <div style={{ color: 'var(--text-primary-color)', paddingLeft: '16px' }}>
       <h2>Header</h2>
     </div>
   ),
   classNames: 'my-list-class',
   style: {},
   itemClassNames: 'my-list-item-class',
-  itemStyle: { padding: '8px 16px' },
+  itemStyle: { color: 'var(--text-primary-color)', padding: '8px 16px' },
   listType: 'ul',
   role: '',
 };

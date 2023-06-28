@@ -117,6 +117,10 @@ function collectSortStates<RecordType>(
   return sortStates;
 }
 
+const getSortIcon = (icon: IconName): JSX.Element => (
+  <Icon path={icon} size={IconSize.Small} />
+);
+
 function injectSorter<RecordType>(
   cancelSortText: string,
   columns: ColumnsType<RecordType>,
@@ -125,43 +129,33 @@ function injectSorter<RecordType>(
   defaultSortDirections: SortOrder[],
   triggerAscText: string,
   triggerDescText: string,
+  tableShowSorterDefaultIcon?: boolean,
   tableShowSorterTooltip?: boolean | TooltipProps,
   pos?: string
 ): ColumnsType<RecordType> {
   return (columns || []).map((column, index) => {
-    const columnPos = getColumnPos(index, pos);
+    const columnPos: string = getColumnPos(index, pos);
     let newColumn: ColumnsType<RecordType>[number] = column;
 
     if (newColumn.sorter) {
       const sortDirections: SortOrder[] =
         newColumn.sortDirections || defaultSortDirections;
-      const showSorterTooltip =
+      const showSorterDefaultIcon: boolean =
+        newColumn.showSorterDefaultIcon === undefined
+          ? tableShowSorterDefaultIcon
+          : newColumn.showSorterDefaultIcon;
+      const showSorterTooltip: boolean | TooltipProps =
         newColumn.showSorterTooltip === undefined
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
-      const columnKey = getColumnKey(newColumn, columnPos);
-      const sorterState = sorterStates.find(({ key }) => key === columnKey);
-      const sorterOrder = sorterState ? sorterState.sortOrder : null;
-      const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
-      const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
-        <Icon
-          classNames={mergeClasses([
-            styles.tableColumnSorterUp,
-            { [styles.active]: sorterOrder === ASCEND },
-          ])}
-          path={IconName.mdiChevronUp}
-          size={IconSize.Small}
-        />
+      const columnKey: React.Key = getColumnKey(newColumn, columnPos);
+      const sorterState: SortState<RecordType> = sorterStates.find(
+        ({ key }) => key === columnKey
       );
-      const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
-        <Icon
-          classNames={mergeClasses([
-            styles.tableColumnSorterDown,
-            { [styles.active]: sorterOrder === DESCEND },
-          ])}
-          path={IconName.mdiChevronDown}
-          size={IconSize.Small}
-        />
+      const sorterOrder: SortOrder = sorterState ? sorterState.sortOrder : null;
+      const nextSortOrder: SortOrder = nextSortDirection(
+        sortDirections,
+        sorterOrder
       );
       let sortTip: string | undefined = cancelSortText;
       if (nextSortOrder === DESCEND) {
@@ -188,14 +182,18 @@ function injectSorter<RecordType>(
               <span
                 className={mergeClasses([
                   styles.tableColumnSorter,
-                  {
-                    ['table-column-sorter-full']: !!(upNode && downNode),
-                  },
+                  { [styles.tableColumnSorterUp]: sorterOrder === ASCEND },
+                  { [styles.tableColumnSorterDown]: sorterOrder === DESCEND },
                 ])}
               >
                 <span className={styles.tableColumnSorterInner}>
-                  {upNode}
-                  {downNode}
+                  {sorterOrder === ASCEND && getSortIcon(IconName.mdiArrowUp)}
+                  {sorterOrder === DESCEND &&
+                    getSortIcon(IconName.mdiArrowDown)}
+                  {sorterOrder !== ASCEND &&
+                    sorterOrder !== DESCEND &&
+                    showSorterDefaultIcon &&
+                    getSortIcon(IconName.mdiArrowUpDown)}
                 </span>
               </span>
             </div>
@@ -248,6 +246,9 @@ function injectSorter<RecordType>(
             }
           }
 
+          // Ensures the cell has the proper role.
+          cell.role = 'button';
+
           cell.className = mergeClasses([
             cell.className,
             styles.tableColumnHasSorters,
@@ -270,6 +271,7 @@ function injectSorter<RecordType>(
           defaultSortDirections,
           triggerAscText,
           triggerDescText,
+          tableShowSorterDefaultIcon,
           tableShowSorterTooltip,
           columnPos
         ),
@@ -382,6 +384,7 @@ interface SorterConfig<RecordType> {
   sortDirections: SortOrder[];
   triggerAscText: string;
   triggerDescText: string;
+  showSorterDefaultIcon?: boolean;
   showSorterTooltip?: boolean | TooltipProps;
 }
 
@@ -392,6 +395,7 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   triggerAscText,
   triggerDescText,
+  showSorterDefaultIcon,
   showSorterTooltip,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
@@ -494,6 +498,7 @@ export default function useFilterSorter<RecordType>({
       sortDirections,
       triggerAscText,
       triggerDescText,
+      showSorterDefaultIcon,
       showSorterTooltip
     );
 

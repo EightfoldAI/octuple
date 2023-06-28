@@ -12,6 +12,8 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { mergeClasses } from '../../shared/utilities';
 import { PaginationLayoutOptions } from '../Pagination';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { ConfigProvider } from '../ConfigProvider';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
   title: 'Table',
@@ -100,6 +102,10 @@ export default {
     },
     onRowHoverLeave: {
       action: 'onMouseLeave',
+    },
+    loading: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
     },
   },
 } as ComponentMeta<typeof Component>;
@@ -1241,52 +1247,70 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
 
+    const dark = useDarkMode();
+
+    useEffect(() => {
+      console.log('dark mode: ' + dark);
+    }, [dark]);
+
     return (
-      <Grid
-        ref={gridRef}
-        className="virtual-grid"
-        columnCount={mergedColumns.length}
-        columnWidth={(index: number) => {
-          const { width } = mergedColumns[index];
-          return totalHeight > scroll!.y! && index === mergedColumns.length - 1
-            ? (width as number) - scrollbarSize - 1
-            : (width as number);
-        }}
-        height={scroll!.y as number}
-        rowCount={rawData.length}
-        rowHeight={() => 54}
-        width={tableWidth}
-        onScroll={({ scrollLeft }: { scrollLeft: number }) => {
-          onScroll({ scrollLeft });
+      <ConfigProvider
+        themeOptions={{
+          name: 'blue',
+          dark,
         }}
       >
-        {({
-          columnIndex,
-          rowIndex,
-          style,
-        }: {
-          columnIndex: number;
-          rowIndex: number;
-          style: React.CSSProperties;
-        }) => (
-          <div
-            className={mergeClasses([
-              'virtual-table-cell',
+        <Grid
+          ref={gridRef}
+          className="virtual-grid"
+          columnCount={mergedColumns.length}
+          columnWidth={(index: number) => {
+            const { width } = mergedColumns[index];
+            return totalHeight > Number(scroll!.y!) &&
+              index === mergedColumns.length - 1
+              ? (width as number) - scrollbarSize - 1
+              : (width as number);
+          }}
+          height={scroll!.y as number}
+          rowCount={rawData.length}
+          rowHeight={() => 54}
+          width={tableWidth}
+          onScroll={({ scrollLeft }: { scrollLeft: number }) => {
+            onScroll({ scrollLeft });
+          }}
+        >
+          {({
+            columnIndex,
+            rowIndex,
+            style,
+          }: {
+            columnIndex: number;
+            rowIndex: number;
+            style: React.CSSProperties;
+          }) => (
+            <div
+              className={mergeClasses([
+                'virtual-table-cell',
+                {
+                  'virtual-table-cell-last':
+                    columnIndex === mergedColumns.length - 1,
+                },
+              ])}
+              style={{
+                ...style,
+                background: 'var(--background-color)',
+                borderBottom: '1px solid var(--grey-color)',
+              }}
+            >
               {
-                'virtual-table-cell-last':
-                  columnIndex === mergedColumns.length - 1,
-              },
-            ])}
-            style={style}
-          >
-            {
-              (rawData[rowIndex] as any)[
-                (mergedColumns as any)[columnIndex].dataIndex
-              ]
-            }
-          </div>
-        )}
-      </Grid>
+                (rawData[rowIndex] as any)[
+                  (mergedColumns as any)[columnIndex].dataIndex
+                ]
+              }
+            </div>
+          )}
+        </Grid>
+      </ConfigProvider>
     );
   };
 
@@ -1365,6 +1389,8 @@ export const Header_Bordered = Table_Base_Story.bind({});
 export const Inner_Bordered = Table_Base_Story.bind({});
 export const Outer_Bordered = Table_Base_Story.bind({});
 export const Row_Bordered = Table_Base_Story.bind({});
+export const Column_Bordered = Table_Base_Story.bind({});
+export const Row_Hover_Background_Disabled = Table_Base_Story.bind({});
 export const Small = Table_Base_Story.bind({});
 export const Medium = Table_Base_Story.bind({});
 export const Large = Table_Base_Story.bind({});
@@ -1403,12 +1429,54 @@ export const Virtual_List: FC = () => {
   );
 };
 
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Basic',
+  'Bordered',
+  'Cell_Bordered',
+  'Header_Bordered',
+  'Inner_Bordered',
+  'Outer_Bordered',
+  'Row_Bordered',
+  'Column_Bordered',
+  'Row_Hover_Background_Disabled',
+  'Small',
+  'Medium',
+  'Large',
+  'Empty',
+  'Header_Grouping',
+  'Header_And_Footer',
+  'Fixed_Header',
+  'Fixed_Columns',
+  'Fixed_Columns_and_Header',
+  'Fixed_Columns_with_Scroller',
+  'Fixed_Columns_and_Header_with_Scroller',
+  'Selection',
+  'Expandable_Row',
+  'Order_Select_And_Expand_Column',
+  'Colspan_Rows',
+  'Sort',
+  'Sort_Multiple',
+  'Summary',
+  'Filter',
+  'Ellipsis',
+  'Ellipsis_With_Tooltip',
+  'Responsive',
+  'Tree',
+  'Nested',
+  'Page_Sizes',
+  'Virtual_List',
+];
+
 const tableArgs: Object = {
   alternateRowColor: true,
   headerClassName: 'my-header',
   bordered: true,
   classNames: 'my-table-class',
   id: 'myTableId',
+  loading: false,
   columns: basicCols,
   dataSource: data,
   pagination: {
@@ -1464,6 +1532,17 @@ Row_Bordered.args = {
   ...tableArgs,
   bordered: false,
   rowBordered: true,
+};
+
+Column_Bordered.args = {
+  ...tableArgs,
+  bordered: false,
+  columnBordered: true,
+};
+
+Row_Hover_Background_Disabled.args = {
+  ...tableArgs,
+  rowHoverBackgroundEnabled: false,
 };
 
 Small.args = {

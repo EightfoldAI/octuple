@@ -78,6 +78,7 @@ function InternalTable<RecordType extends object = any>(
     children,
     classNames,
     collapseText: defaultCollapseText,
+    columnBordered = false,
     columns,
     dataSource,
     emptyText: defaultEmptyText,
@@ -103,12 +104,16 @@ function InternalTable<RecordType extends object = any>(
     pagination,
     rowBordered = false,
     rowClassName,
+    rowHoverBackgroundEnabled = true,
     rowKey,
     rowSelection,
     scroll,
+    selectAllRowsText: defaultSelectAllRowsText,
     selectInvertText: defaultSelectInvertText,
     selectionAllText: defaultSelectionAllText,
     selectNoneText: defaultSelectNoneText,
+    selectRowText: defaultSelectRowText,
+    showSorterDefaultIcon = true,
     showSorterTooltip = true,
     size = TableSize.Medium,
     sortDirections,
@@ -211,6 +216,9 @@ function InternalTable<RecordType extends object = any>(
   const [emptyTextDetails, setEmptyTextDetails] = useState<string>(
     defaultEmptyTextDetails
   );
+  const [selectAllRowsText, setSelectAllRowsText] = useState<string>(
+    defaultSelectAllRowsText
+  );
   const [selectInvertText, setSelectInvertText] = useState<string>(
     defaultSelectInvertText
   );
@@ -220,6 +228,8 @@ function InternalTable<RecordType extends object = any>(
   const [selectionAllText, setSelectionAllText] = useState<string>(
     defaultSelectionAllText
   );
+  const [selectRowText, setSelectRowText] =
+    useState<string>(defaultSelectRowText);
   const [expandText, setExpandText] = useState<string>(defaultExpandText);
   const [collapseText, setCollapseText] = useState<string>(defaultCollapseText);
   const [triggerDescText, setTriggerDescText] = useState<string>(
@@ -274,6 +284,11 @@ function InternalTable<RecordType extends object = any>(
         ? props.emptyTextDetails
         : mergedLocale.lang!.emptyTextDetails
     );
+    setSelectAllRowsText(
+      props.selectAllRowsText
+        ? props.selectAllRowsText
+        : mergedLocale.lang!.selectAllRowsText
+    );
     setSelectInvertText(
       props.selectInvertText
         ? props.selectInvertText
@@ -288,6 +303,11 @@ function InternalTable<RecordType extends object = any>(
       props.selectionAllText
         ? props.selectionAllText
         : mergedLocale.lang!.selectionAllText
+    );
+    setSelectRowText(
+      props.selectRowText
+        ? props.selectRowText
+        : mergedLocale.lang!.selectRowText
     );
     setExpandText(
       props.expandText ? props.expandText : mergedLocale.lang!.expandText
@@ -414,6 +434,7 @@ function InternalTable<RecordType extends object = any>(
       sortDirections: sortDirections || ['ascend', 'descend'],
       triggerAscText,
       triggerDescText,
+      showSorterDefaultIcon,
       showSorterTooltip,
     });
   const sortedData = useMemo(
@@ -574,9 +595,11 @@ function InternalTable<RecordType extends object = any>(
       expandType,
       childrenColumnName,
       getPopupContainer,
+      selectAllRowsText,
       selectionAllText,
       selectInvertText,
       selectNoneText,
+      selectRowText,
     }
   );
 
@@ -687,10 +710,18 @@ function InternalTable<RecordType extends object = any>(
     }
   }
 
-  if (typeof loading === 'boolean') {
-    return <Spinner size={SpinnerSize.Large} />;
+  if (typeof loading === 'boolean' && loading) {
+    return (
+      <div className={styles.tableSpinner}>
+        <Spinner />
+      </div>
+    );
   } else if (typeof loading === 'object') {
-    return <Spinner size={SpinnerSize.Large} />;
+    return (
+      <div className={styles.tableSpinner}>
+        <Spinner {...loading} />
+      </div>
+    );
   }
 
   const renderEmpty = (
@@ -748,7 +779,11 @@ function InternalTable<RecordType extends object = any>(
                 { [styles.tableBordered]: bordered },
                 {
                   [styles.tableCellBordered]:
-                    !bordered && !rowBordered && !innerBordered && cellBordered,
+                    !bordered &&
+                    !rowBordered &&
+                    !innerBordered &&
+                    !columnBordered &&
+                    cellBordered,
                 },
                 {
                   [styles.tableHeaderBordered]:
@@ -767,7 +802,10 @@ function InternalTable<RecordType extends object = any>(
                 },
                 {
                   [styles.tableInnerBordered]:
-                    !bordered && !rowBordered && innerBordered,
+                    !bordered &&
+                    !rowBordered &&
+                    !columnBordered &&
+                    innerBordered,
                 },
                 {
                   [styles.tableOuterBordered]: !bordered && outerBordered,
@@ -775,6 +813,13 @@ function InternalTable<RecordType extends object = any>(
                 {
                   [styles.tableRowBordered]:
                     !bordered && !innerBordered && rowBordered,
+                },
+                {
+                  [styles.tableColumnBordered]:
+                    !bordered && !innerBordered && columnBordered,
+                },
+                {
+                  [styles.tableRowHover]: rowHoverBackgroundEnabled,
                 },
                 { [styles.tableEmpty]: rawData.length === 0 },
               ])}

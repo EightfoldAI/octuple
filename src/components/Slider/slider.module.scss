@@ -136,6 +136,35 @@ $small-min-label-offset-with-steps: 0;
     &-tooltip {
       min-width: max-content;
     }
+
+    .hide-slider-tooltip {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .rail-marker-segments {
+    pointer-events: none;
+  }
+
+  .slider-hit-target {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .rail-marker-segments {
+    pointer-events: none;
+  }
+
+  .slider-hit-target {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
   }
 
   .slider-rail,

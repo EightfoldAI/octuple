@@ -93,29 +93,24 @@ export default {
   },
 } as ComponentMeta<typeof Stack>;
 
-const Horizontal_Story: ComponentStory<typeof Stack> = (args) => {
-  return <Stack {...args}>{args.children}</Stack>;
-};
+const Stack_Story: ComponentStory<typeof Stack> = (args) => (
+  <Stack {...args}>{args.children}</Stack>
+);
 
-export const Horizontal = Horizontal_Story.bind({});
+export const Horizontal = Stack_Story.bind({});
+export const Vertical = Stack_Story.bind({});
+export const Responsive = Stack_Story.bind({});
+export const Sample_Nav_List = Stack_Story.bind({});
 
-const Vertical_Story: ComponentStory<typeof Stack> = (args) => {
-  return <Stack {...args}>{args.children}</Stack>;
-};
-
-export const Vertical = Vertical_Story.bind({});
-
-const Responsive_Story: ComponentStory<typeof Stack> = (args) => {
-  return <Stack {...args}>{args.children}</Stack>;
-};
-
-export const Responsive = Responsive_Story.bind({});
-
-const Sample_Nav_List_Story: ComponentStory<typeof Stack> = (args) => {
-  return <Stack {...args}>{args.children}</Stack>;
-};
-
-export const Sample_Nav_List = Sample_Nav_List_Story.bind({});
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = [
+  'Horizontal',
+  'Vertical',
+  'Responsive',
+  'Sample_Nav_List',
+];
 
 const stackArgs: Object = {
   fullWidth: false,
@@ -126,7 +121,7 @@ const stackArgs: Object = {
   wrap: '',
   flexGap: '',
   style: {
-    backgroundColor: 'aquamarine',
+    backgroundColor: 'var(--bluegreen-color)',
   },
   classNames: 'my-stack-class',
   breakpoints: {},
@@ -136,21 +131,21 @@ const stackArgs: Object = {
         style={{
           height: '200px',
           width: '200px',
-          backgroundColor: 'mediumpurple',
+          backgroundColor: 'var(--blueviolet-color)',
         }}
       />
       <div
         style={{
           height: '200px',
           width: '200px',
-          backgroundColor: 'mediumpurple',
+          backgroundColor: 'var(--blueviolet-color)',
         }}
       />
       <div
         style={{
           height: '200px',
           width: '200px',
-          backgroundColor: 'mediumpurple',
+          backgroundColor: 'var(--blueviolet-color)',
         }}
       />
     </>
@@ -202,7 +197,10 @@ Sample_Nav_List.args = {
       direction: 'vertical',
     },
   },
-  style: {},
+  style: {
+    background: 'var(--background-color)',
+    color: 'var(--text-primary-color)',
+  },
   children: (
     <>
       <Stack direction="vertical" flexGap="m" classNames={styles.group}>
