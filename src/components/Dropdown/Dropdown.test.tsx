@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
@@ -148,6 +148,184 @@ const ExternalElementDropdownComponent = (): JSX.Element => {
   );
 };
 
+const filterOverlay1 = () => (
+  <List<User>
+    items={sampleList}
+    renderItem={(item) => (
+      <DefaultButton
+        text={'Filter 1' + ' ' + item.name}
+        alignText={ButtonTextAlign.Left}
+        buttonWidth={ButtonWidth.fill}
+        iconProps={{
+          path: item.icon,
+        }}
+        style={{
+          margin: '4px 0',
+        }}
+      />
+    )}
+  />
+);
+
+const filterOverlay2 = () => (
+  <List<User>
+    items={sampleList}
+    renderItem={(item) => (
+      <DefaultButton
+        text={'Filter 2' + ' ' + item.name}
+        alignText={ButtonTextAlign.Left}
+        buttonWidth={ButtonWidth.fill}
+        iconProps={{
+          path: item.icon,
+        }}
+        style={{
+          margin: '4px 0',
+        }}
+      />
+    )}
+  />
+);
+
+const filterOverlay3 = () => (
+  <List<User>
+    items={sampleList}
+    renderItem={(item) => (
+      <DefaultButton
+        text={'Filter 3' + ' ' + item.name}
+        alignText={ButtonTextAlign.Left}
+        buttonWidth={ButtonWidth.fill}
+        iconProps={{
+          path: item.icon,
+        }}
+        style={{
+          margin: '4px 0',
+        }}
+      />
+    )}
+  />
+);
+
+const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
+  const [visibleQuickFilter, setVisibleQuickFilter] = useState<{
+    [x: string]: boolean;
+  }>({});
+  const [filterOneVisible, setFilterOneVisibility] = useState(false);
+  const [filterTwoVisible, setFilterTwoVisibility] = useState(false);
+  const [filterThreeVisible, setFilterThreeVisibility] = useState(false);
+  const [filterThreeText, setFilterThreeText] = useState('Filter three closed');
+
+  const toggleQuickFilterVisibility = ({
+    key,
+    value,
+  }: {
+    key: string;
+    value: boolean;
+  }) => {
+    setVisibleQuickFilter({ [key]: value });
+  };
+
+  useEffect(() => {
+    if ((visibleQuickFilter as any)?.['filter one']) {
+      setFilterOneVisibility(true);
+      setFilterTwoVisibility(false);
+      setFilterThreeVisibility(false);
+    } else if ((visibleQuickFilter as any)?.['filter two']) {
+      setFilterOneVisibility(false);
+      setFilterTwoVisibility(true);
+      setFilterThreeVisibility(false);
+    } else if ((visibleQuickFilter as any)?.['filter three']) {
+      setFilterOneVisibility(false);
+      setFilterTwoVisibility(false);
+      setFilterThreeVisibility(true);
+    }
+
+    setFilterThreeText(
+      (visibleQuickFilter as any)?.['filter three']
+        ? 'Filter three open'
+        : 'Filter three closed'
+    );
+  }, [
+    filterOneVisible,
+    filterTwoVisible,
+    filterThreeVisible,
+    visibleQuickFilter,
+  ]);
+
+  return (
+    <Stack direction="horizontal" flexGap="l">
+      <Dropdown
+        {...dropdownProps}
+        closeOnDropdownClick={false}
+        closeOnOutsideClick={false}
+        dropdownClassNames={'my-dropdown-class-1'}
+        onVisibleChange={(visible: boolean) => {
+          toggleQuickFilterVisibility({
+            key: 'filter one',
+            value: visible,
+          });
+        }}
+        overlay={filterOverlay1()}
+        visible={filterOneVisible}
+      >
+        <DefaultButton
+          alignIcon={ButtonIconAlign.Right}
+          data-testid="test-button-one-id"
+          text={'Filter one'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+          }}
+        />
+      </Dropdown>
+      <Dropdown
+        {...dropdownProps}
+        closeOnDropdownClick={false}
+        closeOnOutsideClick={false}
+        dropdownClassNames={'my-dropdown-class-2'}
+        onVisibleChange={(visible: boolean) => {
+          toggleQuickFilterVisibility({
+            key: 'filter two',
+            value: visible,
+          });
+        }}
+        overlay={filterOverlay2()}
+        visible={filterTwoVisible}
+      >
+        <DefaultButton
+          alignIcon={ButtonIconAlign.Right}
+          data-testid="test-button-two-id"
+          text={'Filter two'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+          }}
+        />
+      </Dropdown>
+      <Dropdown
+        {...dropdownProps}
+        closeOnDropdownClick={false}
+        closeOnOutsideClick={false}
+        dropdownClassNames={'my-dropdown-class-3'}
+        onVisibleChange={(visible: boolean) => {
+          toggleQuickFilterVisibility({
+            key: 'filter three',
+            value: visible,
+          });
+        }}
+        overlay={filterOverlay3()}
+        visible={filterThreeVisible}
+      >
+        <DefaultButton
+          alignIcon={ButtonIconAlign.Right}
+          data-testid="test-button-three-id"
+          text={filterThreeText}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+          }}
+        />
+      </Dropdown>
+    </Stack>
+  );
+};
+
 describe('Dropdown', () => {
   beforeAll(() => {
     matchMedia = new MatchMediaMock();
@@ -234,5 +412,74 @@ describe('Dropdown', () => {
     externalElement.click();
     await waitFor(() => screen.getByText('User profile 1'));
     expect(option1).toBeTruthy();
+  });
+
+  test('Should support visible prop toggle via advanced implementation', async () => {
+    const { container } = render(<AdvancedVisibilityToggleDropdownComponent />);
+    const filterOneReferenceElement = screen.getByTestId('test-button-one-id');
+    const filterTwoReferenceElement = screen.getByTestId('test-button-two-id');
+    const filterThreeReferenceElement = screen.getByTestId(
+      'test-button-three-id'
+    );
+    filterOneReferenceElement.click();
+    await waitFor(() => screen.getByText('Filter 1 User profile 1'));
+    const filterOneOption = screen.getByText('Filter 1 User profile 1');
+    expect(filterOneOption).toBeTruthy();
+    expect(container.querySelector('.dropdown-wrapper')?.classList).toContain(
+      'my-dropdown-class-1'
+    );
+    expect(filterOneReferenceElement.getAttribute('aria-expanded')).toBe(
+      'true'
+    );
+    expect(filterTwoReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    expect(filterThreeReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    filterTwoReferenceElement.click();
+    await waitFor(() => screen.getByText('Filter 2 User profile 1'));
+    const filterTwoOption = screen.getByText('Filter 2 User profile 1');
+    expect(filterTwoOption).toBeTruthy();
+    expect(container.querySelector('.dropdown-wrapper')?.classList).toContain(
+      'my-dropdown-class-2'
+    );
+    expect(filterTwoReferenceElement.getAttribute('aria-expanded')).toBe(
+      'true'
+    );
+    expect(filterOneReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    expect(filterThreeReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    filterThreeReferenceElement.click();
+    await waitFor(() => screen.getByText('Filter 3 User profile 1'));
+    const filterThreeOption = screen.getByText('Filter 3 User profile 1');
+    expect(filterThreeOption).toBeTruthy();
+    expect(container.querySelector('.dropdown-wrapper')?.classList).toContain(
+      'my-dropdown-class-3'
+    );
+    expect(filterThreeReferenceElement.getAttribute('aria-expanded')).toBe(
+      'true'
+    );
+    expect(filterOneReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    expect(filterTwoReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    filterThreeReferenceElement.click();
+    await waitFor(() => screen.getByText('Filter three closed'));
+    await waitFor(
+      () =>
+        filterThreeReferenceElement.getAttribute('aria-expanded') === 'false'
+    );
+    expect(filterOneReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
+    expect(filterTwoReferenceElement.getAttribute('aria-expanded')).toBe(
+      'false'
+    );
   });
 });
