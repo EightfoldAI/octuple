@@ -1,6 +1,6 @@
 .selector {
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   position: relative;
   width: fit-content;
 
@@ -37,7 +37,8 @@
       }
 
       .checkmark {
-        border: $space-xxxs solid var(--grey-secondary-color);
+        background: var(--check-box-background-color);
+        border: var(--check-box-border);
         border-radius: $border-radius-xs;
         height: $checkmark-medium-height;
         width: $checkmark-medium-width;
@@ -50,7 +51,7 @@
           $motion-delay-s;
 
         &:after {
-          border: solid var(--primary-color);
+          border: solid var(--check-box-mark-color);
           border-width: 0 $space-xxxs $space-xxxs 0;
           content: '';
           display: block;
@@ -66,7 +67,8 @@
         }
 
         &.toggle {
-          border: $space-xxxs solid var(--grey-secondary-color);
+          background: var(--toggle-switch-background-color);
+          border: var(--toggle-switch-border);
           border-radius: $toggle-medium-height;
           min-height: $toggle-medium-height;
           height: $toggle-medium-height;
@@ -79,8 +81,8 @@
           width: $toggle-medium-width;
 
           &:after {
-            background-color: var(--grey-secondary-color);
-            border: solid var(--grey-secondary-color);
+            background: var(--toggle-switch-pip-color);
+            border: solid var(--toggle-switch-pip-color);
             border-radius: 50%;
             border-width: $space-xxxs;
             content: '';
@@ -101,16 +103,16 @@
 
     &:not(.disabled):not([disabled]):active + label {
       .checkmark {
-        border: $space-xxxs solid var(--primary-secondary-color);
-        background-color: var(--accent-background3-color);
+        background: var(--check-box-active-background-color);
+        border: var(--check-box-active-border);
 
         &.toggle {
-          border: $space-xxxs solid var(--primary-secondary-color);
-          background-color: var(--accent-background3-color);
+          background: var(--toggle-switch-active-background-color);
+          border: var(--toggle-switch-active-border);
 
           &:after {
-            background-color: var(--primary-secondary-color);
-            border-color: var(--primary-secondary-color);
+            background: var(--toggle-switch-active-pip-color);
+            border-color: var(--toggle-switch-active-pip-color);
           }
         }
       }
@@ -118,16 +120,16 @@
 
     &:not(.disabled):not([disabled]):hover + label {
       .checkmark {
-        border: $space-xxxs solid var(--primary-secondary-color);
-        background-color: var(--accent-background1-color);
+        background: var(--check-box-hover-background-color);
+        border: var(--check-box-hover-border);
 
         &.toggle {
-          border: $space-xxxs solid var(--primary-secondary-color);
-          background-color: var(--accent-background1-color);
+          background: var(--toggle-switch-hover-background-color);
+          border: var(--toggle-switch-hover-border);
 
           &:after {
-            background-color: var(--primary-secondary-color);
-            border-color: var(--primary-secondary-color);
+            background: var(--toggle-switch-hover-pip-color);
+            border-color: var(--toggle-switch-hover-pip-color);
           }
         }
       }
@@ -144,23 +146,23 @@
         $motion-delay-s;
 
       .checkmark {
-        background-color: var(--accent-background3-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--check-box-checked-background-color);
+        border: var(--check-box-checked-border);
 
         &.toggle {
-          background-color: var(--accent-background3-color);
-          border: $space-xxxs solid var(--primary-secondary-color);
+          background: var(--toggle-switch-checked-background-color);
+          border: var(--toggle-switch-checked-border);
 
           &:after {
-            background-color: var(--primary-secondary-color);
-            border-color: var(--primary-secondary-color);
+            background: var(--toggle-switch-checked-pip-color);
+            border-color: var(--toggle-switch-checked-pip-color);
           }
         }
       }
 
       .checkmark {
         &:after {
-          border-color: var(--primary-secondary-color);
+          border-color: var(--check-box-mark-color);
           opacity: 1;
           transform: rotate(45deg) scale(0.7);
           transition: all $motion-duration-extra-fast $motion-ease-out-back
@@ -169,8 +171,8 @@
 
         &.toggle {
           &:after {
-            background-color: var(--primary-secondary-color);
-            border-color: var(--primary-secondary-color);
+            background: var(--toggle-switch-checked-pip-color);
+            border-color: var(--toggle-switch-checked-pip-color);
             left: $toggle-medium-after-left-checked;
             opacity: 1;
             transform: none;
@@ -184,17 +186,17 @@
     &:not(.disabled):not([disabled]):active + label {
       .checkmark {
         transform: scale(0.98);
-        background-color: var(--accent-background1-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--check-box-checked-active-background-color);
+        border: var(--check-box-checked-active-border);
 
         &.toggle {
           transform: scale(0.98);
-          background-color: var(--accent-background1-color);
-          border: $space-xxxs solid var(--primary-secondary-color);
+          background: var(--toggle-switch-checked-active-background-color);
+          border: var(--toggle-switch-checked-active-border);
 
           &:after {
-            background-color: var(--primary-secondary-color);
-            border-color: var(--primary-secondary-color);
+            background: var(--toggle-switch-checked-active-pip-color);
+            border-color: var(--toggle-switch-checked-active-pip-color);
           }
         }
       }
@@ -202,16 +204,16 @@
 
     &:not(.disabled):not([disabled]):hover + label {
       .checkmark {
-        background-color: var(--accent-background2-color);
-        border: $space-xxxs solid var(--primary-secondary-color);
+        background: var(--check-box-checked-hover-background-color);
+        border: var(--check-box-checked-hover-border);
 
         &.toggle {
-          background-color: var(--accent-background2-color);
-          border: $space-xxxs solid var(--primary-secondary-color);
+          background: var(--toggle-switch-checked-hover-background-color);
+          border: var(--toggle-switch-checked-hover-border);
 
           &:after {
-            background-color: var(--primary-secondary-color);
-            border-color: var(--primary-secondary-color);
+            background: var(--toggle-switch-checked-hover-pip-color);
+            border-color: var(--toggle-switch-checked-hover-pip-color);
           }
         }
       }
@@ -504,11 +506,11 @@
     &:checked {
       &:focus-visible + label {
         .checkmark {
-          outline: $space-xxxs solid var(--primary-color-50);
+          outline: var(--focus-visible-outline);
           outline-offset: $selector-outline-offset;
 
           &.toggle {
-            outline: $space-xxxs solid var(--primary-color-50);
+            outline: var(--focus-visible-outline);
             outline-offset: $selector-outline-offset;
           }
         }
@@ -517,18 +519,22 @@
 
     &:focus-visible + label {
       .checkmark {
-        border: $space-xxxs solid var(--primary-color);
-        outline: $space-xxxs solid var(--primary-color-50);
+        border: var(--check-box-focus-visible-border);
+        outline: var(--focus-visible-outline);
         outline-offset: $selector-outline-offset;
 
+        &:after {
+          border-color: var(--check-box-focus-visible-mark-color);
+        }
+
         &.toggle {
-          border: $space-xxxs solid var(--primary-color);
-          outline: $space-xxxs solid var(--primary-color-50);
+          border: var(--toggle-switch-focus-visible-border);
+          outline: var(--focus-visible-outline);
           outline-offset: $selector-outline-offset;
 
           &:after {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
+            background: var(--toggle-switch-focus-visible-pip-color);
+            border-color: var(--toggle-switch-focus-visible-pip-color);
           }
         }
       }
@@ -550,15 +556,15 @@
       &:focus-visible + label {
         .checkmark {
           outline: none;
-          border: $space-xxxs solid var(--grey-secondary-color);
+          border: var(--check-box-border);
 
           &.toggle {
             outline: none;
-            border: $space-xxxs solid var(--grey-secondary-color);
+            border: var(--toggle-switch-border);
 
             &:after {
-              background-color: var(--primary-secondary-color);
-              border-color: var(--primary-secondary-color);
+              background: var(--toggle-switch-pip-color);
+              border-color: var(--toggle-switch-pip-color);
             }
           }
         }
@@ -584,15 +590,15 @@
         &:focus-visible + label {
           .checkmark {
             outline: none;
-            border: $space-xxxs solid var(--grey-secondary-color);
+            border: var(--check-box-border);
 
             &.toggle {
               outline: none;
-              border: $space-xxxs solid var(--grey-secondary-color);
+              border: var(--toggle-switch-border);
 
               &:after {
-                background-color: var(--primary-secondary-color);
-                border-color: var(--primary-secondary-color);
+                background: var(--toggle-switch-pip-color);
+                border-color: var(--toggle-switch-pip-color);
               }
             }
           }
