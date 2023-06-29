@@ -812,11 +812,11 @@
 
   // ------ System UI Button theme ------
   --button-system-ui-text-color: var(--grey-tertiary-color);
-  --button-system-ui-background-color: transparent;
+  --button-system-ui-background-color: var(--background-color);
   --button-system-ui-counter-default-text-color: var(--grey-color);
   --button-system-ui-hover-text-color: var(--button-system-ui-text-color);
   --button-system-ui-hover-background-color: var(--grey-background1-color);
-  --button-system-ui-focus-visible-background-color: transparent;
+  --button-system-ui-focus-visible-background-color: var(--background-color);
   --button-system-ui-active-text-color: var(--button-system-ui-text-color);
   --button-system-ui-active-background-color: var(--grey-background2-color);
   --button-system-ui-split-divider-color: var(--grey-secondary-color);
@@ -1153,13 +1153,13 @@
   --toggle-switch-focus-visible-border: var(--check-box-border-width)
     var(--check-box-border-style)
     var(--toggle-switch-focus-visible-border-color);
-  --toggle-switch-dot-color: var(--grey-secondary-color);
-  --toggle-switch-active-dot-color: var(--primary-secondary-color);
-  --toggle-switch-hover-dot-color: var(--primary-secondary-color);
-  --toggle-switch-checked-dot-color: var(--primary-secondary-color);
-  --toggle-switch-checked-active-dot-color: var(--primary-secondary-color);
-  --toggle-switch-checked-hover-dot-color: var(--primary-secondary-color);
-  --toggle-switch-focus-visible-dot-color: var(--primary-color);
+  --toggle-switch-pip-color: var(--grey-secondary-color);
+  --toggle-switch-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-pip-color: var(--primary-color);
   --toggle-switch-text-color: var(--primary-secondary-color);
   // ------ Toggle Switch theme ------
 
