@@ -3,7 +3,7 @@
   border-radius: var(--info-bar-border-radius);
   color: var(--info-bar-text-color);
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   gap: $space-m;
   padding: $space-ml;
   width: 100%;

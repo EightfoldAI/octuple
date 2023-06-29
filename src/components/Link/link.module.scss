@@ -1,6 +1,6 @@
 .link-style {
   cursor: pointer;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   font-weight: $text-font-weight-semibold;
   font-size: $text-font-size-2;
   width: fit-content;

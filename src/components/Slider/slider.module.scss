@@ -56,7 +56,7 @@ $small-min-label-offset-with-steps: 0;
 
 // Default size is medium
 .slider-container {
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   height: $medium-slider-height + $medium-label-height;
   position: relative;
 
@@ -112,7 +112,7 @@ $small-min-label-offset-with-steps: 0;
       color: var(--slider-value-text-color);
       cursor: pointer;
       display: inline-block;
-      font-family: $octuple-font-family;
+      font-family: var(--font-stack-full);
       font-size: $text-font-size-2;
       padding: 0 $space-xxxs;
       position: absolute;
@@ -276,7 +276,7 @@ $small-min-label-offset-with-steps: 0;
   .slider-value {
     bottom: 0;
     color: var(--slider-value-text-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-2;
     padding: 0 $space-xxxs;
     position: absolute;
@@ -285,7 +285,7 @@ $small-min-label-offset-with-steps: 0;
 
   .extremity-label {
     color: var(--slider-extremity-text-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-2;
     position: absolute;
     bottom: 0;
