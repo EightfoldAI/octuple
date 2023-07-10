@@ -15,7 +15,7 @@
   }
 
   .content {
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-style: normal;
     font-weight: $text-font-weight-light;
     font-size: $text-font-size-2;
