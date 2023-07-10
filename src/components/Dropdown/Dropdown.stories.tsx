@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
@@ -6,9 +6,11 @@ import {
   ButtonTextAlign,
   ButtonWidth,
   DefaultButton,
+  TwoStateButton,
 } from '../Button';
-import { Icon, IconName } from '../Icon';
+import { CheckBox } from '../CheckBox';
 import { Dropdown } from './';
+import { Icon, IconName } from '../Icon';
 import { List } from '../List';
 import { Stack } from '../Stack';
 
@@ -216,10 +218,168 @@ const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
+const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
+  const [checkedItems, setCheckedItems] = useState({});
+  const [visibleQuickFilter, setVisibleQuickFilter] = useState<{
+    [x: string]: boolean;
+  }>({});
+  const currentDropdown = Object.keys(visibleQuickFilter)?.[0] || '';
+
+  useEffect(() => {
+    if (currentDropdown) {
+      console.log('Dropdown is: ' + currentDropdown);
+    } else {
+      setCheckedItems({});
+      console.log('checkedItems cleared');
+    }
+  }, [currentDropdown]);
+
+  useEffect(() => {
+    console.log('checkedItems: ', checkedItems);
+
+    if (checkedItems) {
+      setVisibleQuickFilter({});
+    }
+  }, [checkedItems]);
+
+  const toggleQuickFilterVisibility = ({
+    key,
+    value,
+  }: {
+    key: string;
+    value: boolean;
+  }) => {
+    setVisibleQuickFilter({ [key]: value });
+  };
+
+  const sampleList = [
+    {
+      name: 'Option one',
+    },
+    {
+      name: 'Option two',
+    },
+    {
+      name: 'Option three',
+    },
+    {
+      name: 'Option four',
+    },
+  ];
+
+  const handleChange = (event: { target: { value: any; checked: any } }) => {
+    setCheckedItems({
+      ...checkedItems,
+      [event.target.value]: event.target.checked,
+    });
+  };
+
+  const Overlay = () => (
+    <List
+      items={sampleList}
+      itemStyle={{
+        margin: '4px 0',
+      }}
+      renderItem={(item) => (
+        <CheckBox
+          checked={(checkedItems as any)?.[item.name]}
+          label={item.name}
+          onChange={handleChange}
+          value={item.name}
+        />
+      )}
+    />
+  );
+
+  return (
+    <Stack direction="horizontal" flexGap="l">
+      <Dropdown
+        {...args}
+        overlay={Overlay()}
+        closeOnDropdownClick={false}
+        closeOnOutsideClick={false}
+        onVisibleChange={(visible) => {
+          toggleQuickFilterVisibility({
+            key: 'filter one',
+            value: visible,
+          });
+          if (!visible) {
+            console.log('filter one not visible');
+          } else {
+            console.log('filter one visible');
+          }
+        }}
+        portal
+        visible={(visibleQuickFilter as any)?.['filter one']}
+      >
+        <TwoStateButton
+          text="Filter one"
+          iconTwoProps={{
+            path: IconName.mdiChevronDown,
+          }}
+        />
+      </Dropdown>
+      <Dropdown
+        {...args}
+        overlay={Overlay()}
+        closeOnDropdownClick={false}
+        closeOnOutsideClick={false}
+        onVisibleChange={(visible) => {
+          toggleQuickFilterVisibility({
+            key: 'filter two',
+            value: visible,
+          });
+          if (!visible) {
+            console.log('filter two not visible');
+          } else {
+            console.log('filter two visible');
+          }
+        }}
+        portal
+        visible={(visibleQuickFilter as any)?.['filter two']}
+      >
+        <TwoStateButton
+          text="Filter two"
+          iconTwoProps={{
+            path: IconName.mdiChevronDown,
+          }}
+        />
+      </Dropdown>
+      <Dropdown
+        {...args}
+        overlay={Overlay()}
+        closeOnDropdownClick={false}
+        closeOnOutsideClick={false}
+        onVisibleChange={(visible) => {
+          toggleQuickFilterVisibility({
+            key: 'filter three',
+            value: visible,
+          });
+          if (!visible) {
+            console.log('filter three not visible');
+          } else {
+            console.log('filter three visible');
+          }
+        }}
+        portal
+        visible={(visibleQuickFilter as any)?.['filter three']}
+      >
+        <TwoStateButton
+          text="Filter three"
+          iconTwoProps={{
+            path: IconName.mdiChevronDown,
+          }}
+        />
+      </Dropdown>
+    </Stack>
+  );
+};
+
 export const Dropdown_Button = Dropdown_Button_Story.bind({});
 export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
 export const Dropdown_Div = Dropdown_Div_Story.bind({});
 export const Dropdown_External = Dropdown_External_Story.bind({});
+export const Dropdown_Advanced_Visible_State = Dropdown_Advanced_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -229,6 +389,7 @@ export const __namedExportsOrder = [
   'Dropdown_IconButton',
   'Dropdown_Div',
   'Dropdown_External',
+  'Dropdown_Advanced_Visible_State',
 ];
 
 const dropdownArgs: Object = {
@@ -259,5 +420,9 @@ Dropdown_IconButton.args = {
 };
 
 Dropdown_External.args = {
+  ...dropdownArgs,
+};
+
+Dropdown_Advanced_Visible_State.args = {
   ...dropdownArgs,
 };
