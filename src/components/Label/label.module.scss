@@ -15,7 +15,7 @@
 
   .text-style {
     color: var(--text-primary-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
 
     &.large {
       font-size: $text-font-size-5;

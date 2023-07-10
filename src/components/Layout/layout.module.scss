@@ -2,7 +2,7 @@
   display: flex;
   flex: auto;
   flex-direction: column;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   height: 100%;
 
   /* fix firefox can't set height smaller than content on flex item */
