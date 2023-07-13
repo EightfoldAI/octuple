@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersistentBar PersistentBar is bottomBarButtonsOnLeft 1`] = `
+<div>
+  <div
+    class="persistent-bar bottom-left-align"
+    role="region"
+  />
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is bottomBarButtonsOnRight 1`] = `
+<div>
+  <div
+    class="persistent-bar bottom-right-align"
+    role="region"
+  />
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is bottomBarSecondaryButtons 1`] = `
+<div>
+  <div
+    class="persistent-bar bottom-secondary-buttons"
+    role="region"
+  />
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is bottomBarWithText 1`] = `
+<div>
+  <div
+    class="persistent-bar bottom-with-text"
+    role="region"
+  >
+    <div>
+      <h4 />
+      <div
+        class="content"
+      >
+        PersistentBar test bottomBarWithText
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is custom 1`] = `
+<div>
+  <div
+    class="persistent-bar bottom-with-text"
+    role="region"
+  >
+    <div
+      class="custom"
+    >
+      PersistentBar test custom
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is topBarButtons 1`] = `
+<div>
+  <div
+    class="persistent-bar top-button-menu"
+    role="region"
+  />
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is topBarPagination 1`] = `
+<div>
+  <div
+    class="persistent-bar top-pagination"
+    role="region"
+  >
+    <div
+      class="pagination"
+      role="navigation"
+    >
+      <span />
+      <ul
+        class="pager"
+      >
+        <li>
+          <button
+            aria-current="true"
+            aria-disabled="false"
+            class="pagination-button active button button-neutral button-medium"
+          >
+            <span
+              class="button-text-medium"
+            >
+              1
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PersistentBar PersistentBar is topBarWithText 1`] = `
+<div>
+  <div
+    class="persistent-bar top-with-text"
+    role="region"
+  >
+    <div
+      class="stack full-width horizontal undefined gap-m"
+      style="justify-content: space-between;"
+    >
+      <button
+        aria-disabled="false"
+        class="icon-button button button-system-ui button-medium round-shape icon-left"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
+      <div>
+        <h4 />
+        <div
+          class="content"
+        >
+          PersistentBar test topBarWithText
+        </div>
+      </div>
+      <div
+        class="pagination"
+        role="navigation"
+      >
+        <span />
+        <ul
+          class="pager page-tracker"
+        >
+          <li>
+            <span>
+              1
+            </span>
+             
+            <span>
+              of
+            </span>
+             
+            <span>
+              1
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PersistentBar Renders without crashing 1`] = `
+<div>
+  <div
+    class="persistent-bar bottom-with-text"
+    role="region"
+  >
+    <div>
+      <h4 />
+      <div
+        class="content"
+      >
+        PersistentBar test render
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;

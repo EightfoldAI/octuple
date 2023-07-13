@@ -6,6 +6,7 @@ import Dialog from '../Dialog/BaseDialog/Locale/es_DO';
 import InfoBar from '../InfoBar/Locale/es_DO';
 import Pagination from '../Pagination/Locale/es_DO';
 import Panel from '../Panel/Locale/es_DO';
+import PersistentBar from '../PersistentBar/Locale/es_DO';
 import Stepper from '../Stepper/Locale/es_DO';
 import Table from '../Table/Locale/es_DO';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/es_DO';
@@ -74,6 +75,7 @@ const localeValues: Locale = {
   InfoBar,
   Pagination,
   Panel,
+  PersistentBar,
   Stepper,
   Table,
   TimePicker,
