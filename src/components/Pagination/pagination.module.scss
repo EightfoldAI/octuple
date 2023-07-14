@@ -94,7 +94,8 @@
   }
 
   .page-tracker {
-    opacity: 50%;
+    color: var(--text-secondary-color);
+    white-space: nowrap;
   }
 
   &.dots {

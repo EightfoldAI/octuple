@@ -23,8 +23,8 @@ export const MenuItemCustom: FC<MenuItemCustomProps> = ({
   ]);
 
   return (
-    <div className={menuItemClassNames}>
+    <li className={menuItemClassNames}>
       {item.render({ index, value: item, onChange })}
-    </div>
+    </li>
   );
 };
