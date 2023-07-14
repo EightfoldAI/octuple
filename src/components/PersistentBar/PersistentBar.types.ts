@@ -48,6 +48,10 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   actionButtonThreeProps?: ButtonProps;
   /**
+   * Whether the persistent bar is bordered or not.
+   */
+  bordered?: boolean;
+  /**
    * Buttons to display on top bar.
    */
   buttonMenuProps?: Array<ButtonProps>;

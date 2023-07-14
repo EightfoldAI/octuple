@@ -41,10 +41,11 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
   (props: PersistentBarsProps, ref: Ref<HTMLDivElement>) => {
     const {
       buttonMenuProps,
+      bordered = false,
       content,
       icon,
       type = PersistentBarType.bottomBarWithText,
-      closable,
+      closable, // TODO: implement close support when vscode instances are updated
       children,
       onClose,
       style,
@@ -54,7 +55,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
       actionButtonOneProps,
       actionButtonTwoProps,
       actionButtonThreeProps,
-      role = 'region',
+      role = 'toolbar',
       title,
       overflowAriaLabel: defaultOverflowAriaLabel,
       paginationArgs, // TODO: Remove in Octuple v3
@@ -109,6 +110,9 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
     const persistentBarClassNames: string = mergeClasses([
       styles.persistentBar,
       classNames,
+      {
+        [styles.bordered]: !!bordered,
+      },
       {
         [styles.bottomWithText]: type === PersistentBarType.bottomBarWithText,
       },

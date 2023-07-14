@@ -4,7 +4,7 @@ exports[`PersistentBar PersistentBar is bottomBarButtonsOnLeft 1`] = `
 <div>
   <div
     class="persistent-bar bottom-left-align"
-    role="region"
+    role="toolbar"
   />
 </div>
 `;
@@ -13,7 +13,7 @@ exports[`PersistentBar PersistentBar is bottomBarButtonsOnRight 1`] = `
 <div>
   <div
     class="persistent-bar bottom-right-align"
-    role="region"
+    role="toolbar"
   />
 </div>
 `;
@@ -22,7 +22,7 @@ exports[`PersistentBar PersistentBar is bottomBarSecondaryButtons 1`] = `
 <div>
   <div
     class="persistent-bar bottom-secondary-buttons"
-    role="region"
+    role="toolbar"
   />
 </div>
 `;
@@ -31,7 +31,7 @@ exports[`PersistentBar PersistentBar is bottomBarWithText 1`] = `
 <div>
   <div
     class="persistent-bar bottom-with-text"
-    role="region"
+    role="toolbar"
   >
     <div>
       <h4 />
@@ -50,7 +50,7 @@ exports[`PersistentBar PersistentBar is custom 1`] = `
 <div>
   <div
     class="persistent-bar bottom-with-text"
-    role="region"
+    role="toolbar"
   >
     <div
       class="custom"
@@ -65,7 +65,7 @@ exports[`PersistentBar PersistentBar is topBarButtons 1`] = `
 <div>
   <div
     class="persistent-bar top-button-menu"
-    role="region"
+    role="toolbar"
   />
 </div>
 `;
@@ -74,7 +74,7 @@ exports[`PersistentBar PersistentBar is topBarPagination 1`] = `
 <div>
   <div
     class="persistent-bar top-pagination"
-    role="region"
+    role="toolbar"
   >
     <div
       class="pagination"
@@ -107,7 +107,7 @@ exports[`PersistentBar PersistentBar is topBarWithText 1`] = `
 <div>
   <div
     class="persistent-bar top-with-text"
-    role="region"
+    role="toolbar"
   >
     <div
       class="stack full-width horizontal undefined gap-m"
@@ -174,7 +174,7 @@ exports[`PersistentBar Renders without crashing 1`] = `
 <div>
   <div
     class="persistent-bar bottom-with-text"
-    role="region"
+    role="toolbar"
   >
     <div>
       <h4 />

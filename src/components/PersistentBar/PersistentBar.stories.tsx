@@ -97,17 +97,10 @@ const paginationArgs: Object = {
 };
 
 const persistentBarArgs: Object = {
-  closable: true,
+  bordered: false,
   style: {},
   classNames: 'my-persistent-bar-class',
-  closeButtonProps: {
-    ariaLabel: 'Close',
-    classNames: 'my-close-btn-class',
-    'data-testid': 'my-close-btn-test-id',
-    id: 'myCloseButton',
-  },
-  closeIcon: IconName.mdiClose,
-  role: 'presentation',
+  role: 'toolbar',
   type: PersistentBarType.bottomBarWithText,
   paginationTotal: 150,
 };

@@ -36,7 +36,7 @@ describe('PersistentBar', () => {
     const { container, getByRole } = render(
       <PersistentBar content={'PersistentBar test render'} />
     );
-    const infoBar = getByRole('region');
+    const infoBar = getByRole('toolbar');
     expect(() => container).not.toThrowError();
     expect(infoBar).toBeTruthy();
     expect(container).toMatchSnapshot();

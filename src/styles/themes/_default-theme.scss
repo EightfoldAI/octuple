@@ -1207,6 +1207,13 @@
 
   // ------ Persistent Bar theme ------
   --persistent-bar-background-color: var(--background-color);
+  --persistent-bar-border-color: var(--border-color);
+  --persistent-bar-border-width: 1px;
+  --persistent-bar-border-style: solid;
+  --persistent-bar-border: var(--persistent-bar-border-width)
+    var(--persistent-bar-border-style) var(--persistent-bar-border-color);
+  --persistent-bar-border-radius: var(--border-radius-s);
+  --persistent-bar-box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.12);
   --persistent-bar-primary-text-color: var(--text-primary-color);
   --persistent-bar-secondary-text-color: var(--text-primary-color);
   // ------ Persistent Bar theme ------
