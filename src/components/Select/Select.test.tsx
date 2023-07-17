@@ -58,6 +58,46 @@ describe('Select', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Renders null options in single mode without crashing', () => {
+    const { container, getAllByPlaceholderText } = render(
+      <Select options={null} placeholder="Select single test" />
+    );
+    const select = getAllByPlaceholderText('Select single test');
+    expect(() => container).not.toThrowError();
+    expect(select).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Renders null options in multiple mode without crashing', () => {
+    const { container, getAllByPlaceholderText } = render(
+      <Select multiple options={null} placeholder="Select multiple test" />
+    );
+    const selectMulti = getAllByPlaceholderText('Select multiple test');
+    expect(() => container).not.toThrowError();
+    expect(selectMulti).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Renders empty options in single mode without crashing', () => {
+    const { container, getAllByPlaceholderText } = render(
+      <Select options={[]} placeholder="Select single test" />
+    );
+    const select = getAllByPlaceholderText('Select single test');
+    expect(() => container).not.toThrowError();
+    expect(select).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Renders empty options in multiple mode without crashing', () => {
+    const { container, getAllByPlaceholderText } = render(
+      <Select multiple options={[]} placeholder="Select multiple test" />
+    );
+    const selectMulti = getAllByPlaceholderText('Select multiple test');
+    expect(() => container).not.toThrowError();
+    expect(selectMulti).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
   test('renders as not read-only and is editable', () => {
     const { container } = render(<Select options={options} />);
     expect(

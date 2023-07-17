@@ -110,11 +110,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
     );
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
     const [options, setOptions] = useState<SelectOption[]>(
-      _options.map((option: SelectOption, index: number) => ({
+      _options?.map((option: SelectOption, index: number) => ({
         selected: false,
         hideOption: false,
-        id: option.text + '-' + index,
-        object: option.object,
+        id: option?.text + '-' + index,
+        object: option?.object,
         role: 'option',
         ...option,
       }))
@@ -147,12 +147,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const getSelectedOptionValues = (): SelectOption['value'][] => {
       return options
-        .filter((option: SelectOption) => option.selected)
-        .map((option: SelectOption) => option.value);
+        ?.filter((option: SelectOption) => option?.selected)
+        .map((option: SelectOption) => option?.value);
     };
 
     const getSelectedOptions = (): SelectOption['value'][] => {
-      return options.filter((option: SelectOption) => option.selected);
+      return options?.filter((option: SelectOption) => option?.selected);
     };
 
     const { count, filled, width } = useMaxVisibleSections(
@@ -161,20 +161,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
       168,
       8,
       1,
-      getSelectedOptionValues().length
+      getSelectedOptionValues()?.length
     );
 
     // Populate options on component render
     useEffect(() => {
-      const selected: SelectOption[] = options.filter(
-        (opt: SelectOption) => opt.selected
+      const selected: SelectOption[] = options?.filter(
+        (opt: SelectOption) => opt?.selected
       );
       setOptions(
-        _options.map((option: SelectOption, index: number) => ({
-          selected: !!selected.find((opt) => opt.value === option.value),
+        _options?.map((option: SelectOption, index: number) => ({
+          selected: !!selected?.find((opt) => opt?.value === option?.value),
           hideOption: false,
-          id: option.text + index,
-          object: option.object,
+          id: option?.text + '-' + index,
+          object: option?.object,
           role: 'option',
           ...option,
         }))
@@ -183,17 +183,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     // Populate options on isLoading change
     useEffect(() => {
-      const selected: SelectOption[] = options.filter(
-        (opt: SelectOption) => opt.selected
+      const selected: SelectOption[] = options?.filter(
+        (opt: SelectOption) => opt?.selected
       );
       setOptions(
-        _options.map((option: SelectOption, index: number) => ({
+        _options?.map((option: SelectOption, index: number) => ({
           selected:
-            !!selected.find((opt) => opt.value === option.value) ||
-            option.value === defaultValue,
+            !!selected?.find((opt) => opt?.value === option?.value) ||
+            option?.value === defaultValue,
           hideOption: false,
-          id: option.text + index,
-          object: option.object,
+          id: option?.text + '-' + index,
+          object: option?.object,
           role: 'option',
           ...option,
         }))
@@ -220,17 +220,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (filterable && multiple) {
         setClearInput(false);
       }
-    }, [getSelectedOptionValues().join('')]);
+    }, [getSelectedOptionValues()?.join('')]);
 
     useEffect(() => {
-      const updatedOptions = options.map((opt) => ({
+      const updatedOptions = options?.map((opt) => ({
         ...opt,
         selected:
           (defaultValue !== undefined &&
             (multiple
-              ? defaultValue.includes(opt.value)
-              : opt.value === defaultValue)) ||
-          opt.selected,
+              ? defaultValue.includes(opt?.value)
+              : opt?.value === defaultValue)) ||
+          opt?.selected,
       }));
       setOptions(updatedOptions);
     }, [defaultValue]);
@@ -264,10 +264,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
 
-      const updatedOptions = options.map((opt: SelectOption) => {
-        const defaultState: boolean = multiple ? opt.selected : false;
+      const updatedOptions = options?.map((opt: SelectOption) => {
+        const defaultState: boolean = multiple ? opt?.selected : false;
         const selected: boolean =
-          opt.value === option.value ? !opt.selected : defaultState;
+          opt?.value === option?.value ? !opt?.selected : defaultState;
         const hideOption: boolean = false;
 
         return {
@@ -288,7 +288,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const resetSelectOnDropdownHide = (): void => {
       setSearchQuery('');
       setOptions(
-        options.map((opt: SelectOption) => ({
+        options?.map((opt: SelectOption) => ({
           ...opt,
           hideOption: false,
         }))
@@ -296,10 +296,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
     };
 
     const resetSingleSelectOnDropdownToggle = (): void => {
-      const selected: SelectOption[] = options.filter(
-        (opt: SelectOption) => opt.selected
+      const selected: SelectOption[] = options?.filter(
+        (opt: SelectOption) => opt?.selected
       );
-      if (selected.length && inputRef.current?.value !== selectedOptionText) {
+      if (selected?.length && inputRef.current?.value !== selectedOptionText) {
         setResetTextInput(true);
       }
     };
@@ -308,14 +308,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       setSearchQuery('');
       if (filterable && multiple) {
         setOptions(
-          options.map((opt: SelectOption) => ({
+          options?.map((opt: SelectOption) => ({
             ...opt,
             hideOption: false,
           }))
         );
       } else if (filterable) {
         setOptions(
-          options.map((opt: SelectOption) => ({
+          options?.map((opt: SelectOption) => ({
             ...opt,
             hideOption: false,
             selected: false,
@@ -323,7 +323,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         );
       } else {
         setOptions(
-          options.map((opt: SelectOption) => ({
+          options?.map((opt: SelectOption) => ({
             ...opt,
             selected: false,
           }))
@@ -345,8 +345,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         !prevDropdownVisible &&
         filterable &&
         !multiple &&
-        searchQuery.length !== 0 &&
-        getSelectedOptions().length === 0
+        searchQuery?.length !== 0 &&
+        getSelectedOptions()?.length === 0
       ) {
         inputRef.current?.click();
       }
@@ -360,11 +360,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
       if (value) {
         setOptions(
-          options.map((opt: SelectOption) => ({
+          options?.map((opt: SelectOption) => ({
             ...opt,
             hideOption: filterOption
               ? !filterOption(opt, value)
-              : !opt.text.toLowerCase().includes(valueLowerCase),
+              : !opt?.text.toLowerCase().includes(valueLowerCase),
           }))
         );
       } else {
@@ -372,8 +372,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         // When not in multiple mode and the value is empty
         // deselect and execute onClear.
         setOptions(
-          options.map((opt: SelectOption) => {
-            const selected: boolean = multiple ? opt.selected : false;
+          options?.map((opt: SelectOption) => {
+            const selected: boolean = multiple ? opt?.selected : false;
             return {
               ...opt,
               hideOption: false,
@@ -391,7 +391,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const showDropdown = (show: boolean) => {
       if (filterable || multiple) {
-        if (!multiple && options.length) {
+        if (!multiple && options?.length) {
           return show;
         }
         return true;
@@ -455,10 +455,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
     ]);
 
     const showPills = (): boolean => {
-      const selected: SelectOption[] = options.filter(
-        (opt: SelectOption) => opt.selected
+      const selected: SelectOption[] = options?.filter(
+        (opt: SelectOption) => opt?.selected
       );
-      const selectedCount: number = selected.length;
+      const selectedCount: number = selected?.length;
       return selectedCount !== 0 && multiple;
     };
 
@@ -490,24 +490,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
     };
 
     const getPills = (): JSX.Element => {
-      const selected: SelectOption[] = options.filter(
-        (opt: SelectOption) => opt.selected
+      const selected: SelectOption[] = options?.filter(
+        (opt: SelectOption) => opt?.selected
       );
 
-      const selectedCount: number = selected.length;
+      const selectedCount: number = selected?.length;
       const pills: React.ReactElement[] = [];
       let moreOptionsCount: number = selectedCount;
 
       // TODO: Mutate Array based on order of selection.
-      selected.forEach((opt: SelectOption, index: number) => {
+      selected?.forEach((opt: SelectOption, index: number) => {
         const pill = (): JSX.Element => (
           <Pill
             ref={(ref) => (pillRefs.current[index] = ref)}
-            id={`selectPill${opt.id}`}
+            id={`selectPill${opt?.id}`}
             classNames={pillClassNames}
             disabled={mergedDisabled}
             key={`select-pill-${index}`}
-            label={opt.text}
+            label={opt?.text}
             onClose={() => toggleOption(opt)}
             size={selectSizeToPillSizeMap.get(size)}
             theme={'blueGreen'}
@@ -519,12 +519,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
           />
         );
         if (
-          isPillEllipsisActive(document?.getElementById(`selectPill${opt.id}`))
+          isPillEllipsisActive(document?.getElementById(`selectPill${opt?.id}`))
         ) {
           pills.push(
             <Tooltip
               classNames={styles.selectTooltip}
-              content={opt.text}
+              content={opt?.text}
               id={`selectTooltip${index}`}
               key={`select-tooltip-${index}`}
               placement={'top'}
@@ -537,7 +537,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         } else {
           pills.push(pill());
         }
-        if (pills.length === count && filled) {
+        if (pills?.length === count && filled) {
           pills.push(
             <Pill
               classNames={countPillClassNames}
@@ -562,8 +562,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return;
       }
       const selectedOption = options
-        .filter((opt: SelectOption) => opt.selected)
-        .map((opt: SelectOption) => opt.text)
+        ?.filter((opt: SelectOption) => opt?.selected)
+        .map((opt: SelectOption) => opt?.text)
         .join(', ')
         .toLocaleString();
       setSelectedOptionText(selectedOption);
@@ -574,24 +574,26 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }: {
       options: SelectOption[];
     }): JSX.Element => {
-      const filteredOptions = options.filter(
-        (opt: SelectOption) => !opt.hideOption
+      const filteredOptions = options?.filter(
+        (opt: SelectOption) => !opt?.hideOption
       );
-      const updatedItems: SelectOption[] = filteredOptions.map(
+      const updatedItems: SelectOption[] = filteredOptions?.map(
         ({ hideOption, ...opt }) => ({
           ...opt,
-          classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
+          classNames: mergeClasses([
+            { [styles.selectedOption]: opt?.selected },
+          ]),
           role: 'option',
         })
       );
-      if (filteredOptions.length > 0) {
+      if (filteredOptions?.length > 0) {
         return (
           <Menu
             {...menuProps}
             items={updatedItems}
             onChange={(value) => {
-              const option = updatedItems.find(
-                (opt: SelectOption) => opt.value === value
+              const option = updatedItems?.find(
+                (opt: SelectOption) => opt?.value === value
               );
               toggleOption(option);
             }}
@@ -669,7 +671,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     ]);
 
     const selectInputProps: TextInputProps = {
-      placeholder: showPills() ? '' : placeholder,
+      placeholder: showPills() && !!options ? '' : placeholder,
       alignIcon: TextInputIconAlign.Right,
       clearable: clearable,
       clearButtonClassNames: clearButtonClassNames,
@@ -755,8 +757,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
               dropdownVisible &&
               (showEmptyDropdown ||
                 isLoading ||
-                searchQuery.length > 0 ||
-                options.length > 0)
+                searchQuery?.length > 0 ||
+                options?.length > 0)
             }
             ref={dropdownRef}
           >
@@ -769,7 +771,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 autocomplete={autocomplete}
                 classNames={selectInputClassNames}
                 clear={
-                  (!dropdownVisible && getSelectedOptions().length === 0) ||
+                  (!dropdownVisible && getSelectedOptions()?.length === 0) ||
                   (!dropdownVisible &&
                     multiple &&
                     filterable &&
