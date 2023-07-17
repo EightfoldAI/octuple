@@ -26,6 +26,23 @@ describe('Tooltip', () => {
     matchMedia.clear();
   });
 
+  test('Tooltip shows and hides on click', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="click"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
   test('Tooltip shows and hides on hover', async () => {
     const { container } = render(
       <Tooltip
