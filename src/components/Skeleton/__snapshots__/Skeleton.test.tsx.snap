@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton Renders without crashing 1`] = `
+<div>
+  <div
+    class="skeleton-container"
+  >
+    <button
+      aria-disabled="false"
+      class="button button-default button-medium pill-shape"
+    >
+      <span
+        class="button-text-medium"
+      >
+        Sample button
+      </span>
+    </button>
+    <div
+      class="skeleton wave children"
+      tabindex="-1"
+    />
+  </div>
+</div>
+`;
