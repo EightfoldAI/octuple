@@ -16,7 +16,7 @@ exports[`Skeleton Renders without crashing 1`] = `
       </span>
     </button>
     <div
-      class="skeleton wave children"
+      class="skeleton wave pill children"
       tabindex="-1"
     />
   </div>

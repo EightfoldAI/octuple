@@ -4,7 +4,11 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Button } from '../Button';
 import { Skeleton } from './Skeleton';
-import { SkeletonAnimation, SkeletonProps } from './Skeleton.types';
+import {
+  SkeletonAnimation,
+  SkeletonProps,
+  SkeletonVariant,
+} from './Skeleton.types';
 import { render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -27,7 +31,7 @@ describe('Skeleton', () => {
 
   test('Renders without crashing', () => {
     const { container } = render(
-      <Skeleton {...skeletonProps}>
+      <Skeleton {...skeletonProps} variant={SkeletonVariant.Pill}>
         <Button text={'Sample button'} />
       </Skeleton>
     );
