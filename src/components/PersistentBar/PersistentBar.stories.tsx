@@ -4,7 +4,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PersistentBar, PersistentBarType } from './';
 import { IconName } from '../Icon';
 import { PaginationLayoutOptions } from '../Pagination';
-import { ButtonVariant, ButtonVariant as ButtonType } from '../Button';
+import {
+  ButtonVariant,
+  ButtonVariant as ButtonType,
+  ButtonShape,
+} from '../Button';
 
 export default {
   title: 'Persistent Bar',
@@ -48,10 +52,12 @@ const PersistentBar_Story: ComponentStory<typeof PersistentBar> = (args) => (
 export const Bottom_Bar_With_Text = PersistentBar_Story.bind({});
 export const Bottom_Bar_Secondary_Buttons = PersistentBar_Story.bind({});
 export const Bottom_Bar_Buttons_On_Left = PersistentBar_Story.bind({});
+export const Bottom_Bar_Buttons_On_Right = PersistentBar_Story.bind({});
 export const Top_Bar_Buttons = PersistentBar_Story.bind({});
 export const Top_Bar_Buttons_Legacy = PersistentBar_Story.bind({});
 export const Top_Bar_With_Text = PersistentBar_Story.bind({});
 export const Top_Bar_Pagination = PersistentBar_Story.bind({});
+export const Custom = PersistentBar_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -60,10 +66,12 @@ export const __namedExportsOrder = [
   'Bottom_Bar_With_Text',
   'Bottom_Bar_Secondary_Buttons',
   'Bottom_Bar_Buttons_On_Left',
+  'Bottom_Bar_Buttons_On_Right',
   'Top_Bar_Buttons',
   'Top_Bar_Buttons_Legacy',
   'Top_Bar_With_Text',
   'Top_Bar_Pagination',
+  'Custom',
 ];
 
 const paginationArgs: Object = {
@@ -85,21 +93,14 @@ const paginationArgs: Object = {
   quickNextIconButtonAriaLabel: 'Next 5',
   quickPreviousIconButtonAriaLabel: 'Previous 5',
   totalText: 'Total',
-  'data-test-id': 'myPaginationTestId',
+  'data-testid': 'myPaginationTestId',
 };
 
 const persistentBarArgs: Object = {
-  closable: true,
+  bordered: false,
   style: {},
   classNames: 'my-persistent-bar-class',
-  closeButtonProps: {
-    ariaLabel: 'Close',
-    classNames: 'my-close-btn-class',
-    'data-test-id': 'my-close-btn-test-id',
-    id: 'myCloseButton',
-  },
-  closeIcon: IconName.mdiClose,
-  role: 'presentation',
+  role: 'toolbar',
   type: PersistentBarType.bottomBarWithText,
   paginationTotal: 150,
 };
@@ -109,7 +110,7 @@ Bottom_Bar_With_Text.args = {
   actionButtonOneProps: {
     ariaLabel: 'Primary',
     classNames: 'my-primary-btn-class',
-    'data-test-id': 'my-primary-btn-test-id',
+    'data-testid': 'my-primary-btn-test-id',
     iconProps: null,
     id: 'myPrimaryButton',
     text: 'Primary',
@@ -117,7 +118,7 @@ Bottom_Bar_With_Text.args = {
   actionButtonTwoProps: {
     ariaLabel: 'Default',
     classNames: 'my-default-btn-class',
-    'data-test-id': 'my-default-btn-test-id',
+    'data-testid': 'my-default-btn-test-id',
     iconProps: null,
     id: 'myDefaultButton',
     text: 'Default',
@@ -130,25 +131,25 @@ Bottom_Bar_With_Text.args = {
 Bottom_Bar_Secondary_Buttons.args = {
   ...persistentBarArgs,
   actionButtonOneProps: {
-    ariaLabel: 'Default',
+    ariaLabel: 'Default 1',
     classNames: 'my-default-btn-class',
-    'data-test-id': 'my-default-btn-test-id',
+    'data-testid': 'my-default-btn-test-id-1',
     iconProps: null,
-    id: 'myDefaultButton',
-    text: 'Default',
+    id: 'myDefaultButton1',
+    text: 'Default 1',
   },
   actionButtonTwoProps: {
-    ariaLabel: 'Default',
+    ariaLabel: 'Default 2',
     classNames: 'my-default-btn-class',
-    'data-test-id': 'my-default-btn-test-id',
+    'data-testid': 'my-default-btn-test-id-2',
     iconProps: null,
-    id: 'myDefaultButton',
-    text: 'Default',
+    id: 'myDefaultButton2',
+    text: 'Default 2',
   },
   actionButtonThreeProps: {
     ariaLabel: 'Default',
     classNames: 'my-default-btn-class',
-    'data-test-id': 'my-default-btn-test-id',
+    'data-testid': 'my-default-btn-test-id',
     iconProps: null,
     id: 'myDefaultButton',
     text: 'Default',
@@ -159,25 +160,25 @@ Bottom_Bar_Secondary_Buttons.args = {
 Bottom_Bar_Buttons_On_Left.args = {
   ...persistentBarArgs,
   actionButtonOneProps: {
-    ariaLabel: 'Default',
+    ariaLabel: 'Default 1',
     classNames: 'my-default-btn-class',
-    'data-test-id': 'my-default-btn-test-id',
+    'data-testid': 'my-default-btn-test-id-1',
     iconProps: null,
-    id: 'myDefaultButton',
+    id: 'myDefaultButton1',
     text: 'Default',
   },
   actionButtonTwoProps: {
-    ariaLabel: 'Default',
+    ariaLabel: 'Default 2',
     classNames: 'my-default-btn-class',
-    'data-test-id': 'my-default-btn-test-id',
+    'data-testid': 'my-default-btn-test-id-2',
     iconProps: null,
-    id: 'myDefaultButton',
+    id: 'myDefaultButton2',
     text: 'Default',
   },
   actionButtonThreeProps: {
     ariaLabel: 'Primary',
     classNames: 'my-primary-btn-class',
-    'data-test-id': 'my-primary-btn-test-id',
+    'data-testid': 'my-primary-btn-test-id',
     iconProps: null,
     id: 'myPrimaryButton',
     text: 'Primary',
@@ -185,65 +186,96 @@ Bottom_Bar_Buttons_On_Left.args = {
   type: PersistentBarType.bottomBarButtonsOnLeft,
 };
 
+Bottom_Bar_Buttons_On_Right.args = {
+  ...persistentBarArgs,
+  actionButtonOneProps: {
+    ariaLabel: 'Default 1',
+    classNames: 'my-default-btn-class',
+    'data-testid': 'my-default-btn-test-id-1',
+    iconProps: null,
+    id: 'myDefaultButton1',
+    text: 'Default',
+  },
+  actionButtonTwoProps: {
+    ariaLabel: 'Default 2',
+    classNames: 'my-default-btn-class',
+    'data-testid': 'my-default-btn-test-id-2',
+    iconProps: null,
+    id: 'myDefaultButton2',
+    text: 'Default',
+  },
+  actionButtonThreeProps: {
+    ariaLabel: 'Primary',
+    classNames: 'my-primary-btn-class',
+    'data-testid': 'my-primary-btn-test-id',
+    iconProps: null,
+    id: 'myPrimaryButton',
+    text: 'Primary',
+  },
+  type: PersistentBarType.bottomBarButtonsOnRight,
+};
+
 Top_Bar_Buttons.args = {
   ...persistentBarArgs,
   buttonMenuProps: [
     {
-      ariaLabel: 'Save Icon Button',
+      ariaLabel: 'Bookmark Icon Button 1',
       iconProps: { path: IconName.mdiBookmark },
-      id: 'myBookmarkButton',
+      id: 'myBookmarkButton1',
+      shape: ButtonShape.Round,
       text: null,
       variant: ButtonVariant.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 1',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-1',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton1',
+      text: 'Secondary 1',
       variant: ButtonVariant.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 2',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-2',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton2',
+      text: 'Secondary 2',
       variant: ButtonVariant.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 3',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-3',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton3',
+      text: 'Secondary 3',
       variant: ButtonVariant.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 4',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-4',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton4',
+      text: 'Secondary 4',
       variant: ButtonVariant.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 5',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-5',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton5',
+      text: 'Secondary 5',
       variant: ButtonVariant.Secondary,
     },
     {
-      ariaLabel: 'Save Icon Button',
-      iconProps: { path: IconName.mdiDotsVertical },
-      id: 'myMenuButton',
+      ariaLabel: 'Bookmark Icon Button 2',
+      iconProps: { path: IconName.mdiBookmark },
+      id: 'myBookmarkButton2',
+      shape: ButtonShape.Round,
       text: null,
       variant: ButtonVariant.Secondary,
     },
@@ -256,61 +288,63 @@ Top_Bar_Buttons_Legacy.args = {
   ...persistentBarArgs,
   buttonMenuProps: [
     {
-      ariaLabel: 'Save Icon Button',
+      ariaLabel: 'Bookmark Icon Button 1',
       iconProps: { path: IconName.mdiBookmark },
-      id: 'myBookmarkButton',
+      id: 'myBookmarkButton1',
+      shape: ButtonShape.Round,
       text: null,
       type: ButtonType.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 1',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-1',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton1',
+      text: 'Secondary 1',
       type: ButtonType.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 2',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-2',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton2',
+      text: 'Secondary 2',
       type: ButtonType.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 3',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-3',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton3',
+      text: 'Secondary 3',
       type: ButtonType.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 4',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-4',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton4',
+      text: 'Secondary 4',
       type: ButtonType.Secondary,
     },
     {
-      ariaLabel: 'Secondary',
+      ariaLabel: 'Secondary 5',
       classNames: 'my-primary-btn-class',
-      'data-test-id': 'my-primary-btn-test-id',
+      'data-testid': 'my-primary-btn-test-id-5',
       iconProps: null,
-      id: 'myPrimaryButton',
-      text: 'Secondary',
+      id: 'mySecondaryButton5',
+      text: 'Secondary 5',
       type: ButtonType.Secondary,
     },
     {
-      ariaLabel: 'Save Icon Button',
-      iconProps: { path: IconName.mdiDotsVertical },
-      id: 'myMenuButton',
+      ariaLabel: 'Bookmark Icon Button 2',
+      iconProps: { path: IconName.mdiBookmark },
+      id: 'myBookmarkButton2',
+      shape: ButtonShape.Round,
       text: null,
       type: ButtonType.Secondary,
     },
@@ -329,4 +363,28 @@ Top_Bar_Pagination.args = {
   ...persistentBarArgs,
   type: PersistentBarType.topBarPagination,
   paginationArgs,
+};
+
+Custom.args = {
+  ...persistentBarArgs,
+  children: (
+    <div className="octuple">
+      <div className="octuple-content" style={{ padding: 0 }}>
+        <h4
+          style={{
+            fontSize: '16px',
+            fontWeight: 600,
+            lineHeight: '18px',
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          Header 4 as Title:
+        </h4>
+        <div className="octuple-content__small" style={{ padding: 0 }}>
+          content small is used for supporting text.
+        </div>
+      </div>
+    </div>
+  ),
 };
