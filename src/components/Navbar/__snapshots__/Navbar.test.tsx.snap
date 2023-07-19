@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Navbar matches custom theme 1`] = `
+<div>
+  <div
+    class="navbar-container"
+    data-testid="test-navbar"
+  >
+    <div
+      class="navbar-content"
+    >
+      <a
+        aria-disabled="false"
+        class="link-style full-width primary"
+        data-testid="test-navbar-link"
+        href="https://eightfold.ai"
+        role="link"
+        style="background-color: transparent; padding: 8px 20px;"
+        target="_blank"
+        title="undefined"
+      >
+        Eightfold
+      </a>
+    </div>
+    <div
+      class="navbar-content"
+    >
+      <div
+        class="main-wrapper"
+      >
+        <div
+          aria-controls="dropdown-"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="reference-wrapper"
+          id="dropdown-reference"
+          role="button"
+          style="display: flex;"
+          tabindex="0"
+        >
+          <div
+            class="avatar-img-wrapper round"
+            style="width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;"
+          >
+            <img
+              alt="random profile image"
+              class="avatar image-style round"
+              height="32px"
+              src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+              tabindex="0"
+              width="32px"
+            />
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Navbar Renders without crashing 1`] = `
+<div>
+  <div
+    style="height: 250px;"
+  >
+    <div
+      class="navbar-container"
+      data-testid="test-navbar"
+    >
+      <div
+        class="navbar-content"
+      >
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          href="https://eightfold.ai"
+          role="link"
+          style="padding: 8px 20px;"
+          target="_blank"
+          title="undefined"
+        >
+          Eightfold
+        </a>
+      </div>
+      <div
+        class="navbar-content"
+      >
+        <div
+          class="main-wrapper"
+        >
+          <div
+            aria-controls="dropdown-"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="reference-wrapper"
+            id="dropdown-reference"
+            role="button"
+            style="display: flex;"
+            tabindex="0"
+          >
+            <div
+              class="avatar-img-wrapper round"
+              style="width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;"
+            >
+              <img
+                alt="random profile image"
+                class="avatar image-style round"
+                height="32px"
+                src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                tabindex="0"
+                width="32px"
+              />
+            </div>
+            <span
+              aria-hidden="false"
+              class="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style="width: 20px; height: 20px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style="fill: currentColor;"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

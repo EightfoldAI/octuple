@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OcBase Renders without crashing and uses data-testid 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="ocbase-class button button-default button-medium pill-shape"
+    data-test-id="test-ocbase-legacy"
+    data-testid="test-ocbase"
+  >
+    <span
+      class="button-text-medium"
+    >
+      Button
+    </span>
+  </button>
+</div>
+`;
