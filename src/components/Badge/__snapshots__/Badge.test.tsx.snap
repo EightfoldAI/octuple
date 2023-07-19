@@ -3,7 +3,7 @@
 exports[`Badge Badge is active 1`] = `
 <div>
   <span
-    class="badge my-badge-class active"
+    class="badge badge-medium my-badge-class active"
     data-testid="test-badge"
   >
     8
@@ -14,7 +14,40 @@ exports[`Badge Badge is active 1`] = `
 exports[`Badge Badge is disruptive 1`] = `
 <div>
   <span
-    class="badge disruptive my-badge-class"
+    class="badge disruptive badge-medium my-badge-class"
+    data-testid="test-badge"
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge Badge is large 1`] = `
+<div>
+  <span
+    class="badge badge-large my-badge-class"
+    data-testid="test-badge"
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge Badge is medium 1`] = `
+<div>
+  <span
+    class="badge badge-medium my-badge-class"
+    data-testid="test-badge"
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge Badge is small 1`] = `
+<div>
+  <span
+    class="badge badge-small my-badge-class"
     data-testid="test-badge"
   >
     8
@@ -25,7 +58,7 @@ exports[`Badge Badge is disruptive 1`] = `
 exports[`Badge Renders without crashing 1`] = `
 <div>
   <span
-    class="badge my-badge-class"
+    class="badge badge-medium my-badge-class"
     data-testid="test-badge"
   >
     8

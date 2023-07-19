@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Badge, BadgeProps } from './';
+import { Badge, BadgeProps, BadgeSize } from './';
 import { render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -44,6 +44,30 @@ describe('Badge', () => {
   test('Badge is active', () => {
     const { container } = render(<Badge {...badgeProps} active />);
     expect(container.querySelector('.active')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Badge is large', () => {
+    const { container } = render(
+      <Badge {...badgeProps} size={BadgeSize.Large} />
+    );
+    expect(container.querySelector('.badge-large')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Badge is medium', () => {
+    const { container } = render(
+      <Badge {...badgeProps} size={BadgeSize.Medium} />
+    );
+    expect(container.querySelector('.badge-medium')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Badge is small', () => {
+    const { container } = render(
+      <Badge {...badgeProps} size={BadgeSize.Small} />
+    );
+    expect(container.querySelector('.badge-small')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 });
