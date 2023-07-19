@@ -152,9 +152,6 @@ exports[`Select Renders null options in multiple mode without crashing 1`] = `
     class="select-wrapper select-wrapper-multiple select-medium"
   >
     <div
-      class="multi-select-pills"
-    />
-    <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
