@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion Accordion is large 1`] = `
+<div>
+  <div
+    class="accordion-container accordion-border pill"
+    data-testid="test-accordion"
+  >
+    <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      class="accordion-summary large"
+      id="myAccordionId-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="accordion-header-container"
+      >
+        <span
+          aria-hidden="false"
+          class="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+              style="fill: green;"
+            />
+          </svg>
+        </span>
+        <span
+          class="accordion-header"
+        >
+          Accordion Header
+        </span>
+        <span
+          class="badge"
+        >
+          2
+        </span>
+      </div>
+      <span
+        aria-hidden="false"
+        class="accordion-icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      aria-labelledby="myAccordionId-header"
+      class="accordion-body-container"
+      id="myAccordionId-content"
+      role="region"
+    >
+      <div
+        class="accordion-body border-top large"
+      >
+        <div
+          style="height: auto;"
+        >
+          Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion Accordion is medium 1`] = `
+<div>
+  <div
+    class="accordion-container accordion-border pill"
+    data-testid="test-accordion"
+  >
+    <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      class="accordion-summary medium"
+      id="myAccordionId-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="accordion-header-container"
+      >
+        <span
+          aria-hidden="false"
+          class="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+              style="fill: green;"
+            />
+          </svg>
+        </span>
+        <span
+          class="accordion-header"
+        >
+          Accordion Header
+        </span>
+        <span
+          class="badge"
+        >
+          2
+        </span>
+      </div>
+      <span
+        aria-hidden="false"
+        class="accordion-icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      aria-labelledby="myAccordionId-header"
+      class="accordion-body-container"
+      id="myAccordionId-content"
+      role="region"
+    >
+      <div
+        class="accordion-body border-top medium"
+      >
+        <div
+          style="height: auto;"
+        >
+          Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion Accordion is pill shaped 1`] = `
+<div>
+  <div
+    class="accordion-container accordion-border pill"
+    data-testid="test-accordion"
+  >
+    <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      class="accordion-summary large"
+      id="myAccordionId-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="accordion-header-container"
+      >
+        <span
+          aria-hidden="false"
+          class="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+              style="fill: green;"
+            />
+          </svg>
+        </span>
+        <span
+          class="accordion-header"
+        >
+          Accordion Header
+        </span>
+        <span
+          class="badge"
+        >
+          2
+        </span>
+      </div>
+      <span
+        aria-hidden="false"
+        class="accordion-icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      aria-labelledby="myAccordionId-header"
+      class="accordion-body-container"
+      id="myAccordionId-content"
+      role="region"
+    >
+      <div
+        class="accordion-body border-top large"
+      >
+        <div
+          style="height: auto;"
+        >
+          Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion Accordion is rectangle shaped 1`] = `
+<div>
+  <div
+    class="accordion-container accordion-border rectangle"
+    data-testid="test-accordion"
+  >
+    <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      class="accordion-summary large"
+      id="myAccordionId-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="accordion-header-container"
+      >
+        <span
+          aria-hidden="false"
+          class="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+              style="fill: green;"
+            />
+          </svg>
+        </span>
+        <span
+          class="accordion-header"
+        >
+          Accordion Header
+        </span>
+        <span
+          class="badge"
+        >
+          2
+        </span>
+      </div>
+      <span
+        aria-hidden="false"
+        class="accordion-icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      aria-labelledby="myAccordionId-header"
+      class="accordion-body-container"
+      id="myAccordionId-content"
+      role="region"
+    >
+      <div
+        class="accordion-body border-top large"
+      >
+        <div
+          style="height: auto;"
+        >
+          Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion Renders without crashing 1`] = `
+<div>
+  <div
+    class="accordion-container accordion-border pill"
+    data-testid="test-accordion"
+  >
+    <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      class="accordion-summary large"
+      id="myAccordionId-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="accordion-header-container"
+      >
+        <span
+          aria-hidden="false"
+          class="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+              style="fill: green;"
+            />
+          </svg>
+        </span>
+        <span
+          class="accordion-header"
+        >
+          Accordion Header
+        </span>
+        <span
+          class="badge"
+        >
+          2
+        </span>
+      </div>
+      <span
+        aria-hidden="false"
+        class="accordion-icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      aria-labelledby="myAccordionId-header"
+      class="accordion-body-container"
+      id="myAccordionId-content"
+      role="region"
+    >
+      <div
+        class="accordion-body border-top large"
+      >
+        <div
+          style="height: auto;"
+        >
+          Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

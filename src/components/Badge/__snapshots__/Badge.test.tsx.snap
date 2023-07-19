@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge Badge is active 1`] = `
+<div>
+  <span
+    class="badge my-badge-class active"
+    data-testid="test-badge"
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge Badge is disruptive 1`] = `
+<div>
+  <span
+    class="badge disruptive my-badge-class"
+    data-testid="test-badge"
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge Renders without crashing 1`] = `
+<div>
+  <span
+    class="badge my-badge-class"
+    data-testid="test-badge"
+  >
+    8
+  </span>
+</div>
+`;

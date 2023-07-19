@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader Loader accepts custom classes 1`] = `
+<div>
+  <div
+    class="loader-container my-loader-class"
+    data-testid="test-loader"
+  >
+    <div
+      class="dot small"
+    />
+    <div
+      class="dot small"
+    />
+    <div
+      class="dot small"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader Loader is large 1`] = `
+<div>
+  <div
+    class="loader-container my-loader-class"
+    data-testid="test-loader"
+  >
+    <div
+      class="dot large"
+    />
+    <div
+      class="dot large"
+    />
+    <div
+      class="dot large"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader Loader is medium 1`] = `
+<div>
+  <div
+    class="loader-container my-loader-class"
+    data-testid="test-loader"
+  >
+    <div
+      class="dot medium"
+    />
+    <div
+      class="dot medium"
+    />
+    <div
+      class="dot medium"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader Loader is small 1`] = `
+<div>
+  <div
+    class="loader-container my-loader-class"
+    data-testid="test-loader"
+  >
+    <div
+      class="dot small"
+    />
+    <div
+      class="dot small"
+    />
+    <div
+      class="dot small"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader Renders without crashing 1`] = `
+<div>
+  <div
+    class="loader-container my-loader-class"
+    data-testid="test-loader"
+  >
+    <div
+      class="dot small"
+    />
+    <div
+      class="dot small"
+    />
+    <div
+      class="dot small"
+    />
+  </div>
+</div>
+`;
