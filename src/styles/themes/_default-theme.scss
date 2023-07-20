@@ -1217,4 +1217,17 @@
   --persistent-bar-primary-text-color: var(--text-primary-color);
   --persistent-bar-secondary-text-color: var(--text-primary-color);
   // ------ Persistent Bar theme ------
+
+  // ------ Progress theme ------
+  --progress-border-color: var(--primary-tertiary-color);
+  --progress-complete-background-color: var(--primary-tertiary-color);
+  --progress-error-background-color: var(--error-color);
+  --progress-error-border-color: var(--error-color);
+  --progress-error-text-color: var(--error-color);
+  --progress-incomplete-background-color: var(--accent-background1-color);
+  --progress-success-background-color: var(--success-color);
+  --progress-success-border-color: var(--success-color);
+  --progress-success-text-color: var(--success-color);
+  --progress-text-color: var(--text-primary-color);
+  // ------ Progress theme ------
 }

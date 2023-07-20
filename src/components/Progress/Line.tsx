@@ -4,6 +4,7 @@ import type { ProgressGradient, StringGradients } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
 import type { DirectionType } from '../ConfigProvider';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './progress.module.scss';
 
@@ -47,8 +48,8 @@ export const handleGradient = (
   directionConfig?: DirectionType
 ) => {
   const {
-    from = 'var(--primary-color)',
-    to = 'var(--primary-color)',
+    from = 'var(--progress-complete-background-color)',
+    to = 'var(--progress-complete-background-color)',
     direction = directionConfig === 'rtl' ? 'to left' : 'to right',
     ...rest
   } = strokeColor;
@@ -63,6 +64,7 @@ export const handleGradient = (
 
 const Line: FC<LineProps> = (props) => {
   const {
+    bordered,
     children,
     direction: directionConfig,
     maxLabelRef,
@@ -96,7 +98,7 @@ const Line: FC<LineProps> = (props) => {
   const borderRadius =
     strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
   const trailStyle = {
-    backgroundColor: trailColor || undefined,
+    background: trailColor || undefined,
     borderRadius,
   };
 
@@ -113,7 +115,7 @@ const Line: FC<LineProps> = (props) => {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
     borderRadius,
-    backgroundColor: success?.strokeColor,
+    background: success?.strokeColor,
   };
 
   const successSegment =
@@ -250,7 +252,13 @@ const Line: FC<LineProps> = (props) => {
   return (
     <ResizeObserver onResize={updateLayout}>
       <div className={styles.progressOuter}>
-        <div className={styles.progressInner} style={trailStyle}>
+        <div
+          className={mergeClasses([
+            styles.progressInner,
+            { [styles.bordered]: !!bordered },
+          ])}
+          style={trailStyle}
+        >
           <div
             ref={progressBgRef}
             className={styles.progressBg}
