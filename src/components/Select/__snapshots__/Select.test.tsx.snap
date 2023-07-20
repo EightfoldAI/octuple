@@ -1,5 +1,297 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Select Renders empty options in multiple mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-wrapper-multiple select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select multiple test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders empty options in single mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select single test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders null options in multiple mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-wrapper-multiple select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select multiple test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders null options in single mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select single test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Select Renders with default value 1`] = `
 <div>
   <div
