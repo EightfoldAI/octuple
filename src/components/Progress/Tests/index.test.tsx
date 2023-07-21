@@ -159,7 +159,7 @@ describe('Progress', () => {
       'linear-gradient(to right, test, test)'
     );
     expect(handleGradient({}).backgroundImage).toBe(
-      'linear-gradient(to right, var(--primary-color), var(--primary-color))'
+      'linear-gradient(to right, var(--progress-complete-background-color), var(--progress-complete-background-color))'
     );
     expect(
       handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage
@@ -231,16 +231,16 @@ describe('Progress', () => {
     );
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.progress-steps-item')[0].style
-        .backgroundColor
+        .background
     ).toBe('rgb(24, 144, 255)');
     rerender(<Progress steps={5} percent={40} strokeColor="#1890ff" />);
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.progress-steps-item')[2].style
-        .backgroundColor
+        .background
     ).toBe('');
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.progress-steps-item')[1].style
-        .backgroundColor
+        .background
     ).toBe('rgb(24, 144, 255)');
   });
 
@@ -250,8 +250,22 @@ describe('Progress', () => {
     );
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.progress-steps-item')[1].style
-        .backgroundColor
+        .background
     ).toBe('rgb(24, 144, 238)');
+  });
+
+  test('steps should support border', () => {
+    const { container: wrapper } = render(
+      <Progress steps={5} percent={20} trailColor="#1890ee" bordered />
+    );
+    expect(wrapper.querySelector<HTMLDivElement>('.bordered')).toBeTruthy();
+  });
+
+  test('steps should support no border', () => {
+    const { container: wrapper } = render(
+      <Progress steps={5} percent={20} trailColor="#1890ee" bordered={false} />
+    );
+    expect(wrapper.querySelector<HTMLDivElement>('.bordered')).toBeFalsy();
   });
 
   test('should display correct step', () => {

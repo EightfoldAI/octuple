@@ -25,11 +25,15 @@ function getStrokeColor({
   strokeColor,
 }: Partial<CircleProps>): (string | Record<string, string>)[] {
   const { strokeColor: successColor } = success;
-  return [successColor || 'var(--success-color)', strokeColor || null!];
+  return [
+    successColor || 'var(--progress-success-background-color)',
+    strokeColor || null!,
+  ];
 }
 
 const Circle: FC<CircleProps> = (props) => {
   const {
+    bordered,
     children,
     gapDegree,
     gapPosition,
@@ -77,6 +81,7 @@ const Circle: FC<CircleProps> = (props) => {
   return (
     <div className={wrapperClassNames} style={circleStyle}>
       <OcCircle
+        bordered={bordered}
         gapDegree={getGapDegree()}
         gapPosition={gapPos}
         percent={getPercentage(props)}

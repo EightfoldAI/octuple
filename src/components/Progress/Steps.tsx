@@ -10,6 +10,7 @@ const STEP_ITEM_MARGIN_OFFSET: number = 4;
 
 const Steps: FC<ProgressStepsProps> = (props) => {
   const {
+    bordered,
     children,
     direction: directionConfig,
     maxLabelRef,
@@ -43,13 +44,18 @@ const Steps: FC<ProgressStepsProps> = (props) => {
         key={i}
         className={mergeClasses([
           styles.progressStepsItem,
+          { [styles.bordered]: !!bordered },
           {
             [styles.progressStepsItemActive]: i <= current - 1,
           },
         ])}
         style={{
-          backgroundColor: i <= current - 1 ? color : trailColor,
-          borderColor: i <= current - 1 ? color : trailColor,
+          background: i <= current - 1 ? color : trailColor,
+          borderColor: bordered
+            ? i <= current - 1
+              ? color
+              : trailColor
+            : 'transparent',
           width: stepWidth ? stepWidth : calculatedWidth,
           height: size === 'small' ? 4 : strokeWidth,
         }}

@@ -5,6 +5,11 @@ export type StrokeLinecapType = 'round' | 'butt' | 'square';
 
 export interface OcProgressProps {
   /**
+   * Whether to visually hide the Progress border.
+   * @default true
+   */
+  bordered?: boolean;
+  /**
    * The Progress class names.
    */
   classNames?: string;
