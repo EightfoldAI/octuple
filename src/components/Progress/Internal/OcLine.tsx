@@ -8,11 +8,11 @@ import styles from '../progress.module.scss';
 const OcLine: FC<OcProgressProps> = ({
   classNames,
   percent = 0,
-  strokeColor = 'var(--primary-tertiary-color)',
+  strokeColor = 'var(--progress-complete-background-color)',
   strokeLinecap = 'round',
   strokeWidth = 1,
   style,
-  trailColor = 'var(--accent-background1-color)',
+  trailColor = 'var(--progress-incomplete-background-color)',
   trailWidth = 1,
   transition,
   ...rest

@@ -104,6 +104,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       maxLabel,
       name,
       onChange,
+      railBorder = true,
       readOnly = false,
       showLabels = true,
       showMarkers = false,
@@ -111,6 +112,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       step = 1,
       tooltipContent,
       tooltipProps,
+      trackBorder = true,
       trackStatus,
       type = 'default',
       value,
@@ -747,6 +749,9 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 className={mergeClasses([
                   styles.sliderRail,
                   {
+                    [styles.railBorderHidden]: !railBorder,
+                  },
+                  {
                     [styles.data]: type === 'data',
                   },
                   {
@@ -761,6 +766,9 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 ref={trackRef}
                 className={mergeClasses([
                   styles.sliderTrack,
+                  {
+                    [styles.trackBorderHidden]: !trackBorder,
+                  },
                   {
                     [styles.success]:
                       !!trackStatus &&
@@ -790,6 +798,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     return (
                       <div
                         className={mergeClasses(styles.railMarkerSegment, {
+                          [styles.railMarkerSegmentBorderHidden]:
+                            (!trackBorder &&
+                              isMarkerSegmentActive(mark.value)) ||
+                            (!railBorder && !isMarkerSegmentActive(mark.value)),
                           [styles.data]: type === 'data',
                           [styles.active]:
                             !hideTrack && isMarkerSegmentActive(mark.value),
