@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.42.0](https://github.com/EightfoldAI/octuple/compare/v2.41.0...v2.42.0) (2023-07-21)
+
+### Features
+
+- persistentbar: support small screens and themes plus custom render ([#667](https://github.com/EightfoldAI/octuple/issues/667)) ([447d2a1](https://github.com/EightfoldAI/octuple/commits/447d2a171bb7ee7c78063e5ac55a8ad8a7b0d57e))
+- selectors: add var theme support to check box radio and toggle ([#659](https://github.com/EightfoldAI/octuple/issues/659)) ([8525e42](https://github.com/EightfoldAI/octuple/commits/8525e42344d31abcd4f64be621393f48537a8400))
+- slider and progress: add ability to visually hide borders ([#673](https://github.com/EightfoldAI/octuple/issues/673)) ([414bc32](https://github.com/EightfoldAI/octuple/commits/414bc3211afd5127b86d6f51732583ae5e56f9df))
+
+### Bug Fixes
+
+- select: adds fall back and optional chaining to avoid null reference errors at runtime ([#669](https://github.com/EightfoldAI/octuple/issues/669)) ([13c73e7](https://github.com/EightfoldAI/octuple/commits/13c73e70c0c1c9b017a5b81879af2f9fc6a88ef3))
+
 ## [2.41.0](https://github.com/EightfoldAI/octuple/compare/v2.40.0...v2.41.0) (2023-06-27)
 
 ### Features
