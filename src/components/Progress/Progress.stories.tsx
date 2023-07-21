@@ -176,16 +176,16 @@ const Steps_Story: ComponentStory<typeof Progress> = (args) => {
         {...args}
         percent={100}
         steps={5}
-        strokeColor={'var(--success-color)'}
+        strokeColor={'var(--progress-success-background-color)'}
       />
       <Progress
         {...args}
         percent={60}
         steps={5}
         strokeColor={[
-          'var(--success-color)',
-          'var(--success-color)',
-          'var(--error-color)',
+          'var(--progress-success-background-color)',
+          'var(--progress-success-background-color)',
+          'var(--progress-error-background-color)',
         ]}
       />
       <Progress {...args} percent={30} steps={6} showLabels={false} />
@@ -314,6 +314,7 @@ export const __namedExportsOrder = [
 ];
 
 const progressArgs: Object = {
+  bordered: true,
   classNames: 'my-progress',
   gapDegree: null,
   gapPosition: null,
