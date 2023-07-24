@@ -17,7 +17,7 @@
     color: var(--info-bar-text-color);
 
     &.bordered {
-      border-color: var(--info-bar-border-neutral-color);
+      border-color: var(--info-bar-neutral-border-color);
     }
 
     .action-button,
@@ -33,7 +33,7 @@
     color: var(--info-bar-positive-text-color);
 
     &.bordered {
-      border-color: var(--info-bar-border-positive-color);
+      border-color: var(--info-bar-positive-border-color);
     }
 
     .action-button,
@@ -51,7 +51,7 @@
     color: var(--info-bar-warning-text-color);
 
     &.bordered {
-      border-color: var(--info-bar-border-warning-color);
+      border-color: var(--info-bar-warning-border-color);
     }
 
     .action-button,
@@ -69,7 +69,7 @@
     color: var(--info-bar-disruptive-text-color);
 
     &.bordered {
-      border-color: var(--info-bar-border-disruptive-color);
+      border-color: var(--info-bar-disruptive-border-color);
     }
 
     .action-button,
