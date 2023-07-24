@@ -36,6 +36,7 @@ import {
   ConditionalWrapper,
   eventKeys,
   mergeClasses,
+  RenderProps,
   uniqueId,
 } from '../../shared/utilities';
 
@@ -340,16 +341,17 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         if (React.isValidElement(node)) {
           const child = React.Children.only(node) as React.ReactElement<any>;
 
-          // Utilize tha same element clone pattern as Dropdown
+          // Utilize a similar element clone pattern as Dropdown
           // for more complex Popup elements.
-          const referenceWrapperClassNames: string = mergeClasses([
-            styles.referenceWrapper,
+          const popupClassNames: string = mergeClasses([
             { [styles.triggerAbove]: !!triggerAbove },
             // Add any classnames added to the reference element
-            { [child.props.className]: child.props.className },
+            { [child.props.className]: !!child.props.className },
+            { [child.props.classNames]: !!child.props.classNames },
             { [styles.disabled]: disabled },
           ]);
-          return cloneElement(child, {
+
+          const clonedElementProps: RenderProps = {
             ...{
               [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
             },
@@ -357,13 +359,21 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             key: tooltipId?.current,
             onClick: handleReferenceClick,
             onKeyDown: handleReferenceKeyDown,
-            className: referenceWrapperClassNames,
             'aria-controls': tooltipId?.current,
             'aria-expanded': mergedVisible,
             'aria-haspopup': true,
             role: 'button',
             tabIndex: `${tabIndex}`,
-          });
+          };
+
+          // Compares for octuple react prop vs native react html classes.
+          if (child.props.className) {
+            clonedElementProps['className'] = popupClassNames;
+          } else if (child.props.classNames) {
+            clonedElementProps['classNames'] = popupClassNames;
+          }
+
+          return cloneElement(child, clonedElementProps);
         }
         return node;
       };
