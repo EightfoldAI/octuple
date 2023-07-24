@@ -14,6 +14,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
   (props: InfoBarsProps, ref: Ref<HTMLDivElement>) => {
     const {
       actionButtonProps,
+      bordered = false,
       classNames,
       closable,
       closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
@@ -54,6 +55,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
 
     const infoBarClasses: string = mergeClasses([
       styles.infoBar,
+      { [styles.bordered]: !!bordered },
       classNames,
       { [styles.neutral]: type === InfoBarType.neutral },
       { [styles.positive]: type === InfoBarType.positive },

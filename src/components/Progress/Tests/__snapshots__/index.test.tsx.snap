@@ -5,50 +5,54 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
   class="progress progress-circle progress-status-normal"
 >
   <div
-    class="progress-inner"
-    style="width: 120px; height: 120px; font-size: 22px;"
+    class="bordered"
   >
-    <svg
-      class="progress-circle"
-      viewBox="0 0 100 100"
+    <div
+      class="progress-inner"
+      style="width: 120px; height: 120px; font-size: 22px;"
     >
-      <circle
-        class="progress-circle-trail"
-        cx="50"
-        cy="50"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 56.72320068981571px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 56.72320068981571px 314.1592653589793; stroke-dashoffset: 56.72320068981571; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: var(--success-color); stroke-dasharray: 56.72320068981571px 314.1592653589793; stroke-dashoffset: 56.72320068981571; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-    </svg>
-    <span
-      class="progress-text"
-      title="0%"
-    >
-      0%
-    </span>
+      <svg
+        class="progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 56.72320068981571px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 56.72320068981571px 314.1592653589793; stroke-dashoffset: 56.72320068981571; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: var(--progress-success-background-color); stroke-dasharray: 56.72320068981571px 314.1592653589793; stroke-dashoffset: 56.72320068981571; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+    </div>
   </div>
+  <span
+    class="progress-text"
+    title="0%"
+  >
+    0%
+  </span>
 </div>
 `;
 
@@ -57,50 +61,54 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
   class="progress progress-circle progress-status-normal"
 >
   <div
-    class="progress-inner"
-    style="width: 120px; height: 120px; font-size: 22px;"
+    class="bordered"
   >
-    <svg
-      class="progress-circle"
-      viewBox="0 0 100 100"
+    <div
+      class="progress-inner"
+      style="width: 120px; height: 120px; font-size: 22px;"
     >
-      <circle
-        class="progress-circle-trail"
-        cx="50"
-        cy="50"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 55.85053606381855px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 55.85053606381855px 314.1592653589793; stroke-dashoffset: 55.85053606381855; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: var(--success-color); stroke-dasharray: 55.85053606381855px 314.1592653589793; stroke-dashoffset: 55.85053606381855; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-    </svg>
-    <span
-      class="progress-text"
-      title="0%"
-    >
-      0%
-    </span>
+      <svg
+        class="progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 55.85053606381855px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 55.85053606381855px 314.1592653589793; stroke-dashoffset: 55.85053606381855; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: var(--progress-success-background-color); stroke-dasharray: 55.85053606381855px 314.1592653589793; stroke-dashoffset: 55.85053606381855; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+    </div>
   </div>
+  <span
+    class="progress-text"
+    title="0%"
+  >
+    0%
+  </span>
 </div>
 `;
 
@@ -109,50 +117,54 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
   class="progress progress-circle progress-status-normal"
 >
   <div
-    class="progress-inner"
-    style="width: 120px; height: 120px; font-size: 22px;"
+    class="bordered"
   >
-    <svg
-      class="progress-circle"
-      viewBox="0 0 100 100"
+    <div
+      class="progress-inner"
+      style="width: 120px; height: 120px; font-size: 22px;"
     >
-      <circle
-        class="progress-circle-trail"
-        cx="50"
-        cy="50"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 314.1592653589793; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: var(--success-color); stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 314.1592653589793; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-    </svg>
-    <span
-      class="progress-text"
-      title="0%"
-    >
-      0%
-    </span>
+      <svg
+        class="progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 314.1592653589793; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: var(--progress-success-background-color); stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 314.1592653589793; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+    </div>
   </div>
+  <span
+    class="progress-text"
+    title="0%"
+  >
+    0%
+  </span>
 </div>
 `;
 
@@ -164,7 +176,7 @@ exports[`Progress render format 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -207,7 +219,7 @@ exports[`Progress render negative progress 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -246,7 +258,7 @@ exports[`Progress render negative successPercent 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -289,7 +301,7 @@ exports[`Progress render normal progress 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -328,7 +340,7 @@ exports[`Progress render out-of-range progress 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -354,7 +366,7 @@ exports[`Progress render out-of-range progress 1`] = `
         >
           <path
             d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
-            style="fill: var(--success-color);"
+            style="fill: var(--progress-success-text-color);"
           />
         </svg>
       </span>
@@ -382,7 +394,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -408,7 +420,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
         >
           <path
             d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
-            style="fill: var(--success-color);"
+            style="fill: var(--progress-success-text-color);"
           />
         </svg>
       </span>
@@ -433,50 +445,54 @@ exports[`Progress render strokeColor 1`] = `
   class="progress progress-circle progress-status-normal"
 >
   <div
-    class="progress-inner"
-    style="width: 120px; height: 120px; font-size: 22px;"
+    class="bordered"
   >
-    <svg
-      class="progress-circle"
-      viewBox="0 0 100 100"
+    <div
+      class="progress-inner"
+      style="width: 120px; height: 120px; font-size: 22px;"
     >
-      <circle
-        class="progress-circle-trail"
-        cx="50"
-        cy="50"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="1"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: red; stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 157.07963267948966; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="0"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: var(--success-color); stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 314.1592653589793; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-    </svg>
-    <span
-      class="progress-text"
-      title="50%"
-    >
-      50%
-    </span>
+      <svg
+        class="progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="1"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: red; stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 157.07963267948966; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: var(--progress-success-background-color); stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 314.1592653589793; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+    </div>
   </div>
+  <span
+    class="progress-text"
+    title="50%"
+  >
+    50%
+  </span>
 </div>
 `;
 
@@ -488,7 +504,7 @@ exports[`Progress render strokeColor 2`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -527,7 +543,7 @@ exports[`Progress render strokeColor 3`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -566,7 +582,7 @@ exports[`Progress render successColor progress 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
+      class="progress-inner bordered"
     >
       <div
         class="progress-bg"
@@ -574,7 +590,7 @@ exports[`Progress render successColor progress 1`] = `
       />
       <div
         class="progress-success-bg"
-        style="width: 30%; height: 4px; background-color: rgb(255, 255, 255);"
+        style="width: 30%; height: 4px; background: rgb(255, 255, 255);"
       />
     </div>
   </div>
@@ -606,50 +622,54 @@ exports[`Progress render successColor progress type="circle" 1`] = `
   class="progress progress-circle progress-status-normal"
 >
   <div
-    class="progress-inner"
-    style="width: 120px; height: 120px; font-size: 22px;"
+    class="bordered"
   >
-    <svg
-      class="progress-circle"
-      viewBox="0 0 100 100"
+    <div
+      class="progress-inner"
+      style="width: 120px; height: 120px; font-size: 22px;"
     >
-      <circle
-        class="progress-circle-trail"
-        cx="50"
-        cy="50"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="1"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 219.9114857512855; transform: rotate(18deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="1"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: #ffffff; stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 219.9114857512855; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-    </svg>
-    <span
-      class="progress-text"
-      title="60%"
-    >
-      60%
-    </span>
+      <svg
+        class="progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="1"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 219.9114857512855; transform: rotate(18deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="1"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: #ffffff; stroke-dasharray: 314.1592653589793px 314.1592653589793; stroke-dashoffset: 219.9114857512855; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+    </div>
   </div>
+  <span
+    class="progress-text"
+    title="60%"
+  >
+    60%
+  </span>
 </div>
 `;
 
@@ -658,50 +678,54 @@ exports[`Progress render successColor progress type="dashboard" 1`] = `
   class="progress progress-circle progress-status-normal"
 >
   <div
-    class="progress-inner"
-    style="width: 120px; height: 120px; font-size: 22px;"
+    class="bordered"
   >
-    <svg
-      class="progress-circle"
-      viewBox="0 0 100 100"
+    <div
+      class="progress-inner"
+      style="width: 120px; height: 120px; font-size: 22px;"
     >
-      <circle
-        class="progress-circle-trail"
-        cx="50"
-        cy="50"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 248.70941840919195px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="1"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke-dasharray: 248.70941840919195px 314.1592653589793; stroke-dashoffset: 174.09659288643437; transform: rotate(213deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-      <circle
-        class="progress-circle-path"
-        cx="50"
-        cy="50"
-        opacity="1"
-        r="50"
-        stroke-linecap="butt"
-        stroke-width="62.5"
-        style="stroke: #ffffff; stroke-dasharray: 248.70941840919195px 314.1592653589793; stroke-dashoffset: 174.09659288643437; transform: rotate(127.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
-      />
-    </svg>
-    <span
-      class="progress-text"
-      title="60%"
-    >
-      60%
-    </span>
+      <svg
+        class="progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 248.70941840919195px 314.1592653589793; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="1"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke-dasharray: 248.70941840919195px 314.1592653589793; stroke-dashoffset: 174.09659288643437; transform: rotate(213deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="1"
+          r="50"
+          stroke-linecap="butt"
+          stroke-width="62.5"
+          style="stroke: #ffffff; stroke-dasharray: 248.70941840919195px 314.1592653589793; stroke-dashoffset: 174.09659288643437; transform: rotate(127.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+    </div>
   </div>
+  <span
+    class="progress-text"
+    title="60%"
+  >
+    60%
+  </span>
 </div>
 `;
 
@@ -713,8 +737,8 @@ exports[`Progress render trailColor progress 1`] = `
     class="progress-outer"
   >
     <div
-      class="progress-inner"
-      style="background-color: rgb(255, 255, 255);"
+      class="progress-inner bordered"
+      style="background: rgb(255, 255, 255);"
     >
       <div
         class="progress-bg"
@@ -753,15 +777,15 @@ exports[`Progress should support steps 1`] = `
     class="progress-steps-outer"
   >
     <div
-      class="progress-steps-item"
+      class="progress-steps-item bordered"
       style="width: 0px; height: 6px;"
     />
     <div
-      class="progress-steps-item"
+      class="progress-steps-item bordered"
       style="width: 0px; height: 6px;"
     />
     <div
-      class="progress-steps-item"
+      class="progress-steps-item bordered"
       style="width: 0px; height: 6px;"
     />
   </div>

@@ -177,6 +177,10 @@ $small-min-label-offset-with-steps: 0;
       border-color: var(--slider-data-rail-border-color);
     }
 
+    &.rail-border-hidden {
+      border-color: transparent;
+    }
+
     &-opacity {
       opacity: 0;
     }
@@ -199,6 +203,10 @@ $small-min-label-offset-with-steps: 0;
     &.error {
       background-color: var(--slider-track-error-background-color);
       border-color: var(--slider-track-error-border-color);
+    }
+
+    &.track-border-hidden {
+      border-color: transparent;
     }
 
     &-opacity {
@@ -258,6 +266,14 @@ $small-min-label-offset-with-steps: 0;
         background-color: var(--slider-track-error-background-color);
         border-color: var(--slider-track-error-border-color);
       }
+
+      &.rail-marker-segment-border-hidden {
+        border-color: transparent;
+      }
+    }
+
+    &.rail-marker-segment-border-hidden {
+      border-color: transparent;
     }
   }
 

@@ -59,6 +59,7 @@ const infoBarArgs: Object = {
     id: 'myActionButton',
     text: 'Action',
   },
+  bordered: false,
   closable: true,
   content: 'Body2 is used inside here.',
   style: {},
