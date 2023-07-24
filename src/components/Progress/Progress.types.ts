@@ -25,6 +25,11 @@ export enum ProgressSize {
 
 export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
   /**
+   * Whether to visually hide the Progress border.
+   * @default true
+   */
+  bordered?: boolean;
+  /**
    * The Progress render.
    */
   children?: React.ReactNode;
@@ -163,6 +168,11 @@ export interface SuccessProps {
 
 export interface ProgressStepsProps extends ProgressProps {
   /**
+   * Whether to visually hide the Progress border.
+   * @default true
+   */
+  bordered?: boolean;
+  /**
    * The current canvas direction.
    */
   direction?: DirectionType;
@@ -199,9 +209,14 @@ export interface ProgressStepsProps extends ProgressProps {
 
 export interface CircleProps extends ProgressProps {
   /**
+   * Whether to visually hide the Progress border.
+   * @default true
+   */
+  bordered?: boolean;
+  /**
    * The Progress Circle render.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * The status of the Progress Circle component.
    * options: 'success', 'exception', 'normal', 'active'
@@ -214,6 +229,11 @@ export interface CircleProps extends ProgressProps {
 }
 
 export interface LineProps extends ProgressProps {
+  /**
+   * Whether to visually hide the Progress border.
+   * @default true
+   */
+  bordered?: boolean;
   /**
    * The Progress Line render.
    */

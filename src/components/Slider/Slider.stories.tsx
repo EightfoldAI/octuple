@@ -1054,6 +1054,7 @@ const sliderArgs: Object = {
   onChange: () => {
     console.log('changed');
   },
+  railBorder: true,
   readOnly: false,
   showLabels: true,
   showMarkers: false,
@@ -1062,6 +1063,7 @@ const sliderArgs: Object = {
   style: {
     marginTop: 24,
   },
+  trackBorder: true,
   tooltipContent: null,
   type: 'default',
   valueLabel: [null, null],
