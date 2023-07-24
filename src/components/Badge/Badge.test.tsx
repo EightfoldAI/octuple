@@ -35,6 +35,21 @@ describe('Badge', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Badge accepts custom style', () => {
+    const { container, getByTestId } = render(
+      <Badge {...badgeProps} style={{ color: '#000000' }} />
+    );
+    const badge = getByTestId('test-badge');
+    expect(badge.style.color).toBe('rgb(0, 0, 0)');
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Badge accepts custom class', () => {
+    const { container, getByTestId } = render(<Badge {...badgeProps} />);
+    const badge = getByTestId('test-badge');
+    expect(badge.classList.contains('my-badge-class')).toBe(true);
+  });
+
   test('Badge is disruptive', () => {
     const { container } = render(<Badge {...badgeProps} disruptive />);
     expect(container.querySelector('.disruptive')).toBeTruthy();
