@@ -375,7 +375,25 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
           return cloneElement(child, clonedElementProps);
         }
-        return node;
+        return (
+          <div
+            aria-controls={tooltipId?.current}
+            aria-expanded={mergedVisible}
+            aria-haspopup={true}
+            className={mergeClasses([
+              { [styles.triggerAbove]: !!triggerAbove },
+              { [styles.disabled]: disabled },
+            ])}
+            id={tooltipReferenceId?.current}
+            key={tooltipId?.current}
+            onClick={handleReferenceClick}
+            onKeyDown={handleReferenceKeyDown}
+            role="button"
+            tab-index={tabIndex}
+          >
+            {node}
+          </div>
+        );
       };
 
       const getTooltip = (): JSX.Element =>

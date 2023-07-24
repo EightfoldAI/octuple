@@ -146,6 +146,24 @@ describe('Popup', () => {
     );
   });
 
+  test('Popup reference component falls back to node', async () => {
+    const { container } = render(
+      <Popup
+        content={<div data-testid="popup-5">This is a popup.</div>}
+        triggerAbove
+      >
+        8
+      </Popup>
+    );
+    expect(container.querySelector('.reference-wrapper')).toBeTruthy();
+    fireEvent.click(
+      container.querySelector('.reference-wrapper').firstElementChild
+    );
+    await waitFor(() => screen.getByTestId('popup-5'));
+    expect(container.querySelector('.popup')).toBeTruthy();
+    expect(container.querySelector('.trigger-above')).toBeTruthy();
+  });
+
   test('Popup is large', async () => {
     const { container } = render(
       <Popup
