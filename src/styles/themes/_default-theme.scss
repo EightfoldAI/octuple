@@ -897,6 +897,14 @@
   // ------ Card theme ------
 
   // ------ Info Bar theme ------
+  --info-bar-disruptive-border-color: var(--red-background2-color);
+  --info-bar-neutral-border-color: var(--grey-background2-color);
+  --info-bar-positive-border-color: var(--green-background2-color);
+  --info-bar-warning-border-color: var(--orange-background2-color);
+  --info-bartip-border-style: solid;
+  --info-bar-border-width: 1px;
+  --info-bar-border: var(--info-bar-border-width)
+    var(--info-bartip-border-style) var(--info-bar-neutral-border-color);
   --info-bar-border-radius: var(--border-radius-xl);
   --info-bar-background-color: var(--grey-background1-color);
   --info-bar-button-active-background-color: var(--grey-background2-color);
