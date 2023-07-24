@@ -1,5 +1,7 @@
 import { isAndroid, isIOS } from './mobileDetector';
 
+let windowSpy: any;
+
 const mockNavigator = (agent: string): void => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (navigator as any).__defineGetter__('userAgent', (): string => {
@@ -8,7 +10,15 @@ const mockNavigator = (agent: string): void => {
 };
 
 describe('isIOS', () => {
-  it('is true for iPad', () => {
+  beforeEach(() => {
+    windowSpy = jest.spyOn(window, 'window', 'get');
+  });
+
+  afterEach(() => {
+    windowSpy.mockRestore();
+  });
+
+  test('is true for iPad', () => {
     mockNavigator(
       `Mozilla/5.0 (iPad; CPU OS 10_2_1 like Mac OS X)
       AppleWebKit/602.4.6 (KHTML, like Gecko)
@@ -18,7 +28,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(true);
   });
 
-  it('is true for iPhone', () => {
+  test('is true for iPhone', () => {
     mockNavigator(
       `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X)
       AppleWebKit/604.1.38 (KHTML, like Gecko)
@@ -28,7 +38,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(true);
   });
 
-  it('is true for iPod touch', () => {
+  test('is true for iPod touch', () => {
     mockNavigator(
       `Mozilla/5.0 (iPod touch; CPU iPhone OS 7_0_3 like Mac OS X)
       AppleWebKit/537.51.1 (KHTML, like Gecko)
@@ -38,7 +48,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(true);
   });
 
-  it('is false for Android', () => {
+  test('is false for Android', () => {
     mockNavigator(
       `Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
       AppleWebkit/534.30 (KHTML, like Gecko)
@@ -48,7 +58,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(false);
   });
 
-  it('is false for desktop Chrome', () => {
+  test('is false for desktop Chrome', () => {
     mockNavigator(
       `Mozilla/5.0 (Windows NT 6.1)
       AppleWebKit/537.36 (KHTML, like Gecko)
@@ -58,7 +68,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(false);
   });
 
-  it('is false for desktop Firefox', () => {
+  test('is false for desktop Firefox', () => {
     mockNavigator(
       `Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1`
     );
@@ -66,7 +76,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(false);
   });
 
-  it('is false for desktop Safari', () => {
+  test('is false for desktop Safari', () => {
     mockNavigator(
       `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3)
       AppleWebKit/537.75.14 (KHTML, like Gecko)
@@ -76,7 +86,7 @@ describe('isIOS', () => {
     expect(isIOS()).toBe(false);
   });
 
-  it('is false for desktop Edge', () => {
+  test('is false for desktop Edge', () => {
     mockNavigator(
       `Mozilla/5.0 (Windows NT 10.0; Win64; x64)
       AppleWebKit/537.36 (KHTML, like Gecko)
@@ -85,10 +95,25 @@ describe('isIOS', () => {
 
     expect(isIOS()).toBe(false);
   });
+
+  test('window is undefined', () => {
+    windowSpy.mockImplementation((): any => undefined);
+
+    expect(window).toBeUndefined();
+    expect(isIOS()).toBe(false);
+  });
 });
 
 describe('isAndroid', () => {
-  it('is true for Android', () => {
+  beforeEach(() => {
+    windowSpy = jest.spyOn(window, 'window', 'get');
+  });
+
+  afterEach(() => {
+    windowSpy.mockRestore();
+  });
+
+  test('is true for Android', () => {
     mockNavigator(
       `Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
       AppleWebkit/534.30 (KHTML, like Gecko)
@@ -98,7 +123,7 @@ describe('isAndroid', () => {
     expect(isAndroid()).toBe(true);
   });
 
-  it('is false for desktop Chrome', () => {
+  test('is false for desktop Chrome', () => {
     mockNavigator(
       `Mozilla/5.0 (Windows NT 6.1)
       AppleWebKit/537.36 (KHTML, like Gecko)
@@ -108,7 +133,7 @@ describe('isAndroid', () => {
     expect(isAndroid()).toBe(false);
   });
 
-  it('is false for desktop Firefox', () => {
+  test('is false for desktop Firefox', () => {
     mockNavigator(
       `Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1`
     );
@@ -116,7 +141,7 @@ describe('isAndroid', () => {
     expect(isAndroid()).toBe(false);
   });
 
-  it('is false for desktop Safari', () => {
+  test('is false for desktop Safari', () => {
     mockNavigator(
       `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3)
       AppleWebKit/537.75.14 (KHTML, like Gecko)
@@ -126,13 +151,20 @@ describe('isAndroid', () => {
     expect(isAndroid()).toBe(false);
   });
 
-  it('is false for desktop Edge', () => {
+  test('is false for desktop Edge', () => {
     mockNavigator(
       `Mozilla/5.0 (Windows NT 10.0; Win64; x64)
       AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/42.0.2311.135 Safari/537.36 Edge/12.246`
     );
 
+    expect(isAndroid()).toBe(false);
+  });
+
+  test('window is undefined', () => {
+    windowSpy.mockImplementation((): any => undefined);
+
+    expect(window).toBeUndefined();
     expect(isAndroid()).toBe(false);
   });
 });
