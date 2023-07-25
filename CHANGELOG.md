@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.42.1](https://github.com/EightfoldAI/octuple/compare/v2.42.0...v2.42.1) (2023-07-25)
+
+### Bug Fixes
+
+- hotfix: adds default overflow back to latest scroll bars mixin and updates codecov url ([4576256](https://github.com/EightfoldAI/octuple/commits/4576256541a86fd6510187cb492a49db9de839be))
+
 ## [2.42.0](https://github.com/EightfoldAI/octuple/compare/v2.41.0...v2.42.0) (2023-07-21)
 
 ### Features
