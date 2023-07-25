@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/ychhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/ychhabra-eightfold/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/EightfoldAI/octuple/branch/main/graph/badge.svg?token=XSAVLS0SVP)](https://codecov.io/gh/EightfoldAI/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![bundlesize-js-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.js?label=octuple.js&compression=gzip)
 ![bundlesize-css-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.css?label=octuple.css&compression=gzip)
