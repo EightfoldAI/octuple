@@ -57,6 +57,7 @@ $picker-input-padding-vertical: max(
 
 // Picker scroll bars
 @mixin scroll-bars() {
+  overflow: auto;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
