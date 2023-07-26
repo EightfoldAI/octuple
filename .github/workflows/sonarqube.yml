@@ -13,10 +13,12 @@ permissions:
 jobs:
   Analysis:
     runs-on: ubuntu-latest
-
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Analyze with SonarQube
-        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -24,3 +26,6 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=Octuple
+            -Dsonar.github.oauth=GITHUB_TOKEN
+            -Dsonar.host.url=SONAR_HOST_URL
+            -Dsonar.login=SONAR_TOKEN
