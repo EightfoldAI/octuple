@@ -2,8 +2,9 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+  pull_request_target:
+    branches:
+      - main
 name: SonarQube analysis
 jobs:
   Analysis:
@@ -15,6 +16,6 @@ jobs:
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@master
         env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
