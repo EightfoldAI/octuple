@@ -4,7 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Accordion, AccordionProps, AccordionShape, AccordionSize } from './';
 import { IconName } from '../Icon';
-import { render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -70,6 +70,39 @@ describe('Accordion', () => {
     const accordion = getByTestId('test-accordion');
     expect(() => container).not.toThrowError();
     expect(accordion).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Accordion toggle', async () => {
+    const { container } = render(
+      <Accordion {...accordionProps} size={AccordionSize.Large} />
+    );
+    const summary = container.querySelector('.accordion-summary');
+    fireEvent.click(summary);
+    await waitFor(() =>
+      expect(
+        container.getElementsByClassName('accordion-summary-expanded')
+      ).toHaveLength(1)
+    );
+    expect(container.querySelector('.show')).toBeTruthy();
+    fireEvent.click(summary);
+    await waitFor(() =>
+      expect(
+        container.getElementsByClassName('accordion-summary-expanded')
+      ).toHaveLength(0)
+    );
+    expect(container.querySelector('.show')).toBeFalsy();
+  });
+
+  test('Accordion is not bordered', () => {
+    const { container } = render(
+      <Accordion
+        {...accordionProps}
+        size={AccordionSize.Large}
+        bordered={false}
+      />
+    );
+    expect(container.querySelector('.accordion-border')).toBeFalsy();
     expect(container).toMatchSnapshot();
   });
 
