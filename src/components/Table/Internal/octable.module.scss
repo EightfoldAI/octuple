@@ -1,4 +1,5 @@
 @mixin scroll-bars() {
+  overflow: auto;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
