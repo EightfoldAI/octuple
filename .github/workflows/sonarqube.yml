@@ -1,15 +1,10 @@
-name: SonarQube analysis
-
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  pull-requests: read
-
+    types: [opened, synchronize, reopened]
+name: SonarQube analysis
 jobs:
   Analysis:
     runs-on: ubuntu-latest
