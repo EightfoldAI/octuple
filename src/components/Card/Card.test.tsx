@@ -4,6 +4,8 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { Card } from './Card';
 import { IconName } from '../Icon';
+import { render } from '@testing-library/react';
+import { CardSize } from './Card.types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -48,5 +50,34 @@ describe('Card', () => {
       },
     });
     expect(wrapper.find('.header-button').length).toBeTruthy();
+  });
+
+  test('Card is large', () => {
+    const { container } = render(
+      <Card body={body} footer={footer} header={header} size={CardSize.Large} />
+    );
+    expect(container.getElementsByClassName('card-large')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Card is medium', () => {
+    const { container } = render(
+      <Card
+        body={body}
+        footer={footer}
+        header={header}
+        size={CardSize.Medium}
+      />
+    );
+    expect(container.getElementsByClassName('card-medium')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Card is small', () => {
+    const { container } = render(
+      <Card body={body} footer={footer} header={header} size={CardSize.Small} />
+    );
+    expect(container.getElementsByClassName('card-small')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
   });
 });

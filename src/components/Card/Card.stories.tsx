@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Card, CardType } from './';
+import { Card, CardSize } from './';
 import { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
 import { Pill } from '../Pills';
@@ -29,113 +29,35 @@ export default {
       ),
     },
   },
+  argTypes: {
+    size: {
+      options: [CardSize.Flex, CardSize.Large, CardSize.Medium, CardSize.Small],
+      control: { type: 'radio' },
+    },
+  },
 } as ComponentMeta<typeof Card>;
 
 const Card_Story: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const BaseCard = Card_Story.bind({});
 export const CustomCard = Card_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
-export const __namedExportsOrder = ['BaseCard', 'CustomCard'];
+export const __namedExportsOrder = ['CustomCard'];
 
 const baseCardArgs: Object = {
   dropShadow: true,
+  size: CardSize.Medium,
   style: {},
   classNames: 'my-card-class',
-  icon: IconName.mdiInformation,
-  type: CardType.list,
-  headerButtonProps: {
-    iconProps: {
-      path: IconName.mdiBookmark,
-    },
-  },
-  headerTitle: <div>Senior UX Designer</div>,
-  bodyListOneProps: {
-    iconProps: {
-      path: IconName.mdiCheck,
-      color: 'green',
-      style: { marginRight: '2px' },
-    },
-    type: 'list',
-    contents: [
-      {
-        showIcon: true,
-        label: 'Matched Skill',
-      },
-      {
-        showIcon: true,
-        label: 'Matched Skill',
-      },
-      {
-        showIcon: true,
-        label: 'Matched Skill',
-      },
-      {
-        showIcon: false,
-        label: 'Other Skill',
-      },
-      {
-        showIcon: false,
-        label: 'Other Skill',
-      },
-    ],
-  },
-  bodyListTwoProps: {
-    iconProps: {
-      path: IconName.mdiCheck,
-      color: 'green',
-    },
-    type: 'pills',
-    contents: [
-      {
-        showIcon: false,
-        label: 'Department',
-      },
-      {
-        showIcon: false,
-        label: 'Urgent Hire',
-      },
-    ],
-  },
-  bodyListOnePillProps: {
-    theme: 'grey',
-  },
-  bodyListTwoPillProps: {
-    theme: 'grey',
-  },
-  subHeaderSeparatorIcon: IconName.mdiCircle,
-  subHeaderProps: ['Company', 'Job Location'],
-  footerProps: [
-    {
-      iconProps: {
-        path: IconName.mdiWeb,
-        color: 'blue',
-        style: { marginRight: '2px' },
-      },
-      text: 'Strong match',
-    },
-    {
-      iconProps: {
-        path: IconName.mdiCheck,
-        color: 'green',
-        style: { marginRight: '2px' },
-      },
-      text: 'Applied',
-    },
-  ],
-};
-
-BaseCard.args = {
-  ...baseCardArgs,
 };
 
 CustomCard.args = {
   ...baseCardArgs,
   width: '360px',
   height: '520px',
+  size: CardSize.Large,
   children: (
     <div style={{ textAlign: 'center', position: 'relative' }}>
       <Avatar
