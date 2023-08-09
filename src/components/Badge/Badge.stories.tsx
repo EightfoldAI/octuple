@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Badge } from './';
+import { Badge, BadgeSize } from './';
 import { Popup, PopupTheme } from '../Popup';
 
 export default {
@@ -25,6 +25,12 @@ export default {
           </article>
         </main>
       ),
+    },
+  },
+  argTypes: {
+    size: {
+      options: [BadgeSize.Large, BadgeSize.Medium, BadgeSize.Small],
+      control: { type: 'radio' },
     },
   },
 } as ComponentMeta<typeof Badge>;
@@ -71,6 +77,7 @@ export const __namedExportsOrder = [
 const badgeArgs: Object = {
   active: false,
   classNames: 'my-badge-class',
+  size: BadgeSize.Medium,
   style: {},
   children: '8',
   disruptive: false,

@@ -39,7 +39,7 @@ exports[`Accordion Accordion is large 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge"
+          class="badge badge-medium"
         >
           2
         </span>
@@ -120,7 +120,7 @@ exports[`Accordion Accordion is medium 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge"
+          class="badge badge-medium"
         >
           2
         </span>
@@ -201,7 +201,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge"
+          class="badge badge-medium"
         >
           2
         </span>
@@ -282,7 +282,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge"
+          class="badge badge-medium"
         >
           2
         </span>
@@ -363,7 +363,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge"
+          class="badge badge-medium"
         >
           2
         </span>
@@ -444,7 +444,7 @@ exports[`Accordion Renders without crashing 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge"
+          class="badge badge-medium"
         >
           2
         </span>

@@ -14,7 +14,7 @@ import {
   StatusItemsPosition,
 } from './components/Avatar';
 
-import { Badge } from './components/Badge';
+import { Badge, BadgeSize } from './components/Badge';
 
 import { Breadcrumb } from './components/Breadcrumb';
 
@@ -252,6 +252,7 @@ export {
   AvatarGroupVariant,
   AvatarPopupProps,
   Badge,
+  BadgeSize,
   Breadcrumb,
   Breakpoints,
   Button,
