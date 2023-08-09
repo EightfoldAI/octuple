@@ -75,6 +75,6 @@ jobs:
           source-directory: 'storybook-static'
           destination-github-username: 'EightfoldAI'
           destination-repository-name: 'octuple.github.io'
-          user-email: ychhabra@eightfold.ai
+          user-email: eightfold@users.noreply.github.com
           target-branch: main
 
