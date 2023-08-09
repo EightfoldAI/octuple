@@ -2,6 +2,7 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Badge, BadgeSize } from './';
+import { Popup, PopupTheme } from '../Popup';
 
 export default {
   title: 'Badge',
@@ -35,10 +36,33 @@ export default {
 } as ComponentMeta<typeof Badge>;
 
 const Badge_Story: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
+const Badge_Popup_Story: ComponentStory<typeof Badge> = (args) => (
+  <Popup
+    content={
+      <div
+        style={{
+          alignItems: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          height: '100%',
+        }}
+      >
+        A popup
+      </div>
+    }
+    height={40}
+    theme={PopupTheme.dark}
+    triggerAbove
+    width={100}
+  >
+    <Badge {...args} />
+  </Popup>
+);
 
 export const Badge_Default = Badge_Story.bind({});
 export const Badge_Active = Badge_Story.bind({});
 export const Badge_Disruptive = Badge_Story.bind({});
+export const Badge_With_Popup = Badge_Popup_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -47,6 +71,7 @@ export const __namedExportsOrder = [
   'Badge_Default',
   'Badge_Active',
   'Badge_Disruptive',
+  'Badge_With_Popup',
 ];
 
 const badgeArgs: Object = {
@@ -71,4 +96,8 @@ Badge_Disruptive.args = {
   ...badgeArgs,
   active: true,
   disruptive: true,
+};
+
+Badge_With_Popup.args = {
+  ...badgeArgs,
 };
