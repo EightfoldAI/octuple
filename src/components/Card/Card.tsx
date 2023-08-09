@@ -122,6 +122,7 @@ export const Card: FC<CardProps> = React.forwardRef(
           children
         ) : (
           <>
+            {/** TODO: Update predefined variants to meet latest specification. */}
             <div className={headerClasses}>
               {header && header}
               {(icon || headerTitle) && (
