@@ -5,7 +5,8 @@
   display: block;
   font-family: var(--card-font-family);
   gap: $space-m;
-  padding: $space-ml;
+  height: 260px;
+  padding: $space-m;
   width: 360px;
   position: relative;
 
@@ -30,11 +31,17 @@
 
   &-large {
     height: 278px;
+    padding: $space-ml;
   }
 
-  &-medium,
+  &-medium {
+    height: 260px;
+    padding: $space-m;
+  }
+
   &-small {
     height: 260px;
+    padding: $space-s;
   }
 
   &.disabled {

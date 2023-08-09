@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.43.0](https://github.com/EightfoldAI/octuple/compare/v2.42.0...v2.43.0) (2023-08-08)
+
+### Features
+
+- card: update card size prop and remove bunko story ([#682](https://github.com/EightfoldAI/octuple/issues/682)) ([772f328](https://github.com/EightfoldAI/octuple/commits/772f32874938c33662dca4956c0387613df328c9))
+- infobar: adds bordered prop ([#676](https://github.com/EightfoldAI/octuple/issues/676)) ([b2b75ef](https://github.com/EightfoldAI/octuple/commits/b2b75efeaa1f8410e1fe4761a905d6e9fd43fa5b))
+
+### Bug Fixes
+
+- accordion: fixes scroll bar animation flicker ([#680](https://github.com/EightfoldAI/octuple/issues/680)) ([2bf20ef](https://github.com/EightfoldAI/octuple/commits/2bf20eff5b05ceb1c2d9a6b5b13ae6116d9b595b))
+- table: adds default overflow back to latest scroll bars mixin ([#678](https://github.com/EightfoldAI/octuple/issues/678)) ([560cebf](https://github.com/EightfoldAI/octuple/commits/560cebf8b42c719431316d3513b1d7c3b8d80cad))
+
 ## [2.42.0](https://github.com/EightfoldAI/octuple/compare/v2.41.0...v2.42.0) (2023-07-21)
 
 ### Features
