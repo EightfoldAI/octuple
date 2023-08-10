@@ -5,6 +5,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 module.exports = (_, { mode }) => ({
   entry: {
     octuple: [path.resolve(__dirname, 'src/octuple.ts')],
+    'octuple/locale': [path.resolve(__dirname, 'src/octuple/locale.ts')],
   },
   module: {
     rules: [
