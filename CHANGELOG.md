@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.43.1](https://github.com/EightfoldAI/octuple/compare/v2.43.0...v2.43.1) (2023-08-10)
+
+### Bug Fixes
+
+- hotfix: adds locales and locale type to exports ([72df93a](https://github.com/EightfoldAI/octuple/commits/72df93a140f4d135cd055c8c963d155166f99f81))
+
 ## [2.43.0](https://github.com/EightfoldAI/octuple/compare/v2.42.0...v2.43.0) (2023-08-08)
 
 ### Features
