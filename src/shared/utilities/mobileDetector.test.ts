@@ -1,4 +1,6 @@
-import { isAndroid, isIOS } from './mobileDetector';
+import React from 'react';
+import { render } from '@testing-library/react';
+import { isAndroid, isIOS, isTouching } from './mobileDetector';
 
 let windowSpy: any;
 
@@ -166,5 +168,56 @@ describe('isAndroid', () => {
 
     expect(window).toBeUndefined();
     expect(isAndroid()).toBe(false);
+  });
+});
+
+describe('isTouching', () => {
+  let originalWindowProperty: any;
+  let originalNavigatorProperty: any;
+
+  beforeAll(() => {
+    originalWindowProperty = window.hasOwnProperty('ontouchstart');
+    originalNavigatorProperty = Object.getOwnPropertyDescriptor(
+      Navigator.prototype,
+      'maxTouchPoints'
+    );
+  });
+
+  afterAll(() => {
+    if (originalWindowProperty) {
+      delete window.ontouchstart;
+    }
+
+    if (originalNavigatorProperty) {
+      Object.defineProperty(
+        Navigator.prototype,
+        'maxTouchPoints',
+        originalNavigatorProperty
+      );
+    }
+  });
+
+  test('Should return true when ontouchstart is present', () => {
+    window.ontouchstart = jest.fn();
+    const result = isTouching();
+    expect(result).toBe(true);
+  });
+
+  test('Should return true when maxTouchPoints is greater than 0', () => {
+    Object.defineProperty(Navigator.prototype, 'maxTouchPoints', {
+      value: 1,
+    });
+    const result = isTouching();
+    expect(result).toBe(true);
+  });
+
+  test('Should return false when neither ontouchstart nor maxTouchPoints are present', () => {
+    delete window.ontouchstart;
+    Object.defineProperty(window.navigator, 'maxTouchPoints', {
+      value: 0,
+      configurable: true,
+    });
+    const result = isTouching();
+    expect(result).toBe(false);
   });
 });

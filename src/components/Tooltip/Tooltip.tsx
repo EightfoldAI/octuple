@@ -37,6 +37,7 @@ import {
   eventKeys,
   isAndroid,
   isIOS,
+  isTouching,
   mergeClasses,
   RenderProps,
   uniqueId,
@@ -109,7 +110,10 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const isMobile: boolean = isIOS() || isAndroid();
       let mergedTrigger: 'click' | 'hover' | 'contextmenu';
 
-      if (isMobile) {
+      // First use the most reliable way of detecting iOS or Android,
+      // then test for touch interaction as a somewhat less reliable
+      // way to detect other hybrid devices.
+      if (isMobile || (!isMobile && isTouching())) {
         mergedTrigger = 'click';
       } else {
         mergedTrigger = trigger;
@@ -388,7 +392,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             id: tooltipReferenceId?.current,
             key: tooltipId?.current,
             onClick: handleReferenceClick,
-            onKeyDown: !isMobile ? handleReferenceKeyDown : null,
+            onKeyDown:
+              !isMobile && !isTouching() ? handleReferenceKeyDown : null,
             'aria-controls': tooltipId?.current,
             'aria-expanded': mergedVisible,
             'aria-haspopup': true,
@@ -494,7 +499,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             onClick={
               !mergedTrigger.includes('hover') ? handleReferenceClick : null
             }
-            onKeyDown={!isMobile ? handleReferenceKeyDown : null}
+            onKeyDown={
+              !isMobile && !isTouching() ? handleReferenceKeyDown : null
+            }
             onMouseEnter={
               mergedTrigger.includes('hover') && !mergedVisible
                 ? toggle(true, showTooltip)

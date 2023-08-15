@@ -19,3 +19,11 @@ export const isAndroid = (): boolean => {
   }
   return /android/i.test(window.navigator.userAgent);
 };
+
+/**
+ * Returns true if and only if the user is on a touch device and is currently using its touch API.
+ * Used to determine interaciton with hybrid touch devices like Microsoft Surface.
+ */
+export const isTouching = (): boolean => {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+};
