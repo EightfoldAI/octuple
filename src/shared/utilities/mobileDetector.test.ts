@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { isAndroid, isIOS, isTouching } from './mobileDetector';
+import { isAndroid, isIOS, isTouchSupported } from './mobileDetector';
 
 let windowSpy: any;
 
@@ -199,7 +199,7 @@ describe('isTouching', () => {
 
   test('Should return true when ontouchstart is present', () => {
     window.ontouchstart = jest.fn();
-    const result = isTouching();
+    const result = isTouchSupported();
     expect(result).toBe(true);
   });
 
@@ -207,7 +207,7 @@ describe('isTouching', () => {
     Object.defineProperty(Navigator.prototype, 'maxTouchPoints', {
       value: 1,
     });
-    const result = isTouching();
+    const result = isTouchSupported();
     expect(result).toBe(true);
   });
 
@@ -217,7 +217,7 @@ describe('isTouching', () => {
       value: 0,
       configurable: true,
     });
-    const result = isTouching();
+    const result = isTouchSupported();
     expect(result).toBe(false);
   });
 });

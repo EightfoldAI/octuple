@@ -37,7 +37,7 @@ import {
   eventKeys,
   isAndroid,
   isIOS,
-  isTouching,
+  isTouchSupported,
   mergeClasses,
   RenderProps,
   uniqueId,
@@ -113,7 +113,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       // First use the most reliable way of detecting iOS or Android,
       // then test for touch interaction as a somewhat less reliable
       // way to detect other hybrid devices.
-      if (isMobile || (!isMobile && isTouching())) {
+      if (isMobile || (!isMobile && isTouchSupported())) {
         mergedTrigger = 'click';
       } else {
         mergedTrigger = trigger;
@@ -185,8 +185,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          const referenceElement: HTMLElement = document.getElementById(
-            tooltipReferenceId?.current
+          const referenceElement: HTMLElement = document.querySelector(
+            `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
           );
           if (closeOnOutsideClick && closeOnReferenceClick && !mergedVisible) {
             toggle(false)(e);
@@ -205,9 +205,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       );
 
       const handleReferenceClick = (event: React.MouseEvent): void => {
-        if (type !== TooltipType.Default) {
-          event.stopPropagation();
-        }
+        event.stopPropagation();
         if (disabled) {
           return;
         }
@@ -223,9 +221,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       };
 
       const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
-        if (type !== TooltipType.Default) {
-          event.stopPropagation();
-        }
+        event.stopPropagation();
         if (disabled) {
           return;
         }
@@ -348,6 +344,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             if (node.props?.disabled) {
               return cloneElement(child, {
                 className: `${mergeClasses([
+                  'tooltip-reference',
                   styles.disabled,
                   node.props?.className,
                 ])}`,
@@ -355,13 +352,19 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                   ? node.props?.id
                   : tooltipReferenceId?.current,
                 key: node.props?.key ? node.props?.key : tooltipId?.current,
+                'data-reference-id': tooltipReferenceId?.current,
               });
             } else {
               return cloneElement(child, {
+                className: `${mergeClasses([
+                  'tooltip-reference',
+                  node.props?.className,
+                ])}`,
                 id: node.props?.id
                   ? node.props?.id
                   : tooltipReferenceId?.current,
                 key: node.props?.key ? node.props?.key : tooltipId?.current,
+                'data-reference-id': tooltipReferenceId?.current,
               });
             }
           }
@@ -377,7 +380,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
           // Utilize a similar element clone pattern as Dropdown
           // for more complex Popup elements.
-          const popupClassNames: string = mergeClasses([
+          const popupReferenceClassNames: string = mergeClasses([
+            'tooltip-reference',
             { [styles.triggerAbove]: !!triggerAbove },
             // Add any classnames added to the reference element
             { [child.props.className]: !!child.props.className },
@@ -389,23 +393,31 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             ...{
               [TRIGGER_TO_HANDLER_MAP_ON_ENTER[mergedTrigger]]: toggle(true),
             },
-            id: tooltipReferenceId?.current,
-            key: tooltipId?.current,
-            onClick: handleReferenceClick,
-            onKeyDown:
-              !isMobile && !isTouching() ? handleReferenceKeyDown : null,
+            id: child.props?.id ? child.props?.id : tooltipReferenceId?.current,
+            key: child.props?.key ? child.props?.key : tooltipId?.current,
+            onClick: (event: React.MouseEvent<Element, MouseEvent>) => {
+              child.props.onClick?.(event);
+              handleReferenceClick(event);
+            },
+            onKeyDown: (event: React.KeyboardEvent<Element>) => {
+              child.props.onKeyDown?.(event);
+              if (!isMobile && !isTouchSupported()) {
+                handleReferenceKeyDown(event);
+              }
+            },
             'aria-controls': tooltipId?.current,
             'aria-expanded': mergedVisible,
             'aria-haspopup': true,
             role: 'button',
+            'data-reference-id': tooltipReferenceId?.current,
             tabIndex: `${tabIndex}`,
           };
 
           // Compares for octuple react prop vs native react html classes.
           if (child.props.className) {
-            clonedElementProps['className'] = popupClassNames;
+            clonedElementProps['className'] = popupReferenceClassNames;
           } else if (child.props.classNames) {
-            clonedElementProps['classNames'] = popupClassNames;
+            clonedElementProps['classNames'] = popupReferenceClassNames;
           }
 
           return cloneElement(child, clonedElementProps);
@@ -500,7 +512,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               !mergedTrigger.includes('hover') ? handleReferenceClick : null
             }
             onKeyDown={
-              !isMobile && !isTouching() ? handleReferenceKeyDown : null
+              !isMobile && !isTouchSupported() ? handleReferenceKeyDown : null
             }
             onMouseEnter={
               mergedTrigger.includes('hover') && !mergedVisible
