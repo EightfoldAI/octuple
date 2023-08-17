@@ -19,24 +19,35 @@
   }
 
   &-inner {
-    background-color: var(--accent-background1-color);
+    background: var(--progress-incomplete-background-color);
     border-radius: 100px;
-    border: 1px solid var(--primary-tertiary-color);
+    border: 1px solid transparent;
     display: inline-block;
     overflow: hidden;
     position: relative;
     vertical-align: middle;
     width: 100%;
+
+    &.bordered {
+      border-color: var(--progress-border-color);
+    }
   }
 
   &-circle {
-    .progress-inner {
-      border: none;
+    max-height: fit-content;
+    max-width: fit-content;
+    position: relative;
+
+    .bordered {
+      filter: drop-shadow(1px 0px 0px var(--progress-border-color))
+        drop-shadow(-1px 0px 0px var(--progress-border-color))
+        drop-shadow(0px 1px 0px var(--progress-border-color))
+        drop-shadow(0px -1px 0px var(--progress-border-color));
     }
   }
 
   &-circle-trail {
-    stroke: var(--accent-background1-color);
+    stroke: var(--progress-incomplete-background-color);
   }
 
   &-circle-path {
@@ -45,20 +56,20 @@
 
   &-inner:not(.progress-circle-gradient) {
     .progress-circle-path {
-      stroke: var(--primary-tertiary-color);
+      stroke: var(--progress-complete-background-color);
     }
   }
 
   &-success-bg,
   &-bg {
-    background-color: var(--primary-tertiary-color);
+    background: var(--progress-complete-background-color);
     border-radius: 100px;
     position: relative;
     transition: all 0.4s $motion-easing-easeout 0s;
   }
 
   &-success-bg {
-    background-color: var(--success-color);
+    background: var(--progress-success-background-color);
     left: 0;
     position: absolute;
     top: 0;
@@ -107,17 +118,21 @@
     }
 
     &-item {
-      background: var(--accent-background1-color);
+      background: var(--progress-incomplete-background-color);
       border-radius: 100px;
-      border: 1px solid var(--primary-tertiary-color);
+      border: 1px solid transparent;
       flex-shrink: 0;
       margin-bottom: $space-xxs;
       margin-right: $space-xxs;
       min-width: $space-xxxs;
       transition: background $motion-duration-extra-fast;
 
+      &.bordered {
+        border-color: var(--progress-border-color);
+      }
+
       &-active {
-        background: var(--primary-tertiary-color);
+        background: var(--progress-complete-background-color);
       }
     }
 
@@ -143,55 +158,78 @@
 
   &-status-exception {
     .progress-bg {
-      background-color: var(--error-color);
+      background: var(--progress-error-background-color);
     }
 
     .progress-text,
     .extremity-label {
-      color: var(--error-color);
+      color: var(--progress-error-text-color);
     }
 
     .progress-inner {
-      background-color: var(--disruptive-background1-color);
-      border-color: var(--error-color);
+      background: var(--disruptive-background1-color);
+
+      &.bordered {
+        border-color: var(--progress-error-border-color);
+      }
+    }
+
+    &.progress-circle {
+      .bordered {
+        filter: drop-shadow(1px 0px 0px var(--progress-error-border-color))
+          drop-shadow(-1px 0px 0px var(--progress-error-border-color))
+          drop-shadow(0px 1px 0px var(--progress-error-border-color))
+          drop-shadow(0px -1px 0px var(--progress-error-border-color));
+      }
     }
   }
 
   &-status-exception &-inner:not(.progress-circle-gradient) {
     .progress-circle-path {
-      stroke: var(--error-color);
+      stroke: var(--progress-error-background-color);
     }
   }
 
   &-status-success {
     .progress-bg {
-      background-color: var(--success-color);
+      background: var(--progress-success-background-color);
     }
 
     .progress-text,
     .extremity-label {
-      color: var(--success-color);
+      color: var(--progress-success-text-color);
     }
 
     .progress-inner {
-      border-color: var(--success-color);
+      &.bordered {
+        border-color: var(--progress-success-border-color);
+      }
+    }
+
+    &.progress-circle {
+      .bordered {
+        filter: drop-shadow(1px 0px 0px var(--progress-success-border-color))
+          drop-shadow(-1px 0px 0px var(--progress-success-border-color))
+          drop-shadow(0px 1px 0px var(--progress-success-border-color))
+          drop-shadow(0px -1px 0px var(--progress-success-border-color));
+      }
     }
   }
 
   &-status-success &-inner:not(.progress-circle-gradient) {
     .progress-circle-path {
-      stroke: var(--success-color);
+      stroke: var(--progress-success-background-color);
     }
   }
 
   &-circle &-inner {
-    background-color: transparent;
+    background: transparent;
     line-height: 1;
     position: relative;
   }
 
   &-circle &-text {
-    color: var(--text-primary-color);
+    color: var(--progress-text-color);
     font-size: $text-font-size-2;
     left: 50%;
     line-height: 1;
@@ -207,13 +245,13 @@
 
   &-circle .progress-status-exception {
     .progress-text {
-      color: var(--error-color);
+      color: var(--progress-error-text-color);
     }
   }
 
   &-circle .progress-status-success {
     .progress-text {
-      color: var(--success-color);
+      color: var(--progress-success-text-color);
     }
   }
 

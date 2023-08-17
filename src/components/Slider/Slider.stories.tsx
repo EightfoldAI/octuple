@@ -1039,7 +1039,10 @@ const sliderArgs: Object = {
   hideMax: false,
   hideMin: false,
   hideThumb: false,
+  hideRail: false,
+  hideTrack: false,
   hideValue: false,
+  included: true,
   id: 'mySliderId',
   labelPosition: 'bottom',
   marks: null,
@@ -1051,6 +1054,7 @@ const sliderArgs: Object = {
   onChange: () => {
     console.log('changed');
   },
+  railBorder: true,
   readOnly: false,
   showLabels: true,
   showMarkers: false,
@@ -1059,6 +1063,7 @@ const sliderArgs: Object = {
   style: {
     marginTop: 24,
   },
+  trackBorder: true,
   tooltipContent: null,
   type: 'default',
   valueLabel: [null, null],

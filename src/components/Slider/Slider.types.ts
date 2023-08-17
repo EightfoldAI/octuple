@@ -308,6 +308,11 @@ export interface SliderInputProps
    */
   onChange?: (value: number | number[]) => void;
   /**
+   * Whether to visually hide the Slider rail border.
+   * @default true
+   */
+  railBorder?: boolean;
+  /**
    * The Slider is read only.
    */
   readOnly?: boolean;
@@ -329,6 +334,11 @@ export interface SliderInputProps
    * Max tooltip props.
    */
   tooltipProps?: Omit<TooltipProps, 'content'>;
+  /**
+   * Whether to visually hide the Slider track border.
+   * @default true
+   */
+  trackBorder?: boolean;
   /**
    * The Slider track status.
    * Options: success, warning, and error.

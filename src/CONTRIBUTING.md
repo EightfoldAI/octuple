@@ -23,16 +23,16 @@ You will also see any lint errors in the console.
 
 ### `yarn build-storybook`
 
-Builds the Octuple Design System Storybook project to the `dist` folder for deployment.
+Builds the Octuple Design System Storybook project to the `storybook-static` folder for deployment.
 
 ### `yarn test`
 
-Runs the UTs.
+Runs the unit tests.
 
 ### `yarn`
 
-Builds the Octuple Design System Component Library for prod publishing to NPM in to the `lib` folder.
-Should also run the UTs as part of the process.
+Builds the Octuple Design System Component Library for production publishing to NPM in to the `lib` folder.
+Should also run the unit tests as part of the process.
 Your package is ready to be published!
 
 ## Contributing
@@ -145,7 +145,7 @@ When committing changes the Octuple project lints commit messages using the [Con
 An example of such a message:
 
 ```
-fix: ABC-123: button not keyboard accessible
+fix: ABC123: button not keyboard accessible
 
 The button component had a tabIndex of -1 by default
 and therefore it was not keyboard accessible
@@ -163,4 +163,4 @@ To learn more please read:
 
 ## License
 
-MIT (c) 2022 Eightfold
+MIT (c) 2023 Eightfold

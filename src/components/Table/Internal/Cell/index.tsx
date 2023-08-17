@@ -1,6 +1,7 @@
 import React, { forwardRef, memo, Ref, useContext, useMemo } from 'react';
 import { mergeClasses } from '../../../../shared/utilities';
 import shallowEqual from 'shallowequal';
+import { VERTICAL_SCROLL_OFFSET } from '../OcTable.types';
 import type {
   RenderedCell,
   CellType,
@@ -179,6 +180,10 @@ function Cell<RecordType extends DefaultRecordType>(
   if (isFixRight) {
     fixedStyle.position = 'sticky';
     fixedStyle.right = fixRight as number;
+
+    if (fixRight <= VERTICAL_SCROLL_OFFSET) {
+      fixedStyle.borderRightColor = 'transparent';
+    }
   }
 
   // ====================== Align =======================

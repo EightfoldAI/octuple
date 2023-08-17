@@ -96,7 +96,7 @@
   &-label {
     display: inline-block;
     flex-grow: 0;
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     overflow: hidden;
     white-space: nowrap;
     text-align: right;

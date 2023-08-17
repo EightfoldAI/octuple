@@ -13,7 +13,7 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px
 
   align-items: center;
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   justify-content: center;
 
   .dialog {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { MAX_PERCENT, useTransitionDuration } from './Common';
 import type { OcProgressProps } from './OcProgress.types';
-import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import { uniqueId } from '../../../shared/utilities';
 import styles from '../progress.module.scss';
 
 function stripPercentToNumber(percent: string): number {
@@ -72,17 +72,18 @@ const getCircleStyle = (
 };
 
 const OcCircle: FC<OcProgressProps> = ({
+  bordered,
   classNames,
   gapDegree = 0,
   gapPosition = 'bottom',
   id,
   percent = 0,
   steps,
-  strokeColor = 'var(--primary-tertiary-color)',
+  strokeColor = 'var(--progress-complete-background-color)',
   strokeLinecap = 'butt',
   strokeWidth = 1,
   style,
-  trailColor = 'var(--accent-background1-color)',
+  trailColor = 'var(--progress-incomplete-background-color)',
   trailWidth = 1,
   ...rest
 }) => {
@@ -224,7 +225,7 @@ const OcCircle: FC<OcProgressProps> = ({
 
   return (
     <svg
-      className={mergeClasses([styles.progressCircle, classNames])}
+      className={styles.progressCircle}
       viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
       style={style}
       id={id}

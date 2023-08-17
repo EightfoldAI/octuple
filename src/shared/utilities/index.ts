@@ -15,6 +15,7 @@ export * from './getScrollBarSize';
 export * from './isNumeric';
 export * from './isVisible';
 export * from './mergeClasses';
+export * from './mobileDetector';
 export * from './motion';
 export { default as collapseMotion } from './motion';
 export * from './omit';

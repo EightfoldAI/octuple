@@ -14,15 +14,26 @@
     border-radius: var(--accordion-rectangle-shape-border-radius);
   }
 
+  // Animation ensures the scroll bars don't flicker during transition.
+  // https://css-tricks.com/hide-scrollbars-during-an-animation/
   .accordion-body-container {
     box-sizing: border-box;
     max-height: 0;
-    overflow-y: auto;
-    transition: all $motion-duration-fast $motion-easing-easeout;
+    overflow-y: hidden;
+    transition: max-height $motion-duration-fast $motion-easing-easeout;
 
     &.show {
-      transition: all $motion-duration-fast $motion-easing-easein;
+      @keyframes hideYScroll {
+        from,
+        to {
+          overflow-y: hidden;
+        }
+      }
+
+      animation: hideYScroll $motion-duration-fast backwards;
       max-height: 100vh;
+      overflow-y: auto;
+      transition: max-height $motion-duration-fast $motion-easing-easein;
     }
   }
 

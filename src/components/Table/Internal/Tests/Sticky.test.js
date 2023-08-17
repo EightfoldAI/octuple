@@ -275,6 +275,7 @@ describe('Table.Sticky', () => {
     const wrapper = mount(<TableDemo />);
 
     expect(wrapper.find('.table-cell-fix-sticky').at(1).prop('style')).toEqual({
+      borderRightColor: 'transparent',
       position: 'sticky',
       right: 0,
     });

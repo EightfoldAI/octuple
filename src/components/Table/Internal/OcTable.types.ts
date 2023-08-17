@@ -1,6 +1,8 @@
 import type * as React from 'react';
 import { RefObject } from 'react';
 
+export const VERTICAL_SCROLL_OFFSET: number = 16;
+
 export type Key = React.Key;
 
 export type FixedType = 'left' | 'right' | boolean;
@@ -426,19 +428,24 @@ export interface ScrollerProps<RecordType> {
   stickyOffsets: StickyOffsets;
   scrollHeaderRef?: RefObject<HTMLDivElement>;
   /**
-   * Ref of the table title
+   * The Table scroller left button aria label.
+   * @default 'Scroll left'
    */
-  titleRef?: RefObject<HTMLDivElement>;
+  scrollLeftAriaLabelText?: string;
   /**
-   * The Table scroller right button aria label
+   * The Table scroller right button aria label.
    * @default 'Scroll right'
    */
   scrollRightAriaLabelText?: string;
   /**
-   * The Table scroller left button aria label
-   * @default 'Scroll left'
+   * Ref of the table title.
    */
-  scrollLeftAriaLabelText?: string;
+  titleRef?: RefObject<HTMLDivElement>;
+  /**
+   * The Table is vertically scrollable.
+   * @default false
+   */
+  verticalScroll?: boolean;
 }
 
 export type ScrollerRef = {

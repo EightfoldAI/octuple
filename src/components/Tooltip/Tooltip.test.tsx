@@ -17,6 +17,13 @@ Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia: any;
 
+const mockNavigator = (agent: string): void => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (navigator as any).__defineGetter__('userAgent', (): string => {
+    return agent;
+  });
+};
+
 describe('Tooltip', () => {
   beforeAll(() => {
     matchMedia = new MatchMediaMock();
@@ -24,6 +31,23 @@ describe('Tooltip', () => {
 
   afterEach(() => {
     matchMedia.clear();
+  });
+
+  test('Tooltip shows and hides on click', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="click"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
   });
 
   test('Tooltip shows and hides on hover', async () => {
@@ -225,6 +249,88 @@ describe('Tooltip', () => {
     );
     fireEvent.mouseOver(container.querySelector('.test-div'));
     await waitFor(() => screen.getByTestId('tooltipPortaled'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+  });
+
+  test('Tooltip reference uses custom id when disabled', async () => {
+    const { container } = render(
+      <>
+        <Tooltip
+          disabled
+          portal
+          portalRoot={document.body}
+          content={<div>This is a tooltip.</div>}
+        >
+          <div className="test-div" id="test-div-id">
+            test
+          </div>
+        </Tooltip>
+      </>,
+      { container: document.body }
+    );
+    expect(container.querySelector('#test-div-id')).toBeTruthy();
+  });
+
+  test('Tooltip reference uses custom id when enabled', async () => {
+    const { container } = render(
+      <>
+        <Tooltip
+          portal
+          portalRoot={document.body}
+          content={<div>This is a tooltip.</div>}
+        >
+          <div className="test-div" id="test-div-id">
+            test
+          </div>
+        </Tooltip>
+      </>,
+      { container: document.body }
+    );
+    expect(container.querySelector('#test-div-id')).toBeTruthy();
+  });
+
+  test('Tooltip is dismissed on click outside', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="click"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.mouseDown(container);
+    await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('Tooltip uses mobile trigger, show, hide and show again', async () => {
+    mockNavigator(
+      `Mozilla/5.0 (iPad; CPU OS 10_2_1 like Mac OS X)
+      AppleWebKit/602.4.6 (KHTML, like Gecko)
+      Version/10.0 Mobile/14D27 Safari/602.1`
+    );
+
+    const { container } = render(
+      <Tooltip
+        data-testid="tooltip-test"
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+    fireEvent.click(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
     expect(container.querySelector('.tooltip')).toBeTruthy();
   });
 });

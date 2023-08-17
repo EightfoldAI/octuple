@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Card is large 1`] = `
+<div>
+  <div
+    class="card list card-large"
+  >
+    <div
+      class="header"
+    >
+      This is the card header
+    </div>
+    <div
+      class="body"
+    >
+      This is the card body
+    </div>
+    <div
+      class="footer"
+    >
+      This is the card footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Card is medium 1`] = `
+<div>
+  <div
+    class="card list card-medium"
+  >
+    <div
+      class="header"
+    >
+      This is the card header
+    </div>
+    <div
+      class="body"
+    >
+      This is the card body
+    </div>
+    <div
+      class="footer"
+    >
+      This is the card footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Card is small 1`] = `
+<div>
+  <div
+    class="card list card-small"
+  >
+    <div
+      class="header"
+    >
+      This is the card header
+    </div>
+    <div
+      class="body"
+    >
+      This is the card body
+    </div>
+    <div
+      class="footer"
+    >
+      This is the card footer
+    </div>
+  </div>
+</div>
+`;
