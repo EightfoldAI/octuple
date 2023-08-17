@@ -81,6 +81,9 @@ const Popup_Story: ComponentStory<typeof Popup> = (args) => {
   return (
     <Popup {...args} onVisibleChange={(isVisible) => setVisibility(isVisible)}>
       <PrimaryButton
+        onClick={() => {
+          console.log('clicked');
+        }}
         size={ButtonSize.Medium}
         text={visible ? 'Hide Popup' : 'Show Popup'}
       />
