@@ -136,7 +136,7 @@ exports[`Menu Menu is large 1`] = `
               </span>
             </a>
           </li>
-          <div
+          <li
             class="menu-item-custom large my-menu-item-class"
           >
             <div
@@ -224,7 +224,7 @@ exports[`Menu Menu is large 1`] = `
                 </label>
               </div>
             </div>
-          </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -368,7 +368,7 @@ exports[`Menu Menu is medium 1`] = `
               </span>
             </a>
           </li>
-          <div
+          <li
             class="menu-item-custom medium my-menu-item-class"
           >
             <div
@@ -456,7 +456,7 @@ exports[`Menu Menu is medium 1`] = `
                 </label>
               </div>
             </div>
-          </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -600,7 +600,7 @@ exports[`Menu Menu is small 1`] = `
               </span>
             </a>
           </li>
-          <div
+          <li
             class="menu-item-custom small my-menu-item-class"
           >
             <div
@@ -688,7 +688,7 @@ exports[`Menu Menu is small 1`] = `
                 </label>
               </div>
             </div>
-          </div>
+          </li>
         </ul>
       </div>
     </div>

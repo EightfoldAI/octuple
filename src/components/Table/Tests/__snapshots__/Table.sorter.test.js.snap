@@ -25,7 +25,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "table-column-sorters",
+                      "class": "tooltip-reference table-column-sorters",
+                      "data-reference-id": "sortTip-reference",
+                      "id": "sortTip-reference",
                     },
                     "children": Array [
                       Node {
@@ -305,9 +307,13 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-reference-id": undefined,
+                      "id": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-reference-id": undefined,
+                      "id": undefined,
                     },
                   },
                 ],
@@ -3177,7 +3183,9 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
-                                              "class": "table-column-sorters",
+                                              "class": "tooltip-reference table-column-sorters",
+                                              "data-reference-id": "sortTip-reference",
+                                              "id": "sortTip-reference",
                                             },
                                             "children": Array [
                                               Node {
@@ -3457,9 +3465,13 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                         ],
@@ -4323,7 +4335,9 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
-                                            "class": "table-column-sorters",
+                                            "class": "tooltip-reference table-column-sorters",
+                                            "data-reference-id": "sortTip-reference",
+                                            "id": "sortTip-reference",
                                           },
                                           "children": Array [
                                             Node {
@@ -4603,9 +4617,13 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -6240,7 +6258,9 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
-                                              "class": "table-column-sorters",
+                                              "class": "tooltip-reference table-column-sorters",
+                                              "data-reference-id": "sortTip-reference",
+                                              "id": "sortTip-reference",
                                             },
                                             "children": Array [
                                               Node {
@@ -6520,9 +6540,13 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                         ],
@@ -6823,7 +6847,9 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
-                                            "class": "table-column-sorters",
+                                            "class": "tooltip-reference table-column-sorters",
+                                            "data-reference-id": "sortTip-reference",
+                                            "id": "sortTip-reference",
                                           },
                                           "children": Array [
                                             Node {
@@ -7103,9 +7129,13 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -7264,7 +7294,9 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "attribs": Object {
-                                          "class": "table-column-sorters",
+                                          "class": "tooltip-reference table-column-sorters",
+                                          "data-reference-id": "sortTip-reference",
+                                          "id": "sortTip-reference",
                                         },
                                         "children": Array [
                                           Node {
@@ -7544,9 +7576,13 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "data-reference-id": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "data-reference-id": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                     ],
@@ -7768,7 +7804,9 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
-                                            "class": "table-column-sorters",
+                                            "class": "tooltip-reference table-column-sorters",
+                                            "data-reference-id": "sortTip-reference",
+                                            "id": "sortTip-reference",
                                           },
                                           "children": Array [
                                             Node {
@@ -8048,9 +8086,13 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -8645,7 +8687,9 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
-                                              "class": "table-column-sorters",
+                                              "class": "tooltip-reference table-column-sorters",
+                                              "data-reference-id": "sortTip-reference",
+                                              "id": "sortTip-reference",
                                             },
                                             "children": Array [
                                               Node {
@@ -8925,9 +8969,13 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                         ],
@@ -9086,7 +9134,9 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
-                                            "class": "table-column-sorters",
+                                            "class": "tooltip-reference table-column-sorters",
+                                            "data-reference-id": "sortTip-reference",
+                                            "id": "sortTip-reference",
                                           },
                                           "children": Array [
                                             Node {
@@ -9366,9 +9416,13 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "data-reference-id": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -9590,7 +9644,9 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
-                                              "class": "table-column-sorters",
+                                              "class": "tooltip-reference table-column-sorters",
+                                              "data-reference-id": "sortTip-reference",
+                                              "id": "sortTip-reference",
                                             },
                                             "children": Array [
                                               Node {
@@ -9870,9 +9926,13 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "data-reference-id": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                         ],

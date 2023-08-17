@@ -8,7 +8,7 @@ $multi-select-count-offset: 54px;
 }
 
 .select-wrapper {
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   position: relative;
   width: 100%;
 

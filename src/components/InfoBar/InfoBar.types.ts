@@ -33,6 +33,11 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   actionButtonProps?: ButtonProps;
   /**
+   * Whether to visually hide the InfoBar border.
+   * @default false
+   */
+  bordered?: boolean;
+  /**
    * If the InfoBar is closable or not
    */
   closable?: boolean;

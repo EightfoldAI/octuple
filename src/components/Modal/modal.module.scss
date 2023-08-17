@@ -1,7 +1,7 @@
 .modal {
   display: flex;
   flex-direction: column;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   max-height: 70vh;
   overflow: hidden;
   transform-origin: 50% 0;

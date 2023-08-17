@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner Renders without crashing 1`] = `
+<div>
+  <div
+    class="stack my-stack-class horizontal undefined gap-m"
+    data-testid="test-stack"
+    style="background-color: aquamarine;"
+  >
+    <div
+      style="height: 200px; width: 200px; background-color: mediumpurple;"
+    />
+    <div
+      style="height: 200px; width: 200px; background-color: mediumpurple;"
+    />
+    <div
+      style="height: 200px; width: 200px; background-color: mediumpurple;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Spinner Stack is vertical 1`] = `
+<div>
+  <div
+    class="stack my-stack-class vertical undefined gap-m"
+    data-testid="test-stack"
+    style="background-color: aquamarine;"
+  >
+    <div
+      style="height: 200px; width: 200px; background-color: mediumpurple;"
+    />
+    <div
+      style="height: 200px; width: 200px; background-color: mediumpurple;"
+    />
+    <div
+      style="height: 200px; width: 200px; background-color: mediumpurple;"
+    />
+  </div>
+</div>
+`;

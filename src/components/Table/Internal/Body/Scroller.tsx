@@ -9,7 +9,11 @@ import React, {
 import { ButtonShape, ButtonSize, SecondaryButton } from '../../../Button';
 import { IconName } from '../../../Icon';
 import { ColumnType } from '../../Table.types';
-import { ScrollerProps, ScrollerRef } from '../OcTable.types';
+import {
+  ScrollerProps,
+  ScrollerRef,
+  VERTICAL_SCROLL_OFFSET,
+} from '../OcTable.types';
 
 import styles from '../octable.module.scss';
 
@@ -24,9 +28,10 @@ export const Scroller = React.forwardRef(
       scrollBodyRef,
       stickyOffsets,
       scrollHeaderRef,
-      titleRef,
       scrollLeftAriaLabelText,
       scrollRightAriaLabelText,
+      titleRef,
+      verticalScroll = false,
     }: ScrollerProps<RecordType>,
     ref: ForwardedRef<ScrollerRef>
   ) => {
@@ -82,12 +87,13 @@ export const Scroller = React.forwardRef(
       const { height: stickyHeaderHeight = 0 } =
         scrollHeaderRef?.current?.getBoundingClientRect?.() || {};
       return (
-        rowTop -
-        scrollBodyTop +
-        stickyHeaderHeight +
-        rowHeight / 2 -
-        BUTTON_HEIGHT / 2 +
-        titleHeight
+        (rowTop -
+          scrollBodyTop +
+          stickyHeaderHeight +
+          rowHeight / 2 -
+          BUTTON_HEIGHT / 2 +
+          titleHeight) |
+        0
       );
     };
 
@@ -118,7 +124,7 @@ export const Scroller = React.forwardRef(
       });
     };
 
-    const noScroller = (): boolean => {
+    const noHorizontalScroller = (): boolean => {
       return (
         scrollBodyRef?.current?.clientWidth >=
         scrollBodyRef?.current?.scrollWidth
@@ -163,7 +169,7 @@ export const Scroller = React.forwardRef(
       };
     }, []);
 
-    if (noScroller()) return null;
+    if (noHorizontalScroller()) return null;
 
     return (
       <>
@@ -185,7 +191,10 @@ export const Scroller = React.forwardRef(
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            right: rightButtonOffset + BUTTON_PADDING,
+            right:
+              rightButtonOffset +
+              (verticalScroll ? VERTICAL_SCROLL_OFFSET : 0) +
+              BUTTON_PADDING,
             opacity: rightButtonVisible && visible ? 1 : 0,
             top: getButtonTop(),
           }}

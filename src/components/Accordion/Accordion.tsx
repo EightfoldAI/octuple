@@ -89,6 +89,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
   const accordionBodyStyles: string = mergeClasses(
     styles.accordionBody,
     {
+      [styles.show]: expanded,
       [styles.borderTop]: bordered,
       [styles.medium]: size === AccordionSize.Medium,
       [styles.large]: size === AccordionSize.Large,

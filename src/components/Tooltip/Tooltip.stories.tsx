@@ -131,6 +131,9 @@ Tooltips.args = {
   offset: 8,
   theme: TooltipTheme.light,
   content: 'This is a Tooltip.',
+  closeOnOutsideClick: true,
+  closeOnReferenceClick: true,
+  closeOnTooltipClick: false,
   placement: 'bottom',
   disabled: false,
   visibleArrow: true,
@@ -152,6 +155,9 @@ Tooltips.args = {
       ariaLabel="Show Tooltip"
       size={ButtonSize.Medium}
       text="Show Tooltip"
+      onClick={() => {
+        console.log('clicked');
+      }}
     />
   ),
   height: null,

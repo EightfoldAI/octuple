@@ -5,7 +5,7 @@
 
   align-items: center;
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   padding: $space-xxs 0;
 
   span,
@@ -94,7 +94,8 @@
   }
 
   .page-tracker {
-    opacity: 50%;
+    color: var(--text-secondary-color);
+    white-space: nowrap;
   }
 
   &.dots {

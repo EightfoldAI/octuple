@@ -22,6 +22,8 @@ import ColumnGroup from './ColumnGroup';
 import Column from './Column';
 import Header from './Header/Header';
 import type {
+  ColumnType,
+  ColumnsType,
   CustomizeComponent,
   CustomizeScrollBody,
   DefaultRecordType,
@@ -30,11 +32,12 @@ import type {
   GetRowKey,
   Key,
   MemoTableContentProps,
+  OcTableProps,
+  ScrollerRef,
+  StickyOffsets,
   TableComponents,
   TableLayout,
-  OcTableProps,
   TriggerEventHandler,
-  ScrollerRef,
 } from './OcTable.types';
 import TableContext from './Context/TableContext';
 import BodyContext from './Context/BodyContext';
@@ -260,7 +263,10 @@ function OcTable<RecordType extends DefaultRecordType>(
     transformColumns
   );
 
-  const columnContext = useMemo(
+  const columnContext: {
+    columns: ColumnsType<RecordType>;
+    flattenColumns: readonly ColumnType<RecordType>[];
+  } = useMemo(
     () => ({
       columns,
       flattenColumns,
@@ -269,12 +275,18 @@ function OcTable<RecordType extends DefaultRecordType>(
   );
 
   // ====================== Scroll ======================
-  const fullTableRef = useRef<HTMLDivElement>();
-  const scrollHeaderRef = useRef<HTMLDivElement>();
-  const scrollBodyRef = useRef<HTMLDivElement>();
-  const scrollSummaryRef = useRef<HTMLDivElement>();
-  const titleRef = useRef<HTMLDivElement>(null);
-  const scrollerRef = useRef<ScrollerRef>(null);
+  const fullTableRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>();
+  const scrollHeaderRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>();
+  const scrollBodyRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>();
+  const scrollSummaryRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>();
+  const titleRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const scrollerRef: React.MutableRefObject<ScrollerRef> =
+    useRef<ScrollerRef>(null);
   const [pingedLeft, setPingedLeft] = useState<boolean>(false);
   const [pingedRight, setPingedRight] = useState<boolean>(false);
   const [colsWidths, updateColsWidths] = useLayoutState(
@@ -282,21 +294,31 @@ function OcTable<RecordType extends DefaultRecordType>(
   );
 
   // Convert map to number width
-  const colsKeys = getColumnsKey(flattenColumns);
-  const pureColWidths = colsKeys.map((columnKey) => colsWidths.get(columnKey));
-  const colWidths = useMemo(() => pureColWidths, [pureColWidths.join('_')]);
-  const stickyOffsets = useStickyOffsets(
+  const colsKeys: React.Key[] = getColumnsKey(flattenColumns);
+  const pureColWidths: number[] = colsKeys.map((columnKey) =>
+    colsWidths.get(columnKey)
+  );
+  const colWidths: number[] = useMemo(
+    () => pureColWidths,
+    [pureColWidths.join('_')]
+  );
+  const stickyOffsets: StickyOffsets = useStickyOffsets(
     colWidths,
     flattenColumns.length,
     direction
   );
-  const fixHeader = scroll && validateValue(scroll.y);
-  const horizonScroll =
+  const fixHeader: boolean = scroll && validateValue(scroll.y);
+  const horizontalScroll: boolean =
     (scroll && validateValue(scroll.x)) || Boolean(expandableConfig.fixed);
-  const fixColumn = horizonScroll && flattenColumns.some(({ fixed }) => fixed);
+  const verticalScroll: boolean =
+    (scroll && validateValue(scroll.y)) || Boolean(expandableConfig.fixed);
+  const fixColumn =
+    horizontalScroll && flattenColumns.some(({ fixed }) => fixed);
 
   // Sticky
-  const stickyRef = useRef<{ setScrollLeft: (left: number) => void }>();
+  const stickyRef: React.MutableRefObject<{
+    setScrollLeft: (left: number) => void;
+  }> = useRef<{ setScrollLeft: (left: number) => void }>();
   const {
     isSticky,
     offsetHeader,
@@ -307,8 +329,8 @@ function OcTable<RecordType extends DefaultRecordType>(
   } = useSticky(sticky);
 
   // Footer (Fix footer must fixed header)
-  const summaryNode = summary?.(mergedData);
-  const fixFooter =
+  const summaryNode: React.ReactNode = summary?.(mergedData);
+  const fixFooter: boolean | '' | 'top' | 'bottom' =
     (fixHeader || isSticky) &&
     React.isValidElement(summaryNode) &&
     summaryNode.type === Summary &&
@@ -321,13 +343,13 @@ function OcTable<RecordType extends DefaultRecordType>(
 
   if (fixHeader) {
     scrollYStyle = {
-      overflow: 'overlay',
+      overflow: 'auto',
       maxHeight: scroll.y,
     };
   }
 
-  if (horizonScroll) {
-    scrollXStyle = { overflow: 'overlay' };
+  if (horizontalScroll) {
+    scrollXStyle = { overflow: 'auto' };
     // When no vertical scrollbar, should hide it
     if (!fixHeader) {
       scrollYStyle = { overflowY: 'hidden' };
@@ -408,7 +430,7 @@ function OcTable<RecordType extends DefaultRecordType>(
   };
 
   const triggerOnScroll = (): void => {
-    if (horizonScroll && scrollBodyRef.current) {
+    if (horizontalScroll && scrollBodyRef.current) {
       onScroll({
         currentTarget: scrollBodyRef.current,
       } as React.UIEvent<HTMLDivElement>);
@@ -435,7 +457,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     if (mounted.current) {
       triggerOnScroll();
     }
-  }, [horizonScroll, data, columns.length]);
+  }, [horizontalScroll, data, columns.length]);
   useEffect(() => {
     mounted.current = true;
   }, []);
@@ -509,7 +531,7 @@ function OcTable<RecordType extends DefaultRecordType>(
   const bodyTable = (
     <Body
       data={mergedData}
-      measureColumnWidth={fixHeader || horizonScroll || isSticky}
+      measureColumnWidth={fixHeader || horizontalScroll || isSticky}
       expandedKeys={mergedExpandedKeys}
       rowExpandable={rowExpandable}
       getRowKey={getRowKey}
@@ -564,16 +586,17 @@ function OcTable<RecordType extends DefaultRecordType>(
           ref={scrollBodyRef}
           className={styles.tableBody}
         >
-          {horizonScroll && showScroller && (
+          {horizontalScroll && showScroller && (
             <Scroller
               ref={scrollerRef}
               {...columnContext}
               scrollBodyRef={scrollBodyRef}
               stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
-              titleRef={titleRef}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
+              titleRef={titleRef}
+              verticalScroll={verticalScroll}
             />
           )}
           <TableComponent
@@ -600,7 +623,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     // Fixed holder share the props
     const fixedHolderProps = {
       noData: !mergedData.length,
-      maxContentScroll: horizonScroll && scroll.x === 'max-content',
+      maxContentScroll: horizontalScroll && scroll.x === 'max-content',
       ...headerProps,
       ...columnContext,
       direction,
@@ -672,15 +695,16 @@ function OcTable<RecordType extends DefaultRecordType>(
         onScroll={onScroll}
         ref={scrollBodyRef}
       >
-        {horizonScroll && showScroller && (
+        {horizontalScroll && showScroller && (
           <Scroller
             ref={scrollerRef}
             {...columnContext}
             scrollBodyRef={scrollBodyRef}
-            titleRef={titleRef}
-            stickyOffsets={stickyOffsets}
             scrollLeftAriaLabelText={scrollLeftAriaLabelText}
             scrollRightAriaLabelText={scrollRightAriaLabelText}
+            stickyOffsets={stickyOffsets}
+            titleRef={titleRef}
+            verticalScroll={verticalScroll}
           />
         )}
         <TableComponent
@@ -723,7 +747,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         { ['table-layout-fixed']: tableLayout === 'fixed' },
         { ['table-fixed-header']: fixHeader },
         { [styles.tableFixedColumn]: fixColumn },
-        { ['table-scroll-horizontal']: horizonScroll },
+        { ['table-scroll-horizontal']: horizontalScroll },
         {
           ['table-has-fix-left']: flattenColumns[0] && flattenColumns[0].fixed,
         },
@@ -749,7 +773,14 @@ function OcTable<RecordType extends DefaultRecordType>(
             {title(mergedData)}
           </FrameWrapper>
         )}
-        <div className={styles.tableContainer}>{groupTableNode}</div>
+        <div
+          className={mergeClasses([
+            styles.tableContainer,
+            { [styles.tableContainerHorizontallyScrollable]: horizontalScroll },
+          ])}
+        >
+          {groupTableNode}
+        </div>
         {footer && (
           <FrameWrapper classNames={styles.tableFooter}>
             {footer(mergedData)}
@@ -759,7 +790,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     </div>
   );
 
-  if (horizonScroll) {
+  if (horizontalScroll) {
     fullTable = (
       <ResizeObserver onResize={onFullTableResize}>{fullTable}</ResizeObserver>
     );
@@ -824,9 +855,9 @@ function OcTable<RecordType extends DefaultRecordType>(
       componentWidth,
       fixHeader,
       fixColumn,
-      horizonScroll,
+      horizonScroll: horizontalScroll,
     }),
-    [componentWidth, fixHeader, fixColumn, horizonScroll]
+    [componentWidth, fixHeader, fixColumn, horizontalScroll]
   );
 
   const ResizeContextValue = useMemo(
