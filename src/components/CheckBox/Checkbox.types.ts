@@ -22,6 +22,16 @@ export enum SelectorSize {
   Small = 'small',
 }
 
+export enum SelectorWidth {
+  fitContent = 'fitContent',
+  fill = 'fill',
+}
+
+export enum SelectorVariant {
+  Default = 'default',
+  Pill = 'pill',
+}
+
 export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
   /**
    * Allows focus on the checkbox when it's disabled.
@@ -54,6 +64,10 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
    */
   formItemInput?: boolean;
   /**
+   * Whether or not the checkbox state is indeterminate.
+   */
+  indeterminate?: boolean;
+  /**
    * The checkbox input name.
    */
   name?: string;
@@ -76,6 +90,12 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   /**
+   * The checkbox width type
+   * Use when variant is `SelectorVariant.Pill`
+   * @default fitContent
+   */
+  selectorWidth?: SelectorWidth;
+  /**
    * The checkbox size.
    * @default SelectorSize.Medium
    */
@@ -89,6 +109,11 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
    * The checkbox value.
    */
   value?: CheckboxValueType;
+  /**
+   * Determines the checkbox variant.
+   * @default SelectorVariant.Default
+   */
+  variant?: SelectorVariant;
 }
 
 export interface CheckboxGroupProps
@@ -140,6 +165,12 @@ export interface CheckboxGroupProps
    */
   onChange?: (checkedValue: CheckboxValueType[]) => void;
   /**
+   * The checkbox group width type
+   * Use when variant is `SelectorVariant.Pill`
+   * @default fitContent
+   */
+  selectorWidth?: SelectorWidth;
+  /**
    * The checkbox size.
    * @default SelectorSize.Medium
    */
@@ -148,4 +179,9 @@ export interface CheckboxGroupProps
    * The checkbox value.
    */
   value?: CheckboxValueType[];
+  /**
+   * Determines the checkbox group variant.
+   * @default SelectorVariant.Default
+   */
+  variant?: SelectorVariant;
 }
