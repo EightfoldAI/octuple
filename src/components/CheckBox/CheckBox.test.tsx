@@ -35,9 +35,14 @@ describe('CheckBox', () => {
     expect(wrapper.find('.toggle')).toBeTruthy();
   });
 
-  test('simulate disabled CheckBox', () => {
+  test('Simulate disabled CheckBox', () => {
     const wrapper = mount(<CheckBox disabled label="test label" />);
     wrapper.find('input').html().includes('disabled=""');
+  });
+
+  test('Simulate indeterminate CheckBox', () => {
+    const wrapper = mount(<CheckBox indeterminate label="test label" />);
+    wrapper.find('input').html().includes('indeterminate');
   });
 
   test('Checkbox is pill', () => {
