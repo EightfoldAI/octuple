@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockDate from 'mockdate';
@@ -8,7 +8,8 @@ import { spyElementPrototypes } from '../../../../tests/domHook';
 import { eventKeys } from '../../../../shared/utilities';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
-import type { PartialMode, OcPickerMode } from '../OcPicker.types';
+import type { PartialMode } from '../OcPicker.types';
+import { ButtonVariant } from '../../../Button';
 import { mount, getDayjs, isSame, DayjsPicker } from './util/commonUtil';
 import '@testing-library/jest-dom';
 
@@ -802,8 +803,57 @@ describe('Picker.Basic', () => {
   });
 
   it('id', () => {
-    const wrapper = mount(<DayjsPicker id="light" />);
-    expect(wrapper.find('input').props().id).toEqual('light');
+    const wrapper = mount(<DayjsPicker id="mia" />);
+    expect(wrapper.find('input').props().id).toEqual('mia');
+  });
+
+  it('does not display today as active', () => {
+    const wrapper = mount(<DayjsPicker open todayActive={false} />);
+    expect(wrapper.find('.picker-cell-today').length).toEqual(0);
+  });
+
+  it('does not display now button when showTime', () => {
+    const wrapper = mount(<DayjsPicker open showTime showNow={false} />);
+    expect(wrapper.find('.picker-now').length).toEqual(0);
+  });
+
+  it('now button is primary', () => {
+    const wrapper = mount(
+      <DayjsPicker
+        open
+        showTime
+        nowButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
+  });
+
+  it('does not display ok button when showTime', () => {
+    const wrapper = mount(<DayjsPicker open showTime showOk={false} />);
+    expect(wrapper.find('.picker-ok').length).toEqual(0);
+  });
+
+  it('ok button is primary', () => {
+    const wrapper = mount(
+      <DayjsPicker
+        open
+        showTime
+        okButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
+  });
+
+  it('does not display today button', () => {
+    const wrapper = mount(<DayjsPicker open showToday={false} />);
+    expect(wrapper.find('.picker-today-btn').length).toEqual(0);
+  });
+
+  it('today button is primary', () => {
+    const wrapper = mount(
+      <DayjsPicker open todayButtonProps={{ variant: ButtonVariant.Primary }} />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
   });
 
   it('dateRender', () => {

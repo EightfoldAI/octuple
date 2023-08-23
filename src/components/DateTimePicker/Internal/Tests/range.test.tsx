@@ -19,6 +19,7 @@ import {
 } from './util/commonUtil';
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
+import { ButtonVariant } from '../../../Button';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -475,11 +476,9 @@ describe('Picker.Range', () => {
   });
 
   it('placeholder', () => {
-    const wrapper = mount(
-      <DayjsRangePicker placeholder={['light', 'bamboo']} />
-    );
-    expect(wrapper.find('input').first().props().placeholder).toEqual('light');
-    expect(wrapper.find('input').last().props().placeholder).toEqual('bamboo');
+    const wrapper = mount(<DayjsRangePicker placeholder={['mia', 'lola']} />);
+    expect(wrapper.find('input').first().props().placeholder).toEqual('mia');
+    expect(wrapper.find('input').last().props().placeholder).toEqual('lola');
   });
 
   describe('defaultPickerValue', () => {
@@ -1121,8 +1120,61 @@ describe('Picker.Range', () => {
   });
 
   it('id', () => {
-    const wrapper = mount(<DayjsRangePicker id="bamboo" />);
-    expect(wrapper.find('input').first().props().id).toEqual('bamboo');
+    const wrapper = mount(<DayjsRangePicker id="lola" />);
+    expect(wrapper.find('input').first().props().id).toEqual('lola');
+  });
+
+  it('does not display today as active', () => {
+    const wrapper = mount(<DayjsRangePicker open todayActive={false} />);
+    expect(wrapper.find('.picker-cell-today').length).toEqual(0);
+  });
+
+  it('does not display now button when showTime', () => {
+    const wrapper = mount(<DayjsRangePicker open showTime showNow={false} />);
+    expect(wrapper.find('.picker-now').length).toEqual(0);
+  });
+
+  it('now button is primary', () => {
+    const wrapper = mount(
+      <DayjsRangePicker
+        open
+        showTime
+        nowButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
+  });
+
+  it('does not display ok button when showTime', () => {
+    const wrapper = mount(<DayjsRangePicker open showTime showOk={false} />);
+    expect(wrapper.find('.picker-ok').length).toEqual(0);
+  });
+
+  it('ok button is primary', () => {
+    const wrapper = mount(
+      <DayjsRangePicker
+        open
+        showTime
+        okButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
+  });
+
+  it('does not display today button', () => {
+    const wrapper = mount(<DayjsRangePicker open />);
+    expect(wrapper.find('.picker-today-btn').length).toEqual(0);
+  });
+
+  it('today button is primary', () => {
+    const wrapper = mount(
+      <DayjsRangePicker
+        open
+        showToday
+        todayButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
   });
 
   it('dateRender', () => {

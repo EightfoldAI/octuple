@@ -168,7 +168,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     showOk = true,
     showNow = true,
     showTime,
-    showToday = true,
+    showToday = false,
     size = DatePickerSize.Medium,
     style,
     suffixIcon,
