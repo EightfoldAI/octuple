@@ -13,6 +13,7 @@ export default function useCellClassNames<DateType>({
   isSameCell,
   offsetCell,
   today,
+  todayActive,
   value,
 }: {
   generateConfig: GenerateConfig<DateType>;
@@ -25,6 +26,7 @@ export default function useCellClassNames<DateType>({
   rangedValue?: RangeValue<DateType>;
   hoverRangedValue?: RangeValue<DateType>;
   today?: NullableDateType<DateType>;
+  todayActive?: boolean;
   value?: NullableDateType<DateType>;
 }) {
   function getClassName(currentDate: DateType) {
@@ -99,7 +101,7 @@ export default function useCellClassNames<DateType>({
         isHoverEdgeEnd && isSameCell(nextDate, rangeStart),
 
       // Others
-      [styles.pickerCellToday]: isSameCell(today, currentDate),
+      [styles.pickerCellToday]: isSameCell(today, currentDate) && todayActive,
       [styles.pickerCellSelected]: isSameCell(value, currentDate),
     };
   }

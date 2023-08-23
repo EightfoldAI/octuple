@@ -1,4 +1,5 @@
 import React from 'react';
+import { fireEvent, render } from '@testing-library/react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockDate from 'mockdate';
@@ -121,90 +122,86 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 describe('Picker.Basic', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
   });
 
-  afterAll(() => {
+  afterEach(() => {
     MockDate.reset();
   });
 
   describe('mode', () => {
-    const modeList: { mode: PartialMode; componentNames: string[] }[] = [
+    const modeList: { mode: PartialMode; className: string }[] = [
       {
         mode: 'decade',
-        componentNames: ['DecadePartial', 'DecadeHeader', 'DecadeBody'],
+        className: '.picker-decade-partial',
       },
       {
         mode: 'year',
-        componentNames: ['YearPartial', 'YearHeader', 'YearBody'],
+        className: '.picker-year-partial',
       },
       {
         mode: 'quarter',
-        componentNames: ['QuarterPartial', 'QuarterHeader', 'QuarterBody'],
+        className: '.picker-quarter-partial',
       },
       {
         mode: 'month',
-        componentNames: ['MonthPartial', 'MonthHeader', 'MonthBody'],
+        className: '.picker-month-partial',
       },
       {
         mode: 'week',
-        componentNames: ['WeekPartial'],
+        className: '.picker-week-partial',
       },
       {
         mode: 'date',
-        componentNames: ['DatePartial', 'DateHeader', 'DateBody'],
+        className: '.picker-date-partial',
       },
       {
         mode: 'time' as any,
-        componentNames: ['TimePartial', 'TimeHeader', 'TimeBody'],
+        className: '.picker-time-partial',
       },
     ];
 
-    modeList.forEach(({ mode, componentNames }) => {
+    modeList.forEach(({ mode, className }) => {
       it(mode, () => {
-        const wrapper = mount(<DayjsPicker mode={mode} open />);
-        componentNames.forEach((componentName) => {
-          expect(wrapper.find(componentName).length).toBeTruthy();
-        });
+        render(<DayjsPicker mode={mode} open />);
+        expect(document.querySelector(className)).toBeTruthy();
       });
     });
   });
 
   describe('picker', () => {
-    const modeList: { picker: OcPickerMode; componentNames: string[] }[] = [
+    const modeList: { picker: PartialMode; className: string }[] = [
       {
         picker: 'year',
-        componentNames: ['YearPartial', 'YearHeader', 'YearBody'],
+        className: '.picker-year-partial',
       },
       {
         picker: 'quarter',
-        componentNames: ['QuarterPartial', 'QuarterHeader', 'QuarterBody'],
+        className: '.picker-quarter-partial',
       },
       {
         picker: 'month',
-        componentNames: ['MonthPartial', 'MonthHeader', 'MonthBody'],
+        className: '.picker-month-partial',
       },
       {
         picker: 'week',
-        componentNames: ['WeekPartial'],
+        className: '.picker-week-partial',
       },
       {
         picker: 'date',
-        componentNames: ['DatePartial', 'DateHeader', 'DateBody'],
+        className: '.picker-date-partial',
       },
       {
         picker: 'time',
-        componentNames: ['TimePartial', 'TimeHeader', 'TimeBody'],
+        className: '.picker-time-partial',
       },
     ];
 
-    modeList.forEach(({ picker, componentNames }) => {
+    modeList.forEach(({ picker, className }) => {
       it(picker, () => {
-        const wrapper = mount(<DayjsPicker picker={picker as any} open />);
-        componentNames.forEach((componentName) => {
-          expect(wrapper.find(componentName).length).toBeTruthy();
-        });
+        render(<DayjsPicker picker={picker as any} open />);
+        expect(document.querySelector(className)).toBeTruthy();
       });
     });
   });
@@ -236,7 +233,9 @@ describe('Picker.Basic', () => {
     it('fixed open need repeat trigger onOpenChange', () => {
       jest.useFakeTimers();
       const onOpenChange = jest.fn();
-      mount(<DayjsPicker onOpenChange={onOpenChange} open />);
+      mount(
+        <DayjsPicker onOpenChange={onOpenChange} open changeOnBlur={false} />
+      );
 
       for (let i = 0; i < 10; i += 1) {
         const clickEvent = new Event('mousedown');
@@ -1027,7 +1026,7 @@ describe('Picker.Basic', () => {
     });
   });
 
-  describe.skip('disabledDate', () => {
+  describe('disabledDate', () => {
     function disabledDate(current: Dayjs) {
       return current <= getDayjs('2020-12-28 00:00:00').endOf('day');
     }

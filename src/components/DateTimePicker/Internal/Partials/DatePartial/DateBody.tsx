@@ -19,6 +19,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
     locale,
     rowCount,
     size = DatePickerSize.Medium,
+    todayActive,
     value,
     viewDate,
   } = props;
@@ -50,6 +51,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
 
   const getCellClassNames = useCellClassNames({
     today,
+    todayActive,
     value,
     generateConfig,
     rangedValue: rangedValue,

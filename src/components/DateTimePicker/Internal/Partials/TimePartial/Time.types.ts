@@ -8,6 +8,7 @@ import type {
 } from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
 import { Shape, Size } from '../../../../ConfigProvider';
+import { ButtonProps } from '../../../../Button';
 
 export type Unit = {
   /**
@@ -84,6 +85,14 @@ export type SharedTimeProps<DateType> = {
    */
   minuteStep?: number;
   /**
+   * The 'Now' button props.
+   */
+  nowButtonProps?: ButtonProps;
+  /**
+   * The 'OK' button props.
+   */
+  okButtonProps?: ButtonProps;
+  /**
    * The second step
    * @default 1
    */
@@ -104,6 +113,10 @@ export type SharedTimeProps<DateType> = {
    * Show 'Now' button in partial when `showTime` is set.
    */
   showNow?: boolean;
+  /**
+   * Show 'OK' button in partial when `showTime` is set.
+   */
+  showOk?: boolean;
   /**
    * Whether to show the second column.
    */

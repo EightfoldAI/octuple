@@ -8,9 +8,18 @@ import { spyElementPrototypes } from '../../../../tests/domHook';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import type { Wrapper } from './util/commonUtil';
-import { mount, getDayjs, isSame, DayjsRangePicker } from './util/commonUtil';
+import {
+  closePicker,
+  DayjsRangePicker,
+  getDayjs,
+  isSame,
+  mount,
+  openPicker,
+  selectCell,
+} from './util/commonUtil';
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
+import { createEvent, fireEvent, render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -113,7 +122,7 @@ describe('Picker.Range', () => {
     expect(wrapper.find('input').last().props().value).toEqual(value2);
   }
 
-  beforeAll(() => {
+  beforeEach(() => {
     MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
 
     Object.defineProperty(window, 'matchMedia', {
@@ -131,7 +140,7 @@ describe('Picker.Range', () => {
     });
   });
 
-  afterAll(() => {
+  afterEach(() => {
     MockDate.reset();
   });
 
@@ -907,17 +916,18 @@ describe('Picker.Range', () => {
   it('datetime will reset by blur', () => {
     jest.useFakeTimers();
 
-    const wrapper = mount(<DayjsRangePicker showTime />);
-    wrapper.openPicker();
-    wrapper.selectCell(11);
-    wrapper.closePicker();
+    const { container } = render(
+      <DayjsRangePicker showTime changeOnBlur={false} />
+    );
+    openPicker(container);
+    selectCell(11);
+    closePicker(container);
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    expect(wrapper.isClosed()).toBeTruthy();
-    expect(wrapper.find('input').first().props().value).toEqual('');
+    expect(document.querySelector('.trigger-popup')).toBeTruthy();
+    expect(document.querySelector('input').value).toEqual('');
 
     jest.useRealTimers();
   });
@@ -1388,6 +1398,7 @@ describe('Picker.Range', () => {
       const wrapper = mount(
         <DayjsRangePicker
           defaultValue={[getDayjs('1989-01-01'), getDayjs('1990-01-01')]}
+          changeOnBlur={false}
         />
       );
       wrapper.openPicker(0);
@@ -1396,43 +1407,41 @@ describe('Picker.Range', () => {
     });
   });
 
-  // TODO: Re-enable these tests when first element to be focused is determined.
   describe('click at non-input elements', () => {
-    it.skip('should focus on the first element by default', () => {
+    it('should focus on the first element by default', () => {
       jest.useFakeTimers();
-      const wrapper = mount(<DayjsRangePicker />);
-      wrapper.find('.picker').simulate('click');
-      expect(wrapper.isOpen()).toBeTruthy();
+      const { container } = render(<DayjsRangePicker />);
+      fireEvent.click(container.querySelector('.picker'));
+      expect(document.querySelector('.trigger-popup')).toBeTruthy();
       jest.runAllTimers();
-      expect(document.activeElement).toStrictEqual(
-        wrapper.find('input').first().getDOMNode()
+      expect(document.activeElement).toBe(container.querySelector('input'));
+      jest.useRealTimers();
+    });
+    it('should focus on the second element if first is disabled', () => {
+      jest.useFakeTimers();
+      const { container } = render(
+        <DayjsRangePicker disabled={[true, false]} />
+      );
+      fireEvent.click(container.querySelector('.picker'));
+      expect(document.querySelector('.trigger-popup')).toBeTruthy();
+      jest.runAllTimers();
+      expect(document.activeElement).toBe(
+        container.querySelectorAll('input')[1]
       );
       jest.useRealTimers();
     });
-    it.skip('should focus on the second element if first is disabled', () => {
+    it("shouldn't let mousedown blur the input", () => {
       jest.useFakeTimers();
-      const wrapper = mount(<DayjsRangePicker disabled={[true, false]} />);
-      wrapper.find('.picker').simulate('click');
-      expect(wrapper.isOpen()).toBeTruthy();
-      jest.runAllTimers();
-      expect(document.activeElement).toStrictEqual(
-        wrapper.find('input').last().getDOMNode()
-      );
-      jest.useRealTimers();
-    });
-    it.skip("shouldn't let mousedown blur the input", () => {
-      jest.useFakeTimers();
-      const preventDefault = jest.fn();
-      const wrapper = mount(<DayjsRangePicker />, {
-        attachTo: document.body,
+      const { container } = render(<DayjsRangePicker changeOnBlur={false} />);
+      const node = container.querySelector('.picker');
+      fireEvent.click(node);
+      act(() => {
+        jest.runAllTimers();
       });
-      wrapper.find('.picker').simulate('click');
-      jest.runAllTimers();
-      wrapper.find('.picker').simulate('mousedown', {
-        preventDefault,
-      });
-      expect(wrapper.isOpen()).toBeTruthy();
-      expect(preventDefault).toHaveBeenCalled();
+      const mouseDownEvent = createEvent.mouseDown(node);
+      fireEvent(node, mouseDownEvent);
+      expect(document.querySelector('.trigger-popup')).toBeTruthy();
+      expect(mouseDownEvent.defaultPrevented).toBeTruthy();
       jest.useRealTimers();
     });
   });
@@ -1708,7 +1717,7 @@ describe('Picker.Range', () => {
     expect(wrapper.find('input').first().prop('value')).toBe('1990-09-07');
 
     // back to first partial and clear input value
-    wrapper.find('input').first().simulate('focus');
+    wrapper.openPicker(0);
     wrapper.inputValue('', 0);
 
     // reselect date

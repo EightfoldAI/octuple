@@ -13,6 +13,7 @@ import type {
 } from '../../OcPicker.types';
 import { DatePickerSize } from '../../OcPicker.types';
 import { Shape, Size } from '../../../../ConfigProvider';
+import { ButtonProps } from '../../../../Button';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -40,7 +41,10 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
 
   const timeProps: {
     format?: string;
+    nowButtonProps?: ButtonProps;
+    okButtonProps?: ButtonProps;
     showNow?: boolean;
+    showOk?: boolean;
     showHour?: boolean;
     showMinute?: boolean;
     showSecond?: boolean;

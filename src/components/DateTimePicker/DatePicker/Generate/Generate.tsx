@@ -8,6 +8,7 @@ import type {
 } from '../../Internal/OcPicker.types';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
+import { ButtonProps } from '../../../Button';
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
@@ -30,8 +31,11 @@ export function getTimeProps<DateType, DisabledTime>(
   const firstFormat: string = toArray(format)[0];
   const showTimeObj: {
     format?: string;
+    nowButtonProps?: ButtonProps;
+    okButtonProps?: ButtonProps;
     picker?: OcPickerMode;
     showNow?: boolean;
+    showOk?: boolean;
     showHour?: boolean;
     showMinute?: boolean;
     showSecond?: boolean;
