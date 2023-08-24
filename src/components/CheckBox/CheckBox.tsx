@@ -2,10 +2,18 @@ import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import { generateId, mergeClasses } from '../../shared/utilities';
-import { CheckboxProps, LabelAlign, LabelPosition, SelectorSize } from './';
+import {
+  CheckboxProps,
+  LabelAlign,
+  LabelPosition,
+  SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
+} from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { useMergedRefs } from '../../hooks/useMergedRefs';
 
 import styles from './checkbox.module.scss';
 
@@ -24,15 +32,18 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       disabled = false,
       formItemInput = false,
       id,
+      indeterminate = false,
       label,
       labelPosition = LabelPosition.End,
       labelAlign = LabelAlign.Center,
       name,
       onChange,
+      selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
       toggle = false,
       value,
+      variant = SelectorVariant.Default,
       'data-test-id': dataTestId,
     },
     ref: Ref<HTMLInputElement>
@@ -44,10 +55,20 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
 
     const htmlDir: string = useCanvasDirection();
 
+    const internalRef: React.MutableRefObject<HTMLInputElement> =
+      useRef<HTMLInputElement>(null);
+
+    const mergedRef: (node: HTMLInputElement) => void = useMergedRefs(
+      internalRef,
+      ref
+    );
+
     const checkBoxId = useRef<string>(id || generateId());
     const [isChecked, setIsChecked] = useState<boolean>(
       defaultChecked || checked
     );
+    const [isIndeterminate, setIsIndeterminate] =
+      useState<boolean>(indeterminate);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -62,12 +83,35 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
-    useEffect(() => {
+    useEffect((): void => {
       setIsChecked(checked);
     }, [checked]);
 
+    useEffect((): void => {
+      setIsIndeterminate(indeterminate);
+      if (internalRef.current) {
+        internalRef.current.indeterminate = indeterminate;
+      }
+    }, [indeterminate]);
+
     const checkboxWrapperClassNames: string = mergeClasses([
       styles.selector,
+      {
+        [styles.selectorPill]: variant === SelectorVariant.Pill,
+      },
+      {
+        [styles.selectorPillActive]:
+          variant === SelectorVariant.Pill && isChecked,
+      },
+      {
+        [styles.selectorPillIndeterminate]:
+          variant === SelectorVariant.Pill && isIndeterminate,
+      },
+      {
+        [styles.selectorPillStretch]:
+          variant === SelectorVariant.Pill &&
+          selectorWidth === SelectorWidth.fill,
+      },
       {
         [styles.selectorSmall]:
           mergedSize === SelectorSize.Flex && largeScreenActive,
@@ -126,7 +170,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         data-test-id={dataTestId}
       >
         <input
-          ref={ref}
+          ref={mergedRef}
           aria-disabled={mergedDisabled}
           aria-label={ariaLabel}
           checked={isChecked}

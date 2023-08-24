@@ -1,6 +1,12 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import { LabelAlign, LabelPosition, SelectorSize } from '../CheckBox';
+import {
+  LabelAlign,
+  LabelPosition,
+  SelectorSize,
+  SelectorWidth,
+  SelectorVariant,
+} from '../CheckBox';
 import { ConfigContextProps, Size } from '../ConfigProvider';
 
 export type RadioButtonValue = string | number;
@@ -68,6 +74,12 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   /**
+   * The radio button width type
+   * Use when variant is `SelectorVariant.Pill`
+   * @default fitContent
+   */
+  selectorWidth?: SelectorWidth;
+  /**
    * The radio button size.
    * @default SelectorSize.Medium
    */
@@ -76,6 +88,11 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
    * The value of the input.
    */
   value?: RadioButtonValue;
+  /**
+   * Determines the radio button variant.
+   * @default SelectorVariant.Default
+   */
+  variant?: SelectorVariant;
 }
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
@@ -124,6 +141,12 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   /**
+   * The radio group width type
+   * Use when variant is `SelectorVariant.Pill`
+   * @default fitContent
+   */
+  selectorWidth?: SelectorWidth;
+  /**
    * The radio group size.
    * @default SelectorSize.Medium
    */
@@ -132,4 +155,9 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
    * The input radio default selected value.
    */
   value?: RadioButtonValue;
+  /**
+   * Determines the radio group variant.
+   * @default SelectorVariant.Default
+   */
+  variant?: SelectorVariant;
 }
