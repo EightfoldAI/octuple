@@ -2,7 +2,13 @@ import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import { RadioButtonProps, RadioButtonValue } from './';
-import { LabelAlign, LabelPosition, SelectorSize } from '../CheckBox';
+import {
+  LabelAlign,
+  LabelPosition,
+  SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
+} from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
@@ -30,9 +36,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
       labelPosition = LabelPosition.End,
       labelAlign = LabelAlign.Center,
       onChange,
+      selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
       value = '',
+      variant = SelectorVariant.Default,
       'data-test-id': dataTestId,
     },
     ref: Ref<HTMLInputElement>
@@ -68,6 +76,19 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
     const selectorClassNames: string = mergeClasses([
       styles.selector,
+      {
+        [styles.selectorPill]: variant === SelectorVariant.Pill,
+      },
+      {
+        [styles.selectorPillActive]:
+          variant === SelectorVariant.Pill &&
+          (radioGroupContext ? isActive : selectedValue === value && checked),
+      },
+      {
+        [styles.selectorPillStretch]:
+          variant === SelectorVariant.Pill &&
+          selectorWidth === SelectorWidth.fill,
+      },
       {
         [styles.selectorSmall]:
           mergedSize === SelectorSize.Flex && largeScreenActive,

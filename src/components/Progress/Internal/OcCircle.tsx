@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { MAX_PERCENT, useTransitionDuration } from './Common';
 import type { OcProgressProps } from './OcProgress.types';
-import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import { uniqueId } from '../../../shared/utilities';
 import styles from '../progress.module.scss';
 
 function stripPercentToNumber(percent: string): number {

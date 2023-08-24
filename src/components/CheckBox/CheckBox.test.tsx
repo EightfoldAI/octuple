@@ -2,7 +2,13 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { CheckBox, CheckBoxGroup, SelectorSize } from './';
+import {
+  CheckBox,
+  CheckBoxGroup,
+  SelectorSize,
+  SelectorWidth,
+  SelectorVariant,
+} from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -29,9 +35,32 @@ describe('CheckBox', () => {
     expect(wrapper.find('.toggle')).toBeTruthy();
   });
 
-  test('simulate disabled CheckBox', () => {
+  test('Simulate disabled CheckBox', () => {
     const wrapper = mount(<CheckBox disabled label="test label" />);
     wrapper.find('input').html().includes('disabled=""');
+  });
+
+  test('Simulate indeterminate CheckBox', () => {
+    const wrapper = mount(<CheckBox indeterminate label="test label" />);
+    wrapper.find('input').html().includes('indeterminate');
+  });
+
+  test('Checkbox is pill', () => {
+    const wrapper = mount(
+      <CheckBox variant={SelectorVariant.Pill} label="test label" />
+    );
+    expect(wrapper.find('.selector-pill')).toBeTruthy();
+  });
+
+  test('Checkbox is fill pill', () => {
+    const wrapper = mount(
+      <CheckBox
+        selectorWidth={SelectorWidth.fill}
+        variant={SelectorVariant.Pill}
+        label="test label"
+      />
+    );
+    expect(wrapper.find('.selector-pill-stretch')).toBeTruthy();
   });
 
   test('CheckBox is large', () => {
