@@ -1055,6 +1055,7 @@
   }
 
   .text-area-resize-icon {
+    pointer-events: none;
     position: absolute;
     bottom: $space-xs;
     right: $space-xxs;
