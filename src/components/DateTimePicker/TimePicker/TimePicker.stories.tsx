@@ -6,7 +6,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TimePicker from './TimePicker';
 import { DatePickerShape, DatePickerSize } from '../DatePicker';
 import { Stack } from '../../Stack';
-import { ButtonSize, PrimaryButton } from '../../Button';
+import { Button, ButtonSize, ButtonVariant } from '../../Button';
 
 const { RangePicker } = TimePicker;
 
@@ -42,6 +42,10 @@ export default {
       control: { type: 'inline-radio' },
     },
     bordered: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
+    changeOnBlur: {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
@@ -153,8 +157,9 @@ const Extra_Footer_Story: ComponentStory<typeof TimePicker> = (args) => {
       open={open}
       onOpenChange={setOpen}
       renderExtraFooter={() => (
-        <PrimaryButton
+        <Button
           size={ButtonSize.Small}
+          variant={ButtonVariant.Primary}
           onClick={() => setOpen(false)}
           text={'OK'}
         />
@@ -235,6 +240,11 @@ const pickerArgs: Object = {
   id: 'myPickerInputId',
   shape: DatePickerShape.Rectangle,
   size: DatePickerSize.Medium,
+  changeOnBlur: true,
+  nowButtonProps: null,
+  okButtonProps: { variant: ButtonVariant.Primary },
+  showNow: true,
+  showOk: true,
 };
 
 Basic.args = {

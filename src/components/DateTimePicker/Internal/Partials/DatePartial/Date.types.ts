@@ -133,6 +133,11 @@ export type DateBodyProps<DateType> = {
    */
   size?: DatePickerSize | Size;
   /**
+   * The current day appears to be active.
+   * @default true
+   */
+  todayActive?: boolean;
+  /**
    * The current date value.
    */
   value?: DateType | null;

@@ -77,13 +77,20 @@ export default function generatePicker<DateType>(
         getPopupContainer,
         id,
         locale = enUS,
+        nowButtonProps,
         nowText: defaultNowText,
+        okButtonProps,
         okText: defaultOkText,
         placeholder,
         popupPlacement,
         shape = DatePickerShape.Rectangle,
+        showNow = true,
+        showOk = true,
+        showToday = true,
         size = DatePickerSize.Medium,
         status,
+        todayButtonProps,
+        todayActive = true,
         todayText: defaultTodayText,
         ...rest
       } = props;
@@ -100,10 +107,6 @@ export default function generatePicker<DateType>(
         focus: () => innerRef.current?.focus(),
         blur: () => innerRef.current?.blur(),
       }));
-
-      const additionalProps = {
-        showToday: true,
-      };
 
       let additionalOverrideProps: any = {};
       if (picker) {
@@ -249,15 +252,21 @@ export default function generatePicker<DateType>(
                     size={pickerSizeToIconSizeMap.get(mergedSize)}
                   />
                 }
+                nowButtonProps={nowButtonProps}
                 nowText={nowText}
+                okButtonProps={okButtonProps}
                 okText={okText}
+                showNow={showNow}
+                showOk={showOk}
+                showToday={showToday}
+                todayButtonProps={todayButtonProps}
+                todayActive={todayActive}
                 todayText={todayText}
                 prevIcon={IconName.mdiChevronLeft}
                 nextIcon={IconName.mdiChevronRight}
                 superPrevIcon={IconName.mdiChevronDoubleLeft}
                 superNextIcon={IconName.mdiChevronDoubleRight}
                 allowClear
-                {...additionalProps}
                 {...rest}
                 {...additionalOverrideProps}
                 locale={locale!.lang}

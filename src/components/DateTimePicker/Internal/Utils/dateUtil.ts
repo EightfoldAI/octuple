@@ -135,8 +135,9 @@ export function isSameWeek<DateType>(
   }
 
   return (
+    isSameYear(generateConfig, date1!, date2!) &&
     generateConfig.locale.getWeek(locale, date1!) ===
-    generateConfig.locale.getWeek(locale, date2!)
+      generateConfig.locale.getWeek(locale, date2!)
   );
 }
 

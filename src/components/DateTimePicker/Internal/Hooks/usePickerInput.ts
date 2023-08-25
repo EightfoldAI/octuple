@@ -15,6 +15,7 @@ export default function usePickerInput({
   onCancel,
   onFocus,
   onBlur,
+  changeOnBlur,
 }: {
   open: boolean;
   value: string;
@@ -30,6 +31,7 @@ export default function usePickerInput({
   onCancel: () => void;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  changeOnBlur?: boolean;
 }): [
   React.DOMAttributes<HTMLInputElement>,
   { focused: boolean; typing: boolean }
@@ -55,7 +57,7 @@ export default function usePickerInput({
       setTyping(true);
       triggerOpen(true);
     },
-    onKeyDown: (e) => {
+    onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>): void => {
       const preventDefault = (): void => {
         preventDefaultRef.current = true;
       };
@@ -104,7 +106,7 @@ export default function usePickerInput({
       }
     },
 
-    onFocus: (e) => {
+    onFocus: (e: React.FocusEvent<HTMLInputElement, Element>): void => {
       setTyping(true);
       setFocused(true);
 
@@ -113,7 +115,7 @@ export default function usePickerInput({
       }
     },
 
-    onBlur: (e) => {
+    onBlur: (e: React.FocusEvent<HTMLInputElement, Element>): void => {
       if (preventBlurRef.current || !isClickOutside(document.activeElement)) {
         preventBlurRef.current = false;
         return;
@@ -146,17 +148,17 @@ export default function usePickerInput({
   };
 
   // check if value changed
-  useEffect(() => {
+  useEffect((): void => {
     valueChangedRef.current = false;
   }, [open]);
 
-  useEffect(() => {
+  useEffect((): void => {
     valueChangedRef.current = true;
   }, [value]);
 
   // Global click handler
-  useEffect(() =>
-    addGlobalMouseDownEvent((e: MouseEvent) => {
+  useEffect((): (() => void) =>
+    addGlobalMouseDownEvent((e: MouseEvent): void => {
       const target: HTMLElement = getTargetFromEvent(e);
 
       if (open) {
@@ -169,7 +171,7 @@ export default function usePickerInput({
           requestAnimationFrame(() => {
             preventBlurRef.current = false;
           });
-        } else if (!focused || clickedOutside) {
+        } else if (!changeOnBlur && (!focused || clickedOutside)) {
           triggerOpen(false);
         }
       }
