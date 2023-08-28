@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.44.1](https://github.com/EightfoldAI/octuple/compare/v2.44.0...v2.44.1) (2023-08-28)
+
+### Bug Fixes
+
+- hotfix: tooltip fixes default clone element class names ([56af9da](https://github.com/EightfoldAI/octuple/commits/56af9daba8c2a995c2c5e26ed0185a9f4ca0cd90))
+
 ## [2.44.0](https://github.com/EightfoldAI/octuple/compare/v2.43.0...v2.44.0) (2023-08-25)
 
 ### Features
