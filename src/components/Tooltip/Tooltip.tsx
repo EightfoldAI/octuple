@@ -341,32 +341,30 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
           // Need this to handle disabled elements of default Tooltip.
           if (type === TooltipType.Default) {
-            if (node.props?.disabled) {
-              return cloneElement(child, {
-                className: `${mergeClasses([
-                  'tooltip-reference',
-                  styles.disabled,
-                  node.props?.className,
-                ])}`,
-                id: node.props?.id
-                  ? node.props?.id
-                  : tooltipReferenceId?.current,
-                key: node.props?.key ? node.props?.key : tooltipId?.current,
-                'data-reference-id': tooltipReferenceId?.current,
-              });
-            } else {
-              return cloneElement(child, {
-                className: `${mergeClasses([
-                  'tooltip-reference',
-                  node.props?.className,
-                ])}`,
-                id: node.props?.id
-                  ? node.props?.id
-                  : tooltipReferenceId?.current,
-                key: node.props?.key ? node.props?.key : tooltipId?.current,
-                'data-reference-id': tooltipReferenceId?.current,
-              });
+            const defaultReferenceClassNames: string = mergeClasses([
+              'tooltip-reference',
+              { [node.props.className]: !!node.props.className },
+              { [node.props.classNames]: !!node.props.classNames },
+            ]);
+
+            const clonedElementProps: RenderProps = {
+              id: node.props?.id ? node.props?.id : tooltipReferenceId?.current,
+              key: node.props?.key ? node.props?.key : tooltipId?.current,
+              'data-reference-id': tooltipReferenceId?.current,
+            };
+
+            const defaultMergedClasses: string = node.props?.disabled
+              ? mergeClasses([defaultReferenceClassNames, styles.disabled])
+              : defaultReferenceClassNames;
+
+            // Compares for octuple react prop vs native react html classes.
+            if (node.props?.className) {
+              clonedElementProps['className'] = defaultMergedClasses;
+            } else if (child.props.classNames) {
+              clonedElementProps['classNames'] = defaultMergedClasses;
             }
+
+            return cloneElement(child, clonedElementProps);
           }
         }
         return node;
