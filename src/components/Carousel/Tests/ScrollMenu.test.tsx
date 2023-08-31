@@ -307,6 +307,23 @@ describe('ScrollMenu', () => {
 
       expect(container).toMatchSnapshot();
     });
+
+    test('Hides LeftArrow, RightArrow', () => {
+      (useIntersectionObserver as jest.Mock).mockReturnValue({
+        visibleElementsWithSeparators: defaultItemsWithSeparators,
+      });
+
+      const { container } = setup({
+        previousButton: PreviousButton,
+        nextButton: NextButton,
+        controls: false,
+      });
+
+      expect(container.querySelector('.left-arrow')).toBeFalsy();
+      expect(container.querySelector('.right-arrow')).toBeFalsy();
+
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('Events', () => {

@@ -241,6 +241,11 @@ export interface ScrollMenuProps
    */
   containerPadding?: number;
   /**
+   * Whether to display the previous and next controls.
+   * @default true
+   */
+  controls?: boolean;
+  /**
    * The pixel gap between items.
    */
   gap?: number;
