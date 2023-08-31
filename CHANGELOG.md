@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.44.2](https://github.com/EightfoldAI/octuple/compare/v2.44.1...v2.44.2) (2023-08-31)
+
+### Bug Fixes
+
+- hotfix: add controls prop to scroll menu ([85c7f81](https://github.com/EightfoldAI/octuple/commits/85c7f8165f5746b2b7b188c8e9ebb55b95311b33))
+
 ### [2.44.1](https://github.com/EightfoldAI/octuple/compare/v2.44.0...v2.44.1) (2023-08-28)
 
 ### Bug Fixes
