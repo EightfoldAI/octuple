@@ -664,6 +664,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                   {type === 'scroll' && (
                     <ResizeObserver onResize={updateScrollMode}>
                       <ScrollMenu
+                        controls={controls}
                         nextButton={() => autoScrollButton('next')}
                         onWheel={handleOnWheel}
                         previousButton={() => autoScrollButton('previous')}
