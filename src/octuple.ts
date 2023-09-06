@@ -44,6 +44,8 @@ import {
   LabelPosition,
   LabelAlign,
   SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
 } from './components/CheckBox';
 
 import {
@@ -365,6 +367,8 @@ export {
   SelectShape,
   SelectSize,
   SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
   SearchBox,
   SecondaryButton,
   Shape,

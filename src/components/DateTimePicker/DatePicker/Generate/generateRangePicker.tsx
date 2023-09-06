@@ -62,13 +62,20 @@ export default function generateRangePicker<DateType>(
       getPopupContainer,
       id,
       locale = enUS,
+      nowButtonProps,
       nowText: defaultNowText,
+      okButtonProps,
       okText: defaultOkText,
       placeholder,
       popupPlacement,
       shape = DatePickerShape.Rectangle,
+      showNow = true,
+      showOk = true,
+      showToday = false,
       size = DatePickerSize.Medium,
       status,
+      todayButtonProps,
+      todayActive = false,
       todayText: defaultTodayText,
       ...rest
     } = props;
@@ -220,8 +227,12 @@ export default function generateRangePicker<DateType>(
                 popupPlacement
               )}
               popupPlacement={popupPlacement}
+              nowButtonProps={nowButtonProps}
               nowText={nowText}
+              okButtonProps={okButtonProps}
               okText={okText}
+              todayButtonProps={todayButtonProps}
+              todayActive={todayActive}
               todayText={todayText}
               placeholder={getRangePlaceholder(picker, locale, placeholder)}
               suffixIcon={suffixNode}
@@ -291,6 +302,9 @@ export default function generateRangePicker<DateType>(
               components={Components}
               direction={htmlDir}
               shape={mergedShape}
+              showNow={showNow}
+              showOk={showOk}
+              showToday={showToday}
               size={mergedSize}
             />
           );

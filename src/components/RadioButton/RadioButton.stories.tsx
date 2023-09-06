@@ -3,7 +3,13 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Label } from '../Label';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
-import { LabelAlign, LabelPosition, SelectorSize } from '../CheckBox';
+import {
+  LabelAlign,
+  LabelPosition,
+  SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
+} from '../CheckBox';
 import { Stack } from '../Stack';
 
 export default {
@@ -111,6 +117,14 @@ export default {
         SelectorSize.Small,
       ],
       control: { type: 'radio' },
+    },
+    variant: {
+      options: [SelectorVariant.Default, SelectorVariant.Pill],
+      control: { type: 'inline-radio' },
+    },
+    selectorWidth: {
+      options: [SelectorWidth.fitContent, SelectorWidth.fill],
+      control: { type: 'inline-radio' },
     },
   },
 } as ComponentMeta<typeof RadioButton>;
@@ -294,6 +308,7 @@ const RadioGroup_With_Custom_Label_Story: ComponentStory<typeof RadioGroup> = (
 };
 
 export const Radio_Button = RadioButton_Story.bind({});
+export const Radio_Button_Pill = RadioButton_Story.bind({});
 export const Radio_Button_Long_Text = RadioButtonLongText_Story.bind({});
 export const Radio_Group = RadioGroup_Story.bind({});
 export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
@@ -307,6 +322,7 @@ export const RadioGroup_With_Custom_Label =
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Radio_Button',
+  'Radio_Button_Pill',
   'Radio_Button_Long_Text',
   'Radio_Group',
   'Bespoke_Radio_Group',
@@ -325,12 +341,19 @@ const radioButtonArgs: Object = {
   labelPosition: LabelPosition.End,
   labelAlign: LabelAlign.Center,
   name: 'myRadioButtonName',
+  selectorWidth: SelectorWidth.fitContent,
   size: SelectorSize.Medium,
   value: 'Label1',
+  variant: SelectorVariant.Default,
 };
 
 Radio_Button.args = {
   ...radioButtonArgs,
+};
+
+Radio_Button_Pill.args = {
+  ...radioButtonArgs,
+  variant: SelectorVariant.Pill,
 };
 
 Radio_Button_Long_Text.args = {
@@ -351,7 +374,9 @@ Radio_Group.args = {
     value: `Radio${i}`,
   })),
   layout: 'vertical',
+  selectorWidth: SelectorWidth.fitContent,
   size: SelectorSize.Medium,
+  variant: SelectorVariant.Default,
   value: 'Radio1',
 };
 
@@ -393,6 +418,8 @@ RadioGroup_With_Custom_Label.args = {
     value: `Radio${i}`,
   })),
   layout: 'vertical',
+  selectorWidth: SelectorWidth.fitContent,
   size: SelectorSize.Medium,
+  variant: SelectorVariant.Default,
   value: 'Radio1',
 };
