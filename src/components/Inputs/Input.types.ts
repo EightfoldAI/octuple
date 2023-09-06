@@ -134,6 +134,7 @@ export interface TextAreaProps
     | 'iconProps'
     | 'iconButtonProps'
     | 'alignIcon'
+    | 'readonly'
   > {
   /**
    * The text area is expandable.
@@ -148,6 +149,11 @@ export interface TextAreaProps
    * The text area component ref.
    */
   ref?: Ref<HTMLTextAreaElement>;
+  /**
+   * text area readonly.
+   * @default false
+   */
+  readonly?: boolean | Omit<ReadOnlyProps, 'clearable'>;
   /**
    * The text area required attribute.
    * @default false
