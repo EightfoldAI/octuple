@@ -18,9 +18,11 @@ import {
   OcRangePickerTimeProps,
 } from '../../OcPicker.types';
 import OcRangePicker from '../../OcRangePicker';
+import { fireEvent } from '@testing-library/react';
 
 const FULL_FORMAT: string = 'YYYY-MM-DD HH:mm:ss';
 
+// TODO: Remove in favor of export functions.
 export type Wrapper = ReactWrapper & {
   confirmOK: () => void;
   openPicker: (index?: number) => void;
@@ -130,4 +132,74 @@ export class DayjsRangePicker extends React.Component<DayjsRangePickerProps> {
       />
     );
   }
+}
+
+export function openPicker(container: HTMLElement, index = 0) {
+  const input = container.querySelectorAll('input')[index];
+  fireEvent.mouseDown(input);
+  fireEvent.click(input);
+  fireEvent.focus(input);
+}
+
+export function closePicker(container: HTMLElement, index = 0) {
+  const input = container.querySelectorAll('input')[index];
+  fireEvent.blur(input);
+}
+
+export function isOpen() {
+  const dropdown = document.querySelector('.trigger-popup');
+  return dropdown && !dropdown.classList.contains('trigger-popup-hidden');
+}
+
+export function findCell(text: string | number, index = 0) {
+  let matchCell: HTMLElement;
+
+  const table = document.querySelectorAll('table')[index];
+
+  Array.from(table.querySelectorAll('td')).forEach((td) => {
+    if (td.textContent === String(text) && td.className.includes('-in-view')) {
+      matchCell = td;
+    }
+  });
+  if (!matchCell) {
+    throw new Error('Cell not match in picker partial.');
+  }
+
+  return matchCell;
+}
+
+export function selectCell(text: string | number, index = 0) {
+  const td = findCell(text, index);
+  fireEvent.click(td);
+
+  return td;
+}
+
+export function clickButton(type: string) {
+  let matchBtn: HTMLButtonElement;
+  Array.from(document.querySelectorAll('button')).forEach((btn) => {
+    if (btn.className.includes(`-header-${type}-btn`)) {
+      matchBtn = btn;
+    }
+  });
+
+  fireEvent.click(matchBtn);
+
+  return matchBtn;
+}
+
+export function confirmOK() {
+  fireEvent.click(document.querySelector('.picker-ok > *'));
+}
+
+export function clearValue() {
+  const clearBtn = document.querySelector('.picker-clear');
+  fireEvent.mouseDown(clearBtn);
+  fireEvent.mouseUp(clearBtn);
+}
+
+export function inputValue(text: string, index = 0) {
+  fireEvent.change(document.querySelectorAll('input')[index], {
+    target: { value: text },
+  });
 }

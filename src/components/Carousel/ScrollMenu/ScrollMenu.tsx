@@ -34,6 +34,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       apiRef = { current: {} as autoScrollApiType },
       children,
       containerPadding = 0,
+      controls = true,
       gap = 8,
       itemClassNames,
       nextButton: _rightArrow,
@@ -163,7 +164,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       >
         <VisibilityContext.Provider value={context}>
           <div className={innerWrapperClassName}>
-            {!context?.isFirstItemVisible && LeftArrow}
+            {!context?.isFirstItemVisible && controls && LeftArrow}
             <ScrollContainer
               classNames={scrollContainerClassNames}
               containerPadding={containerPadding}
@@ -181,7 +182,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
                 {children}
               </MenuItems>
             </ScrollContainer>
-            {!context?.isLastItemVisible && RightArrow}
+            {!context?.isLastItemVisible && controls && RightArrow}
           </div>
         </VisibilityContext.Provider>
       </div>

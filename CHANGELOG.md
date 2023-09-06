@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.44.0](https://github.com/EightfoldAI/octuple/compare/v2.43.0...v2.44.0) (2023-08-25)
+
+### Features
+
+- badge: add badge size and update button and tab custom css ([#672](https://github.com/EightfoldAI/octuple/issues/672)) ([af91b66](https://github.com/EightfoldAI/octuple/commits/af91b6699ed9dfd9b38164c706b9c24963c50192))
+- pickers: changeonblur and button props with option to hide buttons ([#696](https://github.com/EightfoldAI/octuple/issues/696)) ([0a08831](https://github.com/EightfoldAI/octuple/commits/0a08831ee67893abf8ccbdefb6a6608f6247fcd8))
+- selectors: adds checkbox indeterminate state and selector pill variants ([#694](https://github.com/EightfoldAI/octuple/issues/694)) ([7941608](https://github.com/EightfoldAI/octuple/commits/79416083bba75940ff7edabbe2443001021a5036))
+
+### Bug Fixes
+
+- button: moves button transition to global semantic variables ([#695](https://github.com/EightfoldAI/octuple/issues/695)) ([c239873](https://github.com/EightfoldAI/octuple/commits/c239873e033b45257c84e014b554cd9feb1dd6c2))
+- popup: fixes style inheritance of reference element ([#675](https://github.com/EightfoldAI/octuple/issues/675)) ([88827e0](https://github.com/EightfoldAI/octuple/commits/88827e0bb38a96495ca03642c97f0ad4e0326a6e))
+- textarea: ensure grip icon doesn't block mouse drag ([#698](https://github.com/EightfoldAI/octuple/issues/698)) ([cbfc558](https://github.com/EightfoldAI/octuple/commits/cbfc558aad14ef55b911acde3457921abaca5169))
+- tooltip: fixes tooltip toggle on mobile devices ([#668](https://github.com/EightfoldAI/octuple/issues/668)) ([a5cb7ec](https://github.com/EightfoldAI/octuple/commits/a5cb7ec489c80d317f38cb8128025d493d69464e))
+
 ## [2.43.0](https://github.com/EightfoldAI/octuple/compare/v2.42.0...v2.43.0) (2023-08-08)
 
 ### Features

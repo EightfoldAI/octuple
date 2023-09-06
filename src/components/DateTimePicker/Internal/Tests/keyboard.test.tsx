@@ -117,8 +117,6 @@ describe('Picker.Keyboard', () => {
   }
 
   beforeAll(() => {
-    MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
-
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({
@@ -134,7 +132,11 @@ describe('Picker.Keyboard', () => {
     });
   });
 
-  afterAll(() => {
+  beforeEach(() => {
+    MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
+  });
+
+  afterEach(() => {
     MockDate.reset();
   });
 
@@ -587,8 +589,7 @@ describe('Picker.Keyboard', () => {
       expect(wrapper.find('input').first().props().value).toEqual('');
     });
 
-    // TODO: Re-enable test when util is implemented
-    it.skip('move based on current date on first keyboard event', () => {
+    it('move based on current date on first keyboard event', () => {
       jest.useFakeTimers();
       const onCalendarChange = jest.fn();
       const onChange = jest.fn();
@@ -604,7 +605,7 @@ describe('Picker.Keyboard', () => {
       wrapper
         .find('input')
         .first()
-        .simulate('change', { target: { value: '' } });
+        .simulate('change', { target: { value: '1990-09-03' } });
       wrapper.keyDown(eventKeys.TAB);
       wrapper.keyDown(eventKeys.ARROWRIGHT);
       wrapper.keyDown(eventKeys.ENTER);
@@ -624,9 +625,8 @@ describe('Picker.Keyboard', () => {
     expect(preventDefault).toHaveBeenCalled();
   });
 
-  // TODO: Re-enable test when util support is implemented
   describe('keyboard should not trigger on disabledDate', () => {
-    it.skip('picker', () => {
+    it('picker', () => {
       const onChange = jest.fn();
       const onSelect = jest.fn();
       const wrapper = mount(
@@ -658,7 +658,7 @@ describe('Picker.Keyboard', () => {
       expect(onChange).toHaveBeenCalled();
     });
 
-    it.skip('partial', () => {
+    it('partial', () => {
       const onChange = jest.fn();
       const onSelect = jest.fn();
       const wrapper = mount(

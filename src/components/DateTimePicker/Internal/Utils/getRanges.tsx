@@ -1,18 +1,37 @@
 import React from 'react';
 import { Size } from '../../../ConfigProvider';
 import { Components, DatePickerSize, RangeList } from '../OcPicker.types';
-import { ButtonSize, SystemUIButton } from '../../../Button';
+import {
+  Button,
+  ButtonProps,
+  ButtonSize,
+  ButtonVariant,
+} from '../../../Button';
 
 import styles from '../ocpicker.module.scss';
 
 export type RangesProps = {
+  /**
+   * Custom items.
+   */
   components?: Components;
+  /**
+   * Whether or not to display to 'OK' button.
+   */
   needConfirmButton: boolean;
+  /**
+   * The 'Now' button props.
+   */
+  nowButtonProps?: ButtonProps;
   /**
    * The `Now`button text.
    * @default 'Now'
    */
   nowText?: string;
+  /**
+   * The 'OK' button props.
+   */
+  okButtonProps?: ButtonProps;
   /**
    * Whether the `OK` button is disabled.
    */
@@ -39,6 +58,10 @@ export type RangesProps = {
    */
   showNow?: boolean;
   /**
+   * Show 'OK' button in partial when `showTime` is set.
+   */
+  showOk?: boolean;
+  /**
    * The DatePicker size.
    * @default DatePickerSize.Medium
    */
@@ -48,13 +71,16 @@ export type RangesProps = {
 export default function getRanges({
   components = {},
   needConfirmButton,
+  nowButtonProps,
   nowText,
+  okButtonProps,
   okDisabled,
   okText,
   onNow,
   onOk,
   rangeList = [],
   showNow,
+  showOk,
   size = DatePickerSize.Medium,
 }: RangesProps) {
   let presetNode: React.ReactNode;
@@ -94,23 +120,27 @@ export default function getRanges({
     if (onNow && !presetNode && showNow !== false) {
       presetNode = (
         <li className={'picker-now'}>
-          <SystemUIButton
+          <Button
             classNames={'picker-now-btn'}
+            text={nowText}
+            variant={ButtonVariant.SystemUI}
+            {...nowButtonProps}
             onClick={onNow}
             size={datePickerSizeToButtonSizeMap.get(size)}
-            text={nowText}
           />
         </li>
       );
     }
 
-    okNode = needConfirmButton && (
+    okNode = needConfirmButton && showOk !== false && (
       <li className={styles.pickerOk}>
-        <SystemUIButton
+        <Button
           disabled={okDisabled}
+          text={okText}
+          variant={ButtonVariant.SystemUI}
+          {...okButtonProps}
           onClick={onOk as () => void}
           size={datePickerSizeToButtonSizeMap.get(size)}
-          text={okText}
         />
       </li>
     );
