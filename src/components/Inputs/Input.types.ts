@@ -88,6 +88,28 @@ export interface InputIconButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface ReadOnlyProps {
+  /**
+   * Option to show the clear input button when readonly.
+   * @default false
+   */
+  clearable?: boolean;
+  /**
+   * Whether readonly is enabled.
+   * @default false
+   */
+  enabled?: boolean;
+  /**
+   * The readonly icon props.
+   */
+  iconProps?: IconProps;
+  /**
+   * Whether or not to apply the readonly styles.
+   * @default false
+   */
+  noStyleChange?: boolean;
+}
+
 export interface SearchBoxProps
   extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
   /**
@@ -323,7 +345,7 @@ export interface InputProps<T>
    * input readonly.
    * @default false
    */
-  readonly?: boolean;
+  readonly?: boolean | ReadOnlyProps;
   /**
    * Resets the input value cache.
    */

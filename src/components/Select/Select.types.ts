@@ -105,6 +105,11 @@ export interface SelectProps
    */
   inputClassNames?: string;
   /**
+   * The Select input is readonly.
+   * @default false
+   */
+  inputReadOnly?: boolean;
+  /**
    * Width of the Select text input.
    * @default TextInputWidth.fitContent
    */

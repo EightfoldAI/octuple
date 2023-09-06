@@ -248,11 +248,11 @@
 
           &.left-icon {
             padding: $space-xs $input-padding-large-with-icon-and-icon-button
-              $space-xs $space-xxl;
+              $space-xs 48px;
           }
 
           &.right-icon {
-            padding: $space-xs $space-xxl $space-xs
+            padding: $space-xs 48px $space-xs
               $input-padding-large-with-icon-and-icon-button;
           }
 
@@ -377,11 +377,11 @@
         &.with-icon-button {
           &.clear-disabled {
             &.left-icon {
-              padding: $space-xs $space-xl $space-xs $space-xs;
+              padding: $space-xs $space-xxl $space-xs $space-xs;
             }
 
             &.right-icon {
-              padding: $space-xs $space-xs $space-xs $space-xl;
+              padding: $space-xs $space-xs $space-xs $space-xxl;
             }
           }
 
@@ -509,20 +509,21 @@
       }
 
       &.input-small {
-        padding: $space-xs $space-s $space-xs $space-l;
+        padding: $space-xs $space-xs $space-xs $space-l;
 
         &.with-icon,
         &.with-image-icon,
         &.with-icon-button {
-          padding: $space-xs $space-xl $space-xs calc(#{$space-l} + $space-xxs);
+          padding: $space-xs $space-xl $space-xs
+            calc(#{$space-l} + #{$space-xxs});
 
           &.left-icon {
             padding: $space-xs $space-xl $space-xs
-              calc(#{$space-l} + $space-xxs);
+              calc(#{$space-l} + #{$space-xxs});
           }
 
           &.right-icon {
-            padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+            padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
               $space-xl;
           }
 
@@ -545,15 +546,15 @@
 
         &.with-icon-and-icon-button {
           padding: $space-xs $input-padding-small-with-icon-and-icon-button
-            $space-xs calc(#{$space-l} + $space-xxs);
+            $space-xs calc(#{$space-l} + #{$space-xxs});
 
           &.left-icon {
             padding: $space-xs $input-padding-small-with-icon-and-icon-button
-              $space-xs calc(#{$space-l} + $space-xxs);
+              $space-xs calc(#{$space-l} + #{$space-xxs});
           }
 
           &.right-icon {
-            padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+            padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
               $input-padding-small-with-icon-and-icon-button;
           }
 
@@ -579,15 +580,16 @@
 
         &.pill-shape-with-icon,
         &.pill-shape-with-image-icon {
-          padding: $space-xs $space-xl $space-xs calc(#{$space-l} + $space-xxs);
+          padding: $space-xs $space-xl $space-xs
+            calc(#{$space-l} + #{$space-xxs});
 
           &.left-icon {
             padding: $space-xs $space-xl $space-xs
-              calc(#{$space-l} + $space-xxs);
+              calc(#{$space-l} + #{$space-xxs});
           }
 
           &.right-icon {
-            padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+            padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
               $space-xl;
           }
 
@@ -665,7 +667,8 @@
       }
     }
 
-    .icon-wrapper {
+    .icon-wrapper,
+    .read-only-icon-wrapper {
       &.left-icon {
         left: unset;
         right: $space-xxs;
@@ -729,7 +732,8 @@
     }
 
     &.input-large {
-      .icon-wrapper {
+      .icon-wrapper,
+      .read-only-icon-wrapper {
         &.left-icon {
           left: unset;
           right: $space-xs;
@@ -744,27 +748,27 @@
       .icon-button {
         &.left-icon {
           left: unset;
-          right: $space-xs;
+          right: $space-xxs;
         }
 
         &.right-icon {
-          left: $space-xs;
+          left: $space-xxs;
           right: unset;
         }
       }
 
       .clear-icon-button-rtl {
-        left: $space-xxxs;
+        left: $space-xxs;
         right: unset;
 
         &.left-icon {
-          left: $space-xxxs;
+          left: $space-xxs;
           right: unset;
         }
 
         &.right-icon {
           left: unset;
-          right: $space-xxxs;
+          right: $space-xxs;
         }
       }
 
@@ -782,14 +786,15 @@
     }
 
     &.input-medium {
-      .icon-wrapper {
+      .icon-wrapper,
+      .read-only-icon-wrapper {
         &.left-icon {
           left: unset;
-          right: $space-xs;
+          right: $space-xxs;
         }
 
         &.right-icon {
-          left: $space-xs;
+          left: $space-xxs;
           right: unset;
         }
       }
@@ -807,35 +812,36 @@
       }
 
       .clear-icon-button-rtl {
-        left: 1px;
+        left: $space-xxs;
         right: unset;
 
         &.left-icon {
-          left: 1px;
+          left: $space-xxs;
           right: unset;
         }
 
         &.right-icon {
           left: unset;
-          right: $space-xxxs;
+          right: $space-xxs;
         }
       }
 
       .icon-wrapper:not(:empty) + .icon-button {
         &.left-icon {
           left: unset;
-          right: $space-xxl;
+          right: $space-xl;
         }
 
         &.right-icon {
-          left: $space-xxl;
+          left: $space-xl;
           right: unset;
         }
       }
     }
 
     &.input-small {
-      .icon-wrapper {
+      .icon-wrapper,
+      .read-only-icon-wrapper {
         &.left-icon {
           left: unset;
           right: $space-xxs;
@@ -877,11 +883,11 @@
       .icon-wrapper:not(:empty) + .icon-button {
         &.left-icon {
           left: unset;
-          right: $space-xl;
+          right: 28px;
         }
 
         &.right-icon {
-          left: $space-xl;
+          left: 28px;
           right: unset;
         }
       }

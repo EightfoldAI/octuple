@@ -98,11 +98,20 @@ describe('Select', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders as not read-only and is editable', () => {
-    const { container } = render(<Select options={options} />);
+  test('Renders as not read-only and is editable', () => {
+    const { container } = render(<Select filterable options={options} />);
     expect(
       container.querySelector('.select-input').getAttribute('readonly')
     ).toBeFalsy();
+  });
+
+  test('Renders as read-only and is not editable', () => {
+    const { container } = render(
+      <Select filterable inputReadOnly options={options} />
+    );
+    expect(
+      container.querySelector('.select-input').hasAttribute('readonly')
+    ).toBeTruthy();
   });
 
   test('Opens the dropdown when clicked', async () => {
