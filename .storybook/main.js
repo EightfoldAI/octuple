@@ -9,6 +9,7 @@ module.exports = {
     'storybook-css-modules',
     '@storybook/addon-a11y',
     'storybook-addon-rtl',
+    'storybook-dark-mode',
   ],
   staticDirs: ['../public/assets'],
   framework: '@storybook/react',

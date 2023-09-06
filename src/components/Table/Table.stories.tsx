@@ -12,6 +12,8 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { mergeClasses } from '../../shared/utilities';
 import { PaginationLayoutOptions } from '../Pagination';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { ConfigProvider } from '../ConfigProvider';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
   title: 'Table',
@@ -1245,53 +1247,70 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
 
+    const dark = useDarkMode();
+
+    useEffect(() => {
+      console.log('dark mode: ' + dark);
+    }, [dark]);
+
     return (
-      <Grid
-        ref={gridRef}
-        className="virtual-grid"
-        columnCount={mergedColumns.length}
-        columnWidth={(index: number) => {
-          const { width } = mergedColumns[index];
-          return totalHeight > Number(scroll!.y!) &&
-            index === mergedColumns.length - 1
-            ? (width as number) - scrollbarSize - 1
-            : (width as number);
-        }}
-        height={scroll!.y as number}
-        rowCount={rawData.length}
-        rowHeight={() => 54}
-        width={tableWidth}
-        onScroll={({ scrollLeft }: { scrollLeft: number }) => {
-          onScroll({ scrollLeft });
+      <ConfigProvider
+        themeOptions={{
+          name: 'blue',
+          dark,
         }}
       >
-        {({
-          columnIndex,
-          rowIndex,
-          style,
-        }: {
-          columnIndex: number;
-          rowIndex: number;
-          style: React.CSSProperties;
-        }) => (
-          <div
-            className={mergeClasses([
-              'virtual-table-cell',
+        <Grid
+          ref={gridRef}
+          className="virtual-grid"
+          columnCount={mergedColumns.length}
+          columnWidth={(index: number) => {
+            const { width } = mergedColumns[index];
+            return totalHeight > Number(scroll!.y!) &&
+              index === mergedColumns.length - 1
+              ? (width as number) - scrollbarSize - 1
+              : (width as number);
+          }}
+          height={scroll!.y as number}
+          rowCount={rawData.length}
+          rowHeight={() => 54}
+          width={tableWidth}
+          onScroll={({ scrollLeft }: { scrollLeft: number }) => {
+            onScroll({ scrollLeft });
+          }}
+        >
+          {({
+            columnIndex,
+            rowIndex,
+            style,
+          }: {
+            columnIndex: number;
+            rowIndex: number;
+            style: React.CSSProperties;
+          }) => (
+            <div
+              className={mergeClasses([
+                'virtual-table-cell',
+                {
+                  'virtual-table-cell-last':
+                    columnIndex === mergedColumns.length - 1,
+                },
+              ])}
+              style={{
+                ...style,
+                background: 'var(--background-color)',
+                borderBottom: '1px solid var(--grey-color)',
+              }}
+            >
               {
-                'virtual-table-cell-last':
-                  columnIndex === mergedColumns.length - 1,
-              },
-            ])}
-            style={style}
-          >
-            {
-              (rawData[rowIndex] as any)[
-                (mergedColumns as any)[columnIndex].dataIndex
-              ]
-            }
-          </div>
-        )}
-      </Grid>
+                (rawData[rowIndex] as any)[
+                  (mergedColumns as any)[columnIndex].dataIndex
+                ]
+              }
+            </div>
+          )}
+        </Grid>
+      </ConfigProvider>
     );
   };
 

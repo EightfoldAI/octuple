@@ -121,7 +121,7 @@ const stackArgs: Object = {
   wrap: '',
   flexGap: '',
   style: {
-    backgroundColor: 'aquamarine',
+    backgroundColor: 'var(--bluegreen-color)',
   },
   classNames: 'my-stack-class',
   breakpoints: {},
@@ -131,21 +131,21 @@ const stackArgs: Object = {
         style={{
           height: '200px',
           width: '200px',
-          backgroundColor: 'mediumpurple',
+          backgroundColor: 'var(--blueviolet-color)',
         }}
       />
       <div
         style={{
           height: '200px',
           width: '200px',
-          backgroundColor: 'mediumpurple',
+          backgroundColor: 'var(--blueviolet-color)',
         }}
       />
       <div
         style={{
           height: '200px',
           width: '200px',
-          backgroundColor: 'mediumpurple',
+          backgroundColor: 'var(--blueviolet-color)',
         }}
       />
     </>
@@ -197,7 +197,10 @@ Sample_Nav_List.args = {
       direction: 'vertical',
     },
   },
-  style: {},
+  style: {
+    background: 'var(--background-color)',
+    color: 'var(--text-primary-color)',
+  },
   children: (
     <>
       <Stack direction="vertical" flexGap="m" classNames={styles.group}>

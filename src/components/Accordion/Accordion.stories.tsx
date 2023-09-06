@@ -121,7 +121,7 @@ const listArgs: Object = {
   footer: (
     <>
       <div style={{ paddingLeft: '16px' }}>
-        <h3>Footer</h3>
+        <h3 style={{ color: 'var(--text-primary-color)' }}>Footer</h3>
       </div>
     </>
   ),
@@ -130,7 +130,7 @@ const listArgs: Object = {
   header: (
     <>
       <div style={{ paddingLeft: '16px' }}>
-        <h2>Header</h2>
+        <h2 style={{ color: 'var(--text-primary-color)' }}>Header</h2>
       </div>
     </>
   ),

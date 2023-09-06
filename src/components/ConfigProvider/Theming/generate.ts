@@ -14,7 +14,7 @@ interface IDarkColorMap {
 }
 
 interface Opts {
-  theme?: 'dark' | 'default';
+  theme?: 'dark' | 'light';
   backgroundColor?: string;
 }
 

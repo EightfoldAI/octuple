@@ -28,7 +28,10 @@ const Portal_Story: ComponentStory<typeof Portal> = (args) => {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <div ref={containerRef}></div>
+      <div
+        style={{ color: 'var(--text-primary-color)' }}
+        ref={containerRef}
+      ></div>
       <Portal getContainer={() => containerRef.current} {...args} />
     </>
   );

@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useCallback } from 'react';
+import React, { FC, useState, useRef, useCallback, useEffect } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
@@ -44,6 +44,7 @@ import { Select } from '../Select';
 import { snack, SnackbarContainer } from '../Snackbar';
 import Upload, { UploadProps } from '../Upload';
 import dayjs, { Dayjs } from 'dayjs';
+import { useDarkMode } from 'storybook-dark-mode';
 
 // locales
 import type { Locale as OcLocale } from '../LocaleProvider'; // Need to alias because story name declaration conflicts with the type
@@ -245,6 +246,16 @@ const ThemedComponents: FC = () => {
   const [customAccentColor, setCustomAccentColor] = useState<string>('');
   const { fontOptions, setFontOptions } = useConfig();
   const { themeOptions, setThemeOptions } = useConfig();
+
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    setThemeOptions({
+      ...themeOptions,
+      dark,
+    });
+  }, [dark]);
+
   const themes: OcThemeName[] = [
     'red',
     'redOrange',
@@ -307,7 +318,7 @@ const ThemedComponents: FC = () => {
 
   return (
     <Stack direction="vertical" flexGap="xxl">
-      <h1 style={{ marginBottom: 0 }}>
+      <h1 style={{ color: 'var(--text-primary-color)', marginBottom: 0 }}>
         Selected theme:
         <span
           style={{
@@ -326,7 +337,11 @@ const ThemedComponents: FC = () => {
           | Accent
         </span>
       </h1>
-      <Stack direction="horizontal" flexGap="m" style={{ marginTop: 0 }}>
+      <Stack
+        direction="horizontal"
+        flexGap="m"
+        style={{ marginTop: 0, color: 'var(--text-primary-color)' }}
+      >
         <div>
           <Label htmlFor="colorPalette" text="Color palette" />
           <Select
@@ -442,7 +457,7 @@ const ThemedComponents: FC = () => {
                     target="_blank"
                     href="https://github.com/EightfoldAI/octuple/blob/main/src/styles/themes/_definitions.scss"
                   >
-                    _default-theme.scss
+                    _light-theme.scss
                   </a>{' '}
                   for css variables that can be overwritten using this
                   mechanism. This can also be leveraged to overwrite css
@@ -791,6 +806,12 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
   const [locale, setLocale] = useState<OcLocale>(enUS);
   const [localeValue, setLocaleValue] = useState<string>('en_US');
 
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
   const locales: Record<string, OcLocale> = {
     cs_CZ: csCZ,
     da_DK: daDK,
@@ -939,12 +960,17 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
   };
 
   return (
-    <ConfigProvider {...args} locale={locale}>
+    <ConfigProvider
+      {...args}
+      themeOptions={{ ...args.themeOptions, dark }}
+      locale={locale}
+    >
       <Stack direction="vertical" flexGap="m">
-        <p>Locale</p>
+        <Label htmlFor="localeSelect" text="Locale" />
         <Select
           defaultValue={localeValue}
           filterable
+          id="localeSelect"
           options={localeOptions}
           onOptionsChange={onLocaleChange}
           size={SelectSize.Small}

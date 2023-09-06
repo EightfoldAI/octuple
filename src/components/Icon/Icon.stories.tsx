@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ConfigProvider } from '../ConfigProvider';
 import { Icon, IconName, IconSize } from './index';
 import iconSet from './selection.json';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
   title: 'Icon',
@@ -88,18 +89,29 @@ export default {
   },
 } as ComponentMeta<typeof Icon>;
 
-const Basic_Story: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
-
-const Icomoon_Story: ComponentStory<typeof Icon> = (args) => (
-  <ConfigProvider
-    icomoonIconSet={iconSet}
-    themeOptions={{
-      name: 'blue',
-    }}
-  >
-    <Icon {...args} />
-  </ConfigProvider>
+const Basic_Story: ComponentStory<typeof Icon> = (args) => (
+  <Icon color="var(--text-primary-color)" {...args} />
 );
+
+const Icomoon_Story: ComponentStory<typeof Icon> = (args) => {
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    console.log('dark mode: ' + dark);
+  }, [dark]);
+
+  return (
+    <ConfigProvider
+      icomoonIconSet={iconSet}
+      themeOptions={{
+        name: 'blue',
+        dark,
+      }}
+    >
+      <Icon {...args} />
+    </ConfigProvider>
+  );
+};
 
 export const Basic = Basic_Story.bind({});
 export const Icomoon = Icomoon_Story.bind({});
@@ -128,12 +140,12 @@ const iconArgs: Object = {
 
 Basic.args = {
   ...iconArgs,
-  color: '#000000',
+  color: 'var(--text-primary-color)',
 };
 
 Icomoon.args = {
   ...iconArgs,
-  color: '#000000',
+  color: 'var(--text-primary-color)',
   icomoonIconName: 'pencil',
 };
 

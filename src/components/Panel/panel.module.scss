@@ -8,15 +8,16 @@
   }
 
   .panel {
+    background: var(--background-color);
+    box-shadow: $shadow-panel-right;
+    color: var(--text-primary-color);
     display: flex;
     flex-direction: column;
     font-family: var(--font-stack-full);
     position: absolute;
     padding: 0 $space-xl;
-    background: var(--background-color);
-    box-shadow: $shadow-panel-right;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     overflow: auto;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
 
     &.left,
     &.right {

@@ -112,6 +112,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
 
     const getDivider = (item?: BreadcrumbLinkProps): JSX.Element => (
       <Icon
+        color="var(--text-primary-color)"
         path={IconName.mdiSlashForward}
         rotate={htmlDir === 'rtl' ? 180 : 0}
         size={IconSize.Small}

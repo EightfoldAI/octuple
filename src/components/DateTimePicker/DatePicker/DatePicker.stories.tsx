@@ -456,7 +456,12 @@ const Date_Format_Range_Story: ComponentStory<typeof RangePicker> = (args) => (
 );
 
 const Extra_Footer_Story: ComponentStory<typeof DatePicker> = (args) => (
-  <DatePicker {...args} renderExtraFooter={() => 'extra footer'} />
+  <DatePicker
+    {...args}
+    renderExtraFooter={() => (
+      <span style={{ color: 'var(--text-primary-color)' }}>extra footer</span>
+    )}
+  />
 );
 
 const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (

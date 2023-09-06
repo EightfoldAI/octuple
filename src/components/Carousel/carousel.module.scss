@@ -1,5 +1,6 @@
 .carousel {
   background: var(--background-color);
+  color: var(--text-primary-color);
   position: relative;
 
   &-fade {
@@ -47,7 +48,7 @@
 
     &-mask {
       backdrop-filter: blur(5px);
-      background: rgba(255, 255, 255, 0.92);
+      background: var(--carousel-next-prev-mask-color);
       height: 100%;
       left: 0;
       width: 68px;

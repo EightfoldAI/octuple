@@ -5,6 +5,7 @@
   .menu-header-container {
     display: flex;
     flex: 1;
+    color: var(--text-primary-color);
 
     &.large {
       @include octuple-h4();

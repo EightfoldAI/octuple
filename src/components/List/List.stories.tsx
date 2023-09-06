@@ -66,7 +66,7 @@ export const __namedExportsOrder = ['Vertical', 'Horizontal'];
 const listArgs: Object = {
   items: sampleList,
   footer: (
-    <div style={{ paddingLeft: '16px' }}>
+    <div style={{ color: 'var(--text-primary-color)', paddingLeft: '16px' }}>
       <h3>Footer</h3>
     </div>
   ),
@@ -78,14 +78,14 @@ const listArgs: Object = {
     </div>
   ),
   header: (
-    <div style={{ paddingLeft: '16px' }}>
+    <div style={{ color: 'var(--text-primary-color)', paddingLeft: '16px' }}>
       <h2>Header</h2>
     </div>
   ),
   classNames: 'my-list-class',
   style: {},
   itemClassNames: 'my-list-item-class',
-  itemStyle: { padding: '8px 16px' },
+  itemStyle: { color: 'var(--text-primary-color)', padding: '8px 16px' },
   listType: 'ul',
   role: '',
 };

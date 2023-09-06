@@ -523,7 +523,9 @@ const useBreakPoint_Story: FC = () => {
 
   return (
     <Stack flexGap="m" direction="vertical">
-      <div>Current break point:</div>
+      <div style={{ color: 'var(--text-primary-color)' }}>
+        Current break point:
+      </div>
       <Stack flexGap="l" direction="horizontal">
         {Object.entries(screens)
           .filter((screen) => !!screen[1])
@@ -572,7 +574,9 @@ const Playground_Story: FC = () => {
 
   return (
     <Stack direction="vertical" flexGap="l" justify="flex-start" fullWidth>
-      <span>Horizontal Gutter: </span>
+      <span style={{ color: 'var(--text-primary-color)' }}>
+        Horizontal Gutter:{' '}
+      </span>
       <div style={{ width: '50%' }}>
         <Slider
           min={0}
@@ -582,7 +586,9 @@ const Playground_Story: FC = () => {
           showLabels={false}
         />
       </div>
-      <span>Vertical Gutter: </span>
+      <span style={{ color: 'var(--text-primary-color)' }}>
+        Vertical Gutter:{' '}
+      </span>
       <div style={{ width: '50%' }}>
         <Slider
           min={0}
@@ -592,7 +598,7 @@ const Playground_Story: FC = () => {
           showLabels={false}
         />
       </div>
-      <span>Column Count:</span>
+      <span style={{ color: 'var(--text-primary-color)' }}>Column Count:</span>
       <div style={{ width: '50%' }}>
         <Slider
           min={0}
@@ -606,10 +612,16 @@ const Playground_Story: FC = () => {
         {cols}
         {cols}
       </Row>
-      <div>Another Row:</div>
+      <div style={{ color: 'var(--text-primary-color)' }}>Another Row:</div>
       <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-      <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}\n${colCode}</Row>`}</pre>
-      <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+      <pre
+        className="demo-code"
+        style={{ color: 'var(--text-primary-color)' }}
+      >{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}\n${colCode}</Row>`}</pre>
+      <pre
+        className="demo-code"
+        style={{ color: 'var(--text-primary-color)' }}
+      >{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
     </Stack>
   );
 };

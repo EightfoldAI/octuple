@@ -8,6 +8,7 @@
 
   // padding: 5px;
   &-treenode {
+    color: var(--text-primary-color);
     margin: 0;
     padding: 0;
     line-height: 24px;
@@ -15,7 +16,7 @@
     list-style: none;
     outline: 0;
     .draggable {
-      color: #333;
+      color: var(--text-secondary-color);
       -moz-user-select: none;
       -khtml-user-select: none;
       -webkit-user-select: none;
@@ -180,8 +181,9 @@
     > span:not(.tree-switcher),
     > a,
     > a span {
-      color: #767676;
+      color: var(--text-primary-color);
       cursor: not-allowed;
+      opacity: 50%;
     }
   }
   &-treenode-active {

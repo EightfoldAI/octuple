@@ -68,6 +68,7 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
   };
 
   const themeName: ThemeName = themeOptions.name;
+  const dark: boolean = themeOptions.dark;
 
   const theme: OcTheme = {
     ...themeDefaults,
@@ -81,13 +82,21 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
 
   // ================ Use existing primary palette ================
   if (theme.palette) {
-    fillColor([...theme.palette].reverse(), 'primary-color');
+    if (dark) {
+      fillColor([...theme.palette], 'primary-color');
+    } else {
+      fillColor([...theme.palette].reverse(), 'primary-color');
+    }
     variables[`primary-color`] = theme.primaryColor;
   }
 
   // ================ Use existing accent palette ================
   if (accentTheme.palette) {
-    fillColor([...accentTheme.palette].reverse(), 'accent-color');
+    if (dark) {
+      fillColor([...accentTheme.palette], 'accent-color');
+    } else {
+      fillColor([...accentTheme.palette].reverse(), 'accent-color');
+    }
     variables[`accent-color`] = accentTheme.primaryColor;
   }
 
@@ -264,6 +273,14 @@ export function injectCSS(
 
 export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
   const { themeName, light, variables } = getStyle(themeOptions);
+  const body: HTMLElement = document.body;
+
+  if (themeOptions.dark) {
+    body.setAttribute('dark', '');
+  } else {
+    body.removeAttribute('dark');
+  }
+
   const styleNode: HTMLStyleElement = injectCSS(
     variables,
     THEME_CONTAINER_ID,
