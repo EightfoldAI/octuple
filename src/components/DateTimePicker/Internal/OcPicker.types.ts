@@ -6,6 +6,7 @@ import type { AlignType } from '../../Align/Align.types';
 import { IconName } from '../../Icon';
 import { tuple } from '../../../shared/utilities';
 import { ConfigContextProps, Shape, Size } from '../../ConfigProvider';
+import { ButtonProps } from '../../Button';
 
 export type Locale = {
   /**
@@ -305,6 +306,11 @@ export type PartialSharedProps<DateType> = {
    */
   superPrevIcon?: IconName;
   /**
+   * The current day appears to be active.
+   * @default true
+   */
+  todayActive?: boolean;
+  /**
    * The partial date value.
    */
   value?: NullableDateType<DateType>;
@@ -511,14 +517,28 @@ export type OcPickerPartialDateProps<DateType> = {
    */
   disabledTime?: DisabledTime<DateType>;
   /**
+   * The 'Now' button props.
+   */
+  nowButtonProps?: ButtonProps;
+  /**
+   * The 'OK' button props.
+   */
+  okButtonProps?: ButtonProps;
+  /**
    * The picker type.
    * @default date
    */
   picker?: 'date';
   /**
-   * Show 'Now' button in partial when `showTime` is set.
+   * Show the 'Now' button in partial when `showTime` is set.
+   * @default true
    */
   showNow?: boolean;
+  /**
+   * Show the 'OK' button in partial when `showTime` is set.
+   * @default false
+   */
+  showOk?: boolean;
   /**
    * Enables time selection partial.
    */
@@ -527,6 +547,15 @@ export type OcPickerPartialDateProps<DateType> = {
    * Show the `Today` button.
    */
   showToday?: boolean;
+  /**
+   * The 'Today' button props.
+   */
+  todayButtonProps?: ButtonProps;
+  /**
+   * The current day appears to be active.
+   * @default true
+   */
+  todayActive?: boolean;
 } & OcPickerPartialSharedProps<DateType>;
 
 export type OcPickerPartialTimeProps<DateType> = {
@@ -575,6 +604,11 @@ export type OcPickerSharedProps<DateType> = {
    * Determines if the picker has a border style.
    */
   bordered?: boolean;
+  /**
+   * Triggers the `onChange` event on blur.
+   * @default true
+   */
+  changeOnBlur?: boolean;
   /**
    * The clear icon 'Clear' aria label text string.
    * @default 'Clear'
@@ -657,10 +691,18 @@ export type OcPickerSharedProps<DateType> = {
    */
   nextIcon?: IconName;
   /**
+   * The 'Now' button props.
+   */
+  nowButtonProps?: ButtonProps;
+  /**
    * The 'Now' text string.
    * @default 'Now'
    */
   nowText?: string;
+  /**
+   * The 'OK' button props.
+   */
+  okButtonProps?: ButtonProps;
   /**
    * The 'OK' text string.
    * @default 'OK'
@@ -746,6 +788,20 @@ export type OcPickerSharedProps<DateType> = {
    */
   shape?: DatePickerShape | Shape;
   /**
+   * Show the 'Now' button in partial when `showTime` is set.
+   * @default true
+   */
+  showNow?: boolean;
+  /**
+   * Show the 'OK' button
+   * @default true
+   */
+  showOk?: boolean;
+  /**
+   * Show the `Today` button.
+   */
+  showToday?: boolean;
+  /**
    * The picker size.
    */
   size?: DatePickerSize | Size;
@@ -765,6 +821,15 @@ export type OcPickerSharedProps<DateType> = {
    * The picker tab index.
    */
   tabIndex?: number;
+  /**
+   * The 'Today' button props.
+   */
+  todayButtonProps?: ButtonProps;
+  /**
+   * The current day appears to be active.
+   * @default true
+   */
+  todayActive?: boolean;
   /**
    * The 'Today' text string.
    * @default 'Today'
@@ -868,6 +933,11 @@ export type OcRangePickerSharedProps<DateType> = {
    */
   autoComplete?: string;
   /**
+   * Triggers the `onChange` event on blur.
+   * @default true
+   */
+  changeOnBlur?: boolean;
+  /**
    * Custom rendering function for date cells.
    */
   dateRender?: RangeDateRender<DateType>;
@@ -900,6 +970,10 @@ export type OcRangePickerSharedProps<DateType> = {
    * The picker partial mode.
    */
   mode?: [PartialMode, PartialMode];
+  /**
+   * The 'Now' button props.
+   */
+  nowButtonProps?: ButtonProps;
   /**
    * Callback executes on range picker blur event.
    */
@@ -954,6 +1028,10 @@ export type OcRangePickerSharedProps<DateType> = {
     values: RangeValue<DateType>,
     modes: [PartialMode, PartialMode]
   ) => void;
+  /**
+   * The 'OK' button props.
+   */
+  okButtonProps?: ButtonProps;
   partialRender?: (originPartial: React.ReactNode) => React.ReactNode;
   /**
    * The placeholder text of the range inputs.
@@ -980,6 +1058,16 @@ export type OcRangePickerSharedProps<DateType> = {
    */
   shape?: DatePickerShape | Shape;
   /**
+   * Show the 'Now' button in partial when `showTime` is set.
+   * @default true
+   */
+  showNow?: boolean;
+  /**
+   * Show the 'OK' button
+   * @default true
+   */
+  showOk?: boolean;
+  /**
    * The range picker size.
    */
   size?: DatePickerSize | Size;
@@ -987,6 +1075,19 @@ export type OcRangePickerSharedProps<DateType> = {
    * Enables time selection partial.
    */
   showTime?: any;
+  /**
+   * Show the `Today` button.
+   */
+  showToday?: boolean;
+  /**
+   * The 'Today' button props.
+   */
+  todayButtonProps?: ButtonProps;
+  /**
+   * The current day appears to be active.
+   * @default true
+   */
+  todayActive?: boolean;
   /**
    * The date range value.
    */

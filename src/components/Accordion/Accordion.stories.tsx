@@ -49,13 +49,8 @@ const listItems: AccordionProps[] = [
       children: 2,
     },
     summary: 'Notification testing',
-    children: `Body 2 text used here. Bottom bars are sticky sections that
-        can be used to highlight a few actions that are out of the
-        view to be displayed inside the view. For example, if
-        there's a very long form with Save and Cancel buttons at the
-        bottom, we can use the bottom bar to show those two buttons
-        in the view. We are making these bars to be flexible in
-        height and also allowing any component to be`,
+    children:
+      'Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.',
     id: '1',
   },
   {
@@ -67,13 +62,8 @@ const listItems: AccordionProps[] = [
       children: 12,
     },
     summary: 'Notification testing',
-    children: `Body 2 text used here. Bottom bars are sticky sections that
-        can be used to highlight a few actions that are out of the
-        view to be displayed inside the view. For example, if
-        there's a very long form with Save and Cancel buttons at the
-        bottom, we can use the bottom bar to show those two buttons
-        in the view. We are making these bars to be flexible in
-        height and also allowing any component to be`,
+    children:
+      'Icons are optional for accordions. The body area in the expanded view is like a modal or a slide-in panel. You can put any smaller components inside to build a layout.',
     id: '2',
   },
 ];
@@ -101,13 +91,9 @@ Single.args = {
   children: (
     <>
       <div style={{ height: 'auto' }}>
-        Body 2 text used here. Bottom bars are sticky sections that can be used
-        to highlight a few actions that are out of the view to be displayed
-        inside the view. For example, if there's a very long form with Save and
-        Cancel buttons at the bottom, we can use the bottom bar to show those
-        two buttons in the view. We are making these bars to be flexible in
-        height and also allowing any component to be added inside for now, to
-        understand use cases from the team.
+        Icons are optional for accordions. The body area in the expanded view is
+        like a modal or a slide-in panel. You can put any smaller components
+        inside to build a layout.
       </div>
     </>
   ),

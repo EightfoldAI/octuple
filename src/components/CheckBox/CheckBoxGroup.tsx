@@ -9,6 +9,8 @@ import {
   LabelAlign,
   LabelPosition,
   SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
 } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
@@ -33,9 +35,11 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
       labelAlign = LabelAlign.Center,
       layout = 'vertical',
       onChange,
+      selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
       value,
+      variant = SelectorVariant.Default,
       ...rest
     },
     ref: Ref<HTMLInputElement>
@@ -118,7 +122,9 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                 onChange?.(newValue);
               }
             }}
+            selectorWidth={selectorWidth}
             size={mergedSize}
+            variant={variant}
           />
         ))}
       </div>

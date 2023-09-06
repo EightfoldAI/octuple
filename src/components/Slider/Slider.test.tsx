@@ -157,6 +157,23 @@ describe('Slider', () => {
     expect(() => container).not.toThrowError();
   });
 
+  test('should render normally when `trackBorder=false`', () => {
+    const { container } = render(<Slider trackBorder={false} value={50} />);
+    expect(() => container).not.toThrowError();
+  });
+
+  test('should render normally when `railBorder=false`', () => {
+    const { container } = render(<Slider railBorder={false} value={50} />);
+    expect(() => container).not.toThrowError();
+  });
+
+  test('should render normally when `railBorder=false` and `trackBorder=false`', () => {
+    const { container } = render(
+      <Slider railBorder={false} trackBorder={false} value={50} />
+    );
+    expect(() => container).not.toThrowError();
+  });
+
   test('should render normally when `labelPosition=inline`', () => {
     const { container } = render(<Slider labelPosition="inline" value={50} />);
     expect(() => container).not.toThrowError();
@@ -296,5 +313,41 @@ describe('Slider', () => {
       <Slider value={50} step={10} trackStatus={SliderTrackStatus.Error} />
     );
     expect(container1.getElementsByClassName('error')).toHaveLength(1);
+  });
+
+  test('should hide track', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} hideTrack />
+    );
+    expect(
+      container1.getElementsByClassName('slider-track-opacity')
+    ).toHaveLength(1);
+    expect(
+      container1.getElementsByClassName('slider-rail-opacity')
+    ).toHaveLength(0);
+  });
+
+  test('should hide rail', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} hideRail />
+    );
+    expect(
+      container1.getElementsByClassName('slider-rail-opacity')
+    ).toHaveLength(1);
+    expect(
+      container1.getElementsByClassName('slider-track-opacity')
+    ).toHaveLength(0);
+  });
+
+  test('should hide rail and track', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} hideRail hideTrack />
+    );
+    expect(
+      container1.getElementsByClassName('slider-rail-opacity')
+    ).toHaveLength(1);
+    expect(
+      container1.getElementsByClassName('slider-track-opacity')
+    ).toHaveLength(1);
   });
 });

@@ -47,6 +47,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import { useDarkMode } from 'storybook-dark-mode';
 
 // locales
+import type { Locale as OcLocale } from '../LocaleProvider'; // Need to alias because story name declaration conflicts with the type
 import csCZ from '../Locale/cs_CZ'; // čeština
 import daDK from '../Locale/da_DK'; // Dansk
 import deDE from '../Locale/de_DE'; // Deutsch
@@ -802,7 +803,7 @@ const snackArgs: Object = {
 
 const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
   const [_, updateArgs] = useArgs();
-  const [locale, setLocale] = useState(enUS);
+  const [locale, setLocale] = useState<OcLocale>(enUS);
   const [localeValue, setLocaleValue] = useState<string>('en_US');
 
   const dark = useDarkMode();
@@ -811,7 +812,7 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
     console.log('dark mode: ' + dark);
   }, [dark]);
 
-  const locales: Record<string, any> = {
+  const locales: Record<string, OcLocale> = {
     cs_CZ: csCZ,
     da_DK: daDK,
     de_DE: deDE,

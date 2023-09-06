@@ -18,7 +18,7 @@
     border-radius: $border-radius-m;
     box-sizing: border-box;
     color: var(--input-text-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-3;
     line-height: $text-line-height-1;
     min-width: 120px;
@@ -966,7 +966,7 @@
     border-radius: $border-radius-m;
     box-sizing: border-box;
     color: var(--input-text-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-3;
     line-height: $text-line-height-4;
     min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
@@ -1055,6 +1055,7 @@
   }
 
   .text-area-resize-icon {
+    pointer-events: none;
     position: absolute;
     bottom: $space-xs;
     right: $space-xxs;

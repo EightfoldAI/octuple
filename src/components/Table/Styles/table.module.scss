@@ -8,7 +8,7 @@
   .table {
     @include reset-component();
     position: relative;
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $table-font-size;
     background: var(--table-background-color);
 

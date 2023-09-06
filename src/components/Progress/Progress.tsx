@@ -20,6 +20,7 @@ import styles from './progress.module.scss';
 const Progress: FC<ProgressProps> = React.forwardRef(
   (props: ProgressProps, ref: Ref<HTMLDivElement>) => {
     const {
+      bordered = true,
       classNames,
       hideMax = false,
       hideMin = false,
@@ -102,7 +103,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
         text = isLineType ? (
           <Icon
             classNames={styles.progressIcon}
-            color={'var(--error-color)'}
+            color={'var(--progress-error-text-color)'}
             path={IconName.mdiCloseCircleOutline}
             size={
               size !== ProgressSize.Medium ? IconSize.XSmall : IconSize.Small
@@ -111,7 +112,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
         ) : (
           <Icon
             classNames={styles.progressIcon}
-            color={'var(--error-color)'}
+            color={'var(--progress-error-text-color)'}
             path={IconName.mdiClose}
             size={
               size !== ProgressSize.Medium ? IconSize.Small : IconSize.Large
@@ -123,7 +124,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
         text = isLineType ? (
           <Icon
             classNames={styles.progressIcon}
-            color={'var(--success-color)'}
+            color={'var(--progress-success-text-color)'}
             path={IconName.mdiCheckCircleOutline}
             size={
               size !== ProgressSize.Medium ? IconSize.XSmall : IconSize.Small
@@ -132,7 +133,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
         ) : (
           <Icon
             classNames={styles.progressIcon}
-            color={'var(--success-color)'}
+            color={'var(--progress-success-text-color)'}
             path={IconName.mdiCheck}
             size={
               size !== ProgressSize.Medium ? IconSize.Small : IconSize.Large
@@ -229,10 +230,24 @@ const Progress: FC<ProgressProps> = React.forwardRef(
 
     let progress;
 
+    const progressClassNames: string = mergeClasses([
+      styles.progress,
+      (styles as any)[
+        `progress-${
+          (type === 'dashboard' && 'circle') || (steps && 'steps') || type
+        }`
+      ],
+      (styles as any)[`progress-status-${progressStatus}`],
+      { [styles.progressSmall]: size === 'small' },
+      { [styles.progressRtl]: htmlDir === 'rtl' },
+      classNames,
+    ]);
+
     if (type === 'line') {
       progress = steps ? (
         <Steps
           {...props}
+          bordered={bordered}
           direction={htmlDir as DirectionType}
           maxLabelRef={maxLabelRef}
           minLabelRef={minLabelRef}
@@ -247,6 +262,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       ) : (
         <Line
           {...props}
+          bordered={bordered}
           direction={htmlDir as DirectionType}
           maxLabelRef={maxLabelRef}
           minLabelRef={minLabelRef}
@@ -264,26 +280,35 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       progress = (
         <Circle
           {...props}
+          bordered={bordered}
           strokeColor={strokeColorNotArray}
           progressStatus={progressStatus}
-        >
+        />
+      );
+
+      return (
+        <div className={progressClassNames} style={{ width: width }}>
+          <div
+            ref={ref}
+            style={{ width: width }}
+            {...omit(rest, [
+              'gapDegree',
+              'gapPosition',
+              'format',
+              'status',
+              'strokeLinecap',
+              'strokeWidth',
+              'success',
+              'trailColor',
+            ])}
+            className={!!bordered ? styles.bordered : ''}
+          >
+            {progress}
+          </div>
           {progressInfo}
-        </Circle>
+        </div>
       );
     }
-
-    const progressClassNames: string = mergeClasses([
-      styles.progress,
-      (styles as any)[
-        `progress-${
-          (type === 'dashboard' && 'circle') || (steps && 'steps') || type
-        }`
-      ],
-      (styles as any)[`progress-status-${progressStatus}`],
-      { [styles.progressSmall]: size === 'small' },
-      { [styles.progressRtl]: htmlDir === 'rtl' },
-      classNames,
-    ]);
 
     return (
       <div

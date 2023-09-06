@@ -2,7 +2,7 @@
   align-items: center;
   box-shadow: $shadow-object-l;
   border: none;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   min-width: 21vw;
   max-width: min(42vw, 640px);
   animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
@@ -20,7 +20,7 @@
 }
 
 .snackbar-container {
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   position: fixed;
   width: fit-content;
   z-index: $z-index-600;

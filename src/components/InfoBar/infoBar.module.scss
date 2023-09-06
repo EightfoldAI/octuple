@@ -3,14 +3,22 @@
   border-radius: var(--info-bar-border-radius);
   color: var(--info-bar-text-color);
   display: flex;
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   gap: $space-m;
   padding: $space-ml;
   width: 100%;
 
+  &.bordered {
+    border: var(--info-bar-border);
+  }
+
   &.neutral {
     background-color: var(--info-bar-background-color);
     color: var(--info-bar-text-color);
+
+    &.bordered {
+      border-color: var(--info-bar-neutral-border-color);
+    }
 
     .action-button,
     .close-button {
@@ -23,6 +31,10 @@
   &.positive {
     background-color: var(--info-bar-positive-background-color);
     color: var(--info-bar-positive-text-color);
+
+    &.bordered {
+      border-color: var(--info-bar-positive-border-color);
+    }
 
     .action-button,
     .close-button {
@@ -38,6 +50,10 @@
     background-color: var(--info-bar-warning-background-color);
     color: var(--info-bar-warning-text-color);
 
+    &.bordered {
+      border-color: var(--info-bar-warning-border-color);
+    }
+
     .action-button,
     .close-button {
       &:active {
@@ -51,6 +67,10 @@
   &.disruptive {
     background-color: var(--info-bar-disruptive-background-color);
     color: var(--info-bar-disruptive-text-color);
+
+    &.bordered {
+      border-color: var(--info-bar-disruptive-border-color);
+    }
 
     .action-button,
     .close-button {

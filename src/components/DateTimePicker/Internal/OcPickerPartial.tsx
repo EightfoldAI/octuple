@@ -28,7 +28,7 @@ import RangeContext from './RangeContext';
 import { getExtraFooter } from './Utils/getExtraFooter';
 import getRanges from './Utils/getRanges';
 import { getLowerBoundTime, setDateTime, setTime } from './Utils/timeUtil';
-import { ButtonSize, SystemUIButton } from '../../Button';
+import { Button, ButtonSize, ButtonVariant } from '../../Button';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { Size } from '../../ConfigProvider';
 import { DatePickerSize } from './OcPicker.types';
@@ -56,8 +56,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     locale,
     minuteStep = 1,
     mode,
-    okText,
+    nowButtonProps,
     nowText,
+    okButtonProps,
+    okText,
     onChange,
     onMouseDown,
     onOk,
@@ -69,11 +71,14 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     renderExtraFooter,
     secondStep = 1,
     showNow,
+    showOk,
     showTime,
     showToday,
     size = DatePickerSize.Medium,
     style,
     tabIndex = 0,
+    todayButtonProps,
+    todayActive,
     todayText,
     value,
   } = props as MergedPickerPartialProps<DateType>;
@@ -384,6 +389,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
               triggerSelect(date, type);
             }}
             size={size}
+            todayActive={todayActive}
           />
         );
       }
@@ -417,7 +423,9 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     rangesNode = getRanges({
       components,
       needConfirmButton,
+      nowButtonProps,
       nowText,
+      okButtonProps,
       okDisabled: !mergedValue || (disabledDate && disabledDate(mergedValue)),
       okText,
       onNow: needConfirmButton && onNow,
@@ -430,6 +438,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         }
       },
       showNow,
+      showOk,
       size: size,
     });
   }
@@ -450,19 +459,23 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     const now: DateType = generateConfig.getNow();
     const disabled: boolean = disabledDate && disabledDate(now);
     todayNode = (
-      <SystemUIButton
+      <Button
+        text={todayText}
+        variant={ButtonVariant.SystemUI}
+        {...todayButtonProps}
         aria-disabled={disabled}
         classNames={mergeClasses([
           'picker-today-btn',
           disabled && 'picker-today-btn-disabled',
+          !!todayButtonProps?.classNames && todayButtonProps.classNames,
         ])}
-        onClick={() => {
+        onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           if (!disabled) {
             triggerSelect(now, 'mouse', true);
           }
+          todayButtonProps?.onClick?.(e);
         }}
         size={datePickerSizeToButtonSizeMap.get(size)}
-        text={todayText}
       />
     );
   }

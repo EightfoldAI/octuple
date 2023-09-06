@@ -373,10 +373,15 @@
   // ------ Link theme ------
 
   // ------ Focus Visible theme ------
-  --focus-visible-shadow-color: var(--blueviolet-color-50);
+  --focus-visible-color: var(--blueviolet-color-50);
+  --focus-visible-shadow-color: var(--focus-visible-color);
   --focus-visible-shadow-width: 2px;
   --focus-visible-box-shadow: 0 0 0 var(--focus-visible-shadow-width)
     var(--focus-visible-shadow-color);
+  --focus-visible-outline-width: 2px;
+  --focus-visible-outline-style: solid;
+  --focus-visible-outline: var(--focus-visible-outline-width)
+    var(--focus-visible-outline-style) var(--focus-visible-color);
   // ------ Focus Visible theme ------
 
   // ------ Border Radius theme ------
@@ -604,6 +609,7 @@
   --button-nudge-gradient-color-one: var(--primary-tertiary-color);
   --button-nudge-gradient-color-two: var(--primary-background2-color);
   --button-nudge-gradient-color-three: var(--primary-tertiary-color);
+  --button-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 0s;
   // TODO: button text/font related vars
   // ------ Generic button vars ------
 
@@ -898,6 +904,14 @@
   // ------ Card theme ------
 
   // ------ Info Bar theme ------
+  --info-bar-disruptive-border-color: var(--red-background2-color);
+  --info-bar-neutral-border-color: var(--grey-background2-color);
+  --info-bar-positive-border-color: var(--green-background2-color);
+  --info-bar-warning-border-color: var(--orange-background2-color);
+  --info-bartip-border-style: solid;
+  --info-bar-border-width: 1px;
+  --info-bar-border: var(--info-bar-border-width)
+    var(--info-bartip-border-style) var(--info-bar-neutral-border-color);
   --info-bar-border-radius: var(--border-radius-xl);
   --info-bar-background-color: var(--grey-background1-color);
   --info-bar-button-active-background-color: var(--grey-background2-color);
@@ -1086,9 +1100,298 @@
   --match-score-text-color: var(--primary-secondary-color);
   // ------ Match Score theme ------
 
+  // ------ Check Box theme ------
+  --check-box-background-color: transparent;
+  --check-box-active-background-color: var(--accent-background3-color);
+  --check-box-hover-background-color: var(--accent-background1-color);
+  --check-box-checked-background-color: var(--accent-background3-color);
+  --check-box-checked-active-background-color: var(--accent-background1-color);
+  --check-box-checked-hover-background-color: var(--accent-background2-color);
+  --check-box-border-color: var(--grey-secondary-color);
+  --check-box-active-border-color: var(--primary-secondary-color);
+  --check-box-hover-border-color: var(--primary-secondary-color);
+  --check-box-checked-border-color: var(--primary-secondary-color);
+  --check-box-checked-active-border-color: var(--primary-secondary-color);
+  --check-box-checked-hover-border-color: var(--primary-secondary-color);
+  --check-box-focus-visible-border-color: var(--primary-color);
+  --check-box-border-width: 2px;
+  --check-box-border-style: solid;
+  --check-box-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-border-color);
+  --check-box-active-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-active-border-color);
+  --check-box-hover-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-hover-border-color);
+  --check-box-checked-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-border-color);
+  --check-box-checked-active-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-active-border-color);
+  --check-box-checked-hover-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-hover-border-color);
+  --check-box-focus-visible-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-focus-visible-border-color);
+  --check-box-mark-color: var(--primary-secondary-color);
+  --check-box-focus-visible-mark-color: var(--primary-color);
+  --check-box-text-color: var(--primary-secondary-color);
+
+  --check-box-pill-container-background-color: var(--grey-background1-color);
+  --check-box-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-color: var(--accent-background2-color);
+  --check-box-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-radius: var(--border-radius-xl);
+  --check-box-pill-container-border-style: solid;
+  --check-box-pill-container-border-width: 0;
+  --check-box-pill-container-text-color: var(--text-secondary-color);
+  --check-box-pill-container-active-text-color: var(--primary-color);
+  --check-box-pill-container-hover-text-color: var(--primary-color);
+  --check-box-in-pill-background-color: transparent;
+  --check-box-in-pill-active-background-color: transparent;
+  --check-box-in-pill-hover-background-color: transparent;
+  --check-box-in-pill-checked-background-color: transparent;
+  --check-box-in-pill-checked-active-background-color: transparent;
+  --check-box-in-pill-checked-hover-background-color: transparent;
+  --check-box-in-pill-border-color: var(--grey-secondary-color);
+  --check-box-in-pill-active-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-hover-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-border-width: 2px;
+  --check-box-in-pill-border-style: solid;
+  --check-box-in-pill-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style) var(--check-box-in-pill-border-color);
+  --check-box-in-pill-active-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-active-border-color);
+  --check-box-in-pill-hover-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-hover-border-color);
+  --check-box-in-pill-checked-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-border-color);
+  --check-box-in-pill-checked-active-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-active-border-color);
+  --check-box-in-pill-checked-hover-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-hover-border-color);
+  --check-box-in-pill-focus-visible-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-focus-visible-border-color);
+  --check-box-in-pill-mark-color: var(--primary-secondary-color);
+  --check-box-in-pill-focus-visible-mark-color: var(--primary-secondary-color);
+  // ------ Check Box theme ------
+
+  // ------ Toggle Switch theme ------
+  --toggle-switch-background-color: transparent;
+  --toggle-switch-active-background-color: var(--accent-background3-color);
+  --toggle-switch-hover-background-color: var(--accent-background1-color);
+  --toggle-switch-checked-background-color: var(--accent-background3-color);
+  --toggle-switch-checked-active-background-color: var(
+    --accent-background1-color
+  );
+  --toggle-switch-checked-hover-background-color: var(
+    --accent-background2-color
+  );
+  --toggle-switch-border-color: var(--grey-secondary-color);
+  --toggle-switch-active-border-color: var(--primary-secondary-color);
+  --toggle-switch-hover-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-border-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-border-color: var(--primary-color);
+  --toggle-switch-border-width: 2px;
+  --toggle-switch-border-style: solid;
+  --toggle-switch-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-border-color);
+  --toggle-switch-active-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-active-border-color);
+  --toggle-switch-hover-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-hover-border-color);
+  --toggle-switch-checked-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-checked-border-color);
+  --toggle-switch-checked-active-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style)
+    var(--toggle-switch-checked-active-border-color);
+  --toggle-switch-checked-hover-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style)
+    var(--toggle-switch-checked-hover-border-color);
+  --toggle-switch-focus-visible-border: var(--check-box-border-width)
+    var(--check-box-border-style)
+    var(--toggle-switch-focus-visible-border-color);
+  --toggle-switch-pip-color: var(--grey-secondary-color);
+  --toggle-switch-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-pip-color: var(--primary-color);
+  --toggle-switch-text-color: var(--primary-secondary-color);
+  // ------ Toggle Switch theme ------
+
+  // ------ Radio Button theme ------
+  --radio-button-background-color: transparent;
+  --radio-button-active-background-color: var(--accent-background3-color);
+  --radio-button-hover-background-color: var(--accent-background1-color);
+  --radio-button-checked-background-color: var(--accent-background3-color);
+  --radio-button-checked-active-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-checked-hover-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-border-color: var(--grey-secondary-color);
+  --radio-button-active-border-color: var(--primary-secondary-color);
+  --radio-button-hover-border-color: var(--primary-secondary-color);
+  --radio-button-checked-border-color: var(--primary-secondary-color);
+  --radio-button-checked-active-border-color: var(--primary-secondary-color);
+  --radio-button-checked-hover-border-color: var(--primary-secondary-color);
+  --radio-button-focus-visible-border-color: var(--primary-color);
+  --radio-button-border-width: 2px;
+  --radio-button-border-style: solid;
+  --radio-button-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-border-color);
+  --radio-button-active-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-active-border-color);
+  --radio-button-hover-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-hover-border-color);
+  --radio-button-checked-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-checked-border-color);
+  --radio-button-checked-active-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-checked-active-border-color);
+  --radio-button-checked-hover-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-checked-hover-border-color);
+  --radio-button-focus-visible-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-focus-visible-border-color);
+  --radio-button-pip-color: var(--primary-secondary-color);
+  --radio-button-focus-visible-pip-color: var(--primary-color);
+  --radio-button-text-color: var(--primary-secondary-color);
+
+  --radio-button-pill-container-background-color: var(--grey-background1-color);
+  --radio-button-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-color: var(--accent-background2-color);
+  --radio-button-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-radius: var(--border-radius-xl);
+  --radio-button-pill-container-border-style: solid;
+  --radio-button-pill-container-border-width: 0;
+  --radio-button-pill-container-text-color: var(--text-secondary-color);
+  --radio-button-pill-container-active-text-color: var(--primary-color);
+  --radio-button-pill-container-hover-text-color: var(--primary-color);
+  --radio-button-in-pill-background-color: transparent;
+  --radio-button-in-pill-active-background-color: transparent;
+  --radio-button-in-pill-hover-background-color: transparent;
+  --radio-button-in-pill-checked-background-color: transparent;
+  --radio-button-in-pill-checked-active-background-color: transparent;
+  --radio-button-in-pill-checked-hover-background-color: transparent;
+  --radio-button-in-pill-border-color: var(--grey-secondary-color);
+  --radio-button-in-pill-active-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-hover-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-border-width: 2px;
+  --radio-button-in-pill-border-style: solid;
+  --radio-button-in-pill-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-border-color);
+  --radio-button-in-pill-active-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-active-border-color);
+  --radio-button-in-pill-hover-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-hover-border-color);
+  --radio-button-in-pill-checked-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-border-color);
+  --radio-button-in-pill-checked-active-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-active-border-color);
+  --radio-button-in-pill-checked-hover-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-hover-border-color);
+  --radio-button-in-pill-focus-visible-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-focus-visible-border-color);
+  --radio-button-in-pill-pip-color: var(--primary-secondary-color);
+  --radio-button-in-pill-focus-visible-pip-color: var(
+    --primary-secondary-color
+  );
+  // ------ Radio Button theme ------
+
   // ------ Persistent Bar theme ------
   --persistent-bar-background-color: var(--background-color);
+  --persistent-bar-border-color: var(--border-color);
+  --persistent-bar-border-width: 1px;
+  --persistent-bar-border-style: solid;
+  --persistent-bar-border: var(--persistent-bar-border-width)
+    var(--persistent-bar-border-style) var(--persistent-bar-border-color);
+  --persistent-bar-border-radius: var(--border-radius-s);
+  --persistent-bar-box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.12);
   --persistent-bar-primary-text-color: var(--text-primary-color);
   --persistent-bar-secondary-text-color: var(--text-primary-color);
   // ------ Persistent Bar theme ------
+
+  // ------ Progress theme ------
+  --progress-border-color: var(--primary-tertiary-color);
+  --progress-complete-background-color: var(--primary-tertiary-color);
+  --progress-error-background-color: var(--error-color);
+  --progress-error-border-color: var(--error-color);
+  --progress-error-text-color: var(--error-color);
+  --progress-incomplete-background-color: var(--accent-background1-color);
+  --progress-success-background-color: var(--success-color);
+  --progress-success-border-color: var(--success-color);
+  --progress-success-text-color: var(--success-color);
+  --progress-text-color: var(--text-primary-color);
+  // ------ Progress theme ------
 }

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atom Renders without crashing and uses data-testid 1`] = `
+<div>
+  <div
+    class="oct-component"
+    data-test-id="test-atom-legacy"
+    data-testid="test-atom"
+  >
+    Test Atom component.
+  </div>
+</div>
+`;

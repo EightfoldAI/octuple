@@ -96,6 +96,7 @@
 
   .page-tracker {
     color: var(--text-secondary-color);
+    white-space: nowrap;
   }
 
   &.dots {

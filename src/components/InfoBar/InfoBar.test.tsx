@@ -80,4 +80,12 @@ describe('InfoBar', () => {
     expect(container.querySelector('.warning')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
+
+  test('InfoBar is bordered', () => {
+    const { container } = render(
+      <InfoBar bordered content={'InfoBar test border'} />
+    );
+    expect(container.querySelector('.bordered')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
 });

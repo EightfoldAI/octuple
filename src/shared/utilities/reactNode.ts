@@ -4,7 +4,7 @@ export const { isValidElement } = React;
 
 type AnyObject = Record<any, any>;
 
-type RenderProps =
+export type RenderProps =
   | undefined
   | AnyObject
   | ((originProps: AnyObject) => AnyObject | undefined);

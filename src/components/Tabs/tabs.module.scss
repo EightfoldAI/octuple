@@ -17,7 +17,7 @@
     background: var(--tab-background);
     cursor: pointer;
     display: flex;
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     justify-content: center;
     padding: $space-s $space-m;
     position: relative;
@@ -63,7 +63,7 @@
     }
 
     .label {
-      font-family: $octuple-font-family;
+      font-family: var(--font-stack-full);
       font-size: $text-font-size-3;
       font-weight: $text-font-weight-semibold;
       white-space: nowrap;
@@ -157,10 +157,12 @@
         padding: $button-padding-vertical-large $button-padding-horizontal-large;
 
         .badge {
+          border-radius: $space-xs;
           font-size: $text-font-size-3;
           height: $text-line-height-3;
           line-height: $text-line-height-3;
           margin-left: $space-xs;
+          padding: 0 5px;
         }
 
         .label {
@@ -202,10 +204,12 @@
         padding: $button-padding-vertical-small $button-padding-horizontal-small;
 
         .badge {
+          border-radius: $space-xxs;
           font-size: $text-font-size-1;
           height: $text-line-height-1;
           line-height: $text-line-height-1;
           margin-left: $space-xxs;
+          padding: 0 3px;
         }
 
         .label {
@@ -277,7 +281,7 @@
       border: var(--border-width) solid var(--border);
       border-radius: var(--border-radius);
       color: var(--label);
-      font-family: $octuple-font-family;
+      font-family: var(--font-stack-full);
       font-weight: $text-font-weight-semibold;
       height: var(--height);
       margin: 0 $space-s;

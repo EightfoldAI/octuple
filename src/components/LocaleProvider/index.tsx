@@ -4,6 +4,7 @@ import type { BreadcrumbLocale } from '../Breadcrumb/Breadcrumb.types';
 import type { DialogLocale } from '../Dialog/BaseDialog/BaseDialog.types';
 import type { PaginationLocale } from '../Pagination';
 import type { PanelLocale } from '../Panel';
+import type { PersistentBarLocale } from '../PersistentBar/PersistentBar.types';
 import type { InfoBarLocale } from '../InfoBar';
 import type { PickerLocale as DatePickerLocale } from '../DateTimePicker/DatePicker/Generate/Generate.types';
 import type { StepperLocale } from '../Stepper';
@@ -25,6 +26,7 @@ export interface Locale {
   InfoBar?: InfoBarLocale;
   Pagination?: PaginationLocale;
   Panel?: PanelLocale;
+  PersistentBar?: PersistentBarLocale;
   Stepper?: StepperLocale;
   Table?: TableLocale;
   TimePicker?: Record<string, any>;

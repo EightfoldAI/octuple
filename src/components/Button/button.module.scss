@@ -6,7 +6,7 @@
   font-family: var(--button-font-family);
   min-height: max-content;
   min-width: max-content;
-  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  transition: var(--button-transition);
   white-space: nowrap;
   position: relative;
   z-index: 0;
@@ -450,10 +450,12 @@
   line-height: $text-line-height-3;
 
   &.counter {
+    border-radius: $space-xs;
     font-size: $text-font-size-4;
     height: 24px;
     line-height: 24px;
     margin-left: $space-xs;
+    padding: 0 5px;
   }
 }
 
@@ -476,10 +478,12 @@
   line-height: $text-line-height-1;
 
   &.counter {
+    border-radius: $space-xxs;
     font-size: $text-font-size-1;
     height: 16px;
     line-height: 16px;
     margin-left: $space-xxs;
+    padding: 0 3px;
   }
 }
 

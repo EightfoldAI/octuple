@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 import {
   CheckBox,
   CheckBoxGroup,
@@ -8,6 +9,8 @@ import {
   LabelAlign,
   LabelPosition,
   SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
 } from './';
 
 export default {
@@ -99,18 +102,44 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    variant: {
+      options: [SelectorVariant.Default, SelectorVariant.Pill],
+      control: { type: 'inline-radio' },
+    },
+    selectorWidth: {
+      options: [SelectorWidth.fitContent, SelectorWidth.fill],
+      control: { type: 'inline-radio' },
+    },
   },
 } as ComponentMeta<typeof CheckBox>;
 
-const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => (
-  <CheckBox checked={true} {...args} />
-);
+const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => {
+  const [_, updateArgs] = useArgs();
+  const onSelectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    updateArgs({
+      ...args,
+      checked: event.currentTarget.checked,
+      indeterminate: false,
+    });
+  };
+  return <CheckBox {...args} onChange={onSelectionChange} />;
+};
 
-const CheckBox_Long_text_Story: ComponentStory<typeof CheckBox> = (args) => (
-  <div style={{ width: 200 }}>
-    <CheckBox checked={true} {...args} />
-  </div>
-);
+const CheckBox_Long_text_Story: ComponentStory<typeof CheckBox> = (args) => {
+  const [_, updateArgs] = useArgs();
+  const onSelectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    updateArgs({
+      ...args,
+      checked: event.currentTarget.checked,
+      indeterminate: false,
+    });
+  };
+  return (
+    <div style={{ width: 200 }}>
+      <CheckBox {...args} onChange={onSelectionChange} />
+    </div>
+  );
+};
 
 const CheckBoxGroup_Story: ComponentStory<typeof CheckBoxGroup> = (args) => {
   const [selected, setSelected] = useState<CheckboxValueType[]>([]);
@@ -127,6 +156,7 @@ const CheckBoxGroup_Story: ComponentStory<typeof CheckBoxGroup> = (args) => {
 };
 
 export const Check_Box = CheckBox_Story.bind({});
+export const Check_Box_Pill = CheckBox_Story.bind({});
 export const Check_Box_Long_Text = CheckBox_Long_text_Story.bind({});
 export const Check_Box_Group = CheckBoxGroup_Story.bind({});
 
@@ -135,6 +165,7 @@ export const Check_Box_Group = CheckBoxGroup_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Check_Box',
+  'Check_Box_Pill',
   'Check_Box_Long_Text',
   'Check_Box_Group',
 ];
@@ -142,8 +173,10 @@ export const __namedExportsOrder = [
 const checkBoxArgs: Object = {
   allowDisabledFocus: false,
   ariaLabel: 'Label',
+  checked: true,
   classNames: 'my-checkbox-class',
   disabled: false,
+  indeterminate: false,
   name: 'myCheckBoxName',
   value: 'label',
   label: 'Label',
@@ -151,12 +184,19 @@ const checkBoxArgs: Object = {
   labelAlign: LabelAlign.Center,
   id: 'myCheckBoxId',
   defaultChecked: false,
+  selectorWidth: SelectorWidth.fitContent,
   size: SelectorSize.Medium,
   toggle: false,
+  variant: SelectorVariant.Default,
 };
 
 Check_Box.args = {
   ...checkBoxArgs,
+};
+
+Check_Box_Pill.args = {
+  ...checkBoxArgs,
+  variant: SelectorVariant.Pill,
 };
 
 Check_Box_Long_Text.args = {
@@ -191,5 +231,7 @@ Check_Box_Group.args = {
     },
   ],
   layout: 'vertical',
+  selectorWidth: SelectorWidth.fitContent,
   size: SelectorSize.Medium,
+  variant: SelectorVariant.Default,
 };

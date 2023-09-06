@@ -56,7 +56,7 @@ $small-min-label-offset-with-steps: 0;
 
 // Default size is medium
 .slider-container {
-  font-family: $octuple-font-family;
+  font-family: var(--font-stack-full);
   height: $medium-slider-height + $medium-label-height;
   position: relative;
 
@@ -112,7 +112,7 @@ $small-min-label-offset-with-steps: 0;
       color: var(--slider-value-text-color);
       cursor: pointer;
       display: inline-block;
-      font-family: $octuple-font-family;
+      font-family: var(--font-stack-full);
       font-size: $text-font-size-2;
       padding: 0 $space-xxxs;
       position: absolute;
@@ -155,18 +155,6 @@ $small-min-label-offset-with-steps: 0;
     width: 100%;
   }
 
-  .rail-marker-segments {
-    pointer-events: none;
-  }
-
-  .slider-hit-target {
-    cursor: pointer;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    width: 100%;
-  }
-
   .slider-rail,
   .slider-track,
   .rail-marker-segments {
@@ -187,6 +175,10 @@ $small-min-label-offset-with-steps: 0;
     &.data {
       background-color: var(--slider-data-rail-background-color);
       border-color: var(--slider-data-rail-border-color);
+    }
+
+    &.rail-border-hidden {
+      border-color: transparent;
     }
 
     &-opacity {
@@ -211,6 +203,10 @@ $small-min-label-offset-with-steps: 0;
     &.error {
       background-color: var(--slider-track-error-background-color);
       border-color: var(--slider-track-error-border-color);
+    }
+
+    &.track-border-hidden {
+      border-color: transparent;
     }
 
     &-opacity {
@@ -270,6 +266,14 @@ $small-min-label-offset-with-steps: 0;
         background-color: var(--slider-track-error-background-color);
         border-color: var(--slider-track-error-border-color);
       }
+
+      &.rail-marker-segment-border-hidden {
+        border-color: transparent;
+      }
+    }
+
+    &.rail-marker-segment-border-hidden {
+      border-color: transparent;
     }
   }
 
@@ -288,7 +292,7 @@ $small-min-label-offset-with-steps: 0;
   .slider-value {
     bottom: 0;
     color: var(--slider-value-text-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-2;
     padding: 0 $space-xxxs;
     position: absolute;
@@ -297,7 +301,7 @@ $small-min-label-offset-with-steps: 0;
 
   .extremity-label {
     color: var(--slider-extremity-text-color);
-    font-family: $octuple-font-family;
+    font-family: var(--font-stack-full);
     font-size: $text-font-size-2;
     position: absolute;
     bottom: 0;

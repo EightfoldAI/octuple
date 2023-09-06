@@ -14,7 +14,7 @@ import {
   StatusItemsPosition,
 } from './components/Avatar';
 
-import { Badge } from './components/Badge';
+import { Badge, BadgeSize } from './components/Badge';
 
 import { Breadcrumb } from './components/Breadcrumb';
 
@@ -44,6 +44,8 @@ import {
   LabelPosition,
   LabelAlign,
   SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
 } from './components/CheckBox';
 
 import {
@@ -253,6 +255,7 @@ export {
   AvatarGroupVariant,
   AvatarPopupProps,
   Badge,
+  BadgeSize,
   Breadcrumb,
   Breakpoints,
   Button,
@@ -365,6 +368,8 @@ export {
   SelectShape,
   SelectSize,
   SelectorSize,
+  SelectorVariant,
+  SelectorWidth,
   SearchBox,
   SecondaryButton,
   Shape,
