@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ProgressStepsProps } from './Progress.types';
+import { ProgressStepsProps, ProgressVariant } from './Progress.types';
 import { MAX_PERCENT } from './Internal/Common';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
@@ -25,6 +25,7 @@ const Steps: FC<ProgressStepsProps> = (props) => {
     strokeWidth = 6,
     trailColor = null as any,
     valueLabelRef,
+    variant,
   } = props;
   const [calculatedWidth, setCalculatedWidth] = useState<string>('0');
   const current: number = Math.round(steps * (percent / MAX_PERCENT));
@@ -141,7 +142,13 @@ const Steps: FC<ProgressStepsProps> = (props) => {
 
   return (
     <ResizeObserver onResize={updateLayout}>
-      <div ref={flexContainerRef} className={styles.progressStepsOuter}>
+      <div
+        ref={flexContainerRef}
+        className={mergeClasses([
+          styles.progressStepsOuter,
+          { [styles.progressStepsOuterPill]: variant === ProgressVariant.Pill },
+        ])}
+      >
         {styledSteps}
       </div>
       {children}

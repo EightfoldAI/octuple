@@ -4,6 +4,7 @@ import type { ProgressProps } from '..';
 import ProgressSteps from '../Steps';
 import { handleGradient, sortGradient } from '../Line';
 import { render } from '../../../tests/Utilities';
+import { ProgressVariant } from '../Progress.types';
 
 describe('Progress', () => {
   test('successPercent should decide the progress status when it exists', () => {
@@ -207,6 +208,16 @@ describe('Progress', () => {
     errorSpy.mockRestore();
   });
 
+  test('should support pill variant', () => {
+    const { container: wrapper } = render(
+      <Progress percent={20} variant={ProgressVariant.Pill} />
+    );
+    expect(
+      wrapper.querySelector<HTMLDivElement>('.progress-outer-pill')
+    ).toBeTruthy();
+    expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
   test('should support steps', () => {
     const { container: wrapper } = render(<Progress steps={3} />);
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -266,6 +277,21 @@ describe('Progress', () => {
       <Progress steps={5} percent={20} trailColor="#1890ee" bordered={false} />
     );
     expect(wrapper.querySelector<HTMLDivElement>('.bordered')).toBeFalsy();
+  });
+
+  test('steps should support pill variant', () => {
+    const { container: wrapper } = render(
+      <Progress
+        steps={5}
+        percent={20}
+        trailColor="#1890ee"
+        variant={ProgressVariant.Pill}
+      />
+    );
+    expect(
+      wrapper.querySelector<HTMLDivElement>('.progress-steps-outer-pill')
+    ).toBeTruthy();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   test('should display correct step', () => {

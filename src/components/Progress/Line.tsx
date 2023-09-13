@@ -1,5 +1,5 @@
 import React, { FC, useLayoutEffect, useRef } from 'react';
-import { LineProps, ProgressSize } from './Progress.types';
+import { LineProps, ProgressSize, ProgressVariant } from './Progress.types';
 import type { ProgressGradient, StringGradients } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
 import type { DirectionType } from '../ConfigProvider';
@@ -81,6 +81,7 @@ const Line: FC<LineProps> = (props) => {
     successLabelRef,
     trailColor = null,
     valueLabelRef,
+    variant,
   } = props;
 
   const progressBgRef: React.MutableRefObject<HTMLDivElement> =
@@ -251,7 +252,12 @@ const Line: FC<LineProps> = (props) => {
 
   return (
     <ResizeObserver onResize={updateLayout}>
-      <div className={styles.progressOuter}>
+      <div
+        className={mergeClasses([
+          styles.progressOuter,
+          { [styles.progressOuterPill]: variant === ProgressVariant.Pill },
+        ])}
+      >
         <div
           className={mergeClasses([
             styles.progressInner,

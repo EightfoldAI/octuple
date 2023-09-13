@@ -37,6 +37,11 @@
       .progress-steps-item {
         margin-left: $space-xxs;
         margin-right: unset;
+
+        &:last-of-type {
+          margin-left: 0;
+          margin-right: unset;
+        }
       }
 
       .progress-text-wrapper {

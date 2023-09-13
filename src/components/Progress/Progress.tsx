@@ -6,6 +6,7 @@ import {
   ProgressProps,
   ProgressSize,
   ProgressStatuses,
+  ProgressVariant,
   StringGradients,
 } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
@@ -37,6 +38,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       strokeColor,
       successLabel,
       type = 'line',
+      variant = ProgressVariant.Default,
       width,
       ...rest
     } = props;

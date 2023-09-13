@@ -23,6 +23,11 @@ export enum ProgressSize {
   Small = 'small',
 }
 
+export enum ProgressVariant {
+  Default = 'default',
+  Pill = 'pill',
+}
+
 export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Whether to visually hide the Progress border.
@@ -149,6 +154,11 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
    * @default 'line'
    */
   type?: ProgressType;
+  /**
+   * Determines the progress variant.
+   * @default ProgressVariant.Default
+   */
+  variant?: ProgressVariant;
   /**
    * The Progress component width.
    */

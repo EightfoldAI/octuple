@@ -769,6 +769,45 @@ exports[`Progress render trailColor progress 1`] = `
 </div>
 `;
 
+exports[`Progress should support pill variant 1`] = `
+<div
+  class="progress progress-line progress-status-normal"
+>
+  <div
+    class="progress-outer progress-outer-pill"
+  >
+    <div
+      class="progress-inner bordered"
+    >
+      <div
+        class="progress-bg"
+        style="width: 20%; height: 4px;"
+      />
+    </div>
+  </div>
+  <div
+    class="progress-text-wrapper"
+  >
+    <span
+      class="extremity-label min-label progress-text"
+    >
+      20%
+    </span>
+    <span
+      class="extremity-label max-label progress-text"
+    >
+      100%
+    </span>
+    <span
+      class="value-label progress-text"
+    />
+    <span
+      class="value-label progress-text"
+    />
+  </div>
+</div>
+`;
+
 exports[`Progress should support steps 1`] = `
 <div
   class="progress progress-steps progress-status-normal"
@@ -816,4 +855,55 @@ exports[`Progress steps should have default percent 0 1`] = `
 <div
   class="progress-steps-outer"
 />
+`;
+
+exports[`Progress steps should support pill variant 1`] = `
+<div
+  class="progress progress-steps progress-status-normal"
+>
+  <div
+    class="progress-steps-outer progress-steps-outer-pill"
+  >
+    <div
+      class="progress-steps-item bordered progress-steps-item-active"
+      style="width: 0px; height: 6px;"
+    />
+    <div
+      class="progress-steps-item bordered"
+      style="background: rgb(24, 144, 238); border-color: #1890ee; width: 0px; height: 6px;"
+    />
+    <div
+      class="progress-steps-item bordered"
+      style="background: rgb(24, 144, 238); border-color: #1890ee; width: 0px; height: 6px;"
+    />
+    <div
+      class="progress-steps-item bordered"
+      style="background: rgb(24, 144, 238); border-color: #1890ee; width: 0px; height: 6px;"
+    />
+    <div
+      class="progress-steps-item bordered"
+      style="background: rgb(24, 144, 238); border-color: #1890ee; width: 0px; height: 6px;"
+    />
+  </div>
+  <div
+    class="progress-text-wrapper"
+  >
+    <span
+      class="extremity-label min-label progress-text"
+    >
+      20%
+    </span>
+    <span
+      class="extremity-label max-label progress-text"
+    >
+      100%
+    </span>
+    <span
+      class="value-label progress-text"
+    />
+    <span
+      class="value-label progress-text"
+    />
+  </div>
+</div>
 `;
