@@ -70,6 +70,7 @@ const Line: FC<LineProps> = (props) => {
     maxLabelRef,
     minLabelRef,
     percent,
+    pillBordered,
     showLabels,
     showSuccessLabel,
     showValueLabel,
@@ -103,9 +104,21 @@ const Line: FC<LineProps> = (props) => {
     borderRadius,
   };
 
+  const getPercentHeight = (): number => {
+    let height: number = 6;
+    if (size === ProgressSize.Large) {
+      height = 12;
+    } else if (size === ProgressSize.Medium) {
+      height = 6;
+    } else if (size === ProgressSize.Small) {
+      height = 4;
+    }
+    return height;
+  };
+
   const percentStyle = {
     width: `${validProgress(percent)}%`,
-    height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
+    height: strokeWidth || getPercentHeight(),
     borderRadius,
     ...backgroundProps,
   };
@@ -114,7 +127,7 @@ const Line: FC<LineProps> = (props) => {
 
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
-    height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
+    height: strokeWidth || getPercentHeight(),
     borderRadius,
     background: success?.strokeColor,
   };
@@ -256,6 +269,7 @@ const Line: FC<LineProps> = (props) => {
         className={mergeClasses([
           styles.progressOuter,
           { [styles.progressOuterPill]: variant === ProgressVariant.Pill },
+          { [styles.progressOuterPillBordered]: !!pillBordered },
         ])}
       >
         <div

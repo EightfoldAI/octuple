@@ -29,7 +29,16 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: [ProgressSize.Large, ProgressSize.Medium, ProgressSize.Small],
+      control: { type: 'radio' },
+    },
+    variant: {
+      options: [ProgressVariant.Default, ProgressVariant.Pill],
+      control: { type: 'inline-radio' },
+    },
+  },
 } as ComponentMeta<typeof Progress>;
 
 const Line_Story: ComponentStory<typeof Progress> = (args) => {
@@ -341,6 +350,7 @@ Line.args = {
 
 Line_Pill.args = {
   ...progressArgs,
+  pillBordered: true,
   variant: ProgressVariant.Pill,
 };
 
@@ -350,6 +360,7 @@ Small_Line.args = {
 
 Small_Line_Pill.args = {
   ...progressArgs,
+  pillBordered: true,
   variant: ProgressVariant.Pill,
 };
 
@@ -375,6 +386,7 @@ Steps.args = {
 
 Steps_Pill.args = {
   ...progressArgs,
+  pillBordered: true,
   variant: ProgressVariant.Pill,
 };
 
