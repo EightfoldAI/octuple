@@ -342,9 +342,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           // Need this to handle disabled elements of default Tooltip.
           if (type === TooltipType.Default) {
             const defaultReferenceClassNames: string = mergeClasses([
-              'tooltip-reference',
               { [node.props.className]: !!node.props.className },
               { [node.props.classNames]: !!node.props.classNames },
+              'tooltip-reference',
             ]);
 
             const clonedElementProps: RenderProps = {
@@ -379,12 +379,12 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           // Utilize a similar element clone pattern as Dropdown
           // for more complex Popup elements.
           const popupReferenceClassNames: string = mergeClasses([
-            'tooltip-reference',
             { [styles.triggerAbove]: !!triggerAbove },
             // Add any classnames added to the reference element
             { [child.props.className]: !!child.props.className },
             { [child.props.classNames]: !!child.props.classNames },
             { [styles.disabled]: disabled },
+            'tooltip-reference',
           ]);
 
           const clonedElementProps: RenderProps = {
