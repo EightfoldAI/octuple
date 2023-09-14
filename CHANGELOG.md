@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.44.3](https://github.com/EightfoldAI/octuple/compare/v2.44.2...v2.44.3) (2023-09-14)
+
+### Bug Fixes
+
+- hotfix: moves internal class to the end of each clone element class array ([ed37020](https://github.com/EightfoldAI/octuple/commits/ed37020fa6680cbf5ae9c0704f4f55976dd75b50))
+
 ### [2.44.2](https://github.com/EightfoldAI/octuple/compare/v2.44.1...v2.44.2) (2023-08-31)
 
 ### Bug Fixes
