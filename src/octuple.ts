@@ -36,7 +36,7 @@ import {
 
 import { Card, CardSize, CardType } from './components/Card';
 
-import { Carousel, Slide } from './components/Carousel';
+import { Carousel, Slide, VisibilityContext } from './components/Carousel';
 
 import {
   CheckBox,
@@ -430,4 +430,5 @@ export {
   useMaxVisibleSections,
   useOnClickOutside,
   useScrollLock,
+  VisibilityContext,
 };
