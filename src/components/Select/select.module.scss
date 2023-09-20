@@ -93,14 +93,14 @@ $multi-select-count-offset: 54px;
     }
 
     .select-clear-button {
-      bottom: 0;
-      height: 44px;
+      bottom: $space-xxs;
+      height: 36px;
       padding: $space-xxs $space-xs;
       width: $space-xl;
     }
 
     .select-clear-button-start {
-      left: $space-xxxs;
+      left: $space-xxs;
       right: unset;
     }
 
@@ -128,7 +128,7 @@ $multi-select-count-offset: 54px;
     }
 
     .select-clear-button-start {
-      left: $space-xxxs;
+      left: $space-xxs;
       right: unset;
     }
 

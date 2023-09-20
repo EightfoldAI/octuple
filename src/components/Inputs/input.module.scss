@@ -32,6 +32,22 @@
       color: var(--input-placeholder-text-color);
     }
 
+    &.clear-disabled {
+      &.left-icon {
+        padding: $space-xs;
+      }
+
+      &.right-icon {
+        padding: $space-xs;
+      }
+    }
+
+    &.clear-not-visible {
+      &.right-icon {
+        padding: $space-xs;
+      }
+    }
+
     &.with-icon,
     &.with-image-icon {
       padding: $space-xs $space-xl $space-xs $space-xxl;
@@ -145,6 +161,7 @@
 
     &.read-only {
       background-color: var(--input-readonly-background-color);
+      border-color: var(--input-readonly-border-color);
       color: var(--input-readonly-text-color);
     }
 
@@ -328,9 +345,11 @@
 
     &.underline {
       border-color: transparent;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
-    &:active {
+    &:active:not([disabled]):not([readOnly]) {
       border-color: var(--input-border-color-active);
 
       &.underline {
@@ -338,7 +357,7 @@
       }
     }
 
-    &:hover:not([disabled]) {
+    &:hover:not([disabled]):not([readOnly]) {
       border-color: var(--input-border-color-hover);
 
       &.underline {
@@ -360,7 +379,23 @@
       font-size: $text-font-size-4;
       height: $input-large-size;
       line-height: $text-line-height-5;
-      padding: $space-xs $space-xxl $space-xs $space-m;
+      padding: $space-xs $space-xxl $space-xs $space-xs;
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs;
+        }
+
+        &.right-icon {
+          padding: $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs;
+        }
+      }
 
       &.with-icon,
       &.with-image-icon,
@@ -400,13 +435,13 @@
           $input-padding-large-with-icon-and-icon-button;
 
         &.left-icon {
-          padding: $space-xs $space-xxl $space-xs
+          padding: $space-xs 48px $space-xs
             $input-padding-large-with-icon-and-icon-button;
         }
 
         &.right-icon {
           padding: $space-xs $input-padding-large-with-icon-and-icon-button
-            $space-xs $space-xxl;
+            $space-xs 48px;
         }
 
         &.clear-disabled {
@@ -501,7 +536,7 @@
       font-size: $text-font-size-3;
       height: $input-medium-size;
       line-height: $text-line-height-4;
-      padding: $space-xs $space-xl $space-xs $space-m;
+      padding: $space-xs $space-xl $space-xs $space-xs;
 
       &.with-icon,
       &.with-image-icon {
@@ -537,16 +572,16 @@
 
         &.left-icon,
         &.right-icon {
-          padding: $space-xs $space-xl $space-xs $space-xl;
+          padding: $space-xs $space-xxl $space-xs $space-xxl;
         }
 
         &.clear-disabled {
           &.left-icon {
-            padding: $space-xs $space-xs $space-xs $space-xl;
+            padding: $space-xs $space-xs $space-xs $space-xxl;
           }
 
           &.right-icon {
-            padding: $space-xs $space-xl $space-xs $space-xs;
+            padding: $space-xs $space-xxl $space-xs $space-xs;
           }
         }
 
@@ -684,19 +719,37 @@
       font-size: $text-font-size-2;
       height: $input-small-size;
       line-height: $text-line-height-3;
-      padding: $space-xs $space-l $space-xs $space-s;
+      padding: $space-xs $space-l $space-xs $space-xs;
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs;
+        }
+
+        &.right-icon {
+          padding: $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs;
+        }
+      }
 
       &.with-icon,
       &.with-image-icon,
       &.with-icon-button {
-        padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
+        padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs $space-xl;
 
         &.left-icon {
-          padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
+          padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
+            $space-xl;
         }
 
         &.right-icon {
-          padding: $space-xs $space-xl $space-xs calc(#{$space-l} + $space-xxs);
+          padding: $space-xs $space-xl $space-xs
+            calc(#{$space-l} + #{$space-xxs});
         }
 
         &.clear-disabled {
@@ -717,17 +770,17 @@
       }
 
       &.with-icon-and-icon-button {
-        padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+        padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
           $input-padding-small-with-icon-and-icon-button;
 
         &.left-icon {
-          padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+          padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
             $input-padding-small-with-icon-and-icon-button;
         }
 
         &.right-icon {
           padding: $space-xs $input-padding-small-with-icon-and-icon-button
-            $space-xs calc(#{$space-l} + $space-xxs);
+            $space-xs calc(#{$space-l} + #{$space-xxs});
         }
 
         &.clear-disabled {
@@ -752,14 +805,16 @@
 
       &.pill-shape-with-icon,
       &.pill-shape-with-image-icon {
-        padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
+        padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs $space-xl;
 
         &.left-icon {
-          padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
+          padding: $space-xs calc(#{$space-l} + #{$space-xxs}) $space-xs
+            $space-xl;
         }
 
         &.right-icon {
-          padding: $space-xs $space-xl $space-xs calc(#{$space-l} + $space-xxs);
+          padding: $space-xs $space-xl $space-xs
+            calc(#{$space-l} + #{$space-xxs});
         }
 
         &.clear-disabled {
@@ -847,7 +902,8 @@
     }
   }
 
-  .icon-wrapper {
+  .icon-wrapper,
+  .read-only-icon-wrapper {
     bottom: 0;
     height: $input-medium-size;
     position: absolute;
@@ -875,6 +931,12 @@
 
     svg {
       color: var(--grey-tertiary-color);
+    }
+  }
+
+  .read-only-icon-wrapper {
+    span {
+      width: fit-content;
     }
   }
 
@@ -1041,6 +1103,8 @@
 
     &.underline {
       border-color: transparent;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     &.inline {
@@ -1091,6 +1155,13 @@
           bottom: 10px;
         }
       }
+    }
+  }
+
+  .text-area-group {
+    .read-only-icon-wrapper {
+      bottom: unset;
+      top: 0;
     }
   }
 
@@ -1198,6 +1269,7 @@
   &.disabled {
     .clear-icon-button,
     .icon-wrapper,
+    .read-only-icon-wrapper,
     .icon-button,
     input,
     textarea {
@@ -1233,8 +1305,30 @@
     }
   }
 
+  &.read-only {
+    &.underline {
+      .input-group,
+      .text-area-group {
+        &:before {
+          border-color: var(--input-readonly-border-color);
+        }
+
+        &:after {
+          border-bottom: 1px solid var(--input-readonly-border-color);
+        }
+
+        &:hover {
+          &:before {
+            border-color: var(--input-readonly-border-color);
+          }
+        }
+      }
+    }
+  }
+
   &.input-large {
-    .icon-wrapper {
+    .icon-wrapper,
+    .read-only-icon-wrapper {
       bottom: $space-xxxs;
       height: $space-xxl;
       width: $space-xxl;
@@ -1252,25 +1346,30 @@
       }
     }
 
+    .read-only-icon-wrapper {
+      width: fit-content;
+    }
+
     .icon-button {
-      bottom: 0;
-      height: 44px;
+      bottom: $space-xxs;
+      height: 36px;
+      padding: $space-xxs 6px;
 
       &.left-icon {
-        left: $space-xs;
+        left: $space-xxs;
       }
 
       &.right-icon {
-        right: $space-xs;
+        right: $space-xxs;
       }
     }
 
     .clear-icon-button {
-      bottom: $space-xxxs;
-      height: $space-xxl;
-      padding: $space-s;
-      right: $space-xxxs;
-      width: $space-xxl;
+      bottom: $space-xxs;
+      height: 36px;
+      padding: $space-xxs 10px;
+      right: $space-xxs;
+      width: 36px;
     }
 
     .icon-wrapper:not(:empty) + .icon-button {
@@ -1291,22 +1390,27 @@
   }
 
   &.input-medium {
-    .icon-wrapper {
+    .icon-wrapper,
+    .read-only-icon-wrapper {
       bottom: 0;
       height: $input-medium-size;
-      width: $input-medium-size;
+      width: fit-content;
 
       &.left-icon {
-        left: $space-xs;
+        left: $space-xxs;
       }
 
       &.right-icon {
-        right: $space-xs;
+        right: $space-xxs;
       }
 
       span {
         height: $input-medium-size;
       }
+    }
+
+    .read-only-icon-wrapper {
+      width: fit-content;
     }
 
     .icon-button {
@@ -1324,20 +1428,20 @@
     }
 
     .clear-icon-button {
-      bottom: 1px;
-      height: 35px;
-      padding: 6px 10px;
-      right: 1px;
-      width: 35px;
+      bottom: $space-xxs;
+      height: 28px;
+      padding: 6px;
+      right: $space-xxs;
+      width: 28px;
     }
 
     .icon-wrapper:not(:empty) + .icon-button {
       &.left-icon {
-        left: $space-xxl;
+        left: $space-xl;
       }
 
       &.right-icon {
-        right: $space-xxl;
+        right: $space-xl;
       }
     }
 
@@ -1349,7 +1453,8 @@
   }
 
   &.input-small {
-    .icon-wrapper {
+    .icon-wrapper,
+    .read-only-icon-wrapper {
       bottom: $space-xxxs;
       height: $space-l;
       width: $space-l;
@@ -1366,6 +1471,10 @@
         height: $space-l;
         padding: $space-xxs;
       }
+    }
+
+    .read-only-icon-wrapper {
+      width: fit-content;
     }
 
     .icon-button {
@@ -1392,11 +1501,11 @@
 
     .icon-wrapper:not(:empty) + .icon-button {
       &.left-icon {
-        left: $space-xl;
+        left: 28px;
       }
 
       &.right-icon {
-        right: $space-xl;
+        right: 28px;
       }
     }
 

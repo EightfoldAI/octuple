@@ -3,7 +3,7 @@ import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
 import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
-import { Icon, IconName } from '../../Icon';
+import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
   TextAreaProps,
@@ -54,6 +54,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       onKeyDown,
       onReset,
       placeholder,
+      readonly = false,
+      readOnlyProps,
       required = false,
       reset = false,
       shape = TextInputShape.Rectangle,
@@ -120,6 +122,11 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       });
     };
 
+    const readOnlyIconClassNames: string = mergeClasses([
+      styles.readOnlyIconWrapper,
+      styles.rightIcon,
+    ]);
+
     const textAreaClassNames: string = mergeClasses([
       classNames,
       styles.textArea,
@@ -132,6 +139,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         [styles.underline]: mergedShape === TextInputShape.Underline,
       },
       { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { ['in-form-item']: mergedFormItemInput },
       getStatusClassNames(mergedStatus, hasFeedback),
     ]);
@@ -178,6 +186,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
     ]);
 
@@ -217,6 +226,27 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       debouncedChange(e);
     };
 
+    const getIconSize = (): IconSize => {
+      let iconSize: IconSize;
+      if (largeScreenActive) {
+        iconSize = IconSize.Small;
+      } else if (mediumScreenActive) {
+        iconSize = IconSize.Medium;
+      } else if (smallScreenActive) {
+        iconSize = IconSize.Medium;
+      } else if (xSmallScreenActive) {
+        iconSize = IconSize.Large;
+      }
+      return iconSize;
+    };
+
+    const inputSizeToIconSizeMap = new Map<TextInputSize | Size, IconSize>([
+      [TextInputSize.Flex, getIconSize()],
+      [TextInputSize.Large, IconSize.Large],
+      [TextInputSize.Medium, IconSize.Medium],
+      [TextInputSize.Small, IconSize.Small],
+    ]);
+
     const inputSizeToLabelSizeMap = new Map<
       TextInputSize | Size,
       LabelSize | Size
@@ -255,6 +285,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onFocus={!allowDisabledFocus ? onFocus : null}
             onKeyDown={!allowDisabledFocus ? onKeyDown : null}
             placeholder={placeholder}
+            readOnly={readonly}
             required={required}
             style={style}
             rows={textAreaRows}
@@ -267,6 +298,15 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
               path={IconName.mdiResizeBottomRight}
               rotate={htmlDir === 'rtl' ? 90 : 0}
             />
+          )}
+          {readonly && !readOnlyProps?.noStyleChange && (
+            <div className={readOnlyIconClassNames}>
+              <Icon
+                path={IconName.mdiLock}
+                {...readOnlyProps?.iconProps}
+                size={inputSizeToIconSizeMap.get(mergedSize)}
+              />
+            </div>
           )}
         </div>
       </div>
