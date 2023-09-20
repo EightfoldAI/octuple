@@ -132,8 +132,8 @@ Text_Area.args = {
   minlength: 0,
   name: 'myTextArea',
   placeholder: 'Placeholder text',
-  readonly: {
-    enabled: false,
+  readonly: false,
+  readOnlyProps: {
     iconProps: null,
     noStyleChange: false,
   },

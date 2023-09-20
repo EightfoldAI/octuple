@@ -29,7 +29,7 @@ describe('TextInput', () => {
     );
   });
 
-  test('Text input is readOnly', () => {
+  test('Text input is readonly', () => {
     const { container } = render(
       <TextInput readonly defaultValue="Test value" />
     );

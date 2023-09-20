@@ -171,9 +171,9 @@ Search_Box.args = {
   minlength: 0,
   name: 'mySearchBox',
   placeholder: 'Search',
-  readonly: {
+  readonly: false,
+  readOnlyProps: {
     clearable: false,
-    enabled: false,
     iconProps: null,
     noStyleChange: false,
   },

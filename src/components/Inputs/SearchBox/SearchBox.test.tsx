@@ -29,7 +29,7 @@ describe('SearchBox', () => {
     expect(wrapper.containsMatchingElement(<SearchBox />)).toEqual(true);
   });
 
-  test('Text input is readOnly', () => {
+  test('Text input is readonly', () => {
     const { container } = render(
       <SearchBox readonly defaultValue="Test value" />
     );

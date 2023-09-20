@@ -95,11 +95,6 @@ export interface ReadOnlyProps {
    */
   clearable?: boolean;
   /**
-   * Whether readonly is enabled.
-   * @default false
-   */
-  enabled?: boolean;
-  /**
    * The readonly icon props.
    */
   iconProps?: IconProps;
@@ -153,7 +148,11 @@ export interface TextAreaProps
    * text area readonly.
    * @default false
    */
-  readonly?: boolean | Omit<ReadOnlyProps, 'clearable'>;
+  readonly?: boolean;
+  /**
+   * text area readonly props.
+   */
+  readOnlyProps?: Omit<ReadOnlyProps, 'clearable'>;
   /**
    * The text area required attribute.
    * @default false
@@ -351,7 +350,11 @@ export interface InputProps<T>
    * input readonly.
    * @default false
    */
-  readonly?: boolean | ReadOnlyProps;
+  readonly?: boolean;
+  /**
+   * input readonly props.
+   */
+  readOnlyProps?: ReadOnlyProps;
   /**
    * Resets the input value cache.
    */

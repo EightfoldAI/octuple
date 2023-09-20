@@ -167,9 +167,9 @@ Text_Input.args = {
   name: 'myTextInput',
   numbersOnly: false,
   placeholder: 'Placeholder text',
-  readonly: {
+  readonly: false,
+  readOnlyProps: {
     clearable: false,
-    enabled: false,
     iconProps: null,
     noStyleChange: false,
   },

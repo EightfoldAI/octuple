@@ -55,6 +55,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       onReset,
       placeholder,
       readonly = false,
+      readOnlyProps,
       required = false,
       reset = false,
       shape = TextInputShape.Rectangle,
@@ -138,13 +139,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         [styles.underline]: mergedShape === TextInputShape.Underline,
       },
       { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
-      {
-        [styles.readOnly]:
-          !!readonly &&
-          (typeof readonly === 'boolean'
-            ? readonly
-            : readonly?.enabled && !readonly?.noStyleChange),
-      },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { ['in-form-item']: mergedFormItemInput },
       getStatusClassNames(mergedStatus, hasFeedback),
     ]);
@@ -191,13 +186,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
-      {
-        [styles.readOnly]:
-          !!readonly &&
-          (typeof readonly === 'boolean'
-            ? readonly
-            : readonly?.enabled && !readonly?.noStyleChange),
-      },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
     ]);
 
@@ -296,9 +285,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onFocus={!allowDisabledFocus ? onFocus : null}
             onKeyDown={!allowDisabledFocus ? onKeyDown : null}
             placeholder={placeholder}
-            readOnly={
-              typeof readonly === 'boolean' ? readonly : readonly?.enabled
-            }
+            readOnly={readonly}
             required={required}
             style={style}
             rows={textAreaRows}
@@ -312,13 +299,11 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
               rotate={htmlDir === 'rtl' ? 90 : 0}
             />
           )}
-          {(typeof readonly === 'boolean'
-            ? readonly
-            : readonly?.enabled && !readonly?.noStyleChange) && (
+          {readonly && !readOnlyProps?.noStyleChange && (
             <div className={readOnlyIconClassNames}>
               <Icon
                 path={IconName.mdiLock}
-                {...(typeof readonly === 'object' ? readonly?.iconProps : {})}
+                {...readOnlyProps?.iconProps}
                 size={inputSizeToIconSizeMap.get(mergedSize)}
               />
             </div>

@@ -184,7 +184,7 @@ export const __namedExportsOrder = [
 const SelectArgs: SelectProps = {
   classNames: 'octuple-select-class',
   disabled: false,
-  inputReadOnly: false,
+  readonly: false,
   'data-test-id': 'octuple-select-test-id',
   shape: SelectShape.Rectangle,
   size: SelectSize.Medium,

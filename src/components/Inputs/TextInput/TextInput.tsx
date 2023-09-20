@@ -72,6 +72,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       onReset,
       placeholder,
       readonly = false,
+      readOnlyProps,
       reset = false,
       required = false,
       role = 'textbox',
@@ -242,13 +243,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
       { [styles.clearDisabled]: !clearable },
       { [styles.clearNotVisible]: !clearButtonShown },
-      {
-        [styles.readOnly]:
-          !!readonly &&
-          (typeof readonly === 'boolean'
-            ? readonly
-            : readonly?.enabled && !readonly?.noStyleChange),
-      },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { ['in-form-item']: mergedFormItemInput },
       getStatusClassNames(mergedStatus, hasFeedback),
     ]);
@@ -297,13 +292,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
-      {
-        [styles.readOnly]:
-          !!readonly &&
-          (typeof readonly === 'boolean'
-            ? readonly
-            : readonly?.enabled && !readonly?.noStyleChange),
-      },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
       { ['in-form-item']: mergedFormItemInput },
       { [styles.isExpandable]: expandable },
@@ -493,9 +482,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               onFocus={!allowDisabledFocus ? onFocus : null}
               onKeyDown={!allowDisabledFocus ? onKeyDown : null}
               placeholder={placeholder}
-              readOnly={
-                typeof readonly === 'boolean' ? readonly : readonly?.enabled
-              }
+              readOnly={readonly}
               required={required}
               role={role}
               style={style}
@@ -548,10 +535,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 clearButtonShown &&
                 !numbersOnly &&
                 htmlType !== 'number' &&
-                (typeof readonly === 'boolean'
-                  ? !readonly
-                  : !readonly?.enabled ||
-                    (readonly.enabled && readonly?.clearable)) && (
+                (!readonly || (readonly && readOnlyProps?.clearable)) && (
                   <SystemUIButton
                     ref={clearButtonRef}
                     allowDisabledFocus={allowDisabledFocus}
@@ -572,15 +556,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               {iconButtonProps &&
                 alignIcon === TextInputIconAlign.Right &&
                 getIconButton()}
-              {(typeof readonly === 'boolean'
-                ? readonly
-                : readonly?.enabled && !readonly?.noStyleChange) && (
+              {readonly && !readOnlyProps?.noStyleChange && (
                 <div className={readOnlyIconClassNames}>
                   <Icon
                     path={IconName.mdiLock}
-                    {...(typeof readonly === 'object'
-                      ? readonly?.iconProps
-                      : {})}
+                    {...readOnlyProps?.iconProps}
                     size={inputSizeToIconSizeMap.get(mergedSize)}
                   />
                 </div>
