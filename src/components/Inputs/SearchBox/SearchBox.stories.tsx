@@ -171,6 +171,12 @@ Search_Box.args = {
   minlength: 0,
   name: 'mySearchBox',
   placeholder: 'Search',
+  readonly: false,
+  readOnlyProps: {
+    clearable: false,
+    iconProps: null,
+    noStyleChange: false,
+  },
   shape: TextInputShape.Pill,
   size: TextInputSize.Medium,
   style: {},

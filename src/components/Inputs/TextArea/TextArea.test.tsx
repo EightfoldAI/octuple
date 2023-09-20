@@ -17,15 +17,26 @@ describe('TextArea', () => {
     matchMedia.clear();
   });
 
-  test('text area renders', () => {
+  test('Text area renders', () => {
     const wrapper = mount(<TextArea />);
     expect(wrapper.containsMatchingElement(<TextArea />)).toEqual(true);
   });
 
-  test('text area id does not append uuid when from props', () => {
+  test('Text area id does not append uuid when from props', () => {
     const { container } = render(<TextArea id="textAreaTest" />);
     expect(
       container.getElementsByTagName('textarea')[0].getAttribute('id')
     ).toBe('textAreaTest');
+  });
+
+  test('Text area is readonly', () => {
+    const { container } = render(
+      <TextArea readonly defaultValue="Test value" />
+    );
+    expect(container.querySelector('.read-only')).toBeTruthy();
+    expect(
+      container.querySelector('.text-area').hasAttribute('readonly')
+    ).toBeTruthy();
+    expect(container.querySelector('.text-area').innerHTML).toBe('Test value');
   });
 });

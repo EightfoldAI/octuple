@@ -71,9 +71,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       onKeyDown,
       onReset,
       placeholder,
+      readonly = false,
+      readOnlyProps,
       reset = false,
       required = false,
-      readonly = false,
       role = 'textbox',
       shape = TextInputShape.Rectangle,
       size = TextInputSize.Medium,
@@ -146,6 +147,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       styles.iconWrapper,
       { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
       { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+    ]);
+
+    const readOnlyIconClassNames: string = mergeClasses([
+      styles.readOnlyIconWrapper,
+      styles.rightIcon,
     ]);
 
     const iconButtonClassNames: string = mergeClasses([
@@ -237,6 +243,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
       { [styles.clearDisabled]: !clearable },
       { [styles.clearNotVisible]: !clearButtonShown },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { ['in-form-item']: mergedFormItemInput },
       getStatusClassNames(mergedStatus, hasFeedback),
     ]);
@@ -285,6 +292,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
+      { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
       { ['in-form-item']: mergedFormItemInput },
       { [styles.isExpandable]: expandable },
@@ -432,7 +440,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
           path: iconButtonProps.iconProps.path,
         }}
         id={iconButtonProps.id}
-        onClick={iconButtonProps.onClick}
+        onClick={
+          !iconButtonProps.disabled && !mergedDisabled
+            ? iconButtonProps.onClick
+            : null
+        }
         shape={inputShapeToButtonShapeMap.get(shape)}
         size={inputSizeToButtonSizeMap.get(mergedSize)}
         transparent
@@ -470,13 +482,13 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               onFocus={!allowDisabledFocus ? onFocus : null}
               onKeyDown={!allowDisabledFocus ? onKeyDown : null}
               placeholder={placeholder}
+              readOnly={readonly}
               required={required}
               role={role}
               style={style}
               tabIndex={0}
               type={numbersOnly ? 'number' : htmlType}
               value={inputValue}
-              readOnly={readonly}
             />
             {expandable && iconButtonProps && (
               <SystemUIButton
@@ -522,7 +534,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               {clearable &&
                 clearButtonShown &&
                 !numbersOnly &&
-                htmlType !== 'number' && (
+                htmlType !== 'number' &&
+                (!readonly || (readonly && readOnlyProps?.clearable)) && (
                   <SystemUIButton
                     ref={clearButtonRef}
                     allowDisabledFocus={allowDisabledFocus}
@@ -543,6 +556,15 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               {iconButtonProps &&
                 alignIcon === TextInputIconAlign.Right &&
                 getIconButton()}
+              {readonly && !readOnlyProps?.noStyleChange && (
+                <div className={readOnlyIconClassNames}>
+                  <Icon
+                    path={IconName.mdiLock}
+                    {...readOnlyProps?.iconProps}
+                    size={inputSizeToIconSizeMap.get(mergedSize)}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

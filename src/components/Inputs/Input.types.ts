@@ -88,6 +88,23 @@ export interface InputIconButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface ReadOnlyProps {
+  /**
+   * Option to show the clear input button when readonly.
+   * @default false
+   */
+  clearable?: boolean;
+  /**
+   * The readonly icon props.
+   */
+  iconProps?: IconProps;
+  /**
+   * Whether or not to apply the readonly styles.
+   * @default false
+   */
+  noStyleChange?: boolean;
+}
+
 export interface SearchBoxProps
   extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
   /**
@@ -112,6 +129,7 @@ export interface TextAreaProps
     | 'iconProps'
     | 'iconButtonProps'
     | 'alignIcon'
+    | 'readonly'
   > {
   /**
    * The text area is expandable.
@@ -126,6 +144,15 @@ export interface TextAreaProps
    * The text area component ref.
    */
   ref?: Ref<HTMLTextAreaElement>;
+  /**
+   * text area readonly.
+   * @default false
+   */
+  readonly?: boolean;
+  /**
+   * text area readonly props.
+   */
+  readOnlyProps?: Omit<ReadOnlyProps, 'clearable'>;
   /**
    * The text area required attribute.
    * @default false
@@ -324,6 +351,10 @@ export interface InputProps<T>
    * @default false
    */
   readonly?: boolean;
+  /**
+   * input readonly props.
+   */
+  readOnlyProps?: ReadOnlyProps;
   /**
    * Resets the input value cache.
    */

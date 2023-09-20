@@ -98,11 +98,40 @@ describe('Select', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders as not read-only and is editable', () => {
-    const { container } = render(<Select options={options} />);
+  test('Renders as not read-only and is editable', () => {
+    const { container } = render(<Select filterable options={options} />);
     expect(
       container.querySelector('.select-input').getAttribute('readonly')
     ).toBeFalsy();
+  });
+
+  test('Renders as read-only and is not editable', () => {
+    const { container } = render(
+      <Select filterable readonly options={options} />
+    );
+    expect(
+      container.querySelector('.select-input').hasAttribute('readonly')
+    ).toBeTruthy();
+  });
+
+  test('Hides the dropdown when readonly', async () => {
+    const { container, rerender, getByPlaceholderText } = render(
+      <Select options={options} readonly={false} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await waitFor(() =>
+      expect(container.querySelector('.dropdown-wrapper')).toBeTruthy()
+    );
+    rerender(
+      <Select options={options} readonly={true} placeholder="Select test" />
+    );
+    await waitFor(() =>
+      expect(
+        container.querySelector('.select-input').hasAttribute('readOnly')
+      ).toBe(true)
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
   });
 
   test('Opens the dropdown when clicked', async () => {

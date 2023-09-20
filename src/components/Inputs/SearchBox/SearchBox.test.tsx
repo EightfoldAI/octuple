@@ -3,6 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SearchBox } from './SearchBox';
+import { render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -15,17 +16,28 @@ describe('SearchBox', () => {
   afterEach(() => {
     matchMedia.clear();
   });
-  /*
-   * Functionality Tests
-   */
-  test('text input renders', () => {
+
+  test('Text input renders', () => {
     const wrapper = mount(<SearchBox />);
     expect(wrapper.containsMatchingElement(<SearchBox />)).toEqual(true);
   });
-  test('text input renders with partially customized icon button', () => {
+
+  test('Text input renders with partially customized icon button', () => {
     const wrapper = mount(
       <SearchBox iconButtonProps={{ htmlType: 'submit' }} />
     );
     expect(wrapper.containsMatchingElement(<SearchBox />)).toEqual(true);
+  });
+
+  test('Text input is readonly', () => {
+    const { container } = render(
+      <SearchBox readonly defaultValue="Test value" />
+    );
+    expect(
+      container.getElementsByTagName('input')[0].hasAttribute('readonly')
+    ).toBeTruthy();
+    expect(
+      container.getElementsByTagName('input')[0].getAttribute('value')
+    ).toBe('Test value');
   });
 });
