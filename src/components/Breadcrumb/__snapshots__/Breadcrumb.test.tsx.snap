@@ -21,7 +21,7 @@ exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
         >
           <a
             aria-disabled="false"
-            class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-reference-id="tooltip--reference"
             id="tooltip--reference"
             role="link"
@@ -59,7 +59,7 @@ exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
         >
           <a
             aria-disabled="false"
-            class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-reference-id="tooltip--reference"
             id="tooltip--reference"
             role="link"
@@ -175,7 +175,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           >
             <span
               aria-current="location"
-              class="tooltip-reference breadcrumb-link my-breadcrumb-links-class breadcrumb-link-read-only"
+              class="breadcrumb-link my-breadcrumb-links-class breadcrumb-link-read-only tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
             >
@@ -211,7 +211,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -250,7 +250,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -289,7 +289,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -328,7 +328,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -367,7 +367,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -406,7 +406,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -445,7 +445,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           >
             <a
               aria-disabled="false"
-              class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
               role="link"
@@ -499,7 +499,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         >
           <a
             aria-disabled="false"
-            class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-custom="custom-item"
             data-reference-id="tooltip--reference"
             id="tooltip--reference"
@@ -538,7 +538,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         >
           <a
             aria-disabled="false"
-            class="link-style full-width primary tooltip-reference breadcrumb-link my-breadcrumb-links-class"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-reference-id="tooltip--reference"
             id="tooltip--reference"
             role="link"
