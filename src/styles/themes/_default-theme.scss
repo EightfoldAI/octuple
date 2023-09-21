@@ -1377,12 +1377,47 @@
   --progress-border-color: var(--primary-tertiary-color);
   --progress-complete-background-color: var(--primary-tertiary-color);
   --progress-error-background-color: var(--error-color);
+  --progress-error-inner-background-color: var(--disruptive-background1-color);
   --progress-error-border-color: var(--error-color);
   --progress-error-text-color: var(--error-color);
-  --progress-incomplete-background-color: var(--accent-background1-color);
+  --progress-pill-error-background-color: var(--error-background-color);
+  --progress-pill-error-inner-background-color: var(
+    --disruptive-background1-color
+  );
+  --progress-pill-error-inner-default-border-color: var(
+    --error-background-color
+  );
+  --progress-pill-error-inner-border-color: var(--progress-error-border-color);
+  --progress-pill-error-outer-border-color: var(--progress-error-border-color);
+  --progress-incomplete-background-color: var(--primary-background1-color);
+  --progress-pill-background-color: var(--primary-background1-color);
+  --progress-pill-outer-border-color: var(--primary-tertiary-color);
+  --progress-pill-inner-complete-background-color: var(
+    --progress-complete-background-color
+  );
+  --progress-pill-inner-incomplete-background-color: var(
+    --progress-incomplete-background-color
+  );
+  --progress-pill-inner-background-color: var(--background-color);
+  --progress-pill-inner-default-border-color: var(--primary-background1-color);
+  --progress-pill-inner-border-color: var(--progress-border-color);
   --progress-success-background-color: var(--success-color);
+  --progress-success-inner-background-color: var(--green-background1-color);
   --progress-success-border-color: var(--success-color);
   --progress-success-text-color: var(--success-color);
+  --progress-pill-success-background-color: var(--success-background-color);
+  --progress-pill-success-inner-background-color: var(
+    --green-background1-color
+  );
+  --progress-pill-success-inner-default-border-color: var(
+    --success-background-color
+  );
+  --progress-pill-success-outer-border-color: var(
+    --progress-success-border-color
+  );
+  --progress-pill-success-inner-border-color: var(
+    --progress-success-border-color
+  );
   --progress-text-color: var(--text-primary-color);
   // ------ Progress theme ------
 }

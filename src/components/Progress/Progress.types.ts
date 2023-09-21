@@ -19,13 +19,19 @@ export type ProgressGradient = { direction?: string } & (
 );
 
 export enum ProgressSize {
+  Large = 'large',
   Medium = 'medium',
   Small = 'small',
 }
 
+export enum ProgressVariant {
+  Default = 'default',
+  Pill = 'pill',
+}
+
 export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
   /**
-   * Whether to visually hide the Progress border.
+   * Whether to visually show/hide the Progress border.
    * @default true
    */
   bordered?: boolean;
@@ -76,6 +82,11 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
    * @default 0
    */
   percent?: number;
+  /**
+   * Whether to visually show/hide the Progress Pill border.
+   * @default true
+   */
+  pillBordered?: boolean;
   /**
    * Whether the labels are visible or not
    * @default true
@@ -149,6 +160,11 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
    * @default 'line'
    */
   type?: ProgressType;
+  /**
+   * Determines the progress variant.
+   * @default ProgressVariant.Default
+   */
+  variant?: ProgressVariant;
   /**
    * The Progress component width.
    */

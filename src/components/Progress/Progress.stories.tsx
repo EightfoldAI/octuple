@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Progress, { ProgressSize } from '.';
 import { Stack } from '../Stack';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { ProgressVariant } from './Progress.types';
 
 export default {
   title: 'Progress',
@@ -28,7 +29,16 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: [ProgressSize.Large, ProgressSize.Medium, ProgressSize.Small],
+      control: { type: 'radio' },
+    },
+    variant: {
+      options: [ProgressVariant.Default, ProgressVariant.Pill],
+      control: { type: 'inline-radio' },
+    },
+  },
 } as ComponentMeta<typeof Progress>;
 
 const Line_Story: ComponentStory<typeof Progress> = (args) => {
@@ -169,7 +179,7 @@ const Steps_Story: ComponentStory<typeof Progress> = (args) => {
         size={ProgressSize.Small}
         steps={3}
         stepWidth={24}
-        width={82}
+        width={96}
       />
       <Progress {...args} percent={30} steps={5} showValueLabel />
       <Progress
@@ -289,12 +299,15 @@ const Gradient_Story: ComponentStory<typeof Progress> = (args) => {
 };
 
 export const Line = Line_Story.bind({});
+export const Line_Pill = Line_Story.bind({});
 export const Small_Line = Small_Line_Story.bind({});
+export const Small_Line_Pill = Small_Line_Story.bind({});
 export const Circle = Circle_Story.bind({});
 export const Small_Circle = Small_Circle_Story.bind({});
 export const Dashboard = Dashboard_Story.bind({});
 export const Line_Cap = Line_Cap_Story.bind({});
 export const Steps = Steps_Story.bind({});
+export const Steps_Pill = Steps_Story.bind({});
 export const Success_Segment = Success_Segment_Story.bind({});
 export const Gradient = Gradient_Story.bind({});
 
@@ -303,12 +316,15 @@ export const Gradient = Gradient_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Line',
+  'Line_Pill',
   'Small_Line',
+  'Small_Line_Pill',
   'Circle',
   'Small_Circle',
   'Dashboard',
   'Line_Cap',
   'Steps',
+  'Steps_Pill',
   'Success_Segment',
   'Gradient',
 ];
@@ -332,8 +348,20 @@ Line.args = {
   ...progressArgs,
 };
 
+Line_Pill.args = {
+  ...progressArgs,
+  pillBordered: true,
+  variant: ProgressVariant.Pill,
+};
+
 Small_Line.args = {
   ...progressArgs,
+};
+
+Small_Line_Pill.args = {
+  ...progressArgs,
+  pillBordered: true,
+  variant: ProgressVariant.Pill,
 };
 
 Circle.args = {
@@ -354,6 +382,12 @@ Line_Cap.args = {
 
 Steps.args = {
   ...progressArgs,
+};
+
+Steps_Pill.args = {
+  ...progressArgs,
+  pillBordered: true,
+  variant: ProgressVariant.Pill,
 };
 
 Success_Segment.args = {
