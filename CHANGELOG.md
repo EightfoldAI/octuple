@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.45.0](https://github.com/EightfoldAI/octuple/compare/v2.44.0...v2.45.0) (2023-09-21)
+
+### Features
+
+- inputs: add readonly support and its styles ([#706](https://github.com/EightfoldAI/octuple/issues/706)) ([d9903be](https://github.com/EightfoldAI/octuple/commits/d9903beee3aead185a9af088529747791bcdf2ba))
+- progress: add pill variant ([#709](https://github.com/EightfoldAI/octuple/issues/709)) ([fc5e49d](https://github.com/EightfoldAI/octuple/commits/fc5e49df54808ba6d21515b6cf59c7fefcfdc1d2))
+
+### Bug Fixes
+
+- button: fixes counter position when button only contains an icon ([#713](https://github.com/EightfoldAI/octuple/issues/713)) ([1770722](https://github.com/EightfoldAI/octuple/commits/1770722f96bc757061773c6801620f9cca3f9254))
+- carousel: add controls prop to scroll menu ([#705](https://github.com/EightfoldAI/octuple/issues/705)) ([0044f69](https://github.com/EightfoldAI/octuple/commits/0044f69b67ab7396ac24e2d9fa96a55a11abe6a8))
+- linkbutton: fixes counter position when button only contains an icon ([#714](https://github.com/EightfoldAI/octuple/issues/714)) ([1c5ecc4](https://github.com/EightfoldAI/octuple/commits/1c5ecc474c653985c43cdbf6c840f996d5cfb6a7))
+- tooltip: fixes default clone element class names ([#699](https://github.com/EightfoldAI/octuple/issues/699)) ([3404bb1](https://github.com/EightfoldAI/octuple/commits/3404bb12bfaa8ad8e7386330380e8c2713fdd134))
+
 ## [2.44.0](https://github.com/EightfoldAI/octuple/compare/v2.43.0...v2.44.0) (2023-08-25)
 
 ### Features
