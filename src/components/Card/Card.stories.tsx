@@ -51,6 +51,7 @@ const baseCardArgs: Object = {
   size: CardSize.Medium,
   style: {},
   classNames: 'my-card-class',
+  bordered: true,
 };
 
 CustomCard.args = {
