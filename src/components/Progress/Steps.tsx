@@ -1,5 +1,9 @@
 import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ProgressStepsProps } from './Progress.types';
+import {
+  ProgressSize,
+  ProgressStepsProps,
+  ProgressVariant,
+} from './Progress.types';
 import { MAX_PERCENT } from './Internal/Common';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
@@ -16,15 +20,17 @@ const Steps: FC<ProgressStepsProps> = (props) => {
     maxLabelRef,
     minLabelRef,
     percent = 0,
+    pillBordered,
     showLabels,
     showValueLabel,
     size,
     steps,
     stepWidth,
     strokeColor,
-    strokeWidth = 6,
+    strokeWidth,
     trailColor = null as any,
     valueLabelRef,
+    variant,
   } = props;
   const [calculatedWidth, setCalculatedWidth] = useState<string>('0');
   const current: number = Math.round(steps * (percent / MAX_PERCENT));
@@ -33,6 +39,18 @@ const Steps: FC<ProgressStepsProps> = (props) => {
     useRef<HTMLDivElement>(null);
   const progressBgRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
+
+  const getStrokeHeight = (): number => {
+    let height: number = 6;
+    if (size === ProgressSize.Large) {
+      height = 12;
+    } else if (size === ProgressSize.Medium) {
+      height = 6;
+    } else if (size === ProgressSize.Small) {
+      height = 4;
+    }
+    return height;
+  };
 
   for (let i: number = 0; i < steps; ++i) {
     const color: string = Array.isArray(strokeColor)
@@ -57,7 +75,7 @@ const Steps: FC<ProgressStepsProps> = (props) => {
               : trailColor
             : 'transparent',
           width: stepWidth ? stepWidth : calculatedWidth,
-          height: size === 'small' ? 4 : strokeWidth,
+          height: strokeWidth || getStrokeHeight(),
         }}
       />
     );
@@ -141,7 +159,14 @@ const Steps: FC<ProgressStepsProps> = (props) => {
 
   return (
     <ResizeObserver onResize={updateLayout}>
-      <div ref={flexContainerRef} className={styles.progressStepsOuter}>
+      <div
+        ref={flexContainerRef}
+        className={mergeClasses([
+          styles.progressStepsOuter,
+          { [styles.progressStepsOuterPill]: variant === ProgressVariant.Pill },
+          { [styles.progressStepsOuterPillBordered]: !!pillBordered },
+        ])}
+      >
         {styledSteps}
       </div>
       {children}

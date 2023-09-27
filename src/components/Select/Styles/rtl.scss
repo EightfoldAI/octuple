@@ -18,7 +18,7 @@
     &.select-large {
       .select-input-group {
         .select-clear-button-start-rtl {
-          right: 2px;
+          right: $space-xxs;
           left: unset;
         }
 
@@ -32,7 +32,7 @@
     &.select-medium {
       .select-input-group {
         .select-clear-button-start-rtl {
-          right: 2px;
+          right: $space-xxs;
           left: unset;
         }
 
@@ -46,7 +46,7 @@
     &.select-small {
       .select-input-group {
         .select-clear-button-start-rtl {
-          right: 2px;
+          right: $space-xxxs;
           left: unset;
         }
 

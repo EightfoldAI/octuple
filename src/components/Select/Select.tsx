@@ -63,6 +63,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       formItemInput = false,
       id,
       inputClassNames,
+      readonly = false,
       inputWidth = TextInputWidth.fill,
       isLoading,
       loadOptions,
@@ -260,6 +261,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
         onInputClear();
       }
     }, [clear, dropdownVisible, filterable]);
+
+    useEffect(() => {
+      if (readonly && dropdownVisible) {
+        setDropdownVisibility(false);
+      }
+    }, [readonly, dropdownVisible]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -511,7 +518,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             onClose={() => toggleOption(opt)}
             size={selectSizeToPillSizeMap.get(size)}
             theme={'blueGreen'}
-            type={PillType.closable}
+            type={readonly ? PillType.default : PillType.closable}
             style={{
               visibility: index < count ? 'visible' : 'hidden',
             }}
@@ -671,18 +678,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const selectInputProps: TextInputProps = {
       placeholder: showPills() && !!options ? '' : placeholder,
       alignIcon: TextInputIconAlign.Right,
-      clearable: clearable,
+      clearable: clearable && !readonly,
       clearButtonClassNames: clearButtonClassNames,
       inputWidth: inputWidth,
-      iconButtonProps: {
-        htmlType: 'button',
-        iconProps: {
-          path: dropdownVisible
-            ? IconName.mdiChevronUp
-            : IconName.mdiChevronDown,
-        },
-        onClick: handleToggleButtonClick,
-      },
+      iconButtonProps: !readonly
+        ? {
+            htmlType: 'button',
+            iconProps: {
+              path: dropdownVisible
+                ? IconName.mdiChevronUp
+                : IconName.mdiChevronDown,
+            },
+            onClick: handleToggleButtonClick,
+          }
+        : null,
       style: getStyle(),
       onClear: onInputClear,
       ...textInputProps,
@@ -746,7 +755,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             closeOnReferenceClick={closeOnReferenceClick}
             {...dropdownProps}
             classNames={dropdownWrapperClassNames}
-            disabled={mergedDisabled}
+            disabled={mergedDisabled || readonly}
             dropdownClassNames={dropdownMenuOverlayClassNames}
             onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
             overlay={isLoading ? spinner : <OptionMenu options={options} />}
@@ -784,7 +793,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 onFocus={onFocus}
                 onKeyDown={onKeyDown}
                 onReset={(): void => setResetTextInput(false)}
-                readonly={!filterable}
+                readonly={!filterable || readonly}
+                readOnlyProps={{
+                  clearable:
+                    (filterable || selectInputProps?.clearable) && !readonly,
+                  noStyleChange: !readonly,
+                }}
                 reset={resetTextInput}
                 role="combobox"
                 shape={selectShapeToTextInputShapeMap.get(mergedShape)}
