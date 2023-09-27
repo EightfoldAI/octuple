@@ -63,6 +63,13 @@ export interface SliderMarker extends Marker {
   value: number;
 }
 
+export interface Segment {
+  /**
+   * The step value of the segment.
+   */
+  value: number;
+}
+
 export interface MarkProps {
   /**
    * The Mark renderer.
@@ -161,6 +168,10 @@ export interface StepsProps {
    * @default 'default'
    */
   type?: SliderType;
+  /**
+   * Only display specific dots.
+   */
+  visibleDots?: number[];
 }
 
 export interface SliderProps extends SliderInputProps {
@@ -290,6 +301,10 @@ export interface SliderInputProps
    */
   maxLabel?: string;
   /**
+   * Custom maximum value label style.
+   */
+  maxLabelStyle?: React.CSSProperties;
+  /**
    * The minimum value of the Slider.
    * @default 0
    */
@@ -298,6 +313,10 @@ export interface SliderInputProps
    * The custom minimum value label of the Slider.
    */
   minLabel?: string;
+  /**
+   * Custom minimum value label style.
+   */
+  minLabelStyle?: React.CSSProperties;
   /**
    * The input name.
    * NOTE: For range Sliders, each input's name will have an index value added.
@@ -316,6 +335,10 @@ export interface SliderInputProps
    * The Slider is read only.
    */
   readOnly?: boolean;
+  /**
+   * The Slider segments.
+   */
+  segments?: Segment[];
   /**
    * The Slider size.
    * @default SliderSize.Medium
@@ -357,4 +380,8 @@ export interface SliderInputProps
    * The custom value label of the Slider.
    */
   valueLabel?: string | string[];
+  /**
+   * Only display specific dots.
+   */
+  visibleDots?: number[];
 }

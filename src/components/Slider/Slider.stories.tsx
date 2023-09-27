@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slider, SliderSize, SliderTrackStatus } from './';
 import { Stack } from '../Stack';
@@ -71,10 +71,10 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
 const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
   const [transientSlidingAValues, setTransientSlidingAValues] = useState<
     number[]
-  >([40, 80]);
+  >(args.value as number[]);
   const [transientSlidingBValues, setTransientSlidingBValues] = useState<
     number[]
-  >([40, 80]);
+  >(args.value as number[]);
 
   const handleChangeA = (vals: number[]): void => {
     setTransientSlidingAValues(vals);
@@ -807,12 +807,58 @@ const iconSet: Object = {
 };
 
 const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
+  const [_, updateArgs] = useArgs();
+  const [sliderMinLabel, setSliderMinLabel] = useState(args.minLabel);
   const [transientSlidingValue, setTransientSlidingValue] = useState<
     number | number[]
   >(args.value);
 
+  useEffect(() => {
+    if (
+      Number(transientSlidingValue) >= 0.1 &&
+      Number(transientSlidingValue) < 2
+    ) {
+      setSliderMinLabel('Learner');
+    } else if (
+      Number(transientSlidingValue) >= 2 &&
+      Number(transientSlidingValue) < 3
+    ) {
+      setSliderMinLabel('Practitioner');
+    } else if (
+      Number(transientSlidingValue) >= 3 &&
+      Number(transientSlidingValue) < 4
+    ) {
+      setSliderMinLabel('Professional');
+    } else if (
+      Number(transientSlidingValue) >= 4 &&
+      Number(transientSlidingValue) < 5
+    ) {
+      setSliderMinLabel('Expert');
+    } else if (Number(transientSlidingValue) === 5) {
+      setSliderMinLabel('Worldclass');
+    } else {
+      setSliderMinLabel('Assess skill level');
+    }
+  }, [sliderMinLabel, transientSlidingValue]);
+
   const handleChange = (val: number): void => {
     setTransientSlidingValue(val);
+    if (val < 2) {
+      updateArgs({
+        ...args,
+        trackStatus: SliderTrackStatus.Error,
+      });
+    } else if (val > 2 && val < 3) {
+      updateArgs({
+        ...args,
+        trackStatus: SliderTrackStatus.Warning,
+      });
+    } else {
+      updateArgs({
+        ...args,
+        trackStatus: SliderTrackStatus.Success,
+      });
+    }
   };
 
   return (
@@ -822,6 +868,8 @@ const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
         dotStyle={{
           opacity: 0,
         }}
+        minLabel={sliderMinLabel}
+        minLabelStyle={{ textAlign: 'end', width: 120 }}
         onChange={handleChange}
         value={transientSlidingValue}
       />
@@ -863,6 +911,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
   const [_, updateArgs] = useArgs();
   const sliderRef: React.MutableRefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
+  const [sliderMinLabel, setSliderMinLabel] = useState(args.minLabel);
   const [transientSlidingValues, setTransientSlidingValues] = useState<
     number[]
   >([1, 3]);
@@ -906,16 +955,14 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
   const updateValues = (): void => {
     const benchmarkValue: number = 2;
     const persistedUpperValue: number = 3;
-    if (
-      targetSlidingValue < persistedUpperValue &&
-      targetSlidingValue !== benchmarkValue
-    ) {
+    if (targetSlidingValue < benchmarkValue) {
       setTransientSlidingValues([targetSlidingValue, persistedUpperValue]);
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue),
         trackStatus: SliderTrackStatus.Error,
         value: [targetSlidingValue, persistedUpperValue],
+        visibleDots: [],
       });
     } else if (targetSlidingValue === benchmarkValue) {
       setTransientSlidingValues([targetSlidingValue, persistedUpperValue]);
@@ -923,7 +970,20 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
         ...args,
         marks: updateMarks(targetSlidingValue, benchmarkValue),
         trackStatus: SliderTrackStatus.Error,
-        value: [targetSlidingValue, persistedUpperValue],
+        value: [benchmarkValue, persistedUpperValue], // When equal to benchmarkValue set the segment.
+        visibleDots: [2],
+      });
+    } else if (
+      targetSlidingValue < persistedUpperValue &&
+      targetSlidingValue > benchmarkValue
+    ) {
+      setTransientSlidingValues([targetSlidingValue, persistedUpperValue]);
+      updateArgs({
+        ...args,
+        marks: updateMarks(targetSlidingValue, null, persistedUpperValue),
+        trackStatus: SliderTrackStatus.Error,
+        value: [benchmarkValue, persistedUpperValue], // When in-between benchmarkValue and persistedUpperValue set the segment.
+        visibleDots: [],
       });
     } else if (targetSlidingValue === persistedUpperValue) {
       setTransientSlidingValues([targetSlidingValue, persistedUpperValue]);
@@ -931,7 +991,8 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
         ...args,
         marks: updateMarks(targetSlidingValue, null, persistedUpperValue),
         trackStatus: SliderTrackStatus.Success,
-        value: [targetSlidingValue, persistedUpperValue],
+        value: [targetSlidingValue, persistedUpperValue], // When equal to persistedUpperValue, all segments are gray.
+        visibleDots: [3],
       });
     } else {
       setTransientSlidingValues([
@@ -942,8 +1003,38 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
         ...args,
         marks: updateMarks(targetSlidingValue),
         trackStatus: SliderTrackStatus.Success,
-        value: [persistedUpperValue, targetSlidingValue],
+        value: [persistedUpperValue, targetSlidingValue], // Set all segments after the persistedUpperValue.
+        visibleDots: [],
       });
+    }
+  };
+
+  useEffect(() => {
+    if (targetSlidingValue >= 0.1 && targetSlidingValue < 2) {
+      setSliderMinLabel('Learner');
+    } else if (targetSlidingValue >= 2 && targetSlidingValue < 3) {
+      setSliderMinLabel('Practitioner');
+    } else if (targetSlidingValue >= 3 && targetSlidingValue < 4) {
+      setSliderMinLabel('Professional');
+    } else if (targetSlidingValue >= 4 && targetSlidingValue < 5) {
+      setSliderMinLabel('Expert');
+    } else if (targetSlidingValue === 5) {
+      setSliderMinLabel('Worldclass');
+    } else {
+      setSliderMinLabel('Assess skill level');
+    }
+  }, [sliderMinLabel, targetSlidingValue]);
+
+  const getOffset = (): number => {
+    switch (args.size) {
+      case SliderSize.Large:
+        return -52;
+      case SliderSize.Medium:
+        return -42;
+      case SliderSize.Small:
+        return -32;
+      default:
+        return -42;
     }
   };
 
@@ -956,7 +1047,12 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
     >
       <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
         <div>
-          <Slider {...args} ref={sliderRef} onChange={handleChangeRange} />
+          <Slider
+            {...args}
+            minLabel={sliderMinLabel}
+            ref={sliderRef}
+            onChange={handleChangeRange}
+          />
           <Slider
             {...args}
             hideRail
@@ -966,7 +1062,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
             readOnly={false}
             showLabels={false}
             style={{
-              marginTop: -42, // Layer above readOnly slider
+              marginTop: getOffset(), // Layer above readOnly slider
             }}
             onChange={handleChangeTarget}
             value={targetSlidingValue}
@@ -1035,6 +1131,7 @@ const sliderArgs: Object = {
   dots: false,
   dotClassNames: null,
   dotStyle: null,
+  visibleDots: null,
   formItemInput: false,
   hideMax: false,
   hideMin: false,
@@ -1048,14 +1145,17 @@ const sliderArgs: Object = {
   marks: null,
   max: 100,
   maxLabel: null,
+  maxLabelStyle: null,
   min: 0,
   minLabel: null,
+  minLabelStyle: null,
   name: 'mySlider',
   onChange: () => {
     console.log('changed');
   },
   railBorder: true,
   readOnly: false,
+  segments: null,
   showLabels: true,
   showMarkers: false,
   size: SliderSize.Medium,
@@ -1184,10 +1284,31 @@ With_Benchmark.args = {
     3: roleBenchmarkInactiveMarker(),
   },
   max: 5,
-  maxLabel: 'Expert',
-  minLabel: 'Novice',
+  maxLabel: 'Worldclass',
+  minLabel: 'Practitioner',
+  segments: [
+    {
+      value: 0,
+    },
+    {
+      value: 1,
+    },
+    {
+      value: 2,
+    },
+    {
+      value: 3,
+    },
+    {
+      value: 4,
+    },
+    {
+      value: 5,
+    },
+  ],
   showLabels: true,
   showMarkers: true,
+  step: 0.1,
   type: 'default',
   value: 2,
 };
@@ -1206,8 +1327,8 @@ Data_Inactive.args = {
     3: lowerAssessmentActiveMarker(),
   },
   max: 5,
-  maxLabel: 'Expert',
-  minLabel: 'Novice',
+  maxLabel: 'Worldclass',
+  minLabel: 'Professional',
   readOnly: true,
   showLabels: true,
   showMarkers: true,
@@ -1218,13 +1339,13 @@ Data_Inactive.args = {
 
 Data_Active.args = {
   ...sliderArgs,
-  dots: true,
+  dots: false,
   dotClassNames: 'slider-dot',
   dotStyle: {
     backgroundColor: '#FFCD78',
     borderColor: '#C97E19',
-    opacity: 0,
   },
+  visibleDots: [],
   hideMax: true,
   hideMin: true,
   hideThumb: true,
@@ -1238,9 +1359,31 @@ Data_Active.args = {
   },
   min: 0,
   max: 5,
-  maxLabel: 'Expert',
-  minLabel: 'Novice',
+  step: 0.1,
+  maxLabel: 'Worldclass',
+  minLabel: 'Assess skill level',
+  minLabelStyle: { textAlign: 'end', width: 96 },
   readOnly: true,
+  segments: [
+    {
+      value: 0,
+    },
+    {
+      value: 1,
+    },
+    {
+      value: 2,
+    },
+    {
+      value: 3,
+    },
+    {
+      value: 4,
+    },
+    {
+      value: 5,
+    },
+  ],
   showLabels: true,
   showMarkers: true,
   trackStatus: SliderTrackStatus.Error,

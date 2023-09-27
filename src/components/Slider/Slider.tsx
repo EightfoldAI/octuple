@@ -100,12 +100,15 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       marks,
       min = 0,
       minLabel,
+      minLabelStyle,
       max = 100,
       maxLabel,
+      maxLabelStyle,
       name,
       onChange,
       railBorder = true,
       readOnly = false,
+      segments,
       showLabels = true,
       showMarkers = false,
       size = SliderSize.Medium,
@@ -117,6 +120,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       type = 'default',
       value,
       valueLabel,
+      visibleDots,
       ...rest
     },
     ref: Ref<HTMLInputElement>
@@ -162,6 +166,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       useRef<HTMLDivElement>(null);
     const maxLabelRef: React.MutableRefObject<HTMLDivElement> =
       useRef<HTMLDivElement>(null);
+
     let [markers, setMarkers] = useState<SliderMarker[]>(
       [...Array(Math.floor((mergedMax - mergedMin) / mergedStep) + 1)].map(
         (_, index) => ({
@@ -169,6 +174,13 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         })
       )
     );
+
+    useEffect(() => {
+      if (segments) {
+        setMarkers(segments);
+      }
+    }, [segments]);
+
     const markerSegmentRefs: React.MutableRefObject<
       RefObject<HTMLDivElement>[]
     > = useRef<RefObject<HTMLDivElement>[]>(null);
@@ -209,10 +221,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       const segmentRangeOffset: number = 1;
       return isRange
         ? markerPct >=
-            valueToPercent(values[0], mergedMin, mergedMax) -
+            valueToPercent(Math.floor(values[0]), mergedMin, mergedMax) -
               segmentRangeOffset &&
             markerPct <=
-              valueToPercent(values[1], mergedMin, mergedMax) -
+              valueToPercent(Math.ceil(values[1]), mergedMin, mergedMax) -
                 segmentRangeOffset
         : markerPct <=
             valueToPercent(values[0], mergedMin, mergedMax) -
@@ -315,7 +327,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       );
       const rangeWidth: number = isRange
         ? upperThumbOffset - lowerThumbOffset
-        : lowerThumbOffset;
+        : lowerThumbOffset - thumbRadius;
 
       // The below calculation is as follows:
       // First we get the left position of the segment.
@@ -398,37 +410,41 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         // Moving these into a shared expression also doesn't work.
         if (htmlDir === 'rtl') {
           showMaxLabel =
-            showLabels &&
-            lowerThumbOffset <
-              minLabelRef.current.offsetLeft -
-                lowerLabelRef.current.offsetWidth / 2 -
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset <
+                minLabelRef.current.offsetLeft -
+                  lowerLabelRef.current.offsetWidth / 2 -
+                  thumbRadius);
           maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
           showMinLabel =
-            showLabels &&
-            lowerThumbOffset >
-              maxLabelRef.current.offsetLeft +
-                maxLabelRef.current.offsetWidth +
-                lowerLabelRef.current.offsetWidth / 2 -
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset >
+                maxLabelRef.current.offsetLeft +
+                  maxLabelRef.current.offsetWidth +
+                  lowerLabelRef.current.offsetWidth / 2 -
+                  thumbRadius);
           minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
         } else {
           showMaxLabel =
-            showLabels &&
-            lowerThumbOffset <
-              maxLabelRef.current.offsetLeft -
-                lowerLabelRef.current.offsetWidth / 2 -
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset <
+                maxLabelRef.current.offsetLeft -
+                  lowerLabelRef.current.offsetWidth / 2 -
+                  thumbRadius);
           maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
           showMinLabel =
-            showLabels &&
-            lowerThumbOffset >
-              minLabelRef.current.offsetLeft +
-                minLabelRef.current.offsetWidth +
-                lowerLabelRef.current.offsetWidth / 2 +
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset >
+                minLabelRef.current.offsetLeft +
+                  minLabelRef.current.offsetWidth +
+                  lowerLabelRef.current.offsetWidth / 2 +
+                  thumbRadius);
           minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
         }
       }
@@ -703,15 +719,23 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               {
                 [styles.sliderSmall]:
                   mergedSize === SliderSize.Flex && largeScreenActive,
+              },
+              {
                 [styles.sliderMedium]:
                   mergedSize === SliderSize.Flex && mediumScreenActive,
+              },
+              {
                 [styles.sliderMedium]:
                   mergedSize === SliderSize.Flex && smallScreenActive,
+              },
+              {
                 [styles.sliderLarge]:
                   mergedSize === SliderSize.Flex && xSmallScreenActive,
-                [styles.sliderLarge]: mergedSize === SliderSize.Large,
-                [styles.sliderMedium]: mergedSize === SliderSize.Medium,
-                [styles.sliderSmall]: mergedSize === SliderSize.Small,
+              },
+              { [styles.sliderLarge]: mergedSize === SliderSize.Large },
+              { [styles.sliderMedium]: mergedSize === SliderSize.Medium },
+              { [styles.sliderSmall]: mergedSize === SliderSize.Small },
+              {
                 [styles.sliderDisabled]: allowDisabledFocus || mergedDisabled,
                 [styles.sliderReadonly]: !!readOnly,
                 [styles.sliderContainerInline]: labelPosition === 'inline',
@@ -725,10 +749,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             <div
               ref={minLabelRef}
               className={mergeClasses(styles.extremityLabel, styles.minLabel, {
+                [styles.minLabelTextOnly]: hideMin && !!minLabel,
                 [styles.extremityRangeLabel]: isRange,
                 [styles.extremityLabelInline]: labelPosition === 'inline',
                 [styles.labelVisible]: showLabels,
               })}
+              style={minLabelStyle}
             >
               {!!minLabel && minLabel} {!hideMin && mergedMin}
             </div>
@@ -845,6 +871,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 style={dotStyle}
                 trackStatus={trackStatus}
                 type={type}
+                visibleDots={visibleDots}
               />
               <Marks
                 marks={markList}
@@ -910,10 +937,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             <div
               ref={maxLabelRef}
               className={mergeClasses(styles.extremityLabel, styles.maxLabel, {
+                [styles.maxLabelTextOnly]: hideMax && !!maxLabel,
                 [styles.extremityRangeLabel]: isRange,
                 [styles.extremityLabelInline]: labelPosition === 'inline',
                 [styles.labelVisible]: showLabels,
               })}
+              style={maxLabelStyle}
             >
               {!!maxLabel && maxLabel} {!hideMax && mergedMax}
             </div>
