@@ -154,6 +154,14 @@ import {
 import { Select, SelectShape, SelectSize } from './components/Select';
 
 import {
+  Skill,
+  SkillProps,
+  SkillSize,
+  SkillStatus,
+  SkillVariant,
+} from './components/Skill';
+
+import {
   Slider,
   SliderMarks,
   SliderSize,
@@ -373,6 +381,11 @@ export {
   SecondaryButton,
   Shape,
   Size,
+  Skill,
+  SkillProps,
+  SkillSize,
+  SkillStatus,
+  SkillVariant,
   Slide,
   Slider,
   SliderMarks,
