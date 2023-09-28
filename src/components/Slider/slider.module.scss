@@ -247,10 +247,6 @@ $small-min-label-text-only-offset-with-steps: 8px;
     position: absolute;
     top: $medium-marker-top;
 
-    &-hidden {
-      display: none;
-    }
-
     &-opacity {
       opacity: 0;
     }

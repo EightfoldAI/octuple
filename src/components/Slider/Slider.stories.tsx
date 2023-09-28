@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slider, SliderSize, SliderTrackStatus } from './';
 import { Stack } from '../Stack';
+import { Tooltip, TooltipTheme } from '../Tooltip';
 import { Col, Row } from '../Grid';
 import { PrimaryButton } from '../Button';
 import { useArgs } from '@storybook/client-api';
@@ -46,9 +47,6 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
-      </Stack>
       <Row style={{ marginTop: 100 }}>
         <Col span={6} push={3}>
           <Slider
@@ -61,9 +59,6 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
           />
         </Col>
       </Row>
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValue}</div>
-      </Stack>
     </Stack>
   );
 };
@@ -91,10 +86,6 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChangeA}
         value={transientSlidingAValues}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValues[0]}</div>
-        <div>{transientSlidingAValues[1]}</div>
-      </Stack>
       <Row style={{ marginTop: 100 }}>
         <Col span={6} push={3}>
           <Slider
@@ -109,10 +100,6 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
           />
         </Col>
       </Row>
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValues[0]}</div>
-        <div>{transientSlidingBValues[1]}</div>
-      </Stack>
     </Stack>
   );
 };
@@ -140,9 +127,6 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
-      </Stack>
       <Slider
         {...args}
         onChange={handleChangeB}
@@ -151,10 +135,6 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
         style={{ marginTop: 100 }}
         value={transientSlidingBValues}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValues[0]}</div>
-        <div>{transientSlidingBValues[1]}</div>
-      </Stack>
     </Stack>
   );
 };
@@ -264,9 +244,6 @@ const Dots_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
-      </Stack>
     </Stack>
   );
 };
@@ -296,9 +273,6 @@ const Toggle_Thumb_Story: ComponentStory<typeof Slider> = (args) => {
         onChange={handleChangeA}
         value={transientSlidingAValue}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingAValue}</div>
-      </Stack>
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
         <PrimaryButton
           onClick={toggleThumbVisibility}
@@ -865,17 +839,11 @@ const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
     <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
-        dotStyle={{
-          opacity: 0,
-        }}
+        visibleDots={[]}
         minLabel={sliderMinLabel}
-        minLabelStyle={{ textAlign: 'end', width: 120 }}
         onChange={handleChange}
         value={transientSlidingValue}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingValue}</div>
-      </Stack>
     </Stack>
   );
 };
@@ -893,16 +861,11 @@ const Data_Inactive_Story: ComponentStory<typeof Slider> = (args) => {
     <Stack align="stretch" direction="vertical" fullWidth flexGap="xl">
       <Slider
         {...args}
-        dotStyle={{
-          opacity: 0,
-        }}
+        classNames="allow-pointers"
+        visibleDots={[]}
         onChange={handleChangeB}
         value={transientSlidingBValues}
       />
-      <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <div>{transientSlidingBValues[0]}</div>
-        <div>{transientSlidingBValues[1]}</div>
-      </Stack>
     </Stack>
   );
 };
@@ -911,11 +874,14 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
   const [_, updateArgs] = useArgs();
   const sliderRef: React.MutableRefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
-  const [sliderMinLabel, setSliderMinLabel] = useState(args.minLabel);
+  const [markerVisible, setMarkerVisible] = useState<boolean>(false);
+  const [sliderMinLabel, setSliderMinLabel] = useState<string>(args.minLabel);
   const [transientSlidingValues, setTransientSlidingValues] = useState<
     number[]
-  >([1, 3]);
-  const [targetSlidingValue, setTargetSlidingValue] = useState<number>(1);
+  >(args.value as number[]);
+  const [targetSlidingValue, setTargetSlidingValue] = useState<number>(
+    (args.value as number[])[0]
+  );
 
   const handleChangeRange = (vals: number[]): void => {
     setTransientSlidingValues(vals);
@@ -936,7 +902,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
     };
 
     if (
-      value >= 0 &&
+      value > 0 &&
       value !== benchmarkValue &&
       value !== persistedUpperValue
     ) {
@@ -945,8 +911,6 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       marks[2] = combinedBenchmarkAssessmentActiveMarker();
     } else if (value === persistedUpperValue) {
       marks[3] = combinedUpperAssessmentActiveMarker();
-    } else {
-      marks[1] = lowerAssessmentActiveMarker();
     }
 
     return marks;
@@ -955,6 +919,9 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
   const updateValues = (): void => {
     const benchmarkValue: number = 2;
     const persistedUpperValue: number = 3;
+
+    setMarkerVisible(targetSlidingValue > 0);
+
     if (targetSlidingValue < benchmarkValue) {
       setTransientSlidingValues([targetSlidingValue, persistedUpperValue]);
       updateArgs({
@@ -969,7 +936,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue, benchmarkValue),
-        trackStatus: SliderTrackStatus.Error,
+        trackStatus: SliderTrackStatus.Warning,
         value: [benchmarkValue, persistedUpperValue], // When equal to benchmarkValue set the segment.
         visibleDots: [2],
       });
@@ -981,7 +948,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue, null, persistedUpperValue),
-        trackStatus: SliderTrackStatus.Error,
+        trackStatus: SliderTrackStatus.Warning,
         value: [benchmarkValue, persistedUpperValue], // When in-between benchmarkValue and persistedUpperValue set the segment.
         visibleDots: [],
       });
@@ -1008,6 +975,10 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       });
     }
   };
+
+  useMemo(() => {
+    setMarkerVisible(targetSlidingValue > 0);
+  }, []);
 
   useEffect(() => {
     if (targetSlidingValue >= 0.1 && targetSlidingValue < 2) {
@@ -1049,9 +1020,10 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
         <div>
           <Slider
             {...args}
+            hideTrack={!markerVisible}
             minLabel={sliderMinLabel}
-            ref={sliderRef}
             onChange={handleChangeRange}
+            ref={sliderRef}
           />
           <Slider
             {...args}
@@ -1059,19 +1031,24 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
             hideThumb={false}
             hideTrack
             marks={null}
+            onChange={handleChangeTarget}
             readOnly={false}
             showLabels={false}
             style={{
               marginTop: getOffset(), // Layer above readOnly slider
             }}
-            onChange={handleChangeTarget}
+            tooltipContent={`${targetSlidingValue}`}
+            tooltipProps={{
+              height: 24,
+              offset: 20,
+              placement: 'bottom',
+              portal: true,
+              style: { padding: '5px 12px 4px 12px' },
+              width: 40,
+            }}
             value={targetSlidingValue}
           />
         </div>
-        <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-          <div>{transientSlidingValues[0]}</div>
-          <div>{transientSlidingValues[1]}</div>
-        </Stack>
         <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
           <PrimaryButton
             iconProps={{
@@ -1155,7 +1132,6 @@ const sliderArgs: Object = {
   },
   railBorder: true,
   readOnly: false,
-  segments: null,
   showLabels: true,
   showMarkers: false,
   size: SliderSize.Medium,
@@ -1277,6 +1253,7 @@ With_Benchmark.args = {
   ...sliderArgs,
   hideMax: true,
   hideMin: true,
+  minLabelStyle: { textAlign: 'end', width: 96 },
   hideThumb: false,
   included: true,
   labelPosition: 'inline',
@@ -1286,31 +1263,12 @@ With_Benchmark.args = {
   max: 5,
   maxLabel: 'Worldclass',
   minLabel: 'Practitioner',
-  segments: [
-    {
-      value: 0,
-    },
-    {
-      value: 1,
-    },
-    {
-      value: 2,
-    },
-    {
-      value: 3,
-    },
-    {
-      value: 4,
-    },
-    {
-      value: 5,
-    },
-  ],
   showLabels: true,
   showMarkers: true,
   step: 0.1,
+  trackStatus: SliderTrackStatus.Error,
   type: 'default',
-  value: 2,
+  value: 0,
 };
 
 Data_Inactive.args = {
@@ -1322,9 +1280,42 @@ Data_Inactive.args = {
   included: false,
   labelPosition: 'inline',
   marks: {
-    1: upperAssessmentActiveMarker(),
-    2: roleBenchmarkInactiveMarker(),
-    3: lowerAssessmentActiveMarker(),
+    1: (
+      <Tooltip
+        content="Manager assessment (1)"
+        offset={20}
+        placement="bottom"
+        portal
+        style={{ padding: '5px 8px 4px 8px', pointerEvents: 'all' }}
+        theme={TooltipTheme.dark}
+      >
+        {upperAssessmentActiveMarker()}
+      </Tooltip>
+    ),
+    2: (
+      <Tooltip
+        content="Role benckmark (2)"
+        offset={20}
+        placement="bottom"
+        portal
+        style={{ padding: '5px 8px 4px 8px', pointerEvents: 'all' }}
+        theme={TooltipTheme.dark}
+      >
+        {roleBenchmarkInactiveMarker()}
+      </Tooltip>
+    ),
+    3: (
+      <Tooltip
+        content="Employee assessment (3)"
+        offset={20}
+        placement="bottom"
+        portal
+        style={{ padding: '5px 8px 4px 8px', pointerEvents: 'all' }}
+        theme={TooltipTheme.dark}
+      >
+        {lowerAssessmentActiveMarker()}
+      </Tooltip>
+    ),
   },
   max: 5,
   maxLabel: 'Worldclass',
@@ -1353,7 +1344,6 @@ Data_Active.args = {
   included: false,
   labelPosition: 'inline',
   marks: {
-    1: lowerAssessmentActiveMarker(),
     2: roleBenchmarkInactiveMarker(),
     3: upperAssessmentInactiveMarker(),
   },
@@ -1364,29 +1354,8 @@ Data_Active.args = {
   minLabel: 'Assess skill level',
   minLabelStyle: { textAlign: 'end', width: 96 },
   readOnly: true,
-  segments: [
-    {
-      value: 0,
-    },
-    {
-      value: 1,
-    },
-    {
-      value: 2,
-    },
-    {
-      value: 3,
-    },
-    {
-      value: 4,
-    },
-    {
-      value: 5,
-    },
-  ],
   showLabels: true,
   showMarkers: true,
-  trackStatus: SliderTrackStatus.Error,
   type: 'data',
-  value: [1, 3],
+  value: [0, 3],
 };

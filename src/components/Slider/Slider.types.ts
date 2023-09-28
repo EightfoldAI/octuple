@@ -63,13 +63,6 @@ export interface SliderMarker extends Marker {
   value: number;
 }
 
-export interface Segment {
-  /**
-   * The step value of the segment.
-   */
-  value: number;
-}
-
 export interface MarkProps {
   /**
    * The Mark renderer.
@@ -336,10 +329,6 @@ export interface SliderInputProps
    */
   readOnly?: boolean;
   /**
-   * The Slider segments.
-   */
-  segments?: Segment[];
-  /**
    * The Slider size.
    * @default SliderSize.Medium
    */
@@ -382,6 +371,7 @@ export interface SliderInputProps
   valueLabel?: string | string[];
   /**
    * Only display specific dots.
+   * Dots are mapped to steps.
    */
   visibleDots?: number[];
 }

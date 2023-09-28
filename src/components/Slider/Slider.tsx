@@ -108,7 +108,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       onChange,
       railBorder = true,
       readOnly = false,
-      segments,
       showLabels = true,
       showMarkers = false,
       size = SliderSize.Medium,
@@ -175,18 +174,21 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       )
     );
 
-    useEffect(() => {
-      if (segments) {
-        setMarkers(segments);
-      }
-    }, [segments]);
-
     const markerSegmentRefs: React.MutableRefObject<
       RefObject<HTMLDivElement>[]
-    > = useRef<RefObject<HTMLDivElement>[]>(null);
-    markerSegmentRefs.current = markers.map(
-      (_, i) => markerSegmentRefs.current?.[i] ?? createRef<HTMLDivElement>()
-    );
+    > = useRef<RefObject<HTMLDivElement>[]>([]);
+    markerSegmentRefs.current = markers
+      .filter((marker: SliderMarker) => Number.isInteger(marker.value))
+      .map(
+        (_, i) => markerSegmentRefs.current?.[i] ?? createRef<HTMLDivElement>()
+      );
+
+    const visibleSegments: number[] = markers
+      ?.filter((mark: SliderMarker) => Number.isInteger(mark.value))
+      .map((mark: SliderMarker) => Math.floor(mark.value));
+
+    // Then we hide the last segment because visually we only need n - 1 mapped markers to generate the visible segments.
+    visibleSegments?.pop();
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -332,20 +334,19 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       // The below calculation is as follows:
       // First we get the left position of the segment.
       // Then we get the width rounded to the lowest possible even number with a 2px spacer to account for borders.
-      // Then we hide the last segment because visually we only need n - 1 markers to generate the visible segments.
       if (showMarkers) {
         markerSegmentRefs.current?.forEach(
           (ref: React.RefObject<HTMLDivElement>, i: number) => {
             if (ref.current) {
               if (htmlDir === 'rtl') {
                 ref.current.style.right = `${getValueOffset(
-                  markers[i].value,
+                  visibleSegments[i],
                   thumbDiameter,
                   thumbRadius
                 )}px`;
               } else {
                 ref.current.style.left = `${getValueOffset(
-                  markers[i].value,
+                  visibleSegments[i],
                   thumbDiameter,
                   thumbRadius
                 )}px`;
@@ -354,7 +355,9 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 2 *
                   Math.round(
                     Math.floor(
-                      (inputWidth - thumbDiameter * 2) / (markers.length - 1)
+                      (inputWidth - thumbDiameter * 2) /
+                        visibleSegments.length -
+                        1
                     ) / 2
                   ) -
                 trackBorderOffset
@@ -820,47 +823,55 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               />
               {!!showMarkers && (
                 <div className={styles.railMarkerSegments}>
-                  {markers.map((mark: SliderMarker, index: number) => {
-                    return (
-                      <div
-                        className={mergeClasses(styles.railMarkerSegment, {
-                          [styles.railMarkerSegmentBorderHidden]:
-                            (!trackBorder &&
-                              isMarkerSegmentActive(mark.value)) ||
-                            (!railBorder && !isMarkerSegmentActive(mark.value)),
-                          [styles.data]: type === 'data',
-                          [styles.active]:
-                            !hideTrack && isMarkerSegmentActive(mark.value),
-                          [styles.success]:
-                            isMarkerSegmentActive(mark.value) &&
-                            !!trackStatus &&
-                            trackStatus === SliderTrackStatus.Success,
-                          [styles.warning]:
-                            isMarkerSegmentActive(mark.value) &&
-                            !!trackStatus &&
-                            trackStatus === SliderTrackStatus.Warning,
-                          [styles.error]:
-                            isMarkerSegmentActive(mark.value) &&
-                            !!trackStatus &&
-                            trackStatus === SliderTrackStatus.Error,
-                          [styles.railMarkerSegmentHidden]:
-                            index === markers.length - 1,
-                          [styles.railMarkerSegmentOpacity]:
-                            (!!hideRail &&
-                              !!hideTrack &&
-                              isMarkerSegmentActive(mark.value)) ||
-                            (!!hideRail && !isMarkerSegmentActive(mark.value)),
-                        })}
-                        key={index}
-                        onMouseDown={
-                          !allowDisabledFocus && !readOnly
-                            ? onSliderMouseDown
-                            : null
-                        }
-                        ref={markerSegmentRefs.current[index]}
-                      />
-                    );
-                  })}
+                  {markers
+                    .filter((marker: SliderMarker) =>
+                      Number.isInteger(marker.value)
+                    )
+                    .map((mark: SliderMarker, index: number) => {
+                      let railMarkerSegment: JSX.Element;
+                      if (index <= visibleSegments.length - 1) {
+                        railMarkerSegment = (
+                          <div
+                            className={mergeClasses(styles.railMarkerSegment, {
+                              [styles.railMarkerSegmentBorderHidden]:
+                                (!trackBorder &&
+                                  isMarkerSegmentActive(mark.value)) ||
+                                (!railBorder &&
+                                  !isMarkerSegmentActive(mark.value)),
+                              [styles.data]: type === 'data',
+                              [styles.active]:
+                                !hideTrack && isMarkerSegmentActive(mark.value),
+                              [styles.success]:
+                                isMarkerSegmentActive(mark.value) &&
+                                !!trackStatus &&
+                                trackStatus === SliderTrackStatus.Success,
+                              [styles.warning]:
+                                isMarkerSegmentActive(mark.value) &&
+                                !!trackStatus &&
+                                trackStatus === SliderTrackStatus.Warning,
+                              [styles.error]:
+                                isMarkerSegmentActive(mark.value) &&
+                                !!trackStatus &&
+                                trackStatus === SliderTrackStatus.Error,
+                              [styles.railMarkerSegmentOpacity]:
+                                (!!hideRail &&
+                                  !!hideTrack &&
+                                  isMarkerSegmentActive(mark.value)) ||
+                                (!!hideRail &&
+                                  !isMarkerSegmentActive(mark.value)),
+                            })}
+                            key={index}
+                            onMouseDown={
+                              !allowDisabledFocus && !readOnly
+                                ? onSliderMouseDown
+                                : null
+                            }
+                            ref={markerSegmentRefs.current[index]}
+                          />
+                        );
+                      }
+                      return railMarkerSegment;
+                    })}
                 </div>
               )}
               <Steps
