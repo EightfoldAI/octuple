@@ -1286,10 +1286,12 @@ Data_Inactive.args = {
         offset={20}
         placement="bottom"
         portal
-        style={{ padding: '5px 8px 4px 8px', pointerEvents: 'all' }}
+        style={{ padding: '5px 8px 4px 8px' }}
         theme={TooltipTheme.dark}
       >
-        {upperAssessmentActiveMarker()}
+        <div style={{ pointerEvents: 'all' }}>
+          {upperAssessmentActiveMarker()}
+        </div>
       </Tooltip>
     ),
     2: (
@@ -1298,10 +1300,12 @@ Data_Inactive.args = {
         offset={20}
         placement="bottom"
         portal
-        style={{ padding: '5px 8px 4px 8px', pointerEvents: 'all' }}
+        style={{ padding: '5px 8px 4px 8px' }}
         theme={TooltipTheme.dark}
       >
-        {roleBenchmarkInactiveMarker()}
+        <div style={{ pointerEvents: 'all' }}>
+          {roleBenchmarkInactiveMarker()}
+        </div>
       </Tooltip>
     ),
     3: (
@@ -1310,10 +1314,13 @@ Data_Inactive.args = {
         offset={20}
         placement="bottom"
         portal
-        style={{ padding: '5px 8px 4px 8px', pointerEvents: 'all' }}
+        style={{ padding: '5px 8px 4px 8px' }}
         theme={TooltipTheme.dark}
+        width={148}
       >
-        {lowerAssessmentActiveMarker()}
+        <div style={{ pointerEvents: 'all' }}>
+          {lowerAssessmentActiveMarker()}
+        </div>
       </Tooltip>
     ),
   },

@@ -205,9 +205,6 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   visibleArrow?: boolean;
   /**
    * Manually control the width of the Tooltip.
-   * Use only when TooltipType is Popup.
-   * Tooltip Default restricts width as its content
-   * should be informational text only.
    */
   width?: number;
   /**

@@ -31,7 +31,7 @@ export default function Mark(props: MarkProps) {
         e.stopPropagation();
       }}
       onClick={() => {
-        onClick(value);
+        onClick?.(value);
       }}
     >
       {children}
