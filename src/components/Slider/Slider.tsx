@@ -612,8 +612,15 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         percent = (clientX - left) / width;
       }
 
+      // Limit the number of decimal places to the step.
+      const getStepDecimal = (num: number) =>
+        (String(num).split('.')[1] || '').length;
+      const maxDecimalMapToStep: number = Math.max(getStepDecimal(step));
+
       const nextValue: number = mergedMin + percent * (mergedMax - mergedMin);
-      changeToCloseValue(formatValue(nextValue));
+      changeToCloseValue(
+        formatValue(Number(nextValue.toFixed(maxDecimalMapToStep)))
+      );
     };
 
     const handleChange = (newVal: number, index: number): void => {
@@ -886,9 +893,11 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               />
               <Marks
                 marks={markList}
-                onClick={
-                  !allowDisabledFocus && !readOnly ? changeToCloseValue : null
-                }
+                onClick={(value: number) => {
+                  if (!allowDisabledFocus && !readOnly) {
+                    changeToCloseValue(formatValue(value));
+                  }
+                }}
               />
               {values.map((val: number, index: number) => (
                 <Tooltip
