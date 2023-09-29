@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.46.0](https://github.com/EightfoldAI/octuple/compare/v2.45.0...v2.46.0) (2023-09-29)
+
+### Features
+
+- slider: support discreet segments or dots with improved labels ([#716](https://github.com/EightfoldAI/octuple/issues/716)) ([ced55de](https://github.com/EightfoldAI/octuple/commits/ced55deddeb0455ffb9b6da18f5880442dd3b36d))
+
+### Bug Fixes
+
+- use semantic card border color for cards ([#715](https://github.com/EightfoldAI/octuple/issues/715)) ([48560d0](https://github.com/EightfoldAI/octuple/commits/48560d05d47006d279df3e96b871e6995fe62fbb))
+
 ## [2.45.0](https://github.com/EightfoldAI/octuple/compare/v2.44.0...v2.45.0) (2023-09-21)
 
 ### Features
