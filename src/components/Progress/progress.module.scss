@@ -13,11 +13,6 @@
     margin-top: $space-xxs;
   }
 
-  &-outer {
-    display: inline-block;
-    width: 100%;
-  }
-
   &-inner {
     background: var(--progress-incomplete-background-color);
     border-radius: 100px;
@@ -30,6 +25,33 @@
 
     &.bordered {
       border-color: var(--progress-border-color);
+    }
+  }
+
+  &-outer {
+    display: inline-block;
+    width: 100%;
+
+    &-pill {
+      background: var(--progress-pill-background-color);
+      border: 1px solid transparent;
+      border-radius: $space-l;
+      line-height: $space-xxs;
+      padding: $space-xs;
+
+      &-bordered {
+        border-color: var(--progress-pill-outer-border-color);
+      }
+
+      .progress-inner {
+        background: var(--progress-pill-inner-background-color);
+        border-color: var(--progress-pill-inner-default-border-color);
+
+        &.bordered {
+          background: var(--progress-pill-inner-incomplete-background-color);
+          border-color: var(--progress-pill-inner-border-color);
+        }
+      }
     }
   }
 
@@ -111,21 +133,18 @@
   &-steps {
     display: inline-block;
 
-    &-outer {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-    }
-
     &-item {
       background: var(--progress-incomplete-background-color);
       border-radius: 100px;
       border: 1px solid transparent;
-      flex-shrink: 0;
       margin-bottom: $space-xxs;
       margin-right: $space-xxs;
       min-width: $space-xxxs;
       transition: background $motion-duration-extra-fast;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
 
       &.bordered {
         border-color: var(--progress-border-color);
@@ -133,6 +152,43 @@
 
       &-active {
         background: var(--progress-complete-background-color);
+      }
+    }
+
+    &-outer {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+
+      &-pill {
+        background: var(--progress-pill-background-color);
+        border: 1px solid transparent;
+        border-radius: $space-l;
+        line-height: $space-xxs;
+        padding: $space-xs;
+
+        &-bordered {
+          border-color: var(--progress-pill-outer-border-color);
+        }
+
+        .progress-steps-item {
+          background: var(--progress-pill-inner-background-color);
+          border-color: var(--progress-pill-inner-default-border-color);
+          margin-bottom: 0;
+
+          &.bordered {
+            background: var(--progress-pill-inner-incomplete-background-color);
+            border-color: var(--progress-pill-inner-border-color);
+
+            &.progress-steps-item-active {
+              background: var(--progress-pill-inner-complete-background-color);
+            }
+          }
+
+          &-active {
+            background: var(--progress-pill-inner-complete-background-color);
+          }
+        }
       }
     }
 
@@ -167,10 +223,52 @@
     }
 
     .progress-inner {
-      background: var(--disruptive-background1-color);
+      background: var(--progress-error-inner-background-color);
 
       &.bordered {
         border-color: var(--progress-error-border-color);
+      }
+    }
+
+    .progress-outer {
+      &-pill {
+        background: var(--progress-pill-error-background-color);
+
+        &-bordered {
+          border-color: var(--progress-pill-error-outer-border-color);
+        }
+
+        .progress-inner {
+          background: var(--progress-pill-error-inner-background-color);
+          border-color: var(--progress-pill-error-inner-default-border-color);
+
+          &.bordered {
+            border-color: var(--progress-pill-error-inner-border-color);
+          }
+        }
+      }
+    }
+
+    .progress-steps-outer {
+      &-pill {
+        background: var(--progress-pill-error-background-color);
+
+        &-bordered {
+          border-color: var(--progress-pill-error-outer-border-color);
+        }
+
+        .progress-steps-item {
+          background: var(--progress-pill-error-inner-background-color);
+          border-color: var(--progress-pill-error-inner-default-border-color);
+
+          &.bordered {
+            border-color: var(--progress-pill-error-inner-border-color);
+          }
+
+          &.progress-steps-item-active {
+            background: var(--progress-error-background-color);
+          }
+        }
       }
     }
 
@@ -201,8 +299,52 @@
     }
 
     .progress-inner {
+      background: var(--progress-success-inner-background-color);
+
       &.bordered {
         border-color: var(--progress-success-border-color);
+      }
+    }
+
+    .progress-outer {
+      &-pill {
+        background: var(--progress-pill-success-background-color);
+
+        &-bordered {
+          border-color: var(--progress-pill-success-outer-border-color);
+        }
+
+        .progress-inner {
+          background: var(--progress-pill-success-inner-background-color);
+          border-color: var(--progress-pill-success-inner-default-border-color);
+
+          &.bordered {
+            border-color: var(--progress-pill-success-inner-border-color);
+          }
+        }
+      }
+    }
+
+    .progress-steps-outer {
+      &-pill {
+        background: var(--progress-pill-success-background-color);
+
+        &-bordered {
+          border-color: var(--progress-pill-success-outer-border-color);
+        }
+
+        .progress-steps-item {
+          background: var(--progress-pill-success-inner-background-color);
+          border-color: var(--progress-pill-success-inner-default-border-color);
+
+          &.bordered {
+            border-color: var(--progress-pill-success-inner-border-color);
+          }
+
+          &.progress-steps-item-active {
+            background: var(--progress-success-background-color);
+          }
+        }
       }
     }
 
@@ -258,6 +400,18 @@
   &-small {
     &.progress-line {
       font-size: 6px;
+    }
+
+    .progress-outer {
+      &.progress-outer-pill {
+        padding: 6px;
+      }
+    }
+
+    .progress-steps-outer {
+      &.progress-steps-outer-pill {
+        padding: 6px;
+      }
     }
 
     .progress-icon {

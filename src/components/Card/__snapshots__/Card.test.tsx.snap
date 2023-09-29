@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Card Card is bordered 1`] = `
+<div>
+  <div
+    class="card card-bordered list card-medium"
+  >
+    <div
+      class="header"
+    >
+      This is the card header
+    </div>
+    <div
+      class="body"
+    >
+      This is the card body
+    </div>
+    <div
+      class="footer"
+    >
+      This is the card footer
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Card Card is large 1`] = `
 <div>
   <div

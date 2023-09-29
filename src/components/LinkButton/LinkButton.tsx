@@ -316,9 +316,20 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
             {getPrefixIcon()}
           </span>
         )}
-        {iconExists && !textExists && !prefixIconExists && getLinkButtonIcon()}
-        {counterExists && !textExists && !loading && (
+        {iconExists &&
+          !textExists &&
+          !prefixIconExists &&
+          !counterExists &&
+          getLinkButtonIcon()}
+        {counterExists && !textExists && !loading && !iconExists && (
           <Badge classNames={badgeClassNames}>{counter}</Badge>
+        )}
+        {iconExists && counterExists && !textExists && !loading && (
+          <span>
+            {getLinkButtonIcon()}
+            <Badge classNames={badgeClassNames}>{counter}</Badge>
+            {prefixIconExists && getPrefixIcon()}
+          </span>
         )}
         {iconExists && textExists && (
           <span>

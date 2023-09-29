@@ -132,6 +132,11 @@ Text_Area.args = {
   minlength: 0,
   name: 'myTextArea',
   placeholder: 'Placeholder text',
+  readonly: false,
+  readOnlyProps: {
+    iconProps: null,
+    noStyleChange: false,
+  },
   required: false,
   size: TextInputSize.Medium,
   shape: TextInputShape.Rectangle,

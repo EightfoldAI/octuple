@@ -55,6 +55,8 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       onReset,
       onSubmit,
       placeholder = 'Search',
+      readonly = false,
+      readOnlyProps,
       reset = false,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,
@@ -126,6 +128,8 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           onKeyDown={onKeyDown}
           onReset={onReset}
           placeholder={placeholder}
+          readonly={readonly}
+          readOnlyProps={readOnlyProps}
           reset={reset}
           shape={mergedShape}
           size={mergedSize}

@@ -6,6 +6,7 @@ import {
   ProgressProps,
   ProgressSize,
   ProgressStatuses,
+  ProgressVariant,
   StringGradients,
 } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
@@ -27,6 +28,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       maxLabel,
       minLabel,
       percent = 0,
+      pillBordered = true,
       showLabels = true,
       showPercentSymbol = true,
       showSuccessLabel = false,
@@ -37,6 +39,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       strokeColor,
       successLabel,
       type = 'line',
+      variant = ProgressVariant.Default,
       width,
       ...rest
     } = props;
@@ -238,7 +241,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
         }`
       ],
       (styles as any)[`progress-status-${progressStatus}`],
-      { [styles.progressSmall]: size === 'small' },
+      { [styles.progressSmall]: size === ProgressSize.Small },
       { [styles.progressRtl]: htmlDir === 'rtl' },
       classNames,
     ]);

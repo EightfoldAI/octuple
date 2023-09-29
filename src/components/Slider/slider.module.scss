@@ -11,8 +11,12 @@ $large-rail-top: $large-vertical-center - calc($large-track-height / 2);
 $large-marker-top: 0;
 $large-max-label-offset: 18px;
 $large-max-label-offset-with-steps: 9px;
+$large-max-label-text-only-offset: 16px;
+$large-max-label-text-only-offset-with-steps: 22px;
 $large-min-label-offset: 10px;
 $large-min-label-offset-with-steps: 0;
+$large-min-label-text-only-offset: 14px;
+$large-min-label-text-only-offset-with-steps: 14px;
 
 $medium-slider-height: 22px;
 $medium-slider-inline-margin: $space-xs;
@@ -24,8 +28,12 @@ $medium-rail-top: $medium-vertical-center - calc($medium-track-height / 2);
 $medium-marker-top: 0;
 $medium-max-label-offset: 13px;
 $medium-max-label-offset-with-steps: $space-xs;
+$medium-max-label-text-only-offset: 13px;
+$medium-max-label-text-only-offset-with-steps: 18px;
 $medium-min-label-offset: 8px;
 $medium-min-label-offset-with-steps: 0;
+$medium-min-label-text-only-offset: 11px;
+$medium-min-label-text-only-offset-with-steps: 11px;
 
 $small-slider-height: 16px;
 $small-slider-inline-margin: $space-xs;
@@ -36,8 +44,12 @@ $small-rail-top: $small-vertical-center - calc($small-track-height / 2);
 $small-marker-top: 0;
 $small-max-label-offset: 9px;
 $small-max-label-offset-with-steps: 5px;
+$small-max-label-text-only-offset: 9px;
+$small-max-label-text-only-offset-with-steps: 14px;
 $small-min-label-offset: 5px;
 $small-min-label-offset-with-steps: 0;
+$small-min-label-text-only-offset: 8px;
+$small-min-label-text-only-offset-with-steps: 8px;
 
 // Export values for typescript consumption.
 :export {
@@ -235,10 +247,6 @@ $small-min-label-offset-with-steps: 0;
     position: absolute;
     top: $medium-marker-top;
 
-    &-hidden {
-      display: none;
-    }
-
     &-opacity {
       opacity: 0;
     }
@@ -315,6 +323,18 @@ $small-min-label-offset-with-steps: 0;
     &.min-label {
       left: $medium-min-label-offset;
       width: $space-xs;
+    }
+
+    &.max-label-text-only:not(.extremity-label-inline) {
+      right: $medium-max-label-text-only-offset;
+      width: auto;
+      white-space: nowrap;
+    }
+
+    &.min-label-text-only:not(.extremity-label-inline) {
+      left: $medium-min-label-text-only-offset;
+      width: auto;
+      white-space: nowrap;
     }
 
     &-inline {
@@ -447,6 +467,14 @@ $small-min-label-offset-with-steps: 0;
       &.min-label {
         left: $medium-min-label-offset-with-steps;
       }
+
+      &.max-label-text-only:not(.extremity-label-inline) {
+        right: $medium-max-label-text-only-offset-with-steps;
+      }
+
+      &.min-label-text-only:not(.extremity-label-inline) {
+        left: $medium-min-label-text-only-offset-with-steps;
+      }
     }
 
     .thumb {
@@ -553,6 +581,14 @@ $small-min-label-offset-with-steps: 0;
         left: $large-min-label-offset;
       }
 
+      &.max-label-text-only:not(.extremity-label-inline) {
+        right: $large-max-label-text-only-offset;
+      }
+
+      &.min-label-text-only:not(.extremity-label-inline) {
+        left: $large-min-label-text-only-offset;
+      }
+
       &-inline {
         margin-top: $space-xxs;
 
@@ -626,6 +662,14 @@ $small-min-label-offset-with-steps: 0;
 
         &.min-label {
           left: $large-min-label-offset-with-steps;
+        }
+
+        &.max-label-text-only:not(.extremity-label-inline) {
+          right: $large-max-label-text-only-offset-with-steps;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: $large-min-label-text-only-offset-with-steps;
         }
       }
 
@@ -708,6 +752,14 @@ $small-min-label-offset-with-steps: 0;
         left: $medium-min-label-offset;
       }
 
+      &.max-label-text-only:not(.extremity-label-inline) {
+        right: $medium-max-label-text-only-offset;
+      }
+
+      &.min-label-text-only:not(.extremity-label-inline) {
+        left: $medium-min-label-text-only-offset;
+      }
+
       &-inline {
         margin-top: $space-xxxs;
 
@@ -781,6 +833,14 @@ $small-min-label-offset-with-steps: 0;
 
         &.min-label {
           left: $medium-min-label-offset-with-steps;
+        }
+
+        &.max-label-text-only:not(.extremity-label-inline) {
+          right: $medium-max-label-text-only-offset-with-steps;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: $medium-min-label-text-only-offset-with-steps;
         }
       }
 
@@ -866,6 +926,14 @@ $small-min-label-offset-with-steps: 0;
         left: $small-min-label-offset;
       }
 
+      &.max-label-text-only:not(.extremity-label-inline) {
+        right: $small-max-label-text-only-offset;
+      }
+
+      &.min-label-text-only:not(.extremity-label-inline) {
+        left: $small-min-label-text-only-offset;
+      }
+
       &-inline {
         margin-top: 0;
 
@@ -942,6 +1010,14 @@ $small-min-label-offset-with-steps: 0;
         &.min-label {
           left: $small-min-label-offset-with-steps;
         }
+
+        &.max-label-text-only:not(.extremity-label-inline) {
+          right: $small-max-label-text-only-offset-with-steps;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: $small-min-label-text-only-offset-with-steps;
+        }
       }
 
       .thumb {
@@ -992,6 +1068,16 @@ $small-min-label-offset-with-steps: 0;
         right: $medium-min-label-offset;
       }
 
+      &.max-label-text-only:not(.extremity-label-inline) {
+        left: $medium-max-label-text-only-offset;
+        right: unset;
+      }
+
+      &.min-label-text-only:not(.extremity-label-inline) {
+        left: unset;
+        right: $medium-min-label-text-only-offset;
+      }
+
       &-inline {
         &.max-label {
           left: unset;
@@ -1029,6 +1115,16 @@ $small-min-label-offset-with-steps: 0;
         &.min-label {
           left: unset;
           right: $medium-min-label-offset-with-steps;
+        }
+
+        &.max-label-text-only:not(.extremity-label-inline) {
+          left: $medium-max-label-text-only-offset-with-steps;
+          right: unset;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: unset;
+          right: $medium-min-label-text-only-offset-with-steps;
         }
       }
 
@@ -1080,6 +1176,16 @@ $small-min-label-offset-with-steps: 0;
           right: $large-min-label-offset;
         }
 
+        &.max-label-text-only:not(.extremity-label-inline) {
+          left: $large-max-label-text-only-offset;
+          right: unset;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: unset;
+          right: $large-min-label-text-only-offset;
+        }
+
         &-inline {
           &.max-label {
             left: unset;
@@ -1117,6 +1223,16 @@ $small-min-label-offset-with-steps: 0;
           &.min-label {
             left: unset;
             right: $large-min-label-offset-with-steps;
+          }
+
+          &.max-label-text-only:not(.extremity-label-inline) {
+            left: $large-max-label-text-only-offset-with-steps;
+            right: unset;
+          }
+
+          &.min-label-text-only:not(.extremity-label-inline) {
+            left: unset;
+            right: $large-min-label-text-only-offset-with-steps;
           }
         }
 
@@ -1162,6 +1278,16 @@ $small-min-label-offset-with-steps: 0;
           right: $medium-min-label-offset;
         }
 
+        &.max-label-text-only:not(.extremity-label-inline) {
+          left: $medium-max-label-text-only-offset;
+          right: unset;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: unset;
+          right: $medium-min-label-text-only-offset;
+        }
+
         &-inline {
           &.max-label {
             left: unset;
@@ -1199,6 +1325,16 @@ $small-min-label-offset-with-steps: 0;
           &.min-label {
             left: unset;
             right: $medium-min-label-offset-with-steps;
+          }
+
+          &.max-label-text-only:not(.extremity-label-inline) {
+            left: $medium-max-label-text-only-offset-with-steps;
+            right: unset;
+          }
+
+          &.min-label-text-only:not(.extremity-label-inline) {
+            left: unset;
+            right: $medium-min-label-text-only-offset-with-steps;
           }
         }
 
@@ -1244,6 +1380,16 @@ $small-min-label-offset-with-steps: 0;
           right: $small-min-label-offset;
         }
 
+        &.max-label-text-only:not(.extremity-label-inline) {
+          left: $small-max-label-text-only-offset;
+          right: unset;
+        }
+
+        &.min-label-text-only:not(.extremity-label-inline) {
+          left: unset;
+          right: $small-min-label-text-only-offset;
+        }
+
         &-inline {
           &.max-label {
             left: unset;
@@ -1281,6 +1427,16 @@ $small-min-label-offset-with-steps: 0;
           &.min-label {
             left: unset;
             right: $small-min-label-offset-with-steps;
+          }
+
+          &.max-label-text-only:not(.extremity-label-inline) {
+            left: $small-max-label-text-only-offset-with-steps;
+            right: unset;
+          }
+
+          &.min-label-text-only:not(.extremity-label-inline) {
+            left: unset;
+            right: $small-min-label-text-only-offset-with-steps;
           }
         }
 
