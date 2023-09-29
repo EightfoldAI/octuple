@@ -1316,7 +1316,7 @@ Data_Inactive.args = {
         portal
         style={{ padding: '5px 8px 4px 8px' }}
         theme={TooltipTheme.dark}
-        width={148}
+        maxWidth={148}
       >
         <div style={{ pointerEvents: 'all' }}>
           {lowerAssessmentActiveMarker()}
