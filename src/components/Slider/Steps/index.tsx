@@ -38,8 +38,8 @@ export default function Steps(props: StepsProps) {
     }
 
     // Discreet dots
-    if (visibleDots) {
-      visibleDots?.forEach((dot) => {
+    if (visibleDots?.length) {
+      visibleDots.forEach((dot) => {
         dotSet.add(dot);
       });
     }
