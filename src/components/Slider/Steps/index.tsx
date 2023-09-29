@@ -6,20 +6,30 @@ import Dot from './Dot';
 import styles from '../slider.module.scss';
 
 export default function Steps(props: StepsProps) {
-  const { activeStyle, classNames, dots, marks, style, trackStatus, type } =
-    props;
+  const {
+    activeStyle,
+    classNames,
+    dots,
+    marks,
+    style,
+    trackStatus,
+    type,
+    visibleDots,
+  } = props;
   const { min, max, step } = React.useContext(SliderContext);
 
   const stepDots = React.useMemo(() => {
     const dotSet: Set<number> = new Set<number>();
 
     // Add marks
-    marks.forEach((mark) => {
-      dotSet.add(mark.value);
-    });
+    if (!visibleDots) {
+      marks?.forEach((mark) => {
+        dotSet.add(mark.value);
+      });
+    }
 
     // Fill dots
-    if (dots && step !== null) {
+    if (dots && step !== null && !visibleDots) {
       let current: number = min;
       while (current <= max) {
         dotSet.add(current);
@@ -27,8 +37,14 @@ export default function Steps(props: StepsProps) {
       }
     }
 
+    // Discreet dots
+    if (visibleDots?.length) {
+      visibleDots.forEach((dot) => {
+        dotSet.add(dot);
+      });
+    }
     return Array.from(dotSet);
-  }, [min, max, step, dots, marks]);
+  }, [min, max, step, dots, marks, visibleDots]);
 
   return (
     <div className={styles.sliderStep}>

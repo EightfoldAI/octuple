@@ -84,6 +84,10 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   height?: number;
   /**
+   * Manually control the maximum width of the Tooltip.
+   */
+  maxWidth?: number;
+  /**
    * Manually control the minimum height of the Tooltip.
    */
   minHeight?: number;
@@ -205,9 +209,6 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   visibleArrow?: boolean;
   /**
    * Manually control the width of the Tooltip.
-   * Use only when TooltipType is Popup.
-   * Tooltip Default restricts width as its content
-   * should be informational text only.
    */
   width?: number;
   /**

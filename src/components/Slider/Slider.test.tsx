@@ -197,6 +197,24 @@ describe('Slider', () => {
     );
   });
 
+  test('should render dots correctly when `dots=true` and visibleDots', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} dots visibleDots={[20, 49]} />
+    );
+    expect(container1.getElementsByClassName('slider-dot')).toHaveLength(2);
+    expect(container1.getElementsByClassName('slider-dot-active')).toHaveLength(
+      2
+    );
+
+    const { container: container2 } = render(
+      <Slider value={[20, 50]} step={10} dots visibleDots={[30, 60]} />
+    );
+    expect(container2.getElementsByClassName('slider-dot')).toHaveLength(2);
+    expect(container2.getElementsByClassName('slider-dot-active')).toHaveLength(
+      1
+    );
+  });
+
   test('should render dots with custom class', () => {
     const { container: container1 } = render(
       <Slider value={50} step={10} dots dotClassNames="dot-test-class" />
@@ -349,5 +367,41 @@ describe('Slider', () => {
     expect(
       container1.getElementsByClassName('slider-track-opacity')
     ).toHaveLength(1);
+  });
+
+  test('should render segments correctly when step is an integer', () => {
+    const { container: container1 } = render(
+      <Slider min={0} max={5} value={4} step={1} showMarkers />
+    );
+    expect(
+      container1.getElementsByClassName('rail-marker-segment')
+    ).toHaveLength(5);
+    expect(container1.getElementsByClassName('active')).toHaveLength(4);
+
+    const { container: container2 } = render(
+      <Slider min={0} max={5} value={[1, 4]} step={1} showMarkers />
+    );
+    expect(
+      container2.getElementsByClassName('rail-marker-segment')
+    ).toHaveLength(5);
+    expect(container2.getElementsByClassName('active')).toHaveLength(3);
+  });
+
+  test('should render segments correctly when step is a decimal', () => {
+    const { container: container1 } = render(
+      <Slider min={0} max={5} value={4} step={0.1} showMarkers />
+    );
+    expect(
+      container1.getElementsByClassName('rail-marker-segment')
+    ).toHaveLength(5);
+    expect(container1.getElementsByClassName('active')).toHaveLength(4);
+
+    const { container: container2 } = render(
+      <Slider min={0} max={5} value={[1, 4]} step={0.1} showMarkers />
+    );
+    expect(
+      container2.getElementsByClassName('rail-marker-segment')
+    ).toHaveLength(5);
+    expect(container2.getElementsByClassName('active')).toHaveLength(3);
   });
 });
