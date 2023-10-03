@@ -4,7 +4,7 @@ exports[`Skill Skill block renders 1`] = `
 <div>
   <div
     class="skill animate block white medium"
-    id="5y1cehj"
+    id="bj4wupb"
     tabindex="0"
   >
     <div
@@ -125,7 +125,7 @@ exports[`Skill Skill closes an expandable block 1`] = `
     aria-expanded="false"
     class="skill block clickable white medium"
     data-testid="skill-block-3"
-    id="v8khruq"
+    id="65dbdol"
     tabindex="0"
   >
     <div
@@ -237,7 +237,7 @@ exports[`Skill Skill closes an expandable block 1`] = `
       </div>
     </div>
     <div
-      style="height: 0px; opacity: 0;"
+      style="height: 0px; opacity: 1;"
     >
       <div
         class="expanded-content"
@@ -260,7 +260,7 @@ exports[`Skill Skill is a clickable block 1`] = `
   <div
     class="skill animate block clickable white medium"
     data-testid="skill-block-1"
-    id="lepa70x"
+    id="emn0xgy"
     tabindex="0"
   >
     <div
@@ -380,7 +380,7 @@ exports[`Skill Skill is a clickable tag 1`] = `
   <div
     class="skill animate tag clickable white medium"
     data-testid="skill-tag-1"
-    id="th2lzge"
+    id="hbgztmw"
     tabindex="0"
   >
     <div
@@ -407,7 +407,7 @@ exports[`Skill Skill is a default block 1`] = `
 <div>
   <div
     class="skill animate block white medium"
-    id="mo9g6zq"
+    id="tb37g6e"
     tabindex="0"
   >
     <div
@@ -526,7 +526,7 @@ exports[`Skill Skill is a default tag 1`] = `
 <div>
   <div
     class="skill animate tag white medium"
-    id="ppozvpl"
+    id="448ixny"
     tabindex="0"
   >
     <div
@@ -553,7 +553,7 @@ exports[`Skill Skill is a highlight block 1`] = `
 <div>
   <div
     class="skill animate block highlight medium"
-    id="g0zdhnb"
+    id="zxxwby2"
     tabindex="0"
   >
     <div
@@ -688,7 +688,7 @@ exports[`Skill Skill is a highlight tag 1`] = `
 <div>
   <div
     class="skill animate tag highlight medium"
-    id="wm650jp"
+    id="io8m35s"
     tabindex="0"
   >
     <div
@@ -733,7 +733,7 @@ exports[`Skill Skill is a hoverable, expandable block 1`] = `
     aria-expanded="false"
     class="skill animate block hoverable white medium"
     data-testid="skill-block-4"
-    id="mpdohcb"
+    id="svuzwog"
     tabindex="0"
   >
     <div
@@ -845,7 +845,7 @@ exports[`Skill Skill is a hoverable, expandable block 1`] = `
       </div>
     </div>
     <div
-      style="height: 0px; opacity: 0.022634843307857987;"
+      style="height: 0px; opacity: 0;"
     >
       <div
         class="expanded-content"
@@ -867,7 +867,7 @@ exports[`Skill Skill is a large tag 1`] = `
 <div>
   <div
     class="skill animate tag white large"
-    id="jke2m37"
+    id="fi9s4ff"
     tabindex="0"
   >
     <div
@@ -894,7 +894,7 @@ exports[`Skill Skill is a match block 1`] = `
 <div>
   <div
     class="skill animate block match medium"
-    id="ul3x4no"
+    id="7rzmhkg"
     tabindex="0"
   >
     <div
@@ -1029,7 +1029,7 @@ exports[`Skill Skill is a match tag 1`] = `
 <div>
   <div
     class="skill animate tag match medium"
-    id="uqylksl"
+    id="m8sirl8"
     tabindex="0"
   >
     <div
@@ -1072,7 +1072,7 @@ exports[`Skill Skill is a small tag 1`] = `
 <div>
   <div
     class="skill animate tag white small"
-    id="4j18qh6"
+    id="yo4bilp"
     tabindex="0"
   >
     <div
@@ -1099,7 +1099,7 @@ exports[`Skill Skill is a xsmall tag 1`] = `
 <div>
   <div
     class="skill animate tag white xsmall"
-    id="qgyldz2"
+    id="86k1w0x"
     tabindex="0"
   >
     <div
@@ -1128,7 +1128,7 @@ exports[`Skill Skill is an expandable block 1`] = `
     aria-expanded="true"
     class="skill animate block clickable white medium"
     data-testid="skill-block-2"
-    id="vhpf645"
+    id="vvvwp6y"
     tabindex="0"
   >
     <div
@@ -1266,7 +1266,7 @@ exports[`Skill Skill overflow item menu 1`] = `
   <div
     aria-expanded="false"
     class="skill animate block clickable white medium"
-    id="t6o3b7n"
+    id="fi567et"
     tabindex="0"
   >
     <div
@@ -1460,7 +1460,7 @@ exports[`Skill Skill tag has a dropdown 1`] = `
       aria-haspopup="true"
       class="reference-wrapper skill animate tag clickable white medium dropdown"
       data-testid="skill-tag-2"
-      id="0dhqfie"
+      id="rcc9wta"
       role="button"
       tabindex="0"
     >
@@ -1516,7 +1516,7 @@ exports[`Skill Skill tag has a popup 1`] = `
       class="skill animate tag clickable white medium tooltip-reference"
       data-reference-id="popup--reference"
       data-testid="skill-tag-3"
-      id="3rw78dh"
+      id="4io5f4k"
       role="button"
       tabindex="0"
     >
@@ -1569,7 +1569,7 @@ exports[`Skill Skill tag has a tooltip 1`] = `
       class="skill animate tag clickable white medium tooltip-reference"
       data-reference-id="tooltip--reference"
       data-testid="skill-tag-4"
-      id="9k7evkd"
+      id="ubfllyc"
       tabindex="0"
     >
       <div
@@ -1597,7 +1597,7 @@ exports[`Skill Skill tag is closable 1`] = `
 <div>
   <div
     class="skill animate tag white medium"
-    id="tcc5kwl"
+    id="3ts4gyk"
     tabindex="0"
   >
     <div
@@ -1655,7 +1655,7 @@ exports[`Skill Skill tag is disabled 1`] = `
 <div>
   <div
     class="skill animate tag white medium disabled"
-    id="vq9ucud"
+    id="0tv9bfg"
     tabindex="0"
   >
     <div
@@ -1682,7 +1682,7 @@ exports[`Skill Skill tag is readonly 1`] = `
 <div>
   <div
     class="skill animate tag white medium readonly"
-    id="p8qkxv7"
+    id="9ch0whp"
     tabindex="0"
   >
     <div
@@ -1709,7 +1709,7 @@ exports[`Skill Skill tag renders 1`] = `
 <div>
   <div
     class="skill animate tag white medium"
-    id="d4bzrsw"
+    id="474sk7f"
     tabindex="0"
   >
     <div
@@ -1737,7 +1737,7 @@ exports[`Skill Skill tag uses custom props 1`] = `
   <div
     class="skill tag clickable test-skill highlight medium"
     data-testid="skill-tag-5"
-    id="ujfq6et"
+    id="o52tff4"
     style="color: rgb(255, 255, 255); height: 80px; width: 840px;"
     tabindex="0"
     title="Test Skill"
