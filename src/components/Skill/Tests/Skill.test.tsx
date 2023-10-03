@@ -120,32 +120,38 @@ describe('Skill', () => {
   });
 
   test('Skill tag renders', () => {
-    const { container } = render(<Skill label="test skill" />);
+    const { container } = render(<Skill id="testSkill" label="test skill" />);
     expect(() => container).not.toThrowError();
     expect(container).toMatchSnapshot();
   });
 
   test('Skill tag is disabled', () => {
-    const { container } = render(<Skill disabled label="test skill" />);
+    const { container } = render(
+      <Skill disabled id="testSkill" label="test skill" />
+    );
     expect(container.getElementsByClassName('disabled')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
   test('Skill tag is readonly', () => {
-    const { container } = render(<Skill readonly label="test skill" />);
+    const { container } = render(
+      <Skill id="testSkill" label="test skill" readonly />
+    );
     expect(container.getElementsByClassName('read-only')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
   test('Skill tag is closable', () => {
-    const { container } = render(<Skill closable label="test skill" />);
+    const { container } = render(
+      <Skill closable id="testSkill" label="test skill" />
+    );
     expect(container.getElementsByClassName('button')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
   test('Skill is a default tag', () => {
     const { container } = render(
-      <Skill label="test skill" variant={SkillVariant.Tag} />
+      <Skill id="testSkill" label="test skill" variant={SkillVariant.Tag} />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
     expect(container.getElementsByClassName('medium')).toBeTruthy();
@@ -156,6 +162,7 @@ describe('Skill', () => {
   test('Skill is a large tag', () => {
     const { container } = render(
       <Skill
+        id="testSkill"
         label="test skill"
         size={SkillSize.Large}
         variant={SkillVariant.Tag}
@@ -169,6 +176,7 @@ describe('Skill', () => {
   test('Skill is a small tag', () => {
     const { container } = render(
       <Skill
+        id="testSkill"
         label="test skill"
         size={SkillSize.Small}
         variant={SkillVariant.Tag}
@@ -182,6 +190,7 @@ describe('Skill', () => {
   test('Skill is a xsmall tag', () => {
     const { container } = render(
       <Skill
+        id="testSkill"
         label="test skill"
         size={SkillSize.XSmall}
         variant={SkillVariant.Tag}
@@ -195,6 +204,7 @@ describe('Skill', () => {
   test('Skill is a highlight tag', () => {
     const { container } = render(
       <Skill
+        id="testSkill"
         label="test skill"
         status={SkillStatus.Highlight}
         variant={SkillVariant.Tag}
@@ -208,6 +218,7 @@ describe('Skill', () => {
   test('Skill is a match tag', () => {
     const { container } = render(
       <Skill
+        id="testSkill"
         label="test skill"
         status={SkillStatus.Match}
         variant={SkillVariant.Tag}
@@ -225,6 +236,7 @@ describe('Skill', () => {
         <Skill
           clickable
           data-testid="skill-tag-1"
+          id="testSkill"
           label={`test skill ${total}`}
           onClick={() => setTotal(12)}
           variant={SkillVariant.Tag}
@@ -254,6 +266,7 @@ describe('Skill', () => {
           overlay: Overlay(),
           portal: true,
         }}
+        id="testSkill"
         label="test skill"
       />
     );
@@ -273,12 +286,13 @@ describe('Skill', () => {
       <Skill
         clickable
         data-testid="skill-tag-3"
+        id="testSkill"
+        label="test skill"
         popupProps={{
           content: 'test popup',
           'data-testid': 'test-popup',
           portal: true,
         }}
-        label="test skill"
       />
     );
     const skillTagTestElement: HTMLElement = getByTestId(
@@ -297,11 +311,12 @@ describe('Skill', () => {
       <Skill
         clickable
         data-testid="skill-tag-4"
+        id="testSkill"
+        label="test skill"
         tooltipProps={{
           content: 'test tooltip',
           portal: true,
         }}
-        label="test skill"
       />
     );
     const skillTagTestElement: HTMLElement = getByTestId(
@@ -327,6 +342,7 @@ describe('Skill', () => {
         expanded
         expandedContentClassNames="test-expanded-content"
         height={80}
+        id="testSkill"
         label="test skill"
         status={SkillStatus.Highlight}
         title="Test Skill"
@@ -366,6 +382,7 @@ describe('Skill', () => {
     const { container } = render(
       <Skill
         content={getStaticSlider()}
+        id="testSkill"
         label="test skill"
         variant={SkillVariant.Block}
       />
@@ -378,6 +395,7 @@ describe('Skill', () => {
     const { container } = render(
       <Skill
         content={getStaticSlider()}
+        id="testSkill"
         label="test skill"
         variant={SkillVariant.Block}
       />
@@ -391,6 +409,7 @@ describe('Skill', () => {
     const { container } = render(
       <Skill
         content={getStaticSlider()}
+        id="testSkill"
         label="test skill"
         status={SkillStatus.Highlight}
         variant={SkillVariant.Block}
@@ -405,6 +424,7 @@ describe('Skill', () => {
     const { container } = render(
       <Skill
         content={getStaticSlider()}
+        id="testSkill"
         label="test skill"
         status={SkillStatus.Match}
         variant={SkillVariant.Block}
@@ -423,6 +443,7 @@ describe('Skill', () => {
           clickable
           content={getStaticSlider()}
           data-testid="skill-block-1"
+          id="testSkill"
           label={`test skill ${total}`}
           onClick={() => {
             setTotal(12);
@@ -457,6 +478,7 @@ describe('Skill', () => {
         }
         content={getStaticSlider()}
         data-testid="skill-block-2"
+        id="testSkill"
         label="test skill"
         variant={SkillVariant.Block}
       />
@@ -492,6 +514,7 @@ describe('Skill', () => {
         }
         content={getStaticSlider()}
         data-testid="skill-block-3"
+        id="testSkill"
         label="test skill"
         variant={SkillVariant.Block}
       />
@@ -529,6 +552,7 @@ describe('Skill', () => {
         }
         content={getStaticSlider()}
         data-testid="skill-block-4"
+        id="testSkill"
         label="test skill"
         variant={SkillVariant.Block}
       />
@@ -562,6 +586,7 @@ describe('Skill', () => {
           <div data-testid="test-expandable-content">Expandable content.</div>
         }
         content={getStaticSlider()}
+        id="testSkill"
         label="test skill"
         itemMenuButtonProps={{
           'data-testid': 'test-item-menu',
