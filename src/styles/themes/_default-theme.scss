@@ -1421,7 +1421,7 @@
   --progress-text-color: var(--text-primary-color);
   // ------ Progress theme ------
 
-  // ------ Skill Card theme ------
+  // ------ Skill theme ------
   --skill-border-color: var(--grey-background2-color);
   --skill-border-width: 1px;
   --skill-border-style: solid;
@@ -1458,12 +1458,12 @@
   --skill-button-counter-default-text-color: var(
     --button-neutral-counter-default-text-color
   );
-  --skill-divider-color: var(--grey-color);
-  --skill-divider-active-color: var(--grey-tertiary-color);
-  --skill-divider-hover-color: var(--grey-tertiary-color);
+  --skill-divider-color: var(--grey-background2-color);
+  --skill-divider-active-color: var(--grey-background3-color);
+  --skill-divider-hover-color: var(--grey-background3-color);
   --skill-large-size-border-radius: var(--border-radius-m);
   --skill-medium-size-border-radius: var(--border-radius-m);
   --skill-small-size-border-radius: var(--border-radius-s);
   --skill-xsmall-size-border-radius: var(--border-radius-s);
-  // ------ Skill Card theme ------
+  // ------ Skill theme ------
 }

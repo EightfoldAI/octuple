@@ -23,14 +23,17 @@ export const Skill: FC<SkillProps> = React.forwardRef(
   (props: SkillProps, ref: Ref<HTMLDivElement>) => {
     const {
       allowDisabledFocus = false,
+      animate = true,
       background,
       classNames,
       clickable = false,
       closable = false,
+      closeButtonAriaLabel,
       closeButtonProps,
       color,
       content,
       contentClassNames,
+      customButtonProps,
       disabled = false,
       dropdownProps,
       dropshadow = false,
@@ -39,13 +42,13 @@ export const Skill: FC<SkillProps> = React.forwardRef(
       expanded = false,
       expandedContent,
       expandedContentClassNames,
-      hashingFunction,
       height,
       highlightButtonProps,
       hoverable = false,
       iconProps,
       id,
       itemMenuAriaLabel,
+      itemMenuButtonProps,
       key,
       label,
       lineClamp,
@@ -64,6 +67,7 @@ export const Skill: FC<SkillProps> = React.forwardRef(
       size = SkillSize.Medium,
       status = SkillStatus.Default,
       style,
+      tabIndex = 0,
       theme = 'white',
       title,
       tooltipProps,
@@ -82,24 +86,34 @@ export const Skill: FC<SkillProps> = React.forwardRef(
     const [containerRef, containerBounds] = useMeasure();
     const expandingSpringProps = useSpring({
       height: skillExpanded ? containerBounds.height : 0,
+      immediate: !animate,
       opacity: skillExpanded ? 1 : 0,
     });
 
-    const skillSizeToButtonSizeMap = new Map<SkillSize, ButtonSize>([
+    const skillSizeToButtonSizeMap: Map<SkillSize, ButtonSize> = new Map<
+      SkillSize,
+      ButtonSize
+    >([
       [SkillSize.Large, ButtonSize.Medium],
       [SkillSize.Medium, ButtonSize.Small],
       [SkillSize.Small, ButtonSize.Small],
       [SkillSize.XSmall, ButtonSize.Small],
     ]);
 
-    const skillSizeToIconSizeMap = new Map<SkillSize, IconSize>([
+    const skillSizeToIconSizeMap: Map<SkillSize, IconSize> = new Map<
+      SkillSize,
+      IconSize
+    >([
       [SkillSize.Large, IconSize.Medium],
       [SkillSize.Medium, IconSize.Small],
       [SkillSize.Small, IconSize.XSmall],
       [SkillSize.XSmall, IconSize.XSmall],
     ]);
 
-    const skillStatusToIconNameMap = new Map<SkillStatus, IconName>([
+    const skillStatusToIconNameMap: Map<SkillStatus, IconName> = new Map<
+      SkillStatus,
+      IconName
+    >([
       [SkillStatus.Default, null],
       [SkillStatus.Highlight, IconName.mdiStar],
       [SkillStatus.Match, IconName.mdiCheck],
@@ -122,6 +136,7 @@ export const Skill: FC<SkillProps> = React.forwardRef(
 
     const skillClassNames: string = mergeClasses([
       styles.skill,
+      { [styles.animate]: !!animate },
       { [styles.block]: variant === SkillVariant.Block },
       { [styles.tag]: variant === SkillVariant.Tag },
       { [styles.clickable]: !!clickable },
@@ -149,22 +164,37 @@ export const Skill: FC<SkillProps> = React.forwardRef(
     const previousSkillWrapperBounds: DOMRectReadOnly =
       usePreviousState(skillWrapperBounds);
 
-    useEffect(() => {
+    useEffect((): void => {
       updateDimension?.(
         previousSkillWrapperBounds &&
           skillWrapperBounds.height === previousSkillWrapperBounds?.height
       );
     }, [skillWrapperBounds?.height, previousSkillWrapperBounds?.height]);
 
-    useEffect(() => {
-      if (expandable) {
-        if (variant === SkillVariant.Block) {
-          setSkillExpanded(expanded);
-        } else {
-          setSkillExpanded(false);
-        }
+    useEffect((): void => {
+      if (expandable && variant === SkillVariant.Block) {
+        setSkillExpanded(expanded);
+      } else {
+        setSkillExpanded(false);
       }
     }, [expandable, expanded, variant]);
+
+    useEffect((): void => {
+      const skillElement: HTMLElement = document.getElementById(
+        `${skillId?.current}`
+      );
+      if (expandable && variant === SkillVariant.Block) {
+        skillElement.setAttribute('aria-expanded', `${skillExpanded}`);
+      } else {
+        if (
+          !dropdownProps &&
+          !popupProps &&
+          skillElement.hasAttribute('aria-expanded')
+        ) {
+          skillElement.removeAttribute('aria-expanded');
+        }
+      }
+    }, [expandable, skillExpanded, variant]);
 
     const getSkill = (children: ReactNode): ReactNode => (
       <div
@@ -247,8 +277,8 @@ export const Skill: FC<SkillProps> = React.forwardRef(
             setSkillExpanded(false);
           }
         }}
-        style={{ ...style, background, color, height, width }}
-        tabIndex={0}
+        style={{ ...style, color, height, width }}
+        tabIndex={tabIndex}
         title={title}
         ref={mergedRef}
       >
@@ -269,6 +299,7 @@ export const Skill: FC<SkillProps> = React.forwardRef(
               setSkillExpanded((value) => !value);
             }
           }}
+          style={{ background }}
         ></div>
         <div className={styles.content}>{children}</div>
         {variant === SkillVariant.Block && (
@@ -303,6 +334,7 @@ export const Skill: FC<SkillProps> = React.forwardRef(
         <div className={styles.blockStart}>
           {!!iconProps && status === SkillStatus.Default && (
             <Icon
+              style={{ color }}
               {...iconProps}
               size={skillSizeToIconSizeMap.get(size)}
               classNames={styles.icon}
@@ -310,14 +342,17 @@ export const Skill: FC<SkillProps> = React.forwardRef(
           )}
           {status !== SkillStatus.Default && (
             <Icon
+              classNames={styles.icon}
               path={skillStatusToIconNameMap.get(status)}
               size={skillSizeToIconSizeMap.get(size)}
-              classNames={styles.icon}
+              style={{ color }}
             />
           )}
           <span
             className={tagLabelClassNames}
-            style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
+            style={
+              lineClamp ? { WebkitLineClamp: lineClamp, color } : { color }
+            }
           >
             {label}
           </span>
@@ -331,14 +366,10 @@ export const Skill: FC<SkillProps> = React.forwardRef(
                   <li key="endorsement-button">
                     <Button
                       iconProps={{
-                        path: IconName.mdiThumbUpOutline, // ternary
+                        path: IconName.mdiThumbUpOutline,
                       }}
+                      toggle
                       variant={ButtonVariant.Neutral}
-                      shape={
-                        parseInt(endorseButtonProps?.counter, 10) > 0
-                          ? ButtonShape.Pill
-                          : ButtonShape.Round
-                      }
                       {...endorseButtonProps}
                       onClick={
                         !disabled
@@ -350,15 +381,20 @@ export const Skill: FC<SkillProps> = React.forwardRef(
                             }
                           : null
                       }
+                      shape={
+                        parseInt(endorseButtonProps?.counter, 10) > 0
+                          ? ButtonShape.Pill
+                          : ButtonShape.Round
+                      }
                       size={skillSizeToButtonSizeMap.get(size)}
                       classNames={styles.button}
-                      toggle
                     />
                   </li>
                 )}
                 {!!closable && (
                   <li key="close-button">
                     <Button
+                      ariaLabel={closeButtonAriaLabel}
                       iconProps={{ path: IconName.mdiClose }}
                       shape={ButtonShape.Round}
                       variant={ButtonVariant.Neutral}
@@ -401,11 +437,12 @@ export const Skill: FC<SkillProps> = React.forwardRef(
           >
             <Button
               ariaLabel={itemMenuAriaLabel}
-              classNames={styles.button}
               iconProps={{ path: IconName.mdiDotsVertical }}
+              {...itemMenuButtonProps}
+              classNames={styles.button}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
-              variant={ButtonVariant.SystemUI}
+              variant={ButtonVariant.Neutral}
             />
           </Dropdown>
         </li>
@@ -417,21 +454,25 @@ export const Skill: FC<SkillProps> = React.forwardRef(
         <div className={styles.blockStart}>
           {!!iconProps && status === SkillStatus.Default && (
             <Icon
+              style={{ color }}
               {...iconProps}
-              size={IconSize.Small}
               classNames={styles.icon}
+              size={IconSize.Small}
             />
           )}
           {status !== SkillStatus.Default && (
             <Icon
+              classNames={styles.icon}
               path={skillStatusToIconNameMap.get(status)}
               size={IconSize.Small}
-              classNames={styles.icon}
+              style={{ color }}
             />
           )}
           <span
             className={blockLabelClassNames}
-            style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
+            style={
+              lineClamp ? { WebkitLineClamp: lineClamp, color } : { color }
+            }
           >
             {label}
           </span>
@@ -443,15 +484,14 @@ export const Skill: FC<SkillProps> = React.forwardRef(
               <li key="endorsement-button">
                 <Button
                   iconProps={{
-                    path: IconName.mdiThumbUpOutline, // ternary
+                    path: IconName.mdiThumbUpOutline,
                   }}
-                  variant={ButtonVariant.Neutral}
-                  shape={
-                    parseInt(endorseButtonProps?.counter, 10) > 0
-                      ? ButtonShape.Pill
-                      : ButtonShape.Round
-                  }
+                  onKeyDown={(e: React.KeyboardEvent<HTMLButtonElement>) => {
+                    e.stopPropagation();
+                  }}
+                  toggle
                   {...endorseButtonProps}
+                  classNames={styles.button}
                   onClick={
                     !disabled
                       ? (
@@ -462,9 +502,13 @@ export const Skill: FC<SkillProps> = React.forwardRef(
                         }
                       : null
                   }
+                  shape={
+                    parseInt(endorseButtonProps?.counter, 10) > 0
+                      ? ButtonShape.Pill
+                      : ButtonShape.Round
+                  }
                   size={ButtonSize.Small}
-                  classNames={styles.button}
-                  toggle
+                  variant={ButtonVariant.Neutral}
                 />
               </li>
             )}
@@ -478,7 +522,10 @@ export const Skill: FC<SkillProps> = React.forwardRef(
                         : IconName.mdiStarOutline,
                   }}
                   shape={ButtonShape.Round}
-                  variant={ButtonVariant.Neutral}
+                  onKeyDown={(e: React.KeyboardEvent<HTMLButtonElement>) => {
+                    e.stopPropagation();
+                  }}
+                  toggle
                   {...highlightButtonProps}
                   classNames={styles.button}
                   onClick={
@@ -492,7 +539,31 @@ export const Skill: FC<SkillProps> = React.forwardRef(
                       : null
                   }
                   size={ButtonSize.Small}
-                  toggle
+                  variant={ButtonVariant.Neutral}
+                />
+              </li>
+            )}
+            {!!customButtonProps && (
+              <li key="custom-button">
+                <Button
+                  onKeyDown={(e: React.KeyboardEvent<HTMLButtonElement>) => {
+                    e.stopPropagation();
+                  }}
+                  shape={ButtonShape.Round}
+                  {...customButtonProps}
+                  classNames={styles.button}
+                  onClick={
+                    !disabled
+                      ? (
+                          e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+                        ) => {
+                          e.stopPropagation();
+                          customButtonProps?.onClick(e);
+                        }
+                      : null
+                  }
+                  size={ButtonSize.Small}
+                  variant={ButtonVariant.Neutral}
                 />
               </li>
             )}

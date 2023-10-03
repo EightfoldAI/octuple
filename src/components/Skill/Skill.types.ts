@@ -60,6 +60,11 @@ export interface SkillProps
    */
   allowDisabledFocus?: boolean;
   /**
+   * The Skill animates expand and collapse.
+   * @default true
+   */
+  animate?: boolean;
+  /**
    * Custom background color of the Skill.
    */
   background?: string;
@@ -78,6 +83,10 @@ export interface SkillProps
    */
   closable?: boolean;
   /**
+   * Aria label for the close button.
+   */
+  closeButtonAriaLabel?: string;
+  /**
    * Props for the close button,
    * `closable` must be true and `variant` must be SkillVariant.Tag
    */
@@ -95,7 +104,13 @@ export interface SkillProps
    */
   contentClassNames?: string;
   /**
+   * Props for the custom button.
+   * An optional button for SkillVariant.Block scenarios.
+   */
+  customButtonProps?: ButtonProps;
+  /**
    * The Skill is in a disabled state.
+   * Be sure to pass this same value to any content of the Skill.
    * @default false
    */
   disabled?: boolean;
@@ -135,10 +150,6 @@ export interface SkillProps
    */
   expandedContentClassNames?: string;
   /**
-   * Function that returns Skill index.
-   */
-  hashingFunction?: () => number;
-  /**
    * Custom height of the Skill.
    */
   height?: number;
@@ -164,6 +175,10 @@ export interface SkillProps
    * Aria label for the overflow button.
    */
   itemMenuAriaLabel?: string;
+  /**
+   * Props for the item menu button.
+   */
+  itemMenuButtonProps?: ButtonProps;
   /**
    * Unique key of the Skill.
    */
@@ -219,6 +234,7 @@ export interface SkillProps
   popupProps?: PopupProps;
   /**
    * The Skill is readonly.
+   * Be sure to pass this same value to any content of the Skill.
    */
   readonly?: boolean;
   /**
@@ -240,6 +256,11 @@ export interface SkillProps
    * The custom style of the Skill.
    */
   style?: React.CSSProperties;
+  /**
+   * The Skill tab-index.
+   * @default 0
+   */
+  tabIndex?: number;
   /**
    * Theme of the Skill.
    * @default blue

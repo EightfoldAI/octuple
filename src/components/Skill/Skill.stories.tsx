@@ -24,7 +24,24 @@ export default {
           <article>
             <section>
               <h1>Skill</h1>
-              <p>TBD</p>
+              <p>
+                Skill component is used only to represent skills across our
+                products. It is a mix of UI treatment from card component and
+                pill (tag) component. This is intentional since we want a unique
+                visual treatment for skills and do not want to mix with other
+                pill(tag) component usage.
+              </p>
+              <h2>Skill tag</h2>
+              <p>
+                Skill tag is the smaller size representation of a skill. Skill
+                tag without button is used in small space like cards since
+                adding a skill tag with a button will create complex interaction
+                for the card component.
+              </p>
+              <p>
+                In the surface layer interface, Skill tag can have one button
+                Skill tags must be at least medium size to contain a button.
+              </p>
             </section>
             <section>
               <Stories includePrimary title="" />
@@ -94,27 +111,6 @@ const Skill_Story: ComponentStory<typeof Skill> = (args) => {
   const [sliderValue, setSliderValue] = useState(0);
   const [sliderLabel, setSliderLabel] = useState('Assess skill level');
 
-  const segments = [
-    {
-      value: 0,
-    },
-    {
-      value: 1,
-    },
-    {
-      value: 2,
-    },
-    {
-      value: 3,
-    },
-    {
-      value: 4,
-    },
-    {
-      value: 5,
-    },
-  ];
-
   useEffect(() => {
     if (sliderValue >= 0.1 && sliderValue < 2) {
       setSliderLabel('Learner');
@@ -132,11 +128,10 @@ const Skill_Story: ComponentStory<typeof Skill> = (args) => {
   }, [sliderLabel, sliderValue]);
 
   const handleChange = (val: number): void => {
-    console.log(segments);
     setSliderValue(val);
   };
 
-  const getSlider = (): JSX.Element => (
+  const getSlider = (disabled: boolean): JSX.Element => (
     <div
       style={{
         height: 'auto',
@@ -145,6 +140,7 @@ const Skill_Story: ComponentStory<typeof Skill> = (args) => {
       }}
     >
       <Slider
+        disabled={disabled}
         size={SliderSize.Medium}
         value={sliderValue}
         onChange={handleChange}
@@ -160,9 +156,14 @@ const Skill_Story: ComponentStory<typeof Skill> = (args) => {
         }}
         min={0}
         max={5}
-        segments={segments}
         step={0.1}
         minLabel={sliderLabel}
+        minLabelStyle={{
+          color:
+            sliderValue === 0
+              ? 'var(--blue-color)'
+              : 'var(--text-primary-color)',
+        }}
         hideMax
         hideMin
         hideValue
@@ -172,16 +173,16 @@ const Skill_Story: ComponentStory<typeof Skill> = (args) => {
 
   return (
     <Stack direction="vertical" flexGap="l" align="flex-start">
-      <Skill {...args} content={getSlider()} label="Default" />
+      <Skill {...args} content={getSlider(args.disabled)} label="Default" />
       <Skill
         {...args}
-        content={getSlider()}
+        content={getSlider(args.disabled)}
         label="Highlight"
         status={SkillStatus.Highlight}
       />
       <Skill
         {...args}
-        content={getSlider()}
+        content={getSlider(args.disabled)}
         label="Match"
         status={SkillStatus.Match}
       />
@@ -192,27 +193,6 @@ const Skill_Story: ComponentStory<typeof Skill> = (args) => {
 const With_Long_Text_Story: ComponentStory<typeof Skill> = (args) => {
   const [sliderValue, setSliderValue] = useState(0);
   const [sliderLabel, setSliderLabel] = useState('Assess skill level');
-
-  const segments = [
-    {
-      value: 0,
-    },
-    {
-      value: 1,
-    },
-    {
-      value: 2,
-    },
-    {
-      value: 3,
-    },
-    {
-      value: 4,
-    },
-    {
-      value: 5,
-    },
-  ];
 
   useEffect(() => {
     if (sliderValue >= 1 && sliderValue < 2) {
@@ -234,7 +214,7 @@ const With_Long_Text_Story: ComponentStory<typeof Skill> = (args) => {
     setSliderValue(val);
   };
 
-  const getSlider = (): JSX.Element => (
+  const getSlider = (disabled: boolean): JSX.Element => (
     <div
       style={{
         height: 'auto',
@@ -243,6 +223,7 @@ const With_Long_Text_Story: ComponentStory<typeof Skill> = (args) => {
       }}
     >
       <Slider
+        disabled={disabled}
         size={SliderSize.Medium}
         value={sliderValue}
         onChange={handleChange}
@@ -258,9 +239,14 @@ const With_Long_Text_Story: ComponentStory<typeof Skill> = (args) => {
         }}
         min={0}
         max={5}
-        segments={segments}
         step={0.1}
         minLabel={sliderLabel}
+        minLabelStyle={{
+          color:
+            sliderValue === 0
+              ? 'var(--blue-color)'
+              : 'var(--text-primary-color)',
+        }}
         hideMax
         hideMin
         hideValue
@@ -271,18 +257,18 @@ const With_Long_Text_Story: ComponentStory<typeof Skill> = (args) => {
     <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
       <Skill
         {...args}
-        content={getSlider()}
+        content={getSlider(args.disabled)}
         label="Some very long Default text is present here"
       />
       <Skill
         {...args}
-        content={getSlider()}
+        content={getSlider(args.disabled)}
         label="Some very long Highlight text is present here"
         status={SkillStatus.Highlight}
       />
       <Skill
         {...args}
-        content={getSlider()}
+        content={getSlider(args.disabled)}
         label="Some very long Match text is present here"
         status={SkillStatus.Match}
       />
@@ -334,6 +320,7 @@ const skillArgs: SkillProps = {
   },
   expandable: false,
   expanded: false,
+  animate: true,
   expandedContent: (
     <div
       style={{
@@ -458,6 +445,7 @@ Tag_With_Tooltip.args = {
 
 Block.args = {
   ...skillArgs,
+  customButtonProps: null,
   endorseButtonProps: {
     iconProps: { path: IconName.mdiThumbUpOutline },
     counter: '2',
