@@ -312,6 +312,7 @@ const skillArgs: SkillProps = {
   readonly: false,
   clickable: false,
   closable: false,
+  closeButtonAriaLabel: null,
   closeButtonProps: {
     ariaLabel: 'Close',
     onClick: () => {
