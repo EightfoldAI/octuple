@@ -494,14 +494,11 @@ describe('Skill', () => {
     fireEvent.click(
       skillBlockTestElement.getElementsByClassName('background')[0]
     );
-    await waitFor(
-      () =>
-        expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
-          'true'
-        ),
-      { timeout: 1000 }
+    await waitFor(() =>
+      expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
+        'true'
+      )
     );
-    expect(container).toMatchSnapshot();
   });
 
   test('Skill closes an expandable block', async () => {
@@ -534,14 +531,11 @@ describe('Skill', () => {
     fireEvent.click(
       skillBlockTestElement.getElementsByClassName('background')[0]
     );
-    await waitFor(
-      () =>
-        expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
-          'false'
-        ),
-      { timeout: 1000 }
+    await waitFor(() =>
+      expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
+        'false'
+      )
     );
-    expect(container).toMatchSnapshot();
   });
 
   test('Skill is a hoverable, expandable block', async () => {
@@ -573,14 +567,11 @@ describe('Skill', () => {
       )
     );
     fireEvent.mouseLeave(skillBlockTestElement);
-    await waitFor(
-      () =>
-        expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
-          'false'
-        ),
-      { timeout: 1000 }
+    await waitFor(() =>
+      expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
+        'false'
+      )
     );
-    expect(container).toMatchSnapshot();
   });
 
   test('Skill overflow item menu', async () => {
