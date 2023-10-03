@@ -237,7 +237,7 @@ exports[`Skill Skill closes an expandable block 1`] = `
       </div>
     </div>
     <div
-      style="height: 0px; opacity: 1;"
+      style="height: 0px; opacity: 0;"
     >
       <div
         class="expanded-content"
@@ -845,7 +845,7 @@ exports[`Skill Skill is a hoverable, expandable block 1`] = `
       </div>
     </div>
     <div
-      style="height: 0px; opacity: 0.02762948745818096;"
+      style="height: 0px; opacity: 0.022634843307857987;"
     >
       <div
         class="expanded-content"

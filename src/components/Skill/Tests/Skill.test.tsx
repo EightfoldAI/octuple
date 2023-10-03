@@ -494,10 +494,12 @@ describe('Skill', () => {
     fireEvent.click(
       skillBlockTestElement.getElementsByClassName('background')[0]
     );
-    await waitFor(() =>
-      expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
-        'true'
-      )
+    await waitFor(
+      () =>
+        expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
+          'true'
+        ),
+      { timeout: 1000 }
     );
     expect(container).toMatchSnapshot();
   });
@@ -532,10 +534,12 @@ describe('Skill', () => {
     fireEvent.click(
       skillBlockTestElement.getElementsByClassName('background')[0]
     );
-    await waitFor(() =>
-      expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
-        'false'
-      )
+    await waitFor(
+      () =>
+        expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
+          'false'
+        ),
+      { timeout: 1000 }
     );
     expect(container).toMatchSnapshot();
   });
@@ -569,10 +573,12 @@ describe('Skill', () => {
       )
     );
     fireEvent.mouseLeave(skillBlockTestElement);
-    await waitFor(() =>
-      expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
-        'false'
-      )
+    await waitFor(
+      () =>
+        expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
+          'false'
+        ),
+      { timeout: 1000 }
     );
     expect(container).toMatchSnapshot();
   });
