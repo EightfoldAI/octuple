@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { List, ListProps } from './';
-import { render } from '@testing-library/react';
+import { render, queryByAttribute } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,6 +13,7 @@ interface User {
   name: string;
   summary: string;
   img: string;
+  id?: number;
 }
 
 const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
@@ -30,7 +31,7 @@ const listProps: ListProps<User> = {
   ),
   layout: 'vertical',
   renderItem: (item: User) => (
-    <div>
+    <div id={`${item.id}`}>
       <p>{item.name}</p>
       <div>{item.summary}</div>
     </div>
@@ -40,12 +41,13 @@ const listProps: ListProps<User> = {
       <h2>Header</h2>
     </div>
   ),
-  classNames: 'my-list-class',
+  classNames: 'my-ref-class',
   style: {},
   itemClassNames: 'my-list-item-class',
   itemStyle: { padding: '8px 16px' },
+  listClassNames: 'my-list-class',
   listType: 'ul',
-  role: '',
+  role: 'list',
   'data-testid': 'test-list',
 };
 
@@ -67,10 +69,29 @@ describe('List', () => {
   });
 
   test('List is horizontal', () => {
-    const { container, getByTestId } = render(
-      <List {...listProps} layout="horizontal" />
-    );
+    const { container } = render(<List {...listProps} layout="horizontal" />);
     expect(container.querySelector('.vertical')).toBeFalsy();
     expect(container).toMatchSnapshot();
+  });
+
+  test('List uses custom props', () => {
+    const { container } = render(<List {...listProps} layout="horizontal" />);
+    expect(container.querySelector('.my-list-class').getAttribute('role')).toBe(
+      'list'
+    );
+    expect(container.querySelector('.my-ref-class')).toBeTruthy();
+    expect(container.querySelector('.my-list-class')).toBeTruthy();
+    expect(container.querySelector('.my-list-item-class')).toBeTruthy();
+  });
+
+  test('Should call rowKey function and return a Key', () => {
+    const mockRowKey = jest.fn((item) => item.id);
+    const testItem: User = { id: 123, img: '', name: 'Test', summary: 'test' };
+    const { container } = render(
+      <List {...listProps} rowKey={mockRowKey} items={[testItem]} />
+    );
+    const getById = queryByAttribute.bind(null, 'id');
+    expect(mockRowKey).toHaveBeenCalledWith(testItem);
+    expect(getById(container, `${testItem.id}`)).toBeTruthy();
   });
 });
