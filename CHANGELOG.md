@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.1](https://github.com/EightfoldAI/octuple/compare/v2.46.0...v2.46.1) (2023-10-06)
+
+### Bug Fixes
+
+- focustrap: fixes typo in selector string ([#722](https://github.com/EightfoldAI/octuple/issues/722)) ([e3205d5](https://github.com/EightfoldAI/octuple/commits/e3205d537dc20be040371a7c1172949771a8e06d))
+- link: align two hover colors with the latest design spec ([#719](https://github.com/EightfoldAI/octuple/issues/719)) ([8bc7e24](https://github.com/EightfoldAI/octuple/commits/8bc7e24473e4eed7c7592ae4d74d95a780d455da))
+
 ## [2.46.0](https://github.com/EightfoldAI/octuple/compare/v2.45.0...v2.46.0) (2023-09-29)
 
 ### Features

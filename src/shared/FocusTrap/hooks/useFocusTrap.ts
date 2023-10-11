@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react';
 import { eventKeys } from '../../utilities/eventKeys';
 
 const SELECTORS =
-  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"], iframe, object, embed';
+  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
 
 const INITIAL_FOCUS_DELAY = 100;
 
