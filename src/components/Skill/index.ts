@@ -1,2 +1,3 @@
 export * from './Skill.types';
-export * from './Skill';
+export * from './SkillBlock';
+export * from './SkillTag';

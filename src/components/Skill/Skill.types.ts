@@ -2,7 +2,7 @@ import { OcBaseProps } from '../OcBase';
 import { OcThemeName } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { DropdownProps } from '../Dropdown';
-import { IconProps } from '../Icon';
+import { IconName, IconProps } from '../Icon';
 import { MenuItemTypes } from '../Menu';
 import { PopupProps } from '../Popup';
 import { TooltipProps } from '../Tooltip';
@@ -22,22 +22,6 @@ export enum SkillStatus {
   Match = 'match',
 }
 
-export enum SkillVariant {
-  Tag = 'tag',
-  Block = 'block',
-}
-
-export interface BodyListProps {
-  showIcon?: boolean;
-  label?: string;
-}
-
-export interface BodyProps {
-  contents?: BodyListProps[];
-  type?: string;
-  iconProps?: IconProps;
-}
-
 export type SkillThemeName =
   | 'red'
   | 'redOrange'
@@ -53,17 +37,20 @@ export type SkillThemeName =
   | 'grey'
   | 'white';
 
-export interface SkillProps
-  extends Omit<OcBaseProps<HTMLDivElement>, 'onBlur' | 'onClick' | 'onFocus'> {
+export const skillStatusToIconNameMap: Map<SkillStatus, IconName> = new Map<
+  SkillStatus,
+  IconName
+>([
+  [SkillStatus.Default, null],
+  [SkillStatus.Highlight, IconName.mdiStar],
+  [SkillStatus.Match, IconName.mdiCheck],
+]);
+
+export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Allows focus on the Skill when it's disabled.
    */
   allowDisabledFocus?: boolean;
-  /**
-   * The Skill animates expand and collapse.
-   * @default true
-   */
-  animate?: boolean;
   /**
    * Custom background color of the Skill.
    */
@@ -78,34 +65,11 @@ export interface SkillProps
    */
   clickable?: boolean;
   /**
-   * The Skill is closable.
-   * @default false
-   */
-  closable?: boolean;
-  /**
-   * Aria label for the close button.
-   */
-  closeButtonAriaLabel?: string;
-  /**
-   * Props for the close button,
-   * `closable` must be true and `variant` must be SkillVariant.Tag
-   */
-  closeButtonProps?: ButtonProps;
-  /**
    * Custom color of the Skill.
    */
   color?: string;
   /**
-   * The content of the Skill.
-   */
-  content?: React.ReactNode;
-  /**
-   * Custom classes for the content.
-   */
-  contentClassNames?: string;
-  /**
    * Props for the custom button.
-   * An optional button for SkillVariant.Block scenarios.
    */
   customButtonProps?: ButtonProps;
   /**
@@ -115,54 +79,14 @@ export interface SkillProps
    */
   disabled?: boolean;
   /**
-   * The Dropdown and overlay props.
-   * @default {}
-   */
-  dropdownProps?: DropdownProps;
-  /**
-   * The Skill has a drop shadow.
+   * Whether the Skill is endorsed or not.
    * @default false
    */
-  dropshadow?: boolean;
+  endorsement?: boolean;
   /**
    * Props for the endorsement button.
    */
   endorseButtonProps?: ButtonProps;
-  /**
-   * Whether or not the Skill is expandable.
-   * @default false
-   */
-  expandable?: boolean;
-  /**
-   * Whether the Skill is expanded.
-   * `variant` must be SkillVariant.Block
-   * @default false
-   */
-  expanded?: boolean;
-  /**
-   * The expanded content of the Skill.
-   * `variant` must be SkillVariant.Block
-   */
-  expandedContent?: React.ReactNode;
-  /**
-   * Custom classes for the expanded content.
-   * `variant` must be SkillVariant.Block
-   */
-  expandedContentClassNames?: string;
-  /**
-   * Custom height of the Skill.
-   */
-  height?: number;
-  /**
-   * Props for the highlight button.
-   */
-  highlightButtonProps?: ButtonProps;
-  /**
-   * Whether or not the Skill is hoverable.
-   * `variant` must be SkillVariant.Block
-   * @default false
-   */
-  hoverable?: boolean;
   /**
    * Icon shown before the label.
    */
@@ -171,14 +95,6 @@ export interface SkillProps
    * The Skill id.
    */
   id?: string;
-  /**
-   * Aria label for the overflow button.
-   */
-  itemMenuAriaLabel?: string;
-  /**
-   * Props for the item menu button.
-   */
-  itemMenuButtonProps?: ButtonProps;
   /**
    * Unique key of the Skill.
    */
@@ -192,46 +108,13 @@ export interface SkillProps
    */
   lineClamp?: number;
   /**
-   * Items to display in the overflow menu.
-   */
-  menuItems?: Array<MenuItemTypes>;
-  /**
-   * Name of the Skill
-   */
-  name?: string;
-  /**
-   * Callback called on blur of the Skill.
-   */
-  onBlur?: React.FocusEventHandler<HTMLDivElement>;
-  /**
    * Callback called on click of the Skill.
    */
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   /**
-   * Callback called on click of the close button.
-   */
-  onClose?: React.MouseEventHandler<HTMLButtonElement>;
-  /**
-   * Callback called on focus of the Skill.
-   */
-  onFocus?: React.FocusEventHandler<HTMLDivElement>;
-  /**
    * Callback called on keydown of the Skill.
    */
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
-  /**
-   * Callback called on mouse enter of the Skill.
-   */
-  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
-  /**
-   * Callback called on mouse leave of the Skill.
-   */
-  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
-  /**
-   * The Popup and overlay props.
-   * @default {}
-   */
-  popupProps?: PopupProps;
   /**
    * The Skill is readonly.
    * Be sure to pass this same value to any content of the Skill.
@@ -242,11 +125,6 @@ export interface SkillProps
    * @default 'button'
    */
   role?: string;
-  /**
-   * The Skill size.
-   * @default SkillCardSize.Medium
-   */
-  size?: SkillSize;
   /**
    * The Skill status.
    * @default SkillCardStatus.Default
@@ -270,22 +148,161 @@ export interface SkillProps
    * Title of the Skill.
    */
   title?: string;
+}
+
+export interface SkillBlockProps extends SharedSkillProps {
   /**
-   * The Tooltip and overlay props.
+   * The Skill animates expand and collapse.
+   * @default true
+   */
+  animate?: boolean;
+  /**
+   * Whether the Skill is bordered or not.
+   * @default true
+   */
+  bordered?: boolean;
+  /**
+   * The content of the Skill.
+   */
+  content?: React.ReactNode;
+  /**
+   * Custom classes for the content.
+   */
+  contentClassNames?: string;
+  /**
+   * Whether or not the Skill is expandable.
+   * @default false
+   */
+  expandable?: boolean;
+  /**
+   * Whether the Skill is expanded.
+   * @default false
+   */
+  expanded?: boolean;
+  /**
+   * The expanded content of the Skill.
+   */
+  expandedContent?: React.ReactNode;
+  /**
+   * Custom classes for the expanded content.
+   */
+  expandedContentClassNames?: string;
+  /**
+   * The extra content of the Skill.
+   */
+  extraContent?: React.ReactNode;
+  /**
+   * Custom classes for the extra content.
+   */
+  extraContentClassNames?: string;
+  /**
+   * The footer content of the Skill.
+   */
+  footer?: React.ReactNode;
+  /**
+   * Custom classes for the footer.
+   */
+  footerClassNames?: string;
+  /**
+   * Props for the highlight button.
+   */
+  highlightButtonProps?: ButtonProps;
+  /**
+   * Whether or not the Skill is hoverable.
+   * @default false
+   */
+  hoverable?: boolean;
+  /**
+   * Aria label for the overflow button.
+   */
+  itemMenuAriaLabel?: string;
+  /**
+   * Props for the item menu button.
+   */
+  itemMenuButtonProps?: ButtonProps;
+  /**
+   * The item menu Dropdown and overlay props.
    * @default {}
    */
-  tooltipProps?: TooltipProps;
+  itemMenuDropdownProps?: DropdownProps;
+  /**
+   * Custom min-width of the Skill.
+   * Use this if you want the Skill to resize down to a specific width.
+   * @default 'fit-content'
+   */
+  minWidth?: number | string;
+  /**
+   * Custom max-width of the Skill.
+   * Use this if you want the Skill to resize up to a specific width.
+   */
+  maxWidth?: number | string;
+  /**
+   * Items to display in the overflow menu.
+   */
+  menuItems?: Array<MenuItemTypes>;
+  /**
+   * Callback called on blur of the Skill.
+   */
+  onBlur?: React.FocusEventHandler<HTMLDivElement>;
+  /**
+   * Callback called on focus of the Skill.
+   */
+  onFocus?: React.FocusEventHandler<HTMLDivElement>;
+  /**
+   * Callback called on mouse enter of the Skill.
+   */
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  /**
+   * Callback called on mouse leave of the Skill.
+   */
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   /**
    * Callback when the Skill dimensions have changed.
    */
   updateDimension?: (async?: boolean, delay?: number) => void;
   /**
-   * Variant of the Skill.
-   * @default SkillVariant.Tag
-   */
-  variant?: SkillVariant;
-  /**
    * Custom width of the Skill.
+   * Use this if you want the Skill to be a fixed or percentile width.
    */
-  width?: number;
+  width?: number | string;
+}
+
+export interface SkillTagProps extends SharedSkillProps {
+  /**
+   * The Dropdown and overlay props.
+   * @default {}
+   */
+  dropdownProps?: DropdownProps;
+  /**
+   * Callback called on click of the remove button.
+   */
+  onRemove?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * The Popup and overlay props.
+   * @default {}
+   */
+  popupProps?: PopupProps;
+  /**
+   * The Skill is removable.
+   * @default false
+   */
+  removable?: boolean;
+  /**
+   * Aria label for the remove button.
+   */
+  removeButtonAriaLabel?: string;
+  /**
+   * Props for the remove button.
+   */
+  removeButtonProps?: ButtonProps;
+  /**
+   * The Skill size.
+   * @default SkillCardSize.Medium
+   */
+  size?: SkillSize;
+  /**
+   * The Tooltip and overlay props.
+   * @default {}
+   */
+  tooltipProps?: TooltipProps;
 }

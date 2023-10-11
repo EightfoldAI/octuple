@@ -154,11 +154,10 @@ import {
 import { Select, SelectShape, SelectSize } from './components/Select';
 
 import {
-  Skill,
-  SkillProps,
+  SkillBlock,
   SkillSize,
   SkillStatus,
-  SkillVariant,
+  SkillTag,
 } from './components/Skill';
 
 import {
@@ -381,11 +380,10 @@ export {
   SecondaryButton,
   Shape,
   Size,
-  Skill,
-  SkillProps,
+  SkillBlock,
   SkillSize,
   SkillStatus,
-  SkillVariant,
+  SkillTag,
   Slide,
   Slider,
   SliderMarks,

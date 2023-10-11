@@ -1,10 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skill Skill block renders 1`] = `
+exports[`SkillBlock Skill block is disabled 1`] = `
 <div>
   <div
-    class="skill animate block white medium"
+    aria-disabled="true"
+    class="skill block bordered animate white disabled"
     id="testSkill"
+    style="min-width: fit-content;"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip-"
+              >
+                <input
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill block is readonly 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white readonly"
+    id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -107,24 +222,321 @@ exports[`Skill Skill block renders 1`] = `
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill block renders 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
       <div
-        class="block-end"
+        class="block-start"
       >
-        <ul
-          class="button-list"
-        />
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip-"
+              >
+                <input
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Skill Skill is a clickable block 1`] = `
+exports[`SkillBlock Skill block uses custom props 1`] = `
 <div>
   <div
-    class="skill animate block clickable white medium"
+    aria-disabled="false"
+    aria-expanded="true"
+    class="skill block bordered clickable test-skill highlight"
+    data-testid="skill-block"
+    id="testSkill"
+    role="button"
+    style="color: rgb(255, 255, 255); min-width: fit-content; width: 840px;"
+    tabindex="0"
+    title="Test Skill"
+  >
+    <div
+      class="background"
+      style="background: rgb(51, 51, 51);"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+          style="color: rgb(255, 255, 255);"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+        <span
+          class="label medium"
+          style="color: rgb(255, 255, 255);"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="test-content"
+      >
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip-"
+              >
+                <input
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      style="height: 0px; opacity: 0;"
+    >
+      <div
+        class="extra-content test-extra-content extra"
+      >
+        <div>
+          <div
+            data-testid="test-extra-content"
+          >
+            Extra content.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="footer test-footer-content"
+    >
+      <div
+        data-testid="test-footer-content"
+      >
+        Footer content.
+      </div>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      style="height: 0px; opacity: 0;"
+    >
+      <div
+        class="expanded-content test-expanded-content expanded"
+      >
+        <div>
+          <div
+            data-testid="test-expandable-content"
+          >
+            Expandable content.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a clickable block 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate clickable white"
     data-testid="skill-block-1"
     id="testSkill"
+    role="button"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -227,51 +639,18 @@ exports[`Skill Skill is a clickable block 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        />
-      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Skill Skill is a clickable tag 1`] = `
+exports[`SkillBlock Skill is a default block 1`] = `
 <div>
   <div
-    class="skill animate tag clickable white medium"
-    data-testid="skill-tag-1"
+    aria-disabled="false"
+    class="skill block bordered animate white"
     id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill 12
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a default block 1`] = `
-<div>
-  <div
-    class="skill animate block white medium"
-    id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -374,23 +753,18 @@ exports[`Skill Skill is a default block 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        />
-      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Skill Skill is a default block with custom iconProps 1`] = `
+exports[`SkillBlock Skill is a default block with custom iconProps 1`] = `
 <div>
   <div
-    class="skill animate block white medium"
+    aria-disabled="false"
+    class="skill block bordered animate white"
     id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -509,23 +883,18 @@ exports[`Skill Skill is a default block with custom iconProps 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        />
-      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Skill Skill is a default block with customButtonProps 1`] = `
+exports[`SkillBlock Skill is a default block with customButtonProps 1`] = `
 <div>
   <div
-    class="skill animate block white medium"
+    aria-disabled="false"
+    class="skill block bordered animate white"
     id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -666,11 +1035,13 @@ exports[`Skill Skill is a default block with customButtonProps 1`] = `
 </div>
 `;
 
-exports[`Skill Skill is a default block with endorseButtonProps 1`] = `
+exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
 <div>
   <div
-    class="skill animate block white medium"
+    aria-disabled="false"
+    class="skill block bordered animate white"
     id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -820,11 +1191,13 @@ exports[`Skill Skill is a default block with endorseButtonProps 1`] = `
 </div>
 `;
 
-exports[`Skill Skill is a default block with highlightButtonProps 1`] = `
+exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
 <div>
   <div
-    class="skill animate block white medium"
+    aria-disabled="false"
+    class="skill block bordered animate white"
     id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -967,209 +1340,13 @@ exports[`Skill Skill is a default block with highlightButtonProps 1`] = `
 </div>
 `;
 
-exports[`Skill Skill is a default tag 1`] = `
+exports[`SkillBlock Skill is a highlight block 1`] = `
 <div>
   <div
-    class="skill animate tag white medium"
+    aria-disabled="false"
+    class="skill block bordered animate highlight"
     id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a default tag that's closable 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        >
-          <li>
-            <button
-              aria-disabled="false"
-              class="button button button-neutral button-small round-shape icon-left"
-              data-testid="test-close-button"
-            >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
-              >
-                <svg
-                  role="presentation"
-                  style="width: 16px; height: 16px;"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a default tag with custom iconProps 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          aria-hidden="false"
-          class="icon icon-wrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style="width: 16px; height: 16px;"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
-              style="fill: currentColor;"
-            />
-          </svg>
-        </span>
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a default tag with endorseButtonProps 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        >
-          <li>
-            <button
-              aria-checked="false"
-              aria-disabled="false"
-              aria-label="Endorsements"
-              aria-pressed="false"
-              class="button button button-neutral button-small pill-shape icon-left"
-              data-testid="test-endorse-button"
-            >
-              <span>
-                <span
-                  aria-hidden="false"
-                  class="icon icon-wrapper"
-                  role="presentation"
-                >
-                  <svg
-                    role="presentation"
-                    style="width: 16px; height: 16px;"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
-                      style="fill: currentColor;"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="badge badge-medium counter button-text-small"
-                >
-                  2
-                </span>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a highlight block 1`] = `
-<div>
-  <div
-    class="skill animate block highlight medium"
-    id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -1288,93 +1465,18 @@ exports[`Skill Skill is a highlight block 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        />
-      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Skill Skill is a highlight tag 1`] = `
+exports[`SkillBlock Skill is a match block 1`] = `
 <div>
   <div
-    class="skill animate tag highlight medium"
+    aria-disabled="false"
+    class="skill block bordered animate match"
     id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          aria-hidden="false"
-          class="icon icon-wrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style="width: 16px; height: 16px;"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
-              style="fill: currentColor;"
-            />
-          </svg>
-        </span>
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a large tag 1`] = `
-<div>
-  <div
-    class="skill animate tag white large"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label large"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a match block 1`] = `
-<div>
-  <div
-    class="skill animate block match medium"
-    id="testSkill"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -1493,121 +1595,20 @@ exports[`Skill Skill is a match block 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        />
-      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Skill Skill is a match tag 1`] = `
+exports[`SkillBlock Skill overflow item menu 1`] = `
 <div>
   <div
-    class="skill animate tag match medium"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          aria-hidden="false"
-          class="icon icon-wrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style="width: 16px; height: 16px;"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
-              style="fill: currentColor;"
-            />
-          </svg>
-        </span>
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a small tag 1`] = `
-<div>
-  <div
-    class="skill animate tag white small"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label small"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill is a xsmall tag 1`] = `
-<div>
-  <div
-    class="skill animate tag white xsmall"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label xsmall"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill overflow item menu 1`] = `
-<div>
-  <div
+    aria-disabled="false"
     aria-expanded="false"
-    class="skill animate block clickable white medium"
+    class="skill block bordered animate clickable white"
     id="testSkill"
+    role="button"
+    style="min-width: fit-content;"
     tabindex="0"
   >
     <div
@@ -1756,7 +1757,7 @@ exports[`Skill Skill overflow item menu 1`] = `
                 tabindex="0"
               />
               <span
-                aria-owns="floating-ui-16"
+                aria-owns="floating-ui-17"
                 style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
               />
               <span
@@ -1784,338 +1785,6 @@ exports[`Skill Skill overflow item menu 1`] = `
             Expandable content.
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag has a dropdown 1`] = `
-<div>
-  <div
-    class="main-wrapper"
-  >
-    <div
-      aria-controls="dropdown-"
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="reference-wrapper skill animate tag clickable white medium dropdown"
-      data-testid="skill-tag-2"
-      id="testSkill"
-      role="button"
-      tabindex="0"
-    >
-      <div
-        class="background"
-      />
-      <div
-        class="content"
-      >
-        <div
-          class="block-start"
-        >
-          <span
-            class="label medium"
-          >
-            test skill
-          </span>
-        </div>
-      </div>
-    </div>
-    <span
-      data-floating-ui-focus-guard=""
-      data-type="outside"
-      role="button"
-      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-      tabindex="0"
-    />
-    <span
-      aria-owns="floating-ui-0"
-      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-    />
-    <span
-      data-floating-ui-focus-guard=""
-      data-type="outside"
-      role="button"
-      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-      tabindex="0"
-    />
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag has a popup 1`] = `
-<div>
-  <div
-    class="reference-wrapper"
-    id="popup-"
-  >
-    <div
-      aria-controls="popup-"
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="skill animate tag clickable white medium tooltip-reference"
-      data-reference-id="popup--reference"
-      data-testid="skill-tag-3"
-      id="testSkill"
-      role="button"
-      tabindex="0"
-    >
-      <div
-        class="background"
-      />
-      <div
-        class="content"
-      >
-        <div
-          class="block-start"
-        >
-          <span
-            class="label medium"
-          >
-            test skill
-          </span>
-        </div>
-      </div>
-    </div>
-    <span
-      data-floating-ui-focus-guard=""
-      data-type="outside"
-      role="button"
-      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-      tabindex="0"
-    />
-    <span
-      aria-owns="floating-ui-1"
-      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-    />
-    <span
-      data-floating-ui-focus-guard=""
-      data-type="outside"
-      role="button"
-      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-      tabindex="0"
-    />
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag has a tooltip 1`] = `
-<div>
-  <div
-    class="reference-wrapper"
-    id="tooltip-"
-  >
-    <div
-      class="skill animate tag clickable white medium tooltip-reference"
-      data-reference-id="tooltip--reference"
-      data-testid="skill-tag-4"
-      id="testSkill"
-      tabindex="0"
-    >
-      <div
-        class="background"
-      />
-      <div
-        class="content"
-      >
-        <div
-          class="block-start"
-        >
-          <span
-            class="label medium"
-          >
-            test skill
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag is closable 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-      <div
-        class="block-end"
-      >
-        <ul
-          class="button-list"
-        >
-          <li>
-            <button
-              aria-disabled="false"
-              class="button button button-neutral button-small round-shape icon-left"
-            >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
-              >
-                <svg
-                  role="presentation"
-                  style="width: 16px; height: 16px;"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag is disabled 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium disabled"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag is readonly 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium readonly"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag renders 1`] = `
-<div>
-  <div
-    class="skill animate tag white medium"
-    id="testSkill"
-    tabindex="0"
-  >
-    <div
-      class="background"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          class="label medium"
-        >
-          test skill
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Skill Skill tag uses custom props 1`] = `
-<div>
-  <div
-    class="skill tag clickable test-skill highlight medium"
-    data-testid="skill-tag-5"
-    id="testSkill"
-    style="color: rgb(255, 255, 255); height: 80px; width: 840px;"
-    tabindex="0"
-    title="Test Skill"
-  >
-    <div
-      class="background"
-      style="background: rgb(51, 51, 51);"
-    />
-    <div
-      class="content"
-    >
-      <div
-        class="block-start"
-      >
-        <span
-          aria-hidden="false"
-          class="icon icon-wrapper"
-          role="presentation"
-          style="color: rgb(255, 255, 255);"
-        >
-          <svg
-            role="presentation"
-            style="width: 16px; height: 16px;"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
-              style="fill: currentColor;"
-            />
-          </svg>
-        </span>
-        <span
-          class="label medium"
-          style="color: rgb(255, 255, 255);"
-        >
-          test skill
-        </span>
       </div>
     </div>
   </div>

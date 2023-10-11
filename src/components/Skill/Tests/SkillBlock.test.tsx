@@ -3,16 +3,9 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { act } from 'react-dom/test-utils';
-import { Skill, SkillSize, SkillStatus, SkillVariant } from '../';
-import {
-  Button,
-  ButtonSize,
-  ButtonTextAlign,
-  ButtonVariant,
-  ButtonWidth,
-} from '../../Button';
+import { SkillBlock, SkillStatus } from '..';
 import { IconName } from '../../Icon';
-import { List } from '../../List';
+import { MenuItemType } from '../../Menu';
 import { Slider, SliderSize } from '../../Slider';
 import {
   fireEvent,
@@ -21,7 +14,6 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
-import { MenuItemType } from '../../Menu';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -40,40 +32,6 @@ class ResizeObserver {
 }
 
 window.ResizeObserver = ResizeObserver;
-
-interface User {
-  name: string;
-  icon: IconName;
-}
-
-const sampleList: User[] = [1, 2, 3].map((i) => ({
-  name: `Button ${i}`,
-  icon: IconName.mdiAccount,
-}));
-
-const Overlay = () => (
-  <List<User>
-    items={sampleList}
-    renderItem={(item) => (
-      <Button
-        data-testid="menu-item"
-        text={item.name}
-        alignText={ButtonTextAlign.Left}
-        buttonWidth={ButtonWidth.fill}
-        size={ButtonSize.Medium}
-        variant={ButtonVariant.SystemUI}
-        iconProps={{
-          path: item.icon,
-        }}
-        role="menuitem"
-        style={{
-          margin: '4px 0',
-        }}
-      />
-    )}
-    role="menu"
-  />
-);
 
 const getStaticSlider = (disabled: boolean = false): JSX.Element => (
   <div
@@ -111,7 +69,7 @@ const getStaticSlider = (disabled: boolean = false): JSX.Element => (
   </div>
 );
 
-describe('Skill', () => {
+describe('SkillBlock', () => {
   let originalAddEventListener: any;
   let originalRemoveEventListener: any;
   let scrollEventHandler: any;
@@ -139,292 +97,81 @@ describe('Skill', () => {
     matchMedia.clear();
   });
 
-  test('Skill tag renders', () => {
-    const { container } = render(<Skill id="testSkill" label="test skill" />);
+  test('Skill block renders', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
     expect(() => container).not.toThrowError();
     expect(container).toMatchSnapshot();
   });
 
-  test('Skill tag is disabled', () => {
+  test('Skill is a default block', () => {
     const { container } = render(
-      <Skill disabled id="testSkill" label="test skill" />
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('white')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill block is disabled', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        disabled
+        id="testSkill"
+        label="test skill"
+      />
     );
     expect(container.getElementsByClassName('disabled')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
-  test('Skill tag is readonly', () => {
+  test('Skill block is readonly', () => {
     const { container } = render(
-      <Skill id="testSkill" label="test skill" readonly />
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        readonly
+      />
     );
     expect(container.getElementsByClassName('read-only')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
-  test('Skill tag is closable', () => {
+  test('Skill block uses custom props', () => {
     const { container } = render(
-      <Skill closable id="testSkill" label="test skill" />
-    );
-    expect(container.getElementsByClassName('button')).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a default tag', () => {
-    const { container } = render(
-      <Skill id="testSkill" label="test skill" variant={SkillVariant.Tag} />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('medium')).toBeTruthy();
-    expect(container.getElementsByClassName('white')).toHaveLength(1);
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a large tag', () => {
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        size={SkillSize.Large}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('large')).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a small tag', () => {
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        size={SkillSize.Small}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('small')).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a xsmall tag', () => {
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        size={SkillSize.XSmall}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('xsmall')).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a default tag with custom iconProps', () => {
-    const { container } = render(
-      <Skill
-        iconProps={{
-          path: IconName.mdiAccount,
-        }}
-        id="testSkill"
-        label="test skill"
-        status={SkillStatus.Default}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('icon')).toHaveLength(1);
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a default tag with endorseButtonProps', () => {
-    const onClickMock = jest.fn();
-    const { container } = render(
-      <Skill
-        endorseButtonProps={{
-          iconProps: { path: IconName.mdiThumbUpOutline },
-          counter: '2',
-          ariaLabel: 'Endorsements',
-          onClick: onClickMock,
-          'data-testid': 'test-endorse-button',
-        }}
-        id="testSkill"
-        label="test skill"
-        status={SkillStatus.Default}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    const skillButtonElement = screen.getByTestId('test-endorse-button');
-    fireEvent.click(skillButtonElement);
-    expect(onClickMock).toHaveBeenCalled();
-    expect(container).toMatchSnapshot();
-  });
-
-  test("Skill is a default tag that's closable", () => {
-    const onCloseMock = jest.fn();
-    const { container } = render(
-      <Skill
-        closeButtonProps={{
-          'data-testid': 'test-close-button',
-        }}
-        closable
-        onClose={onCloseMock}
-        id="testSkill"
-        label="test skill"
-        status={SkillStatus.Default}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    const skillButtonElement = screen.getByTestId('test-close-button');
-    fireEvent.click(skillButtonElement);
-    expect(onCloseMock).toHaveBeenCalled();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a highlight tag', () => {
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        status={SkillStatus.Highlight}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('highlight')).toHaveLength(1);
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a match tag', () => {
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        status={SkillStatus.Match}
-        variant={SkillVariant.Tag}
-      />
-    );
-    expect(container.getElementsByClassName('tag')).toHaveLength(1);
-    expect(container.getElementsByClassName('match')).toHaveLength(1);
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a clickable tag', () => {
-    const SkillRenderer = (): JSX.Element => {
-      const [total, setTotal] = useState<number>(0);
-      return (
-        <Skill
-          clickable
-          data-testid="skill-tag-1"
-          id="testSkill"
-          label={`test skill ${total}`}
-          onClick={() => setTotal(12)}
-          variant={SkillVariant.Tag}
-        />
-      );
-    };
-    const { container } = render(<SkillRenderer />);
-    expect(container.getElementsByClassName('clickable')).toHaveLength(1);
-    const skillTagTestElement: HTMLElement = getByTestId(
-      container,
-      'skill-tag-1'
-    );
-    expect(skillTagTestElement.innerHTML).toContain('test skill 0');
-    fireEvent.click(
-      skillTagTestElement.getElementsByClassName('background')[0]
-    );
-    expect(skillTagTestElement.innerHTML).toContain('test skill 12');
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill tag has a dropdown', async () => {
-    const { container } = render(
-      <Skill
-        clickable
-        data-testid="skill-tag-2"
-        dropdownProps={{
-          overlay: Overlay(),
-          portal: true,
-        }}
-        id="testSkill"
-        label="test skill"
-      />
-    );
-    const skillTagTestElement: HTMLElement = getByTestId(
-      container,
-      'skill-tag-2'
-    );
-    fireEvent.click(skillTagTestElement);
-    await waitFor(() =>
-      expect(screen.getAllByTestId('menu-item')).toHaveLength(3)
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill tag has a popup', async () => {
-    const { container } = render(
-      <Skill
-        clickable
-        data-testid="skill-tag-3"
-        id="testSkill"
-        label="test skill"
-        popupProps={{
-          content: 'test popup',
-          'data-testid': 'test-popup',
-          portal: true,
-        }}
-      />
-    );
-    const skillTagTestElement: HTMLElement = getByTestId(
-      container,
-      'skill-tag-3'
-    );
-    fireEvent.click(
-      skillTagTestElement.getElementsByClassName('background')[0]
-    );
-    await waitFor(() => expect(screen.getByTestId('test-popup')).toBeTruthy());
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill tag has a tooltip', async () => {
-    const { container } = render(
-      <Skill
-        clickable
-        data-testid="skill-tag-4"
-        id="testSkill"
-        label="test skill"
-        tooltipProps={{
-          content: 'test tooltip',
-          portal: true,
-        }}
-      />
-    );
-    const skillTagTestElement: HTMLElement = getByTestId(
-      container,
-      'skill-tag-4'
-    );
-    fireEvent.mouseEnter(skillTagTestElement);
-    await waitFor(() => expect(screen.getByText('test tooltip')).toBeTruthy());
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill tag uses custom props', () => {
-    const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         background="#333333"
         classNames="test-skill"
         clickable
         color="#ffffff"
+        content={getStaticSlider()}
         contentClassNames="test-content"
-        data-testid="skill-tag-5"
+        data-testid="skill-block"
+        endorsement
         expandable
         expanded
+        expandedContent={
+          <div data-testid="test-expandable-content">Expandable content.</div>
+        }
         expandedContentClassNames="test-expanded-content"
-        height={80}
+        extraContent={
+          <div data-testid="test-extra-content">Extra content.</div>
+        }
+        extraContentClassNames="test-extra-content"
+        footer={<div data-testid="test-footer-content">Footer content.</div>}
+        footerClassNames="test-footer-content"
         id="testSkill"
         label="test skill"
         status={SkillStatus.Highlight}
@@ -443,9 +190,6 @@ describe('Skill', () => {
       (container.getElementsByClassName('icon')[0] as HTMLElement).style.color
     ).toBe('rgb(255, 255, 255)');
     expect(
-      (container.getElementsByClassName('skill')[0] as HTMLElement).style.height
-    ).toBe('80px');
-    expect(
       (container.getElementsByClassName('skill')[0] as HTMLElement).style.width
     ).toBe('840px');
     expect(
@@ -455,42 +199,21 @@ describe('Skill', () => {
     ).toBe('Test Skill');
     expect(container.getElementsByClassName('test-skill')).toBeTruthy();
     expect(container.getElementsByClassName('test-content')).toBeTruthy();
+    expect(container.getElementsByClassName('highlight')).toBeTruthy();
     expect(
       container.getElementsByClassName('test-expanded-content')
     ).toBeTruthy();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill block renders', () => {
-    const { container } = render(
-      <Skill
-        content={getStaticSlider()}
-        id="testSkill"
-        label="test skill"
-        variant={SkillVariant.Block}
-      />
-    );
-    expect(() => container).not.toThrowError();
-    expect(container).toMatchSnapshot();
-  });
-
-  test('Skill is a default block', () => {
-    const { container } = render(
-      <Skill
-        content={getStaticSlider()}
-        id="testSkill"
-        label="test skill"
-        variant={SkillVariant.Block}
-      />
-    );
-    expect(container.getElementsByClassName('block')).toHaveLength(1);
-    expect(container.getElementsByClassName('white')).toHaveLength(1);
+    expect(container.getElementsByClassName('test-extra-content')).toBeTruthy();
+    expect(
+      container.getElementsByClassName('test-footer-content')
+    ).toBeTruthy();
+    expect(container.getElementsByClassName('divider')).toHaveLength(3);
     expect(container).toMatchSnapshot();
   });
 
   test('Skill is a default block with custom iconProps', () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         content={getStaticSlider()}
         iconProps={{
           path: IconName.mdiAccount,
@@ -498,7 +221,6 @@ describe('Skill', () => {
         id="testSkill"
         label="test skill"
         status={SkillStatus.Default}
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -509,7 +231,7 @@ describe('Skill', () => {
   test('Skill is a default block with endorseButtonProps', () => {
     const onClickMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         content={getStaticSlider()}
         endorseButtonProps={{
           iconProps: { path: IconName.mdiThumbUpOutline },
@@ -521,7 +243,6 @@ describe('Skill', () => {
         id="testSkill"
         label="test skill"
         status={SkillStatus.Default}
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -534,7 +255,7 @@ describe('Skill', () => {
   test('Skill is a default block with highlightButtonProps', () => {
     const onClickMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         content={getStaticSlider()}
         highlightButtonProps={{
           ariaLabel: 'Highlight',
@@ -544,7 +265,6 @@ describe('Skill', () => {
         id="testSkill"
         label="test skill"
         status={SkillStatus.Default}
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -557,7 +277,7 @@ describe('Skill', () => {
   test('Skill is a default block with customButtonProps', () => {
     const onClickMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         content={getStaticSlider()}
         customButtonProps={{
           iconProps: { path: IconName.mdiOpenInNew },
@@ -568,7 +288,6 @@ describe('Skill', () => {
         id="testSkill"
         label="test skill"
         status={SkillStatus.Default}
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -580,12 +299,11 @@ describe('Skill', () => {
 
   test('Skill is a highlight block', () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         status={SkillStatus.Highlight}
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -595,12 +313,11 @@ describe('Skill', () => {
 
   test('Skill is a match block', () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         status={SkillStatus.Match}
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -612,7 +329,7 @@ describe('Skill', () => {
     const SkillRenderer = (): JSX.Element => {
       const [total, setTotal] = useState<number>(0);
       return (
-        <Skill
+        <SkillBlock
           clickable
           content={getStaticSlider()}
           data-testid="skill-block-1"
@@ -621,12 +338,14 @@ describe('Skill', () => {
           onClick={() => {
             setTotal(12);
           }}
-          variant={SkillVariant.Block}
         />
       );
     };
     const { container } = render(<SkillRenderer />);
     expect(container.getElementsByClassName('clickable')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('clickable')[0].getAttribute('role')
+    ).toBe('button');
     const skillBlockTestElement: HTMLElement = getByTestId(
       container,
       'skill-block-1'
@@ -641,9 +360,24 @@ describe('Skill', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Skill block has extra content', async () => {
+    const { container } = render(
+      <SkillBlock
+        extraContent={
+          <div data-testid="test-extra-content">Expandable content.</div>
+        }
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('divider')).toHaveLength(1);
+    expect(container.getElementsByClassName('extra-content')).toHaveLength(1);
+  });
+
   test('Skill is an expandable block', async () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         clickable
         expandable
         expandedContent={
@@ -653,7 +387,6 @@ describe('Skill', () => {
         data-testid="skill-block-2"
         id="testSkill"
         label="test skill"
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('clickable')).toHaveLength(1);
@@ -676,7 +409,7 @@ describe('Skill', () => {
 
   test('Skill closes an expandable block', async () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         clickable
         expandable
         expanded
@@ -688,7 +421,6 @@ describe('Skill', () => {
         data-testid="skill-block-3"
         id="testSkill"
         label="test skill"
-        variant={SkillVariant.Block}
       />
     );
     expect(container.getElementsByClassName('clickable')).toHaveLength(1);
@@ -713,7 +445,7 @@ describe('Skill', () => {
 
   test('Skill is a hoverable, expandable block', async () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         hoverable
         expandable
         expandedContent={
@@ -725,7 +457,6 @@ describe('Skill', () => {
         data-testid="skill-block-4"
         id="testSkill"
         label="test skill"
-        variant={SkillVariant.Block}
       />
     );
 
@@ -733,6 +464,7 @@ describe('Skill', () => {
       container,
       'skill-block-4'
     );
+    expect(skillBlockTestElement.getAttribute('role')).toBe('button');
     fireEvent.mouseEnter(skillBlockTestElement);
     await waitFor(() =>
       expect(skillBlockTestElement.getAttribute('aria-expanded')).toContain(
@@ -749,7 +481,7 @@ describe('Skill', () => {
 
   test('Skill overflow item menu', async () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         clickable
         expandable
         expandedContent={
@@ -781,7 +513,6 @@ describe('Skill', () => {
             value: 'menu 3',
           },
         ]}
-        variant={SkillVariant.Block}
       />
     );
     const skillItemMenuTestElement: HTMLElement = getByTestId(
@@ -797,13 +528,12 @@ describe('Skill', () => {
 
   test('Sets aria-expanded attribute correctly when expandable and variant is Block', async () => {
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         clickable
         expandable
         id="testSkill"
         label="test skill"
-        variant={SkillVariant.Block}
         expanded={false}
       />
     );
@@ -823,27 +553,25 @@ describe('Skill', () => {
       updateDimensionCalled = async;
     };
     const { rerender } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         clickable
         expandable
         id="testSkill"
         label="test skill"
         updateDimension={() => mockUpdateDimension}
-        variant={SkillVariant.Block}
       />
     );
     expect(updateDimensionCalled).toBe(false);
     act(() => {
       rerender(
-        <Skill
+        <SkillBlock
           animate={false}
           clickable
           expandable
           id="testSkill"
           label="test skill"
           updateDimension={(async = true) => mockUpdateDimension(async)}
-          variant={SkillVariant.Block}
         />
       );
     });
@@ -851,7 +579,7 @@ describe('Skill', () => {
   });
 
   test('Removes aria-expanded attribute when certain conditions are met', () => {
-    const { container } = render(<Skill label="test skill" />);
+    const { container } = render(<SkillBlock label="test skill" />);
     const skillElement = container.querySelector('.skill');
     expect(skillElement.hasAttribute('aria-expanded')).toBe(false);
   });
@@ -859,14 +587,13 @@ describe('Skill', () => {
   test('Calls onFocus callback when a focus event occurs', () => {
     const onFocusMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
         id="testSkill"
         label="test skill"
         onFocus={onFocusMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -878,7 +605,7 @@ describe('Skill', () => {
   test('Do not call onFocus callback when a focus event occurs when readonly', () => {
     const onFocusMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
@@ -886,7 +613,6 @@ describe('Skill', () => {
         label="test skill"
         onFocus={onFocusMock}
         readonly
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -894,26 +620,10 @@ describe('Skill', () => {
     expect(onFocusMock).not.toHaveBeenCalled();
   });
 
-  test('Do not call onFocus callback when a focus event occurs when size is xsmall and variant is tag', () => {
-    const onFocusMock = jest.fn();
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        onFocus={onFocusMock}
-        size={SkillSize.XSmall}
-        variant={SkillVariant.Tag}
-      />
-    );
-    const skillElement = container.querySelector('.skill');
-    fireEvent.focus(skillElement);
-    expect(onFocusMock).not.toHaveBeenCalled();
-  });
-
   test('Calls onBlur callback when a blur event occurs', () => {
     const onBlurMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
@@ -921,7 +631,6 @@ describe('Skill', () => {
         id="testSkill"
         label="test skill"
         onBlur={onBlurMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -933,7 +642,7 @@ describe('Skill', () => {
   test('Do not call onBlur callback when a blur event occurs when readonly', () => {
     const onBlurMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
@@ -941,7 +650,6 @@ describe('Skill', () => {
         label="test skill"
         onBlur={onBlurMock}
         readonly
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -949,33 +657,16 @@ describe('Skill', () => {
     expect(onBlurMock).not.toHaveBeenCalled();
   });
 
-  test('Do not call onBlur callback when a blur event occurs when size is xsmall and variant is tag', () => {
-    const onBlurMock = jest.fn();
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        onBlur={onBlurMock}
-        size={SkillSize.XSmall}
-        variant={SkillVariant.Tag}
-      />
-    );
-    const skillElement = container.querySelector('.skill');
-    fireEvent.blur(skillElement);
-    expect(onBlurMock).not.toHaveBeenCalled();
-  });
-
   test('Calls onKeyDown callback when a keydown event occurs', () => {
     const onKeyDownMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         clickable
         expandable
         id="testSkill"
         label="test skill"
         onKeyDown={onKeyDownMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -987,7 +678,7 @@ describe('Skill', () => {
   test('Do not call onKeyDown callback when a keydown event occurs when readonly', () => {
     const onKeyDownMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         clickable
         expandable
@@ -995,7 +686,6 @@ describe('Skill', () => {
         label="test skill"
         onKeyDown={onKeyDownMock}
         readonly
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -1003,33 +693,16 @@ describe('Skill', () => {
     expect(onKeyDownMock).not.toHaveBeenCalled();
   });
 
-  test('Do not call onKeyDown callback when a keydown event occurs when size is xsmall and variant is tag', () => {
-    const onKeyDownMock = jest.fn();
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        onKeyDown={onKeyDownMock}
-        size={SkillSize.XSmall}
-        variant={SkillVariant.Tag}
-      />
-    );
-    const skillElement = container.querySelector('.skill');
-    fireEvent.keyDown(skillElement);
-    expect(onKeyDownMock).not.toHaveBeenCalled();
-  });
-
   test('Does not scroll the window when Space key is pressed', async () => {
     const onKeyDownMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         clickable
         expandable
         id="testSkill"
         label="test skill"
         onKeyDown={onKeyDownMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -1048,14 +721,13 @@ describe('Skill', () => {
   test('Does not call preventDefault for other keys', () => {
     const onKeyDownMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         clickable
         expandable
         id="testSkill"
         label="test skill"
         onKeyDown={onKeyDownMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -1071,14 +743,13 @@ describe('Skill', () => {
   test('Calls onMouseEnter callback when mouse enters the element', () => {
     const onMouseEnterMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
         id="testSkill"
         label="test skill"
         onMouseEnter={onMouseEnterMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -1089,7 +760,7 @@ describe('Skill', () => {
   test('Do not call onMouseEnter callback when mouse enters the element and readonly', () => {
     const onMouseEnterMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
@@ -1097,7 +768,6 @@ describe('Skill', () => {
         label="test skill"
         onMouseEnter={onMouseEnterMock}
         readonly
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -1105,33 +775,16 @@ describe('Skill', () => {
     expect(onMouseEnterMock).not.toHaveBeenCalled();
   });
 
-  test('Do not call onMouseEnter callback when mouse enters the element and size is xsmall and variant is tag', () => {
-    const onMouseEnterMock = jest.fn();
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        onMouseEnter={onMouseEnterMock}
-        size={SkillSize.XSmall}
-        variant={SkillVariant.Tag}
-      />
-    );
-    const skillElement = container.querySelector('.skill');
-    fireEvent.mouseEnter(skillElement);
-    expect(onMouseEnterMock).not.toHaveBeenCalled();
-  });
-
   test('Calls onMouseLeave callback when mouse leaves the element', () => {
     const onMouseLeaveMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
         id="testSkill"
         label="test skill"
         onMouseLeave={onMouseLeaveMock}
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
@@ -1142,7 +795,7 @@ describe('Skill', () => {
   test('Do not call onMouseLeave callback when mouse leaves the element and readonly', () => {
     const onMouseLeaveMock = jest.fn();
     const { container } = render(
-      <Skill
+      <SkillBlock
         animate={false}
         hoverable
         expandable
@@ -1150,27 +803,10 @@ describe('Skill', () => {
         label="test skill"
         onMouseLeave={onMouseLeaveMock}
         readonly
-        variant={SkillVariant.Block}
       />
     );
     const skillBlockTestElement = container.querySelector('.skill');
     fireEvent.mouseLeave(skillBlockTestElement);
-    expect(onMouseLeaveMock).not.toHaveBeenCalled();
-  });
-
-  test('Do not call onMouseLeave callback when mouse leaves the element and size is xsmall and variant is tag', () => {
-    const onMouseLeaveMock = jest.fn();
-    const { container } = render(
-      <Skill
-        id="testSkill"
-        label="test skill"
-        onMouseLeave={onMouseLeaveMock}
-        size={SkillSize.XSmall}
-        variant={SkillVariant.Tag}
-      />
-    );
-    const skillElement = container.querySelector('.skill');
-    fireEvent.mouseLeave(skillElement);
     expect(onMouseLeaveMock).not.toHaveBeenCalled();
   });
 });

@@ -1,3 +1,9 @@
+// Export values for typescript consumption.
+:export {
+  skillBlockContentFlexGap: strip-units($space-l);
+  skillBlockContentPadding: strip-units($space-s);
+}
+
 .skill {
   --button-counter-default-background-color: var(
     --skill-button-counter-default-background-color
@@ -32,7 +38,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: fit-content;
 
   &.animate {
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
@@ -46,7 +51,7 @@
     width: 100%;
   }
 
-  .divider-expanded-skill {
+  .divider {
     background: var(--divider);
   }
 
@@ -66,11 +71,29 @@
       }
     }
 
-    .background:hover + .content + .divider-expanded-skill {
+    .background:hover + .content + .divider,
+    .background:hover + .content + .divider + .footer + .divider,
+    .background:hover
+      + .content
+      + .divider
+      + div
+      + .divider
+      + .footer
+      + .divider,
+    .background:hover + .content + .divider + div + .divider {
       --divider: var(--hover-divider);
     }
 
-    .background:active + .content + .divider-expanded-skill {
+    .background:active + .content + .divider,
+    .background:active + .content + .divider + .footer + .divider,
+    .background:active
+      + .content
+      + .divider
+      + div
+      + .divider
+      + .footer
+      + .divider,
+    .background:active + .content + .divider + div + .divider {
       --divider: var(--active-divider);
     }
   }
@@ -171,12 +194,14 @@
     }
   }
 
-  &:not(.xsmall) {
+  &:not(.xsmall):not(.block) {
     border: var(--skill-border);
   }
 
   &.block {
-    border: var(--skill-border);
+    &.bordered {
+      border: var(--skill-border);
+    }
   }
 
   &.red {
@@ -210,7 +235,9 @@
     );
     --skill-button-counter-default-text-color: var(--red-color);
 
-    border-color: var(--red-background2-color);
+    &.bordered {
+      border-color: var(--red-background2-color);
+    }
   }
 
   &.red-orange {
@@ -250,7 +277,9 @@
     );
     --skill-button-counter-default-text-color: var(--redorange-color);
 
-    border-color: var(--redorange-background2-color);
+    &.bordered {
+      border-color: var(--redorange-background2-color);
+    }
   }
 
   &.orange {
@@ -290,7 +319,9 @@
     );
     --skill-button-counter-default-text-color: var(--orange-color);
 
-    border-color: var(--orange-background2-color);
+    &.bordered {
+      border-color: var(--orange-background2-color);
+    }
   }
 
   &.yellow {
@@ -330,7 +361,9 @@
     );
     --skill-button-counter-default-text-color: var(--yellow-color);
 
-    border-color: var(--yellow-background2-color);
+    &.bordered {
+      border-color: var(--yellow-background2-color);
+    }
   }
 
   &.yellow-green {
@@ -372,7 +405,9 @@
     );
     --skill-button-counter-default-text-color: var(--yellowgreen-color);
 
-    border-color: var(--yellowgreen-background2-color);
+    &.bordered {
+      border-color: var(--yellowgreen-background2-color);
+    }
   }
 
   &.green {
@@ -412,7 +447,9 @@
     );
     --skill-button-counter-default-text-color: var(--green-color);
 
-    border-color: var(--green-background2-color);
+    &.bordered {
+      border-color: var(--green-background2-color);
+    }
   }
 
   &.blue-green {
@@ -452,7 +489,9 @@
     );
     --skill-button-counter-default-text-color: var(--bluegreen-color);
 
-    border-color: var(--bluegreen-background2-color);
+    &.bordered {
+      border-color: var(--bluegreen-background2-color);
+    }
   }
 
   &.blue {
@@ -492,7 +531,9 @@
     );
     --skill-button-counter-default-text-color: var(--blue-color);
 
-    border-color: var(--blue-background2-color);
+    &.bordered {
+      border-color: var(--blue-background2-color);
+    }
   }
 
   &.blue-violet {
@@ -534,7 +575,9 @@
     );
     --skill-button-counter-default-text-color: var(--blueviolet-color);
 
-    border-color: var(--blueviolet-background2-color);
+    &.bordered {
+      border-color: var(--blueviolet-background2-color);
+    }
   }
 
   &.violet {
@@ -574,7 +617,9 @@
     );
     --skill-button-counter-default-text-color: var(--violet-color);
 
-    border-color: var(--violet-background2-color);
+    &.bordered {
+      border-color: var(--violet-background2-color);
+    }
   }
 
   &.violet-red {
@@ -614,7 +659,9 @@
     );
     --skill-button-counter-default-text-color: var(--violetred-color);
 
-    border-color: var(--violetred-background2-color);
+    &.bordered {
+      border-color: var(--violetred-background2-color);
+    }
   }
 
   &.grey {
@@ -654,7 +701,9 @@
     );
     --skill-button-counter-default-text-color: var(--grey-color);
 
-    border-color: var(--grey-background2-color);
+    &.bordered {
+      border-color: var(--grey-background2-color);
+    }
   }
 
   &.white {
@@ -692,7 +741,9 @@
     --skill-button-counter-active-background-color: var(--white-color);
     --skill-button-counter-default-text-color: var(--grey-secondary-color);
 
-    border-color: var(--grey-background2-color);
+    &.bordered {
+      border-color: var(--grey-background2-color);
+    }
   }
 
   &.highlight {
@@ -734,7 +785,9 @@
     );
     --skill-button-counter-default-text-color: var(--yellowgreen-color);
 
-    border-color: var(--yellowgreen-background2-color);
+    &.bordered {
+      border-color: var(--yellowgreen-background2-color);
+    }
   }
 
   &.match {
@@ -772,7 +825,9 @@
     );
     --skill-button-counter-default-text-color: var(--green-color);
 
-    border-color: var(--green-background2-color);
+    &.bordered {
+      border-color: var(--green-background2-color);
+    }
   }
 
   &.large {
@@ -873,6 +928,7 @@
       border-radius: var(--skill-block-border-radius);
       flex: 1 0 0;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: $space-l;
       justify-content: space-between;
       padding: $space-s;
@@ -882,17 +938,55 @@
         display: flex;
         flex-direction: row;
         gap: $space-xxs;
-        width: 200px;
+        width: 100px;
 
         .icon {
           margin-top: 6px;
         }
 
         .label {
-          width: 180px;
+          width: 80px;
           word-wrap: break-word;
         }
       }
+
+      @media (max-width: 180px) {
+        gap: 'unset';
+
+        .block-start {
+          width: 100%;
+
+          .label {
+            width: auto;
+          }
+        }
+      }
+
+      @media (max-width: 316px) and (min-width: 180px) {
+        .block-start {
+          flex: 1 0 0;
+          width: auto;
+
+          .label {
+            width: auto;
+          }
+        }
+      }
+
+      @media (min-width: 316px) {
+        .block-start {
+          width: 200px;
+
+          .label {
+            width: 180px;
+          }
+        }
+      }
+    }
+
+    .footer {
+      padding: $space-s;
+      position: relative;
     }
 
     &.animate .expanded-content {
@@ -900,7 +994,7 @@
       pointer-events: none;
 
       &.expanded {
-        animation-name: showExpanded;
+        animation-name: skillShow;
         animation-delay: 300ms;
         animation-duration: $motion-duration-extra-fast;
         animation-timing-function: linear;
@@ -912,7 +1006,7 @@
 
     &:not(.animate) .expanded-content {
       &.expanded {
-        animation-name: showExpanded;
+        animation-name: skillShow;
         animation-delay: 0;
         animation-duration: 0;
         animation-timing-function: linear;
@@ -922,7 +1016,34 @@
       }
     }
 
-    .divider-expanded-skill {
+    &.animate .extra-content {
+      opacity: 0;
+      pointer-events: none;
+
+      &.extra {
+        animation-name: skillShow;
+        animation-delay: 300ms;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        padding: $space-s;
+        position: relative;
+      }
+    }
+
+    &:not(.animate) .extra-content {
+      &.extra {
+        animation-name: skillShow;
+        animation-delay: 0;
+        animation-duration: 0;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        padding: $space-s;
+        position: relative;
+      }
+    }
+
+    .divider {
       height: 1px;
       margin: 0 $space-s;
       position: relative;
@@ -965,6 +1086,10 @@
   }
 }
 
+.custom-menu-top-inset {
+  margin-top: $space-s;
+}
+
 :global(.focus-visible) {
   .skill {
     &.focus-visible,
@@ -985,7 +1110,7 @@
   }
 }
 
-@keyframes showExpanded {
+@keyframes skillShow {
   0% {
     opacity: 0;
     pointer-events: none;
