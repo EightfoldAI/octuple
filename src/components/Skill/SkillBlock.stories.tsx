@@ -286,6 +286,7 @@ export const __namedExportsOrder = [
 
 const skillBlockArgs: SkillBlockProps = {
   label: 'Skill label',
+  labelWidth: null,
   lineClamp: 0,
   bordered: true,
   role: null,
@@ -349,6 +350,8 @@ const skillBlockArgs: SkillBlockProps = {
   highlightButtonProps: {
     ariaLabel: 'Highlight',
   },
+  itemMenuOnly: null,
+  reflow: null,
   menuItems: [
     {
       render: () => (

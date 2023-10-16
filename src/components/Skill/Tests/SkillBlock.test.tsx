@@ -531,6 +531,7 @@ describe('SkillBlock', () => {
       <SkillBlock
         animate={false}
         clickable
+        content={getStaticSlider()}
         expandable
         id="testSkill"
         label="test skill"
@@ -556,6 +557,7 @@ describe('SkillBlock', () => {
       <SkillBlock
         animate={false}
         clickable
+        content={getStaticSlider()}
         expandable
         id="testSkill"
         label="test skill"
@@ -568,6 +570,7 @@ describe('SkillBlock', () => {
         <SkillBlock
           animate={false}
           clickable
+          content={getStaticSlider()}
           expandable
           id="testSkill"
           label="test skill"
@@ -578,10 +581,20 @@ describe('SkillBlock', () => {
     expect(updateDimensionCalled).toBe(true);
   });
 
-  test('Removes aria-expanded attribute when certain conditions are met', () => {
-    const { container } = render(<SkillBlock label="test skill" />);
-    const skillElement = container.querySelector('.skill');
-    expect(skillElement.hasAttribute('aria-expanded')).toBe(false);
+  test('Removes aria-expanded attribute when props are not set', () => {
+    const { container } = render(
+      <SkillBlock content={getStaticSlider()} label="test skill" />
+    );
+    const skillBlockTestElement = container.querySelector('.skill');
+    expect(skillBlockTestElement.hasAttribute('aria-expanded')).toBe(false);
+  });
+
+  test('Should remove the "aria-expanded" attribute when not expandable', () => {
+    const { container } = render(
+      <SkillBlock content={getStaticSlider()} expandable={false} />
+    );
+    const skillBlockTestElement = container.querySelector('.skill');
+    expect(skillBlockTestElement.hasAttribute('aria-expanded')).toBe(false);
   });
 
   test('Calls onFocus callback when a focus event occurs', () => {
@@ -589,6 +602,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         id="testSkill"
@@ -607,6 +621,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         id="testSkill"
@@ -625,6 +640,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         expanded
@@ -644,6 +660,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         id="testSkill"
@@ -663,6 +680,7 @@ describe('SkillBlock', () => {
       <SkillBlock
         animate={false}
         clickable
+        content={getStaticSlider()}
         expandable
         id="testSkill"
         label="test skill"
@@ -681,6 +699,7 @@ describe('SkillBlock', () => {
       <SkillBlock
         animate={false}
         clickable
+        content={getStaticSlider()}
         expandable
         id="testSkill"
         label="test skill"
@@ -699,6 +718,7 @@ describe('SkillBlock', () => {
       <SkillBlock
         animate={false}
         clickable
+        content={getStaticSlider()}
         expandable
         id="testSkill"
         label="test skill"
@@ -724,6 +744,7 @@ describe('SkillBlock', () => {
       <SkillBlock
         animate={false}
         clickable
+        content={getStaticSlider()}
         expandable
         id="testSkill"
         label="test skill"
@@ -745,6 +766,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         id="testSkill"
@@ -780,6 +802,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         id="testSkill"
@@ -797,6 +820,7 @@ describe('SkillBlock', () => {
     const { container } = render(
       <SkillBlock
         animate={false}
+        content={getStaticSlider()}
         hoverable
         expandable
         id="testSkill"
@@ -808,5 +832,271 @@ describe('SkillBlock', () => {
     const skillBlockTestElement = container.querySelector('.skill');
     fireEvent.mouseLeave(skillBlockTestElement);
     expect(onMouseLeaveMock).not.toHaveBeenCalled();
+  });
+
+  test('Should render menu buttons correctly when SkillBlock width is large', () => {
+    const endorsementButtonProps = {
+      ariaLabel: 'Endorse',
+      onClick: jest.fn(),
+      'data-testid': 'endorsement-button-test',
+    };
+    const highlightButtonProps = {
+      ariaLabel: 'Highlight',
+      onClick: jest.fn(),
+      'data-testid': 'highlight-button-test',
+    };
+    const customButtonProps = {
+      ariaLabel: 'Custom',
+      iconProps: { path: IconName.mdiAccount },
+      onClick: jest.fn(),
+      'data-testid': 'custom-button-test',
+    };
+    const itemMenuButtonProps = {
+      ariaLabel: 'Overflow',
+      classNames: 'item-menu-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'item-menu-button-test',
+    };
+    const { container, getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        endorsement={true}
+        endorseButtonProps={endorsementButtonProps}
+        highlightButtonProps={highlightButtonProps}
+        customButtonProps={customButtonProps}
+        status={SkillStatus.Highlight}
+        itemMenuButtonProps={itemMenuButtonProps}
+      />
+    );
+    const endorsementButton = getByTestId('endorsement-button-test');
+    const highlightButton = getByTestId('highlight-button-test');
+    const customButton = getByTestId('custom-button-test');
+    expect(endorsementButton).toBeTruthy();
+    expect(endorsementButton.getAttribute('aria-label')).toBe('Endorse');
+    fireEvent.click(endorsementButton);
+    expect(endorsementButtonProps.onClick).toHaveBeenCalledTimes(1);
+
+    expect(highlightButton).toBeTruthy();
+    expect(highlightButton.getAttribute('aria-label')).toBe('Highlight');
+    fireEvent.click(highlightButton);
+    expect(highlightButtonProps.onClick).toHaveBeenCalledTimes(1);
+
+    expect(customButton).toBeTruthy();
+    expect(customButton.getAttribute('aria-label')).toBe('Custom');
+    fireEvent.click(customButton);
+    expect(customButtonProps.onClick).toHaveBeenCalledTimes(1);
+
+    expect(
+      container.getElementsByClassName('item-menu-button-test')
+    ).toHaveLength(0);
+  });
+
+  test('Should render menu buttons correctly when SkillBlock width is small', async () => {
+    const endorsementButtonProps = {
+      ariaLabel: 'Endorse',
+      classNames: 'endorsement-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'endorsement-button-test',
+    };
+    const highlightButtonProps = {
+      ariaLabel: 'Highlight',
+      classNames: 'highlight-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'highlight-button-test',
+    };
+    const customButtonProps = {
+      ariaLabel: 'Custom',
+      classNames: 'custom-button-test',
+      iconProps: { path: IconName.mdiAccount },
+      onClick: jest.fn(),
+      'data-testid': 'custom-button-test',
+    };
+    const itemMenuButtonProps = {
+      ariaLabel: 'Overflow',
+      classNames: 'item-menu-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'item-menu-button-test',
+    };
+    const { container, getByTestId } = render(
+      <SkillBlock
+        animate={false}
+        content={getStaticSlider()}
+        contentClassNames="test-content"
+        itemMenuOnly
+        reflow
+        label="test skill"
+        labelWidth={100}
+        endorsement={true}
+        endorseButtonProps={endorsementButtonProps}
+        highlightButtonProps={highlightButtonProps}
+        customButtonProps={customButtonProps}
+        status={SkillStatus.Highlight}
+        itemMenuButtonProps={itemMenuButtonProps}
+        maxWidth={340}
+        minWidth={340}
+        width={340}
+      />
+    );
+
+    await waitFor(() =>
+      expect(getByTestId('item-menu-button-test')).toBeTruthy()
+    );
+
+    const itemMenuButton = getByTestId('item-menu-button-test');
+
+    expect(
+      container.getElementsByClassName('block-start')[0].getAttribute('style')
+    ).toContain('width: 100px');
+    expect(
+      container.getElementsByClassName('test-content')[0].getAttribute('style')
+    ).toContain('order: 3');
+    expect(
+      container.getElementsByClassName('block-end')[0].getAttribute('style')
+    ).toContain('order: 2');
+
+    expect(
+      container.getElementsByClassName('endorsement-button-test')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('highlight-button-test')
+    ).toHaveLength(0);
+    expect(container.getElementsByClassName('custom-button-test')).toHaveLength(
+      0
+    );
+
+    expect(itemMenuButton).toBeTruthy();
+    expect(itemMenuButton.getAttribute('aria-label')).toBe('Overflow');
+    fireEvent.click(itemMenuButton);
+
+    await waitFor(() => screen.getByText('Endorse'));
+
+    const option1 = screen.getByText('Endorse');
+    const option2 = screen.getByText('Highlight');
+    const option3 = screen.getByText('Custom');
+    expect(option1).toBeTruthy();
+    expect(option2).toBeTruthy();
+    expect(option3).toBeTruthy();
+  });
+
+  test('Should render endorsementMenuButton correctly', () => {
+    const endorsementButtonProps = {
+      ariaLabel: 'Endorse',
+      onClick: jest.fn(),
+      'data-testid': 'endorsement-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        endorsement={true}
+        endorseButtonProps={endorsementButtonProps}
+      />
+    );
+    const endorsementButton = getByTestId('endorsement-button-test');
+    expect(endorsementButton).toBeTruthy();
+    expect(endorsementButton.getAttribute('aria-label')).toBe('Endorse');
+    fireEvent.click(endorsementButton);
+    expect(endorsementButtonProps.onClick).toHaveBeenCalledTimes(1);
+  });
+
+  test('Should render highlightMenuButton correctly', () => {
+    const highlightButtonProps = {
+      ariaLabel: 'Highlight',
+      onClick: jest.fn(),
+      'data-testid': 'highlight-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        status={SkillStatus.Highlight}
+        highlightButtonProps={highlightButtonProps}
+      />
+    );
+    const highlightButton = getByTestId('highlight-button-test');
+    expect(highlightButton).toBeTruthy();
+    expect(highlightButton.getAttribute('aria-label')).toBe('Highlight');
+    fireEvent.click(highlightButton);
+    expect(highlightButtonProps.onClick).toHaveBeenCalledTimes(1);
+  });
+
+  test('Should render customMenuButton correctly', () => {
+    const customButtonProps = {
+      ariaLabel: 'Custom',
+      iconProps: { path: IconName.mdiAccount },
+      onClick: jest.fn(),
+      'data-testid': 'custom-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        customButtonProps={customButtonProps}
+      />
+    );
+    const customButton = getByTestId('custom-button-test');
+    expect(customButton).toBeTruthy();
+    expect(customButton.getAttribute('aria-label')).toBe('Custom');
+    fireEvent.click(customButton);
+    expect(customButtonProps.onClick).toHaveBeenCalledTimes(1);
+  });
+
+  test('Do not call endorsementMenuButton click when SkillBlock is disabled', () => {
+    const endorsementButtonProps = {
+      ariaLabel: 'Endorse',
+      onClick: jest.fn(),
+      'data-testid': 'endorsement-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        disabled
+        endorseButtonProps={endorsementButtonProps}
+      />
+    );
+    const endorsementButton = getByTestId('endorsement-button-test');
+    fireEvent.click(endorsementButton);
+    expect(endorsementButtonProps.onClick).toHaveBeenCalledTimes(0);
+  });
+
+  test('Do not call highlightMenuButton click when SkillBlock is disabled', () => {
+    const highlightButtonProps = {
+      ariaLabel: 'Highlight',
+      onClick: jest.fn(),
+      'data-testid': 'highlight-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        disabled
+        highlightButtonProps={highlightButtonProps}
+      />
+    );
+    const highlightButton = getByTestId('highlight-button-test');
+    fireEvent.click(highlightButton);
+    expect(highlightButtonProps.onClick).toHaveBeenCalledTimes(0);
+  });
+
+  test('Do not call customMenuButton click when SkillBlock is disabled', () => {
+    const customButtonProps = {
+      ariaLabel: 'Custom',
+      iconProps: { path: IconName.mdiAccount },
+      onClick: jest.fn(),
+      'data-testid': 'custom-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        label="test skill"
+        disabled
+        customButtonProps={customButtonProps}
+      />
+    );
+    const customButton = getByTestId('custom-button-test');
+    fireEvent.click(customButton);
+    expect(customButtonProps.onClick).toHaveBeenCalledTimes(0);
   });
 });

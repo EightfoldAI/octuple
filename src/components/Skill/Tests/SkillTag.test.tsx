@@ -415,4 +415,99 @@ describe('SkillTag', () => {
     fireEvent.keyDown(skillTagTestElement);
     expect(onKeyDownMock).not.toHaveBeenCalled();
   });
+
+  test('SkillTag component uses mdiThumbUpOutline icon', () => {
+    const { container } = render(
+      <SkillTag
+        endorseButtonProps={{
+          counter: '2',
+          ariaLabel: 'Endorsements',
+        }}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    const buttonElement = container.querySelector('.button');
+    const iconElement = container.querySelector('.icon');
+    expect(iconElement.innerHTML).toBe(
+      '<svg viewBox="0 0 24 24" style="width: 16px; height: 16px;" role="presentation"><path d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z" style="fill: currentColor;"></path></svg>'
+    );
+    expect(buttonElement.classList.contains('round')).toBe(false);
+  });
+
+  test('Do not call endorsementButton click when SkillTag is disabled', () => {
+    const endorsementButtonProps = {
+      ariaLabel: 'Endorse',
+      counter: '2',
+      onClick: jest.fn(),
+      'data-testid': 'endorsement-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillTag
+        label="test skill"
+        disabled
+        endorseButtonProps={endorsementButtonProps}
+      />
+    );
+    const endorsementButton = getByTestId('endorsement-button-test');
+    fireEvent.click(endorsementButton);
+    expect(endorsementButtonProps.onClick).toHaveBeenCalledTimes(0);
+  });
+
+  test('Do not call customButton click when SkillTag is disabled', () => {
+    const customButtonProps = {
+      ariaLabel: 'Custom',
+      iconProps: { path: IconName.mdiAccount },
+      onClick: jest.fn(),
+      'data-testid': 'custom-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillTag
+        label="test skill"
+        disabled
+        customButtonProps={customButtonProps}
+      />
+    );
+    const customButton = getByTestId('custom-button-test');
+    fireEvent.click(customButton);
+    expect(customButtonProps.onClick).toHaveBeenCalledTimes(0);
+  });
+
+  test('Do not call onRemove when SkillTag is disabled', () => {
+    const mockOnRemoveClick = jest.fn();
+    const removeButtonProps = {
+      ariaLabel: 'Remove',
+      onClick: jest.fn(),
+      'data-testid': 'remove-button-test',
+    };
+    const { getByTestId } = render(
+      <SkillTag
+        label="test skill"
+        disabled
+        onRemove={mockOnRemoveClick}
+        removable
+        removeButtonProps={removeButtonProps}
+      />
+    );
+    const customButton = getByTestId('remove-button-test');
+    fireEvent.click(customButton);
+    expect(removeButtonProps.onClick).toHaveBeenCalledTimes(0);
+    expect(mockOnRemoveClick).toHaveBeenCalledTimes(0);
+  });
+
+  test('Do not call onClick when SkillTag is disabled', () => {
+    const mockOnClick = jest.fn();
+    const { getByTestId } = render(
+      <SkillTag
+        label="test skill"
+        disabled
+        clickable
+        onClick={mockOnClick}
+        data-testid="skill-tag-test"
+      />
+    );
+    const skillTagElement = getByTestId('skill-tag-test');
+    fireEvent.click(skillTagElement);
+    expect(mockOnClick).toHaveBeenCalledTimes(0);
+  });
 });

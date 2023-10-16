@@ -226,6 +226,14 @@ export interface SkillBlockProps extends SharedSkillProps {
    */
   itemMenuDropdownProps?: DropdownProps;
   /**
+   * Whether or not the item menu button is the only one visible.
+   */
+  itemMenuOnly?: boolean;
+  /**
+   * Custom label width.
+   */
+  labelWidth?: number;
+  /**
    * Custom min-width of the Skill.
    * Use this if you want the Skill to resize down to a specific width.
    * @default 'fit-content'
@@ -256,6 +264,10 @@ export interface SkillBlockProps extends SharedSkillProps {
    * Callback called on mouse leave of the Skill.
    */
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
+  /**
+   * Whether or not to manually reflow the content after the button list.
+   */
+  reflow?: boolean;
   /**
    * Callback when the Skill dimensions have changed.
    */

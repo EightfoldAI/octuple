@@ -76,8 +76,10 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       itemMenuAriaLabel,
       itemMenuButtonProps,
       itemMenuDropdownProps,
+      itemMenuOnly,
       key,
       label,
+      labelWidth,
       lineClamp,
       menuItems,
       maxWidth,
@@ -89,6 +91,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       onMouseEnter,
       onMouseLeave,
       readonly = false,
+      reflow,
       role,
       status = SkillStatus.Default,
       style,
@@ -100,12 +103,12 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       ...rest
     } = props;
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
-    const [reflowActive, setReflowActive] = useState<boolean>(false);
-    const [itemMenuOnly, setItemMenuOnly] = useState<boolean>(false);
+    const [_reflow, setReflow] = useState<boolean>(false);
     const [skillExpanded, setSkillExpanded] = useState<boolean>(false);
     const [skillExtraContent, setSkillExtraContent] = useState<boolean>(false);
     const [mergedMenuItems, setMergedMenuItems] =
       useState<MenuItemTypes[]>(menuItems);
+    const [_itemMenuOnly, setItemMenuOnly] = useState<boolean>(false);
 
     const skillId: React.MutableRefObject<string> = useRef<string>(
       id || generateId()
@@ -139,6 +142,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
     const blockLabelClassNames: string = mergeClasses([
       styles.label,
       styles.medium,
+      { [styles.labelWidth]: !!labelWidth },
       { [styles.lineClamp]: lineClamp },
     ]);
 
@@ -174,6 +178,25 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
           skillWrapperBounds.height === previousSkillWrapperBounds?.height
       );
     }, [skillWrapperBounds?.height, previousSkillWrapperBounds?.height]);
+
+    useEffect((): void => {
+      if (itemMenuOnly !== null && typeof itemMenuOnly === 'boolean') {
+        setItemMenuOnly(itemMenuOnly);
+      }
+    }, [itemMenuOnly]);
+
+    useEffect((): void => {
+      if (reflow !== null && typeof reflow === 'boolean') {
+        setReflow(reflow);
+        if (!reflow) {
+          blockMiddleRef.current.style.order = '2';
+          blockEndRef.current.style.order = '3';
+        } else if (reflow) {
+          blockMiddleRef.current.style.order = '3';
+          blockEndRef.current.style.order = '2';
+        }
+      }
+    }, [reflow]);
 
     useEffect((): void => {
       if (expandable) {
@@ -354,7 +377,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
 
     const getItemMenu = (): JSX.Element => {
       const getItems = (): MenuItemTypes[] => {
-        if (itemMenuOnly) {
+        if (_itemMenuOnly) {
           return mergedMenuItems?.map((item?: MenuItemTypes, idx?: number) => ({
             key: 'menuItem-' + idx,
             classNames:
@@ -405,53 +428,59 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
 
     const updateLayout = (): void => {
       if (content) {
-        const skillElement: HTMLElement = document.getElementById(
-          `${skillId?.current}`
-        );
-        const blockEndWidth: number =
-          Math.floor(blockEndRef.current?.offsetWidth) || 0;
-        const blockMiddleWidth: number =
-          Math.floor(blockMiddleRef.current?.offsetWidth) || 0;
-        const blockStartWidth: number =
-          Math.floor(blockStartRef.current?.offsetWidth) || 0;
-        const skillWidth: number = Math.floor(skillElement?.offsetWidth) || 0;
-
         if (dropdownVisible) {
           setDropdownVisibility(false);
         }
 
-        if (
-          !reflowActive &&
-          skillWidth -
-            (blockStartWidth + blockEndWidth + SKILLBLOCK_REFLOW_OFFSET) <
-            blockMiddleWidth
-        ) {
-          setReflowActive(true);
-          blockMiddleRef.current.style.order = '3';
-          blockEndRef.current.style.order = '2';
-        } else if (
-          reflowActive &&
-          skillWidth -
-            (blockStartWidth + blockEndWidth + SKILLBLOCK_REFLOW_OFFSET) >=
-            blockMiddleWidth
-        ) {
-          setReflowActive(false);
-          blockMiddleRef.current.style.order = '2';
-          blockEndRef.current.style.order = '3';
-        }
+        if (itemMenuOnly === null || reflow === null) {
+          const skillElement: HTMLElement = document.getElementById(
+            `${skillId?.current}`
+          );
+          const blockEndWidth: number =
+            Math.floor(blockEndRef.current?.offsetWidth) || 0;
+          const blockMiddleWidth: number =
+            Math.floor(blockMiddleRef.current?.offsetWidth) || 0;
+          const blockStartWidth: number =
+            Math.floor(blockStartRef.current?.offsetWidth) || 0;
+          const skillWidth: number = Math.floor(skillElement?.offsetWidth) || 0;
 
-        if (
-          reflowActive &&
-          !itemMenuOnly &&
-          skillWidth < SKILLBLOCK_OVERFLOWMENUONLY_THRESHOLD
-        ) {
-          setItemMenuOnly(true);
-        } else if (
-          reflowActive &&
-          itemMenuOnly &&
-          skillWidth >= SKILLBLOCK_OVERFLOWMENUONLY_THRESHOLD
-        ) {
-          setItemMenuOnly(false);
+          if (reflow === null) {
+            if (
+              !_reflow &&
+              skillWidth -
+                (blockStartWidth + blockEndWidth + SKILLBLOCK_REFLOW_OFFSET) <
+                blockMiddleWidth
+            ) {
+              setReflow(true);
+              blockMiddleRef.current.style.order = '3';
+              blockEndRef.current.style.order = '2';
+            } else if (
+              _reflow &&
+              skillWidth -
+                (blockStartWidth + blockEndWidth + SKILLBLOCK_REFLOW_OFFSET) >=
+                blockMiddleWidth
+            ) {
+              setReflow(false);
+              blockMiddleRef.current.style.order = '2';
+              blockEndRef.current.style.order = '3';
+            }
+          }
+
+          if (itemMenuOnly === null) {
+            if (
+              _reflow &&
+              !_itemMenuOnly &&
+              skillWidth < SKILLBLOCK_OVERFLOWMENUONLY_THRESHOLD
+            ) {
+              setItemMenuOnly(true);
+            } else if (
+              _reflow &&
+              _itemMenuOnly &&
+              skillWidth >= SKILLBLOCK_OVERFLOWMENUONLY_THRESHOLD
+            ) {
+              setItemMenuOnly(false);
+            }
+          }
         }
       }
     };
@@ -545,7 +574,11 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
             style={{ background }}
           ></div>
           <div className={styles.content} ref={contentRef}>
-            <div className={styles.blockStart} ref={blockStartRef}>
+            <div
+              className={styles.blockStart}
+              ref={blockStartRef}
+              style={{ width: labelWidth }}
+            >
               {!!iconProps && status === SkillStatus.Default && (
                 <Icon
                   style={{ color }}
@@ -582,7 +615,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
               !!menuItems) && (
               <div className={styles.blockEnd} ref={blockEndRef}>
                 <ul className={styles.buttonList}>
-                  {!!endorseButtonProps && !itemMenuOnly && (
+                  {!!endorseButtonProps && !_itemMenuOnly && (
                     <li key="endorsement-inline-button">
                       <Button
                         checked={endorsement}
@@ -622,7 +655,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
                       />
                     </li>
                   )}
-                  {!!highlightButtonProps && !itemMenuOnly && (
+                  {!!highlightButtonProps && !_itemMenuOnly && (
                     <li key="highlight-inline-button">
                       <Button
                         checked={status === SkillStatus.Highlight}
@@ -659,7 +692,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
                       />
                     </li>
                   )}
-                  {!!customButtonProps && !itemMenuOnly && (
+                  {!!customButtonProps && !_itemMenuOnly && (
                     <li key="custom-inline-button">
                       <Button
                         onKeyDown={(
@@ -689,12 +722,12 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
                     </li>
                   )}
                   {(menuItems ||
-                    (menuItems && itemMenuOnly) ||
+                    (menuItems && _itemMenuOnly) ||
                     (!menuItems &&
                       (customButtonProps ||
                         endorseButtonProps ||
                         highlightButtonProps) &&
-                      itemMenuOnly)) &&
+                      _itemMenuOnly)) &&
                     getItemMenu()}
                 </ul>
               </div>

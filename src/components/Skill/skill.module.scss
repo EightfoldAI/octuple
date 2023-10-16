@@ -948,6 +948,12 @@
           width: 80px;
           word-wrap: break-word;
         }
+
+        &.label-width {
+          .label {
+            width: auto;
+          }
+        }
       }
 
       @media (max-width: 180px) {
