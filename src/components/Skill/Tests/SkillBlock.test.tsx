@@ -979,6 +979,106 @@ describe('SkillBlock', () => {
     expect(option3).toBeTruthy();
   });
 
+  test('Should render menu buttons correctly when SkillBlock width is small and has custom menu items', async () => {
+    const endorsementButtonProps = {
+      ariaLabel: 'Endorse',
+      classNames: 'endorsement-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'endorsement-button-test',
+    };
+    const highlightButtonProps = {
+      ariaLabel: 'Highlight',
+      classNames: 'highlight-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'highlight-button-test',
+    };
+    const customButtonProps = {
+      ariaLabel: 'Custom',
+      classNames: 'custom-button-test',
+      iconProps: { path: IconName.mdiAccount },
+      onClick: jest.fn(),
+      'data-testid': 'custom-button-test',
+    };
+    const itemMenuButtonProps = {
+      ariaLabel: 'Overflow',
+      classNames: 'item-menu-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'item-menu-button-test',
+    };
+    const { container, getByTestId } = render(
+      <SkillBlock
+        animate={false}
+        content={getStaticSlider()}
+        contentClassNames="test-content"
+        itemMenuOnly
+        reflow
+        label="test skill"
+        labelWidth={100}
+        endorsement={true}
+        endorseButtonProps={endorsementButtonProps}
+        highlightButtonProps={highlightButtonProps}
+        customButtonProps={customButtonProps}
+        status={SkillStatus.Highlight}
+        itemMenuButtonProps={itemMenuButtonProps}
+        maxWidth={340}
+        minWidth={340}
+        width={340}
+        menuItems={[
+          {
+            'data-testid': 'menu-item',
+            text: 'Button 1',
+          },
+          {
+            'data-testid': 'menu-item',
+            text: 'Button 2',
+          },
+          {
+            'data-testid': 'menu-item',
+            type: MenuItemType.link,
+            text: 'Link button 3',
+            href: 'https://eightfold.ai',
+            target: '_blank',
+          },
+        ]}
+      />
+    );
+
+    await waitFor(() =>
+      expect(getByTestId('item-menu-button-test')).toBeTruthy()
+    );
+
+    const itemMenuButton = getByTestId('item-menu-button-test');
+
+    expect(
+      container.getElementsByClassName('endorsement-button-test')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('highlight-button-test')
+    ).toHaveLength(0);
+    expect(container.getElementsByClassName('custom-button-test')).toHaveLength(
+      0
+    );
+
+    expect(itemMenuButton).toBeTruthy();
+    expect(itemMenuButton.getAttribute('aria-label')).toBe('Overflow');
+    fireEvent.click(itemMenuButton);
+
+    await waitFor(() => screen.getByText('Endorse'));
+
+    const option1 = screen.getByText('Endorse');
+    const option2 = screen.getByText('Highlight');
+    const option3 = screen.getByText('Custom');
+    const option4 = screen.getByText('Button 1');
+    const option5 = screen.getByText('Button 2');
+    const option6 = screen.getByText('Link button 3');
+    expect(option1).toBeTruthy();
+    expect(option2).toBeTruthy();
+    expect(option3).toBeTruthy();
+    expect(option4).toBeTruthy();
+    expect(option5).toBeTruthy();
+    expect(option6).toBeTruthy();
+  });
+
   test('Should render endorsementMenuButton correctly', () => {
     const endorsementButtonProps = {
       ariaLabel: 'Endorse',
@@ -1017,6 +1117,9 @@ describe('SkillBlock', () => {
     const highlightButton = getByTestId('highlight-button-test');
     expect(highlightButton).toBeTruthy();
     expect(highlightButton.getAttribute('aria-label')).toBe('Highlight');
+    expect(highlightButton.innerHTML).toBe(
+      '<span aria-hidden="false" class="icon icon-wrapper" role="presentation"><svg viewBox="0 0 24 24" style="width: 16px; height: 16px;" role="presentation"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" style="fill: currentColor;"></path></svg></span>'
+    );
     fireEvent.click(highlightButton);
     expect(highlightButtonProps.onClick).toHaveBeenCalledTimes(1);
   });
