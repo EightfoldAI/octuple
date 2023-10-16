@@ -4,7 +4,7 @@ exports[`SkillTag Skill is a clickable tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag clickable white medium"
+    class="skill tag bordered clickable white medium"
     data-testid="skill-tag-1"
     id="testSkill"
     role="button"
@@ -34,7 +34,7 @@ exports[`SkillTag Skill is a default tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -62,7 +62,7 @@ exports[`SkillTag Skill is a default tag that's removable 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -122,7 +122,7 @@ exports[`SkillTag Skill is a default tag with custom iconProps 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -166,7 +166,7 @@ exports[`SkillTag Skill is a default tag with customButtonProps 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -227,7 +227,7 @@ exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -297,7 +297,7 @@ exports[`SkillTag Skill is a highlight tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag highlight medium"
+    class="skill tag bordered highlight medium"
     id="testSkill"
     tabindex="0"
   >
@@ -341,7 +341,7 @@ exports[`SkillTag Skill is a large tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white large"
+    class="skill tag bordered white large"
     id="testSkill"
     tabindex="0"
   >
@@ -369,7 +369,7 @@ exports[`SkillTag Skill is a match tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag match medium"
+    class="skill tag bordered match medium"
     id="testSkill"
     tabindex="0"
   >
@@ -413,7 +413,7 @@ exports[`SkillTag Skill is a small tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white small"
+    class="skill tag bordered white small"
     id="testSkill"
     tabindex="0"
   >
@@ -441,7 +441,7 @@ exports[`SkillTag Skill is a xsmall tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white xsmall"
+    class="skill tag bordered white xsmall"
     id="testSkill"
     tabindex="0"
   >
@@ -475,7 +475,7 @@ exports[`SkillTag Skill tag has a dropdown 1`] = `
       aria-disabled="false"
       aria-expanded="true"
       aria-haspopup="true"
-      class="reference-wrapper skill tag clickable white medium dropdown"
+      class="reference-wrapper skill tag bordered clickable white medium dropdown"
       data-testid="skill-tag-2"
       id="testSkill"
       role="button"
@@ -531,7 +531,7 @@ exports[`SkillTag Skill tag has a popup 1`] = `
       aria-disabled="false"
       aria-expanded="true"
       aria-haspopup="true"
-      class="skill tag clickable white medium tooltip-reference"
+      class="skill tag bordered clickable white medium tooltip-reference"
       data-reference-id="popup--reference"
       data-testid="skill-tag-3"
       id="testSkill"
@@ -585,7 +585,7 @@ exports[`SkillTag Skill tag has a tooltip 1`] = `
   >
     <div
       aria-disabled="false"
-      class="skill tag clickable white medium tooltip-reference"
+      class="skill tag bordered clickable white medium tooltip-reference"
       data-reference-id="tooltip--reference"
       data-testid="skill-tag-4"
       id="testSkill"
@@ -617,7 +617,7 @@ exports[`SkillTag Skill tag is closable 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -676,7 +676,7 @@ exports[`SkillTag Skill tag is disabled 1`] = `
 <div>
   <div
     aria-disabled="true"
-    class="skill tag white medium disabled"
+    class="skill tag bordered white medium disabled"
     id="testSkill"
   >
     <div
@@ -703,7 +703,7 @@ exports[`SkillTag Skill tag is readonly 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium readonly"
+    class="skill tag bordered white medium readonly"
     id="testSkill"
     tabindex="0"
   >
@@ -731,7 +731,7 @@ exports[`SkillTag Skill tag renders 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag white medium"
+    class="skill tag bordered white medium"
     id="testSkill"
     tabindex="0"
   >
@@ -759,7 +759,7 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag clickable test-skill highlight medium"
+    class="skill tag bordered clickable test-skill highlight medium"
     data-testid="skill-tag-5"
     id="testSkill"
     role="button"

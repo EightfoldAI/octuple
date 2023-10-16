@@ -86,6 +86,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
     const skillClassNames: string = mergeClasses([
       styles.skill,
       styles.tag,
+      styles.bordered,
       { [styles.clickable]: !!clickable },
       classNames,
       {
