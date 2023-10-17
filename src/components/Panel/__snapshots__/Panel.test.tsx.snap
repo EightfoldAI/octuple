@@ -306,7 +306,69 @@ LoadedCheerio {
                 "attribs": Object {
                   "class": "footer",
                 },
-                "children": Array [],
+                "children": Array [
+                  Node {
+                    "attribs": Object {},
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "aria-disabled": "false",
+                          "class": "button button-primary button-medium pill-shape",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "class": "button-text-medium",
+                            },
+                            "children": Array [
+                              Node {
+                                "data": "Close",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-disabled": undefined,
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-disabled": undefined,
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
@@ -372,7 +434,69 @@ LoadedCheerio {
               "attribs": Object {
                 "class": "footer",
               },
-              "children": Array [],
+              "children": Array [
+                Node {
+                  "attribs": Object {},
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "aria-disabled": "false",
+                        "class": "button button-primary button-medium pill-shape",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "class": "button-text-medium",
+                          },
+                          "children": Array [
+                            Node {
+                              "data": "Close",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
+              ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
@@ -670,7 +794,69 @@ LoadedCheerio {
             "attribs": Object {
               "class": "footer",
             },
-            "children": Array [],
+            "children": Array [
+              Node {
+                "attribs": Object {},
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "aria-disabled": "false",
+                      "class": "button button-primary button-medium pill-shape",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "class": "button-text-medium",
+                        },
+                        "children": Array [
+                          Node {
+                            "data": "Close",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+            ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
@@ -1424,7 +1610,69 @@ LoadedCheerio {
                 "attribs": Object {
                   "class": "footer",
                 },
-                "children": Array [],
+                "children": Array [
+                  Node {
+                    "attribs": Object {},
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "aria-disabled": "false",
+                          "class": "button button-primary button-medium pill-shape",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "class": "button-text-medium",
+                            },
+                            "children": Array [
+                              Node {
+                                "data": "Close",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-disabled": undefined,
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-disabled": undefined,
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
@@ -1490,7 +1738,69 @@ LoadedCheerio {
               "attribs": Object {
                 "class": "footer",
               },
-              "children": Array [],
+              "children": Array [
+                Node {
+                  "attribs": Object {},
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "aria-disabled": "false",
+                        "class": "button button-primary button-medium pill-shape",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "class": "button-text-medium",
+                          },
+                          "children": Array [
+                            Node {
+                              "data": "Close",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
+              ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
@@ -1788,7 +2098,69 @@ LoadedCheerio {
             "attribs": Object {
               "class": "footer",
             },
-            "children": Array [],
+            "children": Array [
+              Node {
+                "attribs": Object {},
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "aria-disabled": "false",
+                      "class": "button button-primary button-medium pill-shape",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "class": "button-text-medium",
+                        },
+                        "children": Array [
+                          Node {
+                            "data": "Close",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+            ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
@@ -2542,7 +2914,69 @@ LoadedCheerio {
                 "attribs": Object {
                   "class": "footer",
                 },
-                "children": Array [],
+                "children": Array [
+                  Node {
+                    "attribs": Object {},
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "aria-disabled": "false",
+                          "class": "button button-primary button-medium pill-shape",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "class": "button-text-medium",
+                            },
+                            "children": Array [
+                              Node {
+                                "data": "Close",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-disabled": undefined,
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-disabled": undefined,
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
@@ -2608,7 +3042,69 @@ LoadedCheerio {
               "attribs": Object {
                 "class": "footer",
               },
-              "children": Array [],
+              "children": Array [
+                Node {
+                  "attribs": Object {},
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "aria-disabled": "false",
+                        "class": "button button-primary button-medium pill-shape",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "class": "button-text-medium",
+                          },
+                          "children": Array [
+                            Node {
+                              "data": "Close",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
+              ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
@@ -2906,7 +3402,69 @@ LoadedCheerio {
             "attribs": Object {
               "class": "footer",
             },
-            "children": Array [],
+            "children": Array [
+              Node {
+                "attribs": Object {},
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "aria-disabled": "false",
+                      "class": "button button-primary button-medium pill-shape",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "class": "button-text-medium",
+                        },
+                        "children": Array [
+                          Node {
+                            "data": "Close",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+            ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
