@@ -545,7 +545,7 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = () => {
+const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
   const [data, setData] = useState<Record<string, unknown>>({});
   const [thumbUrl, setThumbUrl] = useState<string>('');
 
@@ -579,6 +579,7 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = () => {
   };
 
   const props: UploadProps = {
+    ...args,
     customRequest() {
       return true;
     },
@@ -701,4 +702,5 @@ Image_Editor.args = {
 
 Basic_Deferred_API.args = {
   ...uploadArgs,
+  fullWidth: false,
 };

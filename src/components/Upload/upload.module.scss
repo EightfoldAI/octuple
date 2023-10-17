@@ -226,6 +226,10 @@ $upload-picture-card-size: 104px;
     }
 
     &-full-width {
+      .upload-list-item-tooltip-wrapper {
+        width: 100%;
+      }
+
       .upload-list-item {
         .upload-list-item-info {
           width: 100%;
