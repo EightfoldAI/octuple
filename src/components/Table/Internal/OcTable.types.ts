@@ -307,10 +307,26 @@ export type ExpandedRowRender<ValueType> = (
 ) => React.ReactNode;
 
 export interface RenderExpandIconProps<RecordType> {
-  expanded: boolean;
-  record: RecordType;
+  /**
+   * Whether the expand icon button row is expandable.
+   */
   expandable: boolean;
+  /**
+   * Whether the expand icon button row is expanded.
+   */
+  expanded: boolean;
+  /**
+   * The expand icon row onExpand callback.
+   */
   onExpand: TriggerEventHandler<RecordType>;
+  /**
+   * The expand icon row record.
+   */
+  record: RecordType;
+  /**
+   * Whether the expand icon button is disabled.
+   */
+  disabled?: boolean;
 }
 
 export type RenderExpandIcon<RecordType> = (
@@ -380,6 +396,10 @@ export interface ExpandableConfig<RecordType> {
    * Enable row expandable.
    */
   rowExpandable?: (record: RecordType) => boolean;
+  /**
+   * Whether the expandability of a row is disabled.
+   */
+  rowExpandDisabled?: (record: RecordType) => boolean;
   /**
    * Show expand column.
    * @default true

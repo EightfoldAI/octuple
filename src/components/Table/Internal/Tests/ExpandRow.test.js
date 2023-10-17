@@ -512,6 +512,27 @@ describe('Table.Expand', () => {
     ).toBeTruthy();
   });
 
+  it('some rows expandability should be disabled', () => {
+    const wrapper = mount(
+      createTable({
+        expandableConfig: {
+          expandedRowRender,
+          rowExpandDisabled: ({ key }) => key === 1,
+        },
+      })
+    );
+
+    expect(
+      wrapper.find('tbody tr').first().find('.table-row-spaced')
+    ).toBeTruthy();
+    expect(
+      wrapper.find('tbody tr').last().find('.table-row-collapsed')
+    ).toBeTruthy();
+    expect(
+      wrapper.find('tbody tr').last().find('.table-row-expand-icon-disabled')
+    ).toBeTruthy();
+  });
+
   it('`defaultExpandAllRows` with `childrenColumnName`', () => {
     const data = [
       {
