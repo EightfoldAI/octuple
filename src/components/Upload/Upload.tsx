@@ -555,7 +555,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         disabled={mergedDisabled}
         htmlType={'button'}
         onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
-          if (event.key !== eventKeys.TAB) {
+          if (
+            event?.key !== eventKeys.TAB ||
+            (event?.key !== eventKeys.TAB && !event?.shiftKey)
+          ) {
             event.preventDefault();
           }
         }}
