@@ -540,11 +540,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
       <Icon
         classNames={styles.uploadDropIcon}
         path={IconName.mdiFileUploadOutline}
-        size={'48px'}
+        size="48px"
       />
     );
     const renderText = (): JSX.Element => (
-      <Stack direction={'vertical'}>
+      <Stack direction="vertical">
         <div className={styles.uploadDropText}>
           {maxCount === 1 ? dragAndDropFileText : dragAndDropMultipleFilesText}
         </div>
@@ -555,7 +555,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
       <Button
         classNames={styles.uploadDropButton}
         disabled={mergedDisabled}
-        htmlType={'button'}
+        htmlType="button"
         onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
           if (
             event?.key !== eventKeys.TAB ||
@@ -572,20 +572,15 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
       return (
         <>
           {size === UploadSize.Large && (
-            <Stack
-              direction={'vertical'}
-              fullWidth
-              flexGap={'ml'}
-              justify={'center'}
-            >
+            <Stack direction="vertical" fullWidth flexGap="ml" justify="center">
               {renderIcon()}
               {renderText()}
               {renderButton()}
             </Stack>
           )}
           {size === UploadSize.Medium && (
-            <Stack direction={'vertical'} flexGap={'m'}>
-              <Stack direction={'horizontal'} flexGap={'xs'}>
+            <Stack direction="vertical" flexGap="m">
+              <Stack direction="horizontal" flexGap="xs">
                 {renderIcon()}
                 {renderText()}
               </Stack>
@@ -593,8 +588,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             </Stack>
           )}
           {size === UploadSize.Small && (
-            <Stack direction={'horizontal'} fullWidth justify={'space-between'}>
-              <Stack direction={'horizontal'} flexGap={'s'}>
+            <Stack direction="horizontal" fullWidth justify="space-between">
+              <Stack direction="horizontal" flexGap="s">
                 {renderIcon()}
                 {renderText()}
               </Stack>
