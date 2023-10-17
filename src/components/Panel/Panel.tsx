@@ -297,7 +297,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     >
                       {getHeader()}
                       {getBody()}
-                      {getFooter()}
+                      {!!footer && getFooter()}
                     </div>
                   </FocusTrap>
                 </NoFormStyle>
