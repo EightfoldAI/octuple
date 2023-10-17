@@ -3,8 +3,8 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Panel, PanelSize } from './';
 import { PanelHeader } from './PanelHeader';
+import { Button, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
-import { PrimaryButton } from '../Button';
 
 export default {
   title: 'Panel',
@@ -107,12 +107,20 @@ const Panel_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
+      <Button
+        onClick={() => setVisible(true)}
+        text={'Open panel'}
+        variant={ButtonVariant.Primary}
+      />
       <Panel
         {...args}
         footer={
           <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
+            <Button
+              onClick={() => setVisible(false)}
+              text={'Close'}
+              variant={ButtonVariant.Primary}
+            />
           </div>
         }
         visible={visible}
@@ -126,23 +134,25 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<Record<string, boolean>>({});
   return (
     <>
-      <PrimaryButton
-        text={'Open first panel'}
+      <Button
         onClick={() =>
           setVisible({
             simple: true,
           })
         }
+        text={'Open first panel'}
+        variant={ButtonVariant.Primary}
       />
       <Panel {...args} visible={visible.simple} onClose={() => setVisible({})}>
-        <PrimaryButton
-          text={'Open second panel'}
+        <Button
           onClick={() =>
             setVisible({
               ...visible,
               child: true,
             })
           }
+          text={'Open second panel'}
+          variant={ButtonVariant.Primary}
         />
         <Panel
           {...args}
@@ -155,14 +165,15 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
             })
           }
         >
-          <PrimaryButton
-            text={'Open third panel'}
+          <Button
             onClick={() =>
               setVisible({
                 ...visible,
                 nextChild: true,
               })
             }
+            text={'Open third panel'}
+            variant={ButtonVariant.Primary}
           />
           <Panel
             {...args}
@@ -185,12 +196,20 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
-      <PrimaryButton text={'Open panel'} onClick={() => setVisible(true)} />
+      <Button
+        onClick={() => setVisible(true)}
+        text={'Open panel'}
+        variant={ButtonVariant.Primary}
+      />
       <Panel
         {...args}
         footer={
           <div>
-            <PrimaryButton text={'Close'} onClick={() => setVisible(false)} />
+            <Button
+              onClick={() => setVisible(false)}
+              text={'Close'}
+              variant={ButtonVariant.Primary}
+            />
           </div>
         }
         visible={visible}
