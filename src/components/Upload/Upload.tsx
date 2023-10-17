@@ -22,7 +22,7 @@ import LocaleReceiver, {
 } from '../LocaleProvider/LocaleReceiver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useMergedState } from '../../hooks/useMergedState';
-import { mergeClasses, warning } from '../../shared/utilities';
+import { eventKeys, mergeClasses, warning } from '../../shared/utilities';
 import enUS from './Locale/en_US';
 
 import styles from './upload.module.scss';
@@ -554,7 +554,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         classNames={styles.uploadDropButton}
         disabled={mergedDisabled}
         htmlType={'button'}
-        onKeyDown={(event) => event.preventDefault()}
+        onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
+          if (event.key !== eventKeys.TAB) {
+            event.preventDefault();
+          }
+        }}
         text={maxCount === 1 ? selectFileText : selectMultipleFilesText}
       />
     );
