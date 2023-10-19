@@ -59,6 +59,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         portal = false,
         positionStrategy = 'absolute',
         referenceOnClick,
+        referenceWrapperClassNames,
         role = 'listbox',
         showDropdown,
         style,
@@ -240,11 +241,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       const getReference = (): JSX.Element => {
         const child = React.Children.only(children) as React.ReactElement<any>;
-        const referenceWrapperClassNames: string = mergeClasses([
+        const referenceWrapperClasses: string = mergeClasses([
           styles.referenceWrapper,
           // Add any classnames added to the reference element
           { [child.props.className]: child.props.className },
           { [styles.disabled]: disabled },
+          referenceWrapperClassNames,
         ]);
         // If there's an id and it does not yet match the state, update dropdownReferenceId.
         // This compare ensures setState is only called when needed.
@@ -268,7 +270,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             id: dropdownReferenceId,
             onClick: handleReferenceClick,
             onKeyDown: handleReferenceKeyDown,
-            className: referenceWrapperClassNames,
+            className: referenceWrapperClasses,
           });
         }
 
@@ -279,7 +281,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           id: dropdownReferenceId,
           onClick: handleReferenceClick,
           onKeyDown: handleReferenceKeyDown,
-          className: referenceWrapperClassNames,
+          className: referenceWrapperClasses,
           'aria-controls': dropdownId,
           'aria-expanded': mergedVisible,
           'aria-haspopup': true,
