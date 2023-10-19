@@ -9,7 +9,8 @@
     padding: $space-xs;
 
     &:focus-visible {
-      outline: $space-xxxs solid var(--primary-color);
+      outline: none;
+      box-shadow: var(--focus-visible-box-shadow);
     }
 
     &.disabled {

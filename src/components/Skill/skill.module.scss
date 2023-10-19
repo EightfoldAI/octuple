@@ -1,0 +1,1128 @@
+// Export values for typescript consumption.
+:export {
+  skillBlockContentFlexGap: strip-units($space-l);
+  skillBlockContentPadding: strip-units($space-s);
+}
+
+.skill {
+  --button-counter-default-background-color: var(
+    --skill-button-counter-default-background-color
+  );
+  --button-counter-hover-background-color: var(
+    --skill-button-counter-hover-background-color
+  );
+  --button-counter-checked-background-color: var(
+    --skill-button-counter-checked-background-color
+  );
+  --button-counter-focus-background-color: var(
+    --skill-button-counter-focus-background-color
+  );
+  --button-counter-active-background-color: var(
+    --skill-button-counter-active-background-color
+  );
+  --button-neutral-counter-default-text-color: var(
+    --skill-button-counter-default-text-color
+  );
+
+  --bg: var(--white-color);
+  --label: var(--grey-secondary-color);
+  --hover-bg: var(--grey-background1-color);
+  --hover-label: var(--text-primary-color);
+  --active-bg: var(--grey-background2-color);
+  --active-label: var(--text-primary-color);
+  --divider: var(--skill-divider-color);
+  --hover-divider: var(--skill-divider-hover-color);
+  --active-divider: var(--skill-divider-active-color);
+
+  border-radius: var(--skill-medium-size-border-radius);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &.animate {
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  }
+
+  .background {
+    background: var(--bg);
+    border-radius: var(--skill-medium-size-border-radius);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .divider {
+    background: var(--divider);
+  }
+
+  &.clickable:not(.disabled):not(.readonly),
+  &.hoverable:not(.disabled):not(.readonly) {
+    .background {
+      cursor: pointer;
+
+      &:hover {
+        --bg: var(--hover-bg);
+        --label: var(--hover-label);
+      }
+
+      &:active {
+        --bg: var(--active-bg);
+        --label: var(--active-label);
+      }
+    }
+
+    .background:hover + .content + .divider,
+    .background:hover + .content + .divider + .footer + .divider,
+    .background:hover
+      + .content
+      + .divider
+      + div
+      + .divider
+      + .footer
+      + .divider,
+    .background:hover + .content + .divider + div + .divider {
+      --divider: var(--hover-divider);
+    }
+
+    .background:active + .content + .divider,
+    .background:active + .content + .divider + .footer + .divider,
+    .background:active
+      + .content
+      + .divider
+      + div
+      + .divider
+      + .footer
+      + .divider,
+    .background:active + .content + .divider + div + .divider {
+      --divider: var(--active-divider);
+    }
+  }
+
+  .content {
+    align-items: center;
+    border-radius: var(--skill-medium-size-border-radius);
+    color: var(--label);
+    display: flex;
+    font-family: var(--skill-font-family);
+    font-size: $text-font-size-3;
+    padding: $space-xxs $space-xs;
+    pointer-events: none;
+    position: relative;
+
+    > *:not(.block-start) {
+      pointer-events: auto;
+    }
+  }
+
+  &.dropdown {
+    padding: 0;
+  }
+
+  &.tag {
+    .content {
+      align-items: flex-start;
+      gap: $space-xs;
+      padding: 5px $space-xs;
+
+      .block-start {
+        display: flex;
+        flex-direction: row;
+        gap: $space-xxs;
+      }
+
+      .icon {
+        align-items: flex-start;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  &.drop-shadow {
+    box-shadow: $shadow-object-m;
+  }
+
+  .label {
+    font-family: var(--font-stack-full);
+    font-weight: $text-font-weight-semibold;
+    user-select: none;
+
+    &.large {
+      font-size: $text-font-size-5;
+      line-height: 36px;
+    }
+
+    &.medium {
+      font-size: $text-font-size-3;
+      line-height: $text-line-height-4;
+    }
+
+    &.small,
+    &.xsmall {
+      font-size: $text-font-size-2;
+      line-height: $text-line-height-2;
+    }
+
+    &.line-clamp {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.readonly {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .icon {
+    color: inherit;
+  }
+
+  .button {
+    background: var(--skill-button-neutral-background-color);
+    color: inherit;
+    cursor: default;
+
+    &:hover {
+      background: var(--skill-button-neutral-hover-background-color);
+    }
+
+    &:active {
+      background: var(--skill-button-neutral-active-background-color);
+    }
+  }
+
+  &:not(.xsmall):not(.block) {
+    border: var(--skill-border);
+  }
+
+  &.block {
+    &.bordered {
+      border: var(--skill-border);
+    }
+  }
+
+  &.red {
+    --bg: var(--red-background1-color);
+    --label: var(--red-color);
+    --hover-bg: var(--red-background2-color);
+    --hover-label: var(--red-color);
+    --active-bg: var(--red-background3-color);
+    --active-label: var(--red-color);
+    --divider: var(--red-background2-color);
+    --hover-divider: var(--red-background3-color);
+    --active-divider: var(--red-color-40);
+    --skill-button-neutral-background-color: var(--red-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --red-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(--red-background3-color);
+    --skill-button-neutral-focus-visible-background-color: var(
+      --red-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --red-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(--red-background1-color);
+    --skill-button-counter-checked-background-color: var(
+      --red-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(--red-background2-color);
+    --skill-button-counter-active-background-color: var(
+      --red-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--red-color);
+
+    &.bordered {
+      border-color: var(--red-background2-color);
+    }
+  }
+
+  &.red-orange {
+    --bg: var(--redorange-background1-color);
+    --label: var(--redorange-color);
+    --hover-bg: var(--redorange-background2-color);
+    --hover-label: var(--redorange-color);
+    --active-bg: var(--redorange-background3-color);
+    --active-label: var(--redorange-color);
+    --divider: var(--redorange-background2-color);
+    --hover-divider: var(--redorange-background3-color);
+    --active-divider: var(--redorange-color-40);
+    --skill-button-neutral-background-color: var(--redorange-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --redorange-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --redorange-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --redorange-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --redorange-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --redorange-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --redorange-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --redorange-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --redorange-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--redorange-color);
+
+    &.bordered {
+      border-color: var(--redorange-background2-color);
+    }
+  }
+
+  &.orange {
+    --bg: var(--orange-background1-color);
+    --label: var(--orange-color);
+    --hover-bg: var(--orange-background2-color);
+    --hover-label: var(--orange-color);
+    --active-bg: var(--orange-background3-color);
+    --active-label: var(--orange-color);
+    --divider: var(--orange-background2-color);
+    --hover-divider: var(--orange-background3-color);
+    --active-divider: var(--orange-color-40);
+    --skill-button-neutral-background-color: var(--orange-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --orange-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --orange-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --orange-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --orange-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --orange-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --orange-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --orange-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --orange-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--orange-color);
+
+    &.bordered {
+      border-color: var(--orange-background2-color);
+    }
+  }
+
+  &.yellow {
+    --bg: var(--yellow-background1-color);
+    --label: var(--yellow-color);
+    --hover-bg: var(--yellow-background2-color);
+    --hover-label: var(--yellow-color);
+    --active-bg: var(--yellow-background3-color);
+    --active-label: var(--yellow-color);
+    --divider: var(--yellow-background2-color);
+    --hover-divider: var(--yellow-background3-color);
+    --active-divider: var(--yellow-color-40);
+    --skill-button-neutral-background-color: var(--yellow-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --yellow-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --yellow-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --yellow-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --yellow-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --yellow-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --yellow-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --yellow-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --yellow-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--yellow-color);
+
+    &.bordered {
+      border-color: var(--yellow-background2-color);
+    }
+  }
+
+  &.yellow-green {
+    --bg: var(--yellowgreen-background1-color);
+    --label: var(--yellowgreen-color);
+    --hover-bg: var(--yellowgreen-background2-color);
+    --hover-label: var(--yellowgreen-color);
+    --active-bg: var(--yellowgreen-background3-color);
+    --active-label: var(--yellowgreen-color);
+    --divider: var(--yellowgreen-background2-color);
+    --hover-divider: var(--yellowgreen-background3-color);
+    --active-divider: var(--yellowgreen-color-40);
+    --skill-button-neutral-background-color: var(
+      --yellowgreen-background2-color
+    );
+    --skill-button-neutral-active-background-color: var(
+      --yellowgreen-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --yellowgreen-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --yellowgreen-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--yellowgreen-color);
+
+    &.bordered {
+      border-color: var(--yellowgreen-background2-color);
+    }
+  }
+
+  &.green {
+    --bg: var(--green-background1-color);
+    --label: var(--green-color);
+    --hover-bg: var(--green-background2-color);
+    --hover-label: var(--green-color);
+    --active-bg: var(--green-background3-color);
+    --active-label: var(--green-color);
+    --divider: var(--green-background2-color);
+    --hover-divider: var(--green-background3-color);
+    --active-divider: var(--green-color-40);
+    --skill-button-neutral-background-color: var(--green-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --green-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --green-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --green-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--green-color);
+
+    &.bordered {
+      border-color: var(--green-background2-color);
+    }
+  }
+
+  &.blue-green {
+    --bg: var(--bluegreen-background1-color);
+    --label: var(--bluegreen-color);
+    --hover-bg: var(--bluegreen-background2-color);
+    --hover-label: var(--bluegreen-color);
+    --active-bg: var(--bluegreen-background3-color);
+    --active-label: var(--bluegreen-color);
+    --divider: var(--bluegreen-background2-color);
+    --hover-divider: var(--bluegreen-background3-color);
+    --active-divider: var(--bluegreen-color-40);
+    --skill-button-neutral-background-color: var(--bluegreen-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --bluegreen-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --bluegreen-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --bluegreen-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --bluegreen-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --bluegreen-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --bluegreen-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --bluegreen-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --bluegreen-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--bluegreen-color);
+
+    &.bordered {
+      border-color: var(--bluegreen-background2-color);
+    }
+  }
+
+  &.blue {
+    --bg: var(--blue-background1-color);
+    --label: var(--blue-color);
+    --hover-bg: var(--blue-background2-color);
+    --hover-label: var(--blue-color);
+    --active-bg: var(--blue-background3-color);
+    --active-label: var(--blue-color);
+    --divider: var(--blue-background2-color);
+    --hover-divider: var(--blue-background3-color);
+    --active-divider: var(--blue-color-40);
+    --skill-button-neutral-background-color: var(--blue-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --blue-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --blue-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --blue-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --blue-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --blue-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --blue-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --blue-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --blue-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--blue-color);
+
+    &.bordered {
+      border-color: var(--blue-background2-color);
+    }
+  }
+
+  &.blue-violet {
+    --bg: var(--blueviolet-background1-color);
+    --label: var(--blueviolet-color);
+    --hover-bg: var(--blueviolet-background2-color);
+    --hover-label: var(--blueviolet-color);
+    --active-bg: var(--blueviolet-background3-color);
+    --active-label: var(--blueviolet-color);
+    --divider: var(--blueviolet-background2-color);
+    --hover-divider: var(--blueviolet-background3-color);
+    --active-divider: var(--blueviolet-color-40);
+    --skill-button-neutral-background-color: var(
+      --blueviolet-background2-color
+    );
+    --skill-button-neutral-active-background-color: var(
+      --blueviolet-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --blueviolet-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --blueviolet-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --blueviolet-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --blueviolet-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --blueviolet-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --blueviolet-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --blueviolet-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--blueviolet-color);
+
+    &.bordered {
+      border-color: var(--blueviolet-background2-color);
+    }
+  }
+
+  &.violet {
+    --bg: var(--violet-background1-color);
+    --label: var(--violet-color);
+    --hover-bg: var(--violet-background2-color);
+    --hover-label: var(--violet-color);
+    --active-bg: var(--violet-background3-color);
+    --active-label: var(--violet-color);
+    --divider: var(--violet-background2-color);
+    --hover-divider: var(--violet-background3-color);
+    --active-divider: var(--violet-color-40);
+    --skill-button-neutral-background-color: var(--violet-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --violet-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --violet-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --violet-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --violet-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --violet-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --violet-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --violet-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --violet-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--violet-color);
+
+    &.bordered {
+      border-color: var(--violet-background2-color);
+    }
+  }
+
+  &.violet-red {
+    --bg: var(--violetred-background1-color);
+    --label: var(--violetred-color);
+    --hover-bg: var(--violetred-background2-color);
+    --hover-label: var(--violetred-color);
+    --active-bg: var(--violetred-background3-color);
+    --active-label: var(--violetred-color);
+    --divider: var(--violetred-background2-color);
+    --hover-divider: var(--violetred-background3-color);
+    --active-divider: var(--violetred-color-40);
+    --skill-button-neutral-background-color: var(--violetred-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --violetred-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --violetred-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --violetred-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --violetred-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --violetred-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --violetred-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --violetred-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --violetred-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--violetred-color);
+
+    &.bordered {
+      border-color: var(--violetred-background2-color);
+    }
+  }
+
+  &.grey {
+    --bg: var(--grey-background1-color);
+    --label: var(--grey-color);
+    --hover-bg: var(--grey-background2-color);
+    --hover-label: var(--grey-color);
+    --active-bg: var(--grey-background3-color);
+    --active-label: var(--grey-color);
+    --divider: var(--grey-background2-color);
+    --hover-divider: var(--grey-background3-color);
+    --active-divider: var(--grey-color-40);
+    --skill-button-neutral-background-color: var(--grey-background2-color);
+    --skill-button-neutral-active-background-color: var(
+      --grey-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --grey-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --grey-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--grey-color);
+
+    &.bordered {
+      border-color: var(--grey-background2-color);
+    }
+  }
+
+  &.white {
+    --bg: var(--white-color);
+    --label: var(--grey-secondary-color);
+    --hover-bg: var(--grey-background1-color);
+    --hover-label: var(--grey-color);
+    --active-bg: var(--grey-background2-color);
+    --active-label: var(--grey-color);
+    --divider: var(--grey-background2-color);
+    --hover-divider: var(--grey-background3-color);
+    --active-divider: var(--grey-background3-color);
+    --skill-button-neutral-background-color: var(--grey-background1-color);
+    --skill-button-neutral-active-background-color: var(
+      --grey-background3-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --grey-background2-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --grey-background2-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --grey-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --grey-background2-color
+    );
+    --skill-button-counter-active-background-color: var(--white-color);
+    --skill-button-counter-default-text-color: var(--grey-secondary-color);
+
+    &.bordered {
+      border-color: var(--grey-background2-color);
+    }
+  }
+
+  &.highlight {
+    --bg: var(--yellowgreen-background1-color);
+    --label: var(--yellowgreen-color);
+    --hover-bg: var(--yellowgreen-background2-color);
+    --hover-label: var(--yellowgreen-color);
+    --active-bg: var(--yellowgreen-background3-color);
+    --active-label: var(--yellowgreen-color);
+    --divider: var(--yellowgreen-background2-color);
+    --hover-divider: var(--yellowgreen-background3-color);
+    --active-divider: var(--yellowgreen-color-40);
+    --skill-button-neutral-background-color: var(
+      --yellowgreen-background2-color
+    );
+    --skill-button-neutral-active-background-color: var(
+      --yellowgreen-background2-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --yellowgreen-background3-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-default-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --yellowgreen-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --yellowgreen-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--yellowgreen-color);
+
+    &.bordered {
+      border-color: var(--yellowgreen-background2-color);
+    }
+  }
+
+  &.match {
+    --bg: var(--white-color);
+    --label: var(--green-color);
+    --hover-bg: var(--green-background1-color);
+    --hover-label: var(--green-color);
+    --active-bg: var(--green-background2-color);
+    --active-label: var(--green-color);
+    --divider: var(--green-background2-color);
+    --hover-divider: var(--green-background2-color);
+    --active-divider: var(--green-background3-color);
+    --skill-button-neutral-background-color: var(--green-background1-color);
+    --skill-button-neutral-active-background-color: var(
+      --green-background3-color
+    );
+    --skill-button-neutral-hover-background-color: var(
+      --green-background2-color
+    );
+    --skill-button-neutral-focus-visible-background-color: var(--white-color);
+    --skill-button-counter-default-background-color: var(
+      --green-background2-color
+    );
+    --skill-button-counter-hover-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-checked-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-focus-background-color: var(
+      --green-background2-color
+    );
+    --skill-button-counter-active-background-color: var(
+      --green-background1-color
+    );
+    --skill-button-counter-default-text-color: var(--green-color);
+
+    &.bordered {
+      border-color: var(--green-background2-color);
+    }
+  }
+
+  &.large {
+    border-radius: var(--skill-large-size-border-radius);
+
+    .background {
+      border-radius: var(--skill-large-size-border-radius);
+    }
+
+    .content {
+      border-radius: var(--skill-large-size-border-radius);
+      padding: $space-xxs $space-xs;
+    }
+
+    &.tag {
+      .content {
+        .icon {
+          margin-top: $space-xs;
+        }
+      }
+    }
+  }
+
+  &.medium {
+    border-radius: var(--skill-medium-size-border-radius);
+
+    .background {
+      border-radius: var(--skill-medium-size-border-radius);
+    }
+
+    .content {
+      border-radius: var(--skill-medium-size-border-radius);
+      padding: $space-xxs $space-xs;
+    }
+
+    &.tag {
+      .content {
+        .icon {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  &.small {
+    border-radius: var(--skill-small-size-border-radius);
+
+    .background {
+      border-radius: var(--skill-small-size-border-radius);
+    }
+
+    .content {
+      border-radius: var(--skill-small-size-border-radius);
+      padding: $space-xxs $space-xs;
+    }
+
+    &.tag {
+      .content {
+        .icon {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  &.xsmall:not(.block) {
+    border: none;
+    border-radius: var(--skill-xsmall-size-border-radius);
+
+    .background {
+      background: none;
+      border-radius: var(--skill-xsmall-size-border-radius);
+    }
+
+    .content {
+      border-radius: var(--skill-xsmall-size-border-radius);
+      padding: $space-xxs;
+    }
+
+    &.tag {
+      .content {
+        .icon {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  &.block {
+    border-radius: var(--skill-block-border-radius);
+
+    .background {
+      border-radius: var(--skill-block-border-radius);
+    }
+
+    .content {
+      align-items: flex-start;
+      border-radius: var(--skill-block-border-radius);
+      flex: 1 0 0;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $space-l;
+      justify-content: space-between;
+      padding: $space-s;
+
+      .block-start {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        gap: $space-xxs;
+        width: 100px;
+
+        .icon {
+          margin-top: 6px;
+        }
+
+        .label {
+          width: 80px;
+          word-wrap: break-word;
+        }
+
+        &.label-width {
+          .label {
+            width: auto;
+          }
+        }
+      }
+
+      @media (max-width: 180px) {
+        gap: 'unset';
+
+        .block-start {
+          width: 100%;
+
+          .label {
+            width: auto;
+          }
+        }
+      }
+
+      @media (max-width: 316px) and (min-width: 180px) {
+        .block-start {
+          flex: 1 0 0;
+          width: auto;
+
+          .label {
+            width: auto;
+          }
+        }
+      }
+
+      @media (min-width: 316px) {
+        .block-start {
+          width: 200px;
+
+          .label {
+            width: 180px;
+          }
+        }
+      }
+    }
+
+    .footer {
+      padding: $space-s;
+      position: relative;
+    }
+
+    &.animate .expanded-content {
+      opacity: 0;
+      pointer-events: none;
+
+      &.expanded {
+        animation-name: skillShow;
+        animation-delay: 300ms;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        padding: $space-s;
+        position: relative;
+      }
+    }
+
+    &:not(.animate) .expanded-content {
+      &.expanded {
+        animation-name: skillShow;
+        animation-delay: 0;
+        animation-duration: 0;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        padding: $space-s;
+        position: relative;
+      }
+    }
+
+    &.animate .extra-content {
+      opacity: 0;
+      pointer-events: none;
+
+      &.extra {
+        animation-name: skillShow;
+        animation-delay: 300ms;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        padding: $space-s;
+        position: relative;
+      }
+    }
+
+    &:not(.animate) .extra-content {
+      &.extra {
+        animation-name: skillShow;
+        animation-delay: 0;
+        animation-duration: 0;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        padding: $space-s;
+        position: relative;
+      }
+    }
+
+    .divider {
+      height: 1px;
+      margin: 0 $space-s;
+      position: relative;
+      width: calc(100% - #{$space-l});
+    }
+  }
+
+  &.disabled {
+    opacity: $disabled-alpha-value;
+    cursor: not-allowed;
+
+    * {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  .button-list {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    gap: $space-s;
+    justify-content: center;
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+  }
+
+  .block-end {
+    display: flex;
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.custom-menu-top-inset {
+  margin-top: $space-s;
+}
+
+:global(.focus-visible) {
+  .skill {
+    &.focus-visible,
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
+
+      &.drop-shadow {
+        box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
+      }
+    }
+
+    .button {
+      &.focus-visible,
+      &:focus-visible {
+        background: var(--skill-button-neutral-focus-visible-background-color);
+      }
+    }
+  }
+}
+
+@keyframes skillShow {
+  0% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

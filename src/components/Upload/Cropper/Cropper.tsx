@@ -13,7 +13,7 @@ import EasyCrop from './EasyCrop';
 import Upload from '../';
 import { UploadLocale } from '../Upload.types';
 import type { OcFile, UploadProps } from '../Upload.types';
-import { DefaultButton, PrimaryButton } from '../../Button';
+import { Button, ButtonVariant } from '../../Button';
 import { Modal, ModalSize } from '../../Modal';
 import LocaleReceiver, {
   useLocaleReceiver,
@@ -350,8 +350,12 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
               <Modal
                 actions={
                   <>
-                    <DefaultButton text={modalCancelText} onClick={onCancel} />
-                    <PrimaryButton text={modalOkText} onClick={onOk} />
+                    <Button text={modalCancelText} onClick={onCancel} />
+                    <Button
+                      text={modalOkText}
+                      onClick={onOk}
+                      variant={ButtonVariant.Primary}
+                    />
                   </>
                 }
                 body={
