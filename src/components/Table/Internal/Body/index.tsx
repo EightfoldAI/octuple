@@ -28,6 +28,7 @@ function Body<RecordType>({
   expandedKeys,
   onRow,
   rowExpandable,
+  rowExpandDisabled,
   emptyNode,
   childrenColumnName,
   onRowHoverEnter,
@@ -91,6 +92,7 @@ function Body<RecordType>({
             onRow={onRow}
             getRowKey={getRowKey}
             rowExpandable={rowExpandable}
+            rowExpandDisabled={rowExpandDisabled}
             childrenColumnName={childrenColumnName}
             indent={indent}
             onRowHoverEnter={onRowHoverEnter}
@@ -137,6 +139,7 @@ function Body<RecordType>({
     childrenColumnName,
     onColumnResize,
     rowExpandable,
+    rowExpandDisabled,
     flattenData,
   ]);
 

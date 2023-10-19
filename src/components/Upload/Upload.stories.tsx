@@ -13,7 +13,7 @@ import Cropper from './Cropper';
 import { Modal } from '../Modal';
 import { IconName } from '../Icon';
 import { snack, SnackbarContainer } from '../Snackbar';
-import { ButtonShape, ButtonSize, PrimaryButton } from '../Button';
+import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 
 const { Dropzone } = Upload;
 
@@ -85,10 +85,18 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
   return (
     <>
       <Upload {...props}>
-        <PrimaryButton
+        <Button
           htmlType={'button'}
-          onKeyDown={(event) => event.preventDefault()}
+          onKeyDown={(event) => {
+            if (
+              event.key !== 'Tab' ||
+              (event.key !== 'Tab' && !event.shiftKey)
+            ) {
+              event.preventDefault();
+            }
+          }}
           text={'Select file'}
+          variant={ButtonVariant.Primary}
         />
       </Upload>
       <SnackbarContainer />
@@ -129,10 +137,18 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
   return (
     <>
       <Upload {...props}>
-        <PrimaryButton
+        <Button
           htmlType={'button'}
-          onKeyDown={(event) => event.preventDefault()}
+          onKeyDown={(event) => {
+            if (
+              event.key !== 'Tab' ||
+              (event.key !== 'Tab' && !event.shiftKey)
+            ) {
+              event.preventDefault();
+            }
+          }}
           text={'Select file'}
+          variant={ButtonVariant.Primary}
         />
       </Upload>
       <SnackbarContainer />
@@ -140,8 +156,11 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = () => {
+const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     maxCount: 1,
     action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
@@ -180,10 +199,11 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Drag_and_Drop_Multiple_Small_Story: ComponentStory<
-  typeof Upload
-> = () => {
+const Drag_and_Drop_Multiple_Small_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     multiple: true,
     action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
@@ -222,8 +242,11 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<
   );
 };
 
-const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = () => {
+const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     maxCount: 1,
     action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
@@ -258,10 +281,11 @@ const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<
-  typeof Upload
-> = () => {
+const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     multiple: true,
     action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
@@ -456,14 +480,22 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
         onChange={handleChange}
       >
         {fileList.length >= 8 ? null : (
-          <PrimaryButton
+          <Button
             ariaLabel={'Select file'}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
-            onKeyDown={(event) => event.preventDefault()}
+            onKeyDown={(event) => {
+              if (
+                event.key !== 'Tab' ||
+                (event.key !== 'Tab' && !event.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+            }}
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
+            variant={ButtonVariant.Primary}
           />
         )}
       </Upload>
@@ -518,14 +550,22 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
         onPreview={onPreview}
       >
         {fileList.length < 5 && (
-          <PrimaryButton
+          <Button
             ariaLabel={'Select file'}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
-            onKeyDown={(event) => event.preventDefault()}
+            onKeyDown={(event) => {
+              if (
+                event.key !== 'Tab' ||
+                (event.key !== 'Tab' && !event.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+            }}
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
+            variant={ButtonVariant.Primary}
           />
         )}
       </Upload>
@@ -533,7 +573,7 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = () => {
+const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
   const [data, setData] = useState<Record<string, unknown>>({});
   const [thumbUrl, setThumbUrl] = useState<string>('');
 
@@ -567,6 +607,7 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = () => {
   };
 
   const props: UploadProps = {
+    ...args,
     customRequest() {
       return true;
     },
@@ -653,18 +694,22 @@ Basic_With_Upload_List.args = {
 
 Drag_and_Drop_Single_Small.args = {
   ...uploadArgs,
+  fullWidth: false,
 };
 
 Drag_and_Drop_Multiple_Small.args = {
   ...uploadArgs,
+  fullWidth: false,
 };
 
 Drag_and_Drop_Single_Medium.args = {
   ...uploadArgs,
+  fullWidth: false,
 };
 
 Drag_and_Drop_Multiple_Medium.args = {
   ...uploadArgs,
+  fullWidth: false,
 };
 
 Drag_and_Drop_Single_Large.args = {
@@ -685,4 +730,5 @@ Image_Editor.args = {
 
 Basic_Deferred_API.args = {
   ...uploadArgs,
+  fullWidth: false,
 };
