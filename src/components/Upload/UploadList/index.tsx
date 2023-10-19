@@ -9,7 +9,7 @@ import {
 import { isImageUrl, previewImage } from '../Utils';
 import CSSMotion, { CSSMotionList } from '../../Motion';
 import type { CSSMotionListProps } from '../../Motion';
-import { ButtonShape, DefaultButton } from '../../Button';
+import { ButtonShape, Button } from '../../Button';
 import { ButtonProps } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
@@ -40,6 +40,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     downloadFileText,
     downloadIcon,
     downloadIconButtonType = 'button',
+    fullWidth = false,
     iconRender,
     isImageUrl: isImgUrl = isImageUrl,
     itemRender,
@@ -208,7 +209,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
         callback();
       },
     };
-    return <DefaultButton {...defaultProps} {...buttonProps} />;
+    return <Button {...defaultProps} {...buttonProps} />;
   };
 
   // Test handler
@@ -221,6 +222,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
 
   const listClassNames: string = mergeClasses([
     styles.uploadList,
+    { [styles.uploadListFullWidth]: !!fullWidth },
     { [styles.uploadListLarge]: size === UploadSize.Large },
     { [styles.uploadListMedium]: size === UploadSize.Medium },
     { [styles.uploadListSmall]: size === UploadSize.Small },
