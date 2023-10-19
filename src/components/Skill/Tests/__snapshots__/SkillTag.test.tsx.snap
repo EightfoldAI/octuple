@@ -1,0 +1,807 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkillTag Skill is a clickable tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered clickable white medium"
+    data-testid="skill-tag-1"
+    id="testSkill"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill 12
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag that's removable 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="block-end"
+      >
+        <ul
+          class="button-list"
+        >
+          <li>
+            <button
+              aria-disabled="false"
+              class="button button button-neutral button-small round-shape icon-left"
+              data-testid="test-remove-button"
+            >
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 16px; height: 16px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag with custom iconProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag with customButtonProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="block-end"
+      >
+        <ul
+          class="button-list"
+        >
+          <li>
+            <button
+              aria-disabled="false"
+              aria-label="Open"
+              class="button button button-neutral button-small round-shape icon-left"
+              data-testid="test-custom-button"
+            >
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 16px; height: 16px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="block-end"
+      >
+        <ul
+          class="button-list"
+        >
+          <li>
+            <button
+              aria-checked="true"
+              aria-disabled="false"
+              aria-label="Endorsements"
+              aria-pressed="true"
+              class="button button button-neutral button-small pill-shape icon-left"
+              data-testid="test-endorse-button"
+            >
+              <span>
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 16px; height: 16px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="badge badge-medium counter button-text-small"
+                >
+                  2
+                </span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a highlight tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered highlight medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a large tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white large"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label large"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a match tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered match medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a small tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white small"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label small"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a xsmall tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white xsmall"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label xsmall"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag has a dropdown 1`] = `
+<div>
+  <div
+    class="main-wrapper"
+  >
+    <div
+      aria-controls="dropdown-"
+      aria-disabled="false"
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="reference-wrapper skill tag bordered clickable white medium dropdown"
+      data-testid="skill-tag-2"
+      id="testSkill"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="background"
+      />
+      <div
+        class="content"
+      >
+        <div
+          class="block-start"
+        >
+          <span
+            class="label medium"
+          >
+            test skill
+          </span>
+        </div>
+      </div>
+    </div>
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="outside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+    <span
+      aria-owns="floating-ui-0"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    />
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="outside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag has a popup 1`] = `
+<div>
+  <div
+    class="reference-wrapper"
+    id="popup-"
+  >
+    <div
+      aria-controls="popup-"
+      aria-disabled="false"
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="skill tag bordered clickable white medium tooltip-reference"
+      data-reference-id="popup--reference"
+      data-testid="skill-tag-3"
+      id="testSkill"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="background"
+      />
+      <div
+        class="content"
+      >
+        <div
+          class="block-start"
+        >
+          <span
+            class="label medium"
+          >
+            test skill
+          </span>
+        </div>
+      </div>
+    </div>
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="outside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+    <span
+      aria-owns="floating-ui-1"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    />
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="outside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag has a tooltip 1`] = `
+<div>
+  <div
+    class="reference-wrapper"
+    id="tooltip-"
+  >
+    <div
+      aria-disabled="false"
+      class="skill tag bordered clickable white medium tooltip-reference"
+      data-reference-id="tooltip--reference"
+      data-testid="skill-tag-4"
+      id="testSkill"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="background"
+      />
+      <div
+        class="content"
+      >
+        <div
+          class="block-start"
+        >
+          <span
+            class="label medium"
+          >
+            test skill
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag is closable 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="block-end"
+      >
+        <ul
+          class="button-list"
+        >
+          <li>
+            <button
+              aria-disabled="false"
+              class="button button button-neutral button-small round-shape icon-left"
+            >
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 16px; height: 16px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="true"
+    class="skill tag bordered white medium disabled"
+    id="testSkill"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag is readonly 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium readonly"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag renders 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag uses custom props 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered clickable test-skill highlight medium"
+    data-testid="skill-tag-5"
+    id="testSkill"
+    role="button"
+    style="color: rgb(255, 255, 255);"
+    tabindex="0"
+    title="Test Skill"
+  >
+    <div
+      class="background"
+      style="background: rgb(51, 51, 51);"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+          style="color: rgb(255, 255, 255);"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+        <span
+          class="label medium"
+          style="color: rgb(255, 255, 255);"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

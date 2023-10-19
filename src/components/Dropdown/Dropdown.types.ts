@@ -98,6 +98,10 @@ export interface DropdownProps {
    */
   referenceOnClick?: (event: React.MouseEvent) => void;
   /**
+   * Custom reference wrapper class names
+   */
+  referenceWrapperClassNames?: string;
+  /**
    * The dropdown aria role.
    * @default 'listbox'
    */
