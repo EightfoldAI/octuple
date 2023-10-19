@@ -13,7 +13,7 @@ import { mergeClasses, omit, scrollTo } from '../../shared/utilities';
 import OcTable, { Summary } from './Internal';
 import type { OcTableProps } from './Internal/OcTable.types';
 import { convertChildrenToColumns } from './Internal/Hooks/useColumns';
-import { Spinner, SpinnerSize } from '../Spinner';
+import { Spinner } from '../Spinner';
 import { Pagination } from '../Pagination';
 import usePagination, {
   DEFAULT_PAGE_SIZE,
@@ -626,8 +626,8 @@ function InternalTable<RecordType extends object = any>(
   // ========================== Expandable ==========================
 
   mergedExpandableConfig.expandIcon = renderExpandIcon(
-    expandText,
-    collapseText
+    collapseText,
+    expandText
   );
 
   // Indent size

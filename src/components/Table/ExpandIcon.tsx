@@ -4,10 +4,11 @@ import { mergeClasses } from '../../shared/utilities';
 import styles from './Styles/table.module.scss';
 
 interface DefaultExpandIconProps<RecordType> {
+  expandable: boolean;
+  expanded: boolean;
   onExpand: (record: RecordType, e: React.MouseEvent<HTMLElement>) => void;
   record: RecordType;
-  expanded: boolean;
-  expandable: boolean;
+  disabled?: boolean;
 }
 
 function renderExpandIcon(collapseText: string, expandText: string) {
@@ -16,14 +17,11 @@ function renderExpandIcon(collapseText: string, expandText: string) {
     record,
     expanded,
     expandable,
+    disabled,
   }: DefaultExpandIconProps<RecordType>) {
     return (
       <button
-        type="button"
-        onClick={(e) => {
-          onExpand(record, e!);
-          e.stopPropagation();
-        }}
+        aria-label={expanded ? collapseText : expandText}
         className={mergeClasses([
           styles.tableRowExpandIcon,
           { [styles.tableRowExpandIconSpaced]: !expandable },
@@ -31,8 +29,17 @@ function renderExpandIcon(collapseText: string, expandText: string) {
           {
             [styles.tableRowExpandIconCollapsed]: expandable && !expanded,
           },
+          { [styles.tableRowExpandIconDisabled]: !!disabled },
         ])}
-        aria-label={expanded ? collapseText : expandText}
+        disabled={disabled}
+        onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+          if (disabled) {
+            return;
+          }
+          onExpand(record, e!);
+          e?.stopPropagation();
+        }}
+        type="button"
       />
     );
   };
