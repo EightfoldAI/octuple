@@ -8,12 +8,12 @@ import {
   UploadChangeParam,
   UploadFile,
   UploadLocale,
+  UploadProps,
   UploadSize,
 } from './Upload.types';
-import { UploadProps } from './Upload.types';
 import UploadList from './UploadList';
 import { Icon, IconName } from '../Icon';
-import { PrimaryButton } from '../Button';
+import { Button, ButtonVariant } from '../Button';
 import { Stack } from '../Stack';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './Utils';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
@@ -51,6 +51,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     dragAndDropFileText: defaultDragAndDropFileText,
     dragAndDropMultipleFilesText: defaultDragAndDropMultipleFilesText,
     fileList,
+    fullWidth = false,
     iconRender,
     isImageUrl,
     itemRender,
@@ -502,6 +503,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               isImageUrl={isImageUrl}
               itemRender={itemRender}
               items={mergedFileList}
+              fullWidth={fullWidth}
               listType={listType}
               maxCount={maxCount}
               onDownload={onDownload}
@@ -538,11 +540,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
       <Icon
         classNames={styles.uploadDropIcon}
         path={IconName.mdiFileUploadOutline}
-        size={'48px'}
+        size="48px"
       />
     );
     const renderText = (): JSX.Element => (
-      <Stack direction={'vertical'}>
+      <Stack direction="vertical">
         <div className={styles.uploadDropText}>
           {maxCount === 1 ? dragAndDropFileText : dragAndDropMultipleFilesText}
         </div>
@@ -550,10 +552,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
       </Stack>
     );
     const renderButton = (): JSX.Element => (
-      <PrimaryButton
+      <Button
         classNames={styles.uploadDropButton}
         disabled={mergedDisabled}
-        htmlType={'button'}
+        htmlType="button"
         onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
           if (
             event?.key !== eventKeys.TAB ||
@@ -563,26 +565,22 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
           }
         }}
         text={maxCount === 1 ? selectFileText : selectMultipleFilesText}
+        variant={ButtonVariant.Primary}
       />
     );
     const renderDropzone = (): JSX.Element => {
       return (
         <>
           {size === UploadSize.Large && (
-            <Stack
-              direction={'vertical'}
-              fullWidth
-              gap={'ml'}
-              justify={'center'}
-            >
+            <Stack direction="vertical" fullWidth flexGap="ml" justify="center">
               {renderIcon()}
               {renderText()}
               {renderButton()}
             </Stack>
           )}
           {size === UploadSize.Medium && (
-            <Stack direction={'vertical'} gap={'m'}>
-              <Stack direction={'horizontal'} gap={'xs'}>
+            <Stack direction="vertical" flexGap="m">
+              <Stack direction="horizontal" flexGap="xs">
                 {renderIcon()}
                 {renderText()}
               </Stack>
@@ -590,9 +588,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             </Stack>
           )}
           {size === UploadSize.Small && (
-            <Stack direction={'horizontal'} fullWidth justify={'space-evenly'}>
-              {renderIcon()}
-              {renderText()}
+            <Stack direction="horizontal" fullWidth justify="space-between">
+              <Stack direction="horizontal" flexGap="s">
+                {renderIcon()}
+                {renderText()}
+              </Stack>
               {renderButton()}
             </Stack>
           )}
@@ -601,6 +601,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     };
     const dropClassNames: string = mergeClasses([
       styles.upload,
+      { [styles.uploadFullWidth]: !!fullWidth },
       { [styles.uploadLarge]: size === UploadSize.Large },
       { [styles.uploadMedium]: size === UploadSize.Medium },
       { [styles.uploadSmall]: size === UploadSize.Small },

@@ -20,7 +20,7 @@ import {
 } from './Cropper.types';
 import { Slider } from '../../Slider';
 import { Stack } from '../../Stack';
-import { SystemUIButton, ButtonShape, ButtonSize } from '../../Button';
+import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../../Button';
 import { IconName } from '../../Icon';
 
 import styles from './cropper.module.scss';
@@ -115,7 +115,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
       {zoom && (
         <section className={styles.cropperZoomControl}>
           <Stack direction={'horizontal'} fullWidth gap={'s'}>
-            <SystemUIButton
+            <Button
               ariaLabel={zoomOutButtonAriaLabelText}
               classNames={styles.cropperIconButton}
               disabled={zoomVal - ZOOM_STEP < minZoom}
@@ -125,6 +125,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               onClick={() => setZoomVal(zoomVal - ZOOM_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              variant={ButtonVariant.SystemUI}
             />
             <Slider
               containerClassNames={styles.cropperSlider}
@@ -136,7 +137,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               step={ZOOM_STEP}
               value={zoomVal}
             />
-            <SystemUIButton
+            <Button
               ariaLabel={zoomInButtonAriaLabelText}
               classNames={styles.cropperIconButton}
               disabled={zoomVal + ZOOM_STEP > maxZoom}
@@ -146,6 +147,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               onClick={() => setZoomVal(zoomVal + ZOOM_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              variant={ButtonVariant.SystemUI}
             />
           </Stack>
         </section>
@@ -153,7 +155,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
       {rotate && (
         <section className={styles.cropperRotateControl}>
           <Stack direction={'horizontal'} fullWidth gap={'s'}>
-            <SystemUIButton
+            <Button
               ariaLabel={rotateLeftButtonAriaLabelText}
               classNames={styles.cropperIconButton}
               disabled={rotateVal === MIN_ROTATE}
@@ -163,6 +165,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               onClick={() => setRotateVal(rotateVal - ROTATE_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              variant={ButtonVariant.SystemUI}
             />
             <Slider
               containerClassNames={styles.cropperSlider}
@@ -176,7 +179,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               step={ROTATE_STEP}
               value={rotateVal}
             />
-            <SystemUIButton
+            <Button
               ariaLabel={rotateRightButtonAriaLabelText}
               classNames={styles.cropperIconButton}
               disabled={rotateVal === MAX_ROTATE}
@@ -186,6 +189,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               onClick={() => setRotateVal(rotateVal + ROTATE_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              variant={ButtonVariant.SystemUI}
             />
           </Stack>
         </section>

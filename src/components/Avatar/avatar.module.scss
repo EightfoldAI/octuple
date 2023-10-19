@@ -11,51 +11,51 @@
   justify-content: center;
 
   &.red {
-    background-color: var(--red-tertiary-color);
+    background: var(--red-secondary-color);
   }
 
   &.orange {
-    background-color: var(--orange-tertiary-color);
+    background: var(--orange-secondary-color);
   }
 
   &.red-orange {
-    background-color: var(--redorange-tertiary-color);
+    background: var(--redorange-secondary-color);
   }
 
   &.yellow {
-    background-color: var(--yellow-tertiary-color);
+    background: var(--yellow-secondary-color);
   }
 
   &.yellow-green {
-    background-color: var(--yellowgreen-tertiary-color);
+    background: var(--yellowgreen-secondary-color);
   }
 
   &.green {
-    background-color: var(--green-tertiary-color);
+    background: var(--green-secondary-color);
   }
 
   &.blue-green {
-    background-color: var(--bluegreen-tertiary-color);
+    background: var(--bluegreen-secondary-color);
   }
 
   &.blue {
-    background-color: var(--blue-tertiary-color);
+    background: var(--blue-secondary-color);
   }
 
   &.blue-violet {
-    background-color: var(--blueviolet-tertiary-color);
+    background: var(--blueviolet-secondary-color);
   }
 
   &.violet {
-    background-color: var(--violet-tertiary-color);
+    background: var(--violet-secondary-color);
   }
 
   &.violet-red {
-    background-color: var(--violetred-tertiary-color);
+    background: var(--violetred-secondary-color);
   }
 
   &.grey {
-    background-color: var(--grey-tertiary-color);
+    background: var(--grey-secondary-color);
   }
 }
 
