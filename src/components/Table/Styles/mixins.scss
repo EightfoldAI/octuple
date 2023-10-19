@@ -9,12 +9,12 @@ $border: $border-width solid $border-color;
   cursor: pointer;
   transition: color $motion-duration-extra-fast;
 
-  &:focus,
-  &:hover {
+  &:focus:not(:disabled),
+  &:hover:not(:disabled) {
     color: var(--primary-color);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     color: var(--primary-color);
   }
 }

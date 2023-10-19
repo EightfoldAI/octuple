@@ -167,6 +167,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     onExpandedRowsChange,
     expandRowByClick,
     rowExpandable,
+    rowExpandDisabled,
     expandedRowClassName,
     childrenColumnName,
     indentSize,
@@ -534,6 +535,7 @@ function OcTable<RecordType extends DefaultRecordType>(
       measureColumnWidth={fixHeader || horizontalScroll || isSticky}
       expandedKeys={mergedExpandedKeys}
       rowExpandable={rowExpandable}
+      rowExpandDisabled={rowExpandDisabled}
       getRowKey={getRowKey}
       onRow={onRow}
       emptyNode={emptyNode}
