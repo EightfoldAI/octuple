@@ -5,10 +5,11 @@ import type { RenderExpandIconProps, Key, GetRowKey } from '../OcTable.types';
 import styles from '../octable.module.scss';
 
 export function renderExpandIcon<RecordType>({
-  record,
-  onExpand,
-  expanded,
   expandable,
+  expanded,
+  onExpand,
+  record,
+  disabled,
 }: RenderExpandIconProps<RecordType>) {
   const expandClassName = styles.tableRowExpandIcon;
 
@@ -20,9 +21,14 @@ export function renderExpandIcon<RecordType>({
     );
   }
 
-  const onClick: React.MouseEventHandler<HTMLElement> = (event) => {
+  const onClick: React.MouseEventHandler<HTMLElement> = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    if (disabled) {
+      return;
+    }
     onExpand(record, event);
-    event.stopPropagation();
+    event?.stopPropagation();
   };
 
   return (

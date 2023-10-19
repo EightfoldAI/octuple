@@ -10,8 +10,7 @@ import type {
   RenderExpandIcon,
   ColumnGroupType,
 } from '../OcTable.types';
-import { INTERNAL_COL_DEFINE } from '../constant';
-import { EXPAND_COLUMN } from '../constant';
+import { EXPAND_COLUMN, INTERNAL_COL_DEFINE } from '../constant';
 
 import styles from '../octable.module.scss';
 
@@ -119,6 +118,7 @@ function useColumns<RecordType>(
     onTriggerExpand,
     expandIcon,
     rowExpandable,
+    rowExpandDisabled,
     direction,
     expandRowByClick,
     columnWidth,
@@ -132,6 +132,7 @@ function useColumns<RecordType>(
     onTriggerExpand: TriggerEventHandler<RecordType>;
     expandIcon?: RenderExpandIcon<RecordType>;
     rowExpandable?: (record: RecordType) => boolean;
+    rowExpandDisabled?: (record: RecordType) => boolean;
     direction?: string;
     expandRowByClick?: boolean;
     columnWidth?: number | string;
@@ -149,7 +150,10 @@ function useColumns<RecordType>(
   // ========================== Expand ==========================
   const withExpandColumns = useMemo<ColumnsType<RecordType>>(() => {
     if (expandable) {
-      let cloneColumns = baseColumns.slice();
+      let cloneColumns: (
+        | ColumnGroupType<RecordType>
+        | ColumnType<RecordType>
+      )[] = baseColumns.slice();
 
       // >>> Insert expand column if not exist
       if (!cloneColumns.includes(EXPAND_COLUMN)) {
@@ -159,14 +163,15 @@ function useColumns<RecordType>(
         }
       }
 
-      const expandColumnIndex = cloneColumns.indexOf(EXPAND_COLUMN);
+      const expandColumnIndex: number = cloneColumns.indexOf(EXPAND_COLUMN);
       cloneColumns = cloneColumns.filter(
         (column, index) =>
           column !== EXPAND_COLUMN || index === expandColumnIndex
       );
 
       // >>> Check if expand column need to fixed
-      const prevColumn = baseColumns[expandColumnIndex];
+      const prevColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> =
+        baseColumns[expandColumnIndex];
 
       let fixedColumn: FixedType | null;
       if (fixed === 'left' || fixed) {
@@ -188,30 +193,48 @@ function useColumns<RecordType>(
         className: styles.tableRowExpandIconCell,
         width: columnWidth,
         render: (_: any, record: any, index: number) => {
-          const rowKey = getRowKey(record, index);
-          const expanded = expandedKeys.has(rowKey);
-          const recordExpandable = rowExpandable ? rowExpandable(record) : true;
+          const rowKey: React.Key = getRowKey(record, index);
+          const expanded: boolean = expandedKeys.has(rowKey);
+          const recordExpandable: boolean = rowExpandable
+            ? rowExpandable(record)
+            : true;
+          const recordExpandDisabled: boolean = rowExpandDisabled
+            ? rowExpandDisabled(record)
+            : false;
 
-          const icon = expandIcon({
-            expanded,
+          const icon: React.ReactNode = expandIcon({
             expandable: recordExpandable,
-            record,
+            expanded,
             onExpand: onTriggerExpand,
+            record,
+            disabled: recordExpandDisabled,
           });
 
           if (expandRowByClick) {
-            return <span onClick={(e) => e.stopPropagation()}>{icon}</span>;
+            return (
+              <span
+                onClick={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) =>
+                  e?.stopPropagation()
+                }
+              >
+                {icon}
+              </span>
+            );
           }
           return icon;
         },
       };
 
-      return cloneColumns.map((col) =>
-        col === EXPAND_COLUMN ? expandColumn : col
+      return cloneColumns.map(
+        (col: ColumnGroupType<RecordType> | ColumnType<RecordType>) =>
+          col === EXPAND_COLUMN ? expandColumn : col
       );
     }
 
-    return baseColumns.filter((col) => col !== EXPAND_COLUMN);
+    return baseColumns.filter(
+      (col: ColumnGroupType<RecordType> | ColumnType<RecordType>) =>
+        col !== EXPAND_COLUMN
+    );
   }, [expandable, baseColumns, getRowKey, expandedKeys, expandIcon, direction]);
 
   // ========================= Transform ========================
