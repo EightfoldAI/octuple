@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.2](https://github.com/EightfoldAI/octuple/compare/v2.46.1...v2.46.2) (2023-10-18)
+
+### Bug Fixes
+
+- avatar: update background theme colors from tertiary to secondary ([#732](https://github.com/EightfoldAI/octuple/issues/732)) ([9f68040](https://github.com/EightfoldAI/octuple/commits/9f680404dd114b5e96dd253d19b994b1da5d9af6))
+- dropzone: ensures tab key event is not prevented ([#727](https://github.com/EightfoldAI/octuple/issues/727)) ([e4f0359](https://github.com/EightfoldAI/octuple/commits/e4f0359b7afbe6ac7b74052c876d462943cf86e4))
+- panel: ensures there is no element when footer is not implemented ([#728](https://github.com/EightfoldAI/octuple/issues/728)) ([0d0ef61](https://github.com/EightfoldAI/octuple/commits/0d0ef6182133934c84707010260094d4b6844240))
+
 ### [2.46.1](https://github.com/EightfoldAI/octuple/compare/v2.46.0...v2.46.1) (2023-10-06)
 
 ### Bug Fixes

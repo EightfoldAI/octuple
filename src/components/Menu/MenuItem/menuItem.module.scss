@@ -248,14 +248,17 @@
   margin-bottom: $space-m;
 
   &.large {
+    margin-bottom: $space-l;
     padding: 0 $space-l;
   }
 
   &.medium {
+    margin-bottom: $space-m;
     padding: 0 $space-m;
   }
 
   &.small {
+    margin-bottom: $space-s;
     padding: 0 $space-s;
   }
 }
