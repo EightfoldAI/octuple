@@ -87,7 +87,14 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
       <Upload {...props}>
         <Button
           htmlType={'button'}
-          onKeyDown={(event) => event.preventDefault()}
+          onKeyDown={(event) => {
+            if (
+              event.key !== 'Tab' ||
+              (event.key !== 'Tab' && !event.shiftKey)
+            ) {
+              event.preventDefault();
+            }
+          }}
           text={'Select file'}
           variant={ButtonVariant.Primary}
         />
@@ -132,7 +139,14 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
       <Upload {...props}>
         <Button
           htmlType={'button'}
-          onKeyDown={(event) => event.preventDefault()}
+          onKeyDown={(event) => {
+            if (
+              event.key !== 'Tab' ||
+              (event.key !== 'Tab' && !event.shiftKey)
+            ) {
+              event.preventDefault();
+            }
+          }}
           text={'Select file'}
           variant={ButtonVariant.Primary}
         />
@@ -470,7 +484,14 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
             ariaLabel={'Select file'}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
-            onKeyDown={(event) => event.preventDefault()}
+            onKeyDown={(event) => {
+              if (
+                event.key !== 'Tab' ||
+                (event.key !== 'Tab' && !event.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+            }}
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
@@ -533,7 +554,14 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
             ariaLabel={'Select file'}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
-            onKeyDown={(event) => event.preventDefault()}
+            onKeyDown={(event) => {
+              if (
+                event.key !== 'Tab' ||
+                (event.key !== 'Tab' && !event.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+            }}
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
