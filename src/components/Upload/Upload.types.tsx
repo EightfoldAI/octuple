@@ -250,6 +250,11 @@ export interface ShowUploadListInterface {
    */
   downloadIconButtonType?: UploadButtonHtmlType;
   /**
+   * Assigns Upload list 100% width.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
    * Customize the preview icon button svg path.
    */
   previewIcon?: IconName | ((file: UploadFile) => IconName);
@@ -384,6 +389,11 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
    * If it's not updated, the uploading cycle won't trigger the done cycle.
    */
   fileList?: Array<UploadFile<T>>;
+  /**
+   * Assigns Upload 100% width.
+   * @default false
+   */
+  fullWidth?: boolean;
   /**
    * Set request headers.
    * Warning：Not supported in IE9 and below.
@@ -590,6 +600,11 @@ export interface UploadListProps<T = any> {
    * @default 'button'
    */
   downloadIconButtonType?: UploadButtonHtmlType;
+  /**
+   * Assigns Upload list 100% width.
+   * @default false
+   */
+  fullWidth?: boolean;
   /**
    * The custom icon.
    */

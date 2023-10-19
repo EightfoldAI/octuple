@@ -225,6 +225,30 @@ $upload-picture-card-size: 104px;
       }
     }
 
+    &-full-width {
+      .upload-list-item-tooltip-wrapper {
+        width: 100%;
+      }
+
+      .upload-list-item {
+        .upload-list-item-info {
+          width: 100%;
+        }
+      }
+
+      &.upload-list-small {
+        &:not(.upload-list-picture-card) {
+          width: 100%;
+        }
+      }
+
+      &.upload-list-medium {
+        &:not(.upload-list-picture-card) {
+          width: 100%;
+        }
+      }
+    }
+
     &-picture {
       .upload-list-item-thumbnail {
         height: $space-l;
@@ -987,6 +1011,30 @@ $upload-picture-card-size: 104px;
             height: 160px;
           }
         }
+      }
+    }
+  }
+
+  &-full-width {
+    &.upload-drop {
+      width: 100%;
+
+      .upload-list {
+        width: 100%;
+      }
+    }
+
+    &.upload-small {
+      &.upload-drop {
+        .upload-list-item-single {
+          width: 100%;
+        }
+      }
+    }
+
+    &.upload-medium {
+      &.upload-drop {
+        width: 100%;
       }
     }
   }
