@@ -179,6 +179,20 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         );
       }, [refs.reference, refs.floating, update]);
 
+      useEffect(() => {
+        const escapeTooltip = (event: KeyboardEvent): void => {
+          if (event?.key === eventKeys.ESCAPE) {
+            toggle(false)(event);
+          }
+        };
+        if (type === TooltipType.Default) {
+          document.addEventListener('keydown', escapeTooltip);
+        }
+        return () => {
+          document.removeEventListener('keydown', escapeTooltip);
+        };
+      }, [type]);
+
       useImperativeHandle(ref, () => ({
         update,
       }));
