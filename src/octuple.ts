@@ -72,6 +72,8 @@ import { Dropdown } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
 
+import { FadeIn } from './components/FadeIn';
+
 import Form, { FormInstance } from './components/Form';
 
 import Grid, { Col, Row } from './components/Grid';
@@ -297,6 +299,7 @@ export {
   Empty,
   EmptyMode,
   ExpandableConfig,
+  FadeIn,
   FilterConfirmProps,
   FilterValue,
   Form,
