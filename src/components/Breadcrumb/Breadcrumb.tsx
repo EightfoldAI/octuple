@@ -33,7 +33,9 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
       ariaLabel: defaultAriaLabel,
       classNames,
       displayCurrent = true,
-      divider,
+      divider = {
+        path: IconName.mdiSlashForward,
+      },
       id,
       linkClassNames,
       links,
@@ -112,7 +114,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
 
     const getDivider = (item?: BreadcrumbLinkProps): JSX.Element => (
       <Icon
-        path={IconName.mdiSlashForward}
+        path={divider?.path}
         rotate={htmlDir === 'rtl' ? 180 : 0}
         size={IconSize.Small}
         {...item?.divider}
@@ -207,7 +209,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                         item.classNames,
                       ])}
                     >
-                      {item.title}
+                      {item?.customCrumb ? item.customCrumb : item.title}
                     </span>
                   </Tooltip>
                   {idx < items.length - 1 && getDivider(item)}
@@ -238,7 +240,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                           item.classNames,
                         ])}
                       >
-                        {item.title}
+                        {item?.customCrumb ? item.customCrumb : item.title}
                       </Link>
                     )}
                   </Tooltip>

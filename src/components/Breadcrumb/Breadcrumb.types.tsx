@@ -43,6 +43,10 @@ export interface BreadcrumbLinkProps
    */
   dropdownChildren?: React.ReactNode;
   /**
+   * The Breadcrumb custom crumb.
+   */
+  customCrumb?: React.ReactNode;
+  /**
    * The Link is readonly (text)
    */
   readonly?: boolean;
