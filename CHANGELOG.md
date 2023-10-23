@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.3](https://github.com/EightfoldAI/octuple/compare/v2.46.2...v2.46.3) (2023-10-23)
+
+### Bug Fixes
+
+- tooltip: escape to dismiss default tooltip on hover only ([56bce9c](https://github.com/EightfoldAI/octuple/commits/56bce9c0eca3e31464e82e75aafc479b9ab4a5ab))
+
 ### [2.46.2](https://github.com/EightfoldAI/octuple/compare/v2.46.1...v2.46.2) (2023-10-18)
 
 ### Bug Fixes
