@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, FC, Ref } from 'react';
+import React, { useEffect, useMemo, useState, useRef, FC, Ref } from 'react';
+import { InlineSvgProps } from './InlineSvg.types';
 import { Icon, IconName } from '../Icon';
 import { Skeleton, SkeletonVariant } from '../Skeleton';
-
-import { InlineSvgProps } from './InlineSvg.types';
+import { usePreviousState } from '../../hooks/usePreviousState';
 
 export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
   (
@@ -18,26 +18,36 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
     },
     ref: Ref<HTMLDivElement>
   ) => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [hasError, setHasError] = useState(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [hasError, setHasError] = useState<boolean>(false);
     const svgRef = useRef<HTMLDivElement>(null);
 
+    const [_url, setUrl] = useState<string>(url);
+    const previousUrl: string = usePreviousState(_url);
+
     useEffect(() => {
+      setUrl(url);
+    }, [url]);
+
+    useMemo(() => {
       setIsLoading(true);
       setHasError(false);
-      svgRef.current.innerHTML = '';
+
+      if (svgRef.current) {
+        svgRef.current.innerHTML = '';
+      }
 
       const fetchSvg = async (): Promise<void> => {
         try {
-          const response = await fetch(url);
-          const text = await response.text();
+          const response: Response = await fetch(_url);
+          const text: string = await response.text();
 
-          const parser = new DOMParser();
-          const xml = parser.parseFromString(text, 'image/svg+xml');
-          const svg = xml.documentElement;
+          const parser: DOMParser = new DOMParser();
+          const xml: Document = parser.parseFromString(text, 'image/svg+xml');
+          const svg: HTMLElement = xml.documentElement;
 
           if (svg.nodeName !== 'svg') {
-            throw new Error(`Fetched document is not an SVG: ${url}`);
+            throw new Error(`Fetched document is not an SVG: ${_url}`);
           }
 
           svgRef.current.innerHTML = text;
@@ -49,8 +59,10 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
         }
       };
 
-      fetchSvg();
-    }, [url]);
+      if (_url !== previousUrl) {
+        fetchSvg();
+      }
+    }, [_url]);
 
     /**
      * Provides a broken icon size for when the SVG doesn't work out.
@@ -58,7 +70,7 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
      *
      * @returns {string} The size of the broken icon, as a string with the unit
      */
-    const getBrokenIconSize = () => {
+    const getBrokenIconSize = (): string => {
       if (!width || !height) {
         return '24px';
       }
@@ -69,9 +81,9 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
         return width;
       }
 
-      const widthInt = parseInt(width, 10);
-      const heightInt = parseInt(height, 10);
-      const smaller = Math.min(widthInt, heightInt);
+      const widthInt: number = parseInt(width, 10);
+      const heightInt: number = parseInt(height, 10);
+      const smaller: number = Math.min(widthInt, heightInt);
       return `${smaller}px`;
     };
 

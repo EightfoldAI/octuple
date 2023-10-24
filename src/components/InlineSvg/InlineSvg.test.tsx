@@ -39,4 +39,29 @@ describe('InlineSvg', () => {
       ).toBeInTheDocument();
     });
   });
+
+  test('Should call fetchSvg only once', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({ text: () => '<svg>Mock SVG</svg>' })
+    ) as jest.Mock;
+    const { rerender } = render(<InlineSvg url="mock-url" />);
+    rerender(<InlineSvg url="mock-url" />);
+    rerender(<InlineSvg url="mock-url" />);
+    rerender(<InlineSvg url="mock-url" />);
+    rerender(<InlineSvg url="mock-url" />);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+  });
+
+  test('Should call fetchSvg twice', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({ text: () => '<svg>Mock SVG</svg>' })
+    ) as jest.Mock;
+    const { rerender } = render(<InlineSvg url="mock-url" />);
+    rerender(<InlineSvg url="mock-url" />);
+    rerender(<InlineSvg url="mock-url-diff" />);
+    rerender(<InlineSvg url="mock-url-diff" />);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+  });
 });
