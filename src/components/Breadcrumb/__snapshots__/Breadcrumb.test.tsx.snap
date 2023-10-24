@@ -42,7 +42,7 @@ exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
             viewBox="0 0 24 24"
           >
             <path
-              d="M7 21L14.9 3H17L9.1 21H7Z"
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
               style="fill: currentColor;"
             />
           </svg>
@@ -119,7 +119,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -158,7 +158,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -233,7 +233,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -272,7 +272,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -311,7 +311,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -350,7 +350,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -389,7 +389,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -428,7 +428,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="M7 21L14.9 3H17L9.1 21H7Z"
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                 style="fill: currentColor;"
               />
             </svg>
@@ -521,7 +521,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
             viewBox="0 0 24 24"
           >
             <path
-              d="M7 21L14.9 3H17L9.1 21H7Z"
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
               style="fill: currentColor;"
             />
           </svg>
