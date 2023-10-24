@@ -23,7 +23,7 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
     const svgRef = useRef<HTMLDivElement>(null);
 
     const [_url, setUrl] = useState<string>(url);
-    const previousUrl: string = usePreviousState(_url);
+    const previousUrl: string = usePreviousState(_url || '');
 
     useEffect(() => {
       setUrl(url);
@@ -59,7 +59,7 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
         }
       };
 
-      if (_url !== previousUrl) {
+      if (_url !== previousUrl || _url === undefined) {
         fetchSvg();
       }
     }, [_url]);
