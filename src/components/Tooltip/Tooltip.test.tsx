@@ -84,6 +84,39 @@ describe('Tooltip', () => {
     expect(container.querySelector('.tooltip')).toBeFalsy();
   });
 
+  test('Tooltip is dismissed on escape when hover only', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.keyDown(container, { key: 'Escape' });
+    await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('Tooltip is not dismissed on random key when hover only', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.keyDown(container, { key: 'Enter' });
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+  });
+
   test('Tooltip reference element is clickable when Tooltip is disabled', () => {
     let testCounter = 0;
     const { container } = render(

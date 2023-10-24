@@ -5,57 +5,64 @@ import { eventKeys } from '../../utilities/eventKeys';
 const SELECTORS =
   'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
 
-const INITIAL_FOCUS_DELAY = 100;
+const FOCUS_DELAY_INTERVAL: number = 100;
 
 export function useFocusTrap(
   visible = true
 ): React.MutableRefObject<HTMLDivElement> {
-  const elRef = useRef<any>(null);
-  const restoreFocusRef = useRef<any>(null);
+  const elRef: React.MutableRefObject<any> = useRef<any>(null);
+  const intervalRef: React.MutableRefObject<NodeJS.Timer> =
+    useRef<NodeJS.Timer>(null);
+  const restoreFocusRef: React.MutableRefObject<any> = useRef<any>(null);
 
-  const getFocusableElements = () => {
+  const getFocusableElements = (): HTMLElement[] => {
     return [...elRef.current.querySelectorAll(SELECTORS)].filter(
-      (el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+      (el: HTMLElement) =>
+        !el?.hasAttribute('disabled') && !el?.getAttribute('aria-hidden')
     );
   };
 
-  const handleFocus = (e: React.KeyboardEvent) => {
-    const isTabPressed = e.key === eventKeys.TAB;
-    const isShiftPressed = e.key === eventKeys.SHIFTLEFT;
+  const handleFocus = (e: React.KeyboardEvent): void => {
+    const isTabPressed: boolean = e?.key === eventKeys.TAB;
+    const isShiftPressed: boolean = e?.key === eventKeys.TAB && e?.shiftKey;
 
-    const focusableEls = getFocusableElements();
+    const focusableEls: HTMLElement[] = getFocusableElements?.();
 
-    if (!isTabPressed || !focusableEls.length) {
+    if (!isTabPressed || !focusableEls?.length) {
       return;
     }
 
-    const firstFocusableEl = focusableEls[0];
-    const lastFocusableEl = focusableEls[focusableEls.length - 1];
+    const firstFocusableEl: HTMLElement = focusableEls[0];
+    const lastFocusableEl: HTMLElement = focusableEls[focusableEls.length - 1];
 
     if (isShiftPressed) {
       if (document.activeElement === firstFocusableEl) {
         /* shift + tab */
-        lastFocusableEl.focus();
-        e.preventDefault();
+        lastFocusableEl?.focus();
+        e?.preventDefault();
       }
     } else {
       /* tab */
       if (document.activeElement === lastFocusableEl) {
-        firstFocusableEl.focus();
-        e.preventDefault();
+        firstFocusableEl?.focus();
+        e?.preventDefault();
       }
     }
   };
 
-  const setUpFocus = () => {
+  const setUpFocus = (): void => {
     if (!elRef.current) {
       return;
     }
     restoreFocusRef.current = document.activeElement;
-    const elementToFocus = getFocusableElements()?.[0];
-    setTimeout(() => {
+    const elementToFocus: HTMLElement = getFocusableElements()?.[0];
+    clearInterval(intervalRef?.current);
+    intervalRef.current = setInterval((): void => {
       elementToFocus?.focus();
-    }, INITIAL_FOCUS_DELAY);
+      if (document.activeElement === elementToFocus) {
+        clearInterval(intervalRef?.current);
+      }
+    }, FOCUS_DELAY_INTERVAL);
   };
 
   useEffect(() => {
@@ -66,6 +73,7 @@ export function useFocusTrap(
     return () => {
       restoreFocusRef.current?.focus();
       elRef.current?.removeEventListener('keydown', handleFocus);
+      clearInterval(intervalRef?.current);
     };
   }, [visible]);
 
