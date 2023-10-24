@@ -11,6 +11,7 @@ import {
   LinkButtonVariant,
   LinkButtonWidth,
 } from '../LinkButton';
+import { Avatar } from '../Avatar';
 
 export default {
   title: 'Breadcrumb',
@@ -80,6 +81,7 @@ export const No_Max = Breadcrumb_Story.bind({});
 export const Hide_Current = Breadcrumb_Story.bind({});
 export const With_Link_Tooltip = Breadcrumb_Story.bind({});
 export const With_Custom_Links = Breadcrumb_Story.bind({});
+export const With_Custom_Nodes = Breadcrumb_Story.bind({});
 
 const breadcrumbArgs: Object = {
   ariaLabel: 'Breadcrumbs',
@@ -288,6 +290,48 @@ With_Custom_Links.args = {
       readonly: true,
       title: 'Custom page 6',
       url: '#',
+    },
+  ],
+};
+
+With_Custom_Nodes.args = {
+  ...breadcrumbArgs,
+  links: [
+    {
+      customCrumb: (
+        <Avatar theme="green" type="round">
+          JD
+        </Avatar>
+      ),
+      tooltipprops: {
+        content: 'John Doe',
+      },
+      title: 'John Doe',
+      readonly: true,
+    },
+    {
+      customCrumb: (
+        <Avatar theme="blue" type="round">
+          AJ
+        </Avatar>
+      ),
+      tooltipprops: {
+        content: 'Adam John',
+      },
+      title: 'Adam John',
+      readonly: true,
+    },
+    {
+      customCrumb: (
+        <Avatar theme="red" type="round">
+          HG
+        </Avatar>
+      ),
+      tooltipprops: {
+        content: 'Hue Grant',
+      },
+      title: 'Hue Grant',
+      readonly: true,
     },
   ],
 };
