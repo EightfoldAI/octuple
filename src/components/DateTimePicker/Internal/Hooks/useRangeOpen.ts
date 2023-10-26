@@ -21,6 +21,7 @@ export default function useRangeOpen(
   startSelectedValue: any,
   endSelectedValue: any,
   disabled: [boolean, boolean],
+  readonly: [boolean, boolean],
   onOpenChange?: (open: boolean) => void
 ): [
   open: boolean,
@@ -70,7 +71,7 @@ export default function useRangeOpen(
       if (index === false) {
         // Only when `nextOpen` is false and no need open to next index
         setMergedOpen(nextOpen);
-      } else if (nextOpen) {
+      } else if (nextOpen && !disabled[index] && !readonly[index]) {
         setMergedActivePickerIndex(index);
         setMergedOpen(nextOpen);
 
@@ -105,7 +106,8 @@ export default function useRangeOpen(
         // Focus back
         if (
           customNextActiveIndex !== null &&
-          !disabled[customNextActiveIndex]
+          !disabled[customNextActiveIndex] &&
+          !readonly[customNextActiveIndex]
         ) {
           requestAnimationFrameWrapper(() => {
             const ref = [startInputRef, endInputRef][customNextActiveIndex];
