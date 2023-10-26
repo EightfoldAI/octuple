@@ -17,6 +17,7 @@ export const List = <T extends any>({
   style,
   itemClassNames,
   itemStyle,
+  listClassNames,
   listType = 'ul',
   role,
   itemProps,
@@ -25,6 +26,7 @@ export const List = <T extends any>({
 }: ListProps<T>) => {
   const containerClasses: string = mergeClasses([
     styles.listContainer,
+    listClassNames,
     { [styles.vertical]: layout === 'vertical' },
   ]);
 
