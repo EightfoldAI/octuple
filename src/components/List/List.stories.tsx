@@ -82,10 +82,11 @@ const listArgs: Object = {
       <h2>Header</h2>
     </div>
   ),
-  classNames: 'my-list-class',
+  classNames: 'my-ref-class',
   style: {},
   itemClassNames: 'my-list-item-class',
   itemStyle: { padding: '8px 16px' },
+  listClassNames: 'my-list-class',
   listType: 'ul',
   role: '',
 };

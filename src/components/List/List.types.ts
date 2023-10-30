@@ -25,7 +25,7 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   header?: ReactNode;
   /**
-   * Custom classes for list item
+   * Custom classes for the list item.
    */
   itemClassNames?: string;
   /**
@@ -45,6 +45,10 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    * @default vertical
    */
   layout?: ItemLayout;
+  /**
+   * Custom classes for the list
+   */
+  listClassNames?: string;
   /**
    * The list html type
    * @default ul
