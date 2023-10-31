@@ -6,6 +6,10 @@
   display: inline-flex;
   font-family: var(--font-stack-full);
 
+  &-readonly {
+    background: var(--grey-background1-color);
+  }
+
   // Picker default styles are of size medium.
   &-body {
     padding: $space-xs $space-m $space-xs $space-m;
@@ -91,10 +95,6 @@
 
   &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
     @include hover();
-  }
-
-  &-disabled {
-    @include disabled();
   }
 
   &-borderless {
@@ -1639,6 +1639,7 @@
       background-color: transparent;
       background-image: none;
       border: none;
+      border-radius: var(--border-radius-m);
       box-sizing: border-box;
       color: var(--picker-input-foreground-color);
       display: inline-block;
@@ -1646,6 +1647,7 @@
       font-size: $picker-font-size-m;
       height: $picker-input-height-m;
       line-height: $picker-line-height-m;
+      margin: $space-xxxs 0;
       min-width: fit-content;
       padding: $space-xs calc(#{$space-xxl} + #{$space-xs}) $space-xs $space-xs;
       position: relative;
@@ -1654,6 +1656,7 @@
       &-disabled,
       &[disabled] {
         cursor: not-allowed;
+        opacity: $disabled-alpha-value;
       }
     }
 
@@ -1675,6 +1678,24 @@
     }
   }
 
+  &-small &-input {
+    input {
+      margin: $space-xxxs 0;
+    }
+  }
+
+  &-medium &-input {
+    input {
+      margin: $space-xxxs 0;
+    }
+  }
+
+  &-large &-input {
+    input {
+      margin: $space-xxs 0;
+    }
+  }
+
   &-underline {
     .picker-input {
       &:before {
@@ -1683,7 +1704,7 @@
         bottom: 0;
         content: '';
         position: absolute;
-        right: 0;
+        right: -$space-xs;
         transition: border-bottom-color $motion-duration-extra-fast
           $motion-easing-easeinout;
         pointer-events: none;
@@ -1695,7 +1716,7 @@
         bottom: 0;
         content: '';
         position: absolute;
-        right: 0;
+        right: -$space-xs;
         transform: scaleX(0);
         transition: transform $motion-duration-extra-fast
           $motion-easing-easeinout;
@@ -1717,6 +1738,8 @@
   }
 
   &-disabled {
+    @include disabled();
+
     &.picker-underline {
       .picker-input {
         &:after {
@@ -1725,7 +1748,7 @@
           bottom: 0;
           content: '';
           position: absolute;
-          right: 0;
+          right: -$space-xs;
           transition: border-bottom-color $motion-duration-extra-fast
             $motion-easing-easeinout;
           pointer-events: none;
@@ -1735,6 +1758,15 @@
           &:before {
             border-color: var(--border-color);
           }
+        }
+      }
+    }
+
+    .picker-input {
+      input {
+        &-disabled,
+        &[disabled] {
+          opacity: 1;
         }
       }
     }
@@ -1829,7 +1861,30 @@
       pointer-events: none;
     }
 
-    &.picker-focused {
+    &.picker-half-disabled,
+    &.picker-half-readonly {
+      .picker-active-bar {
+        transition: none;
+      }
+
+      .picker-input {
+        input {
+          &.input-pill-border-offset {
+            margin-left: $space-xs;
+          }
+
+          &[readonly] {
+            background-color: var(--grey-background1-color);
+          }
+        }
+      }
+
+      .lockIconWrapper {
+        display: flex;
+      }
+    }
+
+    &.picker-focused:not(.picker-readonly) {
       .picker-active-bar {
         opacity: 1;
       }
@@ -1838,13 +1893,68 @@
 
   &-underline {
     &.picker-range {
-      .picker-input {
+      .picker-start-input {
         &:before {
-          right: -$space-ml;
+          right: -34px;
         }
 
         &:after {
-          right: -$space-ml;
+          right: -34px;
+        }
+      }
+      .picker-end-input {
+        &:before {
+          right: -24px;
+        }
+
+        &:after {
+          right: -24px;
+        }
+      }
+    }
+
+    &.picker-end-readonly {
+      .picker-end-input {
+        &:before {
+          left: -34px;
+          right: -54px;
+        }
+
+        &:after {
+          left: -34px;
+          right: -54px;
+        }
+
+        &.picker-end-input-small {
+          &:before {
+            right: -48px;
+          }
+
+          &:after {
+            right: -48px;
+          }
+        }
+
+        &.picker-end-input-large {
+          &:before {
+            right: -64px;
+          }
+
+          &:after {
+            right: -64px;
+          }
+        }
+      }
+    }
+
+    &.picker-start-readonly {
+      .picker-start-input {
+        &:before {
+          right: -72px;
+        }
+
+        &:after {
+          right: -72px;
         }
       }
     }
@@ -1892,12 +2002,109 @@
   &-rtl {
     direction: rtl;
 
+    &.picker-underline {
+      .picker-input {
+        &:before {
+          left: -$space-xs;
+          right: 0;
+        }
+        &:after {
+          left: -$space-xs;
+          right: 0;
+        }
+      }
+
+      &.picker-range {
+        .picker-start-input {
+          &:before {
+            left: -34px;
+            right: 0;
+          }
+
+          &:after {
+            left: -34px;
+            right: 0;
+          }
+        }
+        .picker-end-input {
+          &:before {
+            left: -24px;
+            right: 0;
+          }
+
+          &:after {
+            left: -24px;
+            right: 0;
+          }
+        }
+      }
+
+      &.picker-end-readonly {
+        .picker-end-input {
+          &:before {
+            left: -54px;
+            right: -34px;
+          }
+
+          &:after {
+            left: -54px;
+            right: -34px;
+          }
+
+          &.picker-end-input-small {
+            &:before {
+              left: -48px;
+            }
+
+            &:after {
+              left: -48px;
+            }
+          }
+
+          &.picker-end-input-large {
+            &:before {
+              left: -64px;
+            }
+
+            &:after {
+              left: -64px;
+            }
+          }
+        }
+      }
+
+      &.picker-start-readonly {
+        .picker-start-input {
+          &:before {
+            left: -72px;
+            right: 0;
+          }
+
+          &:after {
+            left: -72px;
+            right: 0;
+          }
+        }
+      }
+    }
+
     .picker-clear {
       left: 0;
       right: unset;
     }
 
     &.picker-range {
+      &.picker-half-readonly {
+        .picker-input {
+          input {
+            &.input-pill-border-offset {
+              margin-left: unset;
+              margin-right: $space-xs;
+            }
+          }
+        }
+      }
+
       .picker-clear {
         left: $picker-input-padding-horizontal-l;
         right: unset;

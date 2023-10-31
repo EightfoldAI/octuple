@@ -123,6 +123,12 @@ const Disabled_Story: ComponentStory<typeof TimePicker> = (args) => {
   );
 };
 
+const Readonly_Story: ComponentStory<typeof TimePicker> = (args) => {
+  return (
+    <TimePicker {...args} defaultPickerValue={dayjs('00:00:00', 'HH:mm:ss')} />
+  );
+};
+
 const Controlled_Story: ComponentStory<typeof TimePicker> = (args) => {
   const [value, setValue] = useState<Dayjs | null>(null);
 
@@ -172,6 +178,12 @@ const Time_Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
   return <TimePicker.RangePicker {...args} />;
 };
 
+const Time_Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
+  args
+) => {
+  return <TimePicker.RangePicker {...args} />;
+};
+
 const Single_Borderless_Story: ComponentStory<typeof TimePicker> = (args) => {
   return (
     <Stack direction={'vertical'} flexGap={'xxl'}>
@@ -207,12 +219,16 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
 };
 
 export const Basic = Basic_Story.bind({});
+export const Readonly = Readonly_Story.bind({});
 export const Disabled = Disabled_Story.bind({});
 export const Controlled = Controlled_Story.bind({});
 export const Hour_and_Minute = Hour_and_Minute_Story.bind({});
 export const Interval = Interval_Story.bind({});
 export const Extra_Footer = Extra_Footer_Story.bind({});
 export const Time_Range_Picker = Time_Range_Picker_Story.bind({});
+export const Time_Range_Picker_Readonly = Time_Range_Picker_Readonly_Story.bind(
+  {}
+);
 export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
@@ -223,12 +239,14 @@ export const Range_Status = Range_Status_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Basic',
+  'Readonly',
   'Disabled',
   'Controlled',
   'Hour_and_Minute',
   'Interval',
   'Extra_Footer',
   'Time_Range_Picker',
+  'Time_Range_Picker_Readonly',
   'Single_Borderless',
   'Range_Borderless',
   'Single_Status',
@@ -249,6 +267,11 @@ const pickerArgs: Object = {
 
 Basic.args = {
   ...pickerArgs,
+};
+
+Readonly.args = {
+  ...pickerArgs,
+  readonly: true,
 };
 
 Disabled.args = {
@@ -276,6 +299,11 @@ Extra_Footer.args = {
 
 Time_Range_Picker.args = {
   ...pickerArgs,
+};
+
+Time_Range_Picker_Readonly.args = {
+  ...pickerArgs,
+  readonly: [true, true],
 };
 
 Single_Borderless.args = {

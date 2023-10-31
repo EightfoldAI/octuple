@@ -52,6 +52,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     defaultValue,
     direction,
     disabled,
+    readonly,
     disabledDate,
     dropdownAlign,
     dropdownClassNames,
@@ -137,7 +138,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const [mergedOpen, triggerInnerOpen] = useMergedState(false, {
     value: open,
     defaultValue: defaultOpen,
-    postState: (postOpen) => (disabled ? false : postOpen),
+    postState: (postOpen) => (disabled || readonly ? false : postOpen),
     onChange: (newOpen) => {
       if (onOpenChange) {
         onOpenChange(newOpen);
@@ -188,7 +189,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   };
 
   const triggerOpen = (newOpen: boolean): void => {
-    if (disabled && newOpen) {
+    if ((disabled || readonly) && newOpen) {
       return;
     }
 
@@ -243,7 +244,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         // When user typing disabledDate with keyboard and enter, this value will be empty
         !selectedValue ||
         // Normal disabled check
-        (disabledDate && disabledDate(selectedValue))
+        disabledDate?.(selectedValue)
       ) {
         return false;
       }
@@ -392,7 +393,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   }
 
   let clearNode: React.ReactNode;
-  if (allowClear && mergedValue && !disabled) {
+  if (allowClear && mergedValue && !disabled && !readonly) {
     clearNode = (
       <span
         aria-label={clearIconAriaLabelText}
@@ -418,7 +419,11 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     id,
     tabIndex,
     disabled,
-    readOnly: inputReadOnly || typeof formatList[0] === 'function' || !typing,
+    readOnly:
+      readonly ||
+      inputReadOnly ||
+      typeof formatList[0] === 'function' ||
+      !typing,
     value: hoverValue || text,
     onChange: (e) => {
       triggerTextChange(e.target.value);
@@ -482,6 +487,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
             },
             { [styles.pickerBorderless]: !bordered },
             { [styles.pickerDisabled]: disabled },
+            { [styles.pickerReadonly]: readonly },
             { [styles.pickerFocused]: focused },
             { [styles.pickerRtl]: direction === 'rtl' },
           ])}

@@ -3,6 +3,7 @@ import React, {
   useContext,
   useEffect,
   useImperativeHandle,
+  useMemo,
   useState,
 } from 'react';
 import DisabledContext, {
@@ -15,7 +16,6 @@ import {
   Size,
 } from '../../../ConfigProvider';
 import { DatePickerShape, DatePickerSize } from '../../Internal/OcPicker.types';
-import { mergeClasses } from '../../../../shared/utilities';
 import OcRangePicker from '../../Internal/OcRangePicker';
 import type { GenerateConfig } from '../../Internal/Generate';
 import { Components } from './Generate.types';
@@ -35,7 +35,7 @@ import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../../../Form/Context';
-import { getMergedStatus } from '../../../../shared/utilities';
+import { getMergedStatus, mergeClasses } from '../../../../shared/utilities';
 
 import styles from '../datepicker.module.scss';
 
@@ -68,6 +68,7 @@ export default function generateRangePicker<DateType>(
       okText: defaultOkText,
       placeholder,
       popupPlacement,
+      readonly = false,
       shape = DatePickerShape.Rectangle,
       showNow = true,
       showOk = true,
@@ -132,6 +133,16 @@ export default function generateRangePicker<DateType>(
     const [okText, setOkText] = useState<string>(defaultOkText);
     const [todayText, setTodayText] = useState<string>(defaultTodayText);
 
+    const mergedReadonly: [boolean, boolean] = useMemo<
+      [boolean, boolean]
+    >(() => {
+      if (Array.isArray(readonly)) {
+        return readonly;
+      }
+
+      return [readonly || false, readonly || false];
+    }, [readonly]);
+
     // Locs: if the prop isn't provided use the loc defaults.
     // If the mergedLocale is changed, update.
     useEffect(() => {
@@ -178,19 +189,36 @@ export default function generateRangePicker<DateType>(
       return color;
     };
 
+    const readonlyNode = (
+      <Icon
+        classNames={styles.pickerReadonlyIcon}
+        color={iconColor()}
+        path={IconName.mdiLock}
+        size={pickerSizeToIconSizeMap.get(mergedSize)}
+      />
+    );
+
     const suffixNode = (
       <>
         {picker === 'time' ? (
           <Icon
             color={iconColor()}
-            path={IconName.mdiClockOutline}
-            size={pickerSizeToIconSizeMap.get(size)}
+            path={
+              mergedReadonly && mergedReadonly[0] && mergedReadonly[1]
+                ? IconName.mdiLock
+                : IconName.mdiClockOutline
+            }
+            size={pickerSizeToIconSizeMap.get(mergedSize)}
           />
         ) : (
           <Icon
             color={iconColor()}
-            path={IconName.mdiCalendarBlankOutline}
-            size={pickerSizeToIconSizeMap.get(size)}
+            path={
+              mergedReadonly && mergedReadonly[0] && mergedReadonly[1]
+                ? IconName.mdiLock
+                : IconName.mdiCalendarBlankOutline
+            }
+            size={pickerSizeToIconSizeMap.get(mergedSize)}
           />
         )}
       </>
@@ -214,13 +242,16 @@ export default function generateRangePicker<DateType>(
               separator={
                 <span aria-label="to" className={styles.pickerSeparator}>
                   <Icon
+                    color={iconColor()}
                     path={IconName.mdiArrowRightThin}
                     rotate={htmlDir === 'rtl' ? 180 : 0}
-                    size={IconSize.Medium}
+                    size={pickerSizeToIconSizeMap.get(mergedSize)}
                   />
                 </span>
               }
               disabled={mergedDisabled}
+              readonly={readonly}
+              readonlyIcon={readonlyNode}
               ref={innerRef}
               dropdownAlign={transPlacement2DropdownAlign(
                 htmlDir as dir,
@@ -238,8 +269,8 @@ export default function generateRangePicker<DateType>(
               suffixIcon={suffixNode}
               clearIcon={
                 <Icon
-                  path={IconName.mdiCloseCircle}
-                  size={pickerSizeToIconSizeMap.get(size)}
+                  path={IconName.mdiClose}
+                  size={pickerSizeToIconSizeMap.get(mergedSize)}
                 />
               }
               prevIcon={IconName.mdiChevronLeft}
