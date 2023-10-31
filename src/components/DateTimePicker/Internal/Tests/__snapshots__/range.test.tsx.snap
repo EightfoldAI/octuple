@@ -9,14 +9,13 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "picker-input picker-input-active",
+          "class": "picker-input picker-start-input picker-input-active",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "autocomplete": "off",
               "placeholder": "",
-              "readonly": "",
               "size": "12",
               "value": "1990-09-03",
             },
@@ -30,14 +29,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
@@ -62,14 +59,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "picker-input",
+              "class": "picker-input picker-end-input",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "1990-09-03",
                 },
@@ -83,14 +79,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -241,14 +235,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "1990-09-03",
               },
@@ -262,14 +255,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -386,14 +377,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "picker-input picker-input-active",
+            "class": "picker-input picker-start-input picker-input-active",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "1990-09-03",
               },
@@ -407,14 +397,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -443,14 +431,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "picker-input",
+          "class": "picker-input picker-end-input",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "autocomplete": "off",
               "placeholder": "",
-              "readonly": "",
               "size": "12",
               "value": "1990-09-03",
             },
@@ -464,14 +451,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
@@ -595,14 +580,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "picker-input picker-input-active",
+              "class": "picker-input picker-start-input picker-input-active",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "1990-09-03",
                 },
@@ -616,14 +600,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -745,14 +727,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "1990-09-03",
               },
@@ -766,14 +747,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -802,14 +781,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "picker-input picker-input-active",
+                "class": "picker-input picker-start-input picker-input-active",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "1990-09-03",
                   },
@@ -823,14 +801,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -954,14 +930,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "picker-input",
+              "class": "picker-input picker-end-input",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "1990-09-03",
                 },
@@ -975,14 +950,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -1011,14 +984,13 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "picker-input picker-input-active",
+                  "class": "picker-input picker-start-input picker-input-active",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "autocomplete": "off",
                       "placeholder": "",
-                      "readonly": "",
                       "size": "12",
                       "value": "1990-09-03",
                     },
@@ -1032,14 +1004,12 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
@@ -1161,14 +1131,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "picker-input",
+                "class": "picker-input picker-end-input",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "1990-09-03",
                   },
@@ -1182,14 +1151,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -1218,14 +1185,13 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "picker-input picker-input-active",
+                    "class": "picker-input picker-start-input picker-input-active",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "autocomplete": "off",
                         "placeholder": "",
-                        "readonly": "",
                         "size": "12",
                         "value": "1990-09-03",
                       },
@@ -1239,14 +1205,12 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "autocomplete": undefined,
                         "placeholder": undefined,
-                        "readonly": undefined,
                         "size": undefined,
                         "value": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "autocomplete": undefined,
                         "placeholder": undefined,
-                        "readonly": undefined,
                         "size": undefined,
                         "value": undefined,
                       },
@@ -1426,14 +1390,13 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "picker-input picker-input-active",
+          "class": "picker-input picker-start-input picker-input-active",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "autocomplete": "off",
               "placeholder": "",
-              "readonly": "",
               "size": "12",
               "value": "",
             },
@@ -1447,14 +1410,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
@@ -1479,14 +1440,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "picker-input",
+              "class": "picker-input picker-end-input",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -1500,14 +1460,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -1583,14 +1541,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -1604,14 +1561,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -1653,14 +1608,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "picker-input picker-input-active",
+            "class": "picker-input picker-start-input picker-input-active",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -1674,14 +1628,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -1710,14 +1662,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "picker-input",
+          "class": "picker-input picker-end-input",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "autocomplete": "off",
               "placeholder": "",
-              "readonly": "",
               "size": "12",
               "value": "",
             },
@@ -1731,14 +1682,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
@@ -1787,14 +1736,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "picker-input picker-input-active",
+              "class": "picker-input picker-start-input picker-input-active",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -1808,14 +1756,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -1862,14 +1808,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -1883,14 +1828,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -1919,14 +1862,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "picker-input picker-input-active",
+                "class": "picker-input picker-start-input picker-input-active",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "",
                   },
@@ -1940,14 +1882,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -2109,14 +2049,13 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "picker-input picker-input-active",
+          "class": "picker-input picker-start-input picker-input-active",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "autocomplete": "off",
               "placeholder": "",
-              "readonly": "",
               "size": "12",
               "value": "",
             },
@@ -2130,14 +2069,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
@@ -2162,14 +2099,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "picker-input",
+              "class": "picker-input picker-end-input",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -2183,14 +2119,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -2266,14 +2200,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -2287,14 +2220,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -2336,14 +2267,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "picker-input picker-input-active",
+            "class": "picker-input picker-start-input picker-input-active",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -2357,14 +2287,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -2393,14 +2321,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "picker-input",
+          "class": "picker-input picker-end-input",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "autocomplete": "off",
               "placeholder": "",
-              "readonly": "",
               "size": "12",
               "value": "",
             },
@@ -2414,14 +2341,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
               "autocomplete": undefined,
               "placeholder": undefined,
-              "readonly": undefined,
               "size": undefined,
               "value": undefined,
             },
@@ -2470,14 +2395,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "picker-input picker-input-active",
+              "class": "picker-input picker-start-input picker-input-active",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -2491,14 +2415,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -2545,14 +2467,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -2566,14 +2487,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -2602,14 +2521,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "picker-input picker-input-active",
+                "class": "picker-input picker-start-input picker-input-active",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "",
                   },
@@ -2623,14 +2541,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -3253,14 +3169,13 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "picker-input picker-input-active",
+                "class": "picker-input picker-start-input picker-input-active",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "",
                   },
@@ -3274,14 +3189,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -3306,14 +3219,13 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "picker-input",
+                    "class": "picker-input picker-end-input",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "autocomplete": "off",
                         "placeholder": "",
-                        "readonly": "",
                         "size": "12",
                         "value": "",
                       },
@@ -3327,14 +3239,12 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "autocomplete": undefined,
                         "placeholder": undefined,
-                        "readonly": undefined,
                         "size": undefined,
                         "value": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "autocomplete": undefined,
                         "placeholder": undefined,
-                        "readonly": undefined,
                         "size": undefined,
                         "value": undefined,
                       },
@@ -3410,14 +3320,13 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "picker-input",
+                  "class": "picker-input picker-end-input",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "autocomplete": "off",
                       "placeholder": "",
-                      "readonly": "",
                       "size": "12",
                       "value": "",
                     },
@@ -3431,14 +3340,12 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
@@ -3480,14 +3387,13 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "picker-input picker-input-active",
+                  "class": "picker-input picker-start-input picker-input-active",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "autocomplete": "off",
                       "placeholder": "",
-                      "readonly": "",
                       "size": "12",
                       "value": "",
                     },
@@ -3501,14 +3407,12 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
@@ -3537,14 +3441,13 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "picker-input",
+                "class": "picker-input picker-end-input",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "",
                   },
@@ -3558,14 +3461,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -3614,14 +3515,13 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "picker-input picker-input-active",
+                    "class": "picker-input picker-start-input picker-input-active",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "autocomplete": "off",
                         "placeholder": "",
-                        "readonly": "",
                         "size": "12",
                         "value": "",
                       },
@@ -3635,14 +3535,12 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "autocomplete": undefined,
                         "placeholder": undefined,
-                        "readonly": undefined,
                         "size": undefined,
                         "value": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "autocomplete": undefined,
                         "placeholder": undefined,
-                        "readonly": undefined,
                         "size": undefined,
                         "value": undefined,
                       },
@@ -3689,14 +3587,13 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "picker-input",
+                  "class": "picker-input picker-end-input",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "autocomplete": "off",
                       "placeholder": "",
-                      "readonly": "",
                       "size": "12",
                       "value": "",
                     },
@@ -3710,14 +3607,12 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
@@ -3746,14 +3641,13 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "picker-input picker-input-active",
+                      "class": "picker-input picker-start-input picker-input-active",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "autocomplete": "off",
                           "placeholder": "",
-                          "readonly": "",
                           "size": "12",
                           "value": "",
                         },
@@ -3767,14 +3661,12 @@ LoadedCheerio {
                         "x-attribsNamespace": Object {
                           "autocomplete": undefined,
                           "placeholder": undefined,
-                          "readonly": undefined,
                           "size": undefined,
                           "value": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "autocomplete": undefined,
                           "placeholder": undefined,
-                          "readonly": undefined,
                           "size": undefined,
                           "value": undefined,
                         },
@@ -3848,14 +3740,13 @@ LoadedCheerio {
       "children": Array [
         Node {
           "attribs": Object {
-            "class": "picker-input picker-input-active",
+            "class": "picker-input picker-start-input picker-input-active",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -3869,14 +3760,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -3901,14 +3790,13 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "picker-input",
+                "class": "picker-input picker-end-input",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "",
                   },
@@ -3922,14 +3810,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -4005,14 +3891,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "picker-input",
+              "class": "picker-input picker-end-input",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -4026,14 +3911,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -4075,14 +3958,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "picker-input picker-input-active",
+              "class": "picker-input picker-start-input picker-input-active",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -4096,14 +3978,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -4132,14 +4012,13 @@ LoadedCheerio {
         },
         Node {
           "attribs": Object {
-            "class": "picker-input",
+            "class": "picker-input picker-end-input",
           },
           "children": Array [
             Node {
               "attribs": Object {
                 "autocomplete": "off",
                 "placeholder": "",
-                "readonly": "",
                 "size": "12",
                 "value": "",
               },
@@ -4153,14 +4032,12 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
                 "autocomplete": undefined,
                 "placeholder": undefined,
-                "readonly": undefined,
                 "size": undefined,
                 "value": undefined,
               },
@@ -4209,14 +4086,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "picker-input picker-input-active",
+                "class": "picker-input picker-start-input picker-input-active",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
                     "autocomplete": "off",
                     "placeholder": "",
-                    "readonly": "",
                     "size": "12",
                     "value": "",
                   },
@@ -4230,14 +4106,12 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "autocomplete": undefined,
                     "placeholder": undefined,
-                    "readonly": undefined,
                     "size": undefined,
                     "value": undefined,
                   },
@@ -4284,14 +4158,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "picker-input",
+              "class": "picker-input picker-end-input",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "autocomplete": "off",
                   "placeholder": "",
-                  "readonly": "",
                   "size": "12",
                   "value": "",
                 },
@@ -4305,14 +4178,12 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "autocomplete": undefined,
                   "placeholder": undefined,
-                  "readonly": undefined,
                   "size": undefined,
                   "value": undefined,
                 },
@@ -4341,14 +4212,13 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "picker-input picker-input-active",
+                  "class": "picker-input picker-start-input picker-input-active",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "autocomplete": "off",
                       "placeholder": "",
-                      "readonly": "",
                       "size": "12",
                       "value": "",
                     },
@@ -4362,14 +4232,12 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "autocomplete": undefined,
                       "placeholder": undefined,
-                      "readonly": undefined,
                       "size": undefined,
                       "value": undefined,
                     },

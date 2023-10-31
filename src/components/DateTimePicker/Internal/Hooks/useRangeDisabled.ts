@@ -7,17 +7,19 @@ import { getValue } from '../Utils/miscUtil';
 export default function useRangeDisabled<DateType>(
   {
     picker,
-    locale,
     selectedValue,
-    disabledDate,
+    locale,
     disabled,
+    disabledDate,
+    readonly,
     generateConfig,
   }: {
     picker: OcPickerMode;
     selectedValue: RangeValue<DateType>;
-    disabledDate?: (date: DateType) => boolean;
-    disabled: [boolean, boolean];
     locale: Locale;
+    disabled: [boolean, boolean];
+    disabledDate?: (date: DateType) => boolean;
+    readonly: [boolean, boolean];
     generateConfig: GenerateConfig<DateType>;
   },
   firstTimeOpen: boolean
@@ -43,12 +45,12 @@ export default function useRangeDisabled<DateType>(
 
   const disabledStartDate = useCallback(
     (date: DateType): boolean => {
-      if (disabled[0] || (disabledDate && disabledDate(date))) {
+      if (disabled[0] || disabledDate?.(date) || readonly[0]) {
         return true;
       }
 
       // Disabled range
-      if (disabled[1] && endDate) {
+      if ((disabled[1] || readonly[1]) && endDate) {
         return (
           !isSameDate(generateConfig, date, endDate) &&
           generateConfig.isAfter(date, endDate)
@@ -74,17 +76,17 @@ export default function useRangeDisabled<DateType>(
 
       return false;
     },
-    [disabledDate, disabled[1], endDate, firstTimeOpen]
+    [disabledDate, disabled[1], endDate, firstTimeOpen, readonly[1]]
   );
 
   const disabledEndDate = useCallback(
     (date: DateType): boolean => {
-      if (disabled[1] || (disabledDate && disabledDate(date))) {
+      if (disabled[1] || disabledDate?.(date) || readonly[1]) {
         return true;
       }
 
       // Disabled range
-      if (disabled[0] && startDate) {
+      if ((disabled[0] || readonly[0]) && startDate) {
         return (
           !isSameDate(generateConfig, date, endDate) &&
           generateConfig.isAfter(startDate, date)
@@ -110,7 +112,7 @@ export default function useRangeDisabled<DateType>(
 
       return false;
     },
-    [disabledDate, disabled[0], startDate, firstTimeOpen]
+    [disabledDate, disabled[0], startDate, firstTimeOpen, readonly[0]]
   );
 
   return [disabledStartDate, disabledEndDate];

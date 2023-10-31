@@ -258,6 +258,11 @@ describe('Picker.Basic', () => {
       const wrapper = mount(<DayjsPicker open disabled />);
       expect(wrapper.isOpen()).toBeFalsy();
     });
+
+    it('readonly should not open', () => {
+      const wrapper = mount(<DayjsPicker open readonly />);
+      expect(wrapper.isOpen()).toBeFalsy();
+    });
   });
 
   describe('value', () => {
@@ -760,6 +765,15 @@ describe('Picker.Basic', () => {
     expect(wrapper.isOpen()).toBeFalsy();
 
     wrapper.setProps({ disabled: false });
+    expect(wrapper.isOpen()).toBeFalsy();
+  });
+
+  it('not open when readonly', () => {
+    const wrapper = mount(<DayjsPicker readonly />);
+    wrapper.find('.picker').simulate('mouseUp');
+    expect(wrapper.isOpen()).toBeFalsy();
+
+    wrapper.setProps({ readonly: false });
     expect(wrapper.isOpen()).toBeFalsy();
   });
 
