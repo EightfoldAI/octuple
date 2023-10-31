@@ -48,10 +48,6 @@ export default {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
-    disabled: {
-      options: [true, false],
-      control: { type: 'inline-radio' },
-    },
     dropdownClassNames: {
       control: { type: 'text' },
     },
@@ -106,6 +102,16 @@ const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
       <DatePicker {...args} onChange={onChange} picker="month" />
       <DatePicker {...args} onChange={onChange} picker="quarter" />
       <DatePicker {...args} onChange={onChange} picker="year" />
+    </Stack>
+  );
+};
+
+const Single_Picker_Readonly_Story: ComponentStory<typeof DatePicker> = (
+  args
+) => {
+  return (
+    <Stack direction="vertical" flexGap="m">
+      <DatePicker {...args} defaultValue={dayjs('2023-10-24', dateFormat)} />
     </Stack>
   );
 };
@@ -251,6 +257,22 @@ const Range_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
       format="YYYY-MM-DD HH:mm"
       onChange={onChange}
     />
+  );
+};
+
+const Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
+  args
+) => {
+  return (
+    <Stack direction="vertical" flexGap="m">
+      <RangePicker
+        {...args}
+        defaultValue={[
+          dayjs('2023-10-23', dateFormat),
+          dayjs('2023-10-27', dateFormat),
+        ]}
+      />
+    </Stack>
   );
 };
 
@@ -512,6 +534,7 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
 };
 
 export const Single_Picker = Single_Picker_Story.bind({});
+export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
 export const Single_Picker_Disabled = Single_Picker_Disabled_Story.bind({});
 export const Single_Picker_Disabled_Date_and_Time =
   Single_Picker_Disabled_Date_and_Time_Story.bind({});
@@ -521,6 +544,7 @@ export const Single_Picker_Choose_Time = Single_Picker_Choose_Time_Story.bind(
 export const Single_Picker_Choose_Time_Hide_Buttons =
   Single_Picker_Choose_Time_Hide_Buttons_Story.bind({});
 export const Range_Picker = Range_Picker_Story.bind({});
+export const Range_Picker_Readonly = Range_Picker_Readonly_Story.bind({});
 export const Range_Picker_Disabled = Range_Picker_Disabled_Story.bind({});
 export const Range_Picker_Disabled_Date_and_Time =
   Range_Picker_Disabled_Date_and_Time_Story.bind({});
@@ -545,11 +569,13 @@ export const Range_Status = Range_Status_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Single_Picker',
+  'Single_Picker_Readonly',
   'Single_Picker_Disabled',
   'Single_Picker_Disabled_Date_and_Time',
   'Single_Picker_Choose_Time',
   'Single_Picker_Choose_Time_Hide_Buttons',
   'Range_Picker',
+  'Range_Picker_Readonly',
   'Range_Picker_Disabled',
   'Range_Picker_Disabled_Date_and_Time',
   'Range_Picker_Choose_Time',
@@ -586,6 +612,11 @@ Single_Picker.args = {
   ...pickerArgs,
 };
 
+Single_Picker_Readonly.args = {
+  ...pickerArgs,
+  readonly: true,
+};
+
 Single_Picker_Disabled.args = {
   ...pickerArgs,
   disabled: true,
@@ -610,10 +641,16 @@ Range_Picker.args = {
   showToday: false, // The range picker default is false, this is for Storybook args only.
 };
 
+Range_Picker_Readonly.args = {
+  ...pickerArgs,
+  showToday: false,
+  readonly: [true, true],
+};
+
 Range_Picker_Disabled.args = {
   ...pickerArgs,
   showToday: false,
-  disabled: true,
+  disabled: [true, true],
 };
 
 Range_Picker_Disabled_Date_and_Time.args = {

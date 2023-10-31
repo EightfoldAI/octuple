@@ -14,8 +14,6 @@ import {
   SizeContext,
   Size,
 } from '../../../ConfigProvider';
-import { mergeClasses } from '../../../../shared/utilities';
-import type { InputStatus } from '../../../../shared/utilities';
 import OcPicker from '../../Internal/OcPicker';
 import type { GenerateConfig } from '../../Internal/Generate';
 import {
@@ -43,7 +41,8 @@ import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../../../Form/Context';
-import { getMergedStatus } from '../../../../shared/utilities';
+import type { InputStatus } from '../../../../shared/utilities';
+import { getMergedStatus, mergeClasses } from '../../../../shared/utilities';
 
 import styles from '../datepicker.module.scss';
 
@@ -83,6 +82,7 @@ export default function generatePicker<DateType>(
         okText: defaultOkText,
         placeholder,
         popupPlacement,
+        readonly = false,
         shape = DatePickerShape.Rectangle,
         showNow = true,
         showOk = true,
@@ -230,13 +230,19 @@ export default function generatePicker<DateType>(
                   mergedPicker === 'time' ? (
                     <Icon
                       color={iconColor()}
-                      path={IconName.mdiClockOutline}
+                      path={
+                        readonly ? IconName.mdiLock : IconName.mdiClockOutline
+                      }
                       size={pickerSizeToIconSizeMap.get(mergedSize)}
                     />
                   ) : (
                     <Icon
                       color={iconColor()}
-                      path={IconName.mdiCalendarBlankOutline}
+                      path={
+                        readonly
+                          ? IconName.mdiLock
+                          : IconName.mdiCalendarBlankOutline
+                      }
                       size={pickerSizeToIconSizeMap.get(mergedSize)}
                     />
                   )
@@ -248,7 +254,7 @@ export default function generatePicker<DateType>(
                 popupPlacement={popupPlacement}
                 clearIcon={
                   <Icon
-                    path={IconName.mdiCloseCircle}
+                    path={IconName.mdiClose}
                     size={pickerSizeToIconSizeMap.get(mergedSize)}
                   />
                 }
@@ -322,6 +328,7 @@ export default function generatePicker<DateType>(
                 components={Components}
                 direction={htmlDir}
                 disabled={mergedDisabled}
+                readonly={readonly}
                 shape={mergedShape}
                 size={mergedSize}
               />
