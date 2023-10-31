@@ -44,12 +44,14 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
       closeButtonProps,
       closeIcon = IconName.mdiClose,
+      firstFocusableSelector,
       footer,
       footerClassNames,
       headerButtonProps,
       headerClassNames,
       headerIcon = IconName.mdiArrowLeftThick,
       height,
+      lastFocusableSelector,
       locale = enUS,
       maskClosable = true,
       onClose = () => {},
@@ -62,7 +64,9 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       parent = document.body,
       placement = 'right',
       push = true,
+      renderContentAlways = true,
       size = PanelSize.medium,
+      skipFocusableSelectorsFromIndex,
       title,
       visible = false,
       width,
@@ -280,6 +284,11 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
               <PanelContext.Provider value={operations}>
                 <NoFormStyle status override>
                   <FocusTrap
+                    firstFocusableSelector={firstFocusableSelector}
+                    lastFocusableSelector={lastFocusableSelector}
+                    skipFocusableSelectorsFromIndex={
+                      skipFocusableSelectorsFromIndex
+                    }
                     trap={visible && focusTrap}
                     {...rest}
                     ref={containerRef}
@@ -295,9 +304,13 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                       onClick={stopPropagation}
                       style={getPanelStyle()}
                     >
-                      {getHeader()}
-                      {getBody()}
-                      {!!footer && getFooter()}
+                      {renderContentAlways && (
+                        <>
+                          {getHeader()}
+                          {getBody()}
+                          {!!footer && getFooter()}
+                        </>
+                      )}
                     </div>
                   </FocusTrap>
                 </NoFormStyle>

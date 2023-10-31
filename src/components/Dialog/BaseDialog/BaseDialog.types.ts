@@ -101,6 +101,12 @@ export interface BaseDialogProps
    */
   dialogWrapperClassNames?: string;
   /**
+   * Prepend a specific selector to the beginning
+   * of the focus loop generated list of selectors.
+   * Use optionally when `focusTrap` is `true`.
+   */
+  firstFocusableSelector?: string;
+  /**
    * Unset this to disable focus trap
    * @default true
    */
@@ -125,6 +131,12 @@ export interface BaseDialogProps
    * Custom height of the dialog
    */
   height?: number;
+  /**
+   * Append a specific selector to the end
+   * of the focus loop generated list of selectors.
+   * Use optionally when `focusTrap` is `true`.
+   */
+  lastFocusableSelector?: string;
   /**
    * The Dialog locale.
    * @default 'enUS'
@@ -170,6 +182,17 @@ export interface BaseDialogProps
    * Ref for the dialog element
    */
   ref?: Ref<HTMLDivElement>;
+  /**
+   * Whether to render Dialog content when Dialog `visible` is `true`.
+   * @default true
+   */
+  renderContentAlways?: boolean;
+  /**
+   * Optionally skip some selectors when tabbing by index.length - skipFocusableSelectorsFromIndex
+   * Use when `focusTrap` is `true`
+   * @default `index.length - 1`
+   */
+  skipFocusableSelectorsFromIndex?: number;
   /**
    * Custom width of the dialog
    */

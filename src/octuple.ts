@@ -74,6 +74,8 @@ import { Empty, EmptyMode } from './components/Empty';
 
 import { FadeIn } from './components/FadeIn';
 
+import { FocusTrap, useFocusTrap } from './shared/FocusTrap';
+
 import Form, { FormInstance } from './components/Form';
 
 import Grid, { Col, Row } from './components/Grid';
@@ -302,6 +304,7 @@ export {
   FadeIn,
   FilterConfirmProps,
   FilterValue,
+  FocusTrap,
   Form,
   FormInstance,
   Grid,
@@ -440,6 +443,7 @@ export {
   UploadSize,
   useBoolean,
   useCanvasDirection,
+  useFocusTrap,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,
