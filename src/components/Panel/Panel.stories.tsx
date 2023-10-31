@@ -281,6 +281,10 @@ const panelArgs: Object = {
   bodyPadding: true,
   headerPadding: true,
   scrollLock: true,
+  firstFocusableSelector: null,
+  lastFocusableSelector: null,
+  skipFocusableSelectorsFromIndex: null,
+  renderContentAlways: true,
   children: (
     <>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
