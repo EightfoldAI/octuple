@@ -183,7 +183,7 @@ export interface BaseDialogProps
    */
   ref?: Ref<HTMLDivElement>;
   /**
-   * Whether to render Dialog content when Dialog `visible` is `true`.
+   * Whether to render Dialog content when Dialog `visible` is `false`.
    * @default true
    */
   renderContentAlways?: boolean;

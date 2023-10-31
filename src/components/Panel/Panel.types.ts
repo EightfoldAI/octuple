@@ -190,7 +190,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
    */
   push?: boolean;
   /**
-   * Whether to render Panel content when Panel `visible` is `true`.
+   * Whether to render Panel content when Panel `visible` is `false`.
    * @default true
    */
   renderContentAlways?: boolean;
