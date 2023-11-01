@@ -95,4 +95,25 @@ describe('Dialog', () => {
     });
     expect(wrapper.find('.modeless').length).toBeTruthy();
   });
+
+  test('Should render content when renderContentAlways is true', () => {
+    wrapper.setProps({
+      header,
+      body,
+    });
+    expect(wrapper.find('.body').contains('This is the dialog body')).toBe(
+      true
+    );
+  });
+
+  test('Should not render content when renderContentAlways is false', () => {
+    wrapper.setProps({
+      header,
+      body,
+      renderContentAlways: false,
+    });
+    expect(wrapper.find('.body').contains('This is the dialog body')).toBe(
+      false
+    );
+  });
 });

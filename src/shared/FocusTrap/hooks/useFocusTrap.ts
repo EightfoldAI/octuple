@@ -8,7 +8,10 @@ const SELECTORS =
 const FOCUS_DELAY_INTERVAL: number = 100;
 
 export function useFocusTrap(
-  visible = true
+  visible: boolean = true,
+  firstFocusableSelector?: string,
+  lastFocusableSelector?: string,
+  skipFocusableSelectorsFromIndex?: number
 ): React.MutableRefObject<HTMLDivElement> {
   const elRef: React.MutableRefObject<any> = useRef<any>(null);
   const intervalRef: React.MutableRefObject<NodeJS.Timer> =
@@ -32,8 +35,17 @@ export function useFocusTrap(
       return;
     }
 
+    if (lastFocusableSelector) {
+      focusableEls.push(elRef.current?.querySelector(lastFocusableSelector));
+    }
+
     const firstFocusableEl: HTMLElement = focusableEls[0];
-    const lastFocusableEl: HTMLElement = focusableEls[focusableEls.length - 1];
+    const lastFocusableEl: HTMLElement =
+      focusableEls[
+        skipFocusableSelectorsFromIndex
+          ? focusableEls.length - skipFocusableSelectorsFromIndex
+          : focusableEls.length - 1
+      ];
 
     if (isShiftPressed) {
       if (document.activeElement === firstFocusableEl) {
@@ -55,7 +67,10 @@ export function useFocusTrap(
       return;
     }
     restoreFocusRef.current = document.activeElement;
-    const elementToFocus: HTMLElement = getFocusableElements()?.[0];
+    let elementToFocus: HTMLElement = getFocusableElements()?.[0];
+    if (firstFocusableSelector) {
+      elementToFocus = elRef.current?.querySelector(firstFocusableSelector);
+    }
     clearInterval(intervalRef?.current);
     intervalRef.current = setInterval((): void => {
       elementToFocus?.focus();
