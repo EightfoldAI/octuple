@@ -1094,6 +1094,11 @@
 
 .custom-menu-top-inset {
   margin-top: $space-s;
+  margin-bottom: $space-s;
+}
+
+.custom-menu-inset {
+  margin-bottom: $space-s;
 }
 
 :global(.focus-visible) {

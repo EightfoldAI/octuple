@@ -383,7 +383,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
             classNames:
               idx === 0 && item.type === MenuItemType.custom
                 ? styles.customMenuTopInset
-                : null,
+                : styles.customMenuInset,
             size: MenuSize.small,
             value: `menu ${idx}`,
             ...item,
@@ -395,7 +395,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
           classNames:
             idx === 0 && item.type === MenuItemType.custom
               ? styles.customMenuTopInset
-              : null,
+              : styles.customMenuInset,
           size: MenuSize.small,
           value: `menu ${idx}`,
           ...item,
