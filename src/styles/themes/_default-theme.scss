@@ -470,7 +470,8 @@
   // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
-  --navbar-background: #ffffffe6;
+  --navbar-background: var(--background-color);
+  --navbar-height: 80px;
   --navbar-text-color: var(--text-secondary-color);
   --navbar-text-hover-background: var(--navbar-background);
   --navbar-text-hover-color: var(--primary-color);
