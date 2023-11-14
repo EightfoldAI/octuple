@@ -125,27 +125,27 @@
       font-weight: $text-font-weight-semibold;
       line-height: $text-line-height-2;
 
-      &.form-item-required:not(.form-item-required-mark-optional):after {
-        display: inline-block;
-        margin-right: $space-xxs;
-        color: var(--text-primary-color);
-        font-size: $text-font-size-3;
-        font-weight: $text-font-weight-semibold;
-        line-height: $text-line-height-2;
-        font-family: SimSun, sans-serif;
-        content: '*';
-
-        .form-hide-required-mark {
-          display: none;
-        }
-      }
-
       .form-item-optional {
         display: inline-block;
-        margin-left: $space-xxs;
         color: var(--text-secondary-color);
 
-        .form-hide-required-mark {
+        &.form-item-required:not(.form-item-required-mark-optional),
+        &.form-item-required-mark-optional:not(.form-item-required) {
+          margin-left: $space-xxs;
+        }
+
+        &.form-item-required:not(.form-item-required-mark-optional):after {
+          display: inline-block;
+          margin-right: $space-xxs;
+          color: var(--text-primary-color);
+          font-size: $text-font-size-3;
+          font-weight: $text-font-weight-semibold;
+          line-height: $text-line-height-2;
+          font-family: SimSun, sans-serif;
+          content: '*';
+        }
+
+        &.form-hide-required-mark {
           display: none;
         }
       }
