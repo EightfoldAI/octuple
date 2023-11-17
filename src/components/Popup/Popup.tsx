@@ -1,6 +1,18 @@
 import React, { FC } from 'react';
-import { PopupProps, PopupRef, PopupSize, PopupTheme } from './Popup.types';
-import { Tooltip, TooltipSize, TooltipTheme, TooltipType } from '../Tooltip';
+import {
+  PopupProps,
+  PopupRef,
+  PopupSize,
+  PopupTheme,
+  PopupTouchInteraction,
+} from './Popup.types';
+import {
+  Tooltip,
+  TooltipSize,
+  TooltipTheme,
+  TooltipType,
+  TooltipTouchInteraction,
+} from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
 
@@ -24,6 +36,7 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
       tabIndex = 0,
       theme = PopupTheme.light,
       trigger = 'click',
+      touchInteraction = PopupTouchInteraction.Tap,
       popupStyle,
       ...rest
     },
@@ -51,6 +64,14 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
       [PopupTheme.light, TooltipTheme.light],
     ]);
 
+    const popupTouchToTooltipTouchMap = new Map<
+      PopupTouchInteraction,
+      TooltipTouchInteraction
+    >([
+      [PopupTouchInteraction.Tap, TooltipTouchInteraction.Tap],
+      [PopupTouchInteraction.TapAndHold, TooltipTouchInteraction.TapAndHold],
+    ]);
+
     return (
       <Tooltip
         {...rest}
@@ -71,6 +92,7 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
         tooltipOnKeydown={popupOnKeydown}
         tooltipStyle={popupStyle}
         trigger={trigger}
+        touchInteraction={popupTouchToTooltipTouchMap.get(touchInteraction)}
         type={TooltipType.Popup}
       />
     );

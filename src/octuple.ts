@@ -189,7 +189,12 @@ import {
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
-import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
+import {
+  Tooltip,
+  TooltipTheme,
+  TooltipSize,
+  TooltipTouchInteraction,
+} from './components/Tooltip';
 
 import { Loader, LoaderSize } from './components/Loader';
 
@@ -202,7 +207,12 @@ import {
   PanelHeader,
 } from './components/Panel';
 
-import { Popup, PopupSize, PopupTheme } from './components/Popup';
+import {
+  Popup,
+  PopupSize,
+  PopupTheme,
+  PopupTouchInteraction,
+} from './components/Popup';
 
 import { Portal } from './components/Portal';
 
@@ -235,6 +245,8 @@ import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
 import { useBoolean } from './hooks/useBoolean';
 
 import { useCanvasDirection } from './hooks/useCanvasDirection';
+
+import useGestures, { Gestures } from './hooks/useGestures';
 
 import { Breakpoints, useMatchMedia } from './hooks/useMatchMedia';
 
@@ -294,6 +306,7 @@ export {
   FilterValue,
   Form,
   FormInstance,
+  Gestures,
   Grid,
   Icon,
   IconName,
@@ -351,6 +364,7 @@ export {
   Popup,
   PopupSize,
   PopupTheme,
+  PopupTouchInteraction,
   Portal,
   PrimaryButton,
   Progress,
@@ -418,6 +432,7 @@ export {
   Tooltip,
   TooltipTheme,
   TooltipSize,
+  TooltipTouchInteraction,
   TwoStateButton,
   Upload,
   UploadFile,
@@ -426,6 +441,7 @@ export {
   UploadSize,
   useBoolean,
   useCanvasDirection,
+  useGestures,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,
