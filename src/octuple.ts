@@ -247,6 +247,8 @@ import { useBoolean } from './hooks/useBoolean';
 
 import { useCanvasDirection } from './hooks/useCanvasDirection';
 
+import useGestures, { Gestures } from './hooks/useGestures';
+
 import { Breakpoints, useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
@@ -307,6 +309,7 @@ export {
   FocusTrap,
   Form,
   FormInstance,
+  Gestures,
   Grid,
   Icon,
   IconName,
@@ -444,6 +447,7 @@ export {
   useBoolean,
   useCanvasDirection,
   useFocusTrap,
+  useGestures,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,
