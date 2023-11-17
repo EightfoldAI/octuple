@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.4](https://github.com/EightfoldAI/octuple/compare/v2.46.3...v2.46.4) (2023-11-17)
+
+### Bug Fixes
+
+- hotfix: tooltip adds touch api support with hover a11y fixup ([e11bca5](https://github.com/EightfoldAI/octuple/commits/e11bca5a7aa27b584f2559c3e09a41aa419a3d74))
+
 ### [2.46.3](https://github.com/EightfoldAI/octuple/compare/v2.46.2...v2.46.3) (2023-10-23)
 
 ### Bug Fixes
