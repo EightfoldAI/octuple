@@ -113,4 +113,19 @@ describe('useGestures Hook', () => {
 
     expect(result.current).toBe(Gestures.TapAndHold);
   });
+
+  test('onMouseMove sets the Gesture to null', () => {
+    const { result } = renderHook(() => useGestures(swipeTarget));
+
+    fireEvent.touchStart(swipeTarget, {
+      touches: [{ screenX: 100, screenY: 100 }],
+    });
+    jest.advanceTimersByTime(50);
+    fireEvent.touchEnd(swipeTarget, {
+      touches: [{ screenX: 100, screenY: 100 }],
+    });
+    expect(result.current).toBe(Gestures.Tap);
+    fireEvent.mouseMove(swipeTarget);
+    expect(result.current).toBe(null);
+  });
 });

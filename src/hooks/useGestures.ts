@@ -17,6 +17,14 @@ const useGestures = (
   const [touchStartY, setTouchStartY] = useState<number>(0);
   const [gestureType, setGestureType] = useState<Gestures | null>(null);
 
+  const onMouseMove = (): void => {
+    if (!swipeTarget) {
+      return;
+    }
+
+    setGestureType(null);
+  };
+
   const startTouchGesture = (e: any): void => {
     if (!swipeTarget) {
       return;
@@ -84,6 +92,10 @@ const useGestures = (
       capture: false,
       passive: false,
     });
+    swipeTarget?.addEventListener('mousemove', onMouseMove, {
+      capture: false,
+      passive: false,
+    });
   };
 
   const detachGestures = (): void => {
@@ -94,6 +106,7 @@ const useGestures = (
     swipeTarget?.removeEventListener('touchstart', startTouchGesture);
     swipeTarget?.removeEventListener('touchend', endTouchGesture);
     swipeTarget?.removeEventListener('touchmove', touchMoveGesture);
+    swipeTarget?.removeEventListener('mousemove', onMouseMove);
   };
 
   useEffect(() => {
