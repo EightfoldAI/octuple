@@ -24,7 +24,7 @@ const useGestures = (
     }
 
     setGestureType(null);
-  });
+  }, []);
 
   const startTouchGesture = useCallback(
       (e: any): void => {
@@ -35,7 +35,7 @@ const useGestures = (
     setStartTime(new Date().getTime());
     setTouchStartX(e?.changedTouches[0]?.screenX);
     setTouchStartY(e?.changedTouches[0]?.screenY);
-  });
+  }, []);
 
   const endTouchGesture = useCallback(
       (e: any): void => {
@@ -68,7 +68,7 @@ const useGestures = (
         setGestureType(gesture);
       }
     }
-  });
+  }, []);
 
   const touchMoveGesture = useCallback(
       (e: any): void => {
@@ -77,7 +77,7 @@ const useGestures = (
     }
 
     e.preventDefault();
-  });
+  }, []);
 
   const attachGestures = (): void => {
     if (!swipeTarget) {
