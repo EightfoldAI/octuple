@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 export enum Gestures {
   SwipeUp = 'SwipeUp',
@@ -17,15 +17,17 @@ const useGestures = (
   const [touchStartY, setTouchStartY] = useState<number>(0);
   const [gestureType, setGestureType] = useState<Gestures | null>(null);
 
-  const onMouseMove = (): void => {
+  const onMouseMove = useCallback(
+      (): void => {
     if (!swipeTarget) {
       return;
     }
 
     setGestureType(null);
-  };
+  });
 
-  const startTouchGesture = (e: any): void => {
+  const startTouchGesture = useCallback(
+      (e: any): void => {
     if (!swipeTarget) {
       return;
     }
@@ -33,9 +35,10 @@ const useGestures = (
     setStartTime(new Date().getTime());
     setTouchStartX(e?.changedTouches[0]?.screenX);
     setTouchStartY(e?.changedTouches[0]?.screenY);
-  };
+  });
 
-  const endTouchGesture = (e: any): void => {
+  const endTouchGesture = useCallback(
+      (e: any): void => {
     if (!swipeTarget) {
       return;
     }
@@ -65,15 +68,16 @@ const useGestures = (
         setGestureType(gesture);
       }
     }
-  };
+  });
 
-  const touchMoveGesture = (e: any): void => {
+  const touchMoveGesture = useCallback(
+      (e: any): void => {
     if (!swipeTarget) {
       return;
     }
 
     e.preventDefault();
-  };
+  });
 
   const attachGestures = (): void => {
     if (!swipeTarget) {
