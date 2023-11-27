@@ -13,7 +13,6 @@ let matchMedia: any;
 
 jest.useFakeTimers();
 
-// TODO: Fix tests after hotfix is pushed.
 describe('useGestures Hook', () => {
   let swipeTarget: HTMLElement;
 
@@ -31,7 +30,7 @@ describe('useGestures Hook', () => {
     document.body.removeChild(swipeTarget);
   });
 
-  test.skip('Detects SwipeDown gesture', () => {
+  test('Detects SwipeDown gesture', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {
@@ -45,7 +44,7 @@ describe('useGestures Hook', () => {
     expect(result.current).toBe(Gestures.SwipeDown);
   });
 
-  test.skip('Detects SwipeLeft gesture', () => {
+  test('Detects SwipeLeft gesture', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {
@@ -59,7 +58,7 @@ describe('useGestures Hook', () => {
     expect(result.current).toBe(Gestures.SwipeLeft);
   });
 
-  test.skip('Detects SwipeRight gesture', () => {
+  test('Detects SwipeRight gesture', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {
@@ -73,7 +72,7 @@ describe('useGestures Hook', () => {
     expect(result.current).toBe(Gestures.SwipeRight);
   });
 
-  test.skip('Detects SwipeUp gesture', () => {
+  test('Detects SwipeUp gesture', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {
@@ -87,7 +86,7 @@ describe('useGestures Hook', () => {
     expect(result.current).toBe(Gestures.SwipeUp);
   });
 
-  test.skip('Detects Tap gesture', () => {
+  test('Detects Tap gesture', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {
@@ -101,7 +100,7 @@ describe('useGestures Hook', () => {
     expect(result.current).toBe(Gestures.Tap);
   });
 
-  test.skip('Detects TapAndHold gesture', () => {
+  test('Detects TapAndHold gesture', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {
@@ -115,7 +114,7 @@ describe('useGestures Hook', () => {
     expect(result.current).toBe(Gestures.TapAndHold);
   });
 
-  test.skip('onMouseMove sets the Gesture to null', () => {
+  test('onMouseMove sets the Gesture to null', () => {
     const { result } = renderHook(() => useGestures(swipeTarget));
 
     fireEvent.touchStart(swipeTarget, {

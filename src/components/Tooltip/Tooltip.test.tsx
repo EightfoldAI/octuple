@@ -364,8 +364,7 @@ describe('Tooltip', () => {
     expect(container.querySelector('.tooltip')).toBeFalsy();
   });
 
-  // TODO: Fix tests after hotfix is pushed.
-  test.skip('Tooltip uses touch to show, hide and show again', async () => {
+  test('Tooltip uses touch to show, hide and show again', async () => {
     mockNavigator(
       `Mozilla/5.0 (iPad; CPU OS 10_2_1 like Mac OS X)
       AppleWebKit/602.4.6 (KHTML, like Gecko)

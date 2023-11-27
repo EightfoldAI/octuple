@@ -1,5 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
-
+import { useMemo, useRef, useState, useCallback } from 'react';
 export enum Gestures {
   SwipeUp = 'SwipeUp',
   SwipeDown = 'SwipeDown',
@@ -8,82 +7,73 @@ export enum Gestures {
   Tap = 'Tap',
   TapAndHold = 'TapAndHold',
 }
-
 const useGestures = (
   swipeTarget: HTMLElement | Window | null
 ): Gestures | null => {
-  const [startTime, setStartTime] = useState<number>(0);
-  const [touchStartX, setTouchStartX] = useState<number>(0);
-  const [touchStartY, setTouchStartY] = useState<number>(0);
+  const startTimeRef = useRef<number>(0);
+  const touchStartXRef = useRef<number>(0);
+  const touchStartYRef = useRef<number>(0);
   const [gestureType, setGestureType] = useState<Gestures | null>(null);
-
-  const onMouseMove = useCallback(
-      (): void => {
+  const onMouseMove = useCallback((): void => {
     if (!swipeTarget) {
       return;
     }
-
     setGestureType(null);
-  }, []);
-
+  }, [swipeTarget]);
   const startTouchGesture = useCallback(
-      (e: any): void => {
-    if (!swipeTarget) {
-      return;
-    }
-
-    setStartTime(new Date().getTime());
-    setTouchStartX(e?.changedTouches[0]?.screenX);
-    setTouchStartY(e?.changedTouches[0]?.screenY);
-  }, []);
-
-  const endTouchGesture = useCallback(
-      (e: any): void => {
-    if (!swipeTarget) {
-      return;
-    }
-
-    const currentTime: number = new Date().getTime();
-    const touchEndX: number = e?.changedTouches[0]?.screenX;
-    const touchEndY: number = e?.changedTouches[0]?.screenY;
-    const count: number = touchEndX - touchStartX;
-    const next: number = touchEndY - touchStartY;
-    const latch: number = Math.abs(count);
-    const timeout: number = Math.abs(next);
-
-    let gesture: Gestures;
-    let timer: number = 0;
-
-    timer = currentTime - startTime;
-
-    if (timer < 1000) {
-      if (latch >= 40 && timeout <= 40) {
-        gesture = count > 0 ? Gestures.SwipeRight : Gestures.SwipeLeft;
-        setGestureType(gesture);
-      } else if (timeout >= 40) {
-        gesture = next > 0 ? Gestures.SwipeDown : Gestures.SwipeUp;
-        setGestureType(gesture);
-      } else {
-        gesture = timer < 100 ? Gestures.Tap : Gestures.TapAndHold;
-        setGestureType(gesture);
+    (e: any): void => {
+      if (!swipeTarget) {
+        return;
       }
-    }
-  }, []);
-
+      startTimeRef.current = new Date().getTime();
+      touchStartXRef.current = e?.changedTouches[0]?.screenX;
+      touchStartYRef.current = e?.changedTouches[0]?.screenY;
+    },
+    [swipeTarget]
+  );
+  const endTouchGesture = useCallback(
+    (e: any): void => {
+      if (!swipeTarget) {
+        return;
+      }
+      const currentTime: number = new Date().getTime();
+      const touchEndX: number = e?.changedTouches[0]?.screenX;
+      const touchEndY: number = e?.changedTouches[0]?.screenY;
+      const count: number = touchEndX - touchStartXRef?.current;
+      const next: number = touchEndY - touchStartYRef?.current;
+      const latch: number = Math.abs(count);
+      const timeout: number = Math.abs(next);
+      let gesture: Gestures;
+      let timer: number = 0;
+      timer = currentTime - startTimeRef?.current;
+      if (timer < 1000) {
+        if (latch >= 40 && timeout <= 40) {
+          gesture = count > 0 ? Gestures.SwipeRight : Gestures.SwipeLeft;
+          setGestureType(gesture);
+        } else if (timeout >= 40) {
+          gesture = next > 0 ? Gestures.SwipeDown : Gestures.SwipeUp;
+          setGestureType(gesture);
+        } else {
+          gesture = timer < 100 ? Gestures.Tap : Gestures.TapAndHold;
+          setGestureType(gesture);
+        }
+      }
+    },
+    [swipeTarget]
+  );
   const touchMoveGesture = useCallback(
-      (e: any): void => {
+    (e: any): void => {
+      if (!swipeTarget) {
+        return;
+      }
+      e.preventDefault();
+    },
+    [swipeTarget]
+  );
+  useMemo(() => {
     if (!swipeTarget) {
-      return;
+      return null;
     }
-
-    e.preventDefault();
-  }, []);
-
-  const attachGestures = (): void => {
-    if (!swipeTarget) {
-      return;
-    }
-
     swipeTarget?.addEventListener('touchstart', startTouchGesture, {
       capture: false,
       passive: false,
@@ -100,28 +90,13 @@ const useGestures = (
       capture: false,
       passive: false,
     });
-  };
-
-  const detachGestures = (): void => {
-    if (!swipeTarget) {
-      return;
-    }
-
-    swipeTarget?.removeEventListener('touchstart', startTouchGesture);
-    swipeTarget?.removeEventListener('touchend', endTouchGesture);
-    swipeTarget?.removeEventListener('touchmove', touchMoveGesture);
-    swipeTarget?.removeEventListener('mousemove', onMouseMove);
-  };
-
-  useEffect(() => {
-    attachGestures();
-
     return () => {
-      detachGestures();
+      swipeTarget?.removeEventListener('touchstart', startTouchGesture);
+      swipeTarget?.removeEventListener('touchend', endTouchGesture);
+      swipeTarget?.removeEventListener('touchmove', touchMoveGesture);
+      swipeTarget?.removeEventListener('mousemove', onMouseMove);
     };
-  });
-
+  }, [swipeTarget]);
   return gestureType;
 };
-
 export default useGestures;
