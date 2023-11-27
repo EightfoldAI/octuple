@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.2](https://github.com/EightfoldAI/octuple/compare/v2.47.1...v2.47.2) (2023-11-27)
+
+### Bug Fixes
+
+- hotfix: usegestures wrap event listeners with usecallback ([bfa4642](https://github.com/EightfoldAI/octuple/commits/bfa46425655fa98534133ab7c9b855a8e6a12d08))
+
 ### [2.47.1](https://github.com/EightfoldAI/octuple/compare/v2.47.0...v2.47.1) (2023-11-18)
 
 ### Bug Fixes
