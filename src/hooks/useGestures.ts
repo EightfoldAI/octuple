@@ -14,11 +14,16 @@ const useGestures = (
   const touchStartXRef = useRef<number>(0);
   const touchStartYRef = useRef<number>(0);
   const [gestureType, setGestureType] = useState<Gestures | null>(null);
+  // For hybrid scenarios where a person uses both finger and mouse.
+  // Set gesture back to null upon mouse move.
   const onMouseMove = useCallback((): void => {
     if (!swipeTarget) {
       return;
     }
-    setGestureType(null);
+    // Check if touch start, if not then set gesture to null.
+    if (touchStartXRef?.current === 0 && touchStartYRef?.current === 0) {
+      setGestureType(null);
+    }
   }, [swipeTarget]);
   const startTouchGesture = useCallback(
     (e: any): void => {
