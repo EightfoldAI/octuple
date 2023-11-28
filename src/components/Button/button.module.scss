@@ -604,16 +604,28 @@
   &.button-large {
     padding: calc($button-padding-vertical-large - 1px)
       $button-padding-horizontal-large;
+
+    &.round-shape {
+      padding: calc($button-padding-vertical-large - 1px);
+    }
   }
 
   &.button-medium {
     padding: calc($button-padding-vertical-medium - 1px)
       $button-padding-horizontal-medium;
+
+    &.round-shape {
+      padding: calc($button-padding-vertical-medium - 1px);
+    }
   }
 
   &.button-small {
     padding: calc($button-padding-vertical-small - 1px)
       $button-padding-horizontal-small;
+
+    &.round-shape {
+      padding: calc($button-padding-vertical-small - 1px);
+    }
   }
 }
 

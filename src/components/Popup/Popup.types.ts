@@ -11,6 +11,11 @@ export enum PopupTheme {
   dark = 'dark',
 }
 
+export enum PopupTouchInteraction {
+  Tap = 'Tap',
+  TapAndHold = 'TapAndHold',
+}
+
 export interface PopupProps
   extends Omit<
     TooltipProps,
@@ -20,6 +25,7 @@ export interface PopupProps
     | 'theme'
     | 'tooltipOnKeydown'
     | 'tooltipStyle'
+    | 'touchInteraction'
     | 'type'
   > {
   /**
@@ -54,6 +60,12 @@ export interface PopupProps
    * @default light
    */
   theme?: PopupTheme;
+  /**
+   * Determines the interaction that triggers
+   * the equivalent of hover on touch interfaces.
+   * @default PopupTouchInteraction.Tap
+   */
+  touchInteraction?: PopupTouchInteraction;
 }
 
 export type PopupRef = {
