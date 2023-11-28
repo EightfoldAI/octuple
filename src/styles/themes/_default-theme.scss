@@ -1466,4 +1466,14 @@
   --skill-small-size-border-radius: var(--border-radius-s);
   --skill-xsmall-size-border-radius: var(--border-radius-s);
   // ------ Skill theme ------
+
+  // ------ Form theme ------
+  --form-item-explain-text-color: var(--text-secondary-color);
+  --form-item-extra-text-color: var(--text-secondary-color);
+  --form-item-label-color: var(--text-primary-color);
+  --form-item-optional-text-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-cursor: help;
+  --form-item-required-mark-color: var(--text-primary-color);
+  // ------ Form theme ------
 }
