@@ -1,8 +1,8 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonSize, PrimaryButton } from '../Button';
-import { Tooltip, TooltipTheme } from './';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
+import { Tooltip, TooltipTheme, TooltipTouchInteraction } from './';
 
 export default {
   title: 'Tooltip',
@@ -135,6 +135,7 @@ Tooltips.args = {
   closeOnReferenceClick: true,
   closeOnTooltipClick: false,
   placement: 'bottom',
+  disableContextMenu: false,
   disabled: false,
   visibleArrow: true,
   animate: true,
@@ -146,18 +147,20 @@ Tooltips.args = {
   tabIndex: 0,
   trigger: 'hover',
   triggerAbove: false,
+  touchInteraction: TooltipTouchInteraction.TapAndHold,
   positionStrategy: 'absolute',
   portal: false,
   portalId: 'my-portal-id',
   portalRoot: null,
   children: (
-    <PrimaryButton
+    <Button
       ariaLabel="Show Tooltip"
-      size={ButtonSize.Medium}
-      text="Show Tooltip"
       onClick={() => {
         console.log('clicked');
       }}
+      size={ButtonSize.Medium}
+      text="Show Tooltip"
+      variant={ButtonVariant.Primary}
     />
   ),
   height: null,

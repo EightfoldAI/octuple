@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonSize, PrimaryButton } from '../Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { Icon, IconName, IconSize } from '../Icon';
 import { Link } from '../Link';
 import { Stack } from '../Stack';
-import { Popup, PopupTheme } from './';
+import { Popup, PopupTheme, PopupTouchInteraction } from './';
 
 export default {
   title: 'Popup',
@@ -80,12 +80,13 @@ const Popup_Story: ComponentStory<typeof Popup> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
     <Popup {...args} onVisibleChange={(isVisible) => setVisibility(isVisible)}>
-      <PrimaryButton
+      <Button
         onClick={() => {
           console.log('clicked');
         }}
         size={ButtonSize.Medium}
         text={visible ? 'Hide Popup' : 'Show Popup'}
+        variant={ButtonVariant.Primary}
       />
     </Popup>
   );
@@ -144,6 +145,7 @@ Popups.args = {
     </>
   ),
   placement: 'bottom-start',
+  disableContextMenu: false,
   disabled: false,
   visibleArrow: true,
   classNames: 'my-popup-class',
@@ -153,6 +155,7 @@ Popups.args = {
   tabIndex: 0,
   trigger: 'click',
   triggerAbove: false,
+  touchInteraction: PopupTouchInteraction.Tap,
   positionStrategy: 'absolute',
   portal: false,
   portalId: 'my-portal-id',
