@@ -331,7 +331,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const referenceWrapperClassNames: string = mergeClasses([
         styles.referenceWrapper,
         wrapperClassNames,
-        { [styles.disabled]: disabled },
       ]);
 
       // Only use the `placement` type's `Side` property to determine `staticSide`.
@@ -380,15 +379,11 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               'data-reference-id': tooltipReferenceId?.current,
             };
 
-            const defaultMergedClasses: string = node.props?.disabled
-              ? mergeClasses([defaultReferenceClassNames, styles.disabled])
-              : defaultReferenceClassNames;
-
             // Compares for octuple react prop vs native react html classes.
             if (node.props?.className) {
-              clonedElementProps['className'] = defaultMergedClasses;
+              clonedElementProps['className'] = defaultReferenceClassNames;
             } else if (child.props.classNames) {
-              clonedElementProps['classNames'] = defaultMergedClasses;
+              clonedElementProps['classNames'] = defaultReferenceClassNames;
             }
 
             return cloneElement(child, clonedElementProps);
@@ -410,7 +405,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             // Add any classnames added to the reference element
             { [child.props.className]: !!child.props.className },
             { [child.props.classNames]: !!child.props.classNames },
-            { [styles.disabled]: disabled },
             'tooltip-reference',
           ]);
 
@@ -466,10 +460,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             aria-controls={tooltipId?.current}
             aria-expanded={mergedVisible}
             aria-haspopup={true}
-            className={mergeClasses([
-              { [styles.triggerAbove]: !!triggerAbove },
-              { [styles.disabled]: disabled },
-            ])}
+            className={!!triggerAbove ? styles.triggerAbove : ''}
             id={tooltipReferenceId?.current}
             key={tooltipId?.current}
             onClick={(
