@@ -195,6 +195,10 @@ const dialogArgs: Object = {
   body: 'Body 2 which is at 16px font size is used here in the body section of the dialog. The dialog body text can wrap to multiple lines.',
   bodyClassNames: 'my-dialog-body-class',
   bodyPadding: true,
+  firstFocusableSelector: null,
+  lastFocusableSelector: null,
+  skipFocusableSelectorsFromIndex: null,
+  renderContentAlways: true,
   cancelButtonProps: {
     ariaLabel: 'Cancel',
     classNames: 'my-cancel-btn-class',

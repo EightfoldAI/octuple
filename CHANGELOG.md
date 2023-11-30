@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.47.0](https://github.com/EightfoldAI/octuple/compare/v2.46.2...v2.47.0) (2023-11-03)
+
+### Features
+
+- extend breadcrumb for custom divider and crumb ([#739](https://github.com/EightfoldAI/octuple/issues/739)) ([23c8968](https://github.com/EightfoldAI/octuple/commits/23c89688ab4b0067bb9252996d2d7d4151ab0557))
+- fadein: add fadein component ([#737](https://github.com/EightfoldAI/octuple/issues/737)) ([32064df](https://github.com/EightfoldAI/octuple/commits/32064dfbe41eb7604113558c08efa33fc4405fd4))
+- focustrap: export focus trap and add new hook props ([#743](https://github.com/EightfoldAI/octuple/issues/743)) ([43f34ef](https://github.com/EightfoldAI/octuple/commits/43f34efb5d4c272dd050fcf264f542ec292d1dc2))
+- pickers: add readonly mode ([#741](https://github.com/EightfoldAI/octuple/issues/741)) ([b0d40c6](https://github.com/EightfoldAI/octuple/commits/b0d40c637e1ca5a7a97da670f1f41a24179934f4))
+- skill: add skill component ([#717](https://github.com/EightfoldAI/octuple/issues/717)) ([7691505](https://github.com/EightfoldAI/octuple/commits/7691505884c76808d8fbf4273d74e62252adc9e3))
+- table: add rowexpanddisabled prop ([#731](https://github.com/EightfoldAI/octuple/issues/731)) ([b0b7640](https://github.com/EightfoldAI/octuple/commits/b0b7640696e3f7952c5656f14f080d74ac431232))
+- upload: add fullwidth prop for small and medium dropzone responsiveness ([#730](https://github.com/EightfoldAI/octuple/issues/730)) ([2688ead](https://github.com/EightfoldAI/octuple/commits/2688ead5d9bace92322e6ce94656f31adfa3428d))
+
+### Bug Fixes
+
+- focustrap: improve reliability of use focus trap hook ([#735](https://github.com/EightfoldAI/octuple/issues/735)) ([078ae83](https://github.com/EightfoldAI/octuple/commits/078ae83e91a5e8a3e5dc32d9e9c71a6e419009a7))
+- inlinesvg: memoized fetch and compare with previous url ([#734](https://github.com/EightfoldAI/octuple/issues/734)) ([77a7946](https://github.com/EightfoldAI/octuple/commits/77a7946f7ad2882c419f441941f4c15c908aa22b))
+- list: add listclassnames prop and unit tests ([#724](https://github.com/EightfoldAI/octuple/issues/724)) ([91fb3ce](https://github.com/EightfoldAI/octuple/commits/91fb3ce2302b12e5a7968232c7d5c32cbb3c4620))
+- tooltip: escape to dismiss default tooltip on hover only ([#736](https://github.com/EightfoldAI/octuple/issues/736)) ([388d24d](https://github.com/EightfoldAI/octuple/commits/388d24d7a692abda86457e3e3bbef53847492540))
+
 ### [2.46.2](https://github.com/EightfoldAI/octuple/compare/v2.46.1...v2.46.2) (2023-10-18)
 
 ### Bug Fixes
