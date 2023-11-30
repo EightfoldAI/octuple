@@ -16,7 +16,7 @@ exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
+          class="reference-wrapper"
           id="tooltip-"
         >
           <a
@@ -54,7 +54,7 @@ exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
+          class="reference-wrapper"
           id="tooltip-"
         >
           <a
@@ -92,7 +92,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -170,7 +170,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <span
@@ -206,7 +206,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -245,7 +245,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -284,7 +284,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -323,7 +323,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -362,7 +362,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -401,7 +401,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -440,7 +440,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
+            class="reference-wrapper"
             id="tooltip-"
           >
             <a
@@ -494,7 +494,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
+          class="reference-wrapper"
           id="tooltip-"
         >
           <a
@@ -533,7 +533,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
+          class="reference-wrapper"
           id="tooltip-"
         >
           <a
