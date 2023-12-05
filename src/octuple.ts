@@ -36,7 +36,13 @@ import {
 
 import { Card, CardSize, CardType } from './components/Card';
 
-import { Carousel, Slide, VisibilityContext } from './components/Carousel';
+import {
+  autoScrollApi,
+  autoScrollApiType,
+  Carousel,
+  Slide,
+  VisibilityContext,
+} from './components/Carousel';
 
 import {
   CheckBox,
@@ -294,6 +300,8 @@ export {
   Accordion,
   AccordionShape,
   AccordionSize,
+  autoScrollApi,
+  autoScrollApiType,
   AVATAR_THEME_SET,
   Avatar,
   AvatarGroup,
