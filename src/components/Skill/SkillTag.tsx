@@ -1,13 +1,21 @@
-import React, { FC, ReactNode, Ref, useRef, useState } from 'react';
+import React, { FC, ReactNode, Ref, useRef } from 'react';
 import {
+  matchingSkillAssessmentStatus,
+  matchingSkillStatus,
+  skillPropsToSvgMap,
   SkillTagProps,
   SkillSize,
   SkillStatus,
   skillStatusToIconNameMap,
+  SKILL_SVG_LARGE_HEIGHT,
+  SKILL_SVG_MEDIUM_HEIGHT,
+  SKILL_SVG_SMALL_HEIGHT,
+  SKILL_SVG_XSMALL_HEIGHT,
 } from './Skill.types';
 import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { Dropdown, DropdownProps } from '../Dropdown';
 import { Icon, IconName, IconSize } from '../Icon';
+import { InlineSvg } from '../InlineSvg';
 import { Popup, PopupProps } from '../Popup';
 import { Tooltip, TooltipProps } from '../Tooltip';
 import { generateId, mergeClasses } from '../../shared/utilities';
@@ -19,6 +27,11 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
     const {
       allowDisabledFocus = false,
       background,
+      blockEndClassNames,
+      blockEndStyles,
+      blockStartClassNames,
+      blockStartStyles,
+      bordered = true,
       classNames,
       clickable = false,
       color,
@@ -27,8 +40,10 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       dropdownProps,
       endorseButtonProps,
       endorsement = false,
+      fullWidth = false,
       iconProps,
       id,
+      inlineSvgProps,
       key,
       label,
       lineClamp,
@@ -37,13 +52,18 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       onRemove,
       popupProps,
       readonly = false,
+      required = false,
+      requiredMark = true,
       removable = false,
       removeButtonAriaLabel,
       removeButtonProps,
       role,
+      showLabelAssessmentIcon = true,
       size = SkillSize.Medium,
       status = SkillStatus.Default,
       style,
+      suffixIconProps,
+      suffixInlineSvgProps,
       tabIndex = 0,
       theme = 'white',
       title,
@@ -53,6 +73,23 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
     const skillId: React.MutableRefObject<string> = useRef<string>(
       id || generateId()
     );
+    const AssessmentsSvg =
+      (skillPropsToSvgMap as any)[status]?.[size] ?? React.Fragment;
+
+    const getAssessmentsSvgHeight = (size: SkillSize): string => {
+      switch (size) {
+        case SkillSize.Large:
+          return `${SKILL_SVG_LARGE_HEIGHT}px`;
+        case SkillSize.Medium:
+          return `${SKILL_SVG_MEDIUM_HEIGHT}px`;
+        case SkillSize.Small:
+          return `${SKILL_SVG_SMALL_HEIGHT}px`;
+        case SkillSize.XSmall:
+          return `${SKILL_SVG_XSMALL_HEIGHT}px`;
+        default:
+          return `${SKILL_SVG_MEDIUM_HEIGHT}px`;
+      }
+    };
 
     const skillSizeToButtonSizeMap: Map<SkillSize, ButtonSize> = new Map<
       SkillSize,
@@ -76,6 +113,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
 
     const tagLabelClassNames: string = mergeClasses([
       styles.label,
+      { [styles.required]: required && requiredMark && !lineClamp },
       { [styles.large]: size === SkillSize.Large },
       { [styles.medium]: size === SkillSize.Medium },
       { [styles.small]: size === SkillSize.Small },
@@ -86,8 +124,9 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
     const skillClassNames: string = mergeClasses([
       styles.skill,
       styles.tag,
-      styles.bordered,
+      { [styles.bordered]: !!bordered && size !== SkillSize.XSmall },
       { [styles.clickable]: !!clickable },
+      { [styles.fullWidth]: !!fullWidth },
       classNames,
       {
         [(styles as any)[theme]]:
@@ -144,16 +183,32 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
 
     const getTag = (): ReactNode => (
       <>
-        <div className={styles.blockStart}>
-          {!!iconProps && status === SkillStatus.Default && (
+        <div
+          className={mergeClasses([styles.blockStart, blockStartClassNames])}
+          style={blockStartStyles}
+        >
+          {!iconProps && !!inlineSvgProps && status === SkillStatus.Default && (
+            <InlineSvg
+              height={getAssessmentsSvgHeight(size)}
+              {...inlineSvgProps}
+              classNames={mergeClasses([styles.svg, inlineSvgProps.classNames])}
+            />
+          )}
+          {!!iconProps && !inlineSvgProps && status === SkillStatus.Default && (
             <Icon
               style={{ color }}
               {...iconProps}
               size={skillSizeToIconSizeMap.get(size)}
-              classNames={styles.icon}
+              classNames={mergeClasses([styles.icon, iconProps.classNames])}
             />
           )}
-          {status !== SkillStatus.Default && (
+          {matchingSkillAssessmentStatus?.includes(status) &&
+            showLabelAssessmentIcon && (
+              <div className={styles.svg}>
+                <AssessmentsSvg />
+              </div>
+            )}
+          {matchingSkillStatus?.includes(status) && (
             <Icon
               classNames={styles.icon}
               path={skillStatusToIconNameMap.get(status)}
@@ -169,91 +224,133 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
           >
             {label}
           </span>
-        </div>
-        {size !== SkillSize.Small &&
-          size !== SkillSize.XSmall &&
-          (!!customButtonProps || !!endorseButtonProps || !!removable) && (
-            <div className={styles.blockEnd}>
-              <ul className={styles.buttonList}>
-                {!!endorseButtonProps && (
-                  <li key="endorsement-button">
-                    <Button
-                      checked={endorsement}
-                      iconProps={{
-                        path: endorsement
-                          ? IconName.mdiThumbUp
-                          : IconName.mdiThumbUpOutline,
-                      }}
-                      shape={
-                        parseInt(endorseButtonProps?.counter, 10) > 0
-                          ? ButtonShape.Pill
-                          : ButtonShape.Round
-                      }
-                      toggle
-                      variant={ButtonVariant.Neutral}
-                      {...endorseButtonProps}
-                      classNames={styles.button}
-                      onClick={
-                        !disabled
-                          ? (
-                              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                            ) => {
-                              e.stopPropagation();
-                              endorseButtonProps?.onClick(e);
-                            }
-                          : null
-                      }
-                      size={skillSizeToButtonSizeMap.get(size)}
-                    />
-                  </li>
-                )}
-                {!!customButtonProps && (
-                  <li key="custom-button">
-                    <Button
-                      shape={ButtonShape.Round}
-                      variant={ButtonVariant.Neutral}
-                      {...customButtonProps}
-                      classNames={styles.button}
-                      onClick={
-                        !disabled
-                          ? (
-                              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                            ) => {
-                              e.stopPropagation();
-                              customButtonProps?.onClick(e);
-                            }
-                          : null
-                      }
-                      size={skillSizeToButtonSizeMap.get(size)}
-                    />
-                  </li>
-                )}
-                {!!removable && (
-                  <li key="close-button">
-                    <Button
-                      ariaLabel={removeButtonAriaLabel}
-                      iconProps={{ path: IconName.mdiClose }}
-                      shape={ButtonShape.Round}
-                      variant={ButtonVariant.Neutral}
-                      {...removeButtonProps}
-                      classNames={styles.button}
-                      onClick={
-                        !disabled
-                          ? (
-                              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                            ) => {
-                              e.stopPropagation();
-                              onRemove?.(e);
-                            }
-                          : null
-                      }
-                      size={skillSizeToButtonSizeMap.get(size)}
-                    />
-                  </li>
-                )}
-              </ul>
-            </div>
+          {lineClamp > 0 && required && requiredMark && (
+            <span className={styles.required}></span>
           )}
+        </div>
+        {(!!customButtonProps ||
+          !!endorseButtonProps ||
+          !!removable ||
+          !!suffixIconProps ||
+          !!suffixInlineSvgProps) && (
+          <div
+            className={mergeClasses([styles.blockEnd, blockEndClassNames])}
+            style={blockEndStyles}
+          >
+            {!suffixIconProps && !!suffixInlineSvgProps && (
+              <InlineSvg
+                height={getAssessmentsSvgHeight(size)}
+                {...suffixInlineSvgProps}
+                classNames={mergeClasses([
+                  styles.suffixSvg,
+                  suffixInlineSvgProps.classNames,
+                ])}
+              />
+            )}
+            {!!suffixIconProps && !suffixInlineSvgProps && (
+              <Icon
+                style={{ color }}
+                {...suffixIconProps}
+                size={skillSizeToIconSizeMap.get(size)}
+                classNames={mergeClasses([
+                  styles.suffixIcon,
+                  suffixIconProps.classNames,
+                ])}
+              />
+            )}
+            {size !== SkillSize.Small &&
+              size !== SkillSize.XSmall &&
+              (!!customButtonProps || !!endorseButtonProps || !!removable) && (
+                <ul className={styles.buttonList}>
+                  {!!endorseButtonProps && (
+                    <li key="endorsement-button">
+                      <Button
+                        checked={endorsement}
+                        iconProps={{
+                          path: endorsement
+                            ? IconName.mdiThumbUp
+                            : IconName.mdiThumbUpOutline,
+                        }}
+                        shape={
+                          parseInt(endorseButtonProps?.counter, 10) > 0
+                            ? ButtonShape.Pill
+                            : ButtonShape.Round
+                        }
+                        toggle
+                        variant={ButtonVariant.Neutral}
+                        {...endorseButtonProps}
+                        classNames={styles.button}
+                        onClick={
+                          !disabled
+                            ? (
+                                e: React.MouseEvent<
+                                  HTMLButtonElement,
+                                  MouseEvent
+                                >
+                              ) => {
+                                e.stopPropagation();
+                                endorseButtonProps?.onClick(e);
+                              }
+                            : null
+                        }
+                        size={skillSizeToButtonSizeMap.get(size)}
+                      />
+                    </li>
+                  )}
+                  {!!customButtonProps && (
+                    <li key="custom-button">
+                      <Button
+                        shape={ButtonShape.Round}
+                        variant={ButtonVariant.Neutral}
+                        {...customButtonProps}
+                        classNames={styles.button}
+                        onClick={
+                          !disabled
+                            ? (
+                                e: React.MouseEvent<
+                                  HTMLButtonElement,
+                                  MouseEvent
+                                >
+                              ) => {
+                                e.stopPropagation();
+                                customButtonProps?.onClick(e);
+                              }
+                            : null
+                        }
+                        size={skillSizeToButtonSizeMap.get(size)}
+                      />
+                    </li>
+                  )}
+                  {!!removable && (
+                    <li key="close-button">
+                      <Button
+                        ariaLabel={removeButtonAriaLabel}
+                        iconProps={{ path: IconName.mdiClose }}
+                        shape={ButtonShape.Round}
+                        variant={ButtonVariant.Neutral}
+                        {...removeButtonProps}
+                        classNames={styles.button}
+                        onClick={
+                          !disabled
+                            ? (
+                                e: React.MouseEvent<
+                                  HTMLButtonElement,
+                                  MouseEvent
+                                >
+                              ) => {
+                                e.stopPropagation();
+                                onRemove?.(e);
+                              }
+                            : null
+                        }
+                        size={skillSizeToButtonSizeMap.get(size)}
+                      />
+                    </li>
+                  )}
+                </ul>
+              )}
+          </div>
+        )}
       </>
     );
 

@@ -1,11 +1,38 @@
+import React from 'react';
 import { OcBaseProps } from '../OcBase';
+import {
+  BelowLargeImg,
+  BelowMediumImg,
+  BelowSmallImg,
+  BelowUpskillingLargeImg,
+  BelowUpskillingMediumImg,
+  BelowUpskillingSmallImg,
+  ExceedLargeImg,
+  ExceedMediumImg,
+  ExceedSmallImg,
+  ExceedUpskillingLargeImg,
+  ExceedUpskillingMediumImg,
+  ExceedUpskillingSmallImg,
+  MeetLargeImg,
+  MeetMediumImg,
+  MeetSmallImg,
+  MeetUpskillingLargeImg,
+  MeetUpskillingMediumImg,
+  MeetUpskillingSmallImg,
+  UpskillingLargeImg,
+  UpskillingMediumImg,
+  UpskillingSmallImg,
+} from '.';
 import { OcThemeName } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { DropdownProps } from '../Dropdown';
 import { IconName, IconProps } from '../Icon';
+import { InlineSvgProps } from '../InlineSvg';
 import { MenuItemTypes } from '../Menu';
 import { PopupProps } from '../Popup';
 import { TooltipProps } from '../Tooltip';
+
+import styles from './skill.module.scss';
 
 export type Key = React.Key;
 
@@ -17,10 +44,37 @@ export enum SkillSize {
 }
 
 export enum SkillStatus {
+  Below = 'below',
+  BelowUpskilling = 'belowupskilling',
   Default = 'default',
+  Exceed = 'exceed',
+  ExceedUpskilling = 'exceedupskilling',
   Highlight = 'highlight',
   Match = 'match',
+  Meet = 'meet',
+  MeetUpskilling = 'meetupskilling',
+  Upskilling = 'upskilling',
 }
+
+export const SKILL_SVG_LARGE_HEIGHT: number = +styles.skillSvgLargeHeight;
+export const SKILL_SVG_MEDIUM_HEIGHT: number = +styles.skillSvgMediumHeight;
+export const SKILL_SVG_SMALL_HEIGHT: number = +styles.skillSvgSmallHeight;
+export const SKILL_SVG_XSMALL_HEIGHT: number = +styles.skillSvgXsmallHeight;
+
+export const matchingSkillStatus: SkillStatus[] = [
+  SkillStatus.Highlight,
+  SkillStatus.Match,
+];
+
+export const matchingSkillAssessmentStatus: SkillStatus[] = [
+  SkillStatus.Below,
+  SkillStatus.BelowUpskilling,
+  SkillStatus.Exceed,
+  SkillStatus.ExceedUpskilling,
+  SkillStatus.Meet,
+  SkillStatus.MeetUpskilling,
+  SkillStatus.Upskilling,
+];
 
 export type SkillThemeName =
   | 'red'
@@ -46,6 +100,51 @@ export const skillStatusToIconNameMap: Map<SkillStatus, IconName> = new Map<
   [SkillStatus.Match, IconName.mdiCheck],
 ]);
 
+export const skillPropsToSvgMap = {
+  [SkillStatus.Below]: {
+    [SkillSize.XSmall]: () => BelowSmallImg(),
+    [SkillSize.Small]: () => BelowSmallImg(),
+    [SkillSize.Medium]: () => BelowMediumImg(),
+    [SkillSize.Large]: () => BelowLargeImg(),
+  },
+  [SkillStatus.BelowUpskilling]: {
+    [SkillSize.XSmall]: () => BelowUpskillingSmallImg(),
+    [SkillSize.Small]: () => BelowUpskillingSmallImg(),
+    [SkillSize.Medium]: () => BelowUpskillingMediumImg(),
+    [SkillSize.Large]: () => BelowUpskillingLargeImg(),
+  },
+  [SkillStatus.Exceed]: {
+    [SkillSize.XSmall]: () => ExceedSmallImg(),
+    [SkillSize.Small]: () => ExceedSmallImg(),
+    [SkillSize.Medium]: () => ExceedMediumImg(),
+    [SkillSize.Large]: () => ExceedLargeImg(),
+  },
+  [SkillStatus.ExceedUpskilling]: {
+    [SkillSize.XSmall]: () => ExceedUpskillingSmallImg(),
+    [SkillSize.Small]: () => ExceedUpskillingSmallImg(),
+    [SkillSize.Medium]: () => ExceedUpskillingMediumImg(),
+    [SkillSize.Large]: () => ExceedUpskillingLargeImg(),
+  },
+  [SkillStatus.Meet]: {
+    [SkillSize.XSmall]: () => MeetSmallImg(),
+    [SkillSize.Small]: () => MeetSmallImg(),
+    [SkillSize.Medium]: () => MeetMediumImg(),
+    [SkillSize.Large]: () => MeetLargeImg(),
+  },
+  [SkillStatus.MeetUpskilling]: {
+    [SkillSize.XSmall]: () => MeetUpskillingSmallImg(),
+    [SkillSize.Small]: () => MeetUpskillingSmallImg(),
+    [SkillSize.Medium]: () => MeetUpskillingMediumImg(),
+    [SkillSize.Large]: () => MeetUpskillingLargeImg(),
+  },
+  [SkillStatus.Upskilling]: {
+    [SkillSize.XSmall]: () => UpskillingSmallImg(),
+    [SkillSize.Small]: () => UpskillingSmallImg(),
+    [SkillSize.Medium]: () => UpskillingMediumImg(),
+    [SkillSize.Large]: () => UpskillingLargeImg(),
+  },
+};
+
 export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Allows focus on the Skill when it's disabled.
@@ -55,6 +154,31 @@ export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
    * Custom background color of the Skill.
    */
   background?: string;
+  /**
+   * Custom classnames of the Skill end block
+   * containing the button list.
+   */
+  blockEndClassNames?: string;
+  /**
+   * Custom inline styles of the Skill end block element
+   * containing the button list.
+   */
+  blockEndStyles?: React.CSSProperties;
+  /**
+   * Custom classnames of the Skill start block
+   * containing the label.
+   */
+  blockStartClassNames?: string;
+  /**
+   * Custom inline styles of the Skill start block element
+   * containing the label.
+   */
+  blockStartStyles?: React.CSSProperties;
+  /**
+   * Whether the Skill is bordered or not.
+   * @default true
+   */
+  bordered?: boolean;
   /**
    * Custom classnames of the Skill.
    */
@@ -96,6 +220,10 @@ export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
    */
   id?: string;
   /**
+   * InlineSvg shown before the label.
+   */
+  inlineSvgProps?: InlineSvgProps;
+  /**
    * Unique key of the Skill.
    */
   key?: Key;
@@ -121,10 +249,24 @@ export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
    */
   readonly?: boolean;
   /**
+   * The Skill is required.
+   * @default false
+   */
+  required?: boolean;
+  /**
+   * Required mark enabled.
+   * @default true
+   */
+  requiredMark?: boolean;
+  /**
    * Role of the Skill.
    * @default 'button'
    */
   role?: string;
+  /**
+   * Whether to display the assessment Icon next the the Label.
+   */
+  showLabelAssessmentIcon?: boolean;
   /**
    * The Skill status.
    * @default SkillCardStatus.Default
@@ -156,11 +298,6 @@ export interface SkillBlockProps extends SharedSkillProps {
    * @default true
    */
   animate?: boolean;
-  /**
-   * Whether the Skill is bordered or not.
-   * @default true
-   */
-  bordered?: boolean;
   /**
    * The content of the Skill.
    */
@@ -286,6 +423,10 @@ export interface SkillTagProps extends SharedSkillProps {
    */
   dropdownProps?: DropdownProps;
   /**
+   * Assigns the Skill 100% width
+   */
+  fullWidth?: boolean;
+  /**
    * Callback called on click of the remove button.
    */
   onRemove?: React.MouseEventHandler<HTMLButtonElement>;
@@ -312,6 +453,14 @@ export interface SkillTagProps extends SharedSkillProps {
    * @default SkillCardSize.Medium
    */
   size?: SkillSize;
+  /**
+   * Icon shown at the end of the component.
+   */
+  suffixIconProps?: IconProps;
+  /**
+   * InlineSvg shown at the end of the component.
+   */
+  suffixInlineSvgProps?: InlineSvgProps;
   /**
    * The Tooltip and overlay props.
    * @default {}
