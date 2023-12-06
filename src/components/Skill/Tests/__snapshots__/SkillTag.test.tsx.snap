@@ -18,7 +18,7 @@ exports[`SkillTag Skill is a below and upskilling assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="below-upskilling-medium-image"
@@ -112,7 +112,7 @@ exports[`SkillTag Skill is a below assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="below-medium-image"
@@ -616,7 +616,7 @@ exports[`SkillTag Skill is a exceed and upskilling assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="exceed-upskilling-medium-image"
@@ -710,7 +710,7 @@ exports[`SkillTag Skill is a exceed assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="exceed-medium-image"
@@ -907,7 +907,7 @@ exports[`SkillTag Skill is a meet and upskilling assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="meet-upskilling-medium-image"
@@ -1001,7 +1001,7 @@ exports[`SkillTag Skill is a meet assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="meet-medium-image"
@@ -1202,7 +1202,7 @@ exports[`SkillTag Skill is a upskilling assessment tag 1`] = `
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="upskilling-medium-image"

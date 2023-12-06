@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SkeletonVariant } from '../../Skeleton';
-import { SkillTag, SkillSize, SkillStatus } from '..';
+import { SkillTag, SkillSize, SkillStatus, SkillAssessment } from '..';
 import { Stack } from '../../Stack';
 import {
   Button,
@@ -294,7 +294,11 @@ describe('SkillTag', () => {
 
   test('Skill is a below assessment tag', () => {
     const { container } = render(
-      <SkillTag id="testSkill" label="test skill" status={SkillStatus.Below} />
+      <SkillTag
+        assessment={SkillAssessment.Below}
+        id="testSkill"
+        label="test skill"
+      />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
     expect(
@@ -309,9 +313,9 @@ describe('SkillTag', () => {
   test('Skill is a below and upskilling assessment tag', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.BelowUpskilling}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.BelowUpskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -332,7 +336,11 @@ describe('SkillTag', () => {
 
   test('Skill is a exceed assessment tag', () => {
     const { container } = render(
-      <SkillTag id="testSkill" label="test skill" status={SkillStatus.Exceed} />
+      <SkillTag
+        assessment={SkillAssessment.Exceed}
+        id="testSkill"
+        label="test skill"
+      />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
     expect(
@@ -347,9 +355,9 @@ describe('SkillTag', () => {
   test('Skill is a exceed and upskilling assessment tag', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.ExceedUpskilling}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.ExceedUpskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -370,7 +378,11 @@ describe('SkillTag', () => {
 
   test('Skill is a meet assessment tag', () => {
     const { container } = render(
-      <SkillTag id="testSkill" label="test skill" status={SkillStatus.Meet} />
+      <SkillTag
+        assessment={SkillAssessment.Meet}
+        id="testSkill"
+        label="test skill"
+      />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
     expect(
@@ -385,9 +397,9 @@ describe('SkillTag', () => {
   test('Skill is a meet and upskilling assessment tag', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.MeetUpskilling}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.MeetUpskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -409,9 +421,9 @@ describe('SkillTag', () => {
   test('Skill is a upskilling assessment tag', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.Upskilling}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.Upskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -427,10 +439,10 @@ describe('SkillTag', () => {
   test('Skill is a below assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.Below}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.Below}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -446,10 +458,10 @@ describe('SkillTag', () => {
   test('Skill is a below and upskilling assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.BelowUpskilling}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.BelowUpskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -471,10 +483,10 @@ describe('SkillTag', () => {
   test('Skill is a exceed assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.Exceed}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.Exceed}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -490,10 +502,10 @@ describe('SkillTag', () => {
   test('Skill is a exceed and upskilling assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.ExceedUpskilling}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.ExceedUpskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -515,10 +527,10 @@ describe('SkillTag', () => {
   test('Skill is a meet assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.Meet}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.Meet}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -534,10 +546,10 @@ describe('SkillTag', () => {
   test('Skill is a meet and upskilling assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.MeetUpskilling}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.MeetUpskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
@@ -559,10 +571,10 @@ describe('SkillTag', () => {
   test('Skill is a upskilling assessment tag and the icon is disabled', () => {
     const { container } = render(
       <SkillTag
+        assessment={SkillAssessment.Upskilling}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon={false}
-        status={SkillStatus.Upskilling}
       />
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);

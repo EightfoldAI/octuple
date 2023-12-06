@@ -105,7 +105,7 @@ $skill-svg-xsmall-height: 18px;
     font-size: $text-font-size-3;
     font-weight: $text-font-weight-semibold;
     line-height: $text-line-height-4;
-    margin-right: $space-xxs;
+    margin-inline-end: $space-xxs;
   }
 
   &.clickable:not(.disabled):not(.readonly),
@@ -218,6 +218,14 @@ $skill-svg-xsmall-height: 18px;
   .icon,
   .suffix-icon {
     color: inherit;
+  }
+
+  &:has(.icon) {
+    .svg {
+      &.svg-assessment {
+        margin-inline-end: $space-xxs;
+      }
+    }
   }
 
   .button {

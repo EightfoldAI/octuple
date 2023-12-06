@@ -812,7 +812,7 @@ exports[`SkillBlock Skill is a below and upskilling assessment block and the ico
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="below-upskilling-small-image"
@@ -1078,7 +1078,7 @@ exports[`SkillBlock Skill is a below assessment block and the icon is enabled 1`
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="below-small-image"
@@ -2268,7 +2268,7 @@ exports[`SkillBlock Skill is a exceed and upskilling assessment block and the ic
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="exceed-upskilling-small-image"
@@ -2534,7 +2534,7 @@ exports[`SkillBlock Skill is a exceed assessment block and the icon is enabled 1
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="exceed-small-image"
@@ -3047,7 +3047,7 @@ exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="meet-upskilling-small-image"
@@ -3313,7 +3313,7 @@ exports[`SkillBlock Skill is a meet assessment block and the icon is enabled 1`]
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="meet-small-image"
@@ -3916,7 +3916,7 @@ exports[`SkillBlock Skill is a upskilling assessment block and the icon is enabl
         class="block-start"
       >
         <div
-          class="svg"
+          class="svg svg-assessment"
         >
           <svg
             class="upskilling-small-image"

@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, Ref, useRef } from 'react';
 import {
-  matchingSkillAssessmentStatus,
+  matchingSkillAssessment,
   matchingSkillStatus,
   skillPropsToSvgMap,
   SkillTagProps,
@@ -26,6 +26,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
   (props: SkillTagProps, ref: Ref<HTMLDivElement>) => {
     const {
       allowDisabledFocus = false,
+      assessment,
       background,
       blockEndClassNames,
       blockEndStyles,
@@ -74,7 +75,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       id || generateId()
     );
     const AssessmentsSvg =
-      (skillPropsToSvgMap as any)[status]?.[size] ?? React.Fragment;
+      (skillPropsToSvgMap as any)[assessment]?.[size] ?? React.Fragment;
 
     const getAssessmentsSvgHeight = (size: SkillSize): string => {
       switch (size) {
@@ -187,6 +188,12 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
           className={mergeClasses([styles.blockStart, blockStartClassNames])}
           style={blockStartStyles}
         >
+          {matchingSkillAssessment?.includes(assessment) &&
+            showLabelAssessmentIcon && (
+              <div className={mergeClasses([styles.svg, styles.svgAssessment])}>
+                <AssessmentsSvg />
+              </div>
+            )}
           {!iconProps && !!inlineSvgProps && status === SkillStatus.Default && (
             <InlineSvg
               height={getAssessmentsSvgHeight(size)}
@@ -202,12 +209,6 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
               classNames={mergeClasses([styles.icon, iconProps.classNames])}
             />
           )}
-          {matchingSkillAssessmentStatus?.includes(status) &&
-            showLabelAssessmentIcon && (
-              <div className={styles.svg}>
-                <AssessmentsSvg />
-              </div>
-            )}
           {matchingSkillStatus?.includes(status) && (
             <Icon
               classNames={styles.icon}

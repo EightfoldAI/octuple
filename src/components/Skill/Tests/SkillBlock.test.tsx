@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { act } from 'react-dom/test-utils';
-import { SkillBlock, SkillStatus } from '..';
+import { SkillAssessment, SkillBlock, SkillStatus } from '..';
 import { IconName } from '../../Icon';
 import { MenuItemType } from '../../Menu';
 import { SkeletonVariant } from '../../Skeleton';
@@ -377,11 +377,11 @@ describe('SkillBlock', () => {
   test('Skill is a below assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Below}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.Below}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -397,11 +397,11 @@ describe('SkillBlock', () => {
   test('Skill is a below and upskilling assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.BelowUpskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.BelowUpskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -423,11 +423,11 @@ describe('SkillBlock', () => {
   test('Skill is a exceed assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Exceed}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.Exceed}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -443,11 +443,11 @@ describe('SkillBlock', () => {
   test('Skill is a exceed and upskilling assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.ExceedUpskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.ExceedUpskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -469,11 +469,11 @@ describe('SkillBlock', () => {
   test('Skill is a meet assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Meet}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.Meet}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -489,11 +489,11 @@ describe('SkillBlock', () => {
   test('Skill is a meet and upskilling assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.MeetUpskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.MeetUpskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -515,11 +515,11 @@ describe('SkillBlock', () => {
   test('Skill is a upskilling assessment block and the icon is enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Upskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
         showLabelAssessmentIcon
-        status={SkillStatus.Upskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -535,10 +535,10 @@ describe('SkillBlock', () => {
   test('Skill is a below assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Below}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.Below}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -554,10 +554,10 @@ describe('SkillBlock', () => {
   test('Skill is a below and upskilling assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.BelowUpskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.BelowUpskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -579,10 +579,10 @@ describe('SkillBlock', () => {
   test('Skill is a exceed assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Exceed}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.Exceed}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -598,10 +598,10 @@ describe('SkillBlock', () => {
   test('Skill is a exceed and upskilling assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.ExceedUpskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.ExceedUpskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -623,10 +623,10 @@ describe('SkillBlock', () => {
   test('Skill is a meet assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Meet}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.Meet}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -642,10 +642,10 @@ describe('SkillBlock', () => {
   test('Skill is a meet and upskilling assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.MeetUpskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.MeetUpskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
@@ -667,10 +667,10 @@ describe('SkillBlock', () => {
   test('Skill is a upskilling assessment block and the icon is not enabled', () => {
     const { container } = render(
       <SkillBlock
+        assessment={SkillAssessment.Upskilling}
         content={getStaticSlider()}
         id="testSkill"
         label="test skill"
-        status={SkillStatus.Upskilling}
       />
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);

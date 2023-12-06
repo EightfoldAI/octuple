@@ -44,13 +44,16 @@ export enum SkillSize {
 }
 
 export enum SkillStatus {
-  Below = 'below',
-  BelowUpskilling = 'belowupskilling',
   Default = 'default',
-  Exceed = 'exceed',
-  ExceedUpskilling = 'exceedupskilling',
   Highlight = 'highlight',
   Match = 'match',
+}
+
+export enum SkillAssessment {
+  Below = 'below',
+  BelowUpskilling = 'belowupskilling',
+  Exceed = 'exceed',
+  ExceedUpskilling = 'exceedupskilling',
   Meet = 'meet',
   MeetUpskilling = 'meetupskilling',
   Upskilling = 'upskilling',
@@ -66,14 +69,14 @@ export const matchingSkillStatus: SkillStatus[] = [
   SkillStatus.Match,
 ];
 
-export const matchingSkillAssessmentStatus: SkillStatus[] = [
-  SkillStatus.Below,
-  SkillStatus.BelowUpskilling,
-  SkillStatus.Exceed,
-  SkillStatus.ExceedUpskilling,
-  SkillStatus.Meet,
-  SkillStatus.MeetUpskilling,
-  SkillStatus.Upskilling,
+export const matchingSkillAssessment: SkillAssessment[] = [
+  SkillAssessment.Below,
+  SkillAssessment.BelowUpskilling,
+  SkillAssessment.Exceed,
+  SkillAssessment.ExceedUpskilling,
+  SkillAssessment.Meet,
+  SkillAssessment.MeetUpskilling,
+  SkillAssessment.Upskilling,
 ];
 
 export type SkillThemeName =
@@ -101,43 +104,43 @@ export const skillStatusToIconNameMap: Map<SkillStatus, IconName> = new Map<
 ]);
 
 export const skillPropsToSvgMap = {
-  [SkillStatus.Below]: {
+  [SkillAssessment.Below]: {
     [SkillSize.XSmall]: () => BelowSmallImg(),
     [SkillSize.Small]: () => BelowSmallImg(),
     [SkillSize.Medium]: () => BelowMediumImg(),
     [SkillSize.Large]: () => BelowLargeImg(),
   },
-  [SkillStatus.BelowUpskilling]: {
+  [SkillAssessment.BelowUpskilling]: {
     [SkillSize.XSmall]: () => BelowUpskillingSmallImg(),
     [SkillSize.Small]: () => BelowUpskillingSmallImg(),
     [SkillSize.Medium]: () => BelowUpskillingMediumImg(),
     [SkillSize.Large]: () => BelowUpskillingLargeImg(),
   },
-  [SkillStatus.Exceed]: {
+  [SkillAssessment.Exceed]: {
     [SkillSize.XSmall]: () => ExceedSmallImg(),
     [SkillSize.Small]: () => ExceedSmallImg(),
     [SkillSize.Medium]: () => ExceedMediumImg(),
     [SkillSize.Large]: () => ExceedLargeImg(),
   },
-  [SkillStatus.ExceedUpskilling]: {
+  [SkillAssessment.ExceedUpskilling]: {
     [SkillSize.XSmall]: () => ExceedUpskillingSmallImg(),
     [SkillSize.Small]: () => ExceedUpskillingSmallImg(),
     [SkillSize.Medium]: () => ExceedUpskillingMediumImg(),
     [SkillSize.Large]: () => ExceedUpskillingLargeImg(),
   },
-  [SkillStatus.Meet]: {
+  [SkillAssessment.Meet]: {
     [SkillSize.XSmall]: () => MeetSmallImg(),
     [SkillSize.Small]: () => MeetSmallImg(),
     [SkillSize.Medium]: () => MeetMediumImg(),
     [SkillSize.Large]: () => MeetLargeImg(),
   },
-  [SkillStatus.MeetUpskilling]: {
+  [SkillAssessment.MeetUpskilling]: {
     [SkillSize.XSmall]: () => MeetUpskillingSmallImg(),
     [SkillSize.Small]: () => MeetUpskillingSmallImg(),
     [SkillSize.Medium]: () => MeetUpskillingMediumImg(),
     [SkillSize.Large]: () => MeetUpskillingLargeImg(),
   },
-  [SkillStatus.Upskilling]: {
+  [SkillAssessment.Upskilling]: {
     [SkillSize.XSmall]: () => UpskillingSmallImg(),
     [SkillSize.Small]: () => UpskillingSmallImg(),
     [SkillSize.Medium]: () => UpskillingMediumImg(),
@@ -150,6 +153,10 @@ export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
    * Allows focus on the Skill when it's disabled.
    */
   allowDisabledFocus?: boolean;
+  /**
+   * The Skill assessment status.
+   */
+  assessment?: SkillAssessment;
   /**
    * Custom background color of the Skill.
    */
@@ -269,7 +276,7 @@ export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
   showLabelAssessmentIcon?: boolean;
   /**
    * The Skill status.
-   * @default SkillCardStatus.Default
+   * @default SkillStatus.Default
    */
   status?: SkillStatus;
   /**

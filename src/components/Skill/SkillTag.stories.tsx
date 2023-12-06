@@ -1,7 +1,13 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SkillSize, SkillStatus, SkillTag, SkillTagProps } from '.';
+import {
+  SkillAssessment,
+  SkillSize,
+  SkillStatus,
+  SkillTag,
+  SkillTagProps,
+} from '.';
 import {
   Button,
   ButtonSize,
@@ -170,6 +176,23 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Below}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        endorsement
+        label="Highlight with Below assessment"
+        status={SkillStatus.Highlight}
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Below}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -180,10 +203,10 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Below"
-        status={SkillStatus.Below}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.BelowUpskilling}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -194,10 +217,10 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Below and Upskilling"
-        status={SkillStatus.BelowUpskilling}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Exceed}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -208,10 +231,10 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Exceed"
-        status={SkillStatus.Exceed}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.ExceedUpskilling}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -222,10 +245,10 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Exceed and Upskilling"
-        status={SkillStatus.ExceedUpskilling}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Meet}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -236,10 +259,10 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Meet"
-        status={SkillStatus.Meet}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.MeetUpskilling}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -250,10 +273,10 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Meet and Upskilling"
-        status={SkillStatus.MeetUpskilling}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Upskilling}
         suffixInlineSvgProps={
           !!args.suffixInlineSvgProps
             ? {
@@ -264,7 +287,6 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
             : null
         }
         label="Upskilling"
-        status={SkillStatus.Upskilling}
       />
     </Stack>
   );
@@ -287,38 +309,45 @@ const With_Long_Text_Story: ComponentStory<typeof SkillTag> = (args) => {
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Below}
+        endorsement
+        label="Some very long Highlight with Below assessment text is present here"
+        status={SkillStatus.Highlight}
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Below}
         label="Some very long Below text is present here"
-        status={SkillStatus.Below}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.BelowUpskilling}
         label="Some very long Below and Upskilling text is present here"
-        status={SkillStatus.BelowUpskilling}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Exceed}
         label="Some very long Exceed text is present here"
-        status={SkillStatus.Exceed}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.ExceedUpskilling}
         label="Some very long Exceed and Upskilling text is present here"
-        status={SkillStatus.ExceedUpskilling}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Meet}
         label="Some very long Meet text is present here"
-        status={SkillStatus.Meet}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.MeetUpskilling}
         label="Some very long Meet and Upskilling text is present here"
-        status={SkillStatus.MeetUpskilling}
       />
       <SkillTag
         {...args}
+        assessment={SkillAssessment.Upskilling}
         label="Some very long Upskilling text is present here"
-        status={SkillStatus.Upskilling}
       />
     </Stack>
   );

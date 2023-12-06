@@ -10,7 +10,7 @@ import React, {
 import useMeasure from 'react-use-measure';
 import { a, useSpring } from '@react-spring/web';
 import {
-  matchingSkillAssessmentStatus,
+  matchingSkillAssessment,
   matchingSkillStatus,
   SkillBlockProps,
   skillPropsToSvgMap,
@@ -55,6 +55,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
   (props: SkillBlockProps, ref: Ref<HTMLDivElement>) => {
     const {
       allowDisabledFocus = false,
+      assessment,
       animate = true,
       background,
       blockEndClassNames,
@@ -154,7 +155,8 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
     });
 
     const AssessmentsSvg =
-      (skillPropsToSvgMap as any)[status]?.[SkillSize.Small] ?? React.Fragment;
+      (skillPropsToSvgMap as any)[assessment]?.[SkillSize.Small] ??
+      React.Fragment;
 
     const blockLabelClassNames: string = mergeClasses([
       styles.label,
@@ -193,7 +195,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
     useEffect((): void => {
       updateDimension?.(
         previousSkillWrapperBounds &&
-          skillWrapperBounds.height === previousSkillWrapperBounds?.height
+          skillWrapperBounds?.height === previousSkillWrapperBounds?.height
       );
     }, [skillWrapperBounds?.height, previousSkillWrapperBounds?.height]);
 
@@ -600,6 +602,14 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
               ref={blockStartRef}
               style={{ width: labelWidth, ...blockStartStyles }}
             >
+              {matchingSkillAssessment?.includes(assessment) &&
+                showLabelAssessmentIcon && (
+                  <div
+                    className={mergeClasses([styles.svg, styles.svgAssessment])}
+                  >
+                    <AssessmentsSvg />
+                  </div>
+                )}
               {!iconProps &&
                 !!inlineSvgProps &&
                 status === SkillStatus.Default && (
@@ -621,12 +631,6 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
                     classNames={styles.icon}
                     size={IconSize.Small}
                   />
-                )}
-              {matchingSkillAssessmentStatus?.includes(status) &&
-                showLabelAssessmentIcon && (
-                  <div className={styles.svg}>
-                    <AssessmentsSvg />
-                  </div>
                 )}
               {matchingSkillStatus?.includes(status) && (
                 <Icon
