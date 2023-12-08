@@ -1,7 +1,13 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SkillSize, SkillStatus, SkillTag, SkillTagProps } from '.';
+import {
+  SkillAssessment,
+  SkillSize,
+  SkillStatus,
+  SkillTag,
+  SkillTagProps,
+} from '.';
 import {
   Button,
   ButtonSize,
@@ -11,6 +17,7 @@ import {
 } from '../Button';
 import { IconName } from '../Icon';
 import { List } from '../List';
+import { SkeletonVariant } from '../Skeleton';
 import { Stack } from '../Stack';
 
 export default {
@@ -97,16 +104,190 @@ const Overlay = () => (
 );
 
 const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
+  // If you wish to show a skeleton whilst loading,
+  // make sure it's a good size match to the tag size.
+  // The width may be different than the height.
+  const getAssessmentsSvgDimensions = (size: SkillSize): string => {
+    switch (size) {
+      case SkillSize.Large:
+        return '26px';
+      case SkillSize.Medium:
+        return '22px';
+      case SkillSize.Small:
+        return '18px';
+      case SkillSize.XSmall:
+        return '18px';
+      default:
+        return '22px';
+    }
+  };
   return (
-    <Stack direction="vertical" flexGap="l" align="flex-start">
-      <SkillTag {...args} label="Default" />
+    <Stack align="flex-start" direction="vertical" flexGap="l" fullWidth>
       <SkillTag
         {...args}
+        inlineSvgProps={
+          !!args.inlineSvgProps
+            ? {
+                ...args.inlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Default"
+      />
+      <SkillTag
+        {...args}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
         endorsement
         label="Highlight"
         status={SkillStatus.Highlight}
       />
-      <SkillTag {...args} label="Match" status={SkillStatus.Match} />
+      <SkillTag
+        {...args}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Match"
+        status={SkillStatus.Match}
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Below}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        endorsement
+        label="Highlight with Below assessment"
+        status={SkillStatus.Highlight}
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Below}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Below"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.BelowUpskilling}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Below and Upskilling"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Exceed}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Exceed"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.ExceedUpskilling}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Exceed and Upskilling"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Meet}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Meet"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.MeetUpskilling}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Meet and Upskilling"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Upskilling}
+        suffixInlineSvgProps={
+          !!args.suffixInlineSvgProps
+            ? {
+                ...args.suffixInlineSvgProps,
+                height: getAssessmentsSvgDimensions(args.size),
+                width: getAssessmentsSvgDimensions(args.size),
+              }
+            : null
+        }
+        label="Upskilling"
+      />
     </Stack>
   );
 };
@@ -126,12 +307,57 @@ const With_Long_Text_Story: ComponentStory<typeof SkillTag> = (args) => {
         label="Some very long Match text is present here"
         status={SkillStatus.Match}
       />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Below}
+        endorsement
+        label="Some very long Highlight with Below assessment text is present here"
+        status={SkillStatus.Highlight}
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Below}
+        label="Some very long Below text is present here"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.BelowUpskilling}
+        label="Some very long Below and Upskilling text is present here"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Exceed}
+        label="Some very long Exceed text is present here"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.ExceedUpskilling}
+        label="Some very long Exceed and Upskilling text is present here"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Meet}
+        label="Some very long Meet text is present here"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.MeetUpskilling}
+        label="Some very long Meet and Upskilling text is present here"
+      />
+      <SkillTag
+        {...args}
+        assessment={SkillAssessment.Upskilling}
+        label="Some very long Upskilling text is present here"
+      />
     </Stack>
   );
 };
 
 export const Tag = SkillTag_Story.bind({});
 export const Tag_With_Icon = SkillTag_Story.bind({});
+export const Tag_With_SuffixIcon = SkillTag_Story.bind({});
+export const Tag_With_InlineSvg = SkillTag_Story.bind({});
+export const Tag_With_SuffixInlineSvg = SkillTag_Story.bind({});
 export const Tag_Removable = SkillTag_Story.bind({});
 export const Tag_Custom_Removable = SkillTag_Story.bind({});
 export const Tag_With_Button = SkillTag_Story.bind({});
@@ -146,6 +372,9 @@ export const Tag_With_Tooltip = SkillTag_Story.bind({});
 export const __namedExportsOrder = [
   'Tag',
   'Tag_With_Icon',
+  'Tag_With_SuffixIcon',
+  'Tag_With_InlineSvg',
+  'Tag_With_SuffixInlineSvg',
   'Tag_Removable',
   'Tag_Custom_Removable',
   'Tag_With_Button',
@@ -159,10 +388,18 @@ const skillTagArgs: SkillTagProps = {
   size: SkillSize.Medium,
   label: 'Skill label',
   lineClamp: 0,
+  blockEndClassNames: 'my-block-end-class',
+  blockEndStyles: null,
+  blockStartClassNames: 'my-block-start-class',
+  blockStartStyles: null,
   role: null,
   allowDisabledFocus: false,
+  bordered: true,
   disabled: false,
+  fullWidth: false,
   readonly: false,
+  required: false,
+  requiredMark: true,
   endorsement: false,
   clickable: false,
   removable: false,
@@ -187,6 +424,39 @@ Tag_With_Icon.args = {
   ...skillTagArgs,
   iconProps: {
     path: IconName.mdiAccount,
+  },
+};
+
+Tag_With_SuffixIcon.args = {
+  ...skillTagArgs,
+  fullWidth: true,
+  suffixIconProps: {
+    path: IconName.mdiTrendingUp,
+  },
+};
+
+Tag_With_InlineSvg.args = {
+  ...skillTagArgs,
+  inlineSvgProps: {
+    height: '22px', // Required if you want to show a skeleton whilst loading the url. Make sure it's the size you want.
+    hideBrokenIcon: false,
+    showSkeleton: true,
+    skeletonVariant: SkeletonVariant.Rounded,
+    url: 'https://static.vscdn.net/images/learning-opp.svg',
+    width: '22px', // Required if you want to show a skeleton whilst loading the url. Make sure it's the size you want.
+  },
+};
+
+Tag_With_SuffixInlineSvg.args = {
+  ...skillTagArgs,
+  fullWidth: true,
+  suffixInlineSvgProps: {
+    height: '22px', // Required if you want to show a skeleton whilst loading the url. Make sure it's the size you want.
+    hideBrokenIcon: false,
+    showSkeleton: true,
+    skeletonVariant: SkeletonVariant.Rounded,
+    url: 'https://static.vscdn.net/images/learning-opp.svg',
+    width: '22px', // Required if you want to show a skeleton whilst loading the url. Make sure it's the size you want.
   },
 };
 
