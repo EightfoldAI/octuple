@@ -19,9 +19,10 @@ import {
   LinkButtonVariant,
   LinkButtonWidth,
 } from '../LinkButton';
+import { MenuItemType } from '../Menu';
 import { Stack } from '../Stack';
 import { Slider, SliderSize } from '../Slider';
-import { MenuItemType } from '../Menu';
+import { SkeletonVariant } from '../Skeleton';
 
 export default {
   title: 'SkillBlock',
@@ -267,6 +268,7 @@ const SkillBlock_With_Long_Text_Story: ComponentStory<typeof SkillBlock> = (
 export const Block = SkillBlock_Story.bind({});
 export const Block_With_Content = SkillBlock_With_Content_Story.bind({});
 export const Block_With_Icon = SkillBlock_With_Content_Story.bind({});
+export const Block_With_InlineSvg = SkillBlock_With_Content_Story.bind({});
 export const Block_With_Long_Text = SkillBlock_With_Long_Text_Story.bind({});
 export const Block_With_Extra_Content = SkillBlock_With_Content_Story.bind({});
 export const Block_With_Extra_Content_And_Footer =
@@ -279,6 +281,7 @@ export const __namedExportsOrder = [
   'Block',
   'Block_With_Content',
   'Block_With_Icon',
+  'Block_With_InlineSvg',
   'Block_With_Long_Text',
   'Block_With_Extra_Content',
   'Block_With_Extra_Content_And_Footer',
@@ -288,11 +291,17 @@ const skillBlockArgs: SkillBlockProps = {
   label: 'Skill label',
   labelWidth: null,
   lineClamp: 0,
+  blockEndClassNames: 'my-block-end-class',
+  blockEndStyles: null,
+  blockStartClassNames: 'my-block-start-class',
+  blockStartStyles: null,
   bordered: true,
   role: null,
   allowDisabledFocus: false,
   disabled: false,
   readonly: false,
+  required: false,
+  requiredMark: true,
   endorsement: false,
   clickable: false,
   hoverable: false,
@@ -302,6 +311,7 @@ const skillBlockArgs: SkillBlockProps = {
   width: null,
   maxWidth: null,
   minWidth: 'fit-content',
+  showLabelAssessmentIcon: false,
   content: (
     <div
       style={{
@@ -426,6 +436,18 @@ Block_With_Icon.args = {
   ...skillBlockArgs,
   iconProps: {
     path: IconName.mdiAccount,
+  },
+};
+
+Block_With_InlineSvg.args = {
+  ...skillBlockArgs,
+  inlineSvgProps: {
+    height: '18px', // Required if you want to show a skeleton whilst loading the url. Make sure it's the size you want.
+    hideBrokenIcon: false,
+    showSkeleton: true,
+    skeletonVariant: SkeletonVariant.Rounded,
+    url: 'https://static.vscdn.net/images/learning-opp.svg',
+    width: '18px', // Required if you want to show a skeleton whilst loading the url. Make sure it's the size you want.
   },
 };
 
