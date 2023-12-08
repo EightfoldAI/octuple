@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.3](https://github.com/EightfoldAI/octuple/compare/v2.47.2...v2.47.3) (2023-12-08)
+
+### Bug Fixes
+
+- hotfix: button fixes round icon only secondary buttons padding to consider its border ([9a7adc0](https://github.com/EightfoldAI/octuple/commits/9a7adc00a590809499009599ab043ed0799a9254))
+- hotfix: carousel exports autoscrollapi and updates story to include custom buttons ([446a5bb](https://github.com/EightfoldAI/octuple/commits/446a5bbe3dbe75de05d1dcb130b610fa0ae5d170))
+- hotfix: icon adds mdi send icons to octuple for potential use in copilot scenarios ([950e75b](https://github.com/EightfoldAI/octuple/commits/950e75b1b2fb90969ff22939fd2a5e884f6b2642))
+- hotfix: skill adds svg and suffix support with assessments status and required props ([88c3a64](https://github.com/EightfoldAI/octuple/commits/88c3a644278d1efd0f735e88679f9fd81673aa08))
+
 ### [2.47.2](https://github.com/EightfoldAI/octuple/compare/v2.47.1...v2.47.2) (2023-11-27)
 
 ### Bug Fixes
