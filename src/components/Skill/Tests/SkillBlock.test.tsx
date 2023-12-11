@@ -3,10 +3,12 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { act } from 'react-dom/test-utils';
-import { SkillBlock, SkillStatus } from '..';
+import { SkillAssessment, SkillBlock, SkillStatus } from '..';
 import { IconName } from '../../Icon';
 import { MenuItemType } from '../../Menu';
+import { SkeletonVariant } from '../../Skeleton';
 import { Slider, SliderSize } from '../../Slider';
+import { Stack } from '../../Stack';
 import {
   fireEvent,
   getByTestId,
@@ -149,10 +151,20 @@ describe('SkillBlock', () => {
   });
 
   test('Skill block uses custom props', () => {
+    const highlightButtonProps = {
+      ariaLabel: 'Highlight',
+      classNames: 'highlight-button-test',
+      onClick: jest.fn(),
+      'data-testid': 'highlight-button-test',
+    };
     const { container } = render(
       <SkillBlock
         animate={false}
         background="#333333"
+        blockEndClassNames="test-block-end-class"
+        blockEndStyles={{ marginTop: 20 }}
+        blockStartClassNames="test-block-start-class"
+        blockStartStyles={{ marginTop: 20 }}
         classNames="test-skill"
         clickable
         color="#ffffff"
@@ -172,6 +184,7 @@ describe('SkillBlock', () => {
         extraContentClassNames="test-extra-content"
         footer={<div data-testid="test-footer-content">Footer content.</div>}
         footerClassNames="test-footer-content"
+        highlightButtonProps={highlightButtonProps}
         id="testSkill"
         label="test skill"
         status={SkillStatus.Highlight}
@@ -193,6 +206,14 @@ describe('SkillBlock', () => {
       (container.getElementsByClassName('skill')[0] as HTMLElement).style.width
     ).toBe('840px');
     expect(
+      (container.getElementsByClassName('block-end')[0] as HTMLElement).style
+        .marginTop
+    ).toBe('20px');
+    expect(
+      (container.getElementsByClassName('block-start')[0] as HTMLElement).style
+        .marginTop
+    ).toBe('20px');
+    expect(
       (
         container.getElementsByClassName('skill')[0] as HTMLElement
       ).getAttribute('title')
@@ -200,6 +221,12 @@ describe('SkillBlock', () => {
     expect(container.getElementsByClassName('test-skill')).toBeTruthy();
     expect(container.getElementsByClassName('test-content')).toBeTruthy();
     expect(container.getElementsByClassName('highlight')).toBeTruthy();
+    expect(
+      container.getElementsByClassName('test-block-end-class')
+    ).toBeTruthy();
+    expect(
+      container.getElementsByClassName('test-block-start-class')
+    ).toBeTruthy();
     expect(
       container.getElementsByClassName('test-expanded-content')
     ).toBeTruthy();
@@ -225,6 +252,28 @@ describe('SkillBlock', () => {
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
     expect(container.getElementsByClassName('icon')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a default block with custom inlineSvgProps', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        inlineSvgProps={{
+          height: '18px',
+          hideBrokenIcon: false,
+          showSkeleton: true,
+          skeletonVariant: SkeletonVariant.Rounded,
+          url: 'https://static.vscdn.net/images/learning-opp.svg',
+          width: '18px',
+        }}
+        id="testSkill"
+        label="test skill"
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('svg')).toHaveLength(1);
     expect(container).toMatchSnapshot();
   });
 
@@ -322,6 +371,394 @@ describe('SkillBlock', () => {
     );
     expect(container.getElementsByClassName('block')).toHaveLength(1);
     expect(container.getElementsByClassName('match')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Below}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below and upskilling assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.BelowUpskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Exceed}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed and upskilling assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.ExceedUpskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Meet}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet and upskilling assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.MeetUpskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a upskilling assessment block and the icon is enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Upskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Below}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below and upskilling assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.BelowUpskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Exceed}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed and upskilling assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.ExceedUpskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Meet}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet and upskilling assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.MeetUpskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a upskilling assessment block and the icon is not enabled', () => {
+    const { container } = render(
+      <SkillBlock
+        assessment={SkillAssessment.Upskilling}
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a required block', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        required
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('required')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a required block with lineClamp and long text', () => {
+    const { container } = render(
+      <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
+        <SkillBlock
+          content={getStaticSlider()}
+          id="testSkill"
+          label="test skill with some really long text relative to its container"
+          required
+          lineClamp={1}
+          status={SkillStatus.Default}
+        />
+      </Stack>
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('required')).toHaveLength(1);
+    expect(container.getElementsByClassName('line-clamp')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a required block with the required mark hidden', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        required
+        requiredMark={false}
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('required')).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill block is bordered', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('bordered')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill block has no border', () => {
+    const { container } = render(
+      <SkillBlock
+        content={getStaticSlider()}
+        id="testSkill"
+        label="test skill"
+        bordered={false}
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('block')).toHaveLength(1);
+    expect(container.getElementsByClassName('bordered')).toHaveLength(0);
     expect(container).toMatchSnapshot();
   });
 

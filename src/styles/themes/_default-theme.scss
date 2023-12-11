@@ -1423,22 +1423,44 @@
   // ------ Progress theme ------
 
   // ------ Skill theme ------
+  --skill-block-border-radius: 12px;
+  --skill-large-size-border-radius: var(--border-radius-m);
+  --skill-medium-size-border-radius: var(--border-radius-m);
+  --skill-small-size-border-radius: var(--border-radius-s);
+  --skill-xsmall-size-border-radius: var(--border-radius-s);
+  --skill-below-background-color: var(--red-background2-color);
+  --skill-below-icon-color: var(--red-secondary-color);
+  --skill-exceed-background-color: var(--green-background2-color);
+  --skill-exceed-icon-color: var(--green-secondary-color);
+  --skill-meet-background-color: var(--orange-background2-color);
+  --skill-meet-icon-color: var(--orange-secondary-color);
+  --skill-upskilling-background-color: var(--blueviolet-background2-color);
+  --skill-upskilling-icon-color: var(--blueviolet-secondary-color);
+  --skill-background-color: var(--white-color);
+  --skill-active-background-color: var(--grey-background2-color);
+  --skill-hover-background-color: var(--grey-background1-color);
   --skill-border-color: var(--grey-background2-color);
   --skill-border-width: 1px;
   --skill-border-style: solid;
   --skill-border: var(--skill-border-width) var(--skill-border-style)
     var(--skill-border-color);
-  --skill-block-border-radius: 12px;
-  --skill-button-neutral-background-color: var(
-    --button-neutral-background-color
-  );
-  --skill-button-neutral-active-background-color: var(
+  --skill-label-color: var(--grey-secondary-color);
+  --skill-active-label-color: var(--text-primary-color);
+  --skill-hover-label-color: var(--text-primary-color);
+  --skill-required-mark-color: var(--grey-secondary-color);
+  --skill-active-required-mark-color: var(--text-primary-color);
+  --skill-hover-required-mark-color: var(--text-primary-color);
+  --skill-divider-color: var(--grey-background2-color);
+  --skill-active-divider-color: var(--grey-background3-color);
+  --skill-hover-divider-color: var(--grey-background3-color);
+  --skill-button-background-color: var(--button-neutral-background-color);
+  --skill-button-active-background-color: var(
     --button-neutral-active-background-color
   );
-  --skill-button-neutral-hover-background-color: var(
+  --skill-button-hover-background-color: var(
     --button-neutral-hover-background-color
   );
-  --skill-button-neutral-focus-visible-background-color: var(
+  --skill-button-focus-visible-background-color: var(
     --button-neutral-focus-visible-background-color
   );
   --skill-button-counter-default-background-color: var(
@@ -1459,12 +1481,75 @@
   --skill-button-counter-default-text-color: var(
     --button-neutral-counter-default-text-color
   );
-  --skill-divider-color: var(--grey-background2-color);
-  --skill-divider-active-color: var(--grey-background3-color);
-  --skill-divider-hover-color: var(--grey-background3-color);
-  --skill-large-size-border-radius: var(--border-radius-m);
-  --skill-medium-size-border-radius: var(--border-radius-m);
-  --skill-small-size-border-radius: var(--border-radius-s);
-  --skill-xsmall-size-border-radius: var(--border-radius-s);
+  --skill-highlight-background-color: var(--yellowgreen-background1-color);
+  --skill-highlight-active-background-color: var(
+    --yellowgreen-background3-color
+  );
+  --skill-highlight-hover-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-border-color: var(--yellowgreen-background2-color);
+  --skill-highlight-label-color: var(--yellowgreen-color);
+  --skill-highlight-active-label-color: var(--yellowgreen-color);
+  --skill-highlight-hover-label-color: var(--yellowgreen-color);
+  --skill-highlight-divider-color: var(--yellowgreen-background2-color);
+  --skill-highlight-active-divider-color: var(--yellowgreen-color-40);
+  --skill-highlight-hover-divider-color: var(--yellowgreen-background3-color);
+  --skill-highlight-button-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-active-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-hover-background-color: var(
+    --yellowgreen-background3-color
+  );
+  --skill-highlight-button-focus-visible-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-hover-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-checked-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-focus-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-counter-active-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-text-color: var(--yellowgreen-color);
+  --skill-match-background-color: var(--white-color);
+  --skill-match-active-background-color: var(--green-background2-color);
+  --skill-match-hover-background-color: var(--green-background1-color);
+  --skill-match-border-color: var(--green-background2-color);
+  --skill-match-label-color: var(--green-color);
+  --skill-match-active-label-color: var(--green-color);
+  --skill-match-hover-label-color: var(--green-color);
+  --skill-match-divider-color: var(--green-background2-color);
+  --skill-match-active-divider-color: var(--green-background3-color);
+  --skill-match-hover-divider-color: var(--green-background2-color);
+  --skill-match-button-background-color: var(--green-background1-color);
+  --skill-match-button-active-background-color: var(--green-background3-color);
+  --skill-match-button-hover-background-color: var(--green-background2-color);
+  --skill-match-button-focus-visible-background-color: var(--white-color);
+  --skill-match-button-counter-background-color: var(--green-background2-color);
+  --skill-match-button-counter-hover-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-match-button-counter-checked-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-button-counter-focus-background-color: var(
+    --green-background2-color
+  );
+  --skill-match-button-counter-active-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-button-counter-text-color: var(--green-color);
   // ------ Skill theme ------
 }
