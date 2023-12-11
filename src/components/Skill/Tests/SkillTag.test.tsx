@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { SkillTag, SkillSize, SkillStatus } from '..';
+import { SkeletonVariant } from '../../Skeleton';
+import { SkillTag, SkillSize, SkillStatus, SkillAssessment } from '..';
+import { Stack } from '../../Stack';
 import {
   Button,
   ButtonSize,
@@ -166,6 +168,64 @@ describe('SkillTag', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Skill is a default tag with custom suffixIconProps', () => {
+    const { container } = render(
+      <SkillTag
+        suffixIconProps={{
+          path: IconName.mdiAccount,
+        }}
+        id="testSkill"
+        label="test skill"
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('suffix-icon')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a default tag with custom inlineSvgProps', () => {
+    const { container } = render(
+      <SkillTag
+        inlineSvgProps={{
+          height: '18px',
+          hideBrokenIcon: false,
+          showSkeleton: true,
+          skeletonVariant: SkeletonVariant.Rounded,
+          url: 'https://static.vscdn.net/images/learning-opp.svg',
+          width: '18px',
+        }}
+        id="testSkill"
+        label="test skill"
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('svg')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a default tag with custom suffixInlineSvgProps', () => {
+    const { container } = render(
+      <SkillTag
+        suffixInlineSvgProps={{
+          height: '18px',
+          hideBrokenIcon: false,
+          showSkeleton: true,
+          skeletonVariant: SkeletonVariant.Rounded,
+          url: 'https://static.vscdn.net/images/learning-opp.svg',
+          width: '18px',
+        }}
+        id="testSkill"
+        label="test skill"
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('suffix-svg')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
   test('Skill is a default tag with endorseButtonProps', () => {
     const onClickMock = jest.fn();
     const { container } = render(
@@ -229,6 +289,375 @@ describe('SkillTag', () => {
     );
     expect(container.getElementsByClassName('tag')).toHaveLength(1);
     expect(container.getElementsByClassName('match')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Below}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below and upskilling assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.BelowUpskilling}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Exceed}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed and upskilling assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.ExceedUpskilling}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Meet}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet and upskilling assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.MeetUpskilling}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a upskilling assessment tag', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Upskilling}
+        id="testSkill"
+        label="test skill"
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Below}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a below and upskilling assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.BelowUpskilling}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-below-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-below-icon-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Exceed}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a exceed and upskilling assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.ExceedUpskilling}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-exceed-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-exceed-icon-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Meet}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a meet and upskilling assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.MeetUpskilling}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-meet-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-meet-icon-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a upskilling assessment tag and the icon is disabled', () => {
+    const { container } = render(
+      <SkillTag
+        assessment={SkillAssessment.Upskilling}
+        id="testSkill"
+        label="test skill"
+        showLabelAssessmentIcon={false}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(
+      container.getElementsByClassName('skill-upskilling-background-color')
+    ).toHaveLength(0);
+    expect(
+      container.getElementsByClassName('skill-upskilling-icon-color')
+    ).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a required tag', () => {
+    const { container } = render(
+      <SkillTag
+        id="testSkill"
+        label="test skill"
+        required
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('required')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a required tag with lineClamp and long text', () => {
+    const { container } = render(
+      <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
+        <SkillTag
+          id="testSkill"
+          label="test skill with some really long text relative to its container"
+          required
+          lineClamp={1}
+          status={SkillStatus.Default}
+        />
+      </Stack>
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('required')).toHaveLength(1);
+    expect(container.getElementsByClassName('line-clamp')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill is a required tag with the required mark hidden', () => {
+    const { container } = render(
+      <SkillTag
+        id="testSkill"
+        label="test skill"
+        required
+        requiredMark={false}
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('required')).toHaveLength(0);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill tag is bordered', () => {
+    const { container } = render(
+      <SkillTag
+        id="testSkill"
+        label="test skill"
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('bordered')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Skill tag has no border', () => {
+    const { container } = render(
+      <SkillTag
+        id="testSkill"
+        label="test skill"
+        bordered={false}
+        status={SkillStatus.Default}
+      />
+    );
+    expect(container.getElementsByClassName('tag')).toHaveLength(1);
+    expect(container.getElementsByClassName('bordered')).toHaveLength(0);
     expect(container).toMatchSnapshot();
   });
 
@@ -334,12 +763,18 @@ describe('SkillTag', () => {
     const { container } = render(
       <SkillTag
         background="#333333"
+        blockEndClassNames="test-block-end-class"
+        blockEndStyles={{ marginTop: 20 }}
+        blockStartClassNames="test-block-start-class"
+        blockStartStyles={{ marginTop: 20 }}
         classNames="test-skill"
         clickable
         color="#ffffff"
         data-testid="skill-tag-5"
+        fullWidth
         id="testSkill"
         label="test skill"
+        removable
         status={SkillStatus.Highlight}
         title="Test Skill"
       />
@@ -355,11 +790,26 @@ describe('SkillTag', () => {
       (container.getElementsByClassName('icon')[0] as HTMLElement).style.color
     ).toBe('rgb(255, 255, 255)');
     expect(
+      (container.getElementsByClassName('block-end')[0] as HTMLElement).style
+        .marginTop
+    ).toBe('20px');
+    expect(
+      (container.getElementsByClassName('block-start')[0] as HTMLElement).style
+        .marginTop
+    ).toBe('20px');
+    expect(
       (
         container.getElementsByClassName('skill')[0] as HTMLElement
       ).getAttribute('title')
     ).toBe('Test Skill');
     expect(container.getElementsByClassName('test-skill')).toBeTruthy();
+    expect(container.getElementsByClassName('full-width')).toBeTruthy();
+    expect(
+      container.getElementsByClassName('test-block-end-class')
+    ).toBeTruthy();
+    expect(
+      container.getElementsByClassName('test-block-start-class')
+    ).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
