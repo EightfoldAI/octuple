@@ -10,9 +10,14 @@ import React, {
 import useMeasure from 'react-use-measure';
 import { a, useSpring } from '@react-spring/web';
 import {
+  matchingSkillAssessment,
+  matchingSkillStatus,
   SkillBlockProps,
+  skillPropsToSvgMap,
+  SkillSize,
   SkillStatus,
   skillStatusToIconNameMap,
+  SKILL_SVG_SMALL_HEIGHT,
 } from './Skill.types';
 import {
   Button,
@@ -24,6 +29,7 @@ import {
 } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Icon, IconName, IconSize } from '../Icon';
+import { InlineSvg } from '../InlineSvg';
 import { Menu, MenuItemType, MenuItemTypes, MenuSize } from '../Menu';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
@@ -49,8 +55,13 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
   (props: SkillBlockProps, ref: Ref<HTMLDivElement>) => {
     const {
       allowDisabledFocus = false,
+      assessment,
       animate = true,
       background,
+      blockEndClassNames,
+      blockEndStyles,
+      blockStartClassNames,
+      blockStartStyles,
       bordered = true,
       classNames,
       clickable = false,
@@ -73,6 +84,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       hoverable = false,
       iconProps,
       id,
+      inlineSvgProps,
       itemMenuAriaLabel,
       itemMenuButtonProps,
       itemMenuDropdownProps,
@@ -91,8 +103,11 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       onMouseEnter,
       onMouseLeave,
       readonly = false,
+      required = false,
+      requiredMark = true,
       reflow,
       role,
+      showLabelAssessmentIcon = false,
       status = SkillStatus.Default,
       style,
       tabIndex = 0,
@@ -139,8 +154,13 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       opacity: skillExtraContent ? 1 : 0,
     });
 
+    const AssessmentsSvg =
+      (skillPropsToSvgMap as any)[assessment]?.[SkillSize.Small] ??
+      React.Fragment;
+
     const blockLabelClassNames: string = mergeClasses([
       styles.label,
+      { [styles.required]: required && requiredMark && !lineClamp },
       styles.medium,
       { [styles.labelWidth]: !!labelWidth },
       { [styles.lineClamp]: lineClamp },
@@ -175,7 +195,7 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
     useEffect((): void => {
       updateDimension?.(
         previousSkillWrapperBounds &&
-          skillWrapperBounds.height === previousSkillWrapperBounds?.height
+          skillWrapperBounds?.height === previousSkillWrapperBounds?.height
       );
     }, [skillWrapperBounds?.height, previousSkillWrapperBounds?.height]);
 
@@ -575,19 +595,44 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
           ></div>
           <div className={styles.content} ref={contentRef}>
             <div
-              className={styles.blockStart}
+              className={mergeClasses([
+                styles.blockStart,
+                blockStartClassNames,
+              ])}
               ref={blockStartRef}
-              style={{ width: labelWidth }}
+              style={{ width: labelWidth, ...blockStartStyles }}
             >
-              {!!iconProps && status === SkillStatus.Default && (
-                <Icon
-                  style={{ color }}
-                  {...iconProps}
-                  classNames={styles.icon}
-                  size={IconSize.Small}
-                />
-              )}
-              {status !== SkillStatus.Default && (
+              {matchingSkillAssessment?.includes(assessment) &&
+                showLabelAssessmentIcon && (
+                  <div
+                    className={mergeClasses([styles.svg, styles.svgAssessment])}
+                  >
+                    <AssessmentsSvg />
+                  </div>
+                )}
+              {!iconProps &&
+                !!inlineSvgProps &&
+                status === SkillStatus.Default && (
+                  <InlineSvg
+                    height={`${SKILL_SVG_SMALL_HEIGHT}px`}
+                    {...inlineSvgProps}
+                    classNames={mergeClasses([
+                      styles.svg,
+                      inlineSvgProps.classNames,
+                    ])}
+                  />
+                )}
+              {!!iconProps &&
+                !inlineSvgProps &&
+                status === SkillStatus.Default && (
+                  <Icon
+                    style={{ color }}
+                    {...iconProps}
+                    classNames={styles.icon}
+                    size={IconSize.Small}
+                  />
+                )}
+              {matchingSkillStatus?.includes(status) && (
                 <Icon
                   classNames={styles.icon}
                   path={skillStatusToIconNameMap.get(status)}
@@ -603,6 +648,9 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
               >
                 {label}
               </span>
+              {lineClamp > 0 && required && requiredMark && (
+                <span className={styles.required}></span>
+              )}
             </div>
             {!!content && (
               <div className={contentClassNames} ref={blockMiddleRef}>
@@ -613,7 +661,11 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
               !!endorseButtonProps ||
               !!highlightButtonProps ||
               !!menuItems) && (
-              <div className={styles.blockEnd} ref={blockEndRef}>
+              <div
+                className={mergeClasses([styles.blockEnd, blockEndClassNames])}
+                ref={blockEndRef}
+                style={blockEndStyles}
+              >
                 <ul className={styles.buttonList}>
                   {!!endorseButtonProps && !_itemMenuOnly && (
                     <li key="endorsement-inline-button">
