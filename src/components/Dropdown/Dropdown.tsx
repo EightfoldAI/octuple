@@ -32,6 +32,7 @@ import { usePreviousState } from '../../hooks/usePreviousState';
 import {
   ConditionalWrapper,
   eventKeys,
+  focusable,
   mergeClasses,
   SELECTORS,
   uniqueId,
@@ -102,10 +103,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             ...(refs.floating?.current.querySelectorAll(
               SELECTORS
             ) as unknown as HTMLElement[]),
-          ].filter(
-            (el: HTMLElement) =>
-              !el?.hasAttribute('disabled') && !el?.getAttribute('aria-hidden')
-          );
+          ].filter((el: HTMLElement) => focusable(el));
         };
         const focusableElements: HTMLElement[] = refs.floating?.current
           ? getFocusableElements?.()
