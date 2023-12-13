@@ -58,6 +58,13 @@ export interface DropdownProps {
    */
   height?: number;
   /**
+   * Optionally place focus on the first focusable
+   * selector when the Dropdown is first visible.
+   * When false, visibility will be placed on the Dropdown.
+   * @default true
+   */
+  initialFocus?: boolean;
+  /**
    * The offset from the reference element
    * @default 0
    */
@@ -97,6 +104,12 @@ export interface DropdownProps {
    * @returns (event: React.MouseEvent) => void
    */
   referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * Callback executed on reference element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  referenceOnKeydown?: (event: React.KeyboardEvent) => void;
   /**
    * Custom reference wrapper class names
    */

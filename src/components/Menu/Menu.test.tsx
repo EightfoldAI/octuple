@@ -6,7 +6,7 @@ import { MenuItemType } from './MenuItem/MenuItem.types';
 import { MenuSize, MenuVariant } from './Menu.types';
 import { Menu } from './Menu';
 import { Dropdown } from '../Dropdown';
-import { DefaultButton } from '../Button';
+import { Button } from '../Button';
 import { IconName } from '../Icon';
 import { RadioGroup } from '../RadioButton';
 import { SelectorSize } from '../CheckBox';
@@ -52,8 +52,9 @@ const MenuOverlay = (args: any) => {
         },
         {
           type: MenuItemType.custom,
-          render: ({ onChange }) => (
+          render: ({ onChange, ...rest }) => (
             <RadioGroup
+              {...rest}
               {...{
                 ariaLabel: 'Radio Group',
                 value: 'Radio1',
@@ -92,7 +93,7 @@ const menuProps: object = {
 const MenuComponent = (): JSX.Element => {
   return (
     <Dropdown overlay={MenuOverlay(menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -105,7 +106,7 @@ const LargeMenuComponent = (): JSX.Element => {
 
   return (
     <Dropdown overlay={MenuOverlay(_menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -118,7 +119,7 @@ const MediumMenuComponent = (): JSX.Element => {
 
   return (
     <Dropdown overlay={MenuOverlay(_menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -131,7 +132,7 @@ const SmallMenuComponent = (): JSX.Element => {
 
   return (
     <Dropdown overlay={MenuOverlay(_menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };

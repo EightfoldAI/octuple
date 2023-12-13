@@ -266,7 +266,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (readonly && dropdownVisible) {
         setDropdownVisibility(false);
       }
-    }, [readonly, dropdownVisible]);
+      if (!dropdownVisible && prevDropdownVisible) {
+        inputRef.current?.focus();
+      }
+    }, [readonly, dropdownVisible, prevDropdownVisible]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -751,6 +754,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           {!dropdownVisible && showPills() ? getPills() : null}
           <Dropdown
             ariaRef={inputRef}
+            initialFocus
             width={dropdownWidth}
             closeOnReferenceClick={closeOnReferenceClick}
             {...dropdownProps}

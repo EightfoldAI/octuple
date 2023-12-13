@@ -5,8 +5,9 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
 import { Select } from './';
 import { sleep } from '../../tests/Utilities';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -587,5 +588,36 @@ describe('Select', () => {
       <Select options={options} shape={SelectShape.Underline} />
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('Focuses the first focusable element when visible', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    const elementToFocus = document.activeElement as HTMLElement;
+    expect(elementToFocus).toBeTruthy();
+  });
+
+  test('Focuses the reference element when not visible', async () => {
+    const mockEventKeys = {
+      ESCAPE: 'Escape',
+    };
+    const { container, getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    act(() => {
+      userEvent.type(listbox[0], mockEventKeys.ESCAPE);
+    });
+    expect(container.querySelector('.dropdown')).toBeFalsy();
+    const elementToFocus = document.activeElement as HTMLElement;
+    expect(elementToFocus).toBeTruthy();
   });
 });

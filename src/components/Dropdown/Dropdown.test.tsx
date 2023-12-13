@@ -14,6 +14,8 @@ import { List } from '../List';
 import { Stack } from '../Stack';
 import { TextInput } from '../Inputs';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -81,6 +83,7 @@ const DropdownComponent = (): JSX.Element => {
           rotate: visible ? 180 : 0,
         }}
         id="test-button-id"
+        data-testid="dropdown-reference"
       />
     </Dropdown>
   );
@@ -481,5 +484,60 @@ describe('Dropdown', () => {
     expect(filterTwoReferenceElement.getAttribute('aria-expanded')).toBe(
       'false'
     );
+  });
+
+  test('Handles reference element arrow key events correctly', async () => {
+    const mockEventKeys = {
+      ARROWDOWN: 'ArrowDown',
+      ARROWUP: 'ArrowUp',
+    };
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.type(referenceElement, mockEventKeys.ARROWDOWN);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    const option1 = screen.getByText('User profile 1');
+    expect(option1).toBeTruthy();
+    act(() => {
+      userEvent.type(referenceElement, mockEventKeys.ARROWUP);
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+  });
+
+  test('Focuses the first focusable element when visible', async () => {
+    const { getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    const elementToFocus = document.activeElement as HTMLElement;
+    expect(elementToFocus).toBeTruthy();
+  });
+
+  test('Focuses the reference element when not visible', async () => {
+    const mockEventKeys = {
+      ESCAPE: 'Escape',
+    };
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    const option1 = screen.getByText('User profile 1');
+    act(() => {
+      userEvent.type(option1, mockEventKeys.ESCAPE);
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    const elementToFocus = document.activeElement as HTMLElement;
+    expect(elementToFocus).toBeTruthy();
   });
 });
