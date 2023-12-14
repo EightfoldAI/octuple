@@ -129,7 +129,6 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                 key: idx,
                 render: () => item.dropdownChildren,
                 text: `${item.title}`,
-                title: `${item.title}`,
                 type: MenuItemType.custom,
                 value: item,
               }
@@ -137,7 +136,6 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                 href: item.url,
                 key: idx,
                 text: `${item.title}`,
-                title: `${item.title}`,
                 type: MenuItemType.link,
                 value: item,
               }
