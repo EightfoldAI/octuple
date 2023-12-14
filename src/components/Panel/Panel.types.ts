@@ -87,6 +87,12 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
    */
   closeIcon?: IconName;
   /**
+   * Prepend a specific selector to the beginning
+   * of the focus loop generated list of selectors.
+   * Use optionally when `focusTrap` is `true`.
+   */
+  firstFocusableSelector?: string;
+  /**
    * Unset this to disable focus trap
    * @default true
    */
@@ -120,6 +126,12 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
    * Custom height of the panel
    */
   height?: number;
+  /**
+   * Append a specific selector to the end
+   * of the focus loop generated list of selectors.
+   * Use optionally when `focusTrap` is `true`.
+   */
+  lastFocusableSelector?: string;
   /**
    * The Panel locale.
    * @default 'enUS'
@@ -178,6 +190,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
    */
   push?: boolean;
   /**
+   * Whether to render Panel content when Panel `visible` is `false`.
+   * @default true
+   */
+  renderContentAlways?: boolean;
+  /**
    * Set this to enable/disable parent scroll
    * @default true
    */
@@ -187,6 +204,12 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
    * @default medium
    */
   size?: PanelSize;
+  /**
+   * Optionally skip some selectors when tabbing by index.length - skipFocusableSelectorsFromIndex
+   * Use when `focusTrap` is `true`
+   * @default `index.length - 1`
+   */
+  skipFocusableSelectorsFromIndex?: number;
   /**
    * The title node of the panel
    */

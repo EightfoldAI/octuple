@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../../Icon';
 import {
   TextInput,
+  TextInputIconAlign,
   TextInputShape,
   TextInputSize,
   TextInputWidth,
@@ -137,9 +138,11 @@ Text_Input.args = {
   autocomplete: undefined,
   autoFocus: true,
   classNames: 'my-textinput-class',
+  clearable: true,
   clearButtonAriaLabel: 'Clear',
   disabled: false,
   htmltype: 'text',
+  alignIcon: TextInputIconAlign.Left,
   iconProps: {
     path: IconName.mdiCardsHeart,
     color: 'red',
@@ -164,6 +167,12 @@ Text_Input.args = {
   name: 'myTextInput',
   numbersOnly: false,
   placeholder: 'Placeholder text',
+  readonly: false,
+  readOnlyProps: {
+    clearable: false,
+    iconProps: null,
+    noStyleChange: false,
+  },
   required: false,
   size: TextInputSize.Medium,
   shape: TextInputShape.Rectangle,

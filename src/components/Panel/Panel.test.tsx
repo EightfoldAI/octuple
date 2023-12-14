@@ -3,7 +3,9 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Panel } from './';
+import { Button, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
+import { render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -11,8 +13,13 @@ let matchMedia: any;
 
 describe('Panel', () => {
   let wrapper: ReactWrapper;
-  const body = 'This is the panel body';
-  const title = 'This is the title';
+  const body: string = 'This is the panel body';
+  const title: string = 'This is the title';
+  const footer: JSX.Element = (
+    <div>
+      <Button text={'Close'} variant={ButtonVariant.Primary} />
+    </div>
+  );
 
   beforeAll(() => {
     matchMedia = new MatchMediaMock();
@@ -23,7 +30,7 @@ describe('Panel', () => {
 
   beforeEach(() => {
     wrapper = mount(
-      <Panel visible={false}>
+      <Panel footer={footer} visible={false}>
         <div>{body}</div>
       </Panel>
     );
@@ -126,5 +133,34 @@ describe('Panel', () => {
       overlay: false,
     });
     expect(wrapper.find('.modeless').length).toBeTruthy();
+  });
+
+  test('Panel footer', () => {
+    wrapper.setProps({
+      visible: true,
+      title,
+      body,
+      footer,
+    });
+    expect(wrapper.find('.footer')).toBeTruthy();
+    expect(wrapper.find('.button-primary').text()).toBe('Close');
+  });
+
+  test('Should render content when renderContentAlways is true', () => {
+    const { getByText } = render(
+      <Panel renderContentAlways>
+        <div>Content is always rendered</div>
+      </Panel>
+    );
+    expect(getByText('Content is always rendered')).toBeTruthy();
+  });
+
+  test('Should not render content when renderContentAlways is false', () => {
+    const { queryByText } = render(
+      <Panel renderContentAlways={false}>
+        <div>Content is not always rendered</div>
+      </Panel>
+    );
+    expect(queryByText('Content is not always rendered')).toBeNull();
   });
 });

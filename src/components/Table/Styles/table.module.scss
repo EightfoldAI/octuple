@@ -459,9 +459,9 @@
       transition: all $motion-duration-extra-fast;
       user-select: none;
 
-      &:focus,
-      &:hover,
-      &:active {
+      &:focus:not(:disabled),
+      &:hover:not(:disabled),
+      &:active:not(:disabled) {
         border-color: var(--table-header-icon-color);
       }
 
@@ -517,6 +517,11 @@
       // Use the ConfigProvider instead.
       &:focus-visible {
         outline: none;
+      }
+
+      &-disabled {
+        cursor: not-allowed;
+        opacity: $disabled-alpha-value;
       }
     }
 

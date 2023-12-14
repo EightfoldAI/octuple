@@ -100,8 +100,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       marks,
       min = 0,
       minLabel,
+      minLabelStyle,
       max = 100,
       maxLabel,
+      maxLabelStyle,
       name,
       onChange,
       railBorder = true,
@@ -117,6 +119,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       type = 'default',
       value,
       valueLabel,
+      visibleDots,
       ...rest
     },
     ref: Ref<HTMLInputElement>
@@ -162,6 +165,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       useRef<HTMLDivElement>(null);
     const maxLabelRef: React.MutableRefObject<HTMLDivElement> =
       useRef<HTMLDivElement>(null);
+
     let [markers, setMarkers] = useState<SliderMarker[]>(
       [...Array(Math.floor((mergedMax - mergedMin) / mergedStep) + 1)].map(
         (_, index) => ({
@@ -169,12 +173,22 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         })
       )
     );
+
     const markerSegmentRefs: React.MutableRefObject<
       RefObject<HTMLDivElement>[]
-    > = useRef<RefObject<HTMLDivElement>[]>(null);
-    markerSegmentRefs.current = markers.map(
-      (_, i) => markerSegmentRefs.current?.[i] ?? createRef<HTMLDivElement>()
-    );
+    > = useRef<RefObject<HTMLDivElement>[]>([]);
+    markerSegmentRefs.current = markers
+      .filter((marker: SliderMarker) => Number.isInteger(marker.value))
+      .map(
+        (_, i) => markerSegmentRefs.current?.[i] ?? createRef<HTMLDivElement>()
+      );
+
+    const visibleSegments: number[] = markers
+      ?.filter((mark: SliderMarker) => Number.isInteger(mark.value))
+      .map((mark: SliderMarker) => Math.floor(mark.value));
+
+    // Then we hide the last segment because visually we only need n - 1 mapped markers to generate the visible segments.
+    visibleSegments?.pop();
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -209,10 +223,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       const segmentRangeOffset: number = 1;
       return isRange
         ? markerPct >=
-            valueToPercent(values[0], mergedMin, mergedMax) -
+            valueToPercent(Math.floor(values[0]), mergedMin, mergedMax) -
               segmentRangeOffset &&
             markerPct <=
-              valueToPercent(values[1], mergedMin, mergedMax) -
+              valueToPercent(Math.ceil(values[1]), mergedMin, mergedMax) -
                 segmentRangeOffset
         : markerPct <=
             valueToPercent(values[0], mergedMin, mergedMax) -
@@ -315,25 +329,24 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       );
       const rangeWidth: number = isRange
         ? upperThumbOffset - lowerThumbOffset
-        : lowerThumbOffset;
+        : lowerThumbOffset - thumbRadius;
 
       // The below calculation is as follows:
       // First we get the left position of the segment.
       // Then we get the width rounded to the lowest possible even number with a 2px spacer to account for borders.
-      // Then we hide the last segment because visually we only need n - 1 markers to generate the visible segments.
       if (showMarkers) {
         markerSegmentRefs.current?.forEach(
           (ref: React.RefObject<HTMLDivElement>, i: number) => {
             if (ref.current) {
               if (htmlDir === 'rtl') {
                 ref.current.style.right = `${getValueOffset(
-                  markers[i].value,
+                  visibleSegments[i],
                   thumbDiameter,
                   thumbRadius
                 )}px`;
               } else {
                 ref.current.style.left = `${getValueOffset(
-                  markers[i].value,
+                  visibleSegments[i],
                   thumbDiameter,
                   thumbRadius
                 )}px`;
@@ -342,7 +355,9 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 2 *
                   Math.round(
                     Math.floor(
-                      (inputWidth - thumbDiameter * 2) / (markers.length - 1)
+                      (inputWidth - thumbDiameter * 2) /
+                        visibleSegments.length -
+                        1
                     ) / 2
                   ) -
                 trackBorderOffset
@@ -398,37 +413,41 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         // Moving these into a shared expression also doesn't work.
         if (htmlDir === 'rtl') {
           showMaxLabel =
-            showLabels &&
-            lowerThumbOffset <
-              minLabelRef.current.offsetLeft -
-                lowerLabelRef.current.offsetWidth / 2 -
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset <
+                minLabelRef.current.offsetLeft -
+                  lowerLabelRef.current.offsetWidth / 2 -
+                  thumbRadius);
           maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
           showMinLabel =
-            showLabels &&
-            lowerThumbOffset >
-              maxLabelRef.current.offsetLeft +
-                maxLabelRef.current.offsetWidth +
-                lowerLabelRef.current.offsetWidth / 2 -
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset >
+                maxLabelRef.current.offsetLeft +
+                  maxLabelRef.current.offsetWidth +
+                  lowerLabelRef.current.offsetWidth / 2 -
+                  thumbRadius);
           minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
         } else {
           showMaxLabel =
-            showLabels &&
-            lowerThumbOffset <
-              maxLabelRef.current.offsetLeft -
-                lowerLabelRef.current.offsetWidth / 2 -
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset <
+                maxLabelRef.current.offsetLeft -
+                  lowerLabelRef.current.offsetWidth / 2 -
+                  thumbRadius);
           maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
           showMinLabel =
-            showLabels &&
-            lowerThumbOffset >
-              minLabelRef.current.offsetLeft +
-                minLabelRef.current.offsetWidth +
-                lowerLabelRef.current.offsetWidth / 2 +
-                thumbRadius;
+            (showLabels && hideMin && hideMax && hideValue) ||
+            (showLabels &&
+              lowerThumbOffset >
+                minLabelRef.current.offsetLeft +
+                  minLabelRef.current.offsetWidth +
+                  lowerLabelRef.current.offsetWidth / 2 +
+                  thumbRadius);
           minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
         }
       }
@@ -593,8 +612,15 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         percent = (clientX - left) / width;
       }
 
+      // Limit the number of decimal places to the step.
+      const getStepDecimal = (num: number) =>
+        (String(num).split('.')[1] || '').length;
+      const maxDecimalMapToStep: number = Math.max(getStepDecimal(step));
+
       const nextValue: number = mergedMin + percent * (mergedMax - mergedMin);
-      changeToCloseValue(formatValue(nextValue));
+      changeToCloseValue(
+        formatValue(Number(nextValue.toFixed(maxDecimalMapToStep)))
+      );
     };
 
     const handleChange = (newVal: number, index: number): void => {
@@ -703,15 +729,23 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               {
                 [styles.sliderSmall]:
                   mergedSize === SliderSize.Flex && largeScreenActive,
+              },
+              {
                 [styles.sliderMedium]:
                   mergedSize === SliderSize.Flex && mediumScreenActive,
+              },
+              {
                 [styles.sliderMedium]:
                   mergedSize === SliderSize.Flex && smallScreenActive,
+              },
+              {
                 [styles.sliderLarge]:
                   mergedSize === SliderSize.Flex && xSmallScreenActive,
-                [styles.sliderLarge]: mergedSize === SliderSize.Large,
-                [styles.sliderMedium]: mergedSize === SliderSize.Medium,
-                [styles.sliderSmall]: mergedSize === SliderSize.Small,
+              },
+              { [styles.sliderLarge]: mergedSize === SliderSize.Large },
+              { [styles.sliderMedium]: mergedSize === SliderSize.Medium },
+              { [styles.sliderSmall]: mergedSize === SliderSize.Small },
+              {
                 [styles.sliderDisabled]: allowDisabledFocus || mergedDisabled,
                 [styles.sliderReadonly]: !!readOnly,
                 [styles.sliderContainerInline]: labelPosition === 'inline',
@@ -725,10 +759,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             <div
               ref={minLabelRef}
               className={mergeClasses(styles.extremityLabel, styles.minLabel, {
+                [styles.minLabelTextOnly]: hideMin && !!minLabel,
                 [styles.extremityRangeLabel]: isRange,
                 [styles.extremityLabelInline]: labelPosition === 'inline',
                 [styles.labelVisible]: showLabels,
               })}
+              style={minLabelStyle}
             >
               {!!minLabel && minLabel} {!hideMin && mergedMin}
             </div>
@@ -794,47 +830,55 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               />
               {!!showMarkers && (
                 <div className={styles.railMarkerSegments}>
-                  {markers.map((mark: SliderMarker, index: number) => {
-                    return (
-                      <div
-                        className={mergeClasses(styles.railMarkerSegment, {
-                          [styles.railMarkerSegmentBorderHidden]:
-                            (!trackBorder &&
-                              isMarkerSegmentActive(mark.value)) ||
-                            (!railBorder && !isMarkerSegmentActive(mark.value)),
-                          [styles.data]: type === 'data',
-                          [styles.active]:
-                            !hideTrack && isMarkerSegmentActive(mark.value),
-                          [styles.success]:
-                            isMarkerSegmentActive(mark.value) &&
-                            !!trackStatus &&
-                            trackStatus === SliderTrackStatus.Success,
-                          [styles.warning]:
-                            isMarkerSegmentActive(mark.value) &&
-                            !!trackStatus &&
-                            trackStatus === SliderTrackStatus.Warning,
-                          [styles.error]:
-                            isMarkerSegmentActive(mark.value) &&
-                            !!trackStatus &&
-                            trackStatus === SliderTrackStatus.Error,
-                          [styles.railMarkerSegmentHidden]:
-                            index === markers.length - 1,
-                          [styles.railMarkerSegmentOpacity]:
-                            (!!hideRail &&
-                              !!hideTrack &&
-                              isMarkerSegmentActive(mark.value)) ||
-                            (!!hideRail && !isMarkerSegmentActive(mark.value)),
-                        })}
-                        key={index}
-                        onMouseDown={
-                          !allowDisabledFocus && !readOnly
-                            ? onSliderMouseDown
-                            : null
-                        }
-                        ref={markerSegmentRefs.current[index]}
-                      />
-                    );
-                  })}
+                  {markers
+                    .filter((marker: SliderMarker) =>
+                      Number.isInteger(marker.value)
+                    )
+                    .map((mark: SliderMarker, index: number) => {
+                      let railMarkerSegment: JSX.Element;
+                      if (index <= visibleSegments.length - 1) {
+                        railMarkerSegment = (
+                          <div
+                            className={mergeClasses(styles.railMarkerSegment, {
+                              [styles.railMarkerSegmentBorderHidden]:
+                                (!trackBorder &&
+                                  isMarkerSegmentActive(mark.value)) ||
+                                (!railBorder &&
+                                  !isMarkerSegmentActive(mark.value)),
+                              [styles.data]: type === 'data',
+                              [styles.active]:
+                                !hideTrack && isMarkerSegmentActive(mark.value),
+                              [styles.success]:
+                                isMarkerSegmentActive(mark.value) &&
+                                !!trackStatus &&
+                                trackStatus === SliderTrackStatus.Success,
+                              [styles.warning]:
+                                isMarkerSegmentActive(mark.value) &&
+                                !!trackStatus &&
+                                trackStatus === SliderTrackStatus.Warning,
+                              [styles.error]:
+                                isMarkerSegmentActive(mark.value) &&
+                                !!trackStatus &&
+                                trackStatus === SliderTrackStatus.Error,
+                              [styles.railMarkerSegmentOpacity]:
+                                (!!hideRail &&
+                                  !!hideTrack &&
+                                  isMarkerSegmentActive(mark.value)) ||
+                                (!!hideRail &&
+                                  !isMarkerSegmentActive(mark.value)),
+                            })}
+                            key={index}
+                            onMouseDown={
+                              !allowDisabledFocus && !readOnly
+                                ? onSliderMouseDown
+                                : null
+                            }
+                            ref={markerSegmentRefs.current[index]}
+                          />
+                        );
+                      }
+                      return railMarkerSegment;
+                    })}
                 </div>
               )}
               <Steps
@@ -845,12 +889,15 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 style={dotStyle}
                 trackStatus={trackStatus}
                 type={type}
+                visibleDots={visibleDots}
               />
               <Marks
                 marks={markList}
-                onClick={
-                  !allowDisabledFocus && !readOnly ? changeToCloseValue : null
-                }
+                onClick={(value: number) => {
+                  if (!allowDisabledFocus && !readOnly) {
+                    changeToCloseValue(formatValue(value));
+                  }
+                }}
               />
               {values.map((val: number, index: number) => (
                 <Tooltip
@@ -910,10 +957,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             <div
               ref={maxLabelRef}
               className={mergeClasses(styles.extremityLabel, styles.maxLabel, {
+                [styles.maxLabelTextOnly]: hideMax && !!maxLabel,
                 [styles.extremityRangeLabel]: isRange,
                 [styles.extremityLabelInline]: labelPosition === 'inline',
                 [styles.labelVisible]: showLabels,
               })}
+              style={maxLabelStyle}
             >
               {!!maxLabel && maxLabel} {!hideMax && mergedMax}
             </div>

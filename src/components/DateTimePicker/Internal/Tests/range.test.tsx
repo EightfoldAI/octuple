@@ -8,9 +8,19 @@ import { spyElementPrototypes } from '../../../../tests/domHook';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import type { Wrapper } from './util/commonUtil';
-import { mount, getDayjs, isSame, DayjsRangePicker } from './util/commonUtil';
+import {
+  closePicker,
+  DayjsRangePicker,
+  getDayjs,
+  isSame,
+  mount,
+  openPicker,
+  selectCell,
+} from './util/commonUtil';
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
+import { ButtonVariant } from '../../../Button';
+import { createEvent, fireEvent, render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -113,7 +123,7 @@ describe('Picker.Range', () => {
     expect(wrapper.find('input').last().props().value).toEqual(value2);
   }
 
-  beforeAll(() => {
+  beforeEach(() => {
     MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
 
     Object.defineProperty(window, 'matchMedia', {
@@ -131,7 +141,7 @@ describe('Picker.Range', () => {
     });
   });
 
-  afterAll(() => {
+  afterEach(() => {
     MockDate.reset();
   });
 
@@ -432,6 +442,65 @@ describe('Picker.Range', () => {
     });
   });
 
+  describe('readonly', () => {
+    it('basic readonly check', () => {
+      const wrapper = mount(<DayjsRangePicker readonly={[true, false]} />);
+      expect(wrapper.find('input').at(0).props().readOnly).toBeTruthy();
+      expect(wrapper.find('input').at(1).props().readOnly).toBeFalsy();
+    });
+
+    it('startDate will have disabledDate when endDate is not selectable', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <DayjsRangePicker
+          readonly={[false, true]}
+          defaultValue={[null, getDayjs('1990-09-22')]}
+          onChange={onChange}
+        />
+      );
+
+      let cellNode: Wrapper;
+
+      // Disabled date
+      wrapper.openPicker();
+      cellNode = wrapper.selectCell(25);
+      expect(cellNode.hasClass('picker-cell-disabled')).toBeTruthy();
+      expect(onChange).not.toHaveBeenCalled();
+
+      // Enabled date
+      wrapper.openPicker();
+      cellNode = wrapper.selectCell(7);
+      expect(cellNode.hasClass('picker-cell-disabled')).toBeFalsy();
+      expect(onChange).toHaveBeenCalledWith(
+        [expect.anything(), expect.anything()],
+        ['1990-09-07', '1990-09-22']
+      );
+    });
+
+    it('clear should trigger change', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <DayjsRangePicker
+          readonly={[false, true]}
+          defaultValue={[getDayjs('1990-01-01'), getDayjs('2000-11-11')]}
+          onChange={onChange}
+          allowClear
+        />
+      );
+
+      wrapper.openPicker();
+      wrapper.clearValue();
+      expect(wrapper.isClosed()).toBeTruthy();
+      expect(onChange.mock.calls[0][1]).toEqual(['', '2000-11-11']);
+    });
+
+    it('not fill when all readonly and no value', () => {
+      const wrapper = mount(<DayjsRangePicker readonly />);
+      expect(wrapper.find('input').first().props().value).toEqual('');
+      expect(wrapper.find('input').last().props().value).toEqual('');
+    });
+  });
+
   describe('ranges', () => {
     it('hover className', () => {
       const wrapper = mount(
@@ -466,11 +535,9 @@ describe('Picker.Range', () => {
   });
 
   it('placeholder', () => {
-    const wrapper = mount(
-      <DayjsRangePicker placeholder={['light', 'bamboo']} />
-    );
-    expect(wrapper.find('input').first().props().placeholder).toEqual('light');
-    expect(wrapper.find('input').last().props().placeholder).toEqual('bamboo');
+    const wrapper = mount(<DayjsRangePicker placeholder={['mia', 'lola']} />);
+    expect(wrapper.find('input').first().props().placeholder).toEqual('mia');
+    expect(wrapper.find('input').last().props().placeholder).toEqual('lola');
   });
 
   describe('defaultPickerValue', () => {
@@ -907,17 +974,18 @@ describe('Picker.Range', () => {
   it('datetime will reset by blur', () => {
     jest.useFakeTimers();
 
-    const wrapper = mount(<DayjsRangePicker showTime />);
-    wrapper.openPicker();
-    wrapper.selectCell(11);
-    wrapper.closePicker();
+    const { container } = render(
+      <DayjsRangePicker showTime changeOnBlur={false} />
+    );
+    openPicker(container);
+    selectCell(11);
+    closePicker(container);
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    expect(wrapper.isClosed()).toBeTruthy();
-    expect(wrapper.find('input').first().props().value).toEqual('');
+    expect(document.querySelector('.trigger-popup')).toBeTruthy();
+    expect(document.querySelector('input').value).toEqual('');
 
     jest.useRealTimers();
   });
@@ -1111,8 +1179,61 @@ describe('Picker.Range', () => {
   });
 
   it('id', () => {
-    const wrapper = mount(<DayjsRangePicker id="bamboo" />);
-    expect(wrapper.find('input').first().props().id).toEqual('bamboo');
+    const wrapper = mount(<DayjsRangePicker id="lola" />);
+    expect(wrapper.find('input').first().props().id).toEqual('lola');
+  });
+
+  it('does not display today as active', () => {
+    const wrapper = mount(<DayjsRangePicker open todayActive={false} />);
+    expect(wrapper.find('.picker-cell-today').length).toEqual(0);
+  });
+
+  it('does not display now button when showTime', () => {
+    const wrapper = mount(<DayjsRangePicker open showTime showNow={false} />);
+    expect(wrapper.find('.picker-now').length).toEqual(0);
+  });
+
+  it('now button is primary', () => {
+    const wrapper = mount(
+      <DayjsRangePicker
+        open
+        showTime
+        nowButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
+  });
+
+  it('does not display ok button when showTime', () => {
+    const wrapper = mount(<DayjsRangePicker open showTime showOk={false} />);
+    expect(wrapper.find('.picker-ok').length).toEqual(0);
+  });
+
+  it('ok button is primary', () => {
+    const wrapper = mount(
+      <DayjsRangePicker
+        open
+        showTime
+        okButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
+  });
+
+  it('does not display today button', () => {
+    const wrapper = mount(<DayjsRangePicker open />);
+    expect(wrapper.find('.picker-today-btn').length).toEqual(0);
+  });
+
+  it('today button is primary', () => {
+    const wrapper = mount(
+      <DayjsRangePicker
+        open
+        showToday
+        todayButtonProps={{ variant: ButtonVariant.Primary }}
+      />
+    );
+    expect(wrapper.find('.button-primary')).toBeTruthy();
   });
 
   it('dateRender', () => {
@@ -1388,6 +1509,7 @@ describe('Picker.Range', () => {
       const wrapper = mount(
         <DayjsRangePicker
           defaultValue={[getDayjs('1989-01-01'), getDayjs('1990-01-01')]}
+          changeOnBlur={false}
         />
       );
       wrapper.openPicker(0);
@@ -1396,43 +1518,41 @@ describe('Picker.Range', () => {
     });
   });
 
-  // TODO: Re-enable these tests when first element to be focused is determined.
   describe('click at non-input elements', () => {
-    it.skip('should focus on the first element by default', () => {
+    it('should focus on the first element by default', () => {
       jest.useFakeTimers();
-      const wrapper = mount(<DayjsRangePicker />);
-      wrapper.find('.picker').simulate('click');
-      expect(wrapper.isOpen()).toBeTruthy();
+      const { container } = render(<DayjsRangePicker />);
+      fireEvent.click(container.querySelector('.picker'));
+      expect(document.querySelector('.trigger-popup')).toBeTruthy();
       jest.runAllTimers();
-      expect(document.activeElement).toStrictEqual(
-        wrapper.find('input').first().getDOMNode()
+      expect(document.activeElement).toBe(container.querySelector('input'));
+      jest.useRealTimers();
+    });
+    it('should focus on the second element if first is disabled', () => {
+      jest.useFakeTimers();
+      const { container } = render(
+        <DayjsRangePicker disabled={[true, false]} />
+      );
+      fireEvent.click(container.querySelector('.picker'));
+      expect(document.querySelector('.trigger-popup')).toBeTruthy();
+      jest.runAllTimers();
+      expect(document.activeElement).toBe(
+        container.querySelectorAll('input')[1]
       );
       jest.useRealTimers();
     });
-    it.skip('should focus on the second element if first is disabled', () => {
+    it("shouldn't let mousedown blur the input", () => {
       jest.useFakeTimers();
-      const wrapper = mount(<DayjsRangePicker disabled={[true, false]} />);
-      wrapper.find('.picker').simulate('click');
-      expect(wrapper.isOpen()).toBeTruthy();
-      jest.runAllTimers();
-      expect(document.activeElement).toStrictEqual(
-        wrapper.find('input').last().getDOMNode()
-      );
-      jest.useRealTimers();
-    });
-    it.skip("shouldn't let mousedown blur the input", () => {
-      jest.useFakeTimers();
-      const preventDefault = jest.fn();
-      const wrapper = mount(<DayjsRangePicker />, {
-        attachTo: document.body,
+      const { container } = render(<DayjsRangePicker changeOnBlur={false} />);
+      const node = container.querySelector('.picker');
+      fireEvent.click(node);
+      act(() => {
+        jest.runAllTimers();
       });
-      wrapper.find('.picker').simulate('click');
-      jest.runAllTimers();
-      wrapper.find('.picker').simulate('mousedown', {
-        preventDefault,
-      });
-      expect(wrapper.isOpen()).toBeTruthy();
-      expect(preventDefault).toHaveBeenCalled();
+      const mouseDownEvent = createEvent.mouseDown(node);
+      fireEvent(node, mouseDownEvent);
+      expect(document.querySelector('.trigger-popup')).toBeTruthy();
+      expect(mouseDownEvent.defaultPrevented).toBeTruthy();
       jest.useRealTimers();
     });
   });
@@ -1708,7 +1828,7 @@ describe('Picker.Range', () => {
     expect(wrapper.find('input').first().prop('value')).toBe('1990-09-07');
 
     // back to first partial and clear input value
-    wrapper.find('input').first().simulate('focus');
+    wrapper.openPicker(0);
     wrapper.inputValue('', 0);
 
     // reselect date

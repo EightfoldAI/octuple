@@ -1,55 +1,56 @@
-import React from 'react';
-import type { RangeValue, OcPickerMode, Locale } from '../OcPicker.types';
-import { getValue } from '../Utils/miscUtil';
+import React, { useCallback } from 'react';
 import type { GenerateConfig } from '../Generate';
-import { isSameDate, getQuarter } from '../Utils/dateUtil';
+import type { Locale, OcPickerMode, RangeValue } from '../OcPicker.types';
+import { getQuarter, isSameDate } from '../Utils/dateUtil';
+import { getValue } from '../Utils/miscUtil';
 
 export default function useRangeDisabled<DateType>(
   {
     picker,
-    locale,
     selectedValue,
-    disabledDate,
+    locale,
     disabled,
+    disabledDate,
+    readonly,
     generateConfig,
   }: {
     picker: OcPickerMode;
     selectedValue: RangeValue<DateType>;
-    disabledDate?: (date: DateType) => boolean;
-    disabled: [boolean, boolean];
     locale: Locale;
+    disabled: [boolean, boolean];
+    disabledDate?: (date: DateType) => boolean;
+    readonly: [boolean, boolean];
     generateConfig: GenerateConfig<DateType>;
   },
-  disabledStart: boolean,
-  disabledEnd: boolean
+  firstTimeOpen: boolean
 ) {
   const startDate: DateType = getValue(selectedValue, 0);
   const endDate: DateType = getValue(selectedValue, 1);
 
-  function weekFirstDate(date: DateType) {
+  function weekFirstDate(date: DateType): DateType {
     return generateConfig.locale.getWeekFirstDate(locale.locale, date);
   }
 
-  function monthNumber(date: DateType) {
+  function monthNumber(date: DateType): number {
     const year = generateConfig.getYear(date);
     const month = generateConfig.getMonth(date);
     return year * 100 + month;
   }
 
-  function quarterNumber(date: DateType) {
+  function quarterNumber(date: DateType): number {
     const year = generateConfig.getYear(date);
     const quarter = getQuarter(generateConfig, date);
     return year * 10 + quarter;
   }
 
-  const disabledStartDate = React.useCallback(
-    (date: DateType) => {
-      if (disabledDate && disabledDate(date)) {
+  const disabledStartDate = useCallback(
+    (date: DateType): boolean => {
+      if (disabled[0] || disabledDate?.(date) || readonly[0]) {
         return true;
       }
 
       // Disabled range
-      if (disabled[1] && endDate) {
+      if ((disabled[1] || readonly[1]) && endDate) {
         return (
           !isSameDate(generateConfig, date, endDate) &&
           generateConfig.isAfter(date, endDate)
@@ -57,7 +58,7 @@ export default function useRangeDisabled<DateType>(
       }
 
       // Disabled part
-      if (disabledStart && endDate) {
+      if (!firstTimeOpen && endDate) {
         switch (picker) {
           case 'quarter':
             return quarterNumber(date) > quarterNumber(endDate);
@@ -75,17 +76,17 @@ export default function useRangeDisabled<DateType>(
 
       return false;
     },
-    [disabledDate, disabled[1], endDate, disabledStart]
+    [disabledDate, disabled[1], endDate, firstTimeOpen, readonly[1]]
   );
 
-  const disabledEndDate = React.useCallback(
-    (date: DateType) => {
-      if (disabledDate && disabledDate(date)) {
+  const disabledEndDate = useCallback(
+    (date: DateType): boolean => {
+      if (disabled[1] || disabledDate?.(date) || readonly[1]) {
         return true;
       }
 
       // Disabled range
-      if (disabled[0] && startDate) {
+      if ((disabled[0] || readonly[0]) && startDate) {
         return (
           !isSameDate(generateConfig, date, endDate) &&
           generateConfig.isAfter(startDate, date)
@@ -93,7 +94,7 @@ export default function useRangeDisabled<DateType>(
       }
 
       // Disabled part
-      if (disabledEnd && startDate) {
+      if (!firstTimeOpen && startDate) {
         switch (picker) {
           case 'quarter':
             return quarterNumber(date) < quarterNumber(startDate);
@@ -111,7 +112,7 @@ export default function useRangeDisabled<DateType>(
 
       return false;
     },
-    [disabledDate, disabled[0], startDate, disabledEnd]
+    [disabledDate, disabled[0], startDate, firstTimeOpen, readonly[0]]
   );
 
   return [disabledStartDate, disabledEndDate];

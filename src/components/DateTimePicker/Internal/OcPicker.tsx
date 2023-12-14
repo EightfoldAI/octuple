@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   CustomFormat,
   DatePickerShape,
@@ -44,6 +44,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     autoComplete = 'off',
     autoFocus,
     bordered = true,
+    changeOnBlur = true,
     classNames,
     clearIcon,
     clearIconAriaLabelText,
@@ -51,6 +52,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     defaultValue,
     direction,
     disabled,
+    readonly,
     disabledDate,
     dropdownAlign,
     dropdownClassNames,
@@ -61,7 +63,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     inputReadOnly,
     inputRender,
     locale,
+    nowButtonProps,
     nowText,
+    okButtonProps,
     okText,
     onBlur,
     onChange,
@@ -83,18 +87,23 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     popupPlacement,
     popupStyle,
     shape = DatePickerShape.Rectangle,
+    showNow,
+    showOk,
     showTime,
+    showToday,
     size = DatePickerSize.Medium,
     style,
     suffixIcon,
     tabIndex,
+    todayButtonProps,
+    todayActive,
     todayText,
     use12Hours,
     value,
   } = props as MergedOcPickerProps<DateType>;
 
   const inputRef: React.MutableRefObject<HTMLInputElement> =
-    React.useRef<HTMLInputElement>(null);
+    useRef<HTMLInputElement>(null);
 
   const needConfirmButton: boolean =
     (picker === 'date' && !!showTime) || picker === 'time';
@@ -104,11 +113,11 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   );
 
   const partialDivRef: React.MutableRefObject<HTMLDivElement> =
-    React.useRef<HTMLDivElement>(null);
+    useRef<HTMLDivElement>(null);
   const inputDivRef: React.MutableRefObject<HTMLDivElement> =
-    React.useRef<HTMLDivElement>(null);
+    useRef<HTMLDivElement>(null);
   const containerRef: React.MutableRefObject<HTMLDivElement> =
-    React.useRef<HTMLDivElement>(null);
+    useRef<HTMLDivElement>(null);
 
   // Real value
   const [mergedValue, setInnerValue] = useMergedState(null, {
@@ -123,13 +132,13 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
 
   // Operation ref
   const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
-    React.useRef<ContextOperationRefProps>(null);
+    useRef<ContextOperationRefProps>(null);
 
   // Open
   const [mergedOpen, triggerInnerOpen] = useMergedState(false, {
     value: open,
     defaultValue: defaultOpen,
-    postState: (postOpen) => (disabled ? false : postOpen),
+    postState: (postOpen) => (disabled || readonly ? false : postOpen),
     onChange: (newOpen) => {
       if (onOpenChange) {
         onOpenChange(newOpen);
@@ -180,7 +189,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   };
 
   const triggerOpen = (newOpen: boolean): void => {
-    if (disabled && newOpen) {
+    if ((disabled || readonly) && newOpen) {
       return;
     }
 
@@ -209,6 +218,16 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     }
   };
 
+  const onInternalBlur: React.FocusEventHandler<HTMLInputElement> = (
+    e: React.FocusEvent<HTMLInputElement, Element>
+  ): void => {
+    if (changeOnBlur) {
+      triggerChange(selectedValue);
+    }
+
+    onBlur?.(e);
+  };
+
   const [inputProps, { focused, typing }] = usePickerInput({
     blurToCancel: needConfirmButton,
     open: mergedOpen,
@@ -225,7 +244,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         // When user typing disabledDate with keyboard and enter, this value will be empty
         !selectedValue ||
         // Normal disabled check
-        (disabledDate && disabledDate(selectedValue))
+        disabledDate?.(selectedValue)
       ) {
         return false;
       }
@@ -247,11 +266,12 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       onKeyDown?.(e, preventDefault);
     },
     onFocus,
-    onBlur,
+    onBlur: onInternalBlur,
+    changeOnBlur,
   });
 
   // Close should sync back with text value
-  useEffect(() => {
+  useEffect((): void => {
     if (!mergedOpen) {
       setSelectedValue(mergedValue);
 
@@ -264,14 +284,14 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   }, [mergedOpen, valueTexts]);
 
   // Change picker should sync back with text value
-  useEffect(() => {
+  useEffect((): void => {
     if (!mergedOpen) {
       resetText();
     }
   }, [picker]);
 
   // Sync innerValue with control mode
-  useEffect(() => {
+  useEffect((): void => {
     // Sync select value
     setSelectedValue(mergedValue);
   }, [mergedValue]);
@@ -279,14 +299,10 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   if (pickerRef) {
     pickerRef.current = {
       focus: () => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-        }
+        inputRef.current?.focus();
       },
       blur: () => {
-        if (inputRef.current) {
-          inputRef.current.blur();
-        }
+        inputRef.current?.blur();
       },
     };
   }
@@ -321,8 +337,15 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       value={selectedValue}
       locale={locale}
       tabIndex={-1}
+      nowButtonProps={nowButtonProps}
       nowText={nowText}
+      okButtonProps={okButtonProps}
       okText={okText}
+      showNow={showNow}
+      showOk={showOk}
+      showToday={showToday}
+      todayButtonProps={todayButtonProps}
+      todayActive={todayActive}
       todayText={todayText}
       onSelect={(date: DateType) => {
         onSelect?.(date);
@@ -355,11 +378,22 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
 
   let suffixNode: React.ReactNode;
   if (suffixIcon) {
-    suffixNode = <span className={styles.pickerSuffix}>{suffixIcon}</span>;
+    suffixNode = (
+      <span
+        className={styles.pickerSuffix}
+        onMouseDown={(
+          e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+        ): void => {
+          e.preventDefault();
+        }}
+      >
+        {suffixIcon}
+      </span>
+    );
   }
 
   let clearNode: React.ReactNode;
-  if (allowClear && mergedValue && !disabled) {
+  if (allowClear && mergedValue && !disabled && !readonly) {
     clearNode = (
       <span
         aria-label={clearIconAriaLabelText}
@@ -385,7 +419,11 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     id,
     tabIndex,
     disabled,
-    readOnly: inputReadOnly || typeof formatList[0] === 'function' || !typing,
+    readOnly:
+      readonly ||
+      inputReadOnly ||
+      typeof formatList[0] === 'function' ||
+      !typing,
     value: hoverValue || text,
     onChange: (e) => {
       triggerTextChange(e.target.value);
@@ -449,6 +487,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
             },
             { [styles.pickerBorderless]: !bordered },
             { [styles.pickerDisabled]: disabled },
+            { [styles.pickerReadonly]: readonly },
             { [styles.pickerFocused]: focused },
             { [styles.pickerRtl]: direction === 'rtl' },
           ])}

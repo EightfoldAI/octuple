@@ -80,4 +80,12 @@ describe('Card', () => {
     expect(container.getElementsByClassName('card-small')).toHaveLength(1);
     expect(container).toMatchSnapshot();
   });
+
+  test('Card is bordered', () => {
+    const { container } = render(
+      <Card body={body} footer={footer} header={header} bordered />
+    );
+    expect(container.getElementsByClassName('card-bordered')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 });

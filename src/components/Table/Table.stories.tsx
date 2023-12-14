@@ -1620,6 +1620,7 @@ Expandable_Row.args = {
       <p style={{ margin: 0 }}>{record.description}</p>
     ),
     rowExpandable: (record: DataType) => record.name !== 'Farida Ashfaq',
+    rowExpandDisabled: (record: DataType) => record.name === 'Cobbey Deevey',
   },
 };
 
@@ -1635,6 +1636,7 @@ Order_Select_And_Expand_Column.args = {
       <p style={{ margin: 0 }}>{record.description}</p>
     ),
     rowExpandable: (record: DataType) => record.name !== 'Farida Ashfaq',
+    rowExpandDisabled: (record: DataType) => record.name === 'Cobbey Deevey',
   },
 };
 

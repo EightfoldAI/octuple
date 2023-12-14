@@ -37,6 +37,7 @@ export interface BodyRowProps<RecordType> {
   cellComponent: CustomizeComponent;
   onRow: GetComponentProps<RecordType>;
   rowExpandable: (record: RecordType) => boolean;
+  rowExpandDisabled?: (record: RecordType) => boolean;
   indent?: number;
   rowKey: React.Key;
   getRowKey: GetRowKey<RecordType>;
@@ -72,6 +73,7 @@ export interface BodyProps<RecordType> {
   expandedKeys: Set<Key>;
   onRow: GetComponentProps<RecordType>;
   rowExpandable: (record: RecordType) => boolean;
+  rowExpandDisabled?: (record: RecordType) => boolean;
   emptyNode: React.ReactNode;
   childrenColumnName: string;
   /**

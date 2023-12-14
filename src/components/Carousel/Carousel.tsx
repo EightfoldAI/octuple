@@ -74,7 +74,6 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       pause = 'hover',
       previousIconButtonAriaLabel: defaultPreviousIconButtonAriaLabel,
       single = false,
-      style,
       transition = 'push',
       type = 'slide',
       'data-test-id': dataTestId,
@@ -664,6 +663,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                   {type === 'scroll' && (
                     <ResizeObserver onResize={updateScrollMode}>
                       <ScrollMenu
+                        controls={controls}
                         nextButton={() => autoScrollButton('next')}
                         onWheel={handleOnWheel}
                         previousButton={() => autoScrollButton('previous')}

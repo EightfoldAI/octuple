@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import { Stories } from '@storybook/addon-docs';
+import { ButtonVariant } from '../../Button';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DatePicker from './';
 import { DatePickerShape, DatePickerSize } from './';
@@ -43,7 +44,7 @@ export default {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
-    disabled: {
+    changeOnBlur: {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
@@ -101,6 +102,16 @@ const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
       <DatePicker {...args} onChange={onChange} picker="month" />
       <DatePicker {...args} onChange={onChange} picker="quarter" />
       <DatePicker {...args} onChange={onChange} picker="year" />
+    </Stack>
+  );
+};
+
+const Single_Picker_Readonly_Story: ComponentStory<typeof DatePicker> = (
+  args
+) => {
+  return (
+    <Stack direction="vertical" flexGap="m">
+      <DatePicker {...args} defaultValue={dayjs('2023-10-24', dateFormat)} />
     </Stack>
   );
 };
@@ -174,6 +185,20 @@ const Single_Picker_Choose_Time_Story: ComponentStory<typeof DatePicker> = (
   return <DatePicker {...args} showTime onChange={onChange} onOk={onOk} />;
 };
 
+const Single_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
+  typeof DatePicker
+> = (args) => {
+  const onChange = (
+    value: DatePickerProps['value'],
+    dateString: [string, string] | string
+  ) => {
+    console.log('Selected Time: ', value);
+    console.log('Formatted Selected Time: ', dateString);
+  };
+
+  return <DatePicker {...args} showTime onChange={onChange} />;
+};
+
 const { RangePicker } = DatePicker;
 
 const Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
@@ -211,6 +236,43 @@ const Range_Picker_Choose_Time_Story: ComponentStory<typeof RangePicker> = (
       onChange={onChange}
       onOk={onOk}
     />
+  );
+};
+
+const Range_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
+  typeof RangePicker
+> = (args) => {
+  const onChange = (
+    value: RangePickerProps['value'],
+    dateString: [string, string] | string
+  ) => {
+    console.log('Selected Time: ', value);
+    console.log('Formatted Selected Time: ', dateString);
+  };
+
+  return (
+    <RangePicker
+      {...args}
+      showTime={{ format: 'HH:mm' }}
+      format="YYYY-MM-DD HH:mm"
+      onChange={onChange}
+    />
+  );
+};
+
+const Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
+  args
+) => {
+  return (
+    <Stack direction="vertical" flexGap="m">
+      <RangePicker
+        {...args}
+        defaultValue={[
+          dayjs('2023-10-23', dateFormat),
+          dayjs('2023-10-27', dateFormat),
+        ]}
+      />
+    </Stack>
   );
 };
 
@@ -472,17 +534,23 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
 };
 
 export const Single_Picker = Single_Picker_Story.bind({});
+export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
 export const Single_Picker_Disabled = Single_Picker_Disabled_Story.bind({});
 export const Single_Picker_Disabled_Date_and_Time =
   Single_Picker_Disabled_Date_and_Time_Story.bind({});
 export const Single_Picker_Choose_Time = Single_Picker_Choose_Time_Story.bind(
   {}
 );
+export const Single_Picker_Choose_Time_Hide_Buttons =
+  Single_Picker_Choose_Time_Hide_Buttons_Story.bind({});
 export const Range_Picker = Range_Picker_Story.bind({});
+export const Range_Picker_Readonly = Range_Picker_Readonly_Story.bind({});
 export const Range_Picker_Disabled = Range_Picker_Disabled_Story.bind({});
 export const Range_Picker_Disabled_Date_and_Time =
   Range_Picker_Disabled_Date_and_Time_Story.bind({});
 export const Range_Picker_Choose_Time = Range_Picker_Choose_Time_Story.bind({});
+export const Range_Picker_Choose_Time_Hide_Buttons =
+  Range_Picker_Choose_Time_Hide_Buttons_Story.bind({});
 export const Preset_Ranges = Preset_Ranges_Story.bind({});
 export const Select_Range_By_Day_Limit = Select_Range_By_Day_Limit_Story.bind(
   {}
@@ -501,13 +569,17 @@ export const Range_Status = Range_Status_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Single_Picker',
+  'Single_Picker_Readonly',
   'Single_Picker_Disabled',
   'Single_Picker_Disabled_Date_and_Time',
   'Single_Picker_Choose_Time',
+  'Single_Picker_Choose_Time_Hide_Buttons',
   'Range_Picker',
+  'Range_Picker_Readonly',
   'Range_Picker_Disabled',
   'Range_Picker_Disabled_Date_and_Time',
   'Range_Picker_Choose_Time',
+  'Range_Picker_Choose_Time_Hide_Buttons',
   'Preset_Ranges',
   'Select_Range_By_Day_Limit',
   'Date_Format_Basic',
@@ -526,10 +598,23 @@ const pickerArgs: Object = {
   popupPlacement: 'bottomLeft',
   shape: DatePickerShape.Rectangle,
   size: DatePickerSize.Medium,
+  changeOnBlur: true,
+  nowButtonProps: null,
+  okButtonProps: { variant: ButtonVariant.Primary },
+  showNow: true,
+  showOk: true,
+  showToday: true,
+  todayActive: true,
+  todayButtonProps: null,
 };
 
 Single_Picker.args = {
   ...pickerArgs,
+};
+
+Single_Picker_Readonly.args = {
+  ...pickerArgs,
+  readonly: true,
 };
 
 Single_Picker_Disabled.args = {
@@ -545,29 +630,54 @@ Single_Picker_Choose_Time.args = {
   ...pickerArgs,
 };
 
+Single_Picker_Choose_Time_Hide_Buttons.args = {
+  ...pickerArgs,
+  showNow: false,
+  showOk: false,
+};
+
 Range_Picker.args = {
   ...pickerArgs,
+  showToday: false, // The range picker default is false, this is for Storybook args only.
+};
+
+Range_Picker_Readonly.args = {
+  ...pickerArgs,
+  showToday: false,
+  readonly: [true, true],
 };
 
 Range_Picker_Disabled.args = {
   ...pickerArgs,
-  disabled: true,
+  showToday: false,
+  disabled: [true, true],
 };
 
 Range_Picker_Disabled_Date_and_Time.args = {
   ...pickerArgs,
+  showToday: false,
 };
 
 Range_Picker_Choose_Time.args = {
   ...pickerArgs,
+  showToday: false,
+};
+
+Range_Picker_Choose_Time_Hide_Buttons.args = {
+  ...pickerArgs,
+  showToday: false,
+  showNow: false,
+  showOk: false,
 };
 
 Preset_Ranges.args = {
   ...pickerArgs,
+  showToday: false,
 };
 
 Select_Range_By_Day_Limit.args = {
   ...pickerArgs,
+  showToday: false,
 };
 
 Date_Format_Basic.args = {
@@ -576,6 +686,7 @@ Date_Format_Basic.args = {
 
 Date_Format_Range.args = {
   ...pickerArgs,
+  showToday: false,
 };
 
 Extra_Footer.args = {
@@ -584,6 +695,7 @@ Extra_Footer.args = {
 
 Customized_Date_Styling.args = {
   ...pickerArgs,
+  showToday: false,
 };
 
 Single_Borderless.args = {
@@ -593,6 +705,7 @@ Single_Borderless.args = {
 
 Range_Borderless.args = {
   ...pickerArgs,
+  showToday: false,
   bordered: false,
 };
 
@@ -602,4 +715,5 @@ Single_Status.args = {
 
 Range_Status.args = {
   ...pickerArgs,
+  showToday: false,
 };

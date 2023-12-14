@@ -3,7 +3,7 @@
 exports[`List List is horizontal 1`] = `
 <div>
   <div
-    class="my-list-class"
+    class="my-ref-class"
     data-testid="test-list"
   >
     <div
@@ -14,14 +14,16 @@ exports[`List List is horizontal 1`] = `
       </h2>
     </div>
     <ul
-      class="list-container"
-      role=""
+      class="list-container my-list-class"
+      role="list"
     >
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 1
           </p>
@@ -34,7 +36,9 @@ exports[`List List is horizontal 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 2
           </p>
@@ -47,7 +51,9 @@ exports[`List List is horizontal 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 3
           </p>
@@ -60,7 +66,9 @@ exports[`List List is horizontal 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 4
           </p>
@@ -73,7 +81,9 @@ exports[`List List is horizontal 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 5
           </p>
@@ -97,7 +107,7 @@ exports[`List List is horizontal 1`] = `
 exports[`List Renders without crashing 1`] = `
 <div>
   <div
-    class="my-list-class"
+    class="my-ref-class"
     data-testid="test-list"
   >
     <div
@@ -108,14 +118,16 @@ exports[`List Renders without crashing 1`] = `
       </h2>
     </div>
     <ul
-      class="list-container vertical"
-      role=""
+      class="list-container my-list-class vertical"
+      role="list"
     >
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 1
           </p>
@@ -128,7 +140,9 @@ exports[`List Renders without crashing 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 2
           </p>
@@ -141,7 +155,9 @@ exports[`List Renders without crashing 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 3
           </p>
@@ -154,7 +170,9 @@ exports[`List Renders without crashing 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 4
           </p>
@@ -167,7 +185,9 @@ exports[`List Renders without crashing 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div>
+        <div
+          id="undefined"
+        >
           <p>
             User 5
           </p>

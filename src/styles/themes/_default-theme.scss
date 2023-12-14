@@ -362,9 +362,9 @@
   --anchor-secondary-active-color: var(--grey-color-90);
   --anchor-hover-color: var(--primary-color-90);
   --anchor-disruptive-hover-color: var(--disruptive-secondary-color);
-  --anchor-neutral-hover-color: var(--primary-secondary-color);
+  --anchor-neutral-hover-color: var(--grey-secondary-color);
   --anchor-primary-hover-color: var(--primary-secondary-color);
-  --anchor-secondary-hover-color: var(--primary-secondary-color);
+  --anchor-secondary-hover-color: var(--grey-color-90);
   --anchor-visited-color: var(--violet-secondary-color);
   --anchor-disruptive-visited-color: var(--violet-secondary-color);
   --anchor-neutral-visited-color: var(--violet-secondary-color);
@@ -405,6 +405,7 @@
   --input-text-color: var(--text-primary-color);
   --input-placeholder-text-color: var(--text-secondary-color);
   --input-readonly-background-color: var(--grey-background1-color);
+  --input-readonly-border-color: var(--grey-tertiary-color);
   --input-readonly-text-color: var(--text-primary-color);
   --input-success-text-color: var(--text-primary-color);
   --input-success-border-color: var(--input-border-color);
@@ -1123,6 +1124,76 @@
   --check-box-mark-color: var(--primary-secondary-color);
   --check-box-focus-visible-mark-color: var(--primary-color);
   --check-box-text-color: var(--primary-secondary-color);
+
+  --check-box-pill-container-background-color: var(--grey-background1-color);
+  --check-box-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-color: var(--accent-background2-color);
+  --check-box-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-radius: var(--border-radius-xl);
+  --check-box-pill-container-border-style: solid;
+  --check-box-pill-container-border-width: 0;
+  --check-box-pill-container-text-color: var(--text-secondary-color);
+  --check-box-pill-container-active-text-color: var(--primary-color);
+  --check-box-pill-container-hover-text-color: var(--primary-color);
+  --check-box-in-pill-background-color: transparent;
+  --check-box-in-pill-active-background-color: transparent;
+  --check-box-in-pill-hover-background-color: transparent;
+  --check-box-in-pill-checked-background-color: transparent;
+  --check-box-in-pill-checked-active-background-color: transparent;
+  --check-box-in-pill-checked-hover-background-color: transparent;
+  --check-box-in-pill-border-color: var(--grey-secondary-color);
+  --check-box-in-pill-active-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-hover-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-border-width: 2px;
+  --check-box-in-pill-border-style: solid;
+  --check-box-in-pill-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style) var(--check-box-in-pill-border-color);
+  --check-box-in-pill-active-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-active-border-color);
+  --check-box-in-pill-hover-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-hover-border-color);
+  --check-box-in-pill-checked-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-border-color);
+  --check-box-in-pill-checked-active-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-active-border-color);
+  --check-box-in-pill-checked-hover-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-hover-border-color);
+  --check-box-in-pill-focus-visible-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-focus-visible-border-color);
+  --check-box-in-pill-mark-color: var(--primary-secondary-color);
+  --check-box-in-pill-focus-visible-mark-color: var(--primary-secondary-color);
   // ------ Check Box theme ------
 
   // ------ Toggle Switch theme ------
@@ -1212,6 +1283,81 @@
   --radio-button-pip-color: var(--primary-secondary-color);
   --radio-button-focus-visible-pip-color: var(--primary-color);
   --radio-button-text-color: var(--primary-secondary-color);
+
+  --radio-button-pill-container-background-color: var(--grey-background1-color);
+  --radio-button-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-color: var(--accent-background2-color);
+  --radio-button-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-radius: var(--border-radius-xl);
+  --radio-button-pill-container-border-style: solid;
+  --radio-button-pill-container-border-width: 0;
+  --radio-button-pill-container-text-color: var(--text-secondary-color);
+  --radio-button-pill-container-active-text-color: var(--primary-color);
+  --radio-button-pill-container-hover-text-color: var(--primary-color);
+  --radio-button-in-pill-background-color: transparent;
+  --radio-button-in-pill-active-background-color: transparent;
+  --radio-button-in-pill-hover-background-color: transparent;
+  --radio-button-in-pill-checked-background-color: transparent;
+  --radio-button-in-pill-checked-active-background-color: transparent;
+  --radio-button-in-pill-checked-hover-background-color: transparent;
+  --radio-button-in-pill-border-color: var(--grey-secondary-color);
+  --radio-button-in-pill-active-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-hover-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-border-width: 2px;
+  --radio-button-in-pill-border-style: solid;
+  --radio-button-in-pill-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-border-color);
+  --radio-button-in-pill-active-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-active-border-color);
+  --radio-button-in-pill-hover-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-hover-border-color);
+  --radio-button-in-pill-checked-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-border-color);
+  --radio-button-in-pill-checked-active-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-active-border-color);
+  --radio-button-in-pill-checked-hover-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-hover-border-color);
+  --radio-button-in-pill-focus-visible-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-focus-visible-border-color);
+  --radio-button-in-pill-pip-color: var(--primary-secondary-color);
+  --radio-button-in-pill-focus-visible-pip-color: var(
+    --primary-secondary-color
+  );
   // ------ Radio Button theme ------
 
   // ------ Persistent Bar theme ------
@@ -1231,12 +1377,188 @@
   --progress-border-color: var(--primary-tertiary-color);
   --progress-complete-background-color: var(--primary-tertiary-color);
   --progress-error-background-color: var(--error-color);
+  --progress-error-inner-background-color: var(--disruptive-background1-color);
   --progress-error-border-color: var(--error-color);
   --progress-error-text-color: var(--error-color);
-  --progress-incomplete-background-color: var(--accent-background1-color);
+  --progress-pill-error-background-color: var(--error-background-color);
+  --progress-pill-error-inner-background-color: var(
+    --disruptive-background1-color
+  );
+  --progress-pill-error-inner-default-border-color: var(
+    --error-background-color
+  );
+  --progress-pill-error-inner-border-color: var(--progress-error-border-color);
+  --progress-pill-error-outer-border-color: var(--progress-error-border-color);
+  --progress-incomplete-background-color: var(--primary-background1-color);
+  --progress-pill-background-color: var(--primary-background1-color);
+  --progress-pill-outer-border-color: var(--primary-tertiary-color);
+  --progress-pill-inner-complete-background-color: var(
+    --progress-complete-background-color
+  );
+  --progress-pill-inner-incomplete-background-color: var(
+    --progress-incomplete-background-color
+  );
+  --progress-pill-inner-background-color: var(--background-color);
+  --progress-pill-inner-default-border-color: var(--primary-background1-color);
+  --progress-pill-inner-border-color: var(--progress-border-color);
   --progress-success-background-color: var(--success-color);
+  --progress-success-inner-background-color: var(--green-background1-color);
   --progress-success-border-color: var(--success-color);
   --progress-success-text-color: var(--success-color);
+  --progress-pill-success-background-color: var(--success-background-color);
+  --progress-pill-success-inner-background-color: var(
+    --green-background1-color
+  );
+  --progress-pill-success-inner-default-border-color: var(
+    --success-background-color
+  );
+  --progress-pill-success-outer-border-color: var(
+    --progress-success-border-color
+  );
+  --progress-pill-success-inner-border-color: var(
+    --progress-success-border-color
+  );
   --progress-text-color: var(--text-primary-color);
   // ------ Progress theme ------
+
+  // ------ Skill theme ------
+  --skill-block-border-radius: 12px;
+  --skill-large-size-border-radius: var(--border-radius-m);
+  --skill-medium-size-border-radius: var(--border-radius-m);
+  --skill-small-size-border-radius: var(--border-radius-s);
+  --skill-xsmall-size-border-radius: var(--border-radius-s);
+  --skill-below-background-color: var(--red-background2-color);
+  --skill-below-icon-color: var(--red-secondary-color);
+  --skill-exceed-background-color: var(--green-background2-color);
+  --skill-exceed-icon-color: var(--green-secondary-color);
+  --skill-meet-background-color: var(--orange-background2-color);
+  --skill-meet-icon-color: var(--orange-secondary-color);
+  --skill-upskilling-background-color: var(--blueviolet-background2-color);
+  --skill-upskilling-icon-color: var(--blueviolet-secondary-color);
+  --skill-background-color: var(--white-color);
+  --skill-active-background-color: var(--grey-background2-color);
+  --skill-hover-background-color: var(--grey-background1-color);
+  --skill-border-color: var(--grey-background2-color);
+  --skill-border-width: 1px;
+  --skill-border-style: solid;
+  --skill-border: var(--skill-border-width) var(--skill-border-style)
+    var(--skill-border-color);
+  --skill-label-color: var(--grey-secondary-color);
+  --skill-active-label-color: var(--text-primary-color);
+  --skill-hover-label-color: var(--text-primary-color);
+  --skill-required-mark-color: var(--grey-secondary-color);
+  --skill-active-required-mark-color: var(--text-primary-color);
+  --skill-hover-required-mark-color: var(--text-primary-color);
+  --skill-divider-color: var(--grey-background2-color);
+  --skill-active-divider-color: var(--grey-background3-color);
+  --skill-hover-divider-color: var(--grey-background3-color);
+  --skill-button-background-color: var(--button-neutral-background-color);
+  --skill-button-active-background-color: var(
+    --button-neutral-active-background-color
+  );
+  --skill-button-hover-background-color: var(
+    --button-neutral-hover-background-color
+  );
+  --skill-button-focus-visible-background-color: var(
+    --button-neutral-focus-visible-background-color
+  );
+  --skill-button-counter-default-background-color: var(
+    --button-counter-default-background-color
+  );
+  --skill-button-counter-hover-background-color: var(
+    --button-counter-hover-background-color
+  );
+  --skill-button-counter-checked-background-color: var(
+    --button-counter-checked-background-color
+  );
+  --skill-button-counter-focus-background-color: var(
+    --button-counter-focus-background-color
+  );
+  --skill-button-counter-active-background-color: var(
+    --button-counter-active-background-color
+  );
+  --skill-button-counter-default-text-color: var(
+    --button-neutral-counter-default-text-color
+  );
+  --skill-highlight-background-color: var(--yellowgreen-background1-color);
+  --skill-highlight-active-background-color: var(
+    --yellowgreen-background3-color
+  );
+  --skill-highlight-hover-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-border-color: var(--yellowgreen-background2-color);
+  --skill-highlight-label-color: var(--yellowgreen-color);
+  --skill-highlight-active-label-color: var(--yellowgreen-color);
+  --skill-highlight-hover-label-color: var(--yellowgreen-color);
+  --skill-highlight-divider-color: var(--yellowgreen-background2-color);
+  --skill-highlight-active-divider-color: var(--yellowgreen-color-40);
+  --skill-highlight-hover-divider-color: var(--yellowgreen-background3-color);
+  --skill-highlight-button-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-active-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-hover-background-color: var(
+    --yellowgreen-background3-color
+  );
+  --skill-highlight-button-focus-visible-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-hover-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-checked-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-focus-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-counter-active-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-text-color: var(--yellowgreen-color);
+  --skill-match-background-color: var(--white-color);
+  --skill-match-active-background-color: var(--green-background2-color);
+  --skill-match-hover-background-color: var(--green-background1-color);
+  --skill-match-border-color: var(--green-background2-color);
+  --skill-match-label-color: var(--green-color);
+  --skill-match-active-label-color: var(--green-color);
+  --skill-match-hover-label-color: var(--green-color);
+  --skill-match-divider-color: var(--green-background2-color);
+  --skill-match-active-divider-color: var(--green-background3-color);
+  --skill-match-hover-divider-color: var(--green-background2-color);
+  --skill-match-button-background-color: var(--green-background1-color);
+  --skill-match-button-active-background-color: var(--green-background3-color);
+  --skill-match-button-hover-background-color: var(--green-background2-color);
+  --skill-match-button-focus-visible-background-color: var(--white-color);
+  --skill-match-button-counter-background-color: var(--green-background2-color);
+  --skill-match-button-counter-hover-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-match-button-counter-checked-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-button-counter-focus-background-color: var(
+    --green-background2-color
+  );
+  --skill-match-button-counter-active-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-button-counter-text-color: var(--green-color);
+  // ------ Skill theme ------
+
+  // ------ Form theme ------
+  --form-item-explain-text-color: var(--text-secondary-color);
+  --form-item-extra-text-color: var(--text-secondary-color);
+  --form-item-label-color: var(--text-primary-color);
+  --form-item-optional-text-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-cursor: help;
+  --form-item-required-mark-color: var(--text-primary-color);
+  // ------ Form theme ------
 }

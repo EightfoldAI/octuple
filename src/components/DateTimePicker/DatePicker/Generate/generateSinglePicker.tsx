@@ -14,8 +14,6 @@ import {
   SizeContext,
   Size,
 } from '../../../ConfigProvider';
-import { mergeClasses } from '../../../../shared/utilities';
-import type { InputStatus } from '../../../../shared/utilities';
 import OcPicker from '../../Internal/OcPicker';
 import type { GenerateConfig } from '../../Internal/Generate';
 import {
@@ -43,7 +41,8 @@ import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../../../Form/Context';
-import { getMergedStatus } from '../../../../shared/utilities';
+import type { InputStatus } from '../../../../shared/utilities';
+import { getMergedStatus, mergeClasses } from '../../../../shared/utilities';
 
 import styles from '../datepicker.module.scss';
 
@@ -77,13 +76,21 @@ export default function generatePicker<DateType>(
         getPopupContainer,
         id,
         locale = enUS,
+        nowButtonProps,
         nowText: defaultNowText,
+        okButtonProps,
         okText: defaultOkText,
         placeholder,
         popupPlacement,
+        readonly = false,
         shape = DatePickerShape.Rectangle,
+        showNow = true,
+        showOk = true,
+        showToday = true,
         size = DatePickerSize.Medium,
         status,
+        todayButtonProps,
+        todayActive = true,
         todayText: defaultTodayText,
         ...rest
       } = props;
@@ -100,10 +107,6 @@ export default function generatePicker<DateType>(
         focus: () => innerRef.current?.focus(),
         blur: () => innerRef.current?.blur(),
       }));
-
-      const additionalProps = {
-        showToday: true,
-      };
 
       let additionalOverrideProps: any = {};
       if (picker) {
@@ -227,13 +230,19 @@ export default function generatePicker<DateType>(
                   mergedPicker === 'time' ? (
                     <Icon
                       color={iconColor()}
-                      path={IconName.mdiClockOutline}
+                      path={
+                        readonly ? IconName.mdiLock : IconName.mdiClockOutline
+                      }
                       size={pickerSizeToIconSizeMap.get(mergedSize)}
                     />
                   ) : (
                     <Icon
                       color={iconColor()}
-                      path={IconName.mdiCalendarBlankOutline}
+                      path={
+                        readonly
+                          ? IconName.mdiLock
+                          : IconName.mdiCalendarBlankOutline
+                      }
                       size={pickerSizeToIconSizeMap.get(mergedSize)}
                     />
                   )
@@ -245,19 +254,25 @@ export default function generatePicker<DateType>(
                 popupPlacement={popupPlacement}
                 clearIcon={
                   <Icon
-                    path={IconName.mdiCloseCircle}
+                    path={IconName.mdiClose}
                     size={pickerSizeToIconSizeMap.get(mergedSize)}
                   />
                 }
+                nowButtonProps={nowButtonProps}
                 nowText={nowText}
+                okButtonProps={okButtonProps}
                 okText={okText}
+                showNow={showNow}
+                showOk={showOk}
+                showToday={showToday}
+                todayButtonProps={todayButtonProps}
+                todayActive={todayActive}
                 todayText={todayText}
                 prevIcon={IconName.mdiChevronLeft}
                 nextIcon={IconName.mdiChevronRight}
                 superPrevIcon={IconName.mdiChevronDoubleLeft}
                 superNextIcon={IconName.mdiChevronDoubleRight}
                 allowClear
-                {...additionalProps}
                 {...rest}
                 {...additionalOverrideProps}
                 locale={locale!.lang}
@@ -313,6 +328,7 @@ export default function generatePicker<DateType>(
                 components={Components}
                 direction={htmlDir}
                 disabled={mergedDisabled}
+                readonly={readonly}
                 shape={mergedShape}
                 size={mergedSize}
               />

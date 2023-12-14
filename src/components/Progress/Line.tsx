@@ -1,5 +1,5 @@
 import React, { FC, useLayoutEffect, useRef } from 'react';
-import { LineProps, ProgressSize } from './Progress.types';
+import { LineProps, ProgressSize, ProgressVariant } from './Progress.types';
 import type { ProgressGradient, StringGradients } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
 import type { DirectionType } from '../ConfigProvider';
@@ -70,6 +70,7 @@ const Line: FC<LineProps> = (props) => {
     maxLabelRef,
     minLabelRef,
     percent,
+    pillBordered,
     showLabels,
     showSuccessLabel,
     showValueLabel,
@@ -81,6 +82,7 @@ const Line: FC<LineProps> = (props) => {
     successLabelRef,
     trailColor = null,
     valueLabelRef,
+    variant,
   } = props;
 
   const progressBgRef: React.MutableRefObject<HTMLDivElement> =
@@ -102,9 +104,21 @@ const Line: FC<LineProps> = (props) => {
     borderRadius,
   };
 
+  const getPercentHeight = (): number => {
+    let height: number = 6;
+    if (size === ProgressSize.Large) {
+      height = 12;
+    } else if (size === ProgressSize.Medium) {
+      height = 6;
+    } else if (size === ProgressSize.Small) {
+      height = 4;
+    }
+    return height;
+  };
+
   const percentStyle = {
     width: `${validProgress(percent)}%`,
-    height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
+    height: strokeWidth || getPercentHeight(),
     borderRadius,
     ...backgroundProps,
   };
@@ -113,7 +127,7 @@ const Line: FC<LineProps> = (props) => {
 
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
-    height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
+    height: strokeWidth || getPercentHeight(),
     borderRadius,
     background: success?.strokeColor,
   };
@@ -251,7 +265,13 @@ const Line: FC<LineProps> = (props) => {
 
   return (
     <ResizeObserver onResize={updateLayout}>
-      <div className={styles.progressOuter}>
+      <div
+        className={mergeClasses([
+          styles.progressOuter,
+          { [styles.progressOuterPill]: variant === ProgressVariant.Pill },
+          { [styles.progressOuterPillBordered]: !!pillBordered },
+        ])}
+      >
         <div
           className={mergeClasses([
             styles.progressInner,
