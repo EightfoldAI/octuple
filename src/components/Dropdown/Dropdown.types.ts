@@ -60,7 +60,7 @@ export interface DropdownProps {
   /**
    * Optionally place focus on the first focusable
    * selector when the Dropdown is first visible.
-   * When false, visibility will be placed on the Dropdown.
+   * When false, visibility will remain on the Dropdown.
    * @default true
    */
   initialFocus?: boolean;

@@ -40,18 +40,18 @@ export const List = <T extends any>({
     listClassNames,
     { [styles.vertical]: layout === 'vertical' },
   ]);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [focusIndex, setFocusIndex] = useState<number | null>(null);
   const itemRefs: React.MutableRefObject<HTMLElement[]> = useRef<
     (HTMLElement | null)[]
   >([]);
 
-  // Update the active item when the items or activeIndex change.
+  // Update the focused item when the items or focusIndex change.
   useEffect(() => {
-    // Ensure the active item index is within bounds.
-    if (activeIndex !== null && items && activeIndex >= items.length) {
-      setActiveIndex(items.length - 1);
+    // Ensure the focused item index is within bounds.
+    if (focusIndex !== null && items && focusIndex >= items.length) {
+      setFocusIndex(items.length - 1);
     }
-  }, [activeIndex, items]);
+  }, [focusIndex, items]);
 
   const handleItemKeyDown = (
     event: KeyboardEvent | React.KeyboardEvent<HTMLElement>,
@@ -72,7 +72,7 @@ export const List = <T extends any>({
       ((arrowDecrement || arrowIncrement) && layout === 'horizontal')
     ) {
       event?.preventDefault();
-      setActiveIndex(index);
+      setFocusIndex(index);
       if (itemRefs.current[index]) {
         const getFocusableElements = (): HTMLElement[] => {
           const step: number =
