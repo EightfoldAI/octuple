@@ -29,7 +29,6 @@ exports[`List List is horizontal 1`] = `
           id="User1"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 1
         </a>
@@ -46,7 +45,6 @@ exports[`List List is horizontal 1`] = `
           id="User2"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 2
         </a>
@@ -63,7 +61,6 @@ exports[`List List is horizontal 1`] = `
           id="User3"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 3
         </a>
@@ -80,7 +77,6 @@ exports[`List List is horizontal 1`] = `
           id="User4"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 4
         </a>
@@ -97,7 +93,6 @@ exports[`List List is horizontal 1`] = `
           id="User5"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 5
         </a>
@@ -143,7 +138,6 @@ exports[`List Renders without crashing 1`] = `
           id="User1"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 1
         </a>
@@ -160,7 +154,6 @@ exports[`List Renders without crashing 1`] = `
           id="User2"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 2
         </a>
@@ -177,7 +170,6 @@ exports[`List Renders without crashing 1`] = `
           id="User3"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 3
         </a>
@@ -194,7 +186,6 @@ exports[`List Renders without crashing 1`] = `
           id="User4"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 4
         </a>
@@ -211,7 +202,6 @@ exports[`List Renders without crashing 1`] = `
           id="User5"
           role="link"
           target="_self"
-          title="undefined"
         >
           User 5
         </a>
