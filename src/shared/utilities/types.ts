@@ -1,3 +1,14 @@
+export const SELECTORS: string =
+  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
+
+export const focusable = (el: HTMLElement | null): boolean => {
+  return (
+    !el?.hasAttribute('data-disabled') && // optionally use a data attribute as a way to exclude certain elements without hiding them from screen readers to improve usability.
+    !el?.hasAttribute('disabled') &&
+    !el?.getAttribute('aria-hidden')
+  );
+};
+
 // https://stackoverflow.com/questions/46176165/ways-to-get-string-literal-type-of-array-values-without-enum-overhead
 export const tuple = <T extends string[]>(...args: T) => args;
 

@@ -74,7 +74,7 @@ import {
 
 import { Dialog, DialogHelper, DialogSize } from './components/Dialog';
 
-import { Dropdown } from './components/Dropdown';
+import { Dropdown, DropdownRef } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
 
@@ -348,6 +348,7 @@ export {
   DialogHelper,
   DialogSize,
   Dropdown,
+  DropdownRef,
   Empty,
   EmptyMode,
   ExceedLargeImg,

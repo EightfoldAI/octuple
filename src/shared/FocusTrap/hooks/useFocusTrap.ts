@@ -1,9 +1,7 @@
 // Based on https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
 import { useRef, useEffect } from 'react';
 import { eventKeys } from '../../utilities/eventKeys';
-
-const SELECTORS =
-  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
+import { focusable, SELECTORS } from '../../utilities';
 
 const FOCUS_DELAY_INTERVAL: number = 100;
 
@@ -20,8 +18,7 @@ export function useFocusTrap(
 
   const getFocusableElements = (): HTMLElement[] => {
     return [...elRef.current.querySelectorAll(SELECTORS)].filter(
-      (el: HTMLElement) =>
-        !el?.hasAttribute('disabled') && !el?.getAttribute('aria-hidden')
+      (el: HTMLElement) => focusable(el)
     );
   };
 

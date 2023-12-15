@@ -2,8 +2,10 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
+import { Link } from '../Link';
 import { List, ListProps } from './';
-import { render, queryByAttribute } from '@testing-library/react';
+import { fireEvent, render, queryByAttribute } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -11,15 +13,12 @@ let matchMedia: any;
 
 interface User {
   name: string;
-  summary: string;
-  img: string;
-  id?: number;
+  id?: string;
 }
 
 const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
   name: `User ${i}`,
-  summary: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-  img: '',
+  id: `User${i}`,
 }));
 
 const listProps: ListProps<User> = {
@@ -31,10 +30,9 @@ const listProps: ListProps<User> = {
   ),
   layout: 'vertical',
   renderItem: (item: User) => (
-    <div id={`${item.id}`}>
-      <p>{item.name}</p>
-      <div>{item.summary}</div>
-    </div>
+    <Link href="#" id={`${item.id}`} data-testid={`${item.id}`}>
+      {item.name}
+    </Link>
   ),
   header: (
     <div style={{ paddingLeft: '16px' }}>
@@ -86,12 +84,77 @@ describe('List', () => {
 
   test('Should call rowKey function and return a Key', () => {
     const mockRowKey = jest.fn((item) => item.id);
-    const testItem: User = { id: 123, img: '', name: 'Test', summary: 'test' };
+    const testItem: User = { id: '123', name: 'Test' };
     const { container } = render(
       <List {...listProps} rowKey={mockRowKey} items={[testItem]} />
     );
     const getById = queryByAttribute.bind(null, 'id');
     expect(mockRowKey).toHaveBeenCalledWith(testItem);
     expect(getById(container, `${testItem.id}`)).toBeTruthy();
+  });
+
+  test('handleItemKeyDown should update activeIndex correctly for vertical layout', () => {
+    const { getByTestId } = render(<List {...listProps} layout="vertical" />);
+    const item1 = getByTestId('User1');
+    const item2 = getByTestId('User2');
+    const item3 = getByTestId('User3');
+    item1.focus();
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowDown' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowDown' });
+    expect(item3).toHaveFocus();
+    fireEvent.keyDown(item3, { key: 'ArrowUp' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowUp' });
+    expect(item1).toHaveFocus();
+  });
+
+  test('handleItemKeyDown should update activeIndex correctly for horizontal layout', () => {
+    const { getByTestId } = render(<List {...listProps} layout="horizontal" />);
+    const item1 = getByTestId('User1');
+    const item2 = getByTestId('User2');
+    const item3 = getByTestId('User3');
+    item1.focus();
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowRight' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowRight' });
+    expect(item3).toHaveFocus();
+    fireEvent.keyDown(item3, { key: 'ArrowLeft' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowLeft' });
+    expect(item1).toHaveFocus();
+  });
+
+  test('handleItemKeyDown should update activeIndex correctly for horizontal layout in rtl canvas', () => {
+    document.documentElement.dir = 'rtl';
+    const { getByTestId } = render(<List {...listProps} layout="horizontal" />);
+    const item1 = getByTestId('User1');
+    const item2 = getByTestId('User2');
+    const item3 = getByTestId('User3');
+    item1.focus();
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowLeft' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowLeft' });
+    expect(item3).toHaveFocus();
+    fireEvent.keyDown(item3, { key: 'ArrowRight' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowRight' });
+    expect(item1).toHaveFocus();
+  });
+
+  test('handleItemKeyDown should not update activeIndex if disableArrowKeys is true', () => {
+    const { getByTestId } = render(
+      <List {...listProps} disableArrowKeys layout="horizontal" />
+    );
+    const item1 = getByTestId('User1');
+    const item2 = getByTestId('User2');
+    item1.focus();
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowRight' });
+    expect(item2).not.toHaveFocus();
+    expect(item1).toHaveFocus();
   });
 });

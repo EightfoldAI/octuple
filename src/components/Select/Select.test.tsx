@@ -5,8 +5,10 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
 import { Select } from './';
 import { sleep } from '../../tests/Utilities';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -43,9 +45,9 @@ describe('Select', () => {
   }
 
   const options = [
-    { text: 'Option 1', value: 'option1' },
-    { text: 'Option 2', value: 'option2' },
-    { text: 'Option 3', value: 'option3' },
+    { text: 'Option 1', value: 'option1', 'data-testid': 'option1-test-id' },
+    { text: 'Option 2', value: 'option2', 'data-testid': 'option2-test-id' },
+    { text: 'Option 3', value: 'option3', 'data-testid': 'option3-test-id' },
   ];
 
   test('Renders without crashing', () => {
@@ -161,6 +163,7 @@ describe('Select', () => {
       ['option1'],
       [
         {
+          'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
@@ -193,6 +196,7 @@ describe('Select', () => {
       ['option1', 'option2'],
       [
         {
+          'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
@@ -202,6 +206,7 @@ describe('Select', () => {
           value: 'option1',
         },
         {
+          'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
@@ -255,6 +260,7 @@ describe('Select', () => {
       ['option2'],
       [
         {
+          'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
@@ -269,6 +275,7 @@ describe('Select', () => {
       ['option1'],
       [
         {
+          'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
@@ -313,6 +320,7 @@ describe('Select', () => {
       ['option1', 'option2', 'option3'],
       [
         {
+          'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'Option 1-0',
           object: undefined,
@@ -322,6 +330,7 @@ describe('Select', () => {
           value: 'option1',
         },
         {
+          'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
@@ -331,6 +340,7 @@ describe('Select', () => {
           value: 'option2',
         },
         {
+          'data-testid': 'option3-test-id',
           hideOption: false,
           id: 'Option 3-2',
           object: undefined,
@@ -374,6 +384,7 @@ describe('Select', () => {
       ['option2'],
       [
         {
+          'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'Option 2-1',
           object: undefined,
@@ -587,5 +598,134 @@ describe('Select', () => {
       <Select options={options} shape={SelectShape.Underline} />
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('Focuses the first focusable element when dropdown is visible and not filterable and initialFocus is not set', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
+  });
+
+  test('Focuses the first focusable element when dropdown is visible and not filterable and initialFocus is true', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} initialFocus placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
+  });
+
+  test('Focuses the first focusable element when dropdown is visible and filterable and initialFocus is true', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        initialFocus
+        filterable
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
+  });
+
+  test('Focuses the first focusable element when dropdown is visible and filterable and arrowDown is pressed', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.click(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    fireEvent.keyDown(select, { key: 'ArrowDown' });
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
+  });
+
+  test('Does not focus the first focusable element when dropdown is visible and not filterable and initialFocus is false', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        initialFocus={false}
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    expect(select).toHaveFocus();
+  });
+
+  test('Does not focus the first focusable element when dropdown is visible and filterable and initialFocus is not set', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    expect(select).toHaveFocus();
+  });
+
+  test('Does not focus the first focusable element when dropdown is visible and filterable and initialFocus is false', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        initialFocus={false}
+        filterable
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    expect(select).toHaveFocus();
+  });
+
+  test('Focuses the reference element when not visible', async () => {
+    const mockEventKeys = {
+      ESCAPE: 'Escape',
+    };
+    const { container, getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    act(() => {
+      userEvent.type(listbox[0], mockEventKeys.ESCAPE);
+    });
+    expect(container.querySelector('.dropdown')).toBeFalsy();
+    expect(select).toHaveFocus();
   });
 });

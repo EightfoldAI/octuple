@@ -13,6 +13,11 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   additionalItem?: T;
   /**
+   * Optionally disable default arrow key handling.
+   * @default false
+   */
+  disableArrowKeys?: boolean;
+  /**
    * List footer renderer
    */
   footer?: ReactNode;
