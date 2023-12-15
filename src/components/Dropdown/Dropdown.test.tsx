@@ -4,10 +4,10 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Dropdown } from './';
 import {
+  Button,
   ButtonIconAlign,
   ButtonTextAlign,
   ButtonWidth,
-  DefaultButton,
 } from '../Button';
 import { Icon, IconName } from '../Icon';
 import { List } from '../List';
@@ -16,6 +16,7 @@ import { TextInput } from '../Inputs';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -35,10 +36,11 @@ const Overlay = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
+        data-testid={item.name}
         iconProps={{
           path: item.icon,
         }}
@@ -75,7 +77,7 @@ const DropdownComponent = (): JSX.Element => {
       {...dropdownProps}
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
     >
-      <DefaultButton
+      <Button
         alignIcon={ButtonIconAlign.Right}
         text={'Dropdown menu test'}
         iconProps={{
@@ -124,7 +126,7 @@ const ExternalElementDropdownComponent = (): JSX.Element => {
 
   return (
     <Stack direction="horizontal" flexGap="xxl">
-      <DefaultButton
+      <Button
         alignIcon={ButtonIconAlign.Right}
         checked={visible}
         data-testid="test-external-button-id"
@@ -137,7 +139,7 @@ const ExternalElementDropdownComponent = (): JSX.Element => {
         visible={visible}
         onVisibleChange={(isVisible) => setVisibility(isVisible)}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           text={'Dropdown menu test'}
           iconProps={{
@@ -155,7 +157,7 @@ const filterOverlay1 = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={'Filter 1' + ' ' + item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
@@ -174,7 +176,7 @@ const filterOverlay2 = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={'Filter 2' + ' ' + item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
@@ -193,7 +195,7 @@ const filterOverlay3 = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={'Filter 3' + ' ' + item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
@@ -270,7 +272,7 @@ const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
         overlay={filterOverlay1()}
         visible={filterOneVisible}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           data-testid="test-button-one-id"
           text={'Filter one'}
@@ -293,7 +295,7 @@ const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
         overlay={filterOverlay2()}
         visible={filterTwoVisible}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           data-testid="test-button-two-id"
           text={'Filter two'}
@@ -316,7 +318,7 @@ const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
         overlay={filterOverlay3()}
         visible={filterThreeVisible}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           data-testid="test-button-three-id"
           text={filterThreeText}
@@ -514,9 +516,11 @@ describe('Dropdown', () => {
     act(() => {
       userEvent.click(referenceElement);
     });
-    await waitFor(() => screen.getByText('User profile 1'));
-    const elementToFocus = document.activeElement as HTMLElement;
-    expect(elementToFocus).toBeTruthy();
+    await waitFor(() => screen.getByTestId('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true);
   });
 
   test('Focuses the reference element when not visible', async () => {
@@ -537,7 +541,6 @@ describe('Dropdown', () => {
       expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
     );
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
-    const elementToFocus = document.activeElement as HTMLElement;
-    expect(elementToFocus).toBeTruthy();
+    expect(referenceElement).toHaveFocus();
   });
 });

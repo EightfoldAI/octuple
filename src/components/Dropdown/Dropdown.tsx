@@ -111,6 +111,21 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         return focusableElements?.[0];
       };
 
+      const focusFirstElement = (): void => {
+        const elementToFocus: HTMLElement = firstFocusableElement?.();
+        clearInterval(intervalRef?.current);
+        intervalRef.current = setInterval((): void => {
+          elementToFocus?.focus();
+          if (document.activeElement === elementToFocus) {
+            clearInterval(intervalRef?.current);
+          }
+        }, ANIMATION_DURATION);
+      };
+
+      const focusOnElement = (elementToFocus: HTMLElement): void => {
+        elementToFocus?.focus();
+      };
+
       const toggle: Function =
         (show: boolean, showDropdown = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
@@ -134,6 +149,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         };
 
       useImperativeHandle(ref, () => ({
+        focusFirstElement,
+        focusOnElement,
         update,
       }));
 
@@ -331,21 +348,23 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       useEffect(() => {
         if (initialFocus && mergedVisible) {
-          const elementToFocus: HTMLElement = firstFocusableElement?.();
-          clearInterval(intervalRef?.current);
-          intervalRef.current = setInterval((): void => {
-            elementToFocus?.focus();
-            if (document.activeElement === elementToFocus) {
-              clearInterval(intervalRef?.current);
-            }
-          }, ANIMATION_DURATION);
+          focusFirstElement();
         }
         if (!mergedVisible && previouslyClosing) {
           const referenceElement: HTMLElement =
             document.getElementById(dropdownReferenceId);
           referenceElement?.focus();
         }
-      }, [initialFocus, mergedVisible, previouslyClosing]);
+        if (!mergedVisible) {
+          clearInterval(intervalRef?.current);
+        }
+      }, [
+        dropdownReferenceId,
+        initialFocus,
+        intervalRef,
+        mergedVisible,
+        previouslyClosing,
+      ]);
 
       const getDropdown = (): JSX.Element =>
         mergedVisible && (
@@ -354,7 +373,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             key={dropdownId}
             modal={false}
             order={['reference', 'content']}
-            initialFocus={initialFocus ? -1 : refs.floating}
+            initialFocus={-1}
             returnFocus={false}
           >
             <div

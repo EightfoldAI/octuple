@@ -144,4 +144,17 @@ describe('List', () => {
     fireEvent.keyDown(item2, { key: 'ArrowRight' });
     expect(item1).toHaveFocus();
   });
+
+  test('handleItemKeyDown should not update activeIndex if disableArrowKeys is true', () => {
+    const { getByTestId } = render(
+      <List {...listProps} disableArrowKeys layout="horizontal" />
+    );
+    const item1 = getByTestId('User1');
+    const item2 = getByTestId('User2');
+    item1.focus();
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowRight' });
+    expect(item2).not.toHaveFocus();
+    expect(item1).toHaveFocus();
+  });
 });

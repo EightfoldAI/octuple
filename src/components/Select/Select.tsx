@@ -9,8 +9,7 @@ import React, {
 } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ShapeContext, Shape, SizeContext, Size } from '../ConfigProvider';
-import { mergeClasses } from '../../shared/utilities';
-import { Dropdown, DropdownRef } from '../Dropdown';
+import { Dropdown, DropdownRef, NO_ANIMATION_DURATION } from '../Dropdown';
 import { Menu } from '../Menu';
 import {
   TextInput,
@@ -36,6 +35,7 @@ import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
 import { usePreviousState } from '../../hooks/usePreviousState';
+import { eventKeys, mergeClasses } from '../../shared/utilities';
 
 import styles from './select.module.scss';
 
@@ -62,6 +62,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       filterOption = null,
       formItemInput = false,
       id,
+      initialFocus,
       inputClassNames,
       readonly = false,
       inputWidth = TextInputWidth.fill,
@@ -104,6 +105,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const dropdownRef: React.MutableRefObject<DropdownRef> =
       useRef<DropdownRef>(null);
     const pillRefs = useRef<HTMLElement[]>([]);
+    const currentlySelectedOption: React.MutableRefObject<SelectOption> =
+      useRef<SelectOption>(null);
 
     const [clearInput, setClearInput] = useState<boolean>(false);
     const [closeOnReferenceClick, setCloseOnReferenceClick] = useState<boolean>(
@@ -123,6 +126,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [selectedOptionText, setSelectedOptionText] = useState<string>('');
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
+    const [_initialFocus, setInitialFocus] = useState<boolean>(false);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -211,7 +215,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return;
       }
       if (multiple && prevDropdownVisible) {
-        inputRef.current?.focus();
+        setTimeout(() => {
+          const currentOption: HTMLElement = document.getElementById(
+            currentlySelectedOption.current?.id
+          );
+          if (currentOption) {
+            dropdownRef.current?.focusOnElement(currentOption);
+          }
+        }, NO_ANIMATION_DURATION);
       } else {
         getSelectedOptionText();
         if (filterable && prevDropdownVisible) {
@@ -270,6 +281,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
         inputRef.current?.focus();
       }
     }, [readonly, dropdownVisible, prevDropdownVisible]);
+
+    useEffect(() => {
+      if (!filterable && !initialFocus) {
+        setInitialFocus(true);
+      } else if (!filterable && initialFocus !== null) {
+        setInitialFocus(initialFocus);
+      }
+      if (filterable && !initialFocus) {
+        setInitialFocus(false);
+      } else if (filterable && initialFocus !== null) {
+        setInitialFocus(initialFocus);
+      }
+    }, [filterable, initialFocus]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -603,6 +627,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               const option = updatedItems.find(
                 (opt: SelectOption) => opt.value === value
               );
+              currentlySelectedOption.current = option;
               toggleOption(option);
             }}
           />
@@ -665,6 +690,22 @@ export const Select: FC<SelectProps> = React.forwardRef(
         resetSelectOnDropdownHide();
       }
       onBlur?.(event);
+    };
+
+    const handleInputKeyDown = (
+      event: React.KeyboardEvent<HTMLInputElement>
+    ): void => {
+      onKeyDown?.(event);
+      if (mergedDisabled) {
+        return;
+      }
+      if (
+        filterable &&
+        event?.key === eventKeys.ARROWDOWN &&
+        document.activeElement === event.target
+      ) {
+        dropdownRef.current?.focusFirstElement?.();
+      }
     };
 
     const clearButtonClassNames: string = mergeClasses([
@@ -754,7 +795,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           {!dropdownVisible && showPills() ? getPills() : null}
           <Dropdown
             ariaRef={inputRef}
-            initialFocus
+            initialFocus={_initialFocus}
             width={dropdownWidth}
             closeOnReferenceClick={closeOnReferenceClick}
             {...dropdownProps}
@@ -795,7 +836,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 onBlur={handleOnInputBlur}
                 onChange={filterable ? onInputChange : null}
                 onFocus={onFocus}
-                onKeyDown={onKeyDown}
+                onKeyDown={handleInputKeyDown}
                 onReset={(): void => setResetTextInput(false)}
                 readonly={!filterable || readonly}
                 readOnlyProps={{

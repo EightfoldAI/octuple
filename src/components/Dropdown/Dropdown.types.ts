@@ -155,6 +155,14 @@ export interface DropdownProps {
 
 export type DropdownRef = {
   /**
+   * Helper to manually place focus on the first focusable selector of the Dropdwon.
+   */
+  focusFirstElement: () => void;
+  /**
+   * Helper to manually place focus on a selector of the Dropdwon.
+   */
+  focusOnElement: (elementToFocus: HTMLElement) => void;
+  /**
    * Helper method to manually update the position
    * of the dropdown
    */

@@ -14,6 +14,7 @@ import styles from './list.module.scss';
 
 export const List = <T extends any>({
   additionalItem,
+  disableArrowKeys = false,
   items,
   footer,
   layout = 'vertical',
@@ -57,6 +58,9 @@ export const List = <T extends any>({
     index: number,
     external: boolean = false
   ): void => {
+    if (disableArrowKeys) {
+      return;
+    }
     const arrowDown: boolean = event?.key === eventKeys.ARROWDOWN;
     const arrowLeft: boolean = event?.key === eventKeys.ARROWLEFT;
     const arrowRight: boolean = event?.key === eventKeys.ARROWRIGHT;
