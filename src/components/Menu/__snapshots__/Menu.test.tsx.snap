@@ -129,7 +129,6 @@ exports[`Menu Menu is large 1`] = `
               role="menuitem"
               tabindex="0"
               target="_blank"
-              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -371,7 +370,6 @@ exports[`Menu Menu is medium 1`] = `
               role="menuitem"
               tabindex="0"
               target="_blank"
-              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -613,7 +611,6 @@ exports[`Menu Menu is small 1`] = `
               role="menuitem"
               tabindex="0"
               target="_blank"
-              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
