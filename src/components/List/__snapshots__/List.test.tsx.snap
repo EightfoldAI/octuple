@@ -21,76 +21,81 @@ exports[`List List is horizontal 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User1"
+          href="#"
+          id="User1"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 1
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 1
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User2"
+          href="#"
+          id="User2"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 2
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 2
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User3"
+          href="#"
+          id="User3"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 3
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 3
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User4"
+          href="#"
+          id="User4"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 4
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 4
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User5"
+          href="#"
+          id="User5"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 5
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 5
+        </a>
       </li>
     </ul>
     <div
@@ -125,76 +130,81 @@ exports[`List Renders without crashing 1`] = `
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User1"
+          href="#"
+          id="User1"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 1
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 1
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User2"
+          href="#"
+          id="User2"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 2
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 2
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User3"
+          href="#"
+          id="User3"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 3
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 3
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User4"
+          href="#"
+          id="User4"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 4
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 4
+        </a>
       </li>
       <li
         class="list-item my-list-item-class"
         style="padding: 8px 16px;"
       >
-        <div
-          id="undefined"
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User5"
+          href="#"
+          id="User5"
+          role="link"
+          target="_self"
         >
-          <p>
-            User 5
-          </p>
-          <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+          User 5
+        </a>
       </li>
     </ul>
     <div

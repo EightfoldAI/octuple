@@ -4,16 +4,19 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Dropdown } from './';
 import {
+  Button,
   ButtonIconAlign,
   ButtonTextAlign,
   ButtonWidth,
-  DefaultButton,
 } from '../Button';
 import { Icon, IconName } from '../Icon';
 import { List } from '../List';
 import { Stack } from '../Stack';
 import { TextInput } from '../Inputs';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -33,10 +36,11 @@ const Overlay = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
+        data-testid={item.name}
         iconProps={{
           path: item.icon,
         }}
@@ -73,7 +77,7 @@ const DropdownComponent = (): JSX.Element => {
       {...dropdownProps}
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
     >
-      <DefaultButton
+      <Button
         alignIcon={ButtonIconAlign.Right}
         text={'Dropdown menu test'}
         iconProps={{
@@ -81,6 +85,7 @@ const DropdownComponent = (): JSX.Element => {
           rotate: visible ? 180 : 0,
         }}
         id="test-button-id"
+        data-testid="dropdown-reference"
       />
     </Dropdown>
   );
@@ -121,7 +126,7 @@ const ExternalElementDropdownComponent = (): JSX.Element => {
 
   return (
     <Stack direction="horizontal" flexGap="xxl">
-      <DefaultButton
+      <Button
         alignIcon={ButtonIconAlign.Right}
         checked={visible}
         data-testid="test-external-button-id"
@@ -134,7 +139,7 @@ const ExternalElementDropdownComponent = (): JSX.Element => {
         visible={visible}
         onVisibleChange={(isVisible) => setVisibility(isVisible)}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           text={'Dropdown menu test'}
           iconProps={{
@@ -152,7 +157,7 @@ const filterOverlay1 = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={'Filter 1' + ' ' + item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
@@ -171,7 +176,7 @@ const filterOverlay2 = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={'Filter 2' + ' ' + item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
@@ -190,7 +195,7 @@ const filterOverlay3 = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
+      <Button
         text={'Filter 3' + ' ' + item.name}
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
@@ -267,7 +272,7 @@ const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
         overlay={filterOverlay1()}
         visible={filterOneVisible}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           data-testid="test-button-one-id"
           text={'Filter one'}
@@ -290,7 +295,7 @@ const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
         overlay={filterOverlay2()}
         visible={filterTwoVisible}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           data-testid="test-button-two-id"
           text={'Filter two'}
@@ -313,7 +318,7 @@ const AdvancedVisibilityToggleDropdownComponent = (): JSX.Element => {
         overlay={filterOverlay3()}
         visible={filterThreeVisible}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           data-testid="test-button-three-id"
           text={filterThreeText}
@@ -481,5 +486,61 @@ describe('Dropdown', () => {
     expect(filterTwoReferenceElement.getAttribute('aria-expanded')).toBe(
       'false'
     );
+  });
+
+  test('Handles reference element arrow key events correctly', async () => {
+    const mockEventKeys = {
+      ARROWDOWN: 'ArrowDown',
+      ARROWUP: 'ArrowUp',
+    };
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.type(referenceElement, mockEventKeys.ARROWDOWN);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    const option1 = screen.getByText('User profile 1');
+    expect(option1).toBeTruthy();
+    act(() => {
+      userEvent.type(referenceElement, mockEventKeys.ARROWUP);
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+  });
+
+  test('Focuses the first focusable element when visible', async () => {
+    const { getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByTestId('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true);
+  });
+
+  test('Focuses the reference element when not visible', async () => {
+    const mockEventKeys = {
+      ESCAPE: 'Escape',
+    };
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    const option1 = screen.getByText('User profile 1');
+    act(() => {
+      userEvent.type(option1, mockEventKeys.ESCAPE);
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(referenceElement).toHaveFocus();
   });
 });
