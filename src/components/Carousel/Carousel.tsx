@@ -34,7 +34,11 @@ import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
 import enUS from '../Pagination/Locale/en_US';
-import { mergeClasses } from '../../shared/utilities';
+import {
+  canUseDocElement,
+  canUseDom,
+  mergeClasses,
+} from '../../shared/utilities';
 
 import styles from './carousel.module.scss';
 
@@ -45,11 +49,20 @@ const SCROLL_LOCK_WAIT_IN_MILLISECONDS: number = 40;
 const isVisible = (element: HTMLDivElement): boolean => {
   const rect: DOMRect = element.getBoundingClientRect();
   return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    rect?.top >= 0 &&
+    rect?.left >= 0 &&
+    rect?.bottom <=
+      (canUseDom()
+        ? window.innerHeight
+        : 0 || typeof document !== 'undefined'
+        ? document.documentElement.clientHeight
+        : 0) &&
+    rect?.right <=
+      (canUseDom()
+        ? window.innerWidth
+        : 0 || typeof document !== 'undefined'
+        ? document.documentElement.clientWidth
+        : 0)
   );
 };
 
@@ -208,6 +221,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     const nextItemWhenVisible = (): void => {
       if (
+        canUseDocElement() &&
         !document.hidden &&
         carouselRef.current &&
         isVisible(carouselRef.current)
@@ -264,6 +278,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     const handleScroll = (): void => {
       if (
+        canUseDocElement() &&
         !document.hidden &&
         carouselRef.current &&
         isVisible(carouselRef.current)

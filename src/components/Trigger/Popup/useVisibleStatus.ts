@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { requestAnimationFrameWrapper } from '../../../shared/utilities/raf';
 import { useSafeState } from '../../../hooks/useState';
+import { canUseDom } from '../../../shared/utilities';
 
 /**
  * Popup should follow the steps for each component work correctly:
@@ -45,27 +46,31 @@ export default (
   }
 
   function cancelRaf() {
-    requestAnimationFrameWrapper.cancel(rafRef.current);
+    if (canUseDom()) {
+      requestAnimationFrameWrapper.cancel(rafRef.current);
+    }
   }
 
   function goNextStatus(callback?: () => void) {
     cancelRaf();
-    rafRef.current = requestAnimationFrameWrapper(() => {
-      // Only align should be manually trigger
-      setStatus((prev) => {
-        switch (status) {
-          case 'align':
-            return 'motion';
-          case 'motion':
-            return 'stable';
-          default:
-        }
+    if (canUseDom()) {
+      rafRef.current = requestAnimationFrameWrapper(() => {
+        // Only align should be manually trigger
+        setStatus((prev) => {
+          switch (status) {
+            case 'align':
+              return 'motion';
+            case 'motion':
+              return 'stable';
+            default:
+          }
 
-        return prev;
+          return prev;
+        });
+
+        callback?.();
       });
-
-      callback?.();
-    });
+    }
   }
 
   // Init status
@@ -82,7 +87,7 @@ export default (
       default:
     }
 
-    if (status) {
+    if (status && canUseDom()) {
       rafRef.current = requestAnimationFrameWrapper(async () => {
         const index = StatusQueue.indexOf(status);
         const nextStatus = StatusQueue[index + 1];

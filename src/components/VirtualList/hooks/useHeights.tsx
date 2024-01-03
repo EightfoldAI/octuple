@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import {
+  canUseDom,
   findDOMNode,
   requestAnimationFrameWrapper,
 } from '../../../shared/utilities';
@@ -17,26 +18,30 @@ export default function useHeights<T>(
   const collectRafRef = useRef<number>();
 
   function cancelRaf() {
-    requestAnimationFrameWrapper.cancel(collectRafRef.current);
+    if (canUseDom()) {
+      requestAnimationFrameWrapper.cancel(collectRafRef.current);
+    }
   }
 
   function collectHeight() {
     cancelRaf();
 
-    collectRafRef.current = requestAnimationFrameWrapper(() => {
-      instanceRef.current.forEach((element, key) => {
-        if (element && element.offsetParent) {
-          const htmlElement = findDOMNode<HTMLElement>(element);
-          const { offsetHeight } = htmlElement;
-          if (heightsRef.current.get(key) !== offsetHeight) {
-            heightsRef.current.set(key, htmlElement.offsetHeight);
+    if (canUseDom()) {
+      collectRafRef.current = requestAnimationFrameWrapper(() => {
+        instanceRef.current.forEach((element, key) => {
+          if (element && element.offsetParent) {
+            const htmlElement = findDOMNode<HTMLElement>(element);
+            const { offsetHeight } = htmlElement;
+            if (heightsRef.current.get(key) !== offsetHeight) {
+              heightsRef.current.set(key, htmlElement.offsetHeight);
+            }
           }
-        }
-      });
+        });
 
-      // Always trigger update mark to tell parent that should re-calculate heights when resized
-      setUpdatedMark((c) => c + 1);
-    });
+        // Always trigger update mark to tell parent that should re-calculate heights when resized
+        setUpdatedMark((c) => c + 1);
+      });
+    }
   }
 
   function setInstanceRef(item: T, instance: HTMLElement) {

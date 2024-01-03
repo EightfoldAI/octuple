@@ -1,11 +1,14 @@
 import React from 'react';
+import { canUseDom } from '../../../shared/utilities';
 
 export default (callback: () => boolean, buffer: number) => {
   const calledRef = React.useRef<boolean>(false);
   const timeoutRef = React.useRef<number>(null);
 
   function cancelTrigger() {
-    window.clearTimeout(timeoutRef.current);
+    if (canUseDom()) {
+      window.clearTimeout(timeoutRef.current);
+    }
   }
 
   function trigger(force?: boolean) {
@@ -18,14 +21,18 @@ export default (callback: () => boolean, buffer: number) => {
       }
 
       calledRef.current = true;
-      timeoutRef.current = window.setTimeout(() => {
-        calledRef.current = false;
-      }, buffer);
+      if (canUseDom()) {
+        timeoutRef.current = window.setTimeout(() => {
+          calledRef.current = false;
+        }, buffer);
+      }
     } else {
-      timeoutRef.current = window.setTimeout(() => {
-        calledRef.current = false;
-        trigger();
-      }, buffer);
+      if (canUseDom()) {
+        timeoutRef.current = window.setTimeout(() => {
+          calledRef.current = false;
+          trigger();
+        }, buffer);
+      }
     }
   }
 

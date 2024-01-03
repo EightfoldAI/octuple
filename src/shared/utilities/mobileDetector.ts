@@ -1,9 +1,11 @@
+import { canUseDom } from './canUseDom';
+
 /**
  * Returns true if and only if the user is on a iOS device.
  * Used to determine whether iOS-specific behavior should be applied.
  */
 export const isIOS = (): boolean => {
-  if (!window || !window.navigator || !window.navigator.userAgent) {
+  if (!canUseDom() || !window.navigator || !window.navigator.userAgent) {
     return false;
   }
   return /iPad|iPhone|iPod/i.test(window.navigator.userAgent);
@@ -14,7 +16,7 @@ export const isIOS = (): boolean => {
  * Used to determine whether Android-specific behavior should be applied.
  */
 export const isAndroid = (): boolean => {
-  if (!window || !window.navigator || !window.navigator.userAgent) {
+  if (!canUseDom() || !window.navigator || !window.navigator.userAgent) {
     return false;
   }
   return /android/i.test(window.navigator.userAgent);
@@ -25,5 +27,8 @@ export const isAndroid = (): boolean => {
  * Used to determine interaciton with hybrid touch devices like Microsoft Surface.
  */
 export const isTouchSupported = (): boolean => {
+  if (!canUseDom() || !window.navigator || !window.navigator.userAgent) {
+    return false;
+  }
   return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 };

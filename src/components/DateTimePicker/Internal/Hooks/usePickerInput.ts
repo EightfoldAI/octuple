@@ -1,6 +1,10 @@
 import type * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { eventKeys } from '../../../../shared/utilities';
+import {
+  canUseDocElement,
+  canUseDom,
+  eventKeys,
+} from '../../../../shared/utilities';
 import { addGlobalMouseDownEvent, getTargetFromEvent } from '../Utils/uiUtil';
 
 export default function usePickerInput({
@@ -116,20 +120,25 @@ export default function usePickerInput({
     },
 
     onBlur: (e: React.FocusEvent<HTMLInputElement, Element>): void => {
-      if (preventBlurRef.current || !isClickOutside(document.activeElement)) {
+      if (
+        preventBlurRef.current ||
+        (canUseDocElement() && !isClickOutside(document.activeElement))
+      ) {
         preventBlurRef.current = false;
         return;
       }
 
       if (blurToCancel) {
         setTimeout(() => {
-          let { activeElement } = document;
-          while (activeElement && activeElement.shadowRoot) {
-            activeElement = activeElement.shadowRoot.activeElement;
-          }
+          if (canUseDocElement()) {
+            let { activeElement } = document;
+            while (activeElement && activeElement.shadowRoot) {
+              activeElement = activeElement.shadowRoot.activeElement;
+            }
 
-          if (isClickOutside(activeElement)) {
-            onCancel();
+            if (isClickOutside(activeElement)) {
+              onCancel();
+            }
           }
         }, 0);
       } else if (open) {
@@ -168,9 +177,11 @@ export default function usePickerInput({
           preventBlurRef.current = true;
 
           // Always set back in case `onBlur` prevented by user
-          requestAnimationFrame(() => {
-            preventBlurRef.current = false;
-          });
+          if (canUseDom()) {
+            requestAnimationFrame(() => {
+              preventBlurRef.current = false;
+            });
+          }
         } else if (!changeOnBlur && (!focused || clickedOutside)) {
           triggerOpen(false);
         }

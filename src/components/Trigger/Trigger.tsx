@@ -3,6 +3,7 @@ import type { HTMLAttributes } from 'react';
 import ReactDOM from 'react-dom';
 import {
   addEventListenerWrapper,
+  canUseDom,
   contains,
   findDOMNode,
   requestAnimationFrameWrapper,
@@ -27,11 +28,14 @@ function returnEmptyString() {
   return '';
 }
 
-function returnDocument(element?: HTMLElement) {
+function returnDocument(element?: HTMLElement): Document | null {
   if (element) {
     return element.ownerDocument;
   }
-  return window.document;
+  if (canUseDom()) {
+    return window.document;
+  }
+  return null;
 }
 
 const ALL_HANDLERS = [
@@ -178,11 +182,13 @@ export function generateTrigger(
         }
         // close popup when trigger type contains 'onContextMenu' and window is blur.
         if (!this.contextMenuOutsideHandler2 && this.isContextMenuToShow()) {
-          this.contextMenuOutsideHandler2 = addEventListenerWrapper(
-            window,
-            'blur',
-            this.onContextMenuClose
-          );
+          if (canUseDom()) {
+            this.contextMenuOutsideHandler2 = addEventListenerWrapper(
+              window,
+              'blur',
+              this.onContextMenuClose
+            );
+          }
         }
         return;
       }
@@ -194,7 +200,9 @@ export function generateTrigger(
       this.clearDelayTimer();
       this.clearOutsideHandler();
       clearTimeout(this.mouseDownTimeout);
-      requestAnimationFrameWrapper.cancel(this.attachId);
+      if (canUseDom()) {
+        requestAnimationFrameWrapper.cancel(this.attachId);
+      }
     }
 
     onMouseEnter = (e: any) => {
@@ -314,10 +322,12 @@ export function generateTrigger(
     onPopupMouseDown = (...args: any[]) => {
       this.hasPopupMouseDown = true;
 
-      clearTimeout(this.mouseDownTimeout);
-      this.mouseDownTimeout = window.setTimeout(() => {
-        this.hasPopupMouseDown = false;
-      }, 0);
+      if (canUseDom()) {
+        clearTimeout(this.mouseDownTimeout);
+        this.mouseDownTimeout = window.setTimeout(() => {
+          this.hasPopupMouseDown = false;
+        }, 0);
+      }
 
       if (this.context) {
         this.context.onPopupMouseDown(...args);
@@ -474,7 +484,9 @@ export function generateTrigger(
     };
 
     attachParent = (popupContainer: HTMLElement) => {
-      requestAnimationFrameWrapper.cancel(this.attachId);
+      if (canUseDom()) {
+        requestAnimationFrameWrapper.cancel(this.attachId);
+      }
 
       const { getPopupContainer, getDocument } = this.props;
       const domNode = this.getRootDomNode();
@@ -490,9 +502,11 @@ export function generateTrigger(
         mountNode.appendChild(popupContainer);
       } else {
         // Retry after frame render in case parent not ready
-        this.attachId = requestAnimationFrameWrapper(() => {
-          this.attachParent(popupContainer);
-        });
+        if (canUseDom()) {
+          this.attachId = requestAnimationFrameWrapper(() => {
+            this.attachParent(popupContainer);
+          });
+        }
       }
     };
 
@@ -565,14 +579,16 @@ export function generateTrigger(
     };
 
     delaySetPopupVisible(visible: boolean, delayS: number, event?: MouseEvent) {
-      const delay = delayS * 1000;
+      const delay: number = delayS * 1000;
       this.clearDelayTimer();
       if (delay) {
         const point = event ? { pageX: event.pageX, pageY: event.pageY } : null;
-        this.delayTimer = window.setTimeout(() => {
-          this.setPopupVisible(visible, point);
-          this.clearDelayTimer();
-        }, delay);
+        if (canUseDom()) {
+          this.delayTimer = window.setTimeout(() => {
+            this.setPopupVisible(visible, point);
+            this.clearDelayTimer();
+          }, delay);
+        }
       } else {
         this.setPopupVisible(visible, event);
       }

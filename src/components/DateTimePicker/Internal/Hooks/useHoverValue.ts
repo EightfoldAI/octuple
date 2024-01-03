@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import type { ValueTextConfig } from './useValueTexts';
 import useValueTexts from './useValueTexts';
+import { canUseDom } from '../../../../shared/utilities';
 
 export default function useHoverValue<DateType>(
   valueText: string,
@@ -10,14 +11,18 @@ export default function useHoverValue<DateType>(
   const raf: React.MutableRefObject<any> = useRef(null);
 
   function setValue(val: DateType, immediately: boolean = false) {
-    cancelAnimationFrame(raf.current);
+    if (canUseDom()) {
+      cancelAnimationFrame(raf.current);
+    }
     if (immediately) {
       internalSetValue(val);
       return;
     }
-    raf.current = requestAnimationFrame(() => {
-      internalSetValue(val);
-    });
+    if (canUseDom()) {
+      raf.current = requestAnimationFrame(() => {
+        internalSetValue(val);
+      });
+    }
   }
 
   const [, firstText] = useValueTexts(value, {
@@ -38,7 +43,14 @@ export default function useHoverValue<DateType>(
     onLeave(true);
   }, [valueText]);
 
-  useEffect(() => () => cancelAnimationFrame(raf.current), []);
+  useEffect(
+    () => () => {
+      if (canUseDom()) {
+        cancelAnimationFrame(raf.current);
+      }
+    },
+    []
+  );
 
   return [firstText, onEnter, onLeave];
 }

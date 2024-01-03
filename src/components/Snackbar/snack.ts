@@ -1,5 +1,5 @@
 import { ISnack, SnackbarPosition, SnackbarProps } from './Snackbar.types';
-import { generateId } from '../../shared/utilities';
+import { canUseDocElement, generateId } from '../../shared/utilities';
 import { InfoBarType } from '../InfoBar';
 
 const DEFAULT_POSITION: SnackbarPosition = 'top-center';
@@ -20,7 +20,9 @@ export const serve = (props: SnackbarProps): void => {
       id,
     },
   });
-  document.dispatchEvent(serveSnackEvent);
+  if (canUseDocElement()) {
+    document.dispatchEvent(serveSnackEvent);
+  }
   if (!props.closable || props.actionButtonProps) {
     setTimeout(() => {
       eat(id);
@@ -34,7 +36,9 @@ export const eat = (snackId: string): void => {
     cancelable: false,
     detail: snackId,
   });
-  document.dispatchEvent(removeSnackEvent);
+  if (canUseDocElement()) {
+    document.dispatchEvent(removeSnackEvent);
+  }
 };
 
 export const serveNeutral = (props: SnackbarProps) =>

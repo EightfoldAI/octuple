@@ -1,4 +1,5 @@
 import type { InternalUploadFile, OcFile, UploadFile } from './Upload.types';
+import { canUseDocElement, canUseDom } from '../../shared/utilities';
 
 export function file2Obj(file: OcFile): InternalUploadFile {
   return {
@@ -91,39 +92,43 @@ export function previewImage(file: File | Blob): Promise<string> {
       return;
     }
 
-    const canvas: HTMLCanvasElement = document.createElement('canvas');
-    document.body.appendChild(canvas);
+    if (canUseDom() && canUseDocElement()) {
+      const canvas: HTMLCanvasElement = document.createElement('canvas');
+      document.body.appendChild(canvas);
 
-    const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
-    const img: HTMLImageElement = new Image();
+      const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+      const img: HTMLImageElement = new Image();
 
-    img.onload = () => {
-      const { width, height } = img;
+      img.onload = () => {
+        const { width, height } = img;
 
-      let offsetX: number = 0;
-      let offsetY: number = 0;
+        let offsetX: number = 0;
+        let offsetY: number = 0;
 
-      canvas.width = width;
-      canvas.height = height;
-      canvas.style.cssText = `position: fixed; left: 0; top: 0; width: ${width}px; height: ${height}px; z-index: 9999; display: none;`;
+        canvas.width = width;
+        canvas.height = height;
+        canvas.style.cssText = `position: fixed; left: 0; top: 0; width: ${width}px; height: ${height}px; z-index: 9999; display: none;`;
 
-      ctx!.drawImage(img, offsetX, offsetY, width, height);
-      const dataURL: string = canvas.toDataURL();
-      document.body.removeChild(canvas);
+        ctx!.drawImage(img, offsetX, offsetY, width, height);
+        const dataURL: string = canvas.toDataURL();
+        document.body.removeChild(canvas);
 
-      resolve(dataURL);
-    };
+        resolve(dataURL);
+      };
 
-    img.crossOrigin = 'anonymous';
+      img.crossOrigin = 'anonymous';
 
-    if (file.type.startsWith('image/svg+xml')) {
-      const reader: FileReader = new FileReader();
-      reader.addEventListener('load', () => {
-        if (reader.result) img.src = reader.result as string;
-      });
-      reader.readAsDataURL(file);
+      if (file.type.startsWith('image/svg+xml')) {
+        const reader: FileReader = new FileReader();
+        reader.addEventListener('load', () => {
+          if (reader.result) img.src = reader.result as string;
+        });
+        reader.readAsDataURL(file);
+      } else {
+        img.src = window.URL.createObjectURL(file);
+      }
     } else {
-      img.src = window.URL.createObjectURL(file);
+      resolve('');
     }
   });
 }

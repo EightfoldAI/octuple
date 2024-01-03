@@ -1,9 +1,11 @@
+import { canUseDom } from './canUseDom';
+
 let requestAnimationFrame: (callback: FrameRequestCallback) => number = (
   callback: FrameRequestCallback
 ) => +setTimeout(callback, 16);
 let caf: (num: number) => void = (num: number) => clearTimeout(num);
 
-if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
+if (canUseDom() && 'requestAnimationFrame' in window) {
   requestAnimationFrame = (callback: FrameRequestCallback) =>
     window.requestAnimationFrame(callback);
   caf = (handle: number) => window.cancelAnimationFrame(handle);
@@ -32,12 +34,14 @@ export const requestAnimationFrameWrapper = (
       callback();
     } else {
       // Next requestAnimationFrame
-      const realId = requestAnimationFrame(() => {
-        callRef(leftTimes - 1);
-      });
+      if (canUseDom()) {
+        const realId = requestAnimationFrame(() => {
+          callRef(leftTimes - 1);
+        });
 
-      // Bind real requestAnimationFrame id
-      rafIds.set(id, realId);
+        // Bind real requestAnimationFrame id
+        rafIds.set(id, realId);
+      }
     }
   };
 
@@ -49,5 +53,7 @@ export const requestAnimationFrameWrapper = (
 requestAnimationFrameWrapper.cancel = (id: number): void => {
   const realId: number = rafIds.get(id);
   cleanup(realId);
-  return caf(realId);
+  if (canUseDom()) {
+    return caf(realId);
+  }
 };

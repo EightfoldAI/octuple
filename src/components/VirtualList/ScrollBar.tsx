@@ -5,6 +5,7 @@ import {
   ScrollBarState,
 } from './VirtualList.types';
 import {
+  canUseDom,
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../shared/utilities';
@@ -68,16 +69,20 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
 
   // ======================= Clean =======================
   patchEvents = () => {
-    window.addEventListener('mousemove', this.onMouseMove);
-    window.addEventListener('mouseup', this.onMouseUp);
+    if (canUseDom()) {
+      window.addEventListener('mousemove', this.onMouseMove);
+      window.addEventListener('mouseup', this.onMouseUp);
+    }
 
-    this.thumbRef.current.addEventListener('touchmove', this.onMouseMove);
-    this.thumbRef.current.addEventListener('touchend', this.onMouseUp);
+    this.thumbRef.current?.addEventListener('touchmove', this.onMouseMove);
+    this.thumbRef.current?.addEventListener('touchend', this.onMouseUp);
   };
 
   removeEvents = () => {
-    window.removeEventListener('mousemove', this.onMouseMove);
-    window.removeEventListener('mouseup', this.onMouseUp);
+    if (canUseDom()) {
+      window.removeEventListener('mousemove', this.onMouseMove);
+      window.removeEventListener('mouseup', this.onMouseUp);
+    }
 
     this.scrollbarRef.current?.removeEventListener(
       'touchstart',
@@ -90,7 +95,9 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
       this.thumbRef.current.removeEventListener('touchend', this.onMouseUp);
     }
 
-    requestAnimationFrameWrapper.cancel(this.moveRaf);
+    if (canUseDom()) {
+      requestAnimationFrameWrapper.cancel(this.moveRaf);
+    }
   };
 
   // ======================= Thumb =======================
@@ -113,7 +120,9 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
     const { dragging, pageY, startTop } = this.state;
     const { onScroll } = this.props;
 
-    requestAnimationFrameWrapper.cancel(this.moveRaf);
+    if (canUseDom()) {
+      requestAnimationFrameWrapper.cancel(this.moveRaf);
+    }
 
     if (dragging) {
       const offsetY = getPageY(e) - pageY;
@@ -124,9 +133,11 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
 
       const ptg = enableHeightRange ? newTop / enableHeightRange : 0;
       const newScrollTop = Math.ceil(ptg * enableScrollRange);
-      this.moveRaf = requestAnimationFrameWrapper(() => {
-        onScroll(newScrollTop);
-      });
+      if (canUseDom()) {
+        this.moveRaf = requestAnimationFrameWrapper(() => {
+          onScroll(newScrollTop);
+        });
+      }
     }
   };
 

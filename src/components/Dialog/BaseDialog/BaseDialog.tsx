@@ -45,7 +45,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       onClose,
       onVisibleChange,
       overlay = true,
-      parent = document.body,
+      parent = typeof document !== 'undefined' ? document.body : null,
       positionStrategy = 'fixed',
       renderContentAlways = true,
       skipFocusableSelectorsFromIndex,

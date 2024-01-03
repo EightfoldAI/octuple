@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useMergedState } from '../../../../hooks/useMergedState';
 import { useEvent } from '../../../../hooks/useEvent';
-import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
+import {
+  canUseDom,
+  requestAnimationFrameWrapper,
+} from '../../../../shared/utilities';
 
 export type SourceType =
   | 'open'
@@ -109,10 +112,12 @@ export default function useRangeOpen(
           !disabled[customNextActiveIndex] &&
           !readonly[customNextActiveIndex]
         ) {
-          requestAnimationFrameWrapper(() => {
-            const ref = [startInputRef, endInputRef][customNextActiveIndex];
-            ref.current?.focus();
-          });
+          if (canUseDom()) {
+            requestAnimationFrameWrapper(() => {
+              const ref = [startInputRef, endInputRef][customNextActiveIndex];
+              ref.current?.focus();
+            });
+          }
         } else {
           setMergedOpen(false);
         }

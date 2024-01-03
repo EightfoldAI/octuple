@@ -1,7 +1,4 @@
 import dayjs, { Dayjs } from 'dayjs';
-import { eventKeys } from '../../../../shared/utilities';
-import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
-import { isVisible } from '../../../../shared/utilities';
 import { DatePickerProps } from '../../DatePicker';
 import type { GenerateConfig } from '../Generate';
 import type {
@@ -9,6 +6,12 @@ import type {
   PartialMode,
   OcPickerMode,
 } from '../OcPicker.types';
+import {
+  canUseDom,
+  eventKeys,
+  isVisible,
+  requestAnimationFrameWrapper,
+} from '../../../../shared/utilities';
 
 const scrollIds: Map<HTMLElement, number> = new Map<HTMLElement, number>();
 
@@ -23,48 +26,56 @@ export function waitElementReady(
     if (isVisible(element)) {
       callback();
     } else {
-      id = requestAnimationFrameWrapper(() => {
-        tryOrNextFrame();
-      });
+      if (canUseDom()) {
+        id = requestAnimationFrameWrapper(() => {
+          tryOrNextFrame();
+        });
+      }
     }
   }
 
-  tryOrNextFrame();
+  if (canUseDom()) {
+    tryOrNextFrame();
+  }
 
   return () => {
-    requestAnimationFrameWrapper.cancel(id);
+    if (canUseDom()) {
+      requestAnimationFrameWrapper.cancel(id);
+    }
   };
 }
 
 /* eslint-disable no-param-reassign */
 export function scrollTo(element: HTMLElement, to: number, duration: number) {
-  if (scrollIds.get(element)) {
-    cancelAnimationFrame(scrollIds.get(element)!);
-  }
+  if (canUseDom()) {
+    if (scrollIds.get(element)) {
+      cancelAnimationFrame(scrollIds.get(element)!);
+    }
 
-  // jump to target if duration zero
-  if (duration <= 0) {
+    // jump to target if duration zero
+    if (duration <= 0) {
+      scrollIds.set(
+        element,
+        requestAnimationFrame(() => {
+          element.scrollTop = to;
+        })
+      );
+
+      return;
+    }
+    const difference: number = to - element.scrollTop;
+    const perTick: number = (difference / duration) * 10;
+
     scrollIds.set(
       element,
       requestAnimationFrame(() => {
-        element.scrollTop = to;
+        element.scrollTop += perTick;
+        if (element.scrollTop !== to) {
+          scrollTo(element, to, duration - 10);
+        }
       })
     );
-
-    return;
   }
-  const difference: number = to - element.scrollTop;
-  const perTick: number = (difference / duration) * 10;
-
-  scrollIds.set(
-    element,
-    requestAnimationFrame(() => {
-      element.scrollTop += perTick;
-      if (element.scrollTop !== to) {
-        scrollTo(element, to, duration - 10);
-      }
-    })
-  );
 }
 /* eslint-enable */
 
@@ -220,25 +231,23 @@ let globalClickFunc: ClickEventHandler | null = null;
 const clickCallbacks: Set<ClickEventHandler> = new Set<ClickEventHandler>();
 
 export function addGlobalMouseDownEvent(callback: ClickEventHandler) {
-  if (
-    !globalClickFunc &&
-    typeof window !== 'undefined' &&
-    window.addEventListener
-  ) {
+  if (!globalClickFunc && canUseDom()) {
     globalClickFunc = (e: MouseEvent) => {
       // Clone a new list to avoid repeat trigger events
       [...clickCallbacks].forEach((queueFunc) => {
         queueFunc(e);
       });
     };
-    window.addEventListener('mousedown', globalClickFunc);
+    if (window.addEventListener) {
+      window.addEventListener('mousedown', globalClickFunc);
+    }
   }
 
   clickCallbacks.add(callback);
 
   return () => {
     clickCallbacks.delete(callback);
-    if (clickCallbacks.size === 0) {
+    if (canUseDom() && clickCallbacks.size === 0) {
       window.removeEventListener('mousedown', globalClickFunc!);
       globalClickFunc = null;
     }

@@ -2,19 +2,24 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { DialogProps, DialogSize } from './Dialog.types';
 import { Dialog } from './Dialog';
-import { generateId } from '../../shared/utilities';
+import { canUseDocElement, generateId } from '../../shared/utilities';
 
 const uniqueId: string = generateId();
 
 function createWrapperAndAppendToBody(wrapperId: string): HTMLDivElement {
-  const existingElement = document.getElementById(wrapperId) as HTMLDivElement;
-  if (document.getElementById(wrapperId)) {
-    return existingElement;
+  if (canUseDocElement()) {
+    const existingElement = document.getElementById(
+      wrapperId
+    ) as HTMLDivElement;
+    if (document.getElementById(wrapperId)) {
+      return existingElement;
+    }
+    const wrapperElement = document.createElement('div');
+    wrapperElement.setAttribute('id', wrapperId);
+    document.body.appendChild(wrapperElement);
+    return wrapperElement;
   }
-  const wrapperElement = document.createElement('div');
-  wrapperElement.setAttribute('id', wrapperId);
-  document.body.appendChild(wrapperElement);
-  return wrapperElement;
+  return null;
 }
 
 const $dialog = (props: DialogProps, containerId: string = uniqueId) => {
@@ -54,5 +59,7 @@ export const DialogHelper = {
       containerId
     ),
   close: (containerId: string = uniqueId) =>
-    unmountComponentAtNode(document.getElementById(containerId)),
+    canUseDocElement()
+      ? unmountComponentAtNode(document.getElementById(containerId))
+      : null,
 };

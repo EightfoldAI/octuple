@@ -3,6 +3,7 @@ import { InlineSvgProps } from './InlineSvg.types';
 import { Icon, IconName } from '../Icon';
 import { Skeleton, SkeletonVariant } from '../Skeleton';
 import { usePreviousState } from '../../hooks/usePreviousState';
+import { canUseDocElement, canUseDom } from '../../shared/utilities';
 
 export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
   (
@@ -38,24 +39,26 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
       }
 
       const fetchSvg = async (): Promise<void> => {
-        try {
-          const response: Response = await fetch(_url);
-          const text: string = await response.text();
+        if (canUseDom() && canUseDocElement()) {
+          try {
+            const response: Response = await fetch(_url);
+            const text: string = await response.text();
 
-          const parser: DOMParser = new DOMParser();
-          const xml: Document = parser.parseFromString(text, 'image/svg+xml');
-          const svg: HTMLElement = xml.documentElement;
+            const parser: DOMParser = new DOMParser();
+            const xml: Document = parser.parseFromString(text, 'image/svg+xml');
+            const svg: HTMLElement = xml.documentElement;
 
-          if (svg.nodeName !== 'svg') {
-            throw new Error(`Fetched document is not an SVG: ${_url}`);
+            if (svg.nodeName !== 'svg') {
+              throw new Error(`Fetched document is not an SVG: ${_url}`);
+            }
+
+            svgRef.current.innerHTML = text;
+            setIsLoading(false);
+          } catch (error) {
+            console.error(error);
+            setHasError(true);
+            setIsLoading(false);
           }
-
-          svgRef.current.innerHTML = text;
-          setIsLoading(false);
-        } catch (error) {
-          console.error(error);
-          setHasError(true);
-          setIsLoading(false);
         }
       };
 

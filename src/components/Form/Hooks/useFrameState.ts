@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
-import { requestAnimationFrameWrapper } from '../../../shared/utilities';
+import {
+  canUseDom,
+  requestAnimationFrameWrapper,
+} from '../../../shared/utilities';
 
 type Updater<ValueType> = (prev?: ValueType) => ValueType;
 
@@ -15,7 +18,9 @@ export default function useFrameState<ValueType>(
     destroyRef.current = false;
     return () => {
       destroyRef.current = true;
-      requestAnimationFrameWrapper.cancel(frameRef.current!);
+      if (canUseDom()) {
+        requestAnimationFrameWrapper.cancel(frameRef.current!);
+      }
       frameRef.current = null;
     };
   }, []);
@@ -27,18 +32,20 @@ export default function useFrameState<ValueType>(
 
     if (frameRef.current === null) {
       batchRef.current = [];
-      frameRef.current = requestAnimationFrameWrapper(() => {
-        frameRef.current = null;
-        setValue((prevValue) => {
-          let current = prevValue;
+      if (canUseDom()) {
+        frameRef.current = requestAnimationFrameWrapper(() => {
+          frameRef.current = null;
+          setValue((prevValue) => {
+            let current = prevValue;
 
-          batchRef.current.forEach((func) => {
-            current = func(current);
+            batchRef.current.forEach((func) => {
+              current = func(current);
+            });
+
+            return current;
           });
-
-          return current;
         });
-      });
+      }
     }
 
     batchRef.current.push(updater);

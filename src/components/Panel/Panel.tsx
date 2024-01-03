@@ -61,7 +61,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       panelClassNames,
       panelStyle,
       panelWrapperClassNames,
-      parent = document.body,
+      parent = typeof document !== 'undefined' ? document.body : null,
       placement = 'right',
       push = true,
       renderContentAlways = true,

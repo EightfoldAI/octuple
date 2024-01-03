@@ -1,5 +1,8 @@
 import { useRef } from 'react';
-import { requestAnimationFrameWrapper } from '../../../shared/utilities';
+import {
+  canUseDom,
+  requestAnimationFrameWrapper,
+} from '../../../shared/utilities';
 import isFF from '../utils/isFirefox';
 import { useOriginScroll } from './useOriginScroll';
 
@@ -27,7 +30,9 @@ export const useFrameWheel = (
   function onWheel(event: WheelEvent) {
     if (!inVirtual) return;
 
-    requestAnimationFrameWrapper.cancel(nextFrameRef.current);
+    if (canUseDom()) {
+      requestAnimationFrameWrapper.cancel(nextFrameRef.current);
+    }
 
     const { deltaY } = event;
     offsetRef.current += deltaY;
@@ -41,12 +46,14 @@ export const useFrameWheel = (
       event.preventDefault();
     }
 
-    nextFrameRef.current = requestAnimationFrameWrapper(() => {
-      // Patch a multiple for Firefox to fix wheel number too small
-      const patchMultiple = isMouseScrollRef.current ? 10 : 1;
-      onWheelDelta(offsetRef.current * patchMultiple);
-      offsetRef.current = 0;
-    });
+    if (canUseDom()) {
+      nextFrameRef.current = requestAnimationFrameWrapper(() => {
+        // Patch a multiple for Firefox to fix wheel number too small
+        const patchMultiple = isMouseScrollRef.current ? 10 : 1;
+        onWheelDelta(offsetRef.current * patchMultiple);
+        offsetRef.current = 0;
+      });
+    }
   }
 
   // A patch for firefox
