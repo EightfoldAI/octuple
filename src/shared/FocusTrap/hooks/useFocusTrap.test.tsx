@@ -46,4 +46,23 @@ describe('useFocusTrap', () => {
     await waitFor(() => expect(firstButton.matches(':focus')).toBe(true));
     expect(firstButton.matches(':focus')).toBe(true);
   });
+
+  test('setUpFocus sets up the initial focus with the firstFocusableSelector', async () => {
+    const { container } = render(
+      <FocusTrap firstFocusableSelector=".button-2" trap>
+        <>
+          <button className="button-1" id="button1">
+            Button 1
+          </button>
+          <button className="button-2" id="button2">
+            Button 2
+          </button>
+        </>
+      </FocusTrap>
+    );
+    container.focus();
+    const secondButton = container.getElementsByClassName('button-2')[0];
+    await waitFor(() => expect(secondButton.matches(':focus')).toBe(true));
+    expect(secondButton.matches(':focus')).toBe(true);
+  });
 });

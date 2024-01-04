@@ -780,6 +780,15 @@ export type OcPickerSharedProps<DateType> = {
    */
   prevIcon?: IconName;
   /**
+   * The picker is readonly.
+   * @default false
+   */
+  readonly?: boolean;
+  /**
+   * The custom readonly icon.
+   */
+  readonlyIcon?: React.ReactNode;
+  /**
    * The picker aria role.
    */
   role?: string;
@@ -884,6 +893,7 @@ type OmitPickerProps<Props> = Omit<
   | 'onPickerValueChange'
   | 'onOk'
   | 'dateRender'
+  | 'readonly'
 >;
 
 type RangeShowTimeObject<DateType> = Omit<
@@ -1049,6 +1059,11 @@ export type OcRangePickerSharedProps<DateType> = {
     | Exclude<RangeValue<DateType>, null>
     | (() => Exclude<RangeValue<DateType>, null>)
   >;
+  /**
+   * The range picker is readonly.
+   * @default false
+   */
+  readonly?: boolean | [boolean, boolean];
   /**
    * Custom separator between inputs.
    */

@@ -442,6 +442,65 @@ describe('Picker.Range', () => {
     });
   });
 
+  describe('readonly', () => {
+    it('basic readonly check', () => {
+      const wrapper = mount(<DayjsRangePicker readonly={[true, false]} />);
+      expect(wrapper.find('input').at(0).props().readOnly).toBeTruthy();
+      expect(wrapper.find('input').at(1).props().readOnly).toBeFalsy();
+    });
+
+    it('startDate will have disabledDate when endDate is not selectable', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <DayjsRangePicker
+          readonly={[false, true]}
+          defaultValue={[null, getDayjs('1990-09-22')]}
+          onChange={onChange}
+        />
+      );
+
+      let cellNode: Wrapper;
+
+      // Disabled date
+      wrapper.openPicker();
+      cellNode = wrapper.selectCell(25);
+      expect(cellNode.hasClass('picker-cell-disabled')).toBeTruthy();
+      expect(onChange).not.toHaveBeenCalled();
+
+      // Enabled date
+      wrapper.openPicker();
+      cellNode = wrapper.selectCell(7);
+      expect(cellNode.hasClass('picker-cell-disabled')).toBeFalsy();
+      expect(onChange).toHaveBeenCalledWith(
+        [expect.anything(), expect.anything()],
+        ['1990-09-07', '1990-09-22']
+      );
+    });
+
+    it('clear should trigger change', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <DayjsRangePicker
+          readonly={[false, true]}
+          defaultValue={[getDayjs('1990-01-01'), getDayjs('2000-11-11')]}
+          onChange={onChange}
+          allowClear
+        />
+      );
+
+      wrapper.openPicker();
+      wrapper.clearValue();
+      expect(wrapper.isClosed()).toBeTruthy();
+      expect(onChange.mock.calls[0][1]).toEqual(['', '2000-11-11']);
+    });
+
+    it('not fill when all readonly and no value', () => {
+      const wrapper = mount(<DayjsRangePicker readonly />);
+      expect(wrapper.find('input').first().props().value).toEqual('');
+      expect(wrapper.find('input').last().props().value).toEqual('');
+    });
+  });
+
   describe('ranges', () => {
     it('hover className', () => {
       const wrapper = mount(

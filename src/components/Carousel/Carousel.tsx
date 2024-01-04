@@ -74,7 +74,6 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       pause = 'hover',
       previousIconButtonAriaLabel: defaultPreviousIconButtonAriaLabel,
       single = false,
-      style,
       transition = 'push',
       type = 'slide',
       'data-test-id': dataTestId,

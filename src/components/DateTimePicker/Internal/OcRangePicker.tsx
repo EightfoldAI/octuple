@@ -14,6 +14,8 @@ import type {
   CustomFormat,
 } from './OcPicker.types';
 import {
+  DatePickerShape,
+  DatePickerSize,
   OcRangePickerBaseProps,
   OcRangePickerDateProps,
   OcRangePickerTimeProps,
@@ -56,7 +58,6 @@ import getRanges from './Utils/getRanges';
 import useRangeViewDates from './Hooks/useRangeViewDates';
 import type { DateRender } from './Partials/DatePartial/Date.types';
 import useHoverValue from './Hooks/useHoverValue';
-import { DatePickerShape, DatePickerSize } from './OcPicker.types';
 
 import styles from './ocpicker.module.scss';
 import triggerStyles from '../../Trigger/trigger.module.scss';
@@ -66,9 +67,8 @@ function reorderValues<DateType>(
   generateConfig: GenerateConfig<DateType>
 ): RangeValue<DateType> {
   if (
-    values &&
-    values[0] &&
-    values[1] &&
+    values?.[0] &&
+    values?.[1] &&
     generateConfig.isAfter(values[0], values[1])
   ) {
     return [values[1], values[0]];
@@ -81,17 +81,22 @@ function canValueTrigger<DateType>(
   value: EventValue<DateType>,
   index: number,
   disabled: [boolean, boolean],
+  readonly: [boolean, boolean],
   allowEmpty?: [boolean, boolean] | null
 ): boolean {
   if (value) {
     return true;
   }
 
-  if (allowEmpty && allowEmpty[index]) {
+  if (allowEmpty?.[index]) {
     return true;
   }
 
   if (disabled[(index + 1) % 2]) {
+    return true;
+  }
+
+  if (readonly[(index + 1) % 2]) {
     return true;
   }
 
@@ -162,6 +167,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     popupPlacement,
     popupStyle,
     ranges,
+    readonly,
+    readonlyIcon,
     renderExtraFooter,
     separator = ',',
     shape = DatePickerShape.Rectangle,
@@ -190,6 +197,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     useRef<HTMLDivElement>(null);
   const endInputDivRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
+  const lockIconRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
   const separatorRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
   const startInputRef: React.MutableRefObject<HTMLInputElement> =
@@ -216,6 +225,16 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
     return [disabled || false, disabled || false];
   }, [disabled]);
+
+  const mergedReadonly: [boolean, boolean] = React.useMemo<
+    [boolean, boolean]
+  >(() => {
+    if (Array.isArray(readonly)) {
+      return readonly;
+    }
+
+    return [readonly || false, readonly || false];
+  }, [readonly]);
 
   const [mergedValue, setInnerValue] = useMergedState<RangeValue<DateType>>(
     null,
@@ -245,8 +264,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         return postValues;
       }
 
-      // Fill disabled unit
+      if (mergedReadonly[0] && mergedReadonly[1]) {
+        return postValues;
+      }
+
       for (let i: number = 0; i < 2; i += 1) {
+        // Fill disabled unit
         if (
           mergedDisabled[i] &&
           !postValues &&
@@ -255,7 +278,18 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         ) {
           postValues = updateValues(postValues, generateConfig.getNow(), i);
         }
+
+        // Fill readonly unit
+        if (
+          mergedReadonly[i] &&
+          !postValues &&
+          !getValue(postValues, i) &&
+          !getValue(allowEmpty, i)
+        ) {
+          postValues = updateValues(postValues, generateConfig.getNow(), i);
+        }
       }
+
       return postValues;
     },
   });
@@ -292,6 +326,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       getValue(selectedValue, 0),
       getValue(selectedValue, 1),
       mergedDisabled,
+      mergedReadonly,
       onOpenChange
     );
 
@@ -305,6 +340,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       locale,
       disabled: mergedDisabled,
       disabledDate,
+      readonly: mergedReadonly,
       generateConfig,
     },
     !mergedOpen || firstTimeOpen
@@ -369,22 +405,20 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
     setSelectedValue(values);
 
-    const startStr: string =
-      values && values[0]
-        ? formatValue(values[0], {
-            generateConfig,
-            locale,
-            format: formatList[0],
-          })
-        : '';
-    const endStr: string =
-      values && values[1]
-        ? formatValue(values[1], {
-            generateConfig,
-            locale,
-            format: formatList[0],
-          })
-        : '';
+    const startStr: string = values?.[0]
+      ? formatValue(values[0], {
+          generateConfig,
+          locale,
+          format: formatList[0],
+        })
+      : '';
+    const endStr: string = values?.[1]
+      ? formatValue(values[1], {
+          generateConfig,
+          locale,
+          format: formatList[0],
+        })
+      : '';
 
     if (onCalendarChange) {
       const info: RangeInfo = {
@@ -399,12 +433,14 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       startValue,
       0,
       mergedDisabled,
+      mergedReadonly,
       allowEmpty
     );
     const canEndValueTrigger: boolean = canValueTrigger(
       endValue,
       1,
       mergedDisabled,
+      mergedReadonly,
       allowEmpty
     );
 
@@ -412,7 +448,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       values === null || (canStartValueTrigger && canEndValueTrigger);
 
     if (canTrigger) {
-      // Trigger onChange only when value is validate
+      // Trigger onChange only when value is validated.
       setInnerValue(values);
 
       if (
@@ -561,15 +597,18 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     },
     triggerOpen: (newOpen: boolean): void => {
-      if (newOpen) {
+      if (newOpen && !mergedDisabled[index] && !mergedReadonly[index]) {
         triggerOpen(newOpen, index, 'open');
-      } else {
+      } else if (!mergedDisabled[index] && !mergedReadonly[index]) {
         triggerOpen(
           newOpen,
           // Close directly if no selected value provided
           getValue(selectedValue, index) ? index : false,
           'blur'
         );
+      } else {
+        // If disabled or readonly, close.
+        triggerOpen(false, false, 'blur');
       }
     },
     onSubmit: (): boolean => {
@@ -577,7 +616,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         // When user typing disabledDate with keyboard and enter, this value will be empty
         !selectedValue ||
         // Normal disabled check
-        (disabledDate && disabledDate(selectedValue[index]))
+        disabledDate?.(selectedValue[index])
       ) {
         return false;
       }
@@ -633,9 +672,9 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       !startInputRef.current.contains(e.target as Node) &&
       !endInputRef.current.contains(e.target as Node)
     ) {
-      if (!mergedDisabled[0]) {
+      if (!mergedDisabled[0] && !mergedReadonly[0]) {
         triggerOpenAndFocus(0);
-      } else if (!mergedDisabled[1]) {
+      } else if (!mergedDisabled[1] && !mergedReadonly[1]) {
         triggerOpenAndFocus(1);
       }
     }
@@ -657,22 +696,20 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   };
 
   // Close should sync back with text value
-  const startStr: string =
-    mergedValue && mergedValue[0]
-      ? formatValue(mergedValue[0], {
-          locale,
-          format: 'YYYYMMDDHHmmss',
-          generateConfig,
-        })
-      : '';
-  const endStr: string =
-    mergedValue && mergedValue[1]
-      ? formatValue(mergedValue[1], {
-          locale,
-          format: 'YYYYMMDDHHmmss',
-          generateConfig,
-        })
-      : '';
+  const startStr: string = mergedValue?.[0]
+    ? formatValue(mergedValue[0], {
+        locale,
+        format: 'YYYYMMDDHHmmss',
+        generateConfig,
+      })
+    : '';
+  const endStr: string = mergedValue?.[1]
+    ? formatValue(mergedValue[1], {
+        locale,
+        format: 'YYYYMMDDHHmmss',
+        generateConfig,
+      })
+    : '';
 
   useEffect(() => {
     if (!mergedOpen) {
@@ -871,7 +908,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   ) {
     // Arrow offset
     arrowLeft =
-      startInputDivRef.current.offsetWidth + separatorRef.current.offsetWidth;
+      startInputDivRef.current.offsetWidth +
+      (mergedReadonly[0] && lockIconRef?.current
+        ? lockIconRef.current.offsetWidth + separatorRef.current.offsetWidth
+        : separatorRef.current.offsetWidth);
 
     // If partialWidth - arrowWidth + arrowMarginLeft < arrowLeft, partial should move to right side.
     // If offsetLeft > arrowLeft, arrow position is absolutely right, because arrowLeft is not calculated with arrow margin.
@@ -905,7 +945,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       needConfirmButton,
       okDisabled:
         !getValue(selectedValue, mergedActivePickerIndex) ||
-        (disabledDate && disabledDate(selectedValue[mergedActivePickerIndex])),
+        disabledDate?.(selectedValue[mergedActivePickerIndex]),
       nowButtonProps,
       nowText,
       okButtonProps,
@@ -1036,8 +1076,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   let clearNode: React.ReactNode;
   if (
     allowClear &&
-    ((getValue(mergedValue as RangeValue<DateType>, 0) && !mergedDisabled[0]) ||
-      (getValue(mergedValue as RangeValue<DateType>, 1) && !mergedDisabled[1]))
+    ((getValue(mergedValue as RangeValue<DateType>, 0) &&
+      !mergedDisabled[0] &&
+      !mergedReadonly[0]) ||
+      (getValue(mergedValue as RangeValue<DateType>, 1) &&
+        !mergedDisabled[1] &&
+        !mergedReadonly[1]))
   ) {
     clearNode = (
       <span
@@ -1051,10 +1095,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           e.stopPropagation();
           let values = mergedValue;
 
-          if (!mergedDisabled[0]) {
+          if (!mergedDisabled[0] && !mergedReadonly[0]) {
             values = updateValues(values, null, 0);
           }
-          if (!mergedDisabled[1]) {
+          if (!mergedDisabled[1] && !mergedReadonly[1]) {
             values = updateValues(values, null, 1);
           }
 
@@ -1080,21 +1124,36 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     endInputDivRef.current &&
     separatorRef.current
   ) {
-    if (mergedActivePickerIndex === 0 && shape === DatePickerShape.Underline) {
+    if (
+      mergedActivePickerIndex === 0 &&
+      !mergedDisabled[0] &&
+      !mergedReadonly[0] &&
+      shape === DatePickerShape.Underline
+    ) {
       activeBarWidth = startInputDivRef.current.offsetWidth + 20;
     } else if (
       mergedActivePickerIndex === 0 &&
+      !mergedDisabled[0] &&
+      !mergedReadonly[0] &&
       shape === DatePickerShape.Pill
     ) {
       activeBarLeft = 14;
       activeBarWidth = startInputDivRef.current.offsetWidth - 14;
-    } else if (mergedActivePickerIndex === 0) {
+    } else if (
+      mergedActivePickerIndex === 0 &&
+      !mergedDisabled[0] &&
+      !mergedReadonly[0]
+    ) {
       activeBarLeft = 8;
       activeBarWidth = startInputDivRef.current.offsetWidth - 8;
-    } else if (shape === DatePickerShape.Underline) {
+    } else if (
+      shape === DatePickerShape.Underline &&
+      !mergedDisabled[1] &&
+      !mergedReadonly[1]
+    ) {
       activeBarLeft = arrowLeft;
-      activeBarWidth = endInputDivRef.current.offsetWidth + 20;
-    } else {
+      activeBarWidth = endInputDivRef.current.offsetWidth + 24;
+    } else if (!mergedDisabled[1] && !mergedReadonly[1]) {
       activeBarLeft = arrowLeft;
       activeBarWidth = endInputDivRef.current.offsetWidth;
     }
@@ -1123,7 +1182,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
       // Switch
       const nextActivePickerIndex = mergedActivePickerIndex === 0 ? 1 : 0;
-      if (mergedDisabled[nextActivePickerIndex]) {
+      if (
+        mergedDisabled[nextActivePickerIndex] ||
+        mergedReadonly[nextActivePickerIndex]
+      ) {
         triggerOpen(false, false, 'confirm');
       } else {
         triggerOpen(false, mergedActivePickerIndex, 'confirm');
@@ -1170,6 +1232,27 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               [styles.pickerDisabled]: mergedDisabled[0] && mergedDisabled[1],
             },
             {
+              [styles.pickerReadonly]: mergedReadonly[0] && mergedReadonly[1],
+            },
+            {
+              [styles.pickerHalfDisabled]:
+                (mergedDisabled[0] || mergedDisabled[1]) &&
+                !(mergedDisabled[0] && mergedDisabled[1]),
+            },
+            {
+              [styles.pickerHalfReadonly]:
+                (mergedReadonly[0] || mergedReadonly[1]) &&
+                !(mergedReadonly[0] && mergedReadonly[1]),
+            },
+            {
+              [styles.pickerStartReadonly]:
+                mergedReadonly[0] && !(mergedReadonly[0] && mergedReadonly[1]),
+            },
+            {
+              [styles.pickerEndReadonly]:
+                mergedReadonly[1] && !(mergedReadonly[0] && mergedReadonly[1]),
+            },
+            {
               [styles.pickerFocused]:
                 mergedActivePickerIndex === 0 ? startFocused : endFocused,
             },
@@ -1186,6 +1269,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           <div
             className={mergeClasses([
               styles.pickerInput,
+              styles.pickerStartInput,
               {
                 ['picker-input-active']: mergedActivePickerIndex === 0,
               },
@@ -1196,12 +1280,20 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
             ref={startInputDivRef}
           >
             <input
-              id={id}
+              className={
+                mergedReadonly[0] &&
+                !(mergedReadonly[0] && mergedReadonly[1]) &&
+                shape === DatePickerShape.Pill
+                  ? styles.inputPillBorderOffset
+                  : null
+              }
               disabled={mergedDisabled[0]}
+              id={id}
               readOnly={
-                inputReadOnly ||
+                mergedReadonly[0] ||
+                (!mergedReadonly && inputReadOnly) ||
                 typeof formatList[0] === 'function' ||
-                !startTyping
+                (!mergedReadonly && !startTyping)
               }
               value={startHoverValue || startText}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1215,12 +1307,20 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               autoComplete={autoComplete}
             />
           </div>
+          {mergedReadonly[0] && !(mergedReadonly[0] && mergedReadonly[1]) && (
+            <div className={styles.lockIconWrapper} ref={lockIconRef}>
+              {readonlyIcon}
+            </div>
+          )}
           <div className={'picker-range-separator'} ref={separatorRef}>
             {separator}
           </div>
           <div
             className={mergeClasses([
               styles.pickerInput,
+              styles.pickerEndInput,
+              { [styles.pickerEndInputSmall]: size === DatePickerSize.Small },
+              { [styles.pickerEndInputLarge]: size === DatePickerSize.Large },
               {
                 ['picker-input-active']: mergedActivePickerIndex === 1,
               },
@@ -1233,9 +1333,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
             <input
               disabled={mergedDisabled[1]}
               readOnly={
-                inputReadOnly ||
+                mergedReadonly[1] ||
+                (!mergedReadonly && inputReadOnly) ||
                 typeof formatList[0] === 'function' ||
-                !endTyping
+                (!mergedReadonly && !endTyping)
               }
               value={endHoverValue || endText}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1256,6 +1357,9 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               position: 'absolute',
             }}
           />
+          {mergedReadonly[1] &&
+            !(mergedReadonly[0] && mergedReadonly[1]) &&
+            readonlyIcon}
           {suffixNode}
           {clearNode}
         </div>

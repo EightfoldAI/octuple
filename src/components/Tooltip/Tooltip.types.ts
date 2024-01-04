@@ -34,6 +34,11 @@ export enum TooltipType {
   Popup = 'popup',
 }
 
+export enum TooltipTouchInteraction {
+  Tap = 'Tap',
+  TapAndHold = 'TapAndHold',
+}
+
 export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   /**
    * Should animate the Tooltip transitions.
@@ -64,6 +69,12 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * Content to show in the Tooltip.
    */
   content: React.ReactNode;
+  /**
+   * Whether to disable the browser contextual menu on the reference element.
+   * Useful for some touch (`Gestures.TapAndHold`) implementations.
+   * @default false
+   */
+  disableContextMenu?: boolean;
   /**
    * Whether to disable the Tooltip.
    * @default false
@@ -193,6 +204,12 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * @default false
    */
   triggerAbove?: boolean;
+  /**
+   * Determines the interaction that triggers
+   * the equivalent of hover on touch interfaces.
+   * @default TooltipTouchInteraction.Tap
+   */
+  touchInteraction?: TooltipTouchInteraction;
   /**
    * The type of Tooltip
    * @default TooltipType.Default

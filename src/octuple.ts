@@ -36,7 +36,13 @@ import {
 
 import { Card, CardSize, CardType } from './components/Card';
 
-import { Carousel, Slide, VisibilityContext } from './components/Carousel';
+import {
+  autoScrollApi,
+  autoScrollApiType,
+  Carousel,
+  Slide,
+  VisibilityContext,
+} from './components/Carousel';
 
 import {
   CheckBox,
@@ -68,11 +74,13 @@ import {
 
 import { Dialog, DialogHelper, DialogSize } from './components/Dialog';
 
-import { Dropdown } from './components/Dropdown';
+import { Dropdown, DropdownRef } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
 
 import { FadeIn } from './components/FadeIn';
+
+import { FocusTrap, useFocusTrap } from './shared/FocusTrap';
 
 import Form, { FormInstance } from './components/Form';
 
@@ -156,10 +164,34 @@ import {
 import { Select, SelectShape, SelectSize } from './components/Select';
 
 import {
+  BelowLargeImg,
+  BelowMediumImg,
+  BelowSmallImg,
+  BelowUpskillingLargeImg,
+  BelowUpskillingMediumImg,
+  BelowUpskillingSmallImg,
+  ExceedLargeImg,
+  ExceedMediumImg,
+  ExceedSmallImg,
+  ExceedUpskillingLargeImg,
+  ExceedUpskillingMediumImg,
+  ExceedUpskillingSmallImg,
+  matchingSkillAssessment,
+  matchingSkillStatus,
+  MeetLargeImg,
+  MeetMediumImg,
+  MeetSmallImg,
+  MeetUpskillingLargeImg,
+  MeetUpskillingMediumImg,
+  MeetUpskillingSmallImg,
+  SkillAssessment,
   SkillBlock,
   SkillSize,
   SkillStatus,
   SkillTag,
+  UpskillingLargeImg,
+  UpskillingMediumImg,
+  UpskillingSmallImg,
 } from './components/Skill';
 
 import {
@@ -198,7 +230,12 @@ import {
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
-import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
+import {
+  Tooltip,
+  TooltipTheme,
+  TooltipSize,
+  TooltipTouchInteraction,
+} from './components/Tooltip';
 
 import { Loader, LoaderSize } from './components/Loader';
 
@@ -211,7 +248,12 @@ import {
   PanelHeader,
 } from './components/Panel';
 
-import { Popup, PopupSize, PopupTheme } from './components/Popup';
+import {
+  Popup,
+  PopupSize,
+  PopupTheme,
+  PopupTouchInteraction,
+} from './components/Popup';
 
 import { Portal } from './components/Portal';
 
@@ -245,6 +287,8 @@ import { useBoolean } from './hooks/useBoolean';
 
 import { useCanvasDirection } from './hooks/useCanvasDirection';
 
+import useGestures, { Gestures } from './hooks/useGestures';
+
 import { Breakpoints, useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
@@ -257,6 +301,8 @@ export {
   Accordion,
   AccordionShape,
   AccordionSize,
+  autoScrollApi,
+  autoScrollApiType,
   AVATAR_THEME_SET,
   Avatar,
   AvatarGroup,
@@ -264,6 +310,12 @@ export {
   AvatarPopupProps,
   Badge,
   BadgeSize,
+  BelowLargeImg,
+  BelowMediumImg,
+  BelowSmallImg,
+  BelowUpskillingLargeImg,
+  BelowUpskillingMediumImg,
+  BelowUpskillingSmallImg,
   Breadcrumb,
   Breakpoints,
   Button,
@@ -296,14 +348,23 @@ export {
   DialogHelper,
   DialogSize,
   Dropdown,
+  DropdownRef,
   Empty,
   EmptyMode,
+  ExceedLargeImg,
+  ExceedMediumImg,
+  ExceedSmallImg,
+  ExceedUpskillingLargeImg,
+  ExceedUpskillingMediumImg,
+  ExceedUpskillingSmallImg,
   ExpandableConfig,
   FadeIn,
   FilterConfirmProps,
   FilterValue,
+  FocusTrap,
   Form,
   FormInstance,
+  Gestures,
   Grid,
   Icon,
   IconName,
@@ -328,7 +389,15 @@ export {
   List,
   Loader,
   LoaderSize,
+  matchingSkillAssessment,
+  matchingSkillStatus,
   MatchScore,
+  MeetLargeImg,
+  MeetMediumImg,
+  MeetSmallImg,
+  MeetUpskillingLargeImg,
+  MeetUpskillingMediumImg,
+  MeetUpskillingSmallImg,
   Menu,
   MenuItemIconAlign,
   MenuItemType,
@@ -361,6 +430,7 @@ export {
   Popup,
   PopupSize,
   PopupTheme,
+  PopupTouchInteraction,
   Portal,
   PrimaryButton,
   Progress,
@@ -383,6 +453,7 @@ export {
   SecondaryButton,
   Shape,
   Size,
+  SkillAssessment,
   SkillBlock,
   SkillSize,
   SkillStatus,
@@ -432,14 +503,20 @@ export {
   Tooltip,
   TooltipTheme,
   TooltipSize,
+  TooltipTouchInteraction,
   TwoStateButton,
   Upload,
   UploadFile,
   UploadFileStatus,
   UploadProps,
   UploadSize,
+  UpskillingLargeImg,
+  UpskillingMediumImg,
+  UpskillingSmallImg,
   useBoolean,
   useCanvasDirection,
+  useFocusTrap,
+  useGestures,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,

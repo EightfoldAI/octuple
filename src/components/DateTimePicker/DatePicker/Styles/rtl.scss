@@ -41,6 +41,11 @@
       }
     }
 
+    .picker-separator {
+      margin-left: $space-xs;
+      margin-right: unset;
+    }
+
     &.picker-ranges {
       .picker-dropdown {
         text-align: right;

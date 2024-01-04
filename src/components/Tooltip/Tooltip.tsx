@@ -28,16 +28,15 @@ import {
   TOOLTIP_DEFAULT_OFFSET,
   TRIGGER_TO_HANDLER_MAP_ON_ENTER,
   TRIGGER_TO_HANDLER_MAP_ON_LEAVE,
+  TooltipTouchInteraction,
 } from './Tooltip.types';
+import useGestures, { Gestures } from '../../hooks/useGestures';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
   cloneElement,
   ConditionalWrapper,
   eventKeys,
-  isAndroid,
-  isIOS,
-  isTouchSupported,
   mergeClasses,
   RenderProps,
   uniqueId,
@@ -57,6 +56,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         closeOnReferenceClick = true,
         closeOnTooltipClick = false,
         content,
+        disableContextMenu = false,
         disabled,
         dropShadow = true,
         height,
@@ -83,6 +83,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         tooltipStyle,
         trigger = 'hover',
         triggerAbove = false,
+        touchInteraction = TooltipTouchInteraction.TapAndHold,
         type = TooltipType.Default,
         visible,
         visibleArrow = true,
@@ -108,18 +109,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         `${tooltipId?.current}-reference`
       );
 
-      const isMobile: boolean = isIOS() || isAndroid();
-      let mergedTrigger: 'click' | 'hover' | 'contextmenu';
-
-      // First use the most reliable way of detecting iOS or Android,
-      // then test for touch interaction as a somewhat less reliable
-      // way to detect other hybrid devices.
-      if (isMobile || (!isMobile && isTouchSupported())) {
-        mergedTrigger = 'click';
-      } else {
-        mergedTrigger = trigger;
-      }
-
       let timeout: ReturnType<typeof setTimeout>;
       const {
         x,
@@ -144,6 +133,10 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         ],
       });
 
+      const gestureType: Gestures = useGestures(
+        refs.reference?.current as HTMLElement
+      );
+
       const toggle: Function =
         (show: boolean, showTooltip = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
@@ -152,8 +145,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           }
           // to control the toggle behaviour
           const updatedShow: boolean = showTooltip(show);
-          if (PREVENT_DEFAULT_TRIGGERS.includes(mergedTrigger)) {
-            e.preventDefault();
+          if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
+            e?.preventDefault();
           }
           setHiding(!updatedShow);
           timeout && clearTimeout(timeout);
@@ -192,6 +185,24 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           document.removeEventListener('keydown', escapeTooltip);
         };
       }, [type]);
+
+      useEffect(() => {
+        const referenceElement: HTMLElement = document.querySelector(
+          `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
+        );
+        if (disableContextMenu) {
+          referenceElement?.addEventListener('contextmenu', (e) =>
+            e?.preventDefault()
+          );
+        }
+        return () => {
+          if (disableContextMenu) {
+            referenceElement?.removeEventListener('contextmenu', (e) =>
+              e?.preventDefault()
+            );
+          }
+        };
+      }, [disableContextMenu]);
 
       useImperativeHandle(ref, () => ({
         update,
@@ -320,7 +331,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const referenceWrapperClassNames: string = mergeClasses([
         styles.referenceWrapper,
         wrapperClassNames,
-        { [styles.disabled]: disabled },
       ]);
 
       // Only use the `placement` type's `Side` property to determine `staticSide`.
@@ -369,15 +379,11 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               'data-reference-id': tooltipReferenceId?.current,
             };
 
-            const defaultMergedClasses: string = node.props?.disabled
-              ? mergeClasses([defaultReferenceClassNames, styles.disabled])
-              : defaultReferenceClassNames;
-
             // Compares for octuple react prop vs native react html classes.
             if (node.props?.className) {
-              clonedElementProps['className'] = defaultMergedClasses;
+              clonedElementProps['className'] = defaultReferenceClassNames;
             } else if (child.props.classNames) {
-              clonedElementProps['classNames'] = defaultMergedClasses;
+              clonedElementProps['classNames'] = defaultReferenceClassNames;
             }
 
             return cloneElement(child, clonedElementProps);
@@ -399,24 +405,37 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             // Add any classnames added to the reference element
             { [child.props.className]: !!child.props.className },
             { [child.props.classNames]: !!child.props.classNames },
-            { [styles.disabled]: disabled },
             'tooltip-reference',
           ]);
 
           const clonedElementProps: RenderProps = {
             ...{
-              [TRIGGER_TO_HANDLER_MAP_ON_ENTER[mergedTrigger]]: toggle(true),
+              [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(!gestureType),
             },
             id: child.props?.id ? child.props?.id : tooltipReferenceId?.current,
             key: child.props?.key ? child.props?.key : tooltipId?.current,
-            onClick: (event: React.MouseEvent<Element, MouseEvent>) => {
-              child.props.onClick?.(event);
-              handleReferenceClick(event);
+            onClick: (event: React.MouseEvent<Element, MouseEvent>): void => {
+              if (!trigger.includes('hover')) {
+                child.props.onClick?.(event);
+                handleReferenceClick(event);
+              } else if (
+                trigger.includes('hover') &&
+                gestureType?.includes(touchInteraction)
+              ) {
+                event?.preventDefault();
+                handleReferenceClick(event);
+              }
             },
-            onKeyDown: (event: React.KeyboardEvent<Element>) => {
+            onKeyDown: (event: React.KeyboardEvent<Element>): void => {
               child.props.onKeyDown?.(event);
-              if (!isMobile && !isTouchSupported()) {
+              if (!gestureType) {
                 handleReferenceKeyDown(event);
+              }
+            },
+            onFocus: (event: React.FocusEvent<Element, FocusEvent>): void => {
+              child.props.onFocus?.(event);
+              if (trigger.includes('hover') && !mergedVisible && !gestureType) {
+                toggle(true, showTooltip)(event);
               }
             },
             'aria-controls': tooltipId?.current,
@@ -441,14 +460,28 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             aria-controls={tooltipId?.current}
             aria-expanded={mergedVisible}
             aria-haspopup={true}
-            className={mergeClasses([
-              { [styles.triggerAbove]: !!triggerAbove },
-              { [styles.disabled]: disabled },
-            ])}
+            className={!!triggerAbove ? styles.triggerAbove : ''}
             id={tooltipReferenceId?.current}
             key={tooltipId?.current}
-            onClick={handleReferenceClick}
-            onKeyDown={handleReferenceKeyDown}
+            onClick={(
+              event: React.MouseEvent<HTMLDivElement, MouseEvent>
+            ): void => {
+              if (!trigger.includes('hover')) {
+                handleReferenceClick(event);
+              } else if (
+                trigger.includes('hover') &&
+                gestureType?.includes(touchInteraction)
+              ) {
+                event?.preventDefault();
+                handleReferenceClick(event);
+              }
+            }}
+            onKeyDown={!gestureType ? handleReferenceKeyDown : null}
+            onFocus={
+              trigger.includes('hover') && !mergedVisible && !gestureType
+                ? toggle(true, showTooltip)
+                : null
+            }
             role="button"
             tab-index={tabIndex}
           >
@@ -486,6 +519,29 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               onKeyDown={
                 type === TooltipType.Popup ? handleFloatingKeyDown : null
               }
+              onMouseEnter={
+                trigger.includes('hover') && mergedVisible && !gestureType
+                  ? toggle(true, showTooltip)
+                  : null
+              }
+              onMouseLeave={(
+                event: React.MouseEvent<HTMLDivElement, MouseEvent>
+              ): void => {
+                const referenceElement: HTMLElement = document.querySelector(
+                  `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
+                );
+                if (
+                  trigger.includes('hover') &&
+                  mergedVisible &&
+                  !gestureType
+                ) {
+                  toggle(
+                    !event.currentTarget &&
+                      event.relatedTarget !== referenceElement,
+                    showTooltip
+                  )(event);
+                }
+              }}
               ref={floating}
               role="tooltip"
               style={tooltipStyles}
@@ -522,29 +578,44 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             className={referenceWrapperClassNames}
             style={wrapperStyle}
             id={tooltipId?.current}
-            onClick={
-              !mergedTrigger.includes('hover') ? handleReferenceClick : null
-            }
-            onKeyDown={
-              !isMobile && !isTouchSupported() ? handleReferenceKeyDown : null
-            }
+            onClick={(
+              event: React.MouseEvent<HTMLDivElement, MouseEvent>
+            ): void => {
+              if (!trigger.includes('hover')) {
+                handleReferenceClick(event);
+              } else if (
+                trigger.includes('hover') &&
+                gestureType?.includes(touchInteraction)
+              ) {
+                event?.preventDefault();
+                handleReferenceClick(event);
+              }
+            }}
+            onKeyDown={!gestureType ? handleReferenceKeyDown : null}
             onMouseEnter={
-              mergedTrigger.includes('hover') && !mergedVisible
+              trigger.includes('hover') && !mergedVisible && !gestureType
                 ? toggle(true, showTooltip)
                 : null
             }
-            onMouseLeave={
-              mergedTrigger.includes('hover') && mergedVisible
-                ? toggle(false, showTooltip)
-                : null
-            }
+            onMouseLeave={(
+              event: React.MouseEvent<HTMLDivElement, MouseEvent>
+            ): void => {
+              const floatingElement: HTMLElement = refs.floating.current;
+              if (trigger.includes('hover') && mergedVisible && !gestureType) {
+                toggle(
+                  !event.currentTarget &&
+                    event.relatedTarget !== floatingElement,
+                  showTooltip
+                )(event);
+              }
+            }}
             onFocus={
-              mergedTrigger.includes('hover') && !mergedVisible
+              trigger.includes('hover') && !mergedVisible && !gestureType
                 ? toggle(true, showTooltip)
                 : null
             }
             onBlur={
-              mergedTrigger.includes('hover') && mergedVisible
+              trigger.includes('hover') && mergedVisible && !gestureType
                 ? toggle(false, showTooltip)
                 : null
             }
@@ -562,9 +633,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           id={tooltipId?.current}
           style={wrapperStyle}
           ref={reference}
-          {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[mergedTrigger]
+          {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger] && !gestureType
             ? {
-                [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[mergedTrigger]]: toggle(
+                [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
                   false,
                   showTooltip
                 ),

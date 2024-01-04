@@ -100,10 +100,15 @@
     }
   }
 
+  &-readonly-icon {
+    margin: 0 $space-xs;
+  }
+
   &-separator {
     color: var(--picker-foreground-color);
     cursor: default;
     display: inline-block;
+    margin-right: $space-xs;
     position: relative;
     top: $space-xs;
 
@@ -258,7 +263,7 @@
     }
 
     .picker-separator {
-      top: 13px;
+      top: 10px;
 
       svg {
         transform: scale(1.5);
@@ -294,7 +299,7 @@
     }
 
     .picker-separator {
-      top: $space-xxs;
+      top: 6px;
     }
   }
 }

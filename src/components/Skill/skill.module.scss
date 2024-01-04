@@ -1,7 +1,17 @@
+// SVG dimension spec provided by design.
+$skill-svg-large-height: 26px;
+$skill-svg-medium-height: 22px;
+$skill-svg-small-height: 18px;
+$skill-svg-xsmall-height: 18px;
+
 // Export values for typescript consumption.
 :export {
   skillBlockContentFlexGap: strip-units($space-l);
   skillBlockContentPadding: strip-units($space-s);
+  skillSvgLargeHeight: strip-units($skill-svg-large-height);
+  skillSvgMediumHeight: strip-units($skill-svg-medium-height);
+  skillSvgSmallHeight: strip-units($skill-svg-small-height);
+  skillSvgXsmallHeight: strip-units($skill-svg-xsmall-height);
 }
 
 .skill {
@@ -24,15 +34,18 @@
     --skill-button-counter-default-text-color
   );
 
-  --bg: var(--white-color);
-  --label: var(--grey-secondary-color);
-  --hover-bg: var(--grey-background1-color);
-  --hover-label: var(--text-primary-color);
-  --active-bg: var(--grey-background2-color);
-  --active-label: var(--text-primary-color);
+  --bg: var(--skill-background-color);
+  --label: var(--skill-label-color);
+  --hover-bg: var(--skill-hover-background-color);
+  --hover-label: var(--skill-hover-label-color);
+  --active-bg: var(--skill-active-background-color);
+  --active-label: var(--skill-active-label-color);
   --divider: var(--skill-divider-color);
-  --hover-divider: var(--skill-divider-hover-color);
-  --active-divider: var(--skill-divider-active-color);
+  --hover-divider: var(--skill-hover-divider-color);
+  --active-divider: var(--skill-active-divider-color);
+  --required-mark: var(--skill-required-mark-color);
+  --active-required-mark: var(--skill-active-required-mark-color);
+  --hover-required-mark: var(--skill-hover-required-mark-color);
 
   border-radius: var(--skill-medium-size-border-radius);
   display: flex;
@@ -55,6 +68,46 @@
     background: var(--divider);
   }
 
+  .label {
+    font-family: var(--font-stack-full);
+    font-weight: $text-font-weight-semibold;
+
+    &.large {
+      font-size: $text-font-size-5;
+      line-height: 36px;
+    }
+
+    &.medium {
+      font-size: $text-font-size-3;
+      line-height: $text-line-height-4;
+    }
+
+    &.small,
+    &.xsmall {
+      font-size: $text-font-size-2;
+      line-height: $text-line-height-2;
+    }
+
+    &.line-clamp {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .required:after {
+    color: var(--required-mark);
+    content: '*';
+    display: inline-block;
+    font-family: SimSun, sans-serif;
+    font-size: $text-font-size-3;
+    font-weight: $text-font-weight-semibold;
+    line-height: $text-line-height-4;
+    margin-inline-end: $space-xxs;
+  }
+
   &.clickable:not(.disabled):not(.readonly),
   &.hoverable:not(.disabled):not(.readonly) {
     .background {
@@ -63,11 +116,13 @@
       &:hover {
         --bg: var(--hover-bg);
         --label: var(--hover-label);
+        --required-mark: var(--hover-required-mark);
       }
 
       &:active {
         --bg: var(--active-bg);
         --label: var(--active-label);
+        --required-mark: var(--active-required-mark);
       }
     }
 
@@ -130,9 +185,23 @@
         gap: $space-xxs;
       }
 
-      .icon {
+      .icon,
+      .suffix-icon {
         align-items: flex-start;
         margin-top: 6px;
+      }
+
+      .block-end:has(.suffix-icon):has(.button-list),
+      .block-end:has(.suffix-svg):has(.button-list) {
+        gap: $space-xs;
+      }
+    }
+
+    &.full-width {
+      width: 100%;
+
+      .content {
+        justify-content: space-between;
       }
     }
   }
@@ -141,67 +210,40 @@
     box-shadow: $shadow-object-m;
   }
 
-  .label {
-    font-family: var(--font-stack-full);
-    font-weight: $text-font-weight-semibold;
-    user-select: none;
-
-    &.large {
-      font-size: $text-font-size-5;
-      line-height: 36px;
-    }
-
-    &.medium {
-      font-size: $text-font-size-3;
-      line-height: $text-line-height-4;
-    }
-
-    &.small,
-    &.xsmall {
-      font-size: $text-font-size-2;
-      line-height: $text-line-height-2;
-    }
-
-    &.line-clamp {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      word-break: break-all;
-      overflow-y: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
   &.readonly {
     cursor: default;
     pointer-events: none;
   }
 
-  .icon {
+  .icon,
+  .suffix-icon {
     color: inherit;
   }
 
+  &:has(.icon) {
+    .svg {
+      &.svg-assessment {
+        margin-inline-end: $space-xxs;
+      }
+    }
+  }
+
   .button {
-    background: var(--skill-button-neutral-background-color);
+    background: var(--skill-button-background-color);
     color: inherit;
     cursor: default;
 
     &:hover {
-      background: var(--skill-button-neutral-hover-background-color);
+      background: var(--skill-button-hover-background-color);
     }
 
     &:active {
-      background: var(--skill-button-neutral-active-background-color);
+      background: var(--skill-button-active-background-color);
     }
   }
 
-  &:not(.xsmall):not(.block) {
+  &.bordered {
     border: var(--skill-border);
-  }
-
-  &.block {
-    &.bordered {
-      border: var(--skill-border);
-    }
   }
 
   &.red {
@@ -214,14 +256,10 @@
     --divider: var(--red-background2-color);
     --hover-divider: var(--red-background3-color);
     --active-divider: var(--red-color-40);
-    --skill-button-neutral-background-color: var(--red-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --red-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(--red-background3-color);
-    --skill-button-neutral-focus-visible-background-color: var(
-      --red-background1-color
-    );
+    --skill-button-background-color: var(--red-background2-color);
+    --skill-button-active-background-color: var(--red-background2-color);
+    --skill-button-hover-background-color: var(--red-background3-color);
+    --skill-button-focus-visible-background-color: var(--red-background1-color);
     --skill-button-counter-default-background-color: var(
       --red-background1-color
     );
@@ -250,14 +288,10 @@
     --divider: var(--redorange-background2-color);
     --hover-divider: var(--redorange-background3-color);
     --active-divider: var(--redorange-color-40);
-    --skill-button-neutral-background-color: var(--redorange-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --redorange-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --redorange-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--redorange-background2-color);
+    --skill-button-active-background-color: var(--redorange-background2-color);
+    --skill-button-hover-background-color: var(--redorange-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --redorange-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -292,14 +326,10 @@
     --divider: var(--orange-background2-color);
     --hover-divider: var(--orange-background3-color);
     --active-divider: var(--orange-color-40);
-    --skill-button-neutral-background-color: var(--orange-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --orange-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --orange-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--orange-background2-color);
+    --skill-button-active-background-color: var(--orange-background2-color);
+    --skill-button-hover-background-color: var(--orange-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --orange-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -334,14 +364,10 @@
     --divider: var(--yellow-background2-color);
     --hover-divider: var(--yellow-background3-color);
     --active-divider: var(--yellow-color-40);
-    --skill-button-neutral-background-color: var(--yellow-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --yellow-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --yellow-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--yellow-background2-color);
+    --skill-button-active-background-color: var(--yellow-background2-color);
+    --skill-button-hover-background-color: var(--yellow-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --yellow-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -376,16 +402,12 @@
     --divider: var(--yellowgreen-background2-color);
     --hover-divider: var(--yellowgreen-background3-color);
     --active-divider: var(--yellowgreen-color-40);
-    --skill-button-neutral-background-color: var(
+    --skill-button-background-color: var(--yellowgreen-background2-color);
+    --skill-button-active-background-color: var(
       --yellowgreen-background2-color
     );
-    --skill-button-neutral-active-background-color: var(
-      --yellowgreen-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --yellowgreen-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-hover-background-color: var(--yellowgreen-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --yellowgreen-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -420,14 +442,10 @@
     --divider: var(--green-background2-color);
     --hover-divider: var(--green-background3-color);
     --active-divider: var(--green-color-40);
-    --skill-button-neutral-background-color: var(--green-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --green-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --green-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--green-background2-color);
+    --skill-button-active-background-color: var(--green-background2-color);
+    --skill-button-hover-background-color: var(--green-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --green-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -462,14 +480,10 @@
     --divider: var(--bluegreen-background2-color);
     --hover-divider: var(--bluegreen-background3-color);
     --active-divider: var(--bluegreen-color-40);
-    --skill-button-neutral-background-color: var(--bluegreen-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --bluegreen-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --bluegreen-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--bluegreen-background2-color);
+    --skill-button-active-background-color: var(--bluegreen-background2-color);
+    --skill-button-hover-background-color: var(--bluegreen-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --bluegreen-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -504,14 +518,10 @@
     --divider: var(--blue-background2-color);
     --hover-divider: var(--blue-background3-color);
     --active-divider: var(--blue-color-40);
-    --skill-button-neutral-background-color: var(--blue-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --blue-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --blue-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--blue-background2-color);
+    --skill-button-active-background-color: var(--blue-background2-color);
+    --skill-button-hover-background-color: var(--blue-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --blue-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -546,16 +556,10 @@
     --divider: var(--blueviolet-background2-color);
     --hover-divider: var(--blueviolet-background3-color);
     --active-divider: var(--blueviolet-color-40);
-    --skill-button-neutral-background-color: var(
-      --blueviolet-background2-color
-    );
-    --skill-button-neutral-active-background-color: var(
-      --blueviolet-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --blueviolet-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--blueviolet-background2-color);
+    --skill-button-active-background-color: var(--blueviolet-background2-color);
+    --skill-button-hover-background-color: var(--blueviolet-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --blueviolet-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -590,14 +594,10 @@
     --divider: var(--violet-background2-color);
     --hover-divider: var(--violet-background3-color);
     --active-divider: var(--violet-color-40);
-    --skill-button-neutral-background-color: var(--violet-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --violet-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --violet-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--violet-background2-color);
+    --skill-button-active-background-color: var(--violet-background2-color);
+    --skill-button-hover-background-color: var(--violet-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --violet-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -632,14 +632,10 @@
     --divider: var(--violetred-background2-color);
     --hover-divider: var(--violetred-background3-color);
     --active-divider: var(--violetred-color-40);
-    --skill-button-neutral-background-color: var(--violetred-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --violetred-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --violetred-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--violetred-background2-color);
+    --skill-button-active-background-color: var(--violetred-background2-color);
+    --skill-button-hover-background-color: var(--violetred-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --violetred-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -674,14 +670,10 @@
     --divider: var(--grey-background2-color);
     --hover-divider: var(--grey-background3-color);
     --active-divider: var(--grey-color-40);
-    --skill-button-neutral-background-color: var(--grey-background2-color);
-    --skill-button-neutral-active-background-color: var(
-      --grey-background2-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --grey-background3-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--grey-background2-color);
+    --skill-button-active-background-color: var(--grey-background2-color);
+    --skill-button-hover-background-color: var(--grey-background3-color);
+    --skill-button-focus-visible-background-color: var(
       --grey-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -716,14 +708,10 @@
     --divider: var(--grey-background2-color);
     --hover-divider: var(--grey-background3-color);
     --active-divider: var(--grey-background3-color);
-    --skill-button-neutral-background-color: var(--grey-background1-color);
-    --skill-button-neutral-active-background-color: var(
-      --grey-background3-color
-    );
-    --skill-button-neutral-hover-background-color: var(
-      --grey-background2-color
-    );
-    --skill-button-neutral-focus-visible-background-color: var(
+    --skill-button-background-color: var(--grey-background1-color);
+    --skill-button-active-background-color: var(--grey-background3-color);
+    --skill-button-hover-background-color: var(--grey-background2-color);
+    --skill-button-focus-visible-background-color: var(
       --grey-background1-color
     );
     --skill-button-counter-default-background-color: var(
@@ -747,86 +735,137 @@
   }
 
   &.highlight {
-    --bg: var(--yellowgreen-background1-color);
-    --label: var(--yellowgreen-color);
-    --hover-bg: var(--yellowgreen-background2-color);
-    --hover-label: var(--yellowgreen-color);
-    --active-bg: var(--yellowgreen-background3-color);
-    --active-label: var(--yellowgreen-color);
-    --divider: var(--yellowgreen-background2-color);
-    --hover-divider: var(--yellowgreen-background3-color);
-    --active-divider: var(--yellowgreen-color-40);
-    --skill-button-neutral-background-color: var(
-      --yellowgreen-background2-color
+    --bg: var(--skill-highlight-background-color);
+    --label: var(--skill-highlight-label-color);
+    --hover-bg: var(--skill-highlight-hover-background-color);
+    --hover-label: var(--skill-highlight-hover-label-color);
+    --active-bg: var(--skill-highlight-active-background-color);
+    --active-label: var(--skill-highlight-active-label-color);
+    --divider: var(--skill-highlight-divider-color);
+    --hover-divider: var(--skill-highlight-hover-divider-color);
+    --active-divider: var(--skill-highlight-active-divider-color);
+    --skill-button-background-color: var(
+      --skill-highlight-button-background-color
     );
-    --skill-button-neutral-active-background-color: var(
-      --yellowgreen-background2-color
+    --skill-button-active-background-color: var(
+      --skill-highlight-button-active-background-color
     );
-    --skill-button-neutral-hover-background-color: var(
-      --yellowgreen-background3-color
+    --skill-button-hover-background-color: var(
+      --skill-highlight-button-hover-background-color
     );
-    --skill-button-neutral-focus-visible-background-color: var(
-      --yellowgreen-background1-color
+    --skill-button-focus-visible-background-color: var(
+      --skill-highlight-button-focus-visible-background-color
     );
     --skill-button-counter-default-background-color: var(
-      --yellowgreen-background1-color
+      --skill-highlight-button-counter-background-color
     );
     --skill-button-counter-hover-background-color: var(
-      --yellowgreen-background1-color
+      --skill-highlight-button-counter-hover-background-color
     );
     --skill-button-counter-checked-background-color: var(
-      --yellowgreen-background1-color
+      --skill-highlight-button-counter-checked-background-color
     );
     --skill-button-counter-focus-background-color: var(
-      --yellowgreen-background2-color
+      --skill-highlight-button-counter-focus-background-color
     );
     --skill-button-counter-active-background-color: var(
-      --yellowgreen-background1-color
+      --skill-highlight-button-counter-active-background-color
     );
-    --skill-button-counter-default-text-color: var(--yellowgreen-color);
+    --skill-button-counter-default-text-color: var(
+      --skill-highlight-button-counter-text-color
+    );
 
     &.bordered {
-      border-color: var(--yellowgreen-background2-color);
+      border-color: var(--skill-highlight-border-color);
     }
   }
 
   &.match {
-    --bg: var(--white-color);
-    --label: var(--green-color);
-    --hover-bg: var(--green-background1-color);
-    --hover-label: var(--green-color);
-    --active-bg: var(--green-background2-color);
-    --active-label: var(--green-color);
-    --divider: var(--green-background2-color);
-    --hover-divider: var(--green-background2-color);
-    --active-divider: var(--green-background3-color);
-    --skill-button-neutral-background-color: var(--green-background1-color);
-    --skill-button-neutral-active-background-color: var(
-      --green-background3-color
+    --bg: var(--skill-match-background-color);
+    --label: var(--skill-match-label-color);
+    --hover-bg: var(--skill-match-hover-background-color);
+    --hover-label: var(--skill-match-hover-label-color);
+    --active-bg: var(--skill-match-active-background-color);
+    --active-label: var(--skill-match-active-label-color);
+    --divider: var(--skill-match-divider-color);
+    --hover-divider: var(--skill-match-hover-divider-color);
+    --active-divider: var(--skill-match-active-divider-color);
+    --skill-button-background-color: var(--skill-match-button-background-color);
+    --skill-button-active-background-color: var(
+      --skill-match-button-active-background-color
     );
-    --skill-button-neutral-hover-background-color: var(
-      --green-background2-color
+    --skill-button-hover-background-color: var(
+      --skill-match-button-hover-background-color
     );
-    --skill-button-neutral-focus-visible-background-color: var(--white-color);
+    --skill-button-focus-visible-background-color: var(
+      --skill-match-button-focus-visible-background-color
+    );
     --skill-button-counter-default-background-color: var(
-      --green-background2-color
+      --skill-match-button-counter-background-color
     );
     --skill-button-counter-hover-background-color: var(
-      --green-background1-color
+      --skill-match-button-counter-hover-background-color
     );
     --skill-button-counter-checked-background-color: var(
-      --green-background1-color
+      --skill-match-match-button-counter-checked-background-color
     );
     --skill-button-counter-focus-background-color: var(
-      --green-background2-color
+      --skill-match-button-counter-focus-background-color
     );
     --skill-button-counter-active-background-color: var(
-      --green-background1-color
+      --skill-match-button-counter-active-background-color
     );
-    --skill-button-counter-default-text-color: var(--green-color);
+    --skill-button-counter-default-text-color: var(
+      --skill-match-button-counter-text-color
+    );
 
     &.bordered {
-      border-color: var(--green-background2-color);
+      border-color: var(--skill-match-border-color);
+    }
+  }
+
+  .svg,
+  .suffix-svg {
+    height: $skill-svg-small-height;
+    margin-top: 5px;
+
+    div {
+      height: $skill-svg-small-height;
+
+      svg {
+        height: inherit;
+        width: auto;
+      }
+    }
+
+    svg {
+      height: 100%;
+      margin: auto;
+
+      .skill-below-background-color {
+        color: var(--skill-below-background-color);
+      }
+      .skill-below-icon-color {
+        color: var(--skill-below-icon-color);
+      }
+      .skill-exceed-background-color {
+        color: var(--skill-exceed-background-color);
+      }
+      .skill-exceed-icon-color {
+        color: var(--skill-exceed-icon-color);
+      }
+      .skill-meet-background-color {
+        color: var(--skill-meet-background-color);
+      }
+      .skill-meet-icon-color {
+        color: var(--skill-meet-icon-color);
+      }
+      .skill-upskilling-background-color {
+        color: var(--skill-upskilling-background-color);
+      }
+      .skill-upskilling-icon-color {
+        color: var(--skill-upskilling-icon-color);
+      }
     }
   }
 
@@ -842,10 +881,30 @@
       padding: $space-xxs $space-xs;
     }
 
+    .required:after {
+      font-size: $text-font-size-5;
+      line-height: $text-line-height-4;
+    }
+
     &.tag {
       .content {
-        .icon {
+        .icon,
+        .suffix-icon {
           margin-top: $space-xs;
+        }
+
+        .svg,
+        .suffix-svg {
+          height: $skill-svg-large-height;
+          margin-top: 5px;
+
+          div {
+            height: $skill-svg-large-height;
+
+            svg {
+              height: inherit;
+            }
+          }
         }
       }
     }
@@ -863,10 +922,30 @@
       padding: $space-xxs $space-xs;
     }
 
+    .required:after {
+      font-size: $text-font-size-3;
+      line-height: $text-line-height-4;
+    }
+
     &.tag {
       .content {
-        .icon {
+        .icon,
+        .suffix-icon {
           margin-top: 6px;
+        }
+
+        .svg,
+        .suffix-svg {
+          height: $skill-svg-medium-height;
+          margin-top: 3px;
+
+          div {
+            height: $skill-svg-medium-height;
+
+            svg {
+              height: inherit;
+            }
+          }
         }
       }
     }
@@ -884,10 +963,30 @@
       padding: $space-xxs $space-xs;
     }
 
+    .required:after {
+      font-size: $text-font-size-2;
+      line-height: $text-line-height-2;
+    }
+
     &.tag {
       .content {
-        .icon {
+        .icon,
+        .suffix-icon {
           margin-top: 3px;
+        }
+
+        .svg,
+        .suffix-svg {
+          height: $skill-svg-small-height;
+          margin-top: 1px;
+
+          div {
+            height: $skill-svg-small-height;
+
+            svg {
+              height: inherit;
+            }
+          }
         }
       }
     }
@@ -907,10 +1006,30 @@
       padding: $space-xxs;
     }
 
+    .required:after {
+      font-size: $text-font-size-2;
+      line-height: $text-line-height-2;
+    }
+
     &.tag {
       .content {
-        .icon {
+        .icon,
+        .suffix-icon {
           margin-top: 3px;
+        }
+
+        .svg,
+        .suffix-svg {
+          height: $skill-svg-xsmall-height;
+          margin-top: 1px;
+
+          div {
+            height: $skill-svg-xsmall-height;
+
+            svg {
+              height: inherit;
+            }
+          }
         }
       }
     }
@@ -940,7 +1059,8 @@
         gap: $space-xxs;
         width: 100px;
 
-        .icon {
+        .icon,
+        .suffix-icon {
           margin-top: 6px;
         }
 
@@ -1094,6 +1214,11 @@
 
 .custom-menu-top-inset {
   margin-top: $space-s;
+  margin-bottom: $space-s;
+}
+
+.custom-menu-inset {
+  margin-bottom: $space-s;
 }
 
 :global(.focus-visible) {
@@ -1110,7 +1235,7 @@
     .button {
       &.focus-visible,
       &:focus-visible {
-        background: var(--skill-button-neutral-focus-visible-background-color);
+        background: var(--skill-button-focus-visible-background-color);
       }
     }
   }

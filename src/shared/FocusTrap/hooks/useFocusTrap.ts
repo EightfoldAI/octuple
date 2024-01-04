@@ -1,14 +1,15 @@
 // Based on https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
 import { useRef, useEffect } from 'react';
 import { eventKeys } from '../../utilities/eventKeys';
-
-const SELECTORS =
-  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
+import { focusable, SELECTORS } from '../../utilities';
 
 const FOCUS_DELAY_INTERVAL: number = 100;
 
 export function useFocusTrap(
-  visible = true
+  visible: boolean = true,
+  firstFocusableSelector?: string,
+  lastFocusableSelector?: string,
+  skipFocusableSelectorsFromIndex?: number
 ): React.MutableRefObject<HTMLDivElement> {
   const elRef: React.MutableRefObject<any> = useRef<any>(null);
   const intervalRef: React.MutableRefObject<NodeJS.Timer> =
@@ -17,8 +18,7 @@ export function useFocusTrap(
 
   const getFocusableElements = (): HTMLElement[] => {
     return [...elRef.current.querySelectorAll(SELECTORS)].filter(
-      (el: HTMLElement) =>
-        !el?.hasAttribute('disabled') && !el?.getAttribute('aria-hidden')
+      (el: HTMLElement) => focusable(el)
     );
   };
 
@@ -32,8 +32,17 @@ export function useFocusTrap(
       return;
     }
 
+    if (lastFocusableSelector) {
+      focusableEls.push(elRef.current?.querySelector(lastFocusableSelector));
+    }
+
     const firstFocusableEl: HTMLElement = focusableEls[0];
-    const lastFocusableEl: HTMLElement = focusableEls[focusableEls.length - 1];
+    const lastFocusableEl: HTMLElement =
+      focusableEls[
+        skipFocusableSelectorsFromIndex
+          ? focusableEls.length - skipFocusableSelectorsFromIndex
+          : focusableEls.length - 1
+      ];
 
     if (isShiftPressed) {
       if (document.activeElement === firstFocusableEl) {
@@ -55,7 +64,10 @@ export function useFocusTrap(
       return;
     }
     restoreFocusRef.current = document.activeElement;
-    const elementToFocus: HTMLElement = getFocusableElements()?.[0];
+    let elementToFocus: HTMLElement = getFocusableElements()?.[0];
+    if (firstFocusableSelector) {
+      elementToFocus = elRef.current?.querySelector(firstFocusableSelector);
+    }
     clearInterval(intervalRef?.current);
     intervalRef.current = setInterval((): void => {
       elementToFocus?.focus();
