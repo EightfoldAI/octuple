@@ -592,6 +592,7 @@ function OcTable<RecordType extends DefaultRecordType>(
             <Scroller
               ref={scrollerRef}
               {...columnContext}
+              direction={direction}
               scrollBodyRef={scrollBodyRef}
               stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
@@ -701,6 +702,7 @@ function OcTable<RecordType extends DefaultRecordType>(
           <Scroller
             ref={scrollerRef}
             {...columnContext}
+            direction={direction}
             scrollBodyRef={scrollBodyRef}
             scrollLeftAriaLabelText={scrollLeftAriaLabelText}
             scrollRightAriaLabelText={scrollRightAriaLabelText}

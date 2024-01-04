@@ -6,7 +6,12 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { ButtonShape, ButtonSize, SecondaryButton } from '../../../Button';
+import {
+  Button,
+  ButtonShape,
+  ButtonSize,
+  ButtonVariant,
+} from '../../../Button';
 import { IconName } from '../../../Icon';
 import { ColumnType } from '../../Table.types';
 import {
@@ -24,6 +29,7 @@ export const Scroller = React.forwardRef(
   <RecordType,>(
     {
       columns,
+      direction,
       flattenColumns,
       scrollBodyRef,
       stickyOffsets,
@@ -36,11 +42,11 @@ export const Scroller = React.forwardRef(
     ref: ForwardedRef<ScrollerRef>
   ) => {
     const [visible, setVisible] = useState<boolean>(false);
-    const [leftButtonVisible, setLeftButtonVisible] = useState<boolean>(false);
-    const [rightButtonVisible, setRightButtonVisible] = useState<boolean>(true);
+    const [startButtonVisible, setStartButtonVisible] =
+      useState<boolean>(false);
+    const [endButtonVisible, setEndButtonVisible] = useState<boolean>(true);
     const [hoveredRowBoundingRect, setHoveredRowBoundingRect] =
       useState<DOMRect>(null);
-    // todo @yash: handle rtl
 
     const scrollOffsets: number[] = useMemo(
       () =>
@@ -60,16 +66,32 @@ export const Scroller = React.forwardRef(
       [columns]
     );
 
-    const leftButtonOffset: number = useMemo(
+    const startButtonLtrOffset: number = useMemo(
       () =>
         stickyOffsets.left[flattenColumns.findIndex((column) => !column.fixed)],
       [stickyOffsets, flattenColumns]
     );
 
-    const rightButtonOffset: number = useMemo(
+    const endButtonLtrOffset: number = useMemo(
       () =>
         stickyOffsets.right[
           flattenColumns.findIndex((column) => column.fixed === 'right') - 1
+        ] ?? 0,
+      [stickyOffsets, flattenColumns]
+    );
+
+    const startButtonRtlOffset: number = useMemo(
+      () =>
+        stickyOffsets.right[
+          flattenColumns.findIndex((column) => !column.fixed)
+        ],
+      [stickyOffsets, flattenColumns]
+    );
+
+    const endButtonRtlOffset: number = useMemo(
+      () =>
+        stickyOffsets.left[
+          flattenColumns.findIndex((column) => column.fixed === 'left') - 1
         ] ?? 0,
       [stickyOffsets, flattenColumns]
     );
@@ -105,18 +127,39 @@ export const Scroller = React.forwardRef(
 
     const onClick = (scrollDirection: 'left' | 'right'): void => {
       let scrollLeft: number;
-      if (scrollDirection === 'left') {
-        scrollLeft = scrollOffsets
-          .slice()
-          .reverse()
-          .find(
-            (leftOffset: number) =>
-              leftOffset < scrollBodyRef.current.scrollLeft
-          );
+      if (direction === 'rtl') {
+        if (scrollDirection === 'right') {
+          scrollLeft = scrollOffsets
+            .map((offset) => -offset)
+            .slice()
+            .reverse()
+            .find(
+              (leftOffset: number) =>
+                leftOffset > scrollBodyRef.current.scrollLeft
+            );
+        } else {
+          scrollLeft = scrollOffsets
+            .map((offset) => -offset)
+            .find(
+              (leftOffset: number) =>
+                leftOffset < scrollBodyRef.current.scrollLeft
+            );
+        }
       } else {
-        scrollLeft = scrollOffsets.find(
-          (leftOffset: number) => leftOffset > scrollBodyRef.current.scrollLeft
-        );
+        if (scrollDirection === 'left') {
+          scrollLeft = scrollOffsets
+            .slice()
+            .reverse()
+            .find(
+              (leftOffset: number) =>
+                leftOffset < scrollBodyRef.current.scrollLeft
+            );
+        } else {
+          scrollLeft = scrollOffsets.find(
+            (leftOffset: number) =>
+              leftOffset > scrollBodyRef.current.scrollLeft
+          );
+        }
       }
       scrollBodyRef.current.scrollTo({
         left: scrollLeft,
@@ -131,20 +174,22 @@ export const Scroller = React.forwardRef(
       );
     };
 
-    const onBodyScroll = (): void => {
-      const bodyScrollLeft: number = scrollBodyRef.current.scrollLeft;
-      const bodyWidth: number = scrollBodyRef.current.clientWidth;
-      const bodyScrollWidth: number = scrollBodyRef.current.scrollWidth;
+    const onBodyScroll = () => {
+      const bodyScrollLeft: number = scrollBodyRef.current?.scrollLeft || 0;
+      const bodyScrollWidth: number = scrollBodyRef.current?.scrollWidth || 0;
+      const bodyWidth: number = scrollBodyRef.current?.clientWidth || 0;
+      const offset: 1 | -1 = direction === 'rtl' ? -1 : 1;
+      const threshold: number = offset * (bodyScrollWidth - bodyWidth);
 
       if (bodyScrollLeft === 0) {
-        setLeftButtonVisible(false);
-        setRightButtonVisible(true);
+        setStartButtonVisible(false);
+        setEndButtonVisible(true);
       } else {
-        setLeftButtonVisible(true);
-        if (bodyScrollWidth - bodyScrollLeft - bodyWidth === 0) {
-          setRightButtonVisible(false);
+        setStartButtonVisible(true);
+        if (bodyScrollLeft === threshold) {
+          setEndButtonVisible(false);
         } else {
-          setRightButtonVisible(true);
+          setEndButtonVisible(true);
         }
       }
     };
@@ -173,38 +218,69 @@ export const Scroller = React.forwardRef(
 
     return (
       <>
-        <SecondaryButton
+        <Button
+          ariaLabel={
+            direction === 'rtl'
+              ? scrollRightAriaLabelText
+              : scrollLeftAriaLabelText
+          }
           classNames={styles.scrollerButton}
-          style={{
-            left: leftButtonOffset + BUTTON_PADDING,
-            opacity: leftButtonVisible && visible ? 1 : 0,
-            top: getButtonTop(),
+          iconProps={{
+            path:
+              direction === 'rtl'
+                ? IconName.mdiChevronRight
+                : IconName.mdiChevronLeft,
           }}
+          onClick={() => onClick(direction === 'rtl' ? 'right' : 'left')}
           shape={ButtonShape.Round}
           size={ButtonSize.Medium}
-          iconProps={{
-            path: IconName.mdiChevronLeft,
-          }}
-          onClick={() => onClick('left')}
-          ariaLabel={scrollLeftAriaLabelText}
-        />
-        <SecondaryButton
-          classNames={styles.scrollerButton}
           style={{
+            left:
+              direction === 'rtl'
+                ? 'unset'
+                : startButtonLtrOffset + BUTTON_PADDING,
+            opacity: startButtonVisible && visible ? 1 : 0,
             right:
-              rightButtonOffset +
-              (verticalScroll ? VERTICAL_SCROLL_OFFSET : 0) +
-              BUTTON_PADDING,
-            opacity: rightButtonVisible && visible ? 1 : 0,
+              direction === 'rtl'
+                ? startButtonRtlOffset + BUTTON_PADDING
+                : 'unset',
             top: getButtonTop(),
           }}
+          variant={ButtonVariant.Secondary}
+        />
+        <Button
+          ariaLabel={
+            direction === 'rtl'
+              ? scrollLeftAriaLabelText
+              : scrollRightAriaLabelText
+          }
+          classNames={styles.scrollerButton}
+          iconProps={{
+            path:
+              direction === 'rtl'
+                ? IconName.mdiChevronLeft
+                : IconName.mdiChevronRight,
+          }}
+          onClick={() => onClick(direction === 'rtl' ? 'left' : 'right')}
           shape={ButtonShape.Round}
           size={ButtonSize.Medium}
-          iconProps={{
-            path: IconName.mdiChevronRight,
+          style={{
+            left:
+              direction === 'rtl'
+                ? endButtonRtlOffset +
+                  (verticalScroll ? VERTICAL_SCROLL_OFFSET : 0) +
+                  BUTTON_PADDING
+                : 'unset',
+            opacity: endButtonVisible && visible ? 1 : 0,
+            right:
+              direction === 'rtl'
+                ? 'unset'
+                : endButtonLtrOffset +
+                  (verticalScroll ? VERTICAL_SCROLL_OFFSET : 0) +
+                  BUTTON_PADDING,
+            top: getButtonTop(),
           }}
-          onClick={() => onClick('right')}
-          ariaLabel={scrollRightAriaLabelText}
+          variant={ButtonVariant.Secondary}
         />
       </>
     );
