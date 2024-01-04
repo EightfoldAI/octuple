@@ -16,7 +16,7 @@ exports[`Breadcrumb Crumb should support string \`0\` 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
+          class="reference-wrapper"
           id="tooltip-"
         >
           <a
