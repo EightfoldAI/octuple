@@ -594,10 +594,10 @@ function OcTable<RecordType extends DefaultRecordType>(
               {...columnContext}
               direction={direction}
               scrollBodyRef={scrollBodyRef}
-              stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
+              stickyOffsets={stickyOffsets}
               titleRef={titleRef}
               verticalScroll={verticalScroll}
             />
