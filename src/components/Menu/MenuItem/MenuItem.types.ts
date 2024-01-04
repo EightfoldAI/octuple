@@ -156,6 +156,7 @@ export interface IMenuItemRender {
   value: any;
   index: number;
   onChange: (value: any) => void;
+  ref?: React.ForwardedRef<any>;
 }
 
 export interface MenuItemCustomProps

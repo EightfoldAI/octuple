@@ -9,8 +9,8 @@ export type LinkType =
   | 'secondary';
 
 export interface LinkProps
-  extends Omit<OcBaseProps<HTMLAnchorElement>, 'title'>,
-    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'title'> {
+  extends OcBaseProps<HTMLAnchorElement>,
+    AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Whether the Link is disabled.
    * @default false
@@ -29,10 +29,6 @@ export interface LinkProps
    * The Link role.
    */
   role?: string;
-  /**
-   * The Link title.
-   */
-  title?: number | string;
   /**
    * Whether to show the Link underline.
    */

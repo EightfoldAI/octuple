@@ -41,6 +41,7 @@ exports[`Menu Menu is large 1`] = `
           >
             <button
               class="menu-item-button"
+              id="listItem0-"
               role="menuitem"
               tabindex="0"
               type="button"
@@ -85,6 +86,7 @@ exports[`Menu Menu is large 1`] = `
             <button
               class="menu-item-button"
               disabled=""
+              id="listItem1-"
               role="menuitem"
               tabindex="0"
               type="button"
@@ -104,11 +106,18 @@ exports[`Menu Menu is large 1`] = `
               </span>
             </button>
           </li>
-          <span
-            class="menu-item-sub-header large"
+          <li
+            class="menu-item-sub-header large my-menu-item-class"
           >
-            Sub header
-          </span>
+            <span
+              data-disabled="true"
+              id="listItem2-"
+              tabindex="-1"
+              variant="neutral"
+            >
+              Sub header
+            </span>
+          </li>
           <li
             class="menu-item large neutral my-menu-item-class"
           >
@@ -116,10 +125,10 @@ exports[`Menu Menu is large 1`] = `
               aria-disabled="false"
               class="link-style full-width menu-link"
               href="https://twitter.com"
+              id="listItem3-"
               role="menuitem"
               tabindex="0"
               target="_blank"
-              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -273,6 +282,7 @@ exports[`Menu Menu is medium 1`] = `
           >
             <button
               class="menu-item-button"
+              id="listItem0-"
               role="menuitem"
               tabindex="0"
               type="button"
@@ -317,6 +327,7 @@ exports[`Menu Menu is medium 1`] = `
             <button
               class="menu-item-button"
               disabled=""
+              id="listItem1-"
               role="menuitem"
               tabindex="0"
               type="button"
@@ -336,11 +347,18 @@ exports[`Menu Menu is medium 1`] = `
               </span>
             </button>
           </li>
-          <span
-            class="menu-item-sub-header medium"
+          <li
+            class="menu-item-sub-header medium my-menu-item-class"
           >
-            Sub header
-          </span>
+            <span
+              data-disabled="true"
+              id="listItem2-"
+              tabindex="-1"
+              variant="neutral"
+            >
+              Sub header
+            </span>
+          </li>
           <li
             class="menu-item medium neutral my-menu-item-class"
           >
@@ -348,10 +366,10 @@ exports[`Menu Menu is medium 1`] = `
               aria-disabled="false"
               class="link-style full-width menu-link"
               href="https://twitter.com"
+              id="listItem3-"
               role="menuitem"
               tabindex="0"
               target="_blank"
-              title="undefined"
             >
               <span
                 class="menu-item-wrapper"
@@ -505,6 +523,7 @@ exports[`Menu Menu is small 1`] = `
           >
             <button
               class="menu-item-button"
+              id="listItem0-"
               role="menuitem"
               tabindex="0"
               type="button"
@@ -549,6 +568,7 @@ exports[`Menu Menu is small 1`] = `
             <button
               class="menu-item-button"
               disabled=""
+              id="listItem1-"
               role="menuitem"
               tabindex="0"
               type="button"
@@ -568,11 +588,18 @@ exports[`Menu Menu is small 1`] = `
               </span>
             </button>
           </li>
-          <span
-            class="menu-item-sub-header small"
+          <li
+            class="menu-item-sub-header small my-menu-item-class"
           >
-            Sub header
-          </span>
+            <span
+              data-disabled="true"
+              id="listItem2-"
+              tabindex="-1"
+              variant="neutral"
+            >
+              Sub header
+            </span>
+          </li>
           <li
             class="menu-item small neutral my-menu-item-class"
           >
@@ -580,10 +607,10 @@ exports[`Menu Menu is small 1`] = `
               aria-disabled="false"
               class="link-style full-width menu-link"
               href="https://twitter.com"
+              id="listItem3-"
               role="menuitem"
               tabindex="0"
               target="_blank"
-              title="undefined"
             >
               <span
                 class="menu-item-wrapper"

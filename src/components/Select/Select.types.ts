@@ -101,14 +101,16 @@ export interface SelectProps
    */
   formItemInput?: boolean;
   /**
+   * Optionally place focus on the first focusable
+   * selector when the Dropdown is first visible.
+   * When false, visibility will be placed on the Dropdown.
+   * @default `filterable ? false : true`
+   */
+  initialFocus?: boolean;
+  /**
    * The Select input custom class names.
    */
   inputClassNames?: string;
-  /**
-   * The Select input is readonly.
-   * @default false
-   */
-  readonly?: boolean;
   /**
    * Width of the Select text input.
    * @default TextInputWidth.fitContent
@@ -165,6 +167,11 @@ export interface SelectProps
    * @default {}
    */
   pillProps?: PillProps;
+  /**
+   * The Select input is readonly.
+   * @default false
+   */
+  readonly?: boolean;
   /**
    * Shape of the select.
    * @default SelectShape.Rectangle

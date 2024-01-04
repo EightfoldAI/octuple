@@ -51,10 +51,6 @@ export interface BreadcrumbLinkProps
    */
   readonly?: boolean;
   /**
-   * The Breadcrumb Link title.
-   */
-  title?: number | string;
-  /**
    * The Breadcrumb Tooltip.
    */
   tooltipprops?: TooltipProps;
