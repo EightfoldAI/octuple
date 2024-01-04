@@ -235,6 +235,7 @@ const buttonArgs: Object = {
   text: 'Button',
   toggle: false,
   variant: ButtonVariant.Default,
+  warning: false,
 };
 
 Primary.args = {
