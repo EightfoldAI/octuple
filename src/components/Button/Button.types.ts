@@ -225,4 +225,9 @@ export interface ButtonProps extends NativeButtonProps {
    * @default ButtonVariant.Default
    */
   variant?: ButtonVariant;
+  /**
+   * The button warning state.
+   * @default false
+   */
+  warning?: boolean;
 }

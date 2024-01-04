@@ -313,6 +313,10 @@
   --warning-hover-color: #ce811a;
   --warning-hover-background-color: #ffe3b0;
   --warning-hover-border-color: #c97e19;
+  --warning-background1-color: var(--orange-background1-color); // Surface 1
+  --warning-background2-color: var(--orange-background2-color); // Surface 2
+  --warning-background3-color: var(--orange-background3-color); // Surface 3
+  --warning-secondary-color: #c97e19;
 
   // Error (Validation) base colors
   --error-color: #993838;
@@ -672,6 +676,41 @@
   );
   // ------ Default Disruptive Button theme ------
 
+  // ------ Default Warning Button theme ------
+  --button-default-warning-text-color: var(--warning-color);
+  --button-default-warning-background-color: var(--warning-background1-color);
+  --button-default-warning-border-width: 0;
+  --button-default-warning-border-style: solid;
+  --button-default-warning-border-color: var(
+    --button-default-warning-background-color
+  );
+  --button-default-warning-hover-text-color: var(--warning-color);
+  --button-default-warning-hover-background-color: var(--background-color);
+  --button-default-warning-hover-border-width: var(
+    --button-default-warning-border-width
+  );
+  --button-default-warning-hover-border-style: var(
+    --button-default-warning-border-style
+  );
+  --button-default-warning-hover-border-color: var(
+    --button-default-warning-hover-background-color
+  );
+  --button-default-warning-active-text-color: var(--warning-active-color);
+  --button-default-warning-active-background-color: var(
+    --warning-background2-color
+  );
+  --button-default-warning-active-border-width: var(
+    --button-default-warning-border-width
+  );
+  --button-default-warning-active-border-style: var(
+    --button-default-warning-border-style
+  );
+  --button-default-warning-active-border-color: var(
+    --button-default-warning-active-background-color
+  );
+  --button-default-warning-split-divider-color: var(--warning-color);
+  // ------ Default Warning Button theme ------
+
   // ------ Neutral Button theme ------
   --button-neutral-text-color: var(--text-secondary-color);
   --button-neutral-background-color: var(--grey-background1-color);
@@ -752,6 +791,47 @@
   --button-primary-disruptive-split-divider-color: var(--disruptive-color);
   // ------ Primary Disruptive Button theme ------
 
+  // ------ Primary Warning Button theme ------
+  --button-primary-warning-text-color: var(--warning-color);
+  --button-primary-warning-background-color: var(--warning-background2-color);
+  --button-primary-warning-border-width: 0;
+  --button-primary-warning-border-style: solid;
+  --button-primary-warning-border-color: var(
+    --button-primary-warning-background-color
+  );
+  --button-primary-warning-hover-text-color: var(
+    --button-primary-warning-text-color
+  );
+  --button-primary-warning-hover-background-color: var(
+    --warning-background1-color
+  );
+  --button-primary-warning-hover-border-width: var(
+    --button-primary-warning-border-width
+  );
+  --button-primary-warning-hover-border-style: var(
+    --button-primary-warning-border-style
+  );
+  --button-primary-warning-hover-border-color: var(
+    --button-primary-warning-hover-background-color
+  );
+  --button-primary-warning-active-text-color: var(
+    --button-primary-warning-text-color
+  );
+  --button-primary-warning-active-background-color: var(
+    --warning-background3-color
+  );
+  --button-primary-warning-active-border-width: var(
+    --button-primary-warning-border-width
+  );
+  --button-primary-warning-active-border-style: var(
+    --button-primary-warning-border-style
+  );
+  --button-primary-warning-active-border-color: var(
+    --button-primary-warning-active-background-color
+  );
+  --button-primary-warning-split-divider-color: var(--warning-color);
+  // ------ Primary Warning Button theme ------
+
   // ------ Secondary Button theme ------
   --button-secondary-text-color: var(--primary-secondary-color);
   --button-secondary-background-color: var(--background-color);
@@ -790,7 +870,7 @@
     --button-secondary-disruptive-border-style
   );
   --button-secondary-disruptive-hover-border-color: var(
-    --button-secondary-disruptive-hover-background-color
+    --button-secondary-disruptive-border-color
   );
   --button-secondary-disruptive-active-text-color: var(
     --button-secondary-disruptive-text-color
@@ -805,11 +885,50 @@
     --button-secondary-disruptive-border-style
   );
   --button-secondary-disruptive-active-border-color: var(
-    --button-secondary-disruptive-active-background-color
+    --button-secondary-disruptive-border-color
   );
   --button-secondary-disruptive-split-divider-color: var(
     --disruptive-secondary-color
   );
+  // ------ Secondary Disruptive Button theme ------
+
+  // ------ Secondary Warning Button theme ------
+  --button-secondary-warning-text-color: var(--warning-color);
+  --button-secondary-warning-background-color: var(--background-color);
+  --button-secondary-warning-border-width: 1px;
+  --button-secondary-warning-border-style: solid;
+  --button-secondary-warning-border-color: var(--warning-color);
+  --button-secondary-warning-hover-text-color: var(
+    --button-secondary-warning-text-color
+  );
+  --button-secondary-warning-hover-background-color: var(
+    --warning-background1-color
+  );
+  --button-secondary-warning-hover-border-width: var(
+    --button-secondary-warning-border-width
+  );
+  --button-secondary-warning-hover-border-style: var(
+    --button-secondary-warning-border-style
+  );
+  --button-secondary-warning-hover-border-color: var(
+    --button-secondary-warning-border-color
+  );
+  --button-secondary-warning-active-text-color: var(
+    --button-secondary-warning-text-color
+  );
+  --button-secondary-warning-active-background-color: var(
+    --warning-background2-color
+  );
+  --button-secondary-warning-active-border-width: var(
+    --button-secondary-warning-border-width
+  );
+  --button-secondary-warning-active-border-style: var(
+    --button-secondary-warning-border-style
+  );
+  --button-secondary-warning-active-border-color: var(
+    --button-secondary-warning-border-color
+  );
+  --button-secondary-disruptive-split-divider-color: var(--warning-color);
   // ------ Secondary Disruptive Button theme ------
 
   // ------ System UI Button theme ------
@@ -823,6 +942,56 @@
   --button-system-ui-active-background-color: var(--grey-background2-color);
   --button-system-ui-split-divider-color: var(--grey-secondary-color);
   // ------ System UI Button theme ------
+
+  // ------ System UI Warning Button theme ------
+  --button-system-ui-warning-text-color: var(--warning-color);
+  --button-system-ui-warning-background-color: var(--background-color);
+  --button-system-ui-warning-counter-default-text-color: var(--warning-color);
+  --button-system-ui-warning-hover-text-color: var(
+    --button-system-ui-warning-text-color
+  );
+  --button-system-ui-warning-hover-background-color: var(
+    --warning-background1-color
+  );
+  --button-system-ui-warning-focus-visible-background-color: var(
+    --background-color
+  );
+  --button-system-ui-warning-active-text-color: var(
+    --button-system-ui-warning-text-color
+  );
+  --button-system-ui-warning-active-background-color: var(
+    --warning-background2-color
+  );
+  --button-system-ui-warning-split-divider-color: var(
+    --warning-secondary-color
+  );
+  // ------ System UI Warning Button theme ------
+
+  // ------ System UI Disruptive Button theme ------
+  --button-system-ui-disruptive-text-color: var(--disruptive-secondary-color);
+  --button-system-ui-disruptive-background-color: var(--background-color);
+  --button-system-ui-disruptive-counter-default-text-color: var(
+    --disruptive-secondary-color
+  );
+  --button-system-ui-disruptive-hover-text-color: var(
+    --button-system-ui-disruptive-text-color
+  );
+  --button-system-ui-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-system-ui-disruptive-focus-visible-background-color: var(
+    --background-color
+  );
+  --button-system-ui-disruptive-active-text-color: var(
+    --button-system-ui-disruptive-text-color
+  );
+  --button-system-ui-disruptive-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-system-ui-disruptive-split-divider-color: var(
+    --disruptive-tertiary-color
+  );
+  // ------ System UI Disruptive Button theme ------
 
   // ------ Two State Button theme ------
   --button-two-state-text-color: var(--grey-secondary-color);

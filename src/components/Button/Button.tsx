@@ -61,6 +61,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       transparent = false,
       type, // TODO: Remove in Octuple v3.0.0 and use `variant` only.
       variant = ButtonVariant.Default,
+      warning = false,
       ...rest
     } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -122,7 +123,19 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       { [styles.buttonSecondary]: mergedVariant === ButtonVariant.Secondary },
       { [styles.buttonSystemUi]: mergedVariant === ButtonVariant.SystemUI },
       {
-        [styles.buttonDisruptive]:
+        [styles.buttonSystemUiWarning]:
+          warning && mergedVariant === ButtonVariant.SystemUI,
+      },
+      {
+        [styles.buttonSystemUiDisruptive]:
+          disruptive && mergedVariant === ButtonVariant.SystemUI,
+      },
+      {
+        [styles.buttonDefaultWarning]:
+          warning && mergedVariant === ButtonVariant.Default,
+      },
+      {
+        [styles.buttonDefaultDisruptive]:
           disruptive && mergedVariant === ButtonVariant.Default,
       },
       {
@@ -130,8 +143,16 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           disruptive && mergedVariant === ButtonVariant.Primary,
       },
       {
+        [styles.buttonPrimaryWarning]:
+          warning && mergedVariant === ButtonVariant.Primary,
+      },
+      {
         [styles.buttonSecondaryDisruptive]:
           disruptive && mergedVariant === ButtonVariant.Secondary,
+      },
+      {
+        [styles.buttonSecondaryWarning]:
+          warning && mergedVariant === ButtonVariant.Secondary,
       },
       {
         [styles.transparent]:
