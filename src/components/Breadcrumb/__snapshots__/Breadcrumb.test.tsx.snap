@@ -31,44 +31,6 @@ exports[`Breadcrumb Crumb should support string \`0\` 1`] = `
             0
           </a>
         </div>
-        <span
-          aria-hidden="false"
-          class="icon-wrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style="width: 16px; height: 16px;"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              style="fill: currentColor;"
-            />
-          </svg>
-        </span>
-      </div>
-    </li>
-    <li>
-      <div
-        class="stack horizontal undefined gap-xxxs"
-      >
-        <div
-          class="reference-wrapper disabled"
-          id="tooltip-"
-        >
-          <a
-            aria-disabled="false"
-            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
-            data-reference-id="tooltip--reference"
-            id="tooltip--reference"
-            role="link"
-            target="_self"
-            title="0"
-          >
-            0
-          </a>
-        </div>
       </div>
     </li>
   </ol>
