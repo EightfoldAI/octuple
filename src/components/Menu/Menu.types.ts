@@ -66,6 +66,7 @@ export interface MenuProps
   size?: MenuSize;
   /**
    * SubHeader of the menu
+   * @deprecated 'Unused prop'
    */
   subHeader?: string;
   /**
@@ -75,4 +76,21 @@ export interface MenuProps
   variant?: MenuVariant;
 }
 
-export interface DropdownMenuProps extends MenuProps {}
+export interface DropdownMenuProps extends MenuProps {
+  /**
+   * If the dropdown is disabled or not
+   */
+  disabled?: boolean;
+  /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * Callback executed on reference element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  referenceOnKeydown?: (event: React.KeyboardEvent) => void;
+}

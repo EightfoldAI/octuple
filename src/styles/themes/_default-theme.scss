@@ -1552,4 +1552,14 @@
   );
   --skill-match-button-counter-text-color: var(--green-color);
   // ------ Skill theme ------
+
+  // ------ Form theme ------
+  --form-item-explain-text-color: var(--text-secondary-color);
+  --form-item-extra-text-color: var(--text-secondary-color);
+  --form-item-label-color: var(--text-primary-color);
+  --form-item-optional-text-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-cursor: help;
+  --form-item-required-mark-color: var(--text-primary-color);
+  // ------ Form theme ------
 }
