@@ -30,6 +30,26 @@ LoadedCheerio {
 }
 `;
 
+exports[`Locale Provider should display the text as ar 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as bg 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`Locale Provider should display the text as cs 1`] = `
 LoadedCheerio {
   "length": 0,
@@ -310,6 +330,16 @@ LoadedCheerio {
 }
 `;
 
+exports[`Locale Provider should display the text as ro 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`Locale Provider should display the text as ru 1`] = `
 LoadedCheerio {
   "length": 0,
@@ -320,7 +350,37 @@ LoadedCheerio {
 }
 `;
 
+exports[`Locale Provider should display the text as sk 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as sr 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`Locale Provider should display the text as sv 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as te 1`] = `
 LoadedCheerio {
   "length": 0,
   "options": Object {
@@ -351,6 +411,16 @@ LoadedCheerio {
 `;
 
 exports[`Locale Provider should display the text as uk 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as vi 1`] = `
 LoadedCheerio {
   "length": 0,
   "options": Object {
