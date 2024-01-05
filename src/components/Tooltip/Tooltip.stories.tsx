@@ -141,10 +141,11 @@ Tooltips.args = {
   animate: true,
   bordered: false,
   dropShadow: true,
+  id: 'myTooltipId',
   classNames: 'my-tooltip-class',
   openDelay: 0,
   hideAfter: 200,
-  tabIndex: 0,
+  tabIndex: -1,
   trigger: 'hover',
   triggerAbove: false,
   touchInteraction: TooltipTouchInteraction.TapAndHold,
@@ -154,7 +155,7 @@ Tooltips.args = {
   portalRoot: null,
   children: (
     <Button
-      ariaLabel="Show Tooltip"
+      aria-describedby="myTooltipId"
       onClick={() => {
         console.log('clicked');
       }}
