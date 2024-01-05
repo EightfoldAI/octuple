@@ -825,7 +825,7 @@
   }
 }
 
-.button-default-disruptive {
+.button-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background2-color
   );
@@ -1071,7 +1071,7 @@
 
   &:not(.transparent):not([disabled]):hover {
     --bg: var(--button-system-ui-disruptive-hover-background-color);
-    --color: var(--button-system-ui-wardisruptivening-hover-text-color);
+    --color: var(--button-system-ui-disruptive-hover-text-color);
   }
 
   &:not(.transparent):not([disabled]):active {

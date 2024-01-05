@@ -870,7 +870,7 @@
     --button-secondary-disruptive-border-style
   );
   --button-secondary-disruptive-hover-border-color: var(
-    --button-secondary-disruptive-border-color
+    --button-secondary-disruptive-hover-background-color
   );
   --button-secondary-disruptive-active-text-color: var(
     --button-secondary-disruptive-text-color
@@ -885,7 +885,7 @@
     --button-secondary-disruptive-border-style
   );
   --button-secondary-disruptive-active-border-color: var(
-    --button-secondary-disruptive-border-color
+    --button-secondary-disruptive-active-background-color
   );
   --button-secondary-disruptive-split-divider-color: var(
     --disruptive-secondary-color
@@ -928,8 +928,8 @@
   --button-secondary-warning-active-border-color: var(
     --button-secondary-warning-border-color
   );
-  --button-secondary-disruptive-split-divider-color: var(--warning-color);
-  // ------ Secondary Disruptive Button theme ------
+  --button-secondary-warning-split-divider-color: var(--warning-color);
+  // ------ Secondary Warning Button theme ------
 
   // ------ System UI Button theme ------
   --button-system-ui-text-color: var(--grey-tertiary-color);

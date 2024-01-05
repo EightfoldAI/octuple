@@ -135,7 +135,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           warning && mergedVariant === ButtonVariant.Default,
       },
       {
-        [styles.buttonDefaultDisruptive]:
+        [styles.buttonDisruptive]:
           disruptive && mergedVariant === ButtonVariant.Default,
       },
       {
