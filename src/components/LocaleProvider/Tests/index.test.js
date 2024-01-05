@@ -12,6 +12,8 @@ import { Modal } from '../../Modal';
 import { Pagination } from '../../Pagination';
 import { Select } from '../../Select';
 import { Table } from '../../Table';
+import arSA from '../ar_SA';
+import bgBG from '../bg_BG';
 import csCZ from '../cs_CZ';
 import daDK from '../da_DK';
 import deDE from '../de_DE';
@@ -40,11 +42,16 @@ import nlNL from '../nl_NL';
 import plPL from '../pl_PL';
 import ptBR from '../pt_BR';
 import ptPT from '../pt_PT';
+import roRO from '../ro_RO';
 import ruRU from '../ru_RU';
+import skSK from '../sk_SK';
+import srRS from '../sr_RS';
 import svSE from '../sv_SE';
+import teIN from '../te_IN';
 import thTH from '../th_TH';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
+import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
@@ -53,6 +60,8 @@ Enzyme.configure({ adapter: new Adapter() });
 let matchMedia;
 
 const locales = [
+  arSA,
+  bgBG,
   csCZ,
   daDK,
   deDE,
@@ -81,11 +90,16 @@ const locales = [
   plPL,
   ptBR,
   ptPT,
+  roRO,
   ruRU,
+  skSK,
+  srRS,
   svSE,
+  teIN,
   thTH,
   trTR,
   ukUA,
+  viVN,
   zhCN,
   zhTW,
 ];

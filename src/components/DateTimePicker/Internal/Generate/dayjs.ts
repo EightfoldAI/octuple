@@ -29,6 +29,8 @@ dayjs.extend((_o: unknown, c: typeof Dayjs) => {
 // Dayjs currently supported langs: https://github.com/iamkun/dayjs/tree/dev/src/locale
 type IlocaleMapObject = Record<string, string>;
 const localeMap: IlocaleMapObject = {
+  ar_SA: 'ar', // العربية
+  bg_BG: 'bg', // Български
   cs_CZ: 'cs', // čeština
   da_DK: 'da', // Dansk
   de_DE: 'de', // Deutsch
@@ -57,11 +59,16 @@ const localeMap: IlocaleMapObject = {
   pl_PL: 'pl', // Polski
   pt_BR: 'pt-br', // Português (Brazil)
   pt_PT: 'pt', // Português
+  ro_RO: 'ro', // Română
   ru_RU: 'ru', // Pусский
+  sk_SK: 'sk', // Slovenčina
+  sr_RS: 'sr', // Srpski
   sv_SE: 'sv', // Svenska
+  te_IN: 'te', // తెలుగు
   th_TH: 'th', // ภาษาไทย
   tr_TR: 'tr', // Türkçe
   uk_UA: 'uk', // Yкраїнська
+  vi_VN: 'vi', // Tiếng Việt
   zh_CN: 'zh-cn', // 中文 (简体)
   zh_TW: 'zh-tw', // 中文 (繁體)
 };
