@@ -278,3 +278,59 @@ describe('Button', () => {
     expect(container).toMatchSnapshot();
   });
 });
+
+test('Button is default warning', () => {
+  const { container } = render(
+    <Button
+      text="test default warning"
+      variant={ButtonVariant.Default}
+      warning
+    />
+  );
+  expect(
+    container.getElementsByClassName('button-default-warning')
+  ).toHaveLength(1);
+  expect(container).toMatchSnapshot();
+});
+
+test('Button is primary warning', () => {
+  const { container } = render(
+    <Button
+      text="test primary warning"
+      variant={ButtonVariant.Primary}
+      warning
+    />
+  );
+  expect(
+    container.getElementsByClassName('button-primary-warning')
+  ).toHaveLength(1);
+  expect(container).toMatchSnapshot();
+});
+
+test('Button is secondary warning', () => {
+  const { container } = render(
+    <Button
+      text="test secondary warning"
+      variant={ButtonVariant.Secondary}
+      warning
+    />
+  );
+  expect(
+    container.getElementsByClassName('button-secondary-warning')
+  ).toHaveLength(1);
+  expect(container).toMatchSnapshot();
+});
+
+test('Button is system ui warning', () => {
+  const { container } = render(
+    <Button
+      text="test system ui warning"
+      variant={ButtonVariant.SystemUI}
+      warning
+    />
+  );
+  expect(
+    container.getElementsByClassName('button-system-ui-warning')
+  ).toHaveLength(1);
+  expect(container).toMatchSnapshot();
+});
