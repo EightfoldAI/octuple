@@ -8,7 +8,8 @@ export enum Gestures {
   TapAndHold = 'TapAndHold',
 }
 const useGestures = (
-  swipeTarget: HTMLElement | Window | null
+  swipeTarget: HTMLElement | Window | null,
+  preventTouchMoveDefault: boolean = true
 ): Gestures | null => {
   const startTimeRef = useRef<number>(0);
   const touchStartXRef = useRef<number>(0);
@@ -71,7 +72,9 @@ const useGestures = (
       if (!swipeTarget) {
         return;
       }
-      e.preventDefault();
+      if (preventTouchMoveDefault) {
+        e.preventDefault();
+      }
     },
     [swipeTarget]
   );

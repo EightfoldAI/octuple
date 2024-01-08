@@ -73,6 +73,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         portalId,
         portalRoot,
         positionStrategy = 'absolute',
+        preventTouchMoveDefault = true,
         referenceOnClick,
         referenceOnKeydown,
         showTooltip,
@@ -134,7 +135,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       });
 
       const gestureType: Gestures = useGestures(
-        refs.reference?.current as HTMLElement
+        refs.reference?.current as HTMLElement,
+        preventTouchMoveDefault
       );
 
       const toggle: Function =

@@ -128,6 +128,11 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   placement?: Placement;
   /**
+   * Whether to prevent the default behavior of touchmove.
+   * @default true
+   */
+  preventTouchMoveDefault?: boolean;
+  /**
    * Whether the Tooltip is portaled.
    * @default false
    */
