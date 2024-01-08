@@ -226,23 +226,25 @@ let globalClickFunc: ClickEventHandler | null = null;
 const clickCallbacks: Set<ClickEventHandler> = new Set<ClickEventHandler>();
 
 export function addGlobalMouseDownEvent(callback: ClickEventHandler) {
-  if (!globalClickFunc && canUseDom()) {
+  if (
+    !globalClickFunc &&
+    typeof window !== 'undefined' &&
+    window.addEventListener
+  ) {
     globalClickFunc = (e: MouseEvent) => {
       // Clone a new list to avoid repeat trigger events
       [...clickCallbacks].forEach((queueFunc) => {
         queueFunc(e);
       });
     };
-    if (window.addEventListener) {
-      window.addEventListener('mousedown', globalClickFunc);
-    }
+    window.addEventListener('mousedown', globalClickFunc);
   }
 
   clickCallbacks.add(callback);
 
   return () => {
     clickCallbacks.delete(callback);
-    if (canUseDom() && clickCallbacks.size === 0) {
+    if (clickCallbacks.size === 0) {
       window.removeEventListener('mousedown', globalClickFunc!);
       globalClickFunc = null;
     }

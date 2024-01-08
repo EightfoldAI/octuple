@@ -2,6 +2,7 @@ import type * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import {
   canUseDocElement,
+  canUseDom,
   eventKeys,
   requestAnimationFrameWrapper,
 } from '../../../../shared/utilities';
@@ -166,7 +167,10 @@ export default function usePickerInput({
   }, [value]);
 
   // Global click handler
-  useEffect((): (() => void) =>
+  useEffect(() => {
+    if (!canUseDom()) {
+      return;
+    }
     addGlobalMouseDownEvent((e: MouseEvent): void => {
       const target: HTMLElement = getTargetFromEvent(e);
 
@@ -184,8 +188,8 @@ export default function usePickerInput({
           triggerOpen(false);
         }
       }
-    })
-  );
+    });
+  });
 
   return [inputProps, { focused, typing }];
 }
