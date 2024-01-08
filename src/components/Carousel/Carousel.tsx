@@ -47,22 +47,32 @@ type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const SCROLL_LOCK_WAIT_IN_MILLISECONDS: number = 40;
 
 const isVisible = (element: HTMLDivElement): boolean => {
-  const rect: DOMRect = element.getBoundingClientRect();
+  const rect: DOMRect = element.getBoundingClientRect() || {
+    bottom: 0,
+    height: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    width: 0,
+    x: 0,
+    y: 0,
+    toJSON: () => {},
+  };
+  const containerHeight: number = canUseDom()
+    ? window.innerHeight
+    : 0 || typeof document !== 'undefined'
+    ? document.documentElement.clientHeight
+    : 0;
+  const containerWidth: number = canUseDom()
+    ? window.innerWidth
+    : 0 || typeof document !== 'undefined'
+    ? document.documentElement.clientWidth
+    : 0;
   return (
-    rect?.top >= 0 &&
-    rect?.left >= 0 &&
-    rect?.bottom <=
-      (canUseDom()
-        ? window.innerHeight
-        : 0 || typeof document !== 'undefined'
-        ? document.documentElement.clientHeight
-        : 0) &&
-    rect?.right <=
-      (canUseDom()
-        ? window.innerWidth
-        : 0 || typeof document !== 'undefined'
-        ? document.documentElement.clientWidth
-        : 0)
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= containerHeight &&
+    rect.right <= containerWidth
   );
 };
 

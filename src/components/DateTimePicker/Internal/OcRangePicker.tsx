@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {
-  canUseDom,
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../../shared/utilities';
@@ -357,12 +356,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   function triggerOpenAndFocus(index: 0 | 1): void {
     triggerOpen(true, index, 'open');
-    if (canUseDom()) {
-      requestAnimationFrameWrapper((): void => {
-        const inputRef = [startInputRef, endInputRef][index];
-        inputRef.current?.focus();
-      }, 0);
-    }
+    requestAnimationFrameWrapper((): void => {
+      const inputRef = [startInputRef, endInputRef][index];
+      inputRef.current?.focus();
+    }, 0);
   }
 
   function triggerChange(

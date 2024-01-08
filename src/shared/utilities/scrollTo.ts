@@ -41,14 +41,10 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
       (container as HTMLElement).scrollTop = nextScrollTop;
     }
     if (time < duration) {
-      if (canUseDom()) {
-        requestAnimationFrameWrapper(frameFunc);
-      }
+      requestAnimationFrameWrapper(frameFunc);
     } else if (typeof callback === 'function') {
       callback();
     }
   };
-  if (canUseDom()) {
-    requestAnimationFrameWrapper(frameFunc);
-  }
+  requestAnimationFrameWrapper(frameFunc);
 }

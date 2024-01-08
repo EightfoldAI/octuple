@@ -8,7 +8,6 @@ import type {
   ScrollOptions,
 } from '../Form.types';
 import { getFieldId, toArray } from '../util';
-import { canUseDocElement } from '../../../shared/utilities';
 
 export interface FormInstance<Values = any> extends OcFormInstance<Values> {
   scrollToField: (name: OcNamePath, options?: ScrollOptions) => void;
@@ -54,11 +53,9 @@ export default function useForm<Values = any>(
         scrollToField: (name: OcNamePath, options: ScrollOptions = {}) => {
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          let node: any | null = null;
-
-          if (canUseDocElement()) {
-            node = fieldId ? document.getElementById(fieldId) : null;
-          }
+          const node: any | null = fieldId
+            ? document?.getElementById(fieldId)
+            : null;
 
           if (node) {
             scrollIntoView(node, {

@@ -2,8 +2,8 @@ import type * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import {
   canUseDocElement,
-  canUseDom,
   eventKeys,
+  requestAnimationFrameWrapper,
 } from '../../../../shared/utilities';
 import { addGlobalMouseDownEvent, getTargetFromEvent } from '../Utils/uiUtil';
 
@@ -177,11 +177,9 @@ export default function usePickerInput({
           preventBlurRef.current = true;
 
           // Always set back in case `onBlur` prevented by user
-          if (canUseDom()) {
-            requestAnimationFrame(() => {
-              preventBlurRef.current = false;
-            });
-          }
+          requestAnimationFrameWrapper(() => {
+            preventBlurRef.current = false;
+          });
         } else if (!changeOnBlur && (!focused || clickedOutside)) {
           triggerOpen(false);
         }

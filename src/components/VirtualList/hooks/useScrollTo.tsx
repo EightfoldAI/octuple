@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  canUseDom,
-  requestAnimationFrameWrapper,
-} from '../../../shared/utilities';
+import { requestAnimationFrameWrapper } from '../../../shared/utilities';
 import type { GetKey, ScrollTo } from '../VirtualList.types';
 import type CacheMap from '../utils/CacheMap';
 
@@ -26,9 +23,7 @@ export default function useScrollTo<T>(
     }
 
     // Normal scroll logic
-    if (canUseDom()) {
-      requestAnimationFrameWrapper.cancel(scrollRef.current);
-    }
+    requestAnimationFrameWrapper.cancel(scrollRef.current);
 
     if (typeof arg === 'number') {
       syncScrollTop(arg);
@@ -108,14 +103,12 @@ export default function useScrollTo<T>(
         }
 
         // We will retry since element may not sync height as it described
-        if (canUseDom()) {
-          scrollRef.current = requestAnimationFrameWrapper(() => {
-            if (needCollectHeight) {
-              collectHeight();
-            }
-            syncScroll(times - 1, newTargetAlign);
-          });
-        }
+        scrollRef.current = requestAnimationFrameWrapper(() => {
+          if (needCollectHeight) {
+            collectHeight();
+          }
+          syncScroll(times - 1, newTargetAlign);
+        });
       };
 
       syncScroll(3);

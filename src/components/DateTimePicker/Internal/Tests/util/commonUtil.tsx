@@ -19,7 +19,6 @@ import {
 } from '../../OcPicker.types';
 import OcRangePicker from '../../OcRangePicker';
 import { fireEvent } from '@testing-library/react';
-import { canUseDocElement } from '../../../../../shared/utilities';
 
 const FULL_FORMAT: string = 'YYYY-MM-DD HH:mm:ss';
 
@@ -43,21 +42,21 @@ export const mount = originMount as (
 ) => Wrapper;
 
 export function getDayjs(str: string): Dayjs {
-  const formatList = [FULL_FORMAT, 'YYYY-MM-DD', 'HH:mm:ss', 'YYYY'];
+  const formatList: string[] = [FULL_FORMAT, 'YYYY-MM-DD', 'HH:mm:ss', 'YYYY'];
   for (let i = 0; i < formatList.length; i += 1) {
     const date = dayjs(str, formatList[i], true);
     if (date.isValid()) {
       return date;
     }
   }
-  throw new Error(`Format not match with: ${str}`);
+  throw new Error(`Format doesn't match with: ${str}`);
 }
 
 export function isSame(
   date: Dayjs | null,
   dateStr: string,
   type: OpUnitType = 'date'
-) {
+): boolean {
   if (!date) {
     return false;
   }
@@ -86,7 +85,8 @@ export type DayjsPickerProps =
   | InjectDefaultProps<OcPickerTimeProps<Dayjs>>;
 
 export class DayjsPicker extends React.Component<DayjsPickerProps> {
-  pickerRef = React.createRef<OcPicker<Dayjs>>();
+  pickerRef: React.RefObject<OcPicker<dayjs.Dayjs>> =
+    React.createRef<OcPicker<Dayjs>>();
 
   render() {
     return (
@@ -106,7 +106,9 @@ export type DayjsPickerPartialProps =
   | InjectDefaultProps<OcPickerPartialDateProps<Dayjs>>
   | InjectDefaultProps<OcPickerPartialTimeProps<Dayjs>>;
 
-export const DayjsPickerPartial = (props: DayjsPickerPartialProps) => (
+export const DayjsPickerPartial = (
+  props: DayjsPickerPartialProps
+): JSX.Element => (
   <OcPickerPartial<Dayjs>
     generateConfig={dayjsGenerateConfig}
     locale={enUS}
@@ -121,7 +123,8 @@ export type DayjsRangePickerProps =
   | InjectDefaultProps<OcRangePickerTimeProps<Dayjs>>;
 
 export class DayjsRangePicker extends React.Component<DayjsRangePickerProps> {
-  rangePickerRef = React.createRef<OcRangePicker<Dayjs>>();
+  rangePickerRef: React.RefObject<OcRangePicker<dayjs.Dayjs>> =
+    React.createRef<OcRangePicker<Dayjs>>();
 
   render() {
     return (
@@ -135,89 +138,84 @@ export class DayjsRangePicker extends React.Component<DayjsRangePickerProps> {
   }
 }
 
-export function openPicker(container: HTMLElement, index = 0) {
-  const input = container.querySelectorAll('input')[index];
+export function openPicker(container: HTMLElement, index: number = 0): void {
+  const input: HTMLInputElement = container.querySelectorAll('input')[index];
   fireEvent.mouseDown(input);
   fireEvent.click(input);
   fireEvent.focus(input);
 }
 
-export function closePicker(container: HTMLElement, index = 0) {
-  const input = container.querySelectorAll('input')[index];
+export function closePicker(container: HTMLElement, index: number = 0): void {
+  const input: HTMLInputElement = container.querySelectorAll('input')[index];
   fireEvent.blur(input);
 }
 
-export function isOpen() {
-  if (canUseDocElement()) {
-    const dropdown = document.querySelector('.trigger-popup');
-    return dropdown && !dropdown.classList.contains('trigger-popup-hidden');
-  }
-  return false;
+export function isOpen(): boolean {
+  const dropdown: Element = document?.querySelector('.trigger-popup');
+  return dropdown && !dropdown.classList.contains('trigger-popup-hidden');
 }
 
-export function findCell(text: string | number, index = 0) {
+export function findCell(
+  text: string | number,
+  index: number = 0
+): HTMLElement {
   let matchCell: HTMLElement;
 
-  if (canUseDocElement()) {
-    const table = document.querySelectorAll('table')[index];
+  const table: HTMLTableElement = document?.querySelectorAll('table')[index];
 
-    Array.from(table.querySelectorAll('td')).forEach((td) => {
+  Array.from(table.querySelectorAll('td')).forEach(
+    (td: HTMLTableCellElement): void => {
       if (
         td.textContent === String(text) &&
         td.className.includes('-in-view')
       ) {
         matchCell = td;
       }
-    });
-    if (!matchCell) {
-      throw new Error('Cell not match in picker partial.');
     }
+  );
+  if (!matchCell) {
+    throw new Error('Cell not match in picker partial.');
   }
 
   return matchCell;
 }
 
-export function selectCell(text: string | number, index = 0) {
-  const td = findCell(text, index);
+export function selectCell(
+  text: string | number,
+  index: number = 0
+): HTMLElement {
+  const td: HTMLElement = findCell(text, index);
   fireEvent.click(td);
 
   return td;
 }
 
-export function clickButton(type: string) {
+export function clickButton(type: string): HTMLButtonElement {
   let matchBtn: HTMLButtonElement;
 
-  if (canUseDocElement()) {
-    Array.from(document.querySelectorAll('button')).forEach((btn) => {
-      if (btn.className.includes(`-header-${type}-btn`)) {
-        matchBtn = btn;
-      }
-    });
+  Array.from(document?.querySelectorAll('button') || []).forEach((btn) => {
+    if (btn.className.includes(`-header-${type}-btn`)) {
+      matchBtn = btn;
+    }
+  });
 
-    fireEvent.click(matchBtn);
-  }
+  fireEvent.click(matchBtn);
 
   return matchBtn;
 }
 
-export function confirmOK() {
-  if (canUseDocElement()) {
-    fireEvent.click(document.querySelector('.picker-ok > *'));
-  }
+export function confirmOK(): void {
+  fireEvent.click(document?.querySelector('.picker-ok > *'));
 }
 
-export function clearValue() {
-  if (canUseDocElement()) {
-    const clearBtn = document.querySelector('.picker-clear');
-    fireEvent.mouseDown(clearBtn);
-    fireEvent.mouseUp(clearBtn);
-  }
+export function clearValue(): void {
+  const clearBtn = document?.querySelector('.picker-clear');
+  fireEvent.mouseDown(clearBtn);
+  fireEvent.mouseUp(clearBtn);
 }
 
-export function inputValue(text: string, index = 0) {
-  if (canUseDocElement()) {
-    fireEvent.change(document.querySelectorAll('input')[index], {
-      target: { value: text },
-    });
-  }
+export function inputValue(text: string, index: number = 0): void {
+  fireEvent.change(document?.querySelectorAll('input')[index], {
+    target: { value: text },
+  });
 }

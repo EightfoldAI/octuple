@@ -200,9 +200,7 @@ export function generateTrigger(
       this.clearDelayTimer();
       this.clearOutsideHandler();
       clearTimeout(this.mouseDownTimeout);
-      if (canUseDom()) {
-        requestAnimationFrameWrapper.cancel(this.attachId);
-      }
+      requestAnimationFrameWrapper.cancel(this.attachId);
     }
 
     onMouseEnter = (e: any) => {
@@ -484,9 +482,7 @@ export function generateTrigger(
     };
 
     attachParent = (popupContainer: HTMLElement) => {
-      if (canUseDom()) {
-        requestAnimationFrameWrapper.cancel(this.attachId);
-      }
+      requestAnimationFrameWrapper.cancel(this.attachId);
 
       const { getPopupContainer, getDocument } = this.props;
       const domNode = this.getRootDomNode();
@@ -502,11 +498,9 @@ export function generateTrigger(
         mountNode.appendChild(popupContainer);
       } else {
         // Retry after frame render in case parent not ready
-        if (canUseDom()) {
-          this.attachId = requestAnimationFrameWrapper(() => {
-            this.attachParent(popupContainer);
-          });
-        }
+        this.attachId = requestAnimationFrameWrapper(() => {
+          this.attachParent(popupContainer);
+        });
       }
     };
 

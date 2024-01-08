@@ -26,56 +26,51 @@ export function waitElementReady(
     if (isVisible(element)) {
       callback();
     } else {
-      if (canUseDom()) {
-        id = requestAnimationFrameWrapper(() => {
-          tryOrNextFrame();
-        });
-      }
+      id = requestAnimationFrameWrapper(() => {
+        tryOrNextFrame();
+      });
     }
   }
 
-  if (canUseDom()) {
-    tryOrNextFrame();
-  }
+  tryOrNextFrame();
 
   return () => {
-    if (canUseDom()) {
-      requestAnimationFrameWrapper.cancel(id);
-    }
+    requestAnimationFrameWrapper.cancel(id);
   };
 }
 
 /* eslint-disable no-param-reassign */
 export function scrollTo(element: HTMLElement, to: number, duration: number) {
-  if (canUseDom()) {
-    if (scrollIds.get(element)) {
-      cancelAnimationFrame(scrollIds.get(element)!);
-    }
+  if (!canUseDom()) {
+    return;
+  }
+  if (scrollIds.get(element)) {
+    cancelAnimationFrame(scrollIds.get(element)!);
+  }
 
-    // jump to target if duration zero
-    if (duration <= 0) {
-      scrollIds.set(
-        element,
-        requestAnimationFrame(() => {
-          element.scrollTop = to;
-        })
-      );
-
-      return;
-    }
-    const difference: number = to - element.scrollTop;
-    const perTick: number = (difference / duration) * 10;
-
+  // jump to target if duration zero
+  if (duration <= 0) {
     scrollIds.set(
       element,
       requestAnimationFrame(() => {
-        element.scrollTop += perTick;
-        if (element.scrollTop !== to) {
-          scrollTo(element, to, duration - 10);
-        }
+        element.scrollTop = to;
       })
     );
+
+    return;
   }
+  const difference: number = to - element.scrollTop;
+  const perTick: number = (difference / duration) * 10;
+
+  scrollIds.set(
+    element,
+    requestAnimationFrame(() => {
+      element.scrollTop += perTick;
+      if (element.scrollTop !== to) {
+        scrollTo(element, to, duration - 10);
+      }
+    })
+  );
 }
 /* eslint-enable */
 

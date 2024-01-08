@@ -7,19 +7,17 @@ import { canUseDocElement, generateId } from '../../shared/utilities';
 const uniqueId: string = generateId();
 
 function createWrapperAndAppendToBody(wrapperId: string): HTMLDivElement {
-  if (canUseDocElement()) {
-    const existingElement = document.getElementById(
-      wrapperId
-    ) as HTMLDivElement;
-    if (document.getElementById(wrapperId)) {
-      return existingElement;
-    }
-    const wrapperElement = document.createElement('div');
-    wrapperElement.setAttribute('id', wrapperId);
-    document.body.appendChild(wrapperElement);
-    return wrapperElement;
+  if (!canUseDocElement()) {
+    return null;
   }
-  return null;
+  const existingElement = document.getElementById(wrapperId) as HTMLDivElement;
+  if (document.getElementById(wrapperId)) {
+    return existingElement;
+  }
+  const wrapperElement = document.createElement('div');
+  wrapperElement.setAttribute('id', wrapperId);
+  document.body.appendChild(wrapperElement);
+  return wrapperElement;
 }
 
 const $dialog = (props: DialogProps, containerId: string = uniqueId) => {

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  canUseDom,
-  requestAnimationFrameWrapper,
-} from '../../../shared/utilities';
+import { requestAnimationFrameWrapper } from '../../../shared/utilities';
 
 export const useNextFrame = (): [
   (callback: (info: { isCanceled: () => boolean }) => void) => void,
@@ -11,9 +8,7 @@ export const useNextFrame = (): [
   const nextFrameRef = React.useRef<number>(null);
 
   function cancelNextFrame() {
-    if (canUseDom()) {
-      requestAnimationFrameWrapper.cancel(nextFrameRef.current);
-    }
+    requestAnimationFrameWrapper.cancel(nextFrameRef.current);
   }
 
   function nextFrame(
@@ -22,19 +17,17 @@ export const useNextFrame = (): [
   ) {
     cancelNextFrame();
 
-    if (canUseDom()) {
-      const nextFrameId = requestAnimationFrameWrapper(() => {
-        if (delay <= 1) {
-          callback({
-            isCanceled: () => nextFrameId !== nextFrameRef.current,
-          });
-        } else {
-          nextFrame(callback, delay - 1);
-        }
-      });
+    const nextFrameId = requestAnimationFrameWrapper(() => {
+      if (delay <= 1) {
+        callback({
+          isCanceled: () => nextFrameId !== nextFrameRef.current,
+        });
+      } else {
+        nextFrame(callback, delay - 1);
+      }
+    });
 
-      nextFrameRef.current = nextFrameId;
-    }
+    nextFrameRef.current = nextFrameId;
   }
 
   React.useEffect(

@@ -34,8 +34,9 @@ export function onViewportResize(element: HTMLElement, callback: Function) {
   let prevHeight: number = null;
 
   function onResize([{ target }]: ResizeObserverEntry[]) {
-    if (canUseDocElement() && !document.documentElement.contains(target))
+    if (!canUseDocElement() || !document.documentElement.contains(target)) {
       return;
+    }
     const { width, height } = target.getBoundingClientRect();
     const fixedWidth = Math.floor(width);
     const fixedHeight = Math.floor(height);
@@ -51,12 +52,9 @@ export function onViewportResize(element: HTMLElement, callback: Function) {
     prevHeight = fixedHeight;
   }
 
-  let resizeObserver: ResizeObserver;
-  if (typeof ResizeObserver !== 'undefined') {
-    resizeObserver = new ResizeObserver(onResize);
-    if (element) {
-      resizeObserver.observe(element);
-    }
+  const resizeObserver: ResizeObserver = new ResizeObserver(onResize);
+  if (element) {
+    resizeObserver.observe(element);
   }
 
   return () => {

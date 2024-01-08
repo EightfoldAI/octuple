@@ -95,9 +95,7 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
       this.thumbRef.current.removeEventListener('touchend', this.onMouseUp);
     }
 
-    if (canUseDom()) {
-      requestAnimationFrameWrapper.cancel(this.moveRaf);
-    }
+    requestAnimationFrameWrapper.cancel(this.moveRaf);
   };
 
   // ======================= Thumb =======================
@@ -120,9 +118,7 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
     const { dragging, pageY, startTop } = this.state;
     const { onScroll } = this.props;
 
-    if (canUseDom()) {
-      requestAnimationFrameWrapper.cancel(this.moveRaf);
-    }
+    requestAnimationFrameWrapper.cancel(this.moveRaf);
 
     if (dragging) {
       const offsetY = getPageY(e) - pageY;
@@ -133,11 +129,9 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
 
       const ptg = enableHeightRange ? newTop / enableHeightRange : 0;
       const newScrollTop = Math.ceil(ptg * enableScrollRange);
-      if (canUseDom()) {
-        this.moveRaf = requestAnimationFrameWrapper(() => {
-          onScroll(newScrollTop);
-        });
-      }
+      this.moveRaf = requestAnimationFrameWrapper(() => {
+        onScroll(newScrollTop);
+      });
     }
   };
 
