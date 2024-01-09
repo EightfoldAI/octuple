@@ -38,7 +38,12 @@ import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { List } from '../List';
 import { Stack } from '../Stack';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { eventKeys, mergeClasses, RenderProps } from '../../shared/utilities';
+import {
+  canUseDom,
+  eventKeys,
+  mergeClasses,
+  RenderProps,
+} from '../../shared/utilities';
 
 import dropdownStyles from '../Dropdown/dropdown.module.scss';
 import menuStyles from './menu.module.scss';
@@ -160,18 +165,22 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
       setAllowHover(false);
     };
 
-    window.addEventListener('pointermove', onPointerMove, {
-      once: true,
-      capture: true,
-    });
-
-    window.addEventListener('keydown', onKeyDown, true);
-
-    return () => {
-      window.removeEventListener('pointermove', onPointerMove, {
+    if (canUseDom()) {
+      window.addEventListener('pointermove', onPointerMove, {
+        once: true,
         capture: true,
       });
-      window.removeEventListener('keydown', onKeyDown, true);
+
+      window.addEventListener('keydown', onKeyDown, true);
+    }
+
+    return () => {
+      if (canUseDom()) {
+        window.removeEventListener('pointermove', onPointerMove, {
+          capture: true,
+        });
+        window.removeEventListener('keydown', onKeyDown, true);
+      }
     };
   }, [allowHover]);
 

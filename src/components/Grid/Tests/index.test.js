@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 let matchMedia;
 
 jest.mock('../../../hooks/useBreakpoint', () => () => {
-  return { xs: true, sm: false, md: false, lg: false };
+  return { xs: true, sm: false, md: false, lg: false, xl: false };
 });
 
 describe('Grid', () => {
@@ -112,6 +112,7 @@ describe('Grid', () => {
         sm: false,
         md: false,
         lg: false,
+        xl: false,
       })
     );
   });

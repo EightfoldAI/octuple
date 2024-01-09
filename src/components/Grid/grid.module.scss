@@ -111,4 +111,12 @@
   @include make-grid(-lg);
 }
 
+// Extra large grid
+//
+// Columns, offsets, pushes, and pulls for the extra large desktop device range.
+
+@media (min-width: $xlarge-screen-size) {
+  @include make-grid(-xl);
+}
+
 @import './Styles/rtl';

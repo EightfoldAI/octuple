@@ -3,6 +3,7 @@ import type { Item, Refs, visibleElements } from '../Carousel.types';
 import { getNodesFromRefs, observerEntriesToItems } from '../Utilities';
 import { observerOptions } from '../Settings';
 import ItemsMap from '../ItemsMap';
+import { requestAnimationFrameWrapper } from '../../../shared/utilities';
 
 interface IntersectionProps {
   items: ItemsMap;
@@ -31,24 +32,22 @@ export const useIntersectionObserver = ({
       items.set(observerEntriesToItems(entries, options));
 
       clearTimeout(throttleTimer.current);
-      throttleTimer.current = +setTimeout(
-        () =>
-          requestAnimationFrame(() => {
-            setVisibleElementsWithSeparators((currentVisible) => {
-              const newVisibleElements = items
-                .getVisible()
-                .map((el: Item) => el[1].key);
-              if (
-                JSON.stringify(currentVisible) !==
-                JSON.stringify(newVisibleElements)
-              ) {
-                return newVisibleElements;
-              }
-              return currentVisible;
-            });
-          }),
-        options.throttle
-      );
+      throttleTimer.current = +setTimeout(() => {
+        requestAnimationFrameWrapper(() => {
+          setVisibleElementsWithSeparators((currentVisible) => {
+            const newVisibleElements = items
+              .getVisible()
+              .map((el: Item) => el[1].key);
+            if (
+              JSON.stringify(currentVisible) !==
+              JSON.stringify(newVisibleElements)
+            ) {
+              return newVisibleElements;
+            }
+            return currentVisible;
+          });
+        });
+      }, options.throttle);
     },
     [items, options]
   );

@@ -72,11 +72,13 @@ export const useLocalStorage = (key: string, initialValue?: unknown) => {
   }, []);
 
   useEffect(() => {
-    window.dispatchEvent(
-      new CustomEvent(LOCAL_STORAGE_KEY, {
-        detail: { key, newValue: storedValue },
-      })
-    );
+    if (canUseDom()) {
+      window.dispatchEvent(
+        new CustomEvent(LOCAL_STORAGE_KEY, {
+          detail: { key, newValue: storedValue },
+        })
+      );
+    }
   }, [storedValue]);
 
   const handleStorageChange = (event: CustomEvent & StorageEvent) => {

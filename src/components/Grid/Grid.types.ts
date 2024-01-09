@@ -89,4 +89,8 @@ export interface ColProps extends OcBaseProps<HTMLDivElement> {
    * The col size is large.
    */
   lg?: ColSpanType | ColSize;
+  /**
+   * The col size is extra-large.
+   */
+  xl?: ColSpanType | ColSize;
 }

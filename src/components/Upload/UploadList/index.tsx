@@ -15,6 +15,7 @@ import { Icon, IconName, IconSize } from '../../Icon';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useForceUpdate } from '../../../hooks/useForceUpdate';
 import {
+  canUseDom,
   cloneElement,
   collapseMotion,
   mergeClasses,
@@ -126,7 +127,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     if (typeof onDownload === 'function') {
       onDownload(file);
     } else if (file.url) {
-      window.open(file.url);
+      if (canUseDom()) {
+        window.open(file.url);
+      }
     }
   };
 

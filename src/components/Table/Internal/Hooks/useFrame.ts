@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { canUseDom } from '../../../../shared/utilities';
 
 export type Updater<State> = (prev: State) => State;
 
@@ -57,17 +58,21 @@ export function useTimeoutLock<State>(
   const timeoutRef = useRef<number>();
 
   function cleanUp() {
-    window.clearTimeout(timeoutRef.current);
+    if (canUseDom()) {
+      window.clearTimeout(timeoutRef.current);
+    }
   }
 
   function setState(newState: State) {
     frameRef.current = newState;
     cleanUp();
 
-    timeoutRef.current = window.setTimeout(() => {
-      frameRef.current = null;
-      timeoutRef.current = undefined;
-    }, 100);
+    if (canUseDom()) {
+      timeoutRef.current = window.setTimeout(() => {
+        frameRef.current = null;
+        timeoutRef.current = undefined;
+      }, 100);
+    }
   }
 
   function getState() {
