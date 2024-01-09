@@ -3,20 +3,20 @@
 .picker {
   &-status-error {
     input {
-      @include placeholder(var(--disruptive-color));
+      @include placeholder(var(--input-error-placeholder-color));
     }
 
-    border-color: var(--disruptive-color);
-    color: var(--disruptive-color);
+    border-color: var(--input-error-border-color);
+    color: var(--input-error-text-color);
   }
 
   &-status-warning {
     input {
-      @include placeholder(var(--warning-color));
+      @include placeholder(var(--input-warning-placeholder-color));
     }
 
-    border-color: var(--warning-color);
-    color: var(--warning-color);
+    border-color: var(--input-warning-border-color);
+    color: var(--input-warning-text-color);
   }
 
   &-status-success {
@@ -24,7 +24,7 @@
       @include placeholder(var(--picker-input-foreground-color));
     }
 
-    border-color: var(--border-color);
-    color: var(--text-primary-color);
+    border-color: var(--input-success-border-color);
+    color: var(--input-success-text-color);
   }
 }
