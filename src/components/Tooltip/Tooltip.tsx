@@ -110,6 +110,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const tooltipReferenceId: React.MutableRefObject<string> = useRef<string>(
         `${tooltipId?.current}-reference`
       );
+      const tooltipWrapperId: React.MutableRefObject<string> = useRef<string>(
+        `${tooltipId?.current}-wrapper`
+      );
 
       let timeout: ReturnType<typeof setTimeout>;
       const {
@@ -592,7 +595,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           <div
             className={referenceWrapperClassNames}
             style={wrapperStyle}
-            id={tooltipId?.current}
+            id={tooltipWrapperId?.current}
             onClick={(
               event: React.MouseEvent<HTMLDivElement, MouseEvent>
             ): void => {
@@ -645,7 +648,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const getPopup = (): JSX.Element => (
         <div
           className={referenceWrapperClassNames}
-          id={tooltipId?.current}
+          id={tooltipWrapperId?.current}
           style={wrapperStyle}
           ref={reference}
           {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger] && !gestureType
