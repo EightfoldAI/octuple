@@ -915,6 +915,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                   placement={'top'}
                   portal
                   portalRoot={sliderRef.current}
+                  preventTouchMoveDefault={false}
                   theme={TooltipTheme.dark}
                   {...tooltipProps}
                   tooltipStyle={getTooltipStyles(
