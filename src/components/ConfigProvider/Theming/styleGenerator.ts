@@ -19,6 +19,7 @@ import generate from './generate';
 import { fontDefaults } from './font';
 import OcThemes, { themeDefaults } from './themes';
 import { themeGenerator } from './themeGenerator';
+import { canUseDocElement } from '../../../shared/utilities';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
 const FONT_CONTAINER_ID = 'octuple-font';
@@ -217,9 +218,11 @@ function getContainer(option: Options): Element {
   if (option.attachTo) {
     return option.attachTo;
   }
-
-  const head = document.querySelector('head');
-  return head || document.body;
+  if (canUseDocElement()) {
+    const head = document.querySelector('head');
+    return head || document.body;
+  }
+  return null;
 }
 
 export function injectCSS(
@@ -237,26 +240,31 @@ export function injectCSS(
     ${getCustomFontsCss(customFonts)}
   `.trim();
 
-  const styleNode: HTMLStyleElement =
-    (document.getElementById(id) as HTMLStyleElement) ||
-    document.createElement('style');
-  styleNode.id = id;
-  if (option.csp?.nonce) {
-    styleNode.nonce = option.csp?.nonce;
-  }
-  styleNode.innerHTML = css;
+  let styleNode: HTMLStyleElement | null = null;
+  let container: Element | null = null;
 
-  const container: Element = getContainer(option);
-  const { firstChild } = container;
+  if (canUseDocElement()) {
+    styleNode =
+      (document.getElementById(id) as HTMLStyleElement) ||
+      document.createElement('style');
+    styleNode.id = id;
+    if (option.csp?.nonce) {
+      styleNode.nonce = option.csp?.nonce;
+    }
+    styleNode.innerHTML = css;
 
-  if (option.prepend && container.prepend) {
-    // Use `prepend` first
-    container.prepend(styleNode);
-  } else if (option.prepend && firstChild) {
-    // Fallback to `insertBefore` like IE not support `prepend`
-    container.insertBefore(styleNode, firstChild);
-  } else {
-    container.appendChild(styleNode);
+    container = getContainer(option);
+    const { firstChild } = container;
+
+    if (option.prepend && container.prepend) {
+      // Use `prepend` first
+      container.prepend(styleNode);
+    } else if (option.prepend && firstChild) {
+      // Fallback to `insertBefore` like IE not support `prepend`
+      container.insertBefore(styleNode, firstChild);
+    } else {
+      container.appendChild(styleNode);
+    }
   }
 
   return styleNode;

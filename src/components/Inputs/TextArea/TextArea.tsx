@@ -15,6 +15,7 @@ import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
 import {
+  canUseDocElement,
   getMergedStatus,
   mergeClasses,
   uniqueId,
@@ -90,9 +91,12 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
     // Needed for form error scroll-into-view by id
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
-    const inputField: HTMLElement = document.getElementById(
-      mergedFormItemInput ? id : textAreaId
-    );
+    let inputField: HTMLElement | null = null;
+    if (canUseDocElement()) {
+      inputField = document.getElementById(
+        mergedFormItemInput ? id : textAreaId
+      );
+    }
 
     const contextuallyDisabled: Disabled = useContext(DisabledContext);
     const mergedDisabled: boolean = configContextProps.noDisabledContext

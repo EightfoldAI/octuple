@@ -54,7 +54,7 @@ export default function useForm<Values = any>(
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
           const node: any | null = fieldId
-            ? document.getElementById(fieldId)
+            ? document?.getElementById(fieldId)
             : null;
 
           if (node) {

@@ -26,6 +26,7 @@ export const Row = React.forwardRef<HTMLDivElement, RowProps>(
       sm: true,
       md: true,
       lg: true,
+      xl: true,
     });
 
     const supportFlexGap: boolean = useFlexGapSupport();

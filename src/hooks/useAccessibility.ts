@@ -1,5 +1,5 @@
 import { useCallback, RefObject, useEffect } from 'react';
-import { eventKeys } from '../shared/utilities';
+import { canUseDocElement, eventKeys } from '../shared/utilities';
 
 const ACCESSIBILITY_EVENTS_MAP = {
   click: 'keydown',
@@ -33,9 +33,13 @@ export const useAccessibility = (
     if (!triggerEvent) {
       return () => {};
     }
-    document.addEventListener(triggerEvent, handleAccessibility);
+    if (canUseDocElement()) {
+      document.addEventListener(triggerEvent, handleAccessibility);
+    }
     return () => {
-      document.removeEventListener(triggerEvent, handleAccessibility);
+      if (canUseDocElement()) {
+        document.removeEventListener(triggerEvent, handleAccessibility);
+      }
     };
   }, [triggerEvent]);
 };

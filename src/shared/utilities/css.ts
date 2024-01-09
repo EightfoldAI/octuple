@@ -1,3 +1,6 @@
+import { canUseDom } from './canUseDom';
+import { canUseDocElement } from './flexGapSupported';
+
 const PIXEL_PATTERN: RegExp = /margin|padding|width|height|max|min|offset/;
 
 const removePixel = {
@@ -49,7 +52,7 @@ export const getStyleValue = (
  * @returns The outer width of a given element.
  */
 export const getOuterWidth = (element: HTMLElement): number => {
-  if (element === document.body) {
+  if (canUseDocElement() && element === document.body) {
     return document.documentElement.clientWidth;
   }
   return element.offsetWidth;
@@ -61,7 +64,7 @@ export const getOuterWidth = (element: HTMLElement): number => {
  * @returns The outer height of a given element.
  */
 export const getOuterHeight = (element: HTMLElement): number => {
-  if (element === document.body) {
+  if (canUseDom() && canUseDocElement() && element === document.body) {
     return window.innerHeight || document.documentElement.clientHeight;
   }
   return element.offsetHeight;
@@ -75,14 +78,18 @@ export const getDocSize = (): {
   width: number;
   height: number;
 } => {
-  const width: number = Math.max(
-    document.documentElement.scrollWidth,
-    document.body.scrollWidth
-  );
-  const height: number = Math.max(
-    document.documentElement.scrollHeight,
-    document.body.scrollHeight
-  );
+  let width: number = 0;
+  let height: number = 0;
+  if (canUseDocElement()) {
+    width = Math.max(
+      document.documentElement.scrollWidth,
+      document.body.scrollWidth
+    );
+    height = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+  }
 
   return {
     width,
@@ -98,9 +105,16 @@ export const getClientSize = (): {
   width: number;
   height: number;
 } => {
-  const width: number = document.documentElement.clientWidth;
-  const height: number =
-    window.innerHeight || document.documentElement.clientHeight;
+  let width: number = 0;
+  let height: number = 0;
+  if (canUseDocElement()) {
+    width = document.documentElement.clientWidth;
+  }
+  if (canUseDom()) {
+    height = window.innerHeight;
+  } else if (canUseDocElement()) {
+    height = document.documentElement.clientHeight;
+  }
   return {
     width,
     height,
@@ -115,15 +129,22 @@ export const getScrollPosition = (): {
   scrollLeft: number;
   scrollTop: number;
 } => {
-  return {
-    scrollLeft: Math.max(
+  let scrollLeft: number = 0;
+  let scrollTop: number = 0;
+  if (canUseDocElement()) {
+    scrollLeft = Math.max(
       document.documentElement.scrollLeft,
       document.body.scrollLeft
-    ),
-    scrollTop: Math.max(
+    );
+    scrollTop = Math.max(
       document.documentElement.scrollTop,
       document.body.scrollTop
-    ),
+    );
+  }
+
+  return {
+    scrollLeft,
+    scrollTop,
   };
 };
 
@@ -139,16 +160,22 @@ export const getOffset = (
   top: number;
 } => {
   const box: DOMRect = element.getBoundingClientRect();
-  const docElem: HTMLElement = document.documentElement;
-
+  let docElem: HTMLElement | null = null;
+  let pageXOffset: number = 0;
+  let pageYOffset: number = 0;
+  let clientLeft: number = 0;
+  let clientTop: number = 0;
+  if (canUseDocElement()) {
+    docElem = document.documentElement;
+    clientLeft = docElem.clientLeft || document.body.clientLeft || 0;
+    clientTop = docElem.clientTop || document.body.clientTop || 0;
+  }
+  if (canUseDom()) {
+    pageXOffset = window.pageXOffset;
+    pageYOffset = window.pageYOffset;
+  }
   return {
-    left:
-      box.left +
-      (window.pageXOffset || docElem.scrollLeft) -
-      (docElem.clientLeft || document.body.clientLeft || 0),
-    top:
-      box.top +
-      (window.pageYOffset || docElem.scrollTop) -
-      (docElem.clientTop || document.body.clientTop || 0),
+    left: box.left + (pageXOffset || docElem?.scrollLeft || 0) - clientLeft,
+    top: box.top + (pageYOffset || docElem?.scrollTop || 0) - clientTop,
   };
 };

@@ -1,4 +1,4 @@
-import { requestAnimationFrameWrapper } from './';
+import { canUseDom, requestAnimationFrameWrapper } from './';
 import { getScroll, isWindow } from './';
 import { easeInOutCubic } from '../../components/Motion/util/easings';
 
@@ -12,7 +12,11 @@ interface ScrollToOptions {
 }
 
 export default function scrollTo(y: number, options: ScrollToOptions = {}) {
-  const { getContainer = () => window, callback, duration = 450 } = options;
+  const {
+    getContainer = () => (canUseDom() ? window : undefined),
+    callback,
+    duration = 450,
+  } = options;
   const container = getContainer();
   const scrollTop = getScroll(container, true);
   const startTime = Date.now();
@@ -33,7 +37,7 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
       container.constructor.name === 'HTMLDocument'
     ) {
       (container as HTMLDocument).documentElement.scrollTop = nextScrollTop;
-    } else {
+    } else if (container instanceof HTMLElement) {
       (container as HTMLElement).scrollTop = nextScrollTop;
     }
     if (time < duration) {

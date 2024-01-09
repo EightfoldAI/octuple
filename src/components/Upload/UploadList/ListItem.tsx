@@ -5,7 +5,7 @@ import CSSMotion from '../../Motion';
 import Progress from '../../Progress';
 import { ButtonShape, ButtonSize } from '../../Button';
 import { Tooltip, TooltipTheme } from '../../Tooltip';
-import { mergeClasses } from '../../../shared/utilities';
+import { canUseDom, mergeClasses } from '../../../shared/utilities';
 
 import styles from '../upload.module.scss';
 
@@ -67,7 +67,9 @@ const ListItem = React.forwardRef(
       }, 300);
 
       return () => {
-        window.clearTimeout(progressRafRef.current);
+        if (canUseDom()) {
+          window.clearTimeout(progressRafRef.current);
+        }
       };
     }, []);
 

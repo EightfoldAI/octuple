@@ -1,1 +1,192 @@
-TODO: Dependencies listed here.
+# Project dependencies
+
+## @floating-ui/react
+Floating UI for React
+
+[npm](http://npmjs.org/@floating-ui/react) - [Homepage](https://floating-ui.com/docs/react) - [Repository](https://github.com/floating-ui/floating-ui) - [Issues](https://github.com/floating-ui/floating-ui) - Licence: MIT
+
+Install with npm: `npm install @floating-ui/react`<br/>
+Install with yarn: `yarn add @floating-ui/react`
+
+---
+## @mdi/react
+React Dist for Material Design Icons
+
+[npm](http://npmjs.org/@mdi/react) - [Homepage](https://github.com/Templarian/MaterialDesign-React#readme) - [Repository](https://github.com/Templarian/MaterialDesign-React) - [Issues](https://github.com/Templarian/MaterialDesign-React/issues) - Licence: MIT
+
+Install with npm: `npm install @mdi/react`<br/>
+Install with yarn: `yarn add @mdi/react`
+
+---
+## @ngard/tiny-isequal
+A minimal-weight utility similar to lodash.isequal
+
+[npm](http://npmjs.org/@ngard/tiny-isequal) - [Homepage](https://github.com/NickGard/tiny-isequal#readme) - [Repository](https://github.com/NickGard/tiny-isequal) - [Issues](https://github.com/NickGard/tiny-isequal/issues) - Licence: MIT
+
+Install with npm: `npm install @ngard/tiny-isequal`<br/>
+Install with yarn: `yarn add @ngard/tiny-isequal`
+
+---
+## @react-spring/web
+`react-dom` support
+
+[npm](http://npmjs.org/@react-spring/web) - [Homepage](https://github.com/pmndrs/react-spring#readme) - [Repository](https://github.com/pmndrs/react-spring) - [Issues](https://github.com/pmndrs/react-spring/issues) - Licence: MIT
+
+Install with npm: `npm install @react-spring/web`<br/>
+Install with yarn: `yarn add @react-spring/web`
+
+---
+## @types/react-is
+TypeScript definitions for react-is
+
+[npm](http://npmjs.org/@types/react-is) - [Homepage](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-is) - [Repository](https://github.com/DefinitelyTyped/DefinitelyTyped) - Licence: MIT
+
+Install with npm: `npm install @types/react-is`<br/>
+Install with yarn: `yarn add @types/react-is`
+
+---
+## @types/shallowequal
+TypeScript definitions for shallowequal
+
+[npm](http://npmjs.org/@types/shallowequal) - [Homepage](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/shallowequal) - [Repository](https://github.com/DefinitelyTyped/DefinitelyTyped) - Licence: MIT
+
+Install with npm: `npm install @types/shallowequal`<br/>
+Install with yarn: `yarn add @types/shallowequal`
+
+---
+## async-validator
+validate form asynchronous
+
+[npm](http://npmjs.org/async-validator) - [Homepage](https://github.com/yiminghe/async-validator) - [Repository](https://github.com/yiminghe/async-validator) - [Issues](https://github.com/yiminghe/async-validator/issues) - Licence: MIT
+
+Install with npm: `npm install async-validator`<br/>
+Install with yarn: `yarn add async-validator`
+
+---
+## bodymovin
+After Effects plugin for exporting animations to SVG + JavaScript or canvas + JavaScript
+
+[npm](http://npmjs.org/bodymovin) - [Homepage](https://github.com/bodymovin/bodymovin#readme) - [Repository](https://github.com/bodymovin/bodymovin) - [Issues](https://github.com/bodymovin/bodymovin/issues) - Licence: MIT
+
+Install with npm: `npm install bodymovin`<br/>
+Install with yarn: `yarn add bodymovin`
+
+---
+## date-fns
+Modern JavaScript date utility library
+
+[npm](http://npmjs.org/date-fns) - [Homepage](https://github.com/date-fns/date-fns#readme) - [Repository](https://github.com/date-fns/date-fns) - [Issues](https://github.com/date-fns/date-fns/issues) - Licence: MIT
+
+Install with npm: `npm install date-fns`<br/>
+Install with yarn: `yarn add date-fns`
+
+---
+## dayjs
+2KB immutable date time library alternative to Moment.js with the same modern API 
+
+[npm](http://npmjs.org/dayjs) - [Homepage](https://day.js.org) - [Repository](https://github.com/iamkun/dayjs) - [Issues](https://github.com/iamkun/dayjs/issues) - Licence: MIT
+
+Install with npm: `npm install dayjs`<br/>
+Install with yarn: `yarn add dayjs`
+
+---
+## dom-align
+Align DOM Node Flexibly 
+
+[npm](http://npmjs.org/dom-align) - [Homepage](http://github.com/yiminghe/dom-align) - [Repository](https://github.com/yiminghe/dom-align) - [Issues](http://github.com/yiminghe/dom-align/issues) - Licence: MIT
+
+Install with npm: `npm install dom-align`<br/>
+Install with yarn: `yarn add dom-align`
+
+---
+## lottie-web
+After Effects plugin for exporting animations to SVG + JavaScript or canvas + JavaScript
+
+[npm](http://npmjs.org/lottie-web) - [Homepage](https://github.com/airbnb/lottie-web#readme) - [Repository](https://github.com/airbnb/lottie-web) - [Issues](https://github.com/airbnb/lottie-web/issues) - Licence: MIT
+
+Install with npm: `npm install lottie-web`<br/>
+Install with yarn: `yarn add lottie-web`
+
+---
+## memoize-one
+A memoization library which only remembers the latest invocation
+
+[npm](http://npmjs.org/memoize-one) - [Homepage](https://github.com/alexreardon/memoize-one#readme) - [Repository](https://github.com/alexreardon/memoize-one) - [Issues](https://github.com/alexreardon/memoize-one/issues) - Licence: MIT
+
+Install with npm: `npm install memoize-one`<br/>
+Install with yarn: `yarn add memoize-one`
+
+---
+## react-easy-crop
+A React component to crop images/videos with easy interactions
+
+[npm](http://npmjs.org/react-easy-crop) - [Homepage](https://ValentinH.github.io/react-easy-crop/) - [Repository](https://github.com/ValentinH/react-easy-crop) - [Issues](https://github.com/ValentinH/react-easy-crop/issues) - Licence: MIT
+
+Install with npm: `npm install react-easy-crop`<br/>
+Install with yarn: `yarn add react-easy-crop`
+
+---
+## react-flip-toolkit
+Configurable FLIP animation helpers for React
+
+[npm](http://npmjs.org/react-flip-toolkit) - [Homepage](https://github.com/aholachek/react-flip-toolkit#readme) - [Repository](https://github.com/aholachek/react-flip-toolkit) - [Issues](https://github.com/aholachek/react-flip-toolkit/issues) - Licence: MIT
+
+Install with npm: `npm install react-flip-toolkit`<br/>
+Install with yarn: `yarn add react-flip-toolkit`
+
+---
+## react-is
+Brand checking of React Elements.
+
+[npm](http://npmjs.org/react-is) - [Homepage](https://reactjs.org/) - [Repository](https://github.com/facebook/react) - [Issues](https://github.com/facebook/react/issues) - Licence: MIT
+
+Install with npm: `npm install react-is`<br/>
+Install with yarn: `yarn add react-is`
+
+---
+## react-use-measure
+measure view bounds
+
+[npm](http://npmjs.org/react-use-measure) - Licence: MIT
+
+Install with npm: `npm install react-use-measure`<br/>
+Install with yarn: `yarn add react-use-measure`
+
+---
+## resize-observer-polyfill
+A polyfill for the Resize Observer API
+
+[npm](http://npmjs.org/resize-observer-polyfill) - [Homepage](https://github.com/que-etc/resize-observer-polyfill) - [Repository](https://github.com/que-etc/resize-observer-polyfill) - [Issues](https://github.com/que-etc/resize-observer-polyfill/issues) - Licence: MIT
+
+Install with npm: `npm install resize-observer-polyfill`<br/>
+Install with yarn: `yarn add resize-observer-polyfill`
+
+---
+## scroll-into-view-if-needed
+Ponyfill for upcoming Element.scrollIntoView() APIs like scrollMode: if-needed, behavior: smooth and block: center
+
+[npm](http://npmjs.org/scroll-into-view-if-needed) - [Homepage](https://scroll-into-view.dev) - [Repository](https://github.com/scroll-into-view/scroll-into-view-if-needed) - [Issues](https://github.com/scroll-into-view/scroll-into-view-if-needed/issues) - Licence: MIT
+
+Install with npm: `npm install scroll-into-view-if-needed`<br/>
+Install with yarn: `yarn add scroll-into-view-if-needed`
+
+---
+## shallowequal
+Like lodash isEqualWith but for shallow equal.
+
+[npm](http://npmjs.org/shallowequal) - [Homepage](https://github.com/dashed/shallowequal#readme) - [Repository](https://github.com/dashed/shallowequal) - [Issues](https://github.com/dashed/shallowequal/issues) - Licence: MIT
+
+Install with npm: `npm install shallowequal`<br/>
+Install with yarn: `yarn add shallowequal`
+
+---
+## smooth-scroll-into-view-if-needed
+Ponyfill for smooth scrolling elements into view (if needed!)
+
+[npm](http://npmjs.org/smooth-scroll-into-view-if-needed) - [Homepage](https://scroll-into-view.dev) - [Repository](https://github.com/scroll-into-view/smooth-scroll-into-view-if-needed) - [Issues](https://github.com/scroll-into-view/smooth-scroll-into-view-if-needed/issues) - Licence: MIT
+
+Install with npm: `npm install smooth-scroll-into-view-if-needed`<br/>
+Install with yarn: `yarn add smooth-scroll-into-view-if-needed`
+
+---
+Documentation created with [depdoc](https://github.com/mrmartineau/depdoc/)
