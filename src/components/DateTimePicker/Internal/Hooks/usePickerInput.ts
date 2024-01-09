@@ -167,10 +167,7 @@ export default function usePickerInput({
   }, [value]);
 
   // Global click handler
-  useEffect(() => {
-    if (!canUseDom()) {
-      return;
-    }
+  useEffect((): (() => void) =>
     addGlobalMouseDownEvent((e: MouseEvent): void => {
       const target: HTMLElement = getTargetFromEvent(e);
 
@@ -188,8 +185,8 @@ export default function usePickerInput({
           triggerOpen(false);
         }
       }
-    });
-  });
+    })
+  );
 
   return [inputProps, { focused, typing }];
 }
