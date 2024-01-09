@@ -22,6 +22,7 @@ import { SizeContextProvider } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { OcFormProvider } from '../Form/Internal';
 import defaultLocale from '../Locale/Default';
+import { canUseDocElement } from '../../shared/utilities';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
   Partial<IConfigContext>
@@ -30,7 +31,9 @@ const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
 const DEFAULT_THEME: string = 'blue';
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
-const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
+const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = canUseDocElement()
+  ? document.documentElement
+  : null;
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
   children,

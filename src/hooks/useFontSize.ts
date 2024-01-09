@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { canUseDom } from '../shared/utilities';
+import { canUseDocElement, canUseDom } from '../shared/utilities';
 
 import { useLocalStorage } from './useLocalStorage';
 
@@ -12,14 +12,21 @@ export interface UseFontSizeProps {
 /**
  * Set the CSS variable in the <html> node
  */
-const applyPropToDocument = (variableName: string, storedFontSize: string) =>
-  document.documentElement.style.setProperty(variableName, storedFontSize);
+const applyPropToDocument = (variableName: string, storedFontSize: string) => {
+  if (canUseDocElement()) {
+    document.documentElement.style.setProperty(variableName, storedFontSize);
+  }
+};
 
 /**
  * Retrieve the CSS variable value from the <html> node
  */
-const getDocumentProp = (variableName: string) =>
-  document.documentElement.style.getPropertyValue(variableName);
+const getDocumentProp = (variableName: string) => {
+  if (canUseDocElement()) {
+    return document.documentElement.style.getPropertyValue(variableName);
+  }
+  return null;
+};
 
 /**
  *

@@ -1,7 +1,4 @@
 import dayjs, { Dayjs } from 'dayjs';
-import { eventKeys } from '../../../../shared/utilities';
-import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
-import { isVisible } from '../../../../shared/utilities';
 import { DatePickerProps } from '../../DatePicker';
 import type { GenerateConfig } from '../Generate';
 import type {
@@ -9,6 +6,12 @@ import type {
   PartialMode,
   OcPickerMode,
 } from '../OcPicker.types';
+import {
+  canUseDom,
+  eventKeys,
+  isVisible,
+  requestAnimationFrameWrapper,
+} from '../../../../shared/utilities';
 
 const scrollIds: Map<HTMLElement, number> = new Map<HTMLElement, number>();
 
@@ -38,6 +41,9 @@ export function waitElementReady(
 
 /* eslint-disable no-param-reassign */
 export function scrollTo(element: HTMLElement, to: number, duration: number) {
+  if (!canUseDom()) {
+    return;
+  }
   if (scrollIds.get(element)) {
     cancelAnimationFrame(scrollIds.get(element)!);
   }

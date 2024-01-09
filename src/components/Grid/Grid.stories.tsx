@@ -144,7 +144,7 @@ const Horizontal_Gutter_Story: ComponentStory<typeof Row> = (args) => (
 );
 
 const Responsive_Gutter_Story: ComponentStory<typeof Row> = (args) => (
-  <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+  <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32, xl: 48 }}>
     <Col {...args} span={3}>
       <div style={style}>col-3</div>
     </Col>
@@ -404,6 +404,7 @@ const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ order: 2 }}
       md={{ order: 3 }}
       lg={{ order: 4 }}
+      xl={{ order: 1 }}
     >
       1 col-order-responsive
     </Col>
@@ -414,6 +415,7 @@ const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ order: 1 }}
       md={{ order: 4 }}
       lg={{ order: 3 }}
+      xl={{ order: 2 }}
     >
       2 col-order-responsive
     </Col>
@@ -424,6 +426,7 @@ const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ order: 4 }}
       md={{ order: 2 }}
       lg={{ order: 1 }}
+      xl={{ order: 3 }}
     >
       3 col-order-responsive
     </Col>
@@ -434,6 +437,7 @@ const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ order: 3 }}
       md={{ order: 1 }}
       lg={{ order: 2 }}
+      xl={{ order: 4 }}
     >
       4 col-order-responsive
     </Col>
@@ -492,6 +496,7 @@ const Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ span: 4 }}
       md={{ span: 6 }}
       lg={{ span: 2 }}
+      xl={{ span: 3 }}
     >
       Col
     </Col>
@@ -501,6 +506,7 @@ const Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ span: 3 }}
       md={{ span: 1 }}
       lg={{ span: 8 }}
+      xl={{ span: 6 }}
     >
       Col
     </Col>
@@ -510,6 +516,7 @@ const Responsive_Story: ComponentStory<typeof Row> = (args) => (
       sm={{ span: 5 }}
       md={{ span: 5 }}
       lg={{ span: 2 }}
+      xl={{ span: 3 }}
     >
       Col
     </Col>
@@ -539,10 +546,10 @@ const gutters: Record<string, number> = {};
 const vgutters: Record<string, number> = {};
 const colCounts: Record<string, number> = {};
 
-[8, 16, 24, 32, 40, 48].forEach((value: number, i: number) => {
+[8, 16, 24, 32, 48].forEach((value: number, i: number) => {
   gutters[i] = value;
 });
-[8, 16, 24, 32, 40, 48].forEach((value: number, i: number) => {
+[8, 16, 24, 32, 48].forEach((value: number, i: number) => {
   vgutters[i] = value;
 });
 [2, 3, 4, 6, 8, 12].forEach((value: number, i: number) => {

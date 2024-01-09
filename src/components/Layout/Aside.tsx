@@ -14,6 +14,7 @@ import {
 } from './Layout.types';
 import { Icon, IconName, IconSize } from '../Icon';
 import {
+  canUseDom,
   generateId,
   isNumeric,
   mergeClasses,
@@ -92,7 +93,7 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
 
       let mql: MediaQueryList;
 
-      if (typeof window !== 'undefined') {
+      if (canUseDom()) {
         const { matchMedia } = window;
         if (matchMedia! && breakpoint && breakpoint in dimensionMaxMap) {
           mql = matchMedia(

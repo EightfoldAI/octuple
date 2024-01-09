@@ -1,4 +1,5 @@
 import { canUseDom } from './canUseDom';
+import { canUseDocElement } from './flexGapSupported';
 
 /**
  * Utility to determine if the browser supprts a given style name.
@@ -7,7 +8,7 @@ import { canUseDom } from './canUseDom';
  * @returns {boolean}
  */
 const isStyleNameSupport = (styleName: string | string[]): boolean => {
-  if (canUseDom()) {
+  if (canUseDom() && canUseDocElement()) {
     const styleNameList = Array.isArray(styleName) ? styleName : [styleName];
     const { documentElement } = window.document;
 
