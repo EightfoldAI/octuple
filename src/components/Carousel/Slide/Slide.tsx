@@ -48,7 +48,7 @@ export const Slide: FC<CarouselSlideProps> = React.forwardRef(
               ]
             );
           }
-        }, 0);
+        }, 200);
       }
 
       prevActive.current = active;
