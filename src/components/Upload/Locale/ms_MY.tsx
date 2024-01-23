@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'Ok',
     modalTitleText: 'Edit imej',
     previewFileText: 'Pratonton fail',
-    removeFileText: 'Alih keluar fail',
+    removeFileText: 'Padam',
     replaceFileText: 'Menggantikan',
     rotateLeftButtonAriaLabelText: 'Putar ke kiri',
     rotateRightButtonAriaLabelText: 'Putar ke kanan',

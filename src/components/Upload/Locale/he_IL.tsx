@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'אוקיי',
     modalTitleText: 'ערוך תמונה',
     previewFileText: 'קובץ תצוגה מקדימה',
-    removeFileText: 'הסרת קובץ',
+    removeFileText: 'לִמְחוֹק',
     replaceFileText: 'להחליף',
     rotateLeftButtonAriaLabelText: 'סיבוב שמאלה',
     rotateRightButtonAriaLabelText: 'סובב ימינה',
