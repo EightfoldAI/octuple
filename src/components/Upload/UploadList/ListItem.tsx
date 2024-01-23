@@ -201,7 +201,14 @@ const ListItem = React.forwardRef(
                   ? customReplaceIcon(file)
                   : customReplaceIcon || IconName.mdiRepeat,
             },
-            onKeyDown: (event) => event.preventDefault(),
+            onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => {
+              if (
+                event?.key !== eventKeys.TAB ||
+                (event?.key !== eventKeys.TAB && !event?.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+            },
             shape: replaceFileText ? ButtonShape.Pill : ButtonShape.Round,
             text: replaceFileText,
           },
