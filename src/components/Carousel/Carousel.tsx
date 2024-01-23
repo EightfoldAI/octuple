@@ -272,6 +272,9 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     ): number => {
       let offset: number = 0;
       if (overlay) {
+        // When overlayControls is true, the gapWidth is doubled.
+        // This was previously handled by the scrollBySingleItem utility, but now it's handled here.
+        // To avoid occlusion, the offset is increased by the gapWidth on both sides of each inner item.
         offset = gapWidth * 2;
       } else {
         offset = gapWidth;

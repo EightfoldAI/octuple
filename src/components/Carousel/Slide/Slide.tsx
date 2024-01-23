@@ -5,6 +5,8 @@ import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../carousel.module.scss';
 
+export const SLIDE_TRANSITION_DURATION: number = 200;
+
 export const Slide: FC<CarouselSlideProps> = React.forwardRef(
   (props: CarouselSlideProps, ref: Ref<HTMLDivElement>) => {
     const {
@@ -48,7 +50,7 @@ export const Slide: FC<CarouselSlideProps> = React.forwardRef(
               ]
             );
           }
-        }, 200);
+        }, SLIDE_TRANSITION_DURATION);
       }
 
       prevActive.current = active;
