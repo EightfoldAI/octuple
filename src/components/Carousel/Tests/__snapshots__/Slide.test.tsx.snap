@@ -3,7 +3,7 @@
 exports[`Slide loads and displays Carousel component 1`] = `
 <div>
   <div
-    class="carousel carousel-slider"
+    class="carousel carousel-large carousel-overlay-controls carousel-slider"
   >
     <div
       class="carousel-pagination pagination dots"
@@ -120,7 +120,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
     <button
       aria-disabled="false"
       aria-label="Previous"
-      class="carousel-previous button button-secondary button-medium icon-left"
+      class="carousel-previous button button-secondary button-large icon-left"
     >
       <span
         aria-hidden="false"
@@ -129,7 +129,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
       >
         <svg
           role="presentation"
-          style="width: 20px; height: 20px;"
+          style="width: 24px; height: 24px;"
           viewBox="0 0 24 24"
         >
           <path
@@ -142,7 +142,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
     <button
       aria-disabled="false"
       aria-label="Next"
-      class="carousel-next button button-secondary button-medium icon-left"
+      class="carousel-next button button-secondary button-large icon-left"
     >
       <span
         aria-hidden="false"
@@ -151,7 +151,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
       >
         <svg
           role="presentation"
-          style="width: 20px; height: 20px;"
+          style="width: 24px; height: 24px;"
           viewBox="0 0 24 24"
         >
           <path

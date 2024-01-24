@@ -5,8 +5,8 @@ import {
   ItemOrElement,
 } from '../Carousel.types';
 
-// TODO: Currently, scrollIntoView API, nor it's extended versions afford an offset to avoid
-// occlusion of menu items when single scroll. For now use scrollBy API, then find a normailized solution.
+// TODO: Currently, scrollIntoView API, nor its extended versions afford an offset to avoid
+// occlusion of menu items when single scroll. For now use scrollBy API, then find a normalized solution.
 export function scrollBySingleItem<T>(
   item: ItemOrElement,
   behavior?: ScrollBehavior | CustomScrollBehavior<T>,
@@ -20,9 +20,8 @@ export function scrollBySingleItem<T>(
     behavior || 'smooth';
 
   if (_item) {
-    const gapMultiplierValue: number = gap * 2;
     const scrollDistance: number =
-      _item.getBoundingClientRect().width - gapMultiplierValue + offset;
+      _item.getBoundingClientRect().width - gap + offset;
 
     return _item.parentElement?.scrollBy({
       left: direction === 'next' ? scrollDistance : -scrollDistance,

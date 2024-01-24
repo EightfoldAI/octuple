@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scroll Carousel button props 1`] = `
+<div>
+  <div
+    class="carousel carousel-large carousel-overlay-controls"
+  >
+    <div
+      class="carousel-pagination pagination dots"
+      role="navigation"
+    />
+    <div
+      class="carousel-inner"
+    >
+      <div
+        class="carousel-auto-scroll"
+      >
+        <div
+          class="carousel-auto-scroll-inner-wrapper"
+        >
+          <div
+            class="carousel-previous-mask"
+          />
+          <button
+            aria-disabled="false"
+            aria-label="Previous"
+            class="carousel-previous button button-secondary button-large round-shape icon-left"
+          >
+            <span
+              aria-hidden="false"
+              class="icon icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style="width: 24px; height: 24px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+                  style="fill: currentColor;"
+                />
+              </svg>
+            </span>
+          </button>
+          <ul
+            class="carousel-auto-scroll-container"
+            style="margin: -8px; padding: 8px;"
+          >
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="0"
+              data-key="key1"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test1
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="0.1"
+              data-key="key1-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="1"
+              data-key="key2"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test2
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="1.1"
+              data-key="key2-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="2"
+              data-key="key3"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test3
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="2.1"
+              data-key="key3-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="3"
+              data-key="key4"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test4
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="3.1"
+              data-key="key4-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="4"
+              data-key="key5"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test5
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="4.1"
+              data-key="key5-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="5"
+              data-key="key6"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test6
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="5.1"
+              data-key="key6-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="6"
+              data-key="key7"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test7
+                </div>
+              </div>
+            </li>
+            <div
+              aria-hidden="true"
+              class="carousel-scroll-menu-separator"
+              data-index="6.1"
+              data-key="key7-separator"
+              style="margin-left: 0px; margin-right: 12px;"
+            />
+            <li
+              class="carousel-scroll-menu-item"
+              data-index="7"
+              data-key="key8"
+              style="margin-left: 0px; margin-right: 12px;"
+            >
+              <div
+                class="card card-bordered list card-medium"
+                style="height: 344px; width: 280px;"
+                tabindex="0"
+              >
+                <div
+                  style="align-items: center; display: flex; height: 100%; justify-content: center; width: 100%;"
+                >
+                  test8
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div
+            class="carousel-next-mask"
+          />
+          <button
+            aria-disabled="false"
+            aria-label="Next"
+            class="carousel-next button button-secondary button-large round-shape icon-left"
+          >
+            <span
+              aria-hidden="false"
+              class="icon icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style="width: 24px; height: 24px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                  style="fill: currentColor;"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
