@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'Oké',
     modalTitleText: 'Kép szerkesztése',
     previewFileText: 'Fájl előnézete',
-    removeFileText: 'Fájl eltávolítása',
+    removeFileText: 'Töröl',
     replaceFileText: 'Helyettesít',
     rotateLeftButtonAriaLabelText: 'Forgatás balra',
     rotateRightButtonAriaLabelText: 'Forgatás jobbra',

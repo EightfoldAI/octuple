@@ -446,7 +446,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     upload: upload.current,
   }));
 
-  const ocUploadProps = {
+  let ocUploadProps = {
     onBatchStart,
     onError,
     onProgress,
@@ -460,14 +460,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     multiple,
     onChange: undefined,
     supportServerRender,
-  } as OcUploadProps;
-
-  delete ocUploadProps.classNames;
-  delete ocUploadProps.style;
+  } as Omit<OcUploadProps, 'classNames' | 'style'>;
 
   // Remove id to avoid open by label when trigger is hidden
   if (!children || mergedDisabled) {
-    delete ocUploadProps.id;
+    ocUploadProps = { ...ocUploadProps, id: undefined };
   }
 
   const renderUploadList = (
@@ -556,6 +553,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         classNames={styles.uploadDropButton}
         disabled={mergedDisabled}
         htmlType="button"
+        iconProps={{ path: IconName.mdiUpload }}
         onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
           if (
             event?.key !== eventKeys.TAB ||
@@ -579,7 +577,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             </Stack>
           )}
           {size === UploadSize.Medium && (
-            <Stack direction="vertical" flexGap="m">
+            <Stack direction="vertical" flexGap="xs">
               <Stack direction="horizontal" flexGap="xs">
                 {renderIcon()}
                 {renderText()}
@@ -589,7 +587,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
           )}
           {size === UploadSize.Small && (
             <Stack direction="horizontal" fullWidth justify="space-between">
-              <Stack direction="horizontal" flexGap="s">
+              <Stack direction="horizontal" flexGap="xs">
                 {renderIcon()}
                 {renderText()}
               </Stack>

@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'ठीक है',
     modalTitleText: 'छवि संपादित करें',
     previewFileText: 'फ़ाइल का पूर्वावलोकन करें',
-    removeFileText: 'फ़ाइल निकालें',
+    removeFileText: 'मिटाना',
     replaceFileText: 'बदलें',
     rotateLeftButtonAriaLabelText: 'बाएँ घुमाएं',
     rotateRightButtonAriaLabelText: 'दाईं ओर घुमाएं',

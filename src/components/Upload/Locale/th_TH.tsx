@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'ตกลง, ได้',
     modalTitleText: 'แก้ไขรูปภาพ',
     previewFileText: 'ดูตัวอย่างไฟล์',
-    removeFileText: 'ลบไฟล์',
+    removeFileText: 'ลบ',
     replaceFileText: 'แทน',
     rotateLeftButtonAriaLabelText: 'หมุนไปทางซ้าย',
     rotateRightButtonAriaLabelText: 'หมุนไปทางขวา',

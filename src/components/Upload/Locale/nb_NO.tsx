@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'Ok',
     modalTitleText: 'Rediger bilde',
     previewFileText: 'Forhåndsvisning av fil',
-    removeFileText: 'Fjern fil',
+    removeFileText: 'Slett',
     replaceFileText: 'Erstatte',
     rotateLeftButtonAriaLabelText: 'Rotere mot venstre',
     rotateRightButtonAriaLabelText: 'Rotere mot høyre',

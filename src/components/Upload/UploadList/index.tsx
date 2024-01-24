@@ -153,7 +153,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     const dropIconColor: string =
       file.status === 'error'
         ? 'var(--error-color)'
-        : 'var(--text-tertiary-color)';
+        : 'var(--text-primary-color)';
     const fileIcon: JSX.Element =
       isImgUrl && isImgUrl(file) ? (
         <Icon path={IconName.mdiImageOutline} size={'48px'} />
@@ -205,7 +205,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
       ]),
       htmlType: downloadIconButtonType,
       iconProps: {
-        path: IconName.mdiArrowDownThin,
+        path: IconName.mdiDownload,
       },
       shape: ButtonShape.Round,
       onClick: (_event: React.MouseEvent<HTMLElement>) => {
@@ -292,6 +292,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             showPreviewIconButton={showPreviewIconButton}
             showRemoveIconButton={showRemoveIconButton}
             showReplaceButton={showReplaceButton}
+            size={size}
             style={motionStyle}
             uploadErrorText={uploadErrorText}
           />

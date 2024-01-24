@@ -59,7 +59,7 @@ const snackArgs: Object = {
 const Basic_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     headers: {
       authorization: 'authorization-text',
     },
@@ -107,7 +107,7 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
 const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     headers: {
       authorization: 'authorization-text',
     },
@@ -163,7 +163,7 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     maxCount: 1,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
@@ -187,7 +187,9 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
     },
     size: UploadSize.Small,
     showUploadList: {
+      removeIconButtonType: 'button',
       replaceButtonType: 'button',
+      showRemoveIconButton: true,
       showReplaceButton: true,
     },
   };
@@ -206,7 +208,7 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     multiple: true,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
@@ -249,7 +251,7 @@ const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     maxCount: 1,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -288,7 +290,7 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     multiple: true,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -328,7 +330,7 @@ const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
     maxCount: 1,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -367,7 +369,7 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
   const props: UploadProps = {
     name: 'file',
     multiple: true,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -473,7 +475,7 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
   return (
     <>
       <Upload
-        action="http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd"
+        action="https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61"
         listType="picture-card"
         fileList={fileList}
         onPreview={handlePreview}
@@ -543,7 +545,7 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   return (
     <Cropper rotate>
       <Upload
-        action={'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd'}
+        action={'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61'}
         fileList={fileList}
         listType={'picture-card'}
         onChange={onChange}
@@ -580,6 +582,18 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
   const onChange: UploadProps['onChange'] = async (info: any) => {
+    if (info.file.status === 'removed') {
+      await resetThumbAsync().then(() => {
+        setData({
+          ...info.file,
+          name: info.file.name,
+          percent: 0,
+          status: 'removed',
+          thumbUrl: '',
+        });
+      });
+      return;
+    }
     await generateThumbAsync(info.file).then(() => {
       setData({
         ...info.file,
@@ -604,6 +618,10 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
       file.preview = await getBase64(file.originFileObj as OcFile);
     }
     setThumbUrl(file.url || (file.preview as string));
+  };
+
+  const resetThumbAsync = async (): Promise<void> => {
+    setThumbUrl('');
   };
 
   const props: UploadProps = {
@@ -634,6 +652,12 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
         ...snackArgs,
         content: `${data.name} file uploaded successfully`,
       });
+    } else if (data.status === 'removed') {
+      const resetData = async () => {
+        setFileList([]);
+        setData({});
+      };
+      resetData().catch(console.error);
     }
   }, [data]);
 

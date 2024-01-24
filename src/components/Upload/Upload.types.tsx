@@ -874,6 +874,11 @@ export interface ListItemProps {
    */
   showReplaceButton?: boolean;
   /**
+   * The Upload size.
+   * @default UploadSize.Medium
+   */
+  size?: UploadSize;
+  /**
    * The Upload list item component custom styles.
    */
   style?: React.CSSProperties;
