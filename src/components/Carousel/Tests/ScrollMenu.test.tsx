@@ -324,6 +324,23 @@ describe('ScrollMenu', () => {
 
       expect(container).toMatchSnapshot();
     });
+
+    test('overlayControls is false', () => {
+      (useIntersectionObserver as jest.Mock).mockReturnValue({
+        visibleElementsWithSeparators: defaultItemsWithSeparators,
+      });
+
+      const { container } = setup({
+        previousButton: PreviousButton,
+        nextButton: NextButton,
+        overlayControls: false,
+      });
+
+      expect(container.querySelector('.carousel-next-mask')).toBeFalsy();
+      expect(container.querySelector('.carousel-previous-mask')).toBeFalsy();
+
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('Events', () => {

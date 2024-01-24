@@ -11,9 +11,13 @@ import { observerOptions as defaultObserverOptions } from './Settings';
 import { autoScrollApiType } from './autoScrollApi';
 import { OcBaseProps } from '../OcBase';
 import { PaginationLocale } from '../Pagination';
+import { ButtonProps } from '../Button';
 
 export const DEFAULT_GAP_WIDTH: number = 4;
-export const OCCLUSION_AVOIDANCE_BUFFER: number = 72;
+export const DEFAULT_TRANSITION_DURATION: number = 400;
+export const OCCLUSION_AVOIDANCE_BUFFER_LARGE: number = 72;
+export const OCCLUSION_AVOIDANCE_BUFFER_MEDIUM: number = 56;
+export const OCCLUSION_AVOIDANCE_BUFFER_SMALL: number = 44;
 
 export type CarouselTransition = 'push' | 'crossfade';
 export type CarouselType = 'slide' | 'scroll';
@@ -30,6 +34,12 @@ export type ItemType = React.ReactElement<{
   itemId: string;
 }>;
 export type visibleElements = string[];
+
+export enum CarouselSize {
+  Large = 'large',
+  Medium = 'medium',
+  Small = 'small',
+}
 
 export interface DataType {
   /**
@@ -58,8 +68,6 @@ export const VisibilityContext: React.Context<autoScrollApiType> =
 export const dataKeyAttribute: string = 'data-key';
 export const dataIndexAttribute: string = 'data-index';
 export const id: string = 'itemId';
-export const innerWrapperClassName: string =
-  'carousel-auto-scroll-inner-wrapper';
 export const itemClassName: string = 'carousel-scroll-menu-item';
 export const separatorClassName: string = 'carousel-scroll-menu-separator';
 export const separatorString: string = '-separator';
@@ -111,6 +119,10 @@ export interface CarouselProps
    */
   nextIconButtonAriaLabel?: string;
   /**
+   * The next icon button props.
+   */
+  nextButtonProps?: ButtonProps;
+  /**
    * Callback fired on mouse enter event.
    */
   onMouseEnter?: () => React.MouseEventHandler;
@@ -122,6 +134,11 @@ export interface CarouselProps
    * Callback fired when a Carousel transition starts.
    */
   onPivotStart?: (active: number, direction: string) => void;
+  /**
+   * Overlay the controls over the Carousel.
+   * @default true
+   */
+  overlayControls?: boolean;
   /**
    * Adds Pagination at the bottom of the Carousel.
    * @default true
@@ -140,11 +157,20 @@ export interface CarouselProps
    */
   previousIconButtonAriaLabel?: string;
   /**
+   * The previous icon button props.
+   */
+  previousButtonProps?: ButtonProps;
+  /**
    * Whether to scroll by 1 item.
    * Use when type is 'scroll'
    * @default false
    */
   single?: boolean;
+  /**
+   * The size of the Carousel.
+   * @default CarouselSize.Large
+   */
+  size?: CarouselSize;
   /**
    * Set type of slide transition.
    * @default 'push'
@@ -297,6 +323,11 @@ export interface ScrollMenuProps
    */
   options?: Partial<typeof defaultObserverOptions>;
   /**
+   * Overlay the controls over the Carousel.
+   * @default true
+   */
+  overlayControls?: boolean;
+  /**
    * Previous button component.
    */
   previousButton?: ComponentType;
@@ -338,6 +369,7 @@ export interface ScrollMenuProps
   transitionBehavior?: string | Function;
   /**
    * Duration of transition.
+   * @default 400
    */
   transitionDuration?: number;
   /**
