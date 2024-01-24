@@ -1,5 +1,5 @@
-.link-button {
-  background-color: inherit;
+a.link-button {
+  background: inherit;
   border-radius: var(--button-border-radius);
   cursor: pointer;
   display: inline-block;
@@ -115,7 +115,7 @@
   }
 
   .counter {
-    background-color: var(--button-counter-default-background-color);
+    background: var(--button-counter-default-background-color);
     color: var(--button-counter-default-text-color);
     display: inline-block;
     text-align: center;
@@ -362,13 +362,13 @@
 
   &:hover:not([disabled]) {
     .counter {
-      background-color: var(--button-counter-hover-background-color);
+      background: var(--button-counter-hover-background-color);
     }
   }
 
   &:active:not([disabled]) {
     .counter {
-      background-color: var(--button-counter-active-background-color);
+      background: var(--button-counter-active-background-color);
     }
   }
 
@@ -433,7 +433,7 @@
   }
 }
 
-.link-button-primary {
+a.link-button-primary {
   --button-counter-default-background-color: var(--accent-background1-color);
   --button-counter-hover-background-color: var(--accent-background2-color);
   --button-counter-checked-background-color: var(--accent-background1-color);
@@ -477,7 +477,7 @@
   }
 }
 
-.link-button-secondary {
+a.link-button-secondary {
   --button-counter-default-background-color: var(--primary-background2-color);
   --button-counter-hover-background-color: var(--primary-background2-color);
   --button-counter-checked-background-color: var(--primary-background1-color);
@@ -555,7 +555,7 @@
   }
 }
 
-.link-button-primary-disruptive {
+a.link-button-primary-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background1-color
   );
@@ -590,7 +590,7 @@
   }
 }
 
-.link-button-secondary-disruptive {
+a.link-button-secondary-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background2-color
   );
@@ -625,7 +625,7 @@
   }
 }
 
-.link-button-default {
+a.link-button-default {
   --button-counter-default-background-color: var(--primary-background2-color);
   --button-counter-hover-background-color: var(--primary-background2-color);
   --button-counter-checked-background-color: var(--primary-background1-color);
@@ -669,7 +669,7 @@
   }
 }
 
-.link-button-disruptive {
+a.link-button-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background2-color
   );
@@ -704,7 +704,7 @@
   }
 }
 
-.link-button-neutral {
+a.link-button-neutral {
   --button-counter-default-text-color: var(
     --button-neutral-counter-default-text-color
   );
@@ -725,7 +725,7 @@
   }
 }
 
-.link-button-system-ui {
+a.link-button-system-ui {
   --button-counter-default-text-color: var(
     --button-system-ui-counter-default-text-color
   );
@@ -773,7 +773,7 @@
   }
 }
 
-.link-button-rtl {
+a.link-button-rtl {
   .icon + .link-button-text-large:not(:empty) {
     margin-left: 0;
     margin-right: $button-spacer-large;
@@ -925,7 +925,7 @@
 }
 
 :global(.focus-visible) {
-  .link-button {
+  a.link-button {
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
@@ -935,7 +935,7 @@
       }
 
       .counter {
-        background-color: var(--button-counter-focus-background-color);
+        background: var(--button-counter-focus-background-color);
       }
     }
 
@@ -956,7 +956,7 @@
     &.link-button-disruptive {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(--disruptive-background1-color);
+        background: var(--disruptive-background1-color);
         color: var(--disruptive-color);
       }
     }
