@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'Okei',
     modalTitleText: 'Muokkaa kuvaa',
     previewFileText: 'Esikatsele tiedostoa',
-    removeFileText: 'Poista tiedosto',
+    removeFileText: 'Poistaa',
     replaceFileText: 'Korvata',
     rotateLeftButtonAriaLabelText: 'Kierrä vasemmalle',
     rotateRightButtonAriaLabelText: 'Kierrä oikealle',

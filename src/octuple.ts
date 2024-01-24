@@ -40,6 +40,7 @@ import {
   autoScrollApi,
   autoScrollApiType,
   Carousel,
+  CarouselSize,
   Slide,
   VisibilityContext,
 } from './components/Carousel';
@@ -330,6 +331,7 @@ export {
   CardSize,
   CardType,
   Carousel,
+  CarouselSize,
   CascadingMenu,
   CheckBox,
   CheckBoxGroup,

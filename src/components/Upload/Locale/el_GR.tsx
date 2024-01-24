@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'Ok',
     modalTitleText: 'Επεξεργασία εικόνας',
     previewFileText: 'Αρχείο προεπισκόπησης',
-    removeFileText: 'Κατάργηση αρχείου',
+    removeFileText: 'Διαγράφω',
     replaceFileText: 'Αντικαθιστώ',
     rotateLeftButtonAriaLabelText: 'Περιστροφή προς τα αριστερά',
     rotateRightButtonAriaLabelText: 'Περιστροφή δεξιά',

@@ -347,7 +347,7 @@ export default function useSelection<RecordType>(
   // ======================= Columns ========================
   const transformColumns = useCallback(
     (columns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
-      // >>>>>>>>>>> Skip if not exists `rowSelection`
+      // >>>>>>>>>>> Skip if `rowSelection` does not exist
       if (!rowSelection) {
         return columns.filter((col) => col !== SELECTION_COLUMN);
       }
@@ -356,11 +356,18 @@ export default function useSelection<RecordType>(
       let cloneColumns = [...columns];
       const keySet = new Set(derivedSelectedKeySet);
 
-      // Record key only need check with enabled
+      // Record key only needs to be checked with enabled
       const recordKeys = flattedData
         .map(getRowKey)
         .filter((key) => !checkboxPropsMap.get(key)!.disabled);
-      const checkedCurrentAll = recordKeys.every((key) => keySet.has(key));
+      const checkedCurrentAll: boolean = recordKeys.every((key) =>
+        keySet.has(key)
+      );
+      const checkedCount: number = recordKeys.filter((key) =>
+        keySet.has(key)
+      ).length;
+      const checkedCurrentSome: boolean =
+        checkedCount > 0 && checkedCount < recordKeys.length;
 
       const onSelectAllChange = () => {
         const changeKeys: Key[] = [];
@@ -439,6 +446,11 @@ export default function useSelection<RecordType>(
                 !allDisabled
                   ? !!flattedData.length && checkedCurrentAll
                   : allDisabledAndChecked
+              }
+              indeterminate={
+                !allDisabled
+                  ? !!flattedData.length && checkedCurrentSome
+                  : false
               }
               classNames={styles.selectionCheckbox}
               id="selectAllCheckBox"
@@ -626,7 +638,7 @@ export default function useSelection<RecordType>(
         return node;
       };
 
-      // Insert selection column if not exist
+      // Insert selection column if none exist
       if (!cloneColumns.includes(SELECTION_COLUMN)) {
         // Always after expand icon
         if (

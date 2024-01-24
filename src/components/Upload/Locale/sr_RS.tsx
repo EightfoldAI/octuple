@@ -12,7 +12,7 @@ const locale: UploadLocale = {
     modalOkText: 'U redu',
     modalTitleText: 'Izmeni sliku',
     previewFileText: 'Pregledaj datoteku',
-    removeFileText: 'Ukloni datoteku',
+    removeFileText: 'Izbrišete',
     replaceFileText: 'Zameni',
     rotateLeftButtonAriaLabelText: 'Rotiraj levo',
     rotateRightButtonAriaLabelText: 'Rotiraj desno',

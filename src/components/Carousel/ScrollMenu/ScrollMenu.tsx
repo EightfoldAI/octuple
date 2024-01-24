@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 import {
-  innerWrapperClassName,
+  DEFAULT_TRANSITION_DURATION,
   ScrollMenuProps,
   VisibilityContext,
 } from '../Carousel.types';
@@ -47,13 +47,14 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       onUpdate = (): void => void 0,
       onWheel = (): void => void 0,
       options = defaultObserverOptions,
+      overlayControls,
       previousButton: _leftArrow,
       rtl,
       scrollContainerClassNames,
       scrollWrapperClassNames,
       separatorClassNames,
       transitionBehavior,
-      transitionDuration = 400,
+      transitionDuration = DEFAULT_TRANSITION_DURATION,
       transitionEase,
       'data-test-id': dataTestId,
       ...rest
@@ -163,8 +164,12 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
         data-test-id={dataTestId}
       >
         <VisibilityContext.Provider value={context}>
-          <div className={innerWrapperClassName}>
-            {!context?.isFirstItemVisible && controls && LeftArrow}
+          {controls && !overlayControls && LeftArrow}
+          <div className={styles.carouselAutoScrollInnerWrapper}>
+            {!context?.isFirstItemVisible &&
+              controls &&
+              overlayControls &&
+              LeftArrow}
             <ScrollContainer
               classNames={scrollContainerClassNames}
               containerPadding={containerPadding}
@@ -182,8 +187,12 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
                 {children}
               </MenuItems>
             </ScrollContainer>
-            {!context?.isLastItemVisible && controls && RightArrow}
+            {!context?.isLastItemVisible &&
+              controls &&
+              overlayControls &&
+              RightArrow}
           </div>
+          {controls && !overlayControls && RightArrow}
         </VisibilityContext.Provider>
       </div>
     );
