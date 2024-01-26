@@ -1414,7 +1414,8 @@ export const Fixed_Columns_with_Scroller = Table_Wrapped_Story.bind({});
 export const Fixed_Columns_and_Header_with_Scroller = Table_Wrapped_Story.bind(
   {}
 );
-export const Selection = Table_Base_Story.bind({});
+export const Selection_CheckBox = Table_Base_Story.bind({});
+export const Selection_Radio = Table_Base_Story.bind({});
 export const Expandable_Row = Table_Base_Story.bind({});
 export const Expandable_Row_Custom_Button = Table_Base_Story.bind({});
 export const Order_Select_And_Expand_Column = Table_Base_Story.bind({});
@@ -1464,7 +1465,8 @@ export const __namedExportsOrder = [
   'Fixed_Columns_and_Header',
   'Fixed_Columns_with_Scroller',
   'Fixed_Columns_and_Header_with_Scroller',
-  'Selection',
+  'Selection_CheckBox',
+  'Selection_Radio',
   'Expandable_Row',
   'Expandable_Row_Custom_Button',
   'Order_Select_And_Expand_Column',
@@ -1636,10 +1638,18 @@ Fixed_Columns_and_Header_with_Scroller.args = {
   sticky: true,
 };
 
-Selection.args = {
+Selection_CheckBox.args = {
   ...tableArgs,
   rowSelection: {
     type: 'checkbox',
+    ...rowSelection,
+  },
+};
+
+Selection_Radio.args = {
+  ...tableArgs,
+  rowSelection: {
+    type: 'radio',
     ...rowSelection,
   },
 };
