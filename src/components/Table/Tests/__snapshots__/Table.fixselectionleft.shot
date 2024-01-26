@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table-row-hover table-fixed-column table-scroll-horizontal table-has-fix-left table table-medium table-alternate table-row-hover",
+          "class": "table table-alternate table-row-hover table-fixed-column table-scroll-horizontal table-has-fix-left table table-medium table-row-hover",
         },
         "children": Array [
           Node {

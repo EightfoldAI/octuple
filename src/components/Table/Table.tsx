@@ -625,10 +625,9 @@ function InternalTable<RecordType extends object = any>(
 
   // ========================== Expandable ==========================
 
-  mergedExpandableConfig.expandIcon = renderExpandIcon(
-    collapseText,
-    expandText
-  );
+  mergedExpandableConfig.expandIcon =
+    mergedExpandableConfig?.expandIcon ||
+    renderExpandIcon(collapseText, expandText);
 
   // Indent size
   if (typeof mergedExpandableConfig.indentSize !== 'number') {
@@ -759,6 +758,7 @@ function InternalTable<RecordType extends object = any>(
           <div ref={ref} className={wrapperClassNames} style={style}>
             {topPaginationNode}
             <OcTable<RecordType>
+              alternateRowColor={alternateRowColor}
               {...tableProps}
               columns={mergedColumns as OcTableProps<RecordType>['columns']}
               direction={htmlDir}
@@ -775,7 +775,6 @@ function InternalTable<RecordType extends object = any>(
                 {
                   [styles.tableSmall]: mergedSize === TableSize.Small,
                 },
-                { [styles.tableAlternate]: alternateRowColor },
                 { [styles.tableBordered]: bordered },
                 {
                   [styles.tableCellBordered]:

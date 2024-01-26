@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table-row-hover table table-medium table-alternate table-row-hover",
+          "class": "table table-alternate table-row-hover table table-medium table-row-hover",
         },
         "children": Array [
           Node {
@@ -1324,7 +1324,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "table table-row-hover table table-medium table-alternate table-row-hover",
+            "class": "table table-alternate table-row-hover table table-medium table-row-hover",
           },
           "children": Array [
             Node {

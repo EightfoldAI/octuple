@@ -93,6 +93,7 @@ function OcTable<RecordType extends DefaultRecordType>(
   props: OcTableProps<RecordType>
 ) {
   const {
+    alternateRowColor,
     bordered,
     classNames,
     rowClassName,
@@ -741,6 +742,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     <div
       className={mergeClasses([
         styles.table,
+        { [styles.tableAlternate]: alternateRowColor },
         { [styles.tableBordered]: bordered },
         {
           [styles.tableRowHover]: rowHoverBackgroundEnabled,

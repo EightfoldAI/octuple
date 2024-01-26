@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
+import { IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
 
 import styles from './Styles/table.module.scss';
@@ -20,18 +22,18 @@ function renderExpandIcon(collapseText: string, expandText: string) {
     disabled,
   }: DefaultExpandIconProps<RecordType>) {
     return (
-      <button
-        aria-label={expanded ? collapseText : expandText}
-        className={mergeClasses([
+      <Button
+        ariaLabel={expanded ? collapseText : expandText}
+        classNames={mergeClasses([
           styles.tableRowExpandIcon,
-          { [styles.tableRowExpandIconSpaced]: !expandable },
+          { [styles.tableRowExpandIconVisuallyHidden]: !expandable },
           { [styles.tableExpandedRow]: expandable && expanded },
-          {
-            [styles.tableRowExpandIconCollapsed]: expandable && !expanded,
-          },
-          { [styles.tableRowExpandIconDisabled]: !!disabled },
         ])}
         disabled={disabled}
+        htmlType="button"
+        iconProps={{
+          path: expanded ? IconName.mdiChevronUp : IconName.mdiChevronDown,
+        }}
         onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           if (disabled) {
             return;
@@ -39,7 +41,8 @@ function renderExpandIcon(collapseText: string, expandText: string) {
           onExpand(record, e!);
           e?.stopPropagation();
         }}
-        type="button"
+        shape={ButtonShape.Round}
+        variant={ButtonVariant.Neutral}
       />
     );
   };

@@ -67,6 +67,12 @@
       }
     }
 
+    &.table-cell-with-append {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+    }
+
     &.table-cell-ellipsis {
       overflow: hidden;
       white-space: nowrap;
@@ -226,10 +232,16 @@
 
   &-alternate {
     tbody {
-      tr {
+      tr.table-row {
         &:nth-child(odd) {
           td {
             background-color: var(--table-background-alternate-color);
+          }
+
+          &:hover {
+            td {
+              background-color: var(--table-row-hover-background-color);
+            }
           }
         }
       }
