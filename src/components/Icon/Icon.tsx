@@ -69,3 +69,5 @@ export const Icon: FC<IconProps> = ({
     </span>
   );
 };
+
+Icon.displayName = 'Icon';
