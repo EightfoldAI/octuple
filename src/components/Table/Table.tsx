@@ -857,6 +857,7 @@ type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
   defaultProps?: Partial<TableProps<any>>;
+  displayName?: string;
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof OcTable.EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
@@ -881,5 +882,7 @@ Table.SELECTION_NONE = SELECTION_NONE;
 Table.Column = Column;
 Table.ColumnGroup = ColumnGroup;
 Table.Summary = Summary;
+
+Table.displayName = 'Table';
 
 export default Table;

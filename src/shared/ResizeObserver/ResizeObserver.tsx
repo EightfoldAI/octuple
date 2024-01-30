@@ -40,4 +40,6 @@ export const ResizeObserver = (props: ResizeObserverProps) => {
   }) as any as React.ReactElement;
 };
 
+ResizeObserver.displayName = 'ResizeObserver';
+
 ResizeObserver.Collection = Collection;
