@@ -3,6 +3,7 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Stat, StatThemeName, Tabs, TabSize, TabVariant } from './';
 import type { StatValidationStatus } from './';
+import { ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 
 export default {
@@ -47,8 +48,8 @@ export default {
       control: { type: 'boolean' },
     },
     size: {
-      options: [TabSize.Medium, TabSize.Small],
-      control: { type: 'inline-radio' },
+      options: [TabSize.Medium, TabSize.Small, TabSize.XSmall],
+      control: { type: 'radio' },
     },
     statgrouptheme: {
       options: [
@@ -108,11 +109,63 @@ const statTabsThemed = [1, 2, 3, 4].map((i) => ({
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
+const statTabsWithButtons = [1, 2, 3, 4].map((i) => ({
+  ariaLabel: `Label ${i}, 2 out of 5%`,
+  buttonProps: {
+    ariaLabel: 'Send reminder',
+    iconProps: { path: IconName.mdiBellOutline },
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+      console.log('clicked');
+    },
+    shape: ButtonShape.Round,
+    variant: ButtonVariant.Neutral,
+  },
+  icon: IconName.mdiAccountAlert,
+  label: `Label ${i}`,
+  ratioA: 2,
+  ratioB: '(5%)',
+  status: i === 3 ? ('success' as StatValidationStatus) : null,
+  value: `tab${i}`,
+  ...(i === 4 ? { disabled: true } : {}),
+}));
+
 const Stat_Story: ComponentStory<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
     <Tabs
       {...args}
+      children={statTabs.map((tab) => (
+        <Stat key={tab.value} size={args.size} {...tab} />
+      ))}
+      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
+      value={activeTabs.defaultTab}
+    />
+  );
+};
+
+const Stat_Themed_Story: ComponentStory<typeof Tabs> = (args) => {
+  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
+  return (
+    <Tabs
+      {...args}
+      children={statTabsThemed.map((tab) => (
+        <Stat key={tab.value} size={args.size} {...tab} />
+      ))}
+      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
+      value={activeTabs.defaultTab}
+    />
+  );
+};
+
+const Stat_With_Button_Story: ComponentStory<typeof Tabs> = (args) => {
+  const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
+  return (
+    <Tabs
+      {...args}
+      children={statTabsWithButtons.map((tab) => (
+        <Stat key={tab.value} size={args.size} {...tab} />
+      ))}
       onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
       value={activeTabs.defaultTab}
     />
@@ -121,9 +174,11 @@ const Stat_Story: ComponentStory<typeof Tabs> = (args) => {
 
 export const Stat_Medium = Stat_Story.bind({});
 export const Stat_Small = Stat_Story.bind({});
+export const Stat_XSmall = Stat_Story.bind({});
+export const Stat_With_Button = Stat_With_Button_Story.bind({});
 export const Stat_Group_Read_Only = Stat_Story.bind({});
 export const Stat_Group_Theme = Stat_Story.bind({});
-export const Stat_Item_Theme_Override = Stat_Story.bind({});
+export const Stat_Item_Theme_Override = Stat_Themed_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -131,6 +186,8 @@ export const Stat_Item_Theme_Override = Stat_Story.bind({});
 export const __namedExportsOrder = [
   'Stat_Medium',
   'Stat_Small',
+  'Stat_XSmall',
+  'Stat_With_Button',
   'Stat_Group_Read_Only',
   'Stat_Group_Theme',
   'Stat_Item_Theme_Override',
@@ -138,11 +195,11 @@ export const __namedExportsOrder = [
 
 const tabsArgs: Object = {
   bordered: true,
+  buttonProps: null,
   divider: true,
   variant: TabVariant.stat,
   readOnly: false,
   size: TabSize.Medium,
-  children: statTabs.map((tab) => <Stat key={tab.value} {...tab} />),
   style: {},
 };
 
@@ -153,6 +210,15 @@ Stat_Medium.args = {
 Stat_Small.args = {
   ...tabsArgs,
   size: TabSize.Small,
+};
+
+Stat_XSmall.args = {
+  ...tabsArgs,
+  size: TabSize.XSmall,
+};
+
+Stat_With_Button.args = {
+  ...tabsArgs,
 };
 
 Stat_Group_Read_Only.args = {
@@ -169,5 +235,4 @@ Stat_Group_Theme.args = {
 Stat_Item_Theme_Override.args = {
   ...tabsArgs,
   statgrouptheme: themes[6],
-  children: statTabsThemed.map((tab) => <Stat key={tab.value} {...tab} />),
 };

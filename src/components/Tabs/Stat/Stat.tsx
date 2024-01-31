@@ -1,6 +1,7 @@
 import React, { FC, Ref } from 'react';
 import { StatProps, StatThemeName, TabSize } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
+import { Button, ButtonSize } from '../../Button';
 import { Icon } from '../../Icon';
 import { Loader } from '../../Loader';
 import { Stack, StackGap } from '../../Stack';
@@ -11,11 +12,13 @@ import styles from '../tabs.module.scss';
 
 const MEDIUM_ICON_SIZE: string = '40px';
 const SMALL_ICON_SIZE: string = '32px';
+const XSMALL_ICON_SIZE: string = '24px';
 
 export const Stat: FC<StatProps> = React.forwardRef(
   (
     {
       ariaLabel,
+      buttonProps,
       classNames,
       disabled,
       icon,
@@ -58,12 +61,18 @@ export const Stat: FC<StatProps> = React.forwardRef(
       classNames,
     ]);
 
+    const tabSizeToIconSizeMap = new Map<TabSize, string>([
+      [TabSize.Medium, MEDIUM_ICON_SIZE],
+      [TabSize.Small, SMALL_ICON_SIZE],
+      [TabSize.XSmall, XSMALL_ICON_SIZE],
+    ]);
+
     const getIcon = (): JSX.Element =>
       iconExists && (
         <Icon
           path={icon}
           classNames={styles.icon}
-          size={size === TabSize.Small ? SMALL_ICON_SIZE : MEDIUM_ICON_SIZE}
+          size={tabSizeToIconSizeMap.get(size)}
         />
       );
 
@@ -82,6 +91,13 @@ export const Stat: FC<StatProps> = React.forwardRef(
     const tabSizeToGapMap = new Map<TabSize, StackGap>([
       [TabSize.Medium, 'm'],
       [TabSize.Small, 's'],
+      [TabSize.XSmall, 'xxs'],
+    ]);
+
+    const tabSizeToButtonSizeMap = new Map<TabSize, ButtonSize>([
+      [TabSize.Medium, ButtonSize.Large],
+      [TabSize.Small, ButtonSize.Medium],
+      [TabSize.XSmall, ButtonSize.Small],
     ]);
 
     return (
@@ -98,8 +114,9 @@ export const Stat: FC<StatProps> = React.forwardRef(
         <Stack
           direction="horizontal"
           fullWidth
-          gap={tabSizeToGapMap.get(size)}
+          flexGap={tabSizeToGapMap.get(size)}
           justify="center"
+          align="center"
         >
           {getIcon()}
           <Stack direction="vertical" fullWidth>
@@ -109,6 +126,9 @@ export const Stat: FC<StatProps> = React.forwardRef(
             </span>
             {getLoader()}
           </Stack>
+          {!!buttonProps && (
+            <Button size={tabSizeToButtonSizeMap.get(size)} {...buttonProps} />
+          )}
         </Stack>
       </button>
     );
