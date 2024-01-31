@@ -486,6 +486,11 @@ export type ScrollerRef = {
 
 export interface OcTableProps<RecordType = unknown> {
   /**
+   * The Table Row background colors alternate.
+   * @default true
+   */
+  alternateRowColor?: boolean;
+  /**
    * Show all Table borders.
    */
   bordered?: boolean;
