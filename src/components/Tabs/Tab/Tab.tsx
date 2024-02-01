@@ -1,6 +1,6 @@
 import React, { FC, Ref } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
-import { TabProps, TabSize, TabVariant } from '../Tabs.types';
+import { TabIconAlign, TabProps, TabSize, TabVariant } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
 
@@ -29,7 +29,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
   ) => {
     const htmlDir: string = useCanvasDirection();
 
-    const { onTabClick, currentActiveTab, size, variant } = useTabs();
+    const { alignIcon, onTabClick, currentActiveTab, size, variant } =
+      useTabs();
 
     const iconExists: boolean = !!icon;
     const labelExists: boolean = !!label;
@@ -37,7 +38,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
 
     const { registeredTheme: { light = false } = {} } = useConfig();
 
-    const tabClassName: string = mergeClasses([
+    const tabClassNames: string = mergeClasses([
       styles.tab,
       { [styles.active]: isActive },
       { [styles.inverse]: light },
@@ -49,6 +50,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       [TabSize.Large, IconSize.Large],
       [TabSize.Medium, IconSize.Medium],
       [TabSize.Small, IconSize.Small],
+      [TabSize.XSmall, IconSize.Small],
     ]);
 
     const getIcon = (): JSX.Element =>
@@ -57,7 +59,14 @@ export const Tab: FC<TabProps> = React.forwardRef(
       iconExists && (
         <Icon
           path={icon}
-          classNames={styles.icon}
+          classNames={mergeClasses([
+            styles.icon,
+            { [styles.start]: alignIcon === TabIconAlign.Start && !!label },
+            {
+              [styles.end]:
+                alignIcon === TabIconAlign.End && (!!label || !!badgeContent),
+            },
+          ])}
           size={
             variant === TabVariant.pill
               ? tabSizeToIconSizeMap.get(size)
@@ -91,17 +100,18 @@ export const Tab: FC<TabProps> = React.forwardRef(
       <button
         {...rest}
         ref={ref}
-        className={tabClassName}
+        className={tabClassNames}
         aria-label={ariaLabel}
         aria-selected={isActive}
         role="tab"
         disabled={disabled}
         onClick={(e) => onTabClick(value, e)}
       >
-        {getIcon()}
+        {alignIcon === TabIconAlign.Start && getIcon()}
         {getLabel()}
         {getTabIndicator()}
         {getBadge()}
+        {alignIcon === TabIconAlign.End && getIcon()}
         {getLoader()}
       </button>
     );

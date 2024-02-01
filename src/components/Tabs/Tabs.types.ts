@@ -1,5 +1,6 @@
 import React from 'react';
 import { OcThemeName } from '../ConfigProvider';
+import { ButtonProps } from '../Button';
 import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
@@ -12,10 +13,16 @@ export type SelectTabEvent<E = HTMLElement> =
 
 export type OnChangeHandler = (value: TabValue, event: SelectTabEvent) => void;
 
+export enum TabIconAlign {
+  Start = 'start',
+  End = 'end',
+}
+
 export enum TabSize {
   Large = 'large',
   Medium = 'medium',
   Small = 'small',
+  XSmall = 'xsmall',
 }
 
 export type TabValue = string;
@@ -37,6 +44,12 @@ export type StatThemeName = OcThemeName;
 export type StatValidationStatus = InputStatus;
 
 export interface TabsContextProps {
+  /**
+   * The tab icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
   /**
    * List of Tab element.
    */
@@ -72,6 +85,12 @@ export interface TabsContextProps {
 
 export interface ITabsContext {
   /**
+   * The tab icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
+  /**
    * The currently active tab value.
    */
   currentActiveTab: TabValue;
@@ -101,6 +120,12 @@ export interface ITabsContext {
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
+  /**
+   * The tab icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
   /**
    * The aria-label of the tab.
    */
@@ -138,6 +163,13 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
   /**
+   * The optional button props.
+   * The button will not display unless this prop is provided.
+   * The button size is automatically mapped by default to the stat tab size.
+   * All other props are to be passed to the button.
+   */
+  buttonProps?: ButtonProps;
+  /**
    * The stat tab 'a' ratio value, e.g. [1]/2.
    */
   ratioA?: string | number;
@@ -156,6 +188,12 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
+  /**
+   * The tabs icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
   /**
    * Use when variant is `stat`.
    * If the stat tabs are bordered or not.
