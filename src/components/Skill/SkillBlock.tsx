@@ -34,7 +34,12 @@ import { Menu, MenuItemType, MenuItemTypes, MenuSize } from '../Menu';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 import { usePreviousState } from '../../hooks/usePreviousState';
-import { eventKeys, generateId, mergeClasses } from '../../shared/utilities';
+import {
+  canUseDocElement,
+  eventKeys,
+  generateId,
+  mergeClasses,
+} from '../../shared/utilities';
 
 import styles from './skill.module.scss';
 
@@ -235,13 +240,15 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
     }, [extraContent]);
 
     useEffect((): void => {
-      const skillElement: HTMLElement = document.getElementById(
-        `${skillId?.current}`
-      );
-      if (expandable) {
-        skillElement?.setAttribute('aria-expanded', `${skillExpanded}`);
-      } else if (skillElement.hasAttribute('aria-expanded')) {
-        skillElement?.removeAttribute('aria-expanded');
+      if (canUseDocElement()) {
+        const skillElement: HTMLElement = document.getElementById(
+          `${skillId?.current}`
+        );
+        if (expandable) {
+          skillElement?.setAttribute('aria-expanded', `${skillExpanded}`);
+        } else if (skillElement.hasAttribute('aria-expanded')) {
+          skillElement?.removeAttribute('aria-expanded');
+        }
       }
     }, [expandable, skillExpanded]);
 
@@ -453,9 +460,10 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
         }
 
         if (itemMenuOnly === null || reflow === null) {
-          const skillElement: HTMLElement = document.getElementById(
-            `${skillId?.current}`
-          );
+          let skillElement: HTMLElement | null = null;
+          if (canUseDocElement()) {
+            skillElement = document.getElementById(`${skillId?.current}`);
+          }
           const blockEndWidth: number =
             Math.floor(blockEndRef.current?.offsetWidth) || 0;
           const blockMiddleWidth: number =

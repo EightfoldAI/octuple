@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tabs, Tab, TabSize, TabVariant } from './';
+import { Tabs, Tab, TabIconAlign, TabSize, TabVariant } from './';
 import { IconName } from '../Icon';
 
 export default {
@@ -36,13 +36,17 @@ export default {
     },
   },
   argTypes: {
+    alignIcon: {
+      options: [TabIconAlign.Start, TabIconAlign.End],
+      control: { type: 'inline-radio' },
+    },
     variant: {
-      options: [TabVariant.default, TabVariant.small, TabVariant.pill],
+      options: [TabVariant.default, TabVariant.pill],
       control: { type: 'inline-radio' },
     },
     size: {
       options: [TabSize.Large, TabSize.Medium, TabSize.Small],
-      control: { type: 'inline-radio' },
+      control: { type: 'radio' },
     },
   },
 } as ComponentMeta<typeof Tabs>;
@@ -127,6 +131,7 @@ export const __namedExportsOrder = [
 ];
 
 const tabsArgs: Object = {
+  alignIcon: TabIconAlign.Start,
   scrollable: false,
   variant: TabVariant.default,
   size: TabSize.Medium,

@@ -3,6 +3,7 @@ import { InlineSvgProps } from './InlineSvg.types';
 import { Icon, IconName } from '../Icon';
 import { Skeleton, SkeletonVariant } from '../Skeleton';
 import { usePreviousState } from '../../hooks/usePreviousState';
+import { canUseDocElement, canUseDom } from '../../shared/utilities';
 
 export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
   (
@@ -38,6 +39,9 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
       }
 
       const fetchSvg = async (): Promise<void> => {
+        if (!canUseDom() || !canUseDocElement()) {
+          return;
+        }
         try {
           const response: Response = await fetch(_url);
           const text: string = await response.text();

@@ -17,6 +17,7 @@ import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
 import {
+  canUseDocElement,
   eventKeys,
   getMergedStatus,
   mergeClasses,
@@ -111,9 +112,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     // Needed for form error scroll-into-view by id
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
-    const inputField: HTMLElement = document.getElementById(
-      mergedFormItemInput ? id : inputId
-    );
+    let inputField: HTMLElement | null = null;
+    if (canUseDocElement()) {
+      inputField = document.getElementById(mergedFormItemInput ? id : inputId);
+    }
 
     const contextuallyDisabled: Disabled = useContext(DisabledContext);
     const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -331,6 +333,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
     const handleOnKeydownClear = (_event: React.KeyboardEvent) => {
       if (
+        canUseDocElement() &&
         document.activeElement !== clearButtonRef?.current &&
         _event.key === eventKeys.ENTER
       ) {

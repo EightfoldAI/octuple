@@ -36,7 +36,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
       onOk,
       onCancel,
       overlay,
-      parent = document.body,
+      parent = typeof document !== 'undefined' ? document.body : null,
       size = DialogSize.medium,
       width,
       ...rest

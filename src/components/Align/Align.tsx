@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   addEventListenerWrapper,
+  canUseDocElement,
+  canUseDom,
   composeRef,
   isVisible,
 } from '../../shared/utilities';
@@ -25,6 +27,10 @@ export interface AlignProps {
   viewportResize?: boolean;
   disabled?: boolean;
   children: React.ReactElement;
+}
+
+export interface ChildNode extends React.ReactElement {
+  ref: React.Ref<any>;
 }
 
 interface ViewportRef {
@@ -99,7 +105,10 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
 
       // IE lose focus after element realign
       // We should record activeElement and restore later
-      const { activeElement } = document;
+      let activeElement: Element;
+      if (canUseDocElement()) {
+        activeElement = document.activeElement;
+      }
 
       // We only align when element is visible
       if (element && isVisible(element)) {
@@ -108,7 +117,9 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
         result = alignPoint(source, point, latestAlign);
       }
 
-      restoreFocus(activeElement, source);
+      if (activeElement) {
+        restoreFocus(activeElement, source);
+      }
 
       if (latestOnAlign && result) {
         latestOnAlign(source, result);
@@ -169,7 +180,7 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
   // Listen for window resize
   const winResizeRef = React.useRef<{ remove: Function }>(null);
   React.useEffect(() => {
-    if (viewportResize) {
+    if (canUseDom() && viewportResize) {
       if (!winResizeRef.current) {
         winResizeRef.current = addEventListenerWrapper(
           window,

@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.48.0](https://github.com/EightfoldAI/octuple/compare/v2.47.0...v2.48.0) (2024-01-09)
+
+### Features
+
+- a11y: arrow key navigation support for list menu dropdown and select ([#759](https://github.com/EightfoldAI/octuple/issues/759)) ([740e172](https://github.com/EightfoldAI/octuple/commits/740e172ffd36d55dd69d01b53d2726e045cff038))
+- add more icons ([#765](https://github.com/EightfoldAI/octuple/issues/765)) ([3d2549c](https://github.com/EightfoldAI/octuple/commits/3d2549c3f35da7069f031ad2e9aeb88f6c273b5a))
+- carousel: exports autoscrollapi and updates story to include custom buttons example ([#756](https://github.com/EightfoldAI/octuple/issues/756)) ([87a570e](https://github.com/EightfoldAI/octuple/commits/87a570e0558a2f351e3f79484a3dfda393cc20bf))
+- grid: adds xl breakpoint ([#762](https://github.com/EightfoldAI/octuple/issues/762)) ([57f8131](https://github.com/EightfoldAI/octuple/commits/57f8131f575aaa46e8e9460292e1ead2ee715373))
+- icon: add domain, circle slices and arrow head icons ([#761](https://github.com/EightfoldAI/octuple/issues/761)) ([e6e1a7d](https://github.com/EightfoldAI/octuple/commits/e6e1a7db5a5f5e4371dd1135196a91c43ad7a326))
+- skill: adds svg and suffix support with assessments status and required props ([#758](https://github.com/EightfoldAI/octuple/issues/758)) ([cbdbdd5](https://github.com/EightfoldAI/octuple/commits/cbdbdd5b52d34a9ff96eb2f947aea291b3b98e7c))
+- tooltip: adds touch api support with hover a11y fixup ([#749](https://github.com/EightfoldAI/octuple/issues/749)) ([6637f00](https://github.com/EightfoldAI/octuple/commits/6637f0014e7b40bb560d80a78d62402de5faddf2))
+
+### Bug Fixes
+
+- button: fixes round icon only secondary buttons padding to consider its border ([#748](https://github.com/EightfoldAI/octuple/issues/748)) ([f52d5ba](https://github.com/EightfoldAI/octuple/commits/f52d5ba7ce47d768d66905ff1f7f10cc71312acd))
+- form: fixes required and optional marks so they display inline with the label text ([#747](https://github.com/EightfoldAI/octuple/issues/747)) ([33f512a](https://github.com/EightfoldAI/octuple/commits/33f512a20d3ee467752c9ed7400b0fb5ce6de5b1))
+- input: updates validation status font color to latest specification ([#771](https://github.com/EightfoldAI/octuple/issues/771)) ([8df221c](https://github.com/EightfoldAI/octuple/commits/8df221c61f1559378ec3f2eb154b998b32d5d932))
+- sass: moves scroll bars mixin to global scope and adds it to dropdown ([#726](https://github.com/EightfoldAI/octuple/issues/726)) ([501ddce](https://github.com/EightfoldAI/octuple/commits/501ddce79d29589db7887d68f933dc5804a8d1c1))
+- slider: ensure touchmove is not prevented to enable default touch on mobile ([#769](https://github.com/EightfoldAI/octuple/issues/769)) ([5772b80](https://github.com/EightfoldAI/octuple/commits/5772b80e83bf4464c432b5faaa9961d84424cb07))
+- table: showscroller rtl support ([#764](https://github.com/EightfoldAI/octuple/issues/764)) ([4b6af71](https://github.com/EightfoldAI/octuple/commits/4b6af71ac803db5165fca6c4e326b888ba4abd74))
+- tooltip: dedupes tooltip id and updates story for screen readers ([#768](https://github.com/EightfoldAI/octuple/issues/768)) ([268b54f](https://github.com/EightfoldAI/octuple/commits/268b54f7823452889f27189acc6c597e27b4fd69))
+- tooltip: defer cursor style to implementation in host app ([#754](https://github.com/EightfoldAI/octuple/issues/754)) ([66594f3](https://github.com/EightfoldAI/octuple/commits/66594f341be501685ff38a3bcd7c432e349d99ab))
+
 ## [2.47.0](https://github.com/EightfoldAI/octuple/compare/v2.46.2...v2.47.0) (2023-11-03)
 
 ### Features

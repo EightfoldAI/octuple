@@ -35,7 +35,11 @@ import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
 import { usePreviousState } from '../../hooks/usePreviousState';
-import { eventKeys, mergeClasses } from '../../shared/utilities';
+import {
+  canUseDocElement,
+  eventKeys,
+  mergeClasses,
+} from '../../shared/utilities';
 
 import styles from './select.module.scss';
 
@@ -553,6 +557,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           />
         );
         if (
+          canUseDocElement() &&
           isPillEllipsisActive(document?.getElementById(`selectPill${opt.id}`))
         ) {
           pills.push(

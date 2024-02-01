@@ -30,6 +30,7 @@ import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { usePreviousState } from '../../hooks/usePreviousState';
 import {
+  canUseDocElement,
   ConditionalWrapper,
   eventKeys,
   focusable,
@@ -157,8 +158,10 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          const referenceElement: HTMLElement =
-            document.getElementById(dropdownReferenceId);
+          let referenceElement: HTMLElement;
+          if (canUseDocElement()) {
+            referenceElement = document.getElementById(dropdownReferenceId);
+          }
           if (closeOnOutsideClick && closeOnReferenceClick && !mergedVisible) {
             toggle(false)(e);
           }
@@ -234,6 +237,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         referenceOnKeydown?.(event);
         if (
           (event?.key === eventKeys.ENTER || event?.key === eventKeys.SPACE) &&
+          canUseDocElement() &&
           document.activeElement === event.target
         ) {
           timeout && clearTimeout(timeout);

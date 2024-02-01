@@ -6,11 +6,13 @@ import {
   TabValue,
   TabVariant,
   SelectTabEvent,
+  TabIconAlign,
 } from './Tabs.types';
 
 const TabsContext = createContext<Partial<ITabsContext>>({});
 
 const TabsProvider = ({
+  alignIcon = TabIconAlign.Start,
   children,
   onChange,
   readOnly,
@@ -32,6 +34,7 @@ const TabsProvider = ({
   return (
     <TabsContext.Provider
       value={{
+        alignIcon,
         currentActiveTab,
         onTabClick,
         readOnly,

@@ -93,6 +93,7 @@ function OcTable<RecordType extends DefaultRecordType>(
   props: OcTableProps<RecordType>
 ) {
   const {
+    alternateRowColor,
     bordered,
     classNames,
     rowClassName,
@@ -592,11 +593,12 @@ function OcTable<RecordType extends DefaultRecordType>(
             <Scroller
               ref={scrollerRef}
               {...columnContext}
+              direction={direction}
               scrollBodyRef={scrollBodyRef}
-              stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
+              stickyOffsets={stickyOffsets}
               titleRef={titleRef}
               verticalScroll={verticalScroll}
             />
@@ -701,6 +703,7 @@ function OcTable<RecordType extends DefaultRecordType>(
           <Scroller
             ref={scrollerRef}
             {...columnContext}
+            direction={direction}
             scrollBodyRef={scrollBodyRef}
             scrollLeftAriaLabelText={scrollLeftAriaLabelText}
             scrollRightAriaLabelText={scrollRightAriaLabelText}
@@ -739,6 +742,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     <div
       className={mergeClasses([
         styles.table,
+        { [styles.tableAlternate]: alternateRowColor },
         { [styles.tableBordered]: bordered },
         {
           [styles.tableRowHover]: rowHoverBackgroundEnabled,

@@ -1352,7 +1352,7 @@ exports[`SkillTag Skill tag has a popup 1`] = `
 <div>
   <div
     class="reference-wrapper"
-    id="popup-"
+    id="popup--wrapper"
   >
     <div
       aria-controls="popup-"
@@ -1409,7 +1409,7 @@ exports[`SkillTag Skill tag has a tooltip 1`] = `
 <div>
   <div
     class="reference-wrapper"
-    id="tooltip-"
+    id="tooltip--wrapper"
   >
     <div
       aria-disabled="false"

@@ -55,42 +55,6 @@ $picker-input-padding-vertical: max(
   padding: $padding-top 0 $padding-bottom $padding-horizontal;
 }
 
-// Picker scroll bars
-@mixin scroll-bars() {
-  overflow: auto;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    background-color: transparent;
-    height: $space-m;
-    width: $space-m;
-  }
-
-  &::-webkit-scrollbar-button {
-    display: none;
-  }
-
-  &::-webkit-scrollbar-corner {
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border: 5px solid transparent;
-    border-radius: $border-radius-xl;
-    box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-  }
-
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: none;
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: transparent;
-  }
-}
-
 // Input placeholder text mixin
 @mixin placeholder($color: var(--picker-input-placeholder-color)) {
   // Firefox

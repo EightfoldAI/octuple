@@ -1,15 +1,18 @@
-export type Breakpoint = 'lg' | 'md' | 'sm' | 'xs';
+import { canUseDom } from './canUseDom';
+
+export type Breakpoint = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
 export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
 export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 
-export const responsiveArray: Breakpoint[] = ['lg', 'md', 'sm', 'xs'];
+export const responsiveArray: Breakpoint[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
 export const responsiveMap: BreakpointMap = {
   xs: '(min-width: 0)',
   sm: '(min-width: 600px)',
   md: '(min-width: 900px)',
   lg: '(min-width: 1200px)',
+  xl: '(min-width: 1600px)',
 };
 
 type SubscribeFunc = (screens: ScreenMap) => void;
@@ -56,30 +59,34 @@ export const responsiveObserve: {
     if (!subscribers.size) this.unregister();
   },
   unregister(): void {
-    Object.keys(responsiveMap).forEach((screen: Breakpoint): void => {
-      const matchMediaQuery = responsiveMap[screen];
-      const handler = this.matchHandlers[matchMediaQuery];
-      handler?.mql.removeListener(handler?.listener);
-    });
+    if (canUseDom()) {
+      Object.keys(responsiveMap).forEach((screen: Breakpoint): void => {
+        const matchMediaQuery = responsiveMap[screen];
+        const handler = this.matchHandlers[matchMediaQuery];
+        handler?.mql.removeListener(handler?.listener);
+      });
+    }
     subscribers.clear();
   },
   register(): void {
-    Object.keys(responsiveMap).forEach((screen: Breakpoint): void => {
-      const matchMediaQuery = responsiveMap[screen];
-      const listener = ({ matches }: { matches: boolean }): void => {
-        this.dispatch({
-          ...screens,
-          [screen]: matches,
-        });
-      };
-      const mql: MediaQueryList = window.matchMedia(matchMediaQuery);
-      mql.addListener(listener);
-      this.matchHandlers[matchMediaQuery] = {
-        mql,
-        listener,
-      };
+    if (canUseDom()) {
+      Object.keys(responsiveMap).forEach((screen: Breakpoint): void => {
+        const matchMediaQuery = responsiveMap[screen];
+        const listener = ({ matches }: { matches: boolean }): void => {
+          this.dispatch({
+            ...screens,
+            [screen]: matches,
+          });
+        };
+        const mql: MediaQueryList = window.matchMedia(matchMediaQuery);
+        mql.addListener(listener);
+        this.matchHandlers[matchMediaQuery] = {
+          mql,
+          listener,
+        };
 
-      listener(mql);
-    });
+        listener(mql);
+      });
+    }
   },
 };

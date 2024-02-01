@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { mergeClasses } from '../../../../shared/utilities';
 import { isEqual } from '@ngard/tiny-isequal';
 import {
   ButtonSize,
@@ -29,6 +28,7 @@ import { flattenKeys } from './index';
 import { useSyncState } from '../../../../hooks/useSyncState';
 import { IconName, IconSize } from '../../../Icon';
 import { useCanvasDirection } from '../../../../hooks/useCanvasDirection';
+import { canUseDom, mergeClasses } from '../../../../shared/utilities';
 
 import styles from '../../Styles/table.module.scss';
 
@@ -192,22 +192,20 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }, [propFilteredKeys]);
 
   // ====================== Open Keys ======================
-  // const [openKeys, setOpenKeys] = React.useState<string[]>([]);
-  const openRef = useRef<number>();
-  // const onOpenChange = (keys: string[]) => {
-  //   openRef.current = window.setTimeout(() => {
-  //     setOpenKeys(keys);
-  //   });
-  // };
+  const openRef: React.MutableRefObject<number> = useRef<number>();
   const onMenuClick = () => {
-    window.clearTimeout(openRef.current);
-  };
-  useEffect(
-    () => () => {
+    if (canUseDom()) {
       window.clearTimeout(openRef.current);
-    },
-    []
-  );
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (canUseDom()) {
+        window.clearTimeout(openRef.current);
+      }
+    };
+  }, []);
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = useState('');
@@ -224,7 +222,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null): any => {
-    const mergedKeys = keys && keys.length ? keys : null;
+    const mergedKeys = keys?.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
     }

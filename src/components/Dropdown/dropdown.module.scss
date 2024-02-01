@@ -21,6 +21,8 @@
 }
 
 .dropdown-wrapper {
+  @include scroll-bars;
+
   background: var(--dropdown-background-color);
   padding: $space-xs;
   box-shadow: $shadow-object-m;

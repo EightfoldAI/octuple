@@ -49,7 +49,7 @@ npm install @eightfold.ai/octuple
 ## Usage
 
 ```tsx
-import { PrimaryButton } from '@eightfold.ai/octuple';
+import { Button } from '@eightfold.ai/octuple';
 
 export const App = () => (
   <>
@@ -84,4 +84,4 @@ Review the guidance for pull requests and the contribution workflow in our [cont
 
 ## License
 
-MIT (c) 2023 Eightfold
+MIT (c) 2024 Eightfold

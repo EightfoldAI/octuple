@@ -1,7 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { autoScrollApiType, Carousel, Slide, VisibilityContext } from './';
+import {
+  autoScrollApiType,
+  Carousel,
+  CarouselSize,
+  Slide,
+  VisibilityContext,
+} from './';
 import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { Card } from '../Card';
 import { IconName } from '../Icon';
@@ -37,7 +43,12 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: [CarouselSize.Large, CarouselSize.Medium, CarouselSize.Small],
+      control: { type: 'radio' },
+    },
+  },
 } as ComponentMeta<typeof Carousel>;
 
 const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
@@ -86,10 +97,7 @@ interface SampleItem {
   key: string;
 }
 
-const sampleList: SampleItem[] = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-  23, 24,
-].map((i) => ({
+const sampleList: SampleItem[] = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
   name: `Item ${i}`,
   key: `key-${i}`,
 }));
@@ -246,6 +254,8 @@ const carouselArgs: Object = {
   classNames: 'my-carousel',
   controls: true,
   'data-test-id': 'myCarouselTestyId',
+  overlayControls: true,
+  size: CarouselSize.Large,
 };
 
 Slider.args = {

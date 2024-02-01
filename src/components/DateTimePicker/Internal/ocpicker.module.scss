@@ -1459,7 +1459,7 @@
     }
 
     &-column {
-      @include scroll-bars();
+      @include scroll-bars;
 
       background: var(--picker-column-background-color);
       flex: none;

@@ -55,14 +55,14 @@ exports[`ScrollMenu Children and buttons LeftArrow, ScrollContainer, MenuItems, 
     class="carousel-auto-scroll"
   >
     <div
+      class="left-arrow"
+      data-testid="left-arrow"
+    >
+      {"isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
+    </div>
+    <div
       class="carousel-auto-scroll-inner-wrapper"
     >
-      <div
-        class="left-arrow"
-        data-testid="left-arrow"
-      >
-        {"isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
-      </div>
       <ul
         class="carousel-auto-scroll-container scroll-class"
         style="margin: 0px; padding: 0px;"
@@ -99,12 +99,73 @@ exports[`ScrollMenu Children and buttons LeftArrow, ScrollContainer, MenuItems, 
           </div>
         </li>
       </ul>
-      <div
-        class="right-arrow"
-        data-testid="right-arrow"
+    </div>
+    <div
+      class="right-arrow"
+      data-testid="right-arrow"
+    >
+      {"isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrollMenu Children and buttons overlayControls is false 1`] = `
+<div>
+  <div
+    class="carousel-auto-scroll"
+  >
+    <div
+      class="left-arrow"
+      data-testid="left-arrow"
+    >
+      {"isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
+    </div>
+    <div
+      class="carousel-auto-scroll-inner-wrapper"
+    >
+      <ul
+        class="carousel-auto-scroll-container"
+        style="margin: 0px; padding: 0px;"
       >
-        {"isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
-      </div>
+        <li
+          class="carousel-scroll-menu-item"
+          data-index="0"
+          data-key="test1"
+          style="margin-left: 0px; margin-right: 4px;"
+        >
+          <div
+            data-testid="test1"
+          >
+            {"itemId":"test1","isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
+          </div>
+        </li>
+        <div
+          aria-hidden="true"
+          class="carousel-scroll-menu-separator"
+          data-index="0.1"
+          data-key="test1-separator"
+          style="margin-left: 0px; margin-right: 4px;"
+        />
+        <li
+          class="carousel-scroll-menu-item"
+          data-index="1"
+          data-key="test2"
+          style="margin-left: 0px; margin-right: 4px;"
+        >
+          <div
+            data-testid="test2"
+          >
+            {"itemId":"test2","isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="right-arrow"
+      data-testid="right-arrow"
+    >
+      {"isFirstItemVisible":false,"isLastItemVisible":false,"visibleElements":["test1","test2"],"visibleElementsWithSeparators":["test1","item1-separator","test2"],"visibleItems":["test1","item1-separator","test2"],"visibleItemsWithoutSeparators":["test1","test2"],"initComplete":true}
     </div>
   </div>
 </div>

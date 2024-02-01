@@ -1,17 +1,19 @@
 import React, { Component, FC, useEffect, useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Link } from '../Link';
-import { Stack } from '../Stack';
-import { Avatar } from '../Avatar';
 import Table from './index';
 import { TableSize } from './Table.types';
 import type { ColumnsType } from './Table.types';
-import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
+import { Avatar } from '../Avatar';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
+import { IconName } from '../Icon';
+import { Link } from '../Link';
 import { VariableSizeGrid as Grid } from 'react-window';
-import { mergeClasses } from '../../shared/utilities';
 import { PaginationLayoutOptions } from '../Pagination';
+import { Stack } from '../Stack';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
+import { mergeClasses } from '../../shared/utilities';
 
 export default {
   title: 'Table',
@@ -516,11 +518,11 @@ const basicCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -594,11 +596,11 @@ const ellipsisCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -662,11 +664,11 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -772,11 +774,11 @@ const filterCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -827,11 +829,11 @@ const fixedCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -902,11 +904,11 @@ const groupingCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -985,6 +987,33 @@ const groupingCols: ColumnsType<DataType> = [
   },
 ];
 
+const expandColEnd: ColumnsType<DataType> = [
+  {
+    title: 'Role',
+    dataIndex: 'title',
+  },
+  {
+    title: 'Profile',
+    dataIndex: 'profile',
+    render: (text: string[]) => (
+      <Stack direction="horizontal" flexGap="s">
+        <Avatar alt={text[0]} theme="green" type="round">
+          {text[1]}
+        </Avatar>
+        <Stack direction="vertical" flexGap="xxs">
+          <Link variant="primary">{text[0]}</Link>
+          {text[2]}
+        </Stack>
+      </Stack>
+    ),
+  },
+  {
+    title: 'Level',
+    dataIndex: 'level',
+  },
+  Table.EXPAND_COLUMN,
+];
+
 const orderSelectAndExpandCols: ColumnsType<DataType> = [
   {
     title: 'Role',
@@ -995,11 +1024,11 @@ const orderSelectAndExpandCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -1022,11 +1051,11 @@ const sortCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -1070,11 +1099,11 @@ const responsiveCols: ColumnsType<DataType> = [
     title: 'Profile (show at medium)',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -1103,11 +1132,11 @@ const sortMultipleCols: ColumnsType<DataType> = [
     title: 'Profile',
     dataIndex: 'profile',
     render: (text: string[]) => (
-      <Stack direction="horizontal" gap="s">
+      <Stack direction="horizontal" flexGap="s">
         <Avatar alt={text[0]} theme="green" type="round">
           {text[1]}
         </Avatar>
-        <Stack direction="vertical" gap="xxs">
+        <Stack direction="vertical" flexGap="xxs">
           <Link variant="primary">{text[0]}</Link>
           {text[2]}
         </Stack>
@@ -1385,8 +1414,10 @@ export const Fixed_Columns_with_Scroller = Table_Wrapped_Story.bind({});
 export const Fixed_Columns_and_Header_with_Scroller = Table_Wrapped_Story.bind(
   {}
 );
-export const Selection = Table_Base_Story.bind({});
+export const Selection_CheckBox = Table_Base_Story.bind({});
+export const Selection_Radio = Table_Base_Story.bind({});
 export const Expandable_Row = Table_Base_Story.bind({});
+export const Expandable_Row_Custom_Button = Table_Base_Story.bind({});
 export const Order_Select_And_Expand_Column = Table_Base_Story.bind({});
 export const Colspan_Rows = Table_Base_Story.bind({});
 export const Sort = Table_Base_Story.bind({});
@@ -1434,8 +1465,10 @@ export const __namedExportsOrder = [
   'Fixed_Columns_and_Header',
   'Fixed_Columns_with_Scroller',
   'Fixed_Columns_and_Header_with_Scroller',
-  'Selection',
+  'Selection_CheckBox',
+  'Selection_Radio',
   'Expandable_Row',
+  'Expandable_Row_Custom_Button',
   'Order_Select_And_Expand_Column',
   'Colspan_Rows',
   'Sort',
@@ -1605,10 +1638,18 @@ Fixed_Columns_and_Header_with_Scroller.args = {
   sticky: true,
 };
 
-Selection.args = {
+Selection_CheckBox.args = {
   ...tableArgs,
   rowSelection: {
     type: 'checkbox',
+    ...rowSelection,
+  },
+};
+
+Selection_Radio.args = {
+  ...tableArgs,
+  rowSelection: {
+    type: 'radio',
     ...rowSelection,
   },
 };
@@ -1617,7 +1658,68 @@ Expandable_Row.args = {
   ...tableArgs,
   expandableConfig: {
     expandedRowRender: (record: DataType) => (
-      <p style={{ margin: 0 }}>{record.description}</p>
+      <p style={{ margin: 12, maxWidth: 800 }}>{record.description}</p>
+    ),
+    rowExpandable: (record: DataType) => record.name !== 'Farida Ashfaq',
+    rowExpandDisabled: (record: DataType) => record.name === 'Cobbey Deevey',
+  },
+};
+
+Expandable_Row_Custom_Button.args = {
+  ...tableArgs,
+  columns: expandColEnd,
+  expandableConfig: {
+    expandIcon: ({
+      disabled,
+      expandable,
+      expanded,
+      onExpand,
+      record,
+    }: {
+      disabled: boolean;
+      expandable: boolean;
+      expanded: boolean;
+      onExpand: (record: DataType, e: React.MouseEvent<HTMLElement>) => void;
+      record: DataType;
+    }) => {
+      return (
+        <Stack direction="horizontal" flexGap="xs">
+          <Button
+            htmlType="button"
+            iconProps={{
+              path: IconName.mdiAccount,
+            }}
+            onClick={(_e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+              console.log('Custom button clicked');
+            }}
+            text="Custom Button"
+            variant={ButtonVariant.Primary}
+          />
+          <Button
+            ariaLabel={expanded ? 'Collapse row' : 'Expand row'}
+            disabled={disabled}
+            htmlType="button"
+            iconProps={{
+              path: expanded ? IconName.mdiChevronUp : IconName.mdiChevronDown,
+            }}
+            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+              if (disabled) {
+                return;
+              }
+              onExpand(record, e!);
+              e?.stopPropagation();
+            }}
+            shape={ButtonShape.Round}
+            style={{
+              display: expandable ? 'flex' : 'none',
+            }}
+            variant={ButtonVariant.Neutral}
+          />
+        </Stack>
+      );
+    },
+    expandedRowRender: (record: DataType) => (
+      <p style={{ margin: 12, maxWidth: 800 }}>{record.description}</p>
     ),
     rowExpandable: (record: DataType) => record.name !== 'Farida Ashfaq',
     rowExpandDisabled: (record: DataType) => record.name === 'Cobbey Deevey',
@@ -1633,7 +1735,7 @@ Order_Select_And_Expand_Column.args = {
   },
   expandableConfig: {
     expandedRowRender: (record: DataType) => (
-      <p style={{ margin: 0 }}>{record.description}</p>
+      <p style={{ margin: 12, maxWidth: 800 }}>{record.description}</p>
     ),
     rowExpandable: (record: DataType) => record.name !== 'Farida Ashfaq',
     rowExpandDisabled: (record: DataType) => record.name === 'Cobbey Deevey',
@@ -1695,6 +1797,7 @@ Tree.args = {
   ...tableArgs,
   columns: treeCols,
   dataSource: treeData,
+  indentSize: 36,
   pagination: false,
 };
 

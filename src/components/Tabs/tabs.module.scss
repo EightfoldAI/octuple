@@ -74,8 +74,13 @@
       margin-left: $space-xs;
     }
 
-    .icon + .label:not(:empty) {
-      margin-left: $space-xs;
+    .icon {
+      &.end {
+        margin-left: $space-xs;
+      }
+      &.start {
+        margin-right: $space-xs;
+      }
     }
 
     // Hides the browser default keyboard focus-visible styles.
@@ -100,9 +105,15 @@
         margin-right: $space-xs;
       }
 
-      .icon + .label:not(:empty) {
-        margin-left: unset;
-        margin-right: $space-xs;
+      .icon {
+        &.end {
+          margin-left: unset;
+          margin-right: $space-xs;
+        }
+        &.start {
+          margin-left: $space-xs;
+          margin-right: unset;
+        }
       }
     }
   }
@@ -276,7 +287,8 @@
       --icon-height: 72px;
       --icon-width: 72px;
       --label: var(--stat-tab-label-color);
-      --width: 200px;
+      --min-width: 200px;
+      --width: fit-content;
       background: var(--bg);
       border: var(--border-width) solid var(--border);
       border-radius: var(--border-radius);
@@ -285,6 +297,7 @@
       font-weight: $text-font-weight-semibold;
       height: var(--height);
       margin: 0 $space-s;
+      min-width: var(--min-width);
       padding: $space-ml $space-m;
       transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
       width: var(--width);
@@ -527,7 +540,7 @@
         --height: 72px;
         --icon-height: 48px;
         --icon-width: 48px;
-        --width: 136px;
+        --min-width: 136px;
         margin: 0 $space-xs;
         padding: $space-s $space-xs;
 
@@ -562,6 +575,72 @@
           &:not(:last-of-type) {
             &:after {
               right: calc(calc($space-s + 1px) * -1);
+            }
+          }
+        }
+      }
+    }
+
+    &.xsmall {
+      padding: $space-xs 0;
+
+      .tab {
+        --border-radius: 20px;
+        --divider-height: 20px;
+        --height: 48px;
+        --icon-height: 32px;
+        --icon-width: 32px;
+        --min-width: 90px;
+        margin: 0 $space-xs;
+        padding: $space-xxs $space-xs;
+
+        .icon {
+          height: var(--icon-height);
+          padding: $space-xxs;
+          width: var(--icon-width);
+        }
+
+        .label {
+          font-size: $text-font-size-2;
+          line-height: $text-line-height-2;
+        }
+
+        .ratio-a {
+          font-size: $text-font-size-3;
+          line-height: $text-line-height-3;
+        }
+
+        .ratio-b {
+          font-size: $text-font-size-2;
+          line-height: $text-line-height-3;
+        }
+      }
+
+      &.divider {
+        .tab {
+          margin: 0 $space-s;
+
+          &:first-of-type {
+            margin: 0 $space-s 0 $space-xs;
+          }
+
+          &:last-of-type {
+            margin: 0 $space-xs 0 $space-s;
+          }
+
+          &:not(:last-of-type) {
+            &:after {
+              right: calc(calc($space-s + 1px) * -1);
+            }
+          }
+
+          &-rtl {
+            &:first-of-type {
+              margin: 0 $space-xs 0 $space-s;
+            }
+
+            &:last-of-type {
+              margin: 0 $space-s 0 $space-xs;
             }
           }
         }

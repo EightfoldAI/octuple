@@ -73,10 +73,6 @@
           }
         }
       }
-
-      .table-selection-column {
-        padding-inline-start: calc($table-padding-horizontal-lg / 4);
-      }
     }
 
     &-medium {
@@ -117,10 +113,6 @@
               calc($table-padding-horizontal-md + ceil((14 * 1.4)));
           }
         }
-      }
-
-      .table-selection-column {
-        padding-inline-start: calc($table-padding-horizontal-md / 4);
       }
     }
 
@@ -166,10 +158,6 @@
               calc($table-padding-horizontal-sm + ceil((14 * 1.4)));
           }
         }
-      }
-
-      .table-selection-column {
-        padding-inline-start: calc($table-padding-horizontal-sm / 4);
       }
     }
   }

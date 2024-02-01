@@ -1,3 +1,5 @@
+import { canUseDocElement } from './flexGapSupported';
+
 let cached: number;
 
 /**
@@ -6,7 +8,7 @@ let cached: number;
  * @returns {number}
  */
 export const getScrollBarSize = (fresh?: boolean): number => {
-  if (typeof document === 'undefined') {
+  if (!canUseDocElement()) {
     return 0;
   }
 
@@ -63,11 +65,7 @@ export const getTargetScrollBarSize = (
   width: number;
   height: number;
 } => {
-  if (
-    typeof document === 'undefined' ||
-    !target ||
-    !(target instanceof Element)
-  ) {
+  if (!canUseDocElement() || !target || !(target instanceof Element)) {
     return { width: 0, height: 0 };
   }
 

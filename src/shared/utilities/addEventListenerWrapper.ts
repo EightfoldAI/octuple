@@ -19,12 +19,12 @@ export const addEventListenerWrapper = (
         ReactDOM.unstable_batchedUpdates(listener, e);
       }
     : listener;
-  if (target.addEventListener) {
+  if (target?.addEventListener) {
     target.addEventListener(type, internalCallback, options);
   }
   return {
     remove: () => {
-      if (target.removeEventListener) {
+      if (target?.removeEventListener) {
         target.removeEventListener(type, internalCallback, options);
       }
     },

@@ -1,38 +1,3 @@
-@mixin scroll-bars() {
-  overflow: auto;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    background-color: transparent;
-    height: $space-m;
-    width: $space-m;
-  }
-
-  &::-webkit-scrollbar-button {
-    display: none;
-  }
-
-  &::-webkit-scrollbar-corner {
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border: 5px solid transparent;
-    border-radius: $border-radius-xl;
-    box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-  }
-
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: none;
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: transparent;
-  }
-}
-
 .table {
   position: relative;
   box-sizing: border-box;
@@ -100,6 +65,12 @@
         content: '';
         pointer-events: none;
       }
+    }
+
+    &.table-cell-with-append {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
     }
 
     &.table-cell-ellipsis {
@@ -261,10 +232,16 @@
 
   &-alternate {
     tbody {
-      tr {
+      tr.table-row {
         &:nth-child(odd) {
           td {
             background-color: var(--table-background-alternate-color);
+          }
+
+          &:hover {
+            td {
+              background-color: var(--table-row-hover-background-color);
+            }
           }
         }
       }
@@ -293,13 +270,13 @@
   }
 
   &-content {
-    @include scroll-bars();
+    @include scroll-bars;
 
     color: var(--table-foreground-color);
   }
 
   &-body {
-    @include scroll-bars();
+    @include scroll-bars;
 
     border-bottom-left-radius: $table-border-radius;
     border-bottom-right-radius: $table-border-radius;

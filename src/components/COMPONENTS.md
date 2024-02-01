@@ -11,8 +11,8 @@ For a basic component
 │   ├── component.module.scss
 │   ├── Component.tsx
 │   ├── Component.types.ts
-│   ├── Component.stories.ts
-│   ├── Component.test.js
+│   ├── Component.stories.tsx
+│   ├── Component.test.tsx
 │   └── index.ts
 ```
 
@@ -23,13 +23,13 @@ For a component suite
 │   ├── BaseComponent
 │   │   ├── BaseComponent.tsx
 │   │   ├── baseComponent.module.scss
-│   │   └── BaseComponent.test.js
+│   │   └── BaseComponent.test.tsx
 │   ├── SecondaryComponent
 │   │   ├── SecondaryComponent.tsx
 │   │   ├── secondaryComponent.module.scss
-│   │   └── SecondaryComponent.test.js
+│   │   └── SecondaryComponent.test.tsx
 │   ├── Component.types.ts
-│   ├── Component.stories.ts
+│   ├── Component.stories.tsx
 │   └── index.ts
 ```
 
@@ -143,7 +143,7 @@ export * from './SecondaryComponent/SecondaryComponent';
 
 ## Storybook
 
-Create a file called `/src/components/Component/Component.stories.ts`
+Create a file called `/src/components/Component/Component.stories.tsx`
 
 ```tsx
 import React from 'react';
@@ -169,8 +169,127 @@ export const Secondary = () => (
 );
 ```
 
-## Unit testing [WIP]
+## Unit testing
 
-Create a file called `/src/components/Component/Component.test.js`
+Create a file called `/src/components/Component/Component.test.tsx`
 
-TBD
+```tsx
+import React, { useState } from 'react';
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import MatchMediaMock from 'jest-matchmedia-mock';
+import { ComponentType } from './Component.types';
+import { Component } from './';
+import { act } from 'react-dom/test-utils';
+import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+// Some APIs require mocks.
+let matchMedia: any;
+
+class ResizeObserver {
+  observe() {
+    // do nothing
+  }
+  unobserve() {
+    // do nothing
+  }
+  disconnect() {
+    // do nothing
+  }
+}
+
+window.ResizeObserver = ResizeObserver;
+
+describe('Component', () => {
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+  });
+
+  afterEach(() => {
+    matchMedia.clear();
+  });
+
+  test('Component renders', () => {
+    const { container } = render(
+      <Component />
+    );
+    expect(() => container).not.toThrowError();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Component type', () => {
+    const { container } = render(
+      <Component
+          data-testid="component-1"
+          type={ComponentType.base}
+        />
+    );
+    const componentTestElement: HTMLElement = getByTestId(
+      container,
+      'component-1'
+    );
+    // Validate an appropriate pointer in memory unique to the type considered.
+    expect(componentTestElement.classList.contains('.base')).toBe(true);
+  });
+
+  test('Simulate synchronous event on Component', () => {
+    const Component = (): JSX.Element => {
+      const [value, setValue] = useState<number>(0);
+      return (
+        <Component
+          data-testid="component-1"
+          onClick={() => {
+            setValue(1);
+          }}
+          text={`The value is ${value}`}
+          type={ComponentType.base}
+        />
+      );
+    };
+    const { container } = render(<Component />);
+    const componentTestElement: HTMLElement = getByTestId(
+      container,
+      'component-1'
+    );
+    expect(componentTestElement.innerHTML).toContain('The value is 0');
+    act(() => {
+      fireEvent.click(componentTestElement);
+    });
+    expect(componentTestElement.innerHTML).toContain('The value is 1');
+  });
+
+  test('Simulate asynchronous event on Component', async () => {
+    const Component = (): JSX.Element => {
+      const [value, setValue] = useState<number>(0);
+      return (
+        <Component
+          data-testid="component-1"
+          onClick={() => {
+            setValue(1);
+          }}
+          text={`The value is ${value}`}
+          type={ComponentType.base}
+        />
+      );
+    };
+    const { container } = render(<Component />);
+    const componentTestElement: HTMLElement = getByTestId(
+      container,
+      'component-1'
+    );
+    expect(componentTestElement.innerHTML).toContain('The value is 0');
+    act(() => {
+      fireEvent.click(componentTestElement);
+    });
+    await waitFor(() =>
+      expect(componentTestElement.innerHTML).toContain('The value is 1');
+    );
+  });
+});
+```
+
+## License
+
+MIT (c) 2024 Eightfold

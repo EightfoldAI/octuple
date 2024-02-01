@@ -1,24 +1,3 @@
-$border-width: 1px;
-$border-color: var(--grey-background2-color);
-$border: $border-width solid $border-color;
-
-@mixin operation-unit() {
-  color: var(--primary-color);
-  text-decoration: none;
-  outline: none;
-  cursor: pointer;
-  transition: color $motion-duration-extra-fast;
-
-  &:focus:not(:disabled),
-  &:hover:not(:disabled) {
-    color: var(--primary-color);
-  }
-
-  &:active:not(:disabled) {
-    color: var(--primary-color);
-  }
-}
-
 @mixin table-border() {
   border: var(--table-border);
   border-radius: $table-border-radius;

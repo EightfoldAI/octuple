@@ -245,7 +245,7 @@ function Cell<RecordType extends DefaultRecordType>(
       { [styles.tableCellFixRightFirst]: firstFixRight && supportSticky },
       { [styles.tableCellFixRightLast]: lastFixRight && supportSticky },
       { [styles.tableCellEllipsis]: ellipsis },
-      { ['table-cell-with-append']: appendNode },
+      { [styles.tableCellWithAppend]: appendNode },
       {
         [styles.tableCellFixSticky]:
           (isFixLeft || isFixRight) && isSticky && supportSticky,

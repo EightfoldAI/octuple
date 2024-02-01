@@ -48,13 +48,13 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
     expandIcon,
     expandedRowRender,
   } = useContext(BodyContext);
-  const [expandRended, setExpandRended] = useState<boolean>(false);
+  const [expandRendered, setExpandRendered] = useState<boolean>(false);
 
   const expanded: boolean = expandedKeys?.has(props.recordKey);
 
   useEffect(() => {
     if (expanded) {
-      setExpandRended(true);
+      setExpandRendered(true);
     }
   }, [expanded]);
 
@@ -111,7 +111,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
       data-row-key={rowKey}
       className={mergeClasses?.([
         classNames,
-        'table-row',
+        styles.tableRow,
         `table-row-level-${indent}`,
         computeRowClassName,
         additionalProps?.className,
@@ -191,7 +191,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
 
   // ======================== Expand Row =========================
   let expandRowNode: React.ReactElement;
-  if (rowSupportExpand && (expandRended || expanded)) {
+  if (rowSupportExpand && (expandRendered || expanded)) {
     const expandContent = expandedRowRender(
       record,
       index,
@@ -224,7 +224,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
   return (
     <>
       {baseRowNode}
-      {expandRowNode}
+      {rowSupportExpand && expanded && expandRowNode}
     </>
   );
 }

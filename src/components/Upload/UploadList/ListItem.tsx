@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { ListItemProps } from '../Upload.types';
+import { ListItemProps, UploadSize } from '../Upload.types';
 import { Icon, IconName, IconSize } from '../../Icon';
 import CSSMotion from '../../Motion';
 import Progress from '../../Progress';
 import { ButtonShape, ButtonSize } from '../../Button';
 import { Tooltip, TooltipTheme } from '../../Tooltip';
-import { mergeClasses } from '../../../shared/utilities';
+import { canUseDom, eventKeys, mergeClasses } from '../../../shared/utilities';
 
 import styles from '../upload.module.scss';
 
@@ -42,6 +42,7 @@ const ListItem = React.forwardRef(
       showPreviewIconButton: showPreviewIconButton,
       showRemoveIconButton: showRemoveIconButton,
       showReplaceButton: showReplaceButton,
+      size,
       style,
       uploadErrorText,
     }: ListItemProps,
@@ -67,7 +68,9 @@ const ListItem = React.forwardRef(
       }, 300);
 
       return () => {
-        window.clearTimeout(progressRafRef.current);
+        if (canUseDom()) {
+          window.clearTimeout(progressRafRef.current);
+        }
       };
     }, []);
 
@@ -131,20 +134,56 @@ const ListItem = React.forwardRef(
     const removeIconButton: React.ReactNode = showRemoveIconButton
       ? actionButtonRender(
           {
-            ariaLabel: removeFileText,
+            ariaLabel:
+              listType !== 'picture-card' &&
+              size !== UploadSize.Small &&
+              maxCount === 1
+                ? null
+                : removeFileText,
             classNames: mergeClasses([styles.iconDelete]),
-            disruptive: mergedStatus === 'error',
+            disruptive: true,
             htmlType: removeIconButtonType,
             iconProps: {
               path:
                 typeof customRemoveIcon === 'function'
                   ? customRemoveIcon(file)
-                  : customRemoveIcon || IconName.mdiDeleteOutline,
+                  : customRemoveIcon || IconName.mdiTrashCanOutline,
             },
+            onClick: (event: React.MouseEvent<HTMLElement>) => {
+              event?.stopPropagation();
+              onClose(file);
+            },
+            onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => {
+              if (
+                event?.key !== eventKeys.TAB ||
+                (event?.key !== eventKeys.TAB && !event?.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+              if (
+                event?.key === eventKeys.ENTER ||
+                event?.key === eventKeys.SPACE
+              ) {
+                event.stopPropagation();
+                onClose(file);
+              }
+            },
+            shape:
+              listType !== 'picture-card' &&
+              size !== UploadSize.Small &&
+              maxCount === 1
+                ? ButtonShape.Pill
+                : ButtonShape.Round,
             size:
               listType === 'picture-card'
                 ? ButtonSize.Small
                 : ButtonSize.Medium,
+            text:
+              listType !== 'picture-card' &&
+              size !== UploadSize.Small &&
+              maxCount === 1
+                ? removeFileText
+                : null,
           },
           () => onClose(file)
         )
@@ -162,7 +201,14 @@ const ListItem = React.forwardRef(
                   ? customReplaceIcon(file)
                   : customReplaceIcon || IconName.mdiRepeat,
             },
-            onKeyDown: (event) => event.preventDefault(),
+            onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => {
+              if (
+                event?.key !== eventKeys.TAB ||
+                (event?.key !== eventKeys.TAB && !event?.shiftKey)
+              ) {
+                event.preventDefault();
+              }
+            },
             shape: replaceFileText ? ButtonShape.Pill : ButtonShape.Round,
             text: replaceFileText,
           },
@@ -198,8 +244,8 @@ const ListItem = React.forwardRef(
         ])}
       >
         {downloadIconButton}
-        {!maxCount && removeIconButton}
         {maxCount === 1 && replaceButton}
+        {removeIconButton}
       </span>
     );
     const listItemNameClassName: string = styles.uploadListItemName;

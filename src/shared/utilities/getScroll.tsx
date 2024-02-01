@@ -1,3 +1,5 @@
+import { canUseDom } from './canUseDom';
+
 export const isWindow = (obj: any): boolean => {
   return obj !== null && obj !== undefined && obj === obj.window;
 };
@@ -6,7 +8,7 @@ export const getScroll = (
   target: HTMLElement | Window | Document | null,
   top: boolean
 ): number => {
-  if (typeof window === 'undefined') {
+  if (!canUseDom()) {
     return 0;
   }
   const method = top ? 'scrollTop' : 'scrollLeft';

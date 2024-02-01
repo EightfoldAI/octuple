@@ -1,5 +1,5 @@
 import ResizeObserver from 'resize-observer-polyfill';
-import { contains } from '../../shared/utilities';
+import { canUseDocElement, contains } from '../../shared/utilities';
 import type { TargetPoint } from './Align.types';
 
 export function isSamePoint(prev: TargetPoint, next: TargetPoint) {
@@ -20,6 +20,7 @@ export function isSamePoint(prev: TargetPoint, next: TargetPoint) {
 export function restoreFocus(activeElement: any, container: any) {
   // Focus back if is in the container
   if (
+    canUseDocElement() &&
     activeElement !== document.activeElement &&
     contains(container, activeElement) &&
     typeof activeElement.focus === 'function'
@@ -33,7 +34,9 @@ export function onViewportResize(element: HTMLElement, callback: Function) {
   let prevHeight: number = null;
 
   function onResize([{ target }]: ResizeObserverEntry[]) {
-    if (!document.documentElement.contains(target)) return;
+    if (!canUseDocElement() || !document.documentElement.contains(target)) {
+      return;
+    }
     const { width, height } = target.getBoundingClientRect();
     const fixedWidth = Math.floor(width);
     const fixedHeight = Math.floor(height);
@@ -49,12 +52,12 @@ export function onViewportResize(element: HTMLElement, callback: Function) {
     prevHeight = fixedHeight;
   }
 
-  const resizeObserver = new ResizeObserver(onResize);
+  const resizeObserver: ResizeObserver = new ResizeObserver(onResize);
   if (element) {
     resizeObserver.observe(element);
   }
 
   return () => {
-    resizeObserver.disconnect();
+    resizeObserver?.disconnect();
   };
 }

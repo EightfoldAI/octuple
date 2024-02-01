@@ -11,16 +11,21 @@ import React, {
 import {
   CarouselContext,
   CarouselProps,
+  CarouselSize,
   CustomScrollBehavior,
   DataType,
   DEFAULT_GAP_WIDTH,
+  DEFAULT_TRANSITION_DURATION,
   IntersectionObserverItem,
   ItemOrElement,
-  OCCLUSION_AVOIDANCE_BUFFER,
+  OCCLUSION_AVOIDANCE_BUFFER_LARGE,
+  OCCLUSION_AVOIDANCE_BUFFER_MEDIUM,
+  OCCLUSION_AVOIDANCE_BUFFER_SMALL,
   scrollToItemOptions,
 } from './Carousel.types';
 import { ScrollMenu, VisibilityContext } from './ScrollMenu/ScrollMenu';
-import { ButtonShape, ButtonSize, SecondaryButton } from '../Button';
+import { Size } from '../ConfigProvider';
+import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import {
   Pagination,
@@ -34,22 +39,43 @@ import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
 import enUS from '../Pagination/Locale/en_US';
-import { mergeClasses } from '../../shared/utilities';
+import {
+  canUseDocElement,
+  canUseDom,
+  mergeClasses,
+} from '../../shared/utilities';
 
 import styles from './carousel.module.scss';
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
-const SCROLL_LOCK_WAIT_IN_MILLISECONDS: number = 40;
-
 const isVisible = (element: HTMLDivElement): boolean => {
-  const rect: DOMRect = element.getBoundingClientRect();
+  const rect: DOMRect = element.getBoundingClientRect() || {
+    bottom: 0,
+    height: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    width: 0,
+    x: 0,
+    y: 0,
+    toJSON: () => {},
+  };
+  const containerHeight: number = canUseDom()
+    ? window.innerHeight
+    : 0 || typeof document !== 'undefined'
+    ? document.documentElement.clientHeight
+    : 0;
+  const containerWidth: number = canUseDom()
+    ? window.innerWidth
+    : 0 || typeof document !== 'undefined'
+    ? document.documentElement.clientWidth
+    : 0;
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    rect.bottom <= containerHeight &&
+    rect.right <= containerWidth
   );
 };
 
@@ -66,14 +92,18 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       locale = enUS,
       loop = true,
       nextIconButtonAriaLabel: defaultNextIconButtonAriaLabel,
+      nextButtonProps,
       onMouseEnter,
       onMouseLeave,
       onPivotEnd,
       onPivotStart,
+      overlayControls = true,
       pagination = true,
       pause = 'hover',
       previousIconButtonAriaLabel: defaultPreviousIconButtonAriaLabel,
+      previousButtonProps,
       single = false,
+      size = CarouselSize.Large,
       transition = 'push',
       type = 'slide',
       'data-test-id': dataTestId,
@@ -156,10 +186,10 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     }, [animating]);
 
     useEffect(() => {
-      window.addEventListener('scroll', handleScroll, { passive: true });
+      window?.addEventListener('scroll', handleScroll, { passive: true });
 
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        window?.removeEventListener('scroll', handleScroll);
       };
     });
 
@@ -180,13 +210,82 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     const carouselClassNames: string = mergeClasses(
       styles.carousel,
+      { [styles.carouselLarge]: size === CarouselSize.Large },
+      { [styles.carouselMedium]: size === CarouselSize.Medium },
+      { [styles.carouselSmall]: size === CarouselSize.Small },
+      { [styles.carouselOverlayControls]: !!overlayControls },
       { [styles.carouselRtl]: htmlDir === 'rtl' },
       { [styles.carouselSlider]: type === 'slide' },
       { [styles.carouselFade]: transition === 'crossfade' },
       classNames
     );
 
+    const carouselSizeToButtonSizeMap = new Map<
+      CarouselSize,
+      ButtonSize | Size
+    >([
+      [CarouselSize.Large, ButtonSize.Large],
+      [CarouselSize.Medium, ButtonSize.Medium],
+      [CarouselSize.Small, ButtonSize.Small],
+    ]);
+
+    const carouselSizeToOcclusionBufferMap = new Map<CarouselSize, number>([
+      [CarouselSize.Large, OCCLUSION_AVOIDANCE_BUFFER_LARGE],
+      [CarouselSize.Medium, OCCLUSION_AVOIDANCE_BUFFER_MEDIUM],
+      [CarouselSize.Small, OCCLUSION_AVOIDANCE_BUFFER_SMALL],
+    ]);
+
+    const getFirstItemScrollOffset = (
+      gapWidth: number,
+      overlay: boolean,
+      size: CarouselSize
+    ): number => {
+      let offset: number = 0;
+      if (overlay) {
+        offset = gapWidth * 2 - carouselSizeToOcclusionBufferMap.get(size);
+      } else {
+        offset = gapWidth;
+      }
+      return offset;
+    };
+
+    const getLastItemScrollOffset = (
+      containerPadding: number,
+      gapWidth: number,
+      overlay: boolean
+    ): number => {
+      let offset: number = 0;
+      if (overlay) {
+        offset =
+          gapWidth * 3 -
+          containerPadding -
+          carouselSizeToOcclusionBufferMap.get(size);
+      } else {
+        offset = gapWidth * 2 - containerPadding;
+      }
+      return offset;
+    };
+
+    const getItemScrollOffset = (
+      gapWidth: number,
+      overlay: boolean
+    ): number => {
+      let offset: number = 0;
+      if (overlay) {
+        // When overlayControls is true, the gapWidth is doubled.
+        // This was previously handled by the scrollBySingleItem utility, but now it's handled here.
+        // To avoid occlusion, the offset is increased by the gapWidth on both sides of each inner item.
+        offset = gapWidth * 2;
+      } else {
+        offset = gapWidth;
+      }
+      return offset;
+    };
+
     const handleCycle = useCallback((): void => {
+      if (type === 'scroll') {
+        return;
+      }
       handlePause();
 
       if (!auto || (!loop && active === itemsNumber - 1)) {
@@ -199,15 +298,26 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
           typeof customInterval === 'number' ? customInterval : interval
         );
       }
-    }, [onMouseLeave]);
+    }, [
+      onMouseLeave,
+      loop,
+      active,
+      itemsNumber,
+      interval,
+      customInterval,
+      data.timeout,
+    ]);
 
-    const handlePause = useCallback(
-      (): void => pause && data.timeout && clearTimeout(data.timeout),
-      [onMouseEnter]
-    );
+    const handlePause = useCallback((): void => {
+      if (type === 'scroll') {
+        return;
+      }
+      pause && data.timeout && clearTimeout(data.timeout);
+    }, [onMouseEnter, pause, data.timeout]);
 
     const nextItemWhenVisible = (): void => {
       if (
+        canUseDocElement() &&
         !document.hidden &&
         carouselRef.current &&
         isVisible(carouselRef.current)
@@ -264,6 +374,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     const handleScroll = (): void => {
       if (
+        canUseDocElement() &&
         !document.hidden &&
         carouselRef.current &&
         isVisible(carouselRef.current)
@@ -298,10 +409,22 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
     ): Promise<void> => {
+      if (scrollLock) {
+        return Promise.resolve();
+      }
+      setScrollLock(true);
       const touchpadHorizontal: boolean = await isTouchpadHorizontalScroll(
         event
       );
       const touchpadVertical: boolean = await isTouchpadVerticalScroll(event);
+      const transitionDuration: number =
+        props.carouselScrollMenuProps?.transitionDuration ||
+        DEFAULT_TRANSITION_DURATION;
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(
+        () => setScrollLock(false),
+        transitionDuration
+      );
       if (event.deltaY < 0 || event.deltaX < 0) {
         // When not touchpad, handle the scroll
         if (!touchpadHorizontal || !touchpadVertical) {
@@ -319,10 +442,24 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
     ): Promise<void> => {
+      if (scrollLock) {
+        return Promise.resolve();
+      }
+      setScrollLock(true);
+      const gapWidth: number =
+        props.carouselScrollMenuProps?.gap || DEFAULT_GAP_WIDTH;
       const touchpadHorizontal: boolean = await isTouchpadHorizontalScroll(
         event
       );
       const touchpadVertical: boolean = await isTouchpadVerticalScroll(event);
+      const transitionDuration: number =
+        props.carouselScrollMenuProps?.transitionDuration ||
+        DEFAULT_TRANSITION_DURATION;
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(
+        () => setScrollLock(false),
+        transitionDuration
+      );
       if (event.deltaY < 0 || event.deltaX < 0) {
         // When not touchpad, handle the scroll
         if (!touchpadHorizontal || !touchpadVertical) {
@@ -330,26 +467,27 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
             apiObj.getNextElement(),
             'smooth',
             htmlDir === 'rtl' ? 'previous' : 'next',
-            !!props.carouselScrollMenuProps?.gap
-              ? props.carouselScrollMenuProps?.gap
-              : DEFAULT_GAP_WIDTH,
+            overlayControls ? gapWidth : 0,
             apiObj.isFirstItemVisible
-              ? -DEFAULT_GAP_WIDTH
-              : OCCLUSION_AVOIDANCE_BUFFER
+              ? getFirstItemScrollOffset(gapWidth, overlayControls, size)
+              : getItemScrollOffset(gapWidth, overlayControls)
           );
         }
       } else if (event.deltaY > 0 || event.deltaX > 0) {
         // When not touchpad, handle the scroll
         if (!touchpadHorizontal || !touchpadVertical) {
-          const gapWidth: number = !!props.carouselScrollMenuProps?.gap
-            ? props.carouselScrollMenuProps?.gap
-            : DEFAULT_GAP_WIDTH;
           apiObj.scrollBySingleItem(
             apiObj.getPrevElement(),
             'smooth',
             htmlDir === 'rtl' ? 'next' : 'previous',
-            gapWidth,
-            apiObj.isLastItemVisible ? gapWidth : OCCLUSION_AVOIDANCE_BUFFER
+            overlayControls ? gapWidth : 0,
+            apiObj.isLastItemVisible
+              ? getLastItemScrollOffset(
+                  props.carouselScrollMenuProps?.containerPadding || 8,
+                  gapWidth,
+                  overlayControls
+                )
+              : getItemScrollOffset(gapWidth, overlayControls)
           );
         }
       }
@@ -359,19 +497,22 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
     ): void => {
-      // Prevent spamming of scroll.
+      if (scrollLock) {
+        return;
+      }
+      setScrollLock(true);
+      const transitionDuration: number =
+        props.carouselScrollMenuProps?.transitionDuration ||
+        DEFAULT_TRANSITION_DURATION;
       clearTimeout(timerRef.current);
       timerRef.current = setTimeout(
         () => setScrollLock(false),
-        SCROLL_LOCK_WAIT_IN_MILLISECONDS
+        transitionDuration
       );
-      if (!scrollLock) {
-        setScrollLock(true);
-        if (_single) {
-          handleSingleItemScrollOnWheel(apiObj, event);
-        } else {
-          handleGroupScrollOnWheel(apiObj, event);
-        }
+      if (_single) {
+        handleSingleItemScrollOnWheel(apiObj, event);
+      } else {
+        handleGroupScrollOnWheel(apiObj, event);
       }
     };
 
@@ -390,7 +531,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const nextButton = (
       getNextElement?: () => IntersectionObserverItem,
       isFirstItemVisible?: boolean,
-      nextDisabled?: boolean,
+      disabled?: boolean,
       scrollBySingleItem?: <T>(
         target?: ItemOrElement,
         behavior?: CustomScrollBehavior<T>,
@@ -405,26 +546,33 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
         { duration, ease, boundary }?: scrollToItemOptions
       ) => unknown
     ): JSX.Element => {
+      const gapWidth: number =
+        props.carouselScrollMenuProps?.gap || DEFAULT_GAP_WIDTH;
+      const nextDisabled = (): boolean => {
+        return props.type === 'slide'
+          ? !props.loop && active === itemsNumber - 1
+          : disabled;
+      };
+      const nextHidden = (): boolean => {
+        return overlayControls ? disabled : false;
+      };
+      const transitionDuration: number =
+        props.carouselScrollMenuProps?.transitionDuration ||
+        DEFAULT_TRANSITION_DURATION;
       return (
         <>
-          {!nextDisabled && (
+          {!nextHidden() && (
             <>
-              {props.type === 'scroll' && (
+              {props.type === 'scroll' && overlayControls && (
                 <div
                   className={styles.carouselNextMask}
                   ref={nextButtonMaskRef}
                 />
               )}
-              <SecondaryButton
+              <Button
                 ariaLabel={nextIconButtonAriaLabel}
                 classNames={styles.carouselNext}
-                disabled={
-                  props.type === 'slide' &&
-                  !props.loop &&
-                  active === itemsNumber - 1
-                    ? true
-                    : false
-                }
+                disabled={nextDisabled()}
                 iconProps={{
                   role: 'presentation',
                   path:
@@ -433,26 +581,39 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                       : IconName.mdiChevronRight,
                 }}
                 key="carousel-next"
-                onClick={() =>
+                onClick={() => {
+                  if (scrollLock) {
+                    return;
+                  }
+                  setScrollLock(true);
+                  clearTimeout(timerRef.current);
+                  timerRef.current = setTimeout(
+                    () => setScrollLock(false),
+                    transitionDuration
+                  );
                   props.type === 'scroll'
                     ? _single
                       ? scrollBySingleItem(
                           getNextElement(),
                           'smooth',
                           htmlDir === 'rtl' ? 'previous' : 'next',
-                          !!props.carouselScrollMenuProps?.gap
-                            ? props.carouselScrollMenuProps?.gap
-                            : DEFAULT_GAP_WIDTH,
+                          overlayControls ? gapWidth : 0,
                           isFirstItemVisible
-                            ? -DEFAULT_GAP_WIDTH
-                            : OCCLUSION_AVOIDANCE_BUFFER
+                            ? getFirstItemScrollOffset(
+                                gapWidth,
+                                overlayControls,
+                                size
+                              )
+                            : getItemScrollOffset(gapWidth, overlayControls)
                         )
                       : scrollNextGroup()
-                    : handleControlClick('next')
-                }
-                ref={nextButtonRef}
+                    : handleControlClick('next');
+                }}
                 shape={ButtonShape.Rectangle}
-                size={ButtonSize.Medium}
+                size={carouselSizeToButtonSizeMap.get(size)}
+                variant={ButtonVariant.Secondary}
+                {...nextButtonProps}
+                ref={nextButtonRef}
               />
             </>
           )}
@@ -463,7 +624,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const previousButton = (
       getPrevElement?: () => IntersectionObserverItem,
       isLastItemVisible?: boolean,
-      previousDisabled?: boolean,
+      disabled?: boolean,
       scrollBySingleItem?: <T>(
         target?: ItemOrElement,
         behavior?: CustomScrollBehavior<T>,
@@ -478,27 +639,31 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
         { duration, ease, boundary }?: scrollToItemOptions
       ) => unknown
     ): JSX.Element => {
-      const gapWidth: number = !!props.carouselScrollMenuProps?.gap
-        ? props.carouselScrollMenuProps?.gap
-        : DEFAULT_GAP_WIDTH;
+      const gapWidth: number =
+        props.carouselScrollMenuProps?.gap || DEFAULT_GAP_WIDTH;
+      const previousDisabled = (): boolean => {
+        return props.type === 'slide' ? !props.loop && active === 0 : disabled;
+      };
+      const previousHidden = (): boolean => {
+        return overlayControls ? disabled : false;
+      };
+      const transitionDuration: number =
+        props.carouselScrollMenuProps?.transitionDuration ||
+        DEFAULT_TRANSITION_DURATION;
       return (
         <>
-          {!previousDisabled && (
+          {!previousHidden() && (
             <>
-              {props.type === 'scroll' && (
+              {props.type === 'scroll' && overlayControls && (
                 <div
                   className={styles.carouselPreviousMask}
                   ref={previousButtonMaskRef}
                 />
               )}
-              <SecondaryButton
+              <Button
                 ariaLabel={previousIconButtonAriaLabel}
                 classNames={styles.carouselPrevious}
-                disabled={
-                  props.type === 'slide' && !props.loop && active === 0
-                    ? true
-                    : false
-                }
+                disabled={previousDisabled()}
                 iconProps={{
                   role: 'presentation',
                   path:
@@ -507,24 +672,40 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                       : IconName.mdiChevronLeft,
                 }}
                 key="carousel-previous"
-                onClick={() =>
+                onClick={() => {
+                  if (scrollLock) {
+                    return;
+                  }
+                  setScrollLock(true);
+                  clearTimeout(timerRef.current);
+                  timerRef.current = setTimeout(
+                    () => setScrollLock(false),
+                    transitionDuration
+                  );
                   props.type === 'scroll'
                     ? _single
                       ? scrollBySingleItem(
                           getPrevElement(),
                           'smooth',
                           htmlDir === 'rtl' ? 'next' : 'previous',
-                          gapWidth,
+                          overlayControls ? gapWidth : 0,
                           isLastItemVisible
-                            ? gapWidth
-                            : OCCLUSION_AVOIDANCE_BUFFER
+                            ? getLastItemScrollOffset(
+                                props.carouselScrollMenuProps
+                                  ?.containerPadding || 8,
+                                gapWidth,
+                                overlayControls
+                              )
+                            : getItemScrollOffset(gapWidth, overlayControls)
                         )
                       : scrollPrevGroup()
-                    : handleControlClick('previous')
-                }
-                ref={previousButtonRef}
+                    : handleControlClick('previous');
+                }}
                 shape={ButtonShape.Rectangle}
-                size={ButtonSize.Medium}
+                size={carouselSizeToButtonSizeMap.get(size)}
+                variant={ButtonVariant.Secondary}
+                {...previousButtonProps}
+                ref={previousButtonRef}
               />
             </>
           )}
@@ -666,6 +847,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                         controls={controls}
                         nextButton={() => autoScrollButton('next')}
                         onWheel={handleOnWheel}
+                        overlayControls={overlayControls}
                         previousButton={() => autoScrollButton('previous')}
                         rtl={htmlDir === 'rtl'}
                         {...carouselScrollMenuProps}

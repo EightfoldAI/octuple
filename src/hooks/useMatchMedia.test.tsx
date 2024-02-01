@@ -13,10 +13,19 @@ describe('useMatchMedia', () => {
     matchMedia = new MatchMediaMock();
     jest.useFakeTimers();
   });
+  it('is extra large screen', async () => {
+    const { result } = renderHook(() => useMatchMedia(Breakpoints.XLarge));
+    const largeMq = result.current;
+    window.resizeTo(1920, 1080);
+    setTimeout(() => {
+      expect(largeMq).toBe(true);
+    }, 10);
+  });
+
   it('is large screen', async () => {
     const { result } = renderHook(() => useMatchMedia(Breakpoints.Large));
     const largeMq = result.current;
-    window.resizeTo(1920, 1080);
+    window.resizeTo(1366, 768);
     setTimeout(() => {
       expect(largeMq).toBe(true);
     }, 10);

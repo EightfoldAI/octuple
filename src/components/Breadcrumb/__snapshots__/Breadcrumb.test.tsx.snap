@@ -17,7 +17,7 @@ exports[`Breadcrumb Crumb should support string \`0\` 1`] = `
       >
         <div
           class="reference-wrapper"
-          id="tooltip-"
+          id="tooltip--wrapper"
         >
           <a
             aria-disabled="false"
@@ -55,7 +55,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -93,7 +93,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -131,7 +131,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <span
               aria-current="location"
@@ -167,7 +167,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -206,7 +206,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -245,7 +245,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -284,7 +284,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -323,7 +323,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -362,7 +362,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -401,7 +401,7 @@ exports[`Breadcrumb Renders without crashing 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
               aria-disabled="false"
@@ -455,7 +455,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
       >
         <div
           class="reference-wrapper"
-          id="tooltip-"
+          id="tooltip--wrapper"
         >
           <a
             aria-disabled="false"
@@ -494,7 +494,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
       >
         <div
           class="reference-wrapper"
-          id="tooltip-"
+          id="tooltip--wrapper"
         >
           <a
             aria-disabled="false"

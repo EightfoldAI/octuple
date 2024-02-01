@@ -34,6 +34,7 @@ import useGestures, { Gestures } from '../../hooks/useGestures';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
+  canUseDocElement,
   cloneElement,
   ConditionalWrapper,
   eventKeys,
@@ -73,6 +74,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         portalId,
         portalRoot,
         positionStrategy = 'absolute',
+        preventTouchMoveDefault = true,
         referenceOnClick,
         referenceOnKeydown,
         showTooltip,
@@ -108,6 +110,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const tooltipReferenceId: React.MutableRefObject<string> = useRef<string>(
         `${tooltipId?.current}-reference`
       );
+      const tooltipWrapperId: React.MutableRefObject<string> = useRef<string>(
+        `${tooltipId?.current}-wrapper`
+      );
 
       let timeout: ReturnType<typeof setTimeout>;
       const {
@@ -134,7 +139,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       });
 
       const gestureType: Gestures = useGestures(
-        refs.reference?.current as HTMLElement
+        refs.reference?.current as HTMLElement,
+        preventTouchMoveDefault
       );
 
       const toggle: Function =
@@ -178,18 +184,23 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             toggle(false)(event);
           }
         };
-        if (type === TooltipType.Default) {
+        if (type === TooltipType.Default && canUseDocElement()) {
           document.addEventListener('keydown', escapeTooltip);
         }
         return () => {
-          document.removeEventListener('keydown', escapeTooltip);
+          if (canUseDocElement()) {
+            document.removeEventListener('keydown', escapeTooltip);
+          }
         };
       }, [type]);
 
       useEffect(() => {
-        const referenceElement: HTMLElement = document.querySelector(
-          `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
-        );
+        let referenceElement: HTMLElement | null = null;
+        if (canUseDocElement()) {
+          referenceElement = document.querySelector(
+            `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
+          );
+        }
         if (disableContextMenu) {
           referenceElement?.addEventListener('contextmenu', (e) =>
             e?.preventDefault()
@@ -211,9 +222,12 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          const referenceElement: HTMLElement = document.querySelector(
-            `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
-          );
+          let referenceElement: HTMLElement | null = null;
+          if (canUseDocElement()) {
+            referenceElement = document.querySelector(
+              `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
+            );
+          }
           if (closeOnOutsideClick && closeOnReferenceClick && !mergedVisible) {
             toggle(false)(e);
           }
@@ -253,6 +267,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         }
         if (
           event?.key === eventKeys.ENTER &&
+          canUseDocElement() &&
           document.activeElement === event.target
         ) {
           timeout && clearTimeout(timeout);
@@ -527,9 +542,12 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               onMouseLeave={(
                 event: React.MouseEvent<HTMLDivElement, MouseEvent>
               ): void => {
-                const referenceElement: HTMLElement = document.querySelector(
-                  `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
-                );
+                let referenceElement: HTMLElement | null = null;
+                if (canUseDocElement()) {
+                  referenceElement = document.querySelector(
+                    `.tooltip-reference[data-reference-id="${tooltipReferenceId?.current}"]`
+                  );
+                }
                 if (
                   trigger.includes('hover') &&
                   mergedVisible &&
@@ -577,7 +595,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           <div
             className={referenceWrapperClassNames}
             style={wrapperStyle}
-            id={tooltipId?.current}
+            id={tooltipWrapperId?.current}
             onClick={(
               event: React.MouseEvent<HTMLDivElement, MouseEvent>
             ): void => {
@@ -630,7 +648,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const getPopup = (): JSX.Element => (
         <div
           className={referenceWrapperClassNames}
-          id={tooltipId?.current}
+          id={tooltipWrapperId?.current}
           style={wrapperStyle}
           ref={reference}
           {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger] && !gestureType

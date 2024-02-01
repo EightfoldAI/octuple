@@ -3,6 +3,8 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '../index';
+import { Button, ButtonShape, ButtonVariant } from '../../Button';
+import { IconName } from '../../Icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -70,11 +72,51 @@ describe('Table.expand', () => {
         columns={columns}
         dataSource={data}
         expandableConfig={{
-          expandIcon: () => <div className="expand-icon" />,
+          expandIcon: ({
+            disabled,
+            expandable,
+            expanded,
+            onExpand,
+            record,
+          }: {
+            disabled: boolean;
+            expandable: boolean;
+            expanded: boolean;
+            onExpand: (record: any, e: React.MouseEvent<HTMLElement>) => void;
+            record: any;
+          }) => {
+            return (
+              <Button
+                ariaLabel={expanded ? 'Collapse row' : 'Expand row'}
+                classNames="expand-icon"
+                disabled={disabled}
+                htmlType="button"
+                iconProps={{
+                  path: expanded
+                    ? IconName.mdiChevronUp
+                    : IconName.mdiChevronDown,
+                }}
+                onClick={(
+                  e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+                ) => {
+                  if (disabled) {
+                    return;
+                  }
+                  onExpand(record, e!);
+                  e?.stopPropagation();
+                }}
+                shape={ButtonShape.Round}
+                style={{
+                  display: expandable ? 'flex' : 'none',
+                }}
+                variant={ButtonVariant.Neutral}
+              />
+            );
+          },
         }}
       />
     );
-    const button = wrapper.find('.table-row-expand-icon').at(0);
+    const button = wrapper.find('.expand-icon').at(0);
     button.simulate('click');
     expect(wrapper.find('.indent-level-1').at(0).prop('style')).toHaveProperty(
       'paddingLeft',
