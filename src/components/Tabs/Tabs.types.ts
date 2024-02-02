@@ -13,6 +13,8 @@ export type SelectTabEvent<E = HTMLElement> =
 
 export type OnChangeHandler = (value: TabValue, event: SelectTabEvent) => void;
 
+export type TabsDirection = 'vertical' | 'horizontal';
+
 export enum TabIconAlign {
   Start = 'start',
   End = 'end',
@@ -55,6 +57,29 @@ export interface TabsContextProps {
    */
   children: React.ReactNode;
   /**
+   * Direction type - horizontal or vertical
+   * Use when variant is `stat`
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical` and variant is `stat`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tabs' label can have.
+   * Use when variant is `stat`.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tabs a max width.
+   * Use when the variant is `stat`.
+   */
+  maxWidth?: number;
+  /**
    * The onChange event handler.
    */
   onChange: OnChangeHandler;
@@ -94,6 +119,29 @@ export interface ITabsContext {
    * The currently active tab value.
    */
   currentActiveTab: TabValue;
+  /**
+   * Direction type - horizontal or vertical
+   * Use when variant is `stat`
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical` and variant is `stat`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tab label can have.
+   * Use when variant is `stat`.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tabs a max width.
+   * Use when the variant is `stat`.
+   */
+  maxWidth?: number;
   /**
    * The onClick handler of the tab.
    */
@@ -170,6 +218,26 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
    */
   buttonProps?: ButtonProps;
   /**
+   * Direction type - horizontal or vertical
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tab label can have.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tab a max width.
+   */
+  maxWidth?: number;
+  /**
    * The stat tab 'a' ratio value, e.g. [1]/2.
    */
   ratioA?: string | number;
@@ -205,11 +273,34 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    */
   children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
   /**
+   * Direction type - horizontal or vertical
+   * Use when variant is `stat`
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
    * Use when variant is `stat`.
    * If the stat tabs are separated by a dashed line or not.
    * @default true
    */
   divider?: boolean;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical` and variant is `stat`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tab label can have.
+   * Use when variant is `stat`.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tabs a max width.
+   * Use when the variant is `stat`.
+   */
+  maxWidth?: number;
   /**
    * Callback called on click of a tab.
    * @param value {TabValue}

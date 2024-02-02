@@ -248,6 +248,82 @@ describe('Tabs', () => {
     ).toMatchSnapshot();
   });
 
+  test('stat tabs medium vertical fullWidth snapshot', () => {
+    expect(
+      create(
+        <Tabs onChange={tabClick} value={'tab1'} direction="vertical" fullWidth>
+          {tabs.map((tab) => (
+            <Stat key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
+
+  test('stat tabs medium horizontal maxWidth lineClamp snapshot', () => {
+    expect(
+      create(
+        <Tabs
+          onChange={tabClick}
+          value={'tab1'}
+          direction="vertical"
+          maxWidth={240}
+          lineClamp={2}
+        >
+          {tabs.map((tab) => (
+            <Stat key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
+
+  test('stat tabs medium vertical snapshot', () => {
+    expect(
+      create(
+        <Tabs onChange={tabClick} value={'tab1'} direction="vertical">
+          {tabs.map((tab) => (
+            <Stat key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
+
+  test('stat tabs small vertical snapshot', () => {
+    expect(
+      create(
+        <Tabs
+          onChange={tabClick}
+          size={TabSize.Small}
+          value={'tab1'}
+          direction="vertical"
+        >
+          {tabs.map((tab) => (
+            <Stat key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
+
+  test('stat tabs xsmall vertical snapshot', () => {
+    expect(
+      create(
+        <Tabs
+          onChange={tabClick}
+          size={TabSize.XSmall}
+          value={'tab1'}
+          direction="vertical"
+        >
+          {tabs.map((tab) => (
+            <Stat key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      ).toJSON()
+    ).toMatchSnapshot();
+  });
+
   test('stat tabs with buttons snapshot', () => {
     expect(
       create(

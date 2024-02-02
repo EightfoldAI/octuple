@@ -21,6 +21,8 @@ export const Stat: FC<StatProps> = React.forwardRef(
       buttonProps,
       classNames,
       disabled,
+      direction = 'horizontal',
+      fullWidth = false,
       icon,
       label,
       loading,
@@ -36,8 +38,14 @@ export const Stat: FC<StatProps> = React.forwardRef(
   ) => {
     const htmlDir: string = useCanvasDirection();
 
-    const { currentActiveTab, statgrouptheme, readOnly, onTabClick } =
-      useTabs();
+    const {
+      currentActiveTab,
+      lineClamp,
+      maxWidth,
+      statgrouptheme,
+      readOnly,
+      onTabClick,
+    } = useTabs();
 
     const mergedTheme: StatThemeName = theme ?? statgrouptheme;
 
@@ -56,6 +64,8 @@ export const Stat: FC<StatProps> = React.forwardRef(
         [styles.statusSuccess]: status === 'success',
         [styles.statusWarning]: status === 'warning',
         [styles.statusError]: status === 'error',
+        [styles.vertical]: direction === 'vertical',
+        [styles.fullWidth]: fullWidth && direction === 'vertical',
         [styles.tabRtl]: htmlDir === 'rtl',
       },
       classNames,
@@ -77,7 +87,17 @@ export const Stat: FC<StatProps> = React.forwardRef(
       );
 
     const getLabel = (): JSX.Element =>
-      labelExists && <span className={styles.label}>{label}</span>;
+      labelExists && (
+        <span
+          className={mergeClasses([
+            styles.label,
+            { [styles.lineClamp]: lineClamp },
+          ])}
+          style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
+        >
+          {label}
+        </span>
+      );
 
     const getRatioA = (): JSX.Element =>
       ratioAExists && <span className={styles.ratioA}>{ratioA}</span>;
@@ -110,6 +130,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
         role="tab"
         disabled={disabled}
         onClick={!readOnly ? (e) => onTabClick(value, e) : null}
+        style={{ ...rest.style, maxWidth }}
       >
         <Stack
           direction="horizontal"

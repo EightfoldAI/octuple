@@ -9,10 +9,11 @@ import styles from '../tabs.module.scss';
 export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
   (
     {
-      alignIcon = TabIconAlign.Start,
       bordered = true,
       children,
       classNames,
+      direction = 'horizontal',
+      fullWidth = false,
       onChange,
       scrollable,
       divider = true,
@@ -39,6 +40,10 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
         [styles.stat]: variant === TabVariant.stat,
         [styles.bordered]: variant === TabVariant.stat && bordered,
         [styles.divider]: variant === TabVariant.stat && divider,
+        [styles.vertical]:
+          direction === 'vertical' && variant === TabVariant.stat,
+        [styles.fullWidth]:
+          fullWidth && direction === 'vertical' && variant === TabVariant.stat,
         [styles.scrollable]: scrollable,
       },
       classNames,
