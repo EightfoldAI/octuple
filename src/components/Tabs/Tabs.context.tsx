@@ -14,6 +14,10 @@ const TabsContext = createContext<Partial<ITabsContext>>({});
 const TabsProvider = ({
   alignIcon = TabIconAlign.Start,
   children,
+  direction = 'horizontal',
+  fullWidth = false,
+  lineClamp,
+  maxWidth,
   onChange,
   readOnly,
   size = TabSize.Medium,
@@ -36,6 +40,10 @@ const TabsProvider = ({
       value={{
         alignIcon,
         currentActiveTab,
+        direction,
+        fullWidth,
+        lineClamp,
+        maxWidth,
         onTabClick,
         readOnly,
         size,

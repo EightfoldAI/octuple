@@ -176,6 +176,7 @@ export const Stat_Medium = Stat_Story.bind({});
 export const Stat_Small = Stat_Story.bind({});
 export const Stat_XSmall = Stat_Story.bind({});
 export const Stat_With_Button = Stat_With_Button_Story.bind({});
+export const Stat_Vertical = Stat_Story.bind({});
 export const Stat_Group_Read_Only = Stat_Story.bind({});
 export const Stat_Group_Theme = Stat_Story.bind({});
 export const Stat_Item_Theme_Override = Stat_Themed_Story.bind({});
@@ -188,6 +189,7 @@ export const __namedExportsOrder = [
   'Stat_Small',
   'Stat_XSmall',
   'Stat_With_Button',
+  'Stat_Vertical',
   'Stat_Group_Read_Only',
   'Stat_Group_Theme',
   'Stat_Item_Theme_Override',
@@ -205,20 +207,34 @@ const tabsArgs: Object = {
 
 Stat_Medium.args = {
   ...tabsArgs,
+  lineClamp: 2,
+  maxWidth: 240,
 };
 
 Stat_Small.args = {
   ...tabsArgs,
+  lineClamp: 2,
+  maxWidth: 240,
   size: TabSize.Small,
 };
 
 Stat_XSmall.args = {
   ...tabsArgs,
+  lineClamp: 1,
+  maxWidth: 240,
   size: TabSize.XSmall,
 };
 
 Stat_With_Button.args = {
   ...tabsArgs,
+  lineClamp: 1,
+};
+
+Stat_Vertical.args = {
+  ...tabsArgs,
+  direction: 'vertical',
+  fullWidth: false,
+  lineClamp: 2,
 };
 
 Stat_Group_Read_Only.args = {

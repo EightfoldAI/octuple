@@ -450,13 +450,9 @@
   // ------ Tabs theme ------
 
   // ------ Stat tab theme ------
-  --stat-tabs-border-radius: var(--border-radius-xl);
-  --stat-tabs-border-width: 1px;
-  --stat-tabs-border-style: solid;
-  --stat-tabs-border-color: var(--border-color);
-
-  // Individual tabs
-  --stat-tab-border-radius: 40px;
+  --stat-tab-border-radius-m: 40px;
+  --stat-tab-border-radius-s: 24px;
+  --stat-tab-border-radius-xs: 16px;
   --stat-tab-label-color: var(--text-secondary-color);
   --stat-tab-background-color: var(--background-color);
   --stat-tab-border-color: var(--stat-tab-background-color);

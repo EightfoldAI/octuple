@@ -8,6 +8,10 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
     const {
       alignIcon,
       children,
+      direction,
+      fullWidth,
+      lineClamp,
+      maxWidth,
       onChange,
       readOnly,
       size,
@@ -18,6 +22,10 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
     return (
       <TabsProvider
         alignIcon={alignIcon}
+        direction={direction}
+        fullWidth={fullWidth}
+        lineClamp={lineClamp}
+        maxWidth={maxWidth}
         onChange={onChange}
         readOnly={readOnly}
         size={size}

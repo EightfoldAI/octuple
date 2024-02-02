@@ -10,6 +10,10 @@
     border-bottom: 1px solid var(--tab-underline);
   }
 
+  &.vertical {
+    flex-direction: column;
+  }
+
   .tab {
     align-items: center;
     border: none;
@@ -238,7 +242,7 @@
     align-items: center;
     background: var(--bg);
     border: var(--border-width) solid var(--bg);
-    border-radius: $border-radius-xl;
+    border-radius: var(--stat-tab-border-radius-m);
     display: flex;
     padding: $space-ml $space-s;
     width: fit-content;
@@ -276,7 +280,7 @@
       --active-border: var(--stat-tab-active-border-color);
       --bg: var(--stat-tab-background-color);
       --border: var(--stat-tab-border-color);
-      --border-radius: var(--stat-tab-border-radius);
+      --border-radius: var(--stat-tab-border-radius-m);
       --divider-height: 84px;
       --divider-width: 1px;
       --height: 116px;
@@ -298,7 +302,7 @@
       height: var(--height);
       margin: 0 $space-s;
       min-width: var(--min-width);
-      padding: $space-ml $space-m;
+      padding: $space-m;
       transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
       width: var(--width);
 
@@ -324,6 +328,15 @@
       .label {
         font-size: $text-font-size-3;
         line-height: $text-line-height-3;
+        white-space: normal;
+        word-break: break-all;
+
+        &.line-clamp {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow-y: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       .ratio-a {
@@ -532,17 +545,18 @@
     }
 
     &.small {
+      border-radius: var(--stat-tab-border-radius-s);
       padding: $space-s $space-xxs;
 
       .tab {
-        --border-radius: 24px;
+        --border-radius: var(--stat-tab-border-radius-s);
         --divider-height: 40px;
         --height: 72px;
         --icon-height: 48px;
         --icon-width: 48px;
         --min-width: 136px;
         margin: 0 $space-xs;
-        padding: $space-s $space-xs;
+        padding: $space-s;
 
         .icon {
           height: var(--icon-height);
@@ -552,7 +566,7 @@
 
         .label {
           font-size: $text-font-size-2;
-          line-height: $text-line-height-2;
+          line-height: $text-line-height-1;
         }
 
         .ratio-a {
@@ -579,20 +593,46 @@
           }
         }
       }
+
+      &:not(.bordered) {
+        padding: 0;
+
+        &.divider {
+          padding: 0;
+
+          .tab:not(.tab-rtl) {
+            &:first-of-type {
+              margin-left: 0;
+            }
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+          .tab-rtl {
+            &:first-of-type {
+              margin-right: 0;
+            }
+            &:last-of-type {
+              margin-left: 0;
+            }
+          }
+        }
+      }
     }
 
     &.xsmall {
+      border-radius: var(--stat-tab-border-radius-xs);
       padding: $space-xs 0;
 
       .tab {
-        --border-radius: 20px;
+        --border-radius: var(--stat-tab-border-radius-xs);
         --divider-height: 20px;
         --height: 48px;
         --icon-height: 32px;
         --icon-width: 32px;
         --min-width: 90px;
         margin: 0 $space-xs;
-        padding: $space-xxs $space-xs;
+        padding: $space-xs;
 
         .icon {
           height: var(--icon-height);
@@ -602,7 +642,7 @@
 
         .label {
           font-size: $text-font-size-2;
-          line-height: $text-line-height-2;
+          line-height: $text-line-height-1;
         }
 
         .ratio-a {
@@ -643,6 +683,276 @@
               margin: 0 $space-s 0 $space-xs;
             }
           }
+        }
+      }
+
+      &:not(.bordered) {
+        padding: 0;
+
+        &.divider {
+          padding: 0;
+
+          .tab:not(.tab-rtl) {
+            &:first-of-type {
+              margin-left: 0;
+            }
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+          .tab-rtl {
+            &:first-of-type {
+              margin-right: 0;
+            }
+            &:last-of-type {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &.vertical {
+      padding: $space-m;
+
+      .tab {
+        --divider-height: 1px;
+        --divider-width: 100%;
+        height: auto;
+        min-height: var(--height);
+        margin: $space-xs 0;
+
+        &:first-of-type {
+          margin: 0 0 $space-xs;
+        }
+
+        &:last-of-type {
+          margin: $space-xs 0 0;
+        }
+      }
+
+      &.divider {
+        padding: 0 $space-m;
+
+        .tab {
+          margin: $space-m 0;
+
+          &:first-of-type {
+            margin: $space-m 0;
+          }
+
+          &:last-of-type {
+            margin: $space-m 0;
+          }
+
+          &:not(:last-of-type):after {
+            right: unset;
+            top: calc(100% + calc($space-m + 1px));
+          }
+          &-rtl:not(:last-of-type):after {
+            right: unset;
+            left: unset;
+          }
+
+          &-rtl {
+            &:first-of-type {
+              margin: $space-m 0;
+            }
+
+            &:last-of-type {
+              margin: $space-m 0;
+            }
+          }
+        }
+      }
+
+      &:not(.bordered) {
+        padding: 0;
+
+        &.divider {
+          padding: 0;
+
+          .tab:not(.tab-rtl) {
+            &:first-of-type {
+              margin: 0 0 $space-m;
+            }
+            &:last-of-type {
+              margin: $space-m 0 0;
+            }
+          }
+          .tab-rtl {
+            &:first-of-type {
+              margin: 0 0 $space-m;
+            }
+            &:last-of-type {
+              margin: $space-m 0 0;
+            }
+          }
+        }
+      }
+
+      &.small {
+        padding: $space-s;
+
+        .tab {
+          --divider-height: 1px;
+          --height: 80px;
+          margin: 6px 0;
+
+          &:first-of-type {
+            margin: 0 0 6px;
+          }
+
+          &:last-of-type {
+            margin: 6px 0 0;
+          }
+        }
+
+        &.divider {
+          padding: $space-s;
+
+          .tab {
+            margin: $space-s 0;
+
+            &:first-of-type {
+              margin: 0 0 $space-s;
+            }
+
+            &:last-of-type {
+              margin: $space-s 0 0;
+            }
+
+            &:not(:last-of-type):after {
+              right: unset;
+              top: calc(100% + calc($space-s + 1px));
+            }
+            &-rtl:not(:last-of-type):after {
+              right: unset;
+              left: unset;
+            }
+
+            &-rtl {
+              &:first-of-type {
+                margin: $space-s 0;
+              }
+
+              &:last-of-type {
+                margin: $space-s 0;
+              }
+            }
+          }
+        }
+
+        &:not(.bordered) {
+          padding: 0;
+
+          &.divider {
+            padding: 0;
+
+            .tab:not(.tab-rtl) {
+              &:first-of-type {
+                margin: 0 0 $space-s;
+              }
+              &:last-of-type {
+                margin: $space-s 0 0;
+              }
+            }
+            .tab-rtl {
+              &:first-of-type {
+                margin: 0 0 $space-s;
+              }
+              &:last-of-type {
+                margin: $space-s 0 0;
+              }
+            }
+          }
+        }
+      }
+
+      &.xsmall {
+        padding: $space-xs;
+
+        .tab {
+          --divider-height: 1px;
+          --height: 56px;
+          margin: $space-xxs 0;
+
+          &:first-of-type {
+            margin: 0 0 $space-xxs;
+          }
+
+          &:last-of-type {
+            margin: $space-xxs 0 0;
+          }
+        }
+
+        &.divider {
+          padding: $space-xs;
+
+          .tab {
+            margin: $space-xs 0;
+
+            &:first-of-type {
+              margin: 0 0 $space-xs;
+            }
+
+            &:last-of-type {
+              margin: $space-xs 0 0;
+            }
+
+            &:not(:last-of-type):after {
+              right: unset;
+              top: calc(100% + calc($space-xs + 1px));
+            }
+            &-rtl:not(:last-of-type):after {
+              right: unset;
+              left: unset;
+            }
+
+            &-rtl {
+              &:first-of-type {
+                margin: 0 0 $space-xs;
+              }
+
+              &:last-of-type {
+                margin: $space-xs 0 0;
+              }
+            }
+          }
+        }
+
+        &:not(.bordered) {
+          padding: 0;
+
+          &.divider {
+            padding: 0;
+
+            .tab:not(.tab-rtl) {
+              &:first-of-type {
+                margin: 0 0 $space-xs;
+              }
+              &:last-of-type {
+                margin: $space-xs 0 0;
+              }
+            }
+            .tab-rtl {
+              &:first-of-type {
+                margin: 0 0 $space-xs;
+              }
+              &:last-of-type {
+                margin: $space-xs 0 0;
+              }
+            }
+          }
+        }
+      }
+
+      &.full-width {
+        width: 100%;
+
+        .tab {
+          --min-width: 100%;
+          --width: 100%;
         }
       }
     }
