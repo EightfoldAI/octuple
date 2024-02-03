@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.48.1](https://github.com/EightfoldAI/octuple/compare/v2.48.0...v2.48.1) (2024-02-03)
+
+### Bug Fixes
+
+- hotfix: form ensure form item label custom node content display is inline ([05f5322](https://github.com/EightfoldAI/octuple/commits/05f53220dea6c9ad9912b846a54cdcfeb59f55b3))
+
 ## [2.48.0](https://github.com/EightfoldAI/octuple/compare/v2.47.0...v2.48.0) (2024-01-09)
 
 ### Features
