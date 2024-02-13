@@ -162,6 +162,14 @@ const linkButtonArgs: Object = {
   floatingLinkButtonProps: {
     enabled: false,
   },
+  configContextProps: {
+    noDisabledContext: false,
+    noGradientContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  gradient: false,
   href: 'https://eightfold.ai',
   iconProps: {
     path: IconName.mdiCardsHeart,

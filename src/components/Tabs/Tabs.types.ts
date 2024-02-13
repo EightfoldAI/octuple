@@ -1,5 +1,5 @@
 import React from 'react';
-import { OcThemeName } from '../ConfigProvider';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
@@ -57,6 +57,16 @@ export interface TabsContextProps {
    */
   children: React.ReactNode;
   /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Direction type - horizontal or vertical
    * Use when variant is `stat`
    * @default TabsDirection.horizontal
@@ -98,6 +108,12 @@ export interface TabsContextProps {
    */
   statgrouptheme?: StatThemeName;
   /**
+   * Theme of the Tabs.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
    * The value of the selected tab.
    */
   value?: TabValue;
@@ -115,6 +131,16 @@ export interface ITabsContext {
    * @default TabIconAlign.Start
    */
   alignIcon?: TabIconAlign;
+  /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
   /**
    * The currently active tab value.
    */
@@ -161,6 +187,12 @@ export interface ITabsContext {
    */
   statgrouptheme?: StatThemeName;
   /**
+   * Theme of the Tabs.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
    * Variant of the Tabs.
    * @default default
    */
@@ -182,6 +214,12 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
    * Content of the badge.
    */
   badgeContent?: React.ReactNode;
+  /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
   /**
    * The tab is disabled.
    */
@@ -273,6 +311,16 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    */
   children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
   /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Direction type - horizontal or vertical
    * Use when variant is `stat`
    * @default TabsDirection.horizontal
@@ -330,6 +378,12 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    * Theme of the Stat Tab group.
    */
   statgrouptheme?: StatThemeName;
+  /**
+   * Theme of the Tabs.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
   /**
    * If the tabs should have an underline/penline beneath them.
    * NOTE: won't be applied if pill variant is used.

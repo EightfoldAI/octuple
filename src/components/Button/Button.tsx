@@ -1,6 +1,10 @@
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size } from '../ConfigProvider';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import {
   ButtonIconAlign,
   ButtonProps,
@@ -22,6 +26,7 @@ import { useMergedRefs } from '../../hooks/useMergedRefs';
 import { useNudge } from './Nudge/Hooks/useNudge';
 
 import styles from './button.module.scss';
+import themedComponentStyles from './button.theme.module.scss';
 
 export const Button: FC<ButtonProps> = React.forwardRef(
   (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
@@ -30,18 +35,22 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      badgeProps,
       buttonWidth = ButtonWidth.fitContent,
       checked = false,
       classNames,
       configContextProps = {
         noDisabledContext: false,
+        noGradientContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       counter,
       disabled = false,
       disruptive = false,
       dropShadow = false,
       floatingButtonProps,
+      gradient = false,
       nudgeProps: defaultNudgeProps,
       htmlType,
       iconProps,
@@ -57,6 +66,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       splitButtonProps,
       style,
       text,
+      theme,
       toggle,
       transparent = false,
       type, // TODO: Remove in Octuple v3.0.0 and use `variant` only.
@@ -80,10 +90,20 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       ? disabled
       : contextuallyDisabled || disabled;
 
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
     const contextuallySized: Size = useContext(SizeContext);
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const counterExists: boolean = !!counter;
     const iconExists: boolean = !!iconProps;
@@ -162,6 +182,8 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           shape === ButtonShape.Round && !split && !textExists,
       },
       { [styles.dropShadow]: dropShadow },
+      { [themedComponentStyles.theme]: mergedTheme },
+      { [styles.gradient]: mergedGradient },
       { [styles.disabled]: allowDisabledFocus || mergedDisabled },
       { [styles.floating]: floatingButtonProps?.enabled },
       { [styles.buttonRtl]: htmlDir === 'rtl' },
@@ -292,12 +314,22 @@ export const Button: FC<ButtonProps> = React.forwardRef(
     ): JSX.Element => (
       <span className={buttonTextClassNames}>
         {text ? text : 'Button'}
-        {counterExists && <Badge classNames={badgeClassNames}>{counter}</Badge>}
+        {counterExists && (
+          <Badge
+            {...badgeProps}
+            classNames={mergeClasses([badgeClassNames, badgeProps?.classNames])}
+          >
+            {counter}
+          </Badge>
+        )}
       </span>
     );
 
     return (
-      <>
+      <ThemeContextProvider
+        selector={themedComponentStyles.theme}
+        theme={mergedTheme}
+      >
         <button
           {...rest}
           ref={mergedRef}
@@ -338,12 +370,28 @@ export const Button: FC<ButtonProps> = React.forwardRef(
             !counterExists &&
             getButtonIcon()}
           {counterExists && !textExists && !loading && !iconExists && (
-            <Badge classNames={badgeClassNames}>{counter}</Badge>
+            <Badge
+              {...badgeProps}
+              classNames={mergeClasses([
+                badgeClassNames,
+                badgeProps?.classNames,
+              ])}
+            >
+              {counter}
+            </Badge>
           )}
           {iconExists && counterExists && !textExists && !loading && (
             <span>
               {getButtonIcon()}
-              <Badge classNames={badgeClassNames}>{counter}</Badge>
+              <Badge
+                {...badgeProps}
+                classNames={mergeClasses([
+                  badgeClassNames,
+                  badgeProps?.classNames,
+                ])}
+              >
+                {counter}
+              </Badge>
               {prefixIconExists && getPrefixIcon()}
             </span>
           )}
@@ -366,6 +414,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
             checked={splitButtonChecked}
             disruptive={disruptive}
             dropShadow={dropShadow}
+            gradient={gradient}
             nudgeProps={nudgeProps}
             onClick={
               !splitButtonProps?.allowDisabledFocus ? onContextMenu : null
@@ -376,7 +425,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
             variant={mergedVariant}
           />
         )}
-      </>
+      </ThemeContextProvider>
     );
   }
 );

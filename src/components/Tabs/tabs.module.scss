@@ -141,10 +141,14 @@
     --tab-active-background: var(--tab-pill-active-background);
     --tab-active-border: var(--tab-pill-active-border);
     --tab-hover-label: var(--tab-pill-hover-label);
-    background-color: var(--tab-pill-background);
+    background: var(--tab-pill-background);
     border-radius: var(--tab-pill-border-radius);
     padding: var(--tab-pill-medium-padding);
     width: fit-content;
+
+    &.inverse {
+      background: var(--tab-inverse-pill-background);
+    }
 
     .tab {
       border: var(--tab-pill-border);
@@ -155,6 +159,28 @@
         border: var(--tab-pill-active-border);
         .badge {
           background-color: var(--primary-background1-color);
+        }
+      }
+
+      &.inverse {
+        --tab-label: var(--tab-inverse-pill-label);
+        --tab-active-label: var(--tab-inverse-pill-active-label);
+        --tab-active-background: var(--tab-inverse-pill-active-background);
+        --tab-active-border: var(--tab-inverse-pill-active-border);
+        --tab-hover-label: var(--tab-inverse-pill-hover-label);
+        border: var(--tab-inverse-pill-border);
+        border-radius: var(--tab-pill-border-radius);
+        padding: $button-padding-vertical-medium
+          $button-padding-horizontal-medium;
+
+        .badge {
+          background-color: var(--primary-background1-color);
+        }
+
+        &.active {
+          .badge {
+            background-color: var(--primary-background2-color);
+          }
         }
       }
 

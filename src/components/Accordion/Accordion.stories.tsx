@@ -98,9 +98,16 @@ Single.args = {
     </>
   ),
   id: 'myAccordionId',
+  expandButtonProps: null,
   expandIconProps: {
     path: IconName.mdiChevronDown,
   },
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  gradient: false,
   summary: 'Accordion Header',
   iconProps: {
     color: 'green',

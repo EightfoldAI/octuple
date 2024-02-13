@@ -1,6 +1,10 @@
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size } from '../ConfigProvider';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import {
   LinkButtonIconAlign,
   LinkButtonProps,
@@ -32,13 +36,16 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
       classNames,
       configContextProps = {
         noDisabledContext: false,
+        noGradientContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       counter,
       disabled = false,
       disruptive = false,
       dropShadow = false,
       floatingLinkButtonProps,
+      gradient = false,
       nudgeProps: defaultNudgeProps,
       iconProps,
       linkButtonWidth = LinkButtonWidth.fitContent,
@@ -52,6 +59,7 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
       style,
       target = '_self',
       text,
+      theme,
       transparent = false,
       variant = LinkButtonVariant.Default,
       ...rest
@@ -73,10 +81,20 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
       ? disabled
       : contextuallyDisabled || disabled;
 
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
     const contextuallySized: Size = useContext(SizeContext);
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const counterExists: boolean = !!counter;
     const iconExists: boolean = !!iconProps;
@@ -149,6 +167,7 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
       {
         [styles.roundShape]: shape === LinkButtonShape.Round && !textExists,
       },
+      { [styles.gradient]: mergedGradient },
       { [styles.dropShadow]: dropShadow },
       { [styles.floating]: floatingLinkButtonProps?.enabled },
       { [styles.linkButtonRtl]: htmlDir === 'rtl' },
@@ -285,62 +304,64 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
     );
 
     return (
-      <a
-        {...rest}
-        ref={mergedRef}
-        aria-label={ariaLabel}
-        aria-disabled={(!allowDisabledFocus && mergedDisabled) || loading}
-        className={linkButtonClassNames}
-        id={id}
-        onClick={!allowDisabledFocus ? handleOnClick : null}
-        role={role}
-        style={style}
-        target={target}
-      >
-        <InnerNudge
-          classNames={mergeClasses([
-            styles.innerNudge,
-            {
-              [styles.conic]: nudgeProps?.animation === NudgeAnimation.Conic,
-            },
-          ])}
-          disruptive={disruptive}
-          id={id ? `${id}-nudge` : 'link-button-nudge'}
-          nudgeProps={nudgeProps}
-          ref={innerNudgeRef}
+      <ThemeContextProvider theme={mergedTheme}>
+        <a
+          {...rest}
+          ref={mergedRef}
+          aria-label={ariaLabel}
+          aria-disabled={(!allowDisabledFocus && mergedDisabled) || loading}
+          className={linkButtonClassNames}
+          id={id}
+          onClick={!allowDisabledFocus ? handleOnClick : null}
+          role={role}
           style={style}
-        />
-        {iconExists && prefixIconExists && !textExists && (
-          <span>
-            {getLinkButtonIcon()}
-            {getPrefixIcon()}
-          </span>
-        )}
-        {iconExists &&
-          !textExists &&
-          !prefixIconExists &&
-          !counterExists &&
-          getLinkButtonIcon()}
-        {counterExists && !textExists && !loading && !iconExists && (
-          <Badge classNames={badgeClassNames}>{counter}</Badge>
-        )}
-        {iconExists && counterExists && !textExists && !loading && (
-          <span>
-            {getLinkButtonIcon()}
+          target={target}
+        >
+          <InnerNudge
+            classNames={mergeClasses([
+              styles.innerNudge,
+              {
+                [styles.conic]: nudgeProps?.animation === NudgeAnimation.Conic,
+              },
+            ])}
+            disruptive={disruptive}
+            id={id ? `${id}-nudge` : 'link-button-nudge'}
+            nudgeProps={nudgeProps}
+            ref={innerNudgeRef}
+            style={style}
+          />
+          {iconExists && prefixIconExists && !textExists && (
+            <span>
+              {getLinkButtonIcon()}
+              {getPrefixIcon()}
+            </span>
+          )}
+          {iconExists &&
+            !textExists &&
+            !prefixIconExists &&
+            !counterExists &&
+            getLinkButtonIcon()}
+          {counterExists && !textExists && !loading && !iconExists && (
             <Badge classNames={badgeClassNames}>{counter}</Badge>
-            {prefixIconExists && getPrefixIcon()}
-          </span>
-        )}
-        {iconExists && textExists && (
-          <span>
-            {getLinkButtonIcon()}
-            {getLinkButtonContent(linkButtonTextClassNames, text)}
-            {prefixIconExists && getPrefixIcon()}
-          </span>
-        )}
-        {!iconExists && getLinkButtonContent(linkButtonTextClassNames, text)}
-        {getLinkButtonLoader()}
-      </a>
+          )}
+          {iconExists && counterExists && !textExists && !loading && (
+            <span>
+              {getLinkButtonIcon()}
+              <Badge classNames={badgeClassNames}>{counter}</Badge>
+              {prefixIconExists && getPrefixIcon()}
+            </span>
+          )}
+          {iconExists && textExists && (
+            <span>
+              {getLinkButtonIcon()}
+              {getLinkButtonContent(linkButtonTextClassNames, text)}
+              {prefixIconExists && getPrefixIcon()}
+            </span>
+          )}
+          {!iconExists && getLinkButtonContent(linkButtonTextClassNames, text)}
+          {getLinkButtonLoader()}
+        </a>
+      </ThemeContextProvider>
     );
   }
 );

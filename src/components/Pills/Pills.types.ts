@@ -79,6 +79,11 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    */
   disabled?: boolean;
   /**
+   * The pill gradient state.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
    * Icon shown before the label
    */
   iconProps?: IconProps;

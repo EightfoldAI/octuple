@@ -201,6 +201,7 @@ const buttonArgs: Object = {
   alignText: ButtonTextAlign.Center,
   allowDisabledFocus: false,
   ariaLabel: 'Button',
+  badgeProps: null,
   buttonWidth: ButtonWidth.fitContent,
   checked: false,
   classNames: 'my-btn-class',
@@ -212,6 +213,14 @@ const buttonArgs: Object = {
   floatingButtonProps: {
     enabled: false,
   },
+  configContextProps: {
+    noDisabledContext: false,
+    noGradientContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  gradient: false,
   nudgeProps: null,
   htmlType: 'button',
   iconProps: {

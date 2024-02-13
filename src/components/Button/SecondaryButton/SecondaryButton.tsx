@@ -17,9 +17,11 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      badgeProps,
       buttonWidth,
       checked = false,
       classNames,
+      configContextProps,
       counter,
       disabled = false,
       disruptive = false,
@@ -36,6 +38,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
       splitButtonProps,
       style,
       text,
+      theme,
       toggle,
       ...rest
     },
@@ -49,9 +52,11 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
         alignText={alignText}
         allowDisabledFocus={allowDisabledFocus}
         ariaLabel={ariaLabel}
+        badgeProps={badgeProps}
         buttonWidth={buttonWidth}
         checked={checked}
         classNames={classNames}
+        configContextProps={configContextProps}
         counter={counter}
         disabled={disabled}
         disruptive={disruptive}
@@ -68,6 +73,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
         splitButtonProps={splitButtonProps}
         style={style}
         text={text}
+        theme={theme}
         toggle={toggle}
         variant={ButtonVariant.Secondary}
       />

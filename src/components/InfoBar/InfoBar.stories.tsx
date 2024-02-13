@@ -70,6 +70,12 @@ const infoBarArgs: Object = {
     id: 'myCloseButton',
   },
   closeIcon: IconName.mdiClose,
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  gradient: false,
   icon: IconName.mdiCheckCircle,
   role: 'alert',
   type: InfoBarType.positive,

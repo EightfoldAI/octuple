@@ -1,7 +1,8 @@
 import React, { FC, Ref, useContext } from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { PillIconAlign, PillProps, PillSize, PillType } from './Pills.types';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { ButtonSize, DefaultButton } from '../Button';
+import { Button, ButtonSize } from '../Button';
 import { Icon, IconName, IconSize } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses } from '../../shared/utilities';
@@ -16,9 +17,12 @@ export const Pill: FC<PillProps> = React.forwardRef(
       color,
       configContextProps = {
         noDisabledContext: false,
+        noGradientContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
+      gradient = false,
       label,
       lineClamp,
       iconProps,
@@ -35,6 +39,11 @@ export const Pill: FC<PillProps> = React.forwardRef(
     ref: Ref<HTMLDivElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
+
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
 
     const contextuallyDisabled: Disabled = useContext(DisabledContext);
     const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -74,6 +83,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
       styles.tagPills,
       classNames,
       (styles as any)[theme],
+      { [styles.gradient]: mergedGradient },
       { [styles.large]: size === PillSize.Large },
       { [styles.medium]: size === PillSize.Medium },
       { [styles.small]: size === PillSize.Small },
@@ -110,7 +120,8 @@ export const Pill: FC<PillProps> = React.forwardRef(
         </span>
         {iconProps && alignIcon === PillIconAlign.End && getIcon()}
         {type === PillType.withButton && (
-          <DefaultButton
+          <Button
+            badgeProps={{ classNames: styles.badge }}
             {...pillButtonProps}
             onClick={!mergedDisabled ? onClick : null}
             size={pillSizeToButtonSizeMap.get(size)}
@@ -118,7 +129,8 @@ export const Pill: FC<PillProps> = React.forwardRef(
           />
         )}
         {type === PillType.closable && (
-          <DefaultButton
+          <Button
+            badgeProps={{ classNames: styles.badge }}
             iconProps={{ path: IconName.mdiClose }}
             {...closeButtonProps}
             onClick={!mergedDisabled ? onClose : null}

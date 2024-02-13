@@ -17,6 +17,7 @@
   // Animation ensures the scroll bars don't flicker during transition.
   // https://css-tricks.com/hide-scrollbars-during-an-animation/
   .accordion-body-container {
+    background: var(--accordion-body-background-color);
     box-sizing: border-box;
     max-height: 0;
     overflow-y: hidden;
@@ -38,7 +39,6 @@
   }
 
   .accordion-body {
-    background-color: var(--accordion-body-background-color);
     color: var(--accordion-body-text-color);
 
     &.large {
@@ -59,7 +59,7 @@
   }
 
   .accordion-summary {
-    background-color: var(--accordion-summary-background-color);
+    background: var(--accordion-summary-background-color);
     color: var(--accordion-summary-text-color);
     cursor: pointer;
     display: flex;
@@ -68,7 +68,7 @@
     transition: background-color $motion-duration-fast $motion-easing-easeout;
 
     &.large {
-      padding: $space-l;
+      padding: $space-m $space-l;
 
       .accordion-header-container {
         gap: $space-m;
@@ -81,7 +81,7 @@
     }
 
     &.medium {
-      padding: $space-m;
+      padding: $space-s $space-m;
 
       .accordion-header-container {
         gap: $space-s;
@@ -116,7 +116,7 @@
     }
 
     &:hover {
-      background-color: var(--accordion-summary-background-hover-color);
+      background: var(--accordion-summary-background-hover-color);
       color: var(--accordion-summary-text-hover-color);
     }
   }
@@ -126,6 +126,44 @@
 
     &.expanded-icon {
       transform: rotate(180deg);
+    }
+  }
+
+  &.gradient {
+    &.accordion-border {
+      border: var(--accordion-gradient-border);
+    }
+
+    .accordion-body-container {
+      background: var(--accordion-body-background-gradient);
+    }
+
+    .accordion-body {
+      color: var(--accordion-gradient-body-text-color);
+
+      &.border-top {
+        border-top: var(--accordion-gradient-border);
+      }
+    }
+
+    .accordion-summary {
+      background: var(--accordion-summary-background-gradient);
+      color: var(--accordion-gradient-summary-text-color);
+
+      .badge {
+        background-color: var(--primary-background2-color);
+        color: var(--primary-color);
+      }
+
+      &:hover {
+        background: var(--accordion-summary-background-hover-gradient);
+        color: var(--accordion-gradient-summary-text-hover-color);
+
+        .badge {
+          background-color: var(--primary-background1-color);
+          color: var(--primary-color);
+        }
+      }
     }
   }
 }

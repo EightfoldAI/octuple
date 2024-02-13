@@ -2,7 +2,7 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { snack, Snackbar, SnackbarContainer } from './';
-import { ButtonSize, DefaultButton } from '../Button';
+import { Button, ButtonSize } from '../Button';
 import { InfoBarType } from '../InfoBar';
 import { IconName } from '../Icon';
 
@@ -57,7 +57,7 @@ export default {
 
 const Default_Story: ComponentStory<typeof Snackbar> = (args) => (
   <>
-    <DefaultButton
+    <Button
       text="Serve snack"
       onClick={() => snack.serve({ ...args })}
       size={ButtonSize.Small}
@@ -68,7 +68,7 @@ const Default_Story: ComponentStory<typeof Snackbar> = (args) => (
 
 const Closable_Story: ComponentStory<typeof Snackbar> = (args) => (
   <>
-    <DefaultButton
+    <Button
       text="Serve closable snack"
       onClick={() => snack.serve({ ...args })}
       size={ButtonSize.Small}
@@ -79,7 +79,7 @@ const Closable_Story: ComponentStory<typeof Snackbar> = (args) => (
 
 const With_Action_Story: ComponentStory<typeof Snackbar> = (args) => (
   <>
-    <DefaultButton
+    <Button
       text="Serve snack with action"
       onClick={() => snack.serve({ ...args })}
       size={ButtonSize.Small}
@@ -100,11 +100,18 @@ export const __namedExportsOrder = ['Default', 'Closable', 'With_Action'];
 const snackArgs: Object = {
   position: 'top-center',
   type: 'neutral',
+  bordered: false,
   closable: false,
   icon: IconName.mdiInformation,
   closeIcon: IconName.mdiClose,
   content:
     'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.',
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  gradient: false,
   id: 'mySnackId',
 };
 

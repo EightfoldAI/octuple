@@ -1,3 +1,4 @@
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
@@ -56,9 +57,18 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   closeIcon?: IconName;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Content of the InfoBar
    */
   content: React.ReactNode;
+  /**
+   * The InfoBar gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Custom icon for the InfoBar
    * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
@@ -77,6 +87,12 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    * Role of the InfoBar
    */
   role?: string;
+  /**
+   * Theme of the InfoBar.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
   /**
    * Type of the InfoBar
    * @default InfoBarType.neutral
