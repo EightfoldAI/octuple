@@ -40,6 +40,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
       style,
       text,
       theme,
+      themeContainerId,
       toggle,
       ...rest
     },
@@ -76,6 +77,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         theme={theme}
+        themeContainerId={themeContainerId}
         toggle={toggle}
         variant={ButtonVariant.Primary}
       />

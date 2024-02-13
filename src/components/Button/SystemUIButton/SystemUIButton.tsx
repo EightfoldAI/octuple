@@ -32,6 +32,7 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
       onClick,
       text,
       theme,
+      themeContainerId,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
       split,
@@ -73,6 +74,7 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
         style={style}
         text={text}
         theme={theme}
+        themeContainerId={themeContainerId}
         toggle={toggle}
         transparent={transparent}
         variant={ButtonVariant.SystemUI}

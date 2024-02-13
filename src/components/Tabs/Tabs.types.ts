@@ -114,6 +114,11 @@ export interface TabsContextProps {
    */
   theme?: OcThemeName;
   /**
+   * Theme container of the Tabs.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The value of the selected tab.
    */
   value?: TabValue;
@@ -192,6 +197,11 @@ export interface ITabsContext {
    * @default blue
    */
   theme?: OcThemeName;
+  /**
+   * Theme container of the Tabs.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Variant of the Tabs.
    * @default default
@@ -384,6 +394,11 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    * @default blue
    */
   theme?: OcThemeName;
+  /**
+   * Theme container of the Tabs.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * If the tabs should have an underline/penline beneath them.
    * NOTE: won't be applied if pill variant is used.

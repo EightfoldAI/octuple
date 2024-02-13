@@ -94,6 +94,11 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   theme?: OcThemeName;
   /**
+   * Theme container of the InfoBar.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * Type of the InfoBar
    * @default InfoBarType.neutral
    */

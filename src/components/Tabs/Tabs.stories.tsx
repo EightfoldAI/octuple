@@ -147,6 +147,7 @@ const tabsArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
+  themeContainerId: '',
   scrollable: false,
   variant: TabVariant.default,
   size: TabSize.Medium,

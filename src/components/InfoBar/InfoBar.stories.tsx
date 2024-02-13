@@ -75,6 +75,7 @@ const infoBarArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
+  themeContainerId: '',
   gradient: false,
   icon: IconName.mdiCheckCircle,
   role: 'alert',

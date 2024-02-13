@@ -107,6 +107,7 @@ Single.args = {
     noThemeContext: false,
   },
   theme: '',
+  themeContainerId: '',
   gradient: false,
   summary: 'Accordion Header',
   iconProps: {

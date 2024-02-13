@@ -64,6 +64,11 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    * @default blue
    */
   theme?: OcThemeName;
+  /**
+   * Theme container of the accordion.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
 }
 
 export interface AccordionProps extends AccordionBaseProps {

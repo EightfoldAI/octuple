@@ -227,6 +227,11 @@ export interface ButtonProps extends NativeButtonProps {
    */
   theme?: OcThemeName;
   /**
+   * Theme container of the button.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The button is a toggle button with distinct on and off states.
    */
   toggle?: boolean;

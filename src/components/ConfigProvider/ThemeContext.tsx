@@ -6,14 +6,16 @@ const ThemeContext = createContext<OcThemeName>(null);
 
 export interface ThemeContextProps {
   children?: React.ReactNode;
+  containerId?: string;
   theme?: OcThemeName;
-  selector?: string;
+  componentClassName?: string;
 }
 
 export const ThemeContextProvider: FC<ThemeContextProps> = ({
   theme,
   children,
-  selector,
+  containerId,
+  componentClassName,
 }) => {
   useEffect(() => {
     if (theme) {
@@ -21,10 +23,11 @@ export const ThemeContextProvider: FC<ThemeContextProps> = ({
         {
           name: theme,
         },
-        selector
+        containerId,
+        componentClassName
       );
     }
-  }, [selector, theme]);
+  }, [containerId, componentClassName, theme]);
 
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>

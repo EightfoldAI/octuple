@@ -67,6 +67,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       style,
       text,
       theme,
+      themeContainerId,
       toggle,
       transparent = false,
       type, // TODO: Remove in Octuple v3.0.0 and use `variant` only.
@@ -327,7 +328,8 @@ export const Button: FC<ButtonProps> = React.forwardRef(
 
     return (
       <ThemeContextProvider
-        selector={themedComponentStyles.theme}
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
         theme={mergedTheme}
       >
         <button

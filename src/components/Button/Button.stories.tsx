@@ -220,6 +220,7 @@ const buttonArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
+  themeContainerId: '',
   gradient: false,
   nudgeProps: null,
   htmlType: 'button',

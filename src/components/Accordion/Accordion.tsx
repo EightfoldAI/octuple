@@ -157,6 +157,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
       badgeProps,
       size = AccordionSize.Large,
       theme,
+      themeContainerId,
       disabled,
       ...rest
     },
@@ -197,7 +198,8 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
 
     return (
       <ThemeContextProvider
-        selector={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        componentClassName={themedComponentStyles.theme}
         theme={mergedTheme}
       >
         <div className={accordionContainerStyle} ref={ref} {...rest}>

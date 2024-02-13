@@ -38,6 +38,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       role = 'alert',
       style,
       theme,
+      themeContainerId,
       type = InfoBarType.neutral,
       ...rest
     } = props;
@@ -109,7 +110,8 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
         {(_contextLocale: InfoBarLocale) => {
           return (
             <ThemeContextProvider
-              selector={themedComponentStyles.theme}
+              containerId={themeContainerId}
+              componentClassName={themedComponentStyles.theme}
               theme={mergedTheme}
             >
               <div

@@ -30,8 +30,13 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
     },
     ref: Ref<HTMLDivElement>
   ) => {
-    const { colorInvert, configContextProps, currentActiveTab, theme } =
-      useTabs();
+    const {
+      colorInvert,
+      configContextProps,
+      currentActiveTab,
+      theme,
+      themeContainerId,
+    } = useTabs();
 
     const contextualTheme: OcThemeName = useContext(ThemeContext);
     const mergedTheme: OcThemeName = configContextProps.noThemeContext
@@ -65,7 +70,8 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
     return (
       <Flipper flipKey={currentActiveTab}>
         <ThemeContextProvider
-          selector={themedComponentStyles.theme}
+          containerId={themeContainerId}
+          componentClassName={themedComponentStyles.theme}
           theme={mergedTheme}
         >
           <div

@@ -26,6 +26,7 @@ const TabsProvider = ({
   readOnly,
   size = TabSize.Medium,
   theme,
+  themeContainerId,
   statgrouptheme,
   value,
   variant = TabVariant.default,
@@ -56,6 +57,7 @@ const TabsProvider = ({
         size,
         statgrouptheme,
         theme,
+        themeContainerId,
         variant,
       }}
     >

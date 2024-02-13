@@ -111,6 +111,7 @@ const snackArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
+  themeContainerId: '',
   gradient: false,
   id: 'mySnackId',
 };

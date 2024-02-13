@@ -19,6 +19,7 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       size,
       statgrouptheme,
       theme,
+      themeContainerId,
       value,
       variant,
     } = props;
@@ -36,6 +37,7 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
         size={size}
         statgrouptheme={statgrouptheme}
         theme={theme}
+        themeContainerId={themeContainerId}
         value={value}
         variant={variant}
       >

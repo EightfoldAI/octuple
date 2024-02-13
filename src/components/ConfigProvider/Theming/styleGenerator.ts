@@ -364,12 +364,15 @@ export function injectCSS(
 
 export function registerTheme(
   themeOptions: ThemeOptions,
+  containerId?: string,
   componentClassName?: string
 ): IRegisterTheme {
   const { themeName, light, variables } = getStyle(themeOptions);
   const styleNode: HTMLStyleElement = injectCSS(
     variables,
-    componentClassName ? THEME_COMPONENT_CONTAINER_ID : THEME_CONTAINER_ID,
+    componentClassName
+      ? containerId || THEME_COMPONENT_CONTAINER_ID
+      : THEME_CONTAINER_ID,
     themeOptions.customTheme?.customFonts,
     {},
     componentClassName || ''
