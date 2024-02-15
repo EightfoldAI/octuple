@@ -240,6 +240,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       { [styles.carouselRtl]: htmlDir === 'rtl' },
       { [styles.carouselSlider]: type === 'slide' },
       { [styles.carouselFade]: transition === 'crossfade' },
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.gradient]: mergedGradient },
       classNames
     );

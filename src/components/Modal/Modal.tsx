@@ -54,6 +54,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
 
     const modalClasses: string = mergeClasses([
       styles.modal,
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.noBodyPadding]: bodyPadding === false },
       modalClassNames,
       { [styles.small]: size === ModalSize.small },

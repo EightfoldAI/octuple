@@ -142,6 +142,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
     const panelClasses: string = mergeClasses([
       styles.panel,
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.noBodyPadding]: bodyPadding === false },
       { [styles.noHeaderPadding]: headerPadding === false },
       panelClassNames,

@@ -25,6 +25,7 @@ import { useMergedRefs } from '../../hooks/useMergedRefs';
 import { useNudge } from '../Button/Nudge/Hooks/useNudge';
 
 import styles from './linkbutton.module.scss';
+import themedComponentStyles from './linkbutton.theme.module.scss';
 
 export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
   (props: LinkButtonProps, ref: Ref<HTMLAnchorElement>) => {
@@ -60,6 +61,7 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
       target = '_self',
       text,
       theme,
+      themeContainerId,
       transparent = false,
       variant = LinkButtonVariant.Default,
       ...rest
@@ -167,6 +169,7 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
       {
         [styles.roundShape]: shape === LinkButtonShape.Round && !textExists,
       },
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.gradient]: mergedGradient },
       { [styles.dropShadow]: dropShadow },
       { [styles.floating]: floatingLinkButtonProps?.enabled },
@@ -304,7 +307,11 @@ export const LinkButton: FC<LinkButtonProps> = React.forwardRef(
     );
 
     return (
-      <ThemeContextProvider theme={mergedTheme}>
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
+      >
         <a
           {...rest}
           ref={mergedRef}

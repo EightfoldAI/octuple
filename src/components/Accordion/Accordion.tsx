@@ -198,8 +198,8 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
 
     return (
       <ThemeContextProvider
-        containerId={themeContainerId}
         componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
         theme={mergedTheme}
       >
         <div className={accordionContainerStyle} ref={ref} {...rest}>

@@ -327,6 +327,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
     const paginationWrapperClassNames: string = mergeClasses([
       classNames,
       styles.pagination,
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.gradient]: mergedGradient },
       { [styles.dots]: dots },
       { [styles.paginationRtl]: htmlDir === 'rtl' },

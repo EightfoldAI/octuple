@@ -186,6 +186,7 @@ const linkButtonArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
+  themeContainerId: '',
   gradient: false,
   href: 'https://eightfold.ai',
   iconProps: {

@@ -157,6 +157,11 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
    */
   theme?: OcThemeName;
   /**
+   * Theme container of the link button.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The link button will remain transparent
    * @default false
    */

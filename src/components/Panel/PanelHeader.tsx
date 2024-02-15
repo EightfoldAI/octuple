@@ -14,6 +14,7 @@ import enUS from './Locale/en_US';
 
 import styles from './panel.module.scss';
 import themedComponentStyles from './panel.theme.module.scss';
+import { mergeClasses } from '../../shared/utilities';
 
 export const PanelHeader: FC<PanelHeaderProps> = React.forwardRef(
   (props: PanelHeaderProps, ref: Ref<HTMLDivElement>) => {
@@ -81,7 +82,10 @@ export const PanelHeader: FC<PanelHeaderProps> = React.forwardRef(
               <div
                 ref={ref}
                 {...rest}
-                className={styles.logoGradientHeaderWrapper}
+                className={mergeClasses([
+                  styles.logoGradientHeaderWrapper,
+                  { [themedComponentStyles.theme]: mergedTheme },
+                ])}
               >
                 <div className={styles.headerTitle}>
                   {actionDefaultButtonProps && (
