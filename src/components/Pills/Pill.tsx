@@ -26,7 +26,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
       label,
       lineClamp,
       iconProps,
-      theme = 'blue',
+      theme = 'blue', // TODO: migrate to theme context.
       onClose,
       onClick,
       closeButtonProps,

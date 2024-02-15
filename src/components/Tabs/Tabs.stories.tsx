@@ -40,13 +40,30 @@ export default {
       options: [TabIconAlign.Start, TabIconAlign.End],
       control: { type: 'inline-radio' },
     },
-    variant: {
-      options: [TabVariant.default, TabVariant.pill],
-      control: { type: 'inline-radio' },
-    },
     size: {
       options: [TabSize.Large, TabSize.Medium, TabSize.Small],
       control: { type: 'radio' },
+    },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+    variant: {
+      options: [TabVariant.default, TabVariant.pill],
+      control: { type: 'inline-radio' },
     },
   },
 } as ComponentMeta<typeof Tabs>;

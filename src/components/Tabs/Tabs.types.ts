@@ -266,6 +266,10 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
    */
   buttonProps?: ButtonProps;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Direction type - horizontal or vertical
    * @default TabsDirection.horizontal
    */
@@ -276,6 +280,11 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
    * @default false
    */
   fullWidth?: boolean;
+  /**
+   * The stat gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Maximum number of lines the tab label can have.
    * `0` or `null` means no limit.

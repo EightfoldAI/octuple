@@ -1,8 +1,4 @@
 .pagination {
-  --pager-button-active-foreground-color: var(--primary-secondary-color);
-  --pager-button-active-outline-color: var(--primary-tertiary-color);
-  --pager-button-active-background-color: var(--accent-background2-color);
-
   align-items: center;
   display: flex;
   font-family: var(--font-stack-full);
@@ -15,15 +11,15 @@
     box-sizing: border-box;
   }
 
-  .pagination-button {
+  button.pagination-button {
     &:hover {
-      background: var(--accent-background1-color);
+      background: var(--pager-button-hover-background-color);
     }
 
     &:active,
     &.active {
       color: var(--pager-button-active-foreground-color);
-      background-color: var(--pager-button-active-background-color);
+      background: var(--pager-button-active-background-color);
       outline: 1px solid var(--pager-button-active-outline-color);
 
       svg {
@@ -111,7 +107,7 @@
       padding: 0;
       width: 24px;
       vertical-align: middle;
-      outline: solid 1px var(--accent-tertiary-color);
+      outline: solid 1px var(--pager-dot-outline-color);
       outline-offset: -1px;
 
       span,
@@ -157,6 +153,19 @@
       margin: 0 $space-xs 0 0;
       min-width: 24px;
       vertical-align: middle;
+    }
+  }
+
+  &.gradient {
+    .pagination-button {
+      &:hover {
+        background: var(--pager-button-hover-background-gradient);
+      }
+
+      &:active,
+      &.active {
+        background: var(--pager-button-active-background-gradient);
+      }
     }
   }
 

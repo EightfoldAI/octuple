@@ -517,4 +517,17 @@
   --button-counter-active-background-color: var(--grey-background1-color);
   --button-counter-default-text-color: var(--primary-color);
   // ------ Button Counter theme ------
+
+  // ------ Pagination Button theme ------
+  --pager-button-hover-background-color: var(--accent-background1-color);
+  --pager-button-active-foreground-color: var(--primary-secondary-color);
+  --pager-button-active-outline-color: var(--primary-tertiary-color);
+  --pager-button-active-background-color: var(--accent-background2-color);
+  --pager-dot-outline-color: var(--accent-tertiary-color);
+
+  --pager-button-hover-background-gradient: var(--primary-background1-gradient);
+  --pager-button-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  // ------ Pagination Button theme ------
 }

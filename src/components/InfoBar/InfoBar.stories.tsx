@@ -29,6 +29,25 @@ export default {
       ),
     },
   },
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof InfoBar>;
 
 const InfoBar_Story: ComponentStory<typeof InfoBar> = (args) => (

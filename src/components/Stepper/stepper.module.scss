@@ -139,12 +139,12 @@
             }
 
             &.active {
-              background-color: var(--step-default-active-background-color);
+              background: var(--step-default-active-background-color);
               color: var(--step-default-active-icon-color);
             }
 
             &.complete {
-              background-color: var(--step-default-complete-background-color);
+              background: var(--step-default-complete-background-color);
               border-color: var(--step-default-complete-border-color);
               color: var(--step-default-complete-icon-color);
             }
@@ -186,55 +186,55 @@
 
             &.circle-primary-button,
             &.circle-secondary-button {
-              background-color: var(--step-default-background-color);
+              background: var(--step-default-background-color);
               border: 1px solid var(--step-default-complete-border-color);
               color: var(--step-default-icon-color);
               padding: $button-padding-vertical-large - 1
                 $button-padding-horizontal-large - 1;
 
               &:hover:not(.active) {
-                background-color: var(--step-default-hover-background-color);
+                background: var(--step-default-hover-background-color);
                 border-color: var(--step-default-hover-border-color);
                 color: var(--step-default-hover-icon-color);
               }
 
               &.complete {
-                background-color: var(--step-default-complete-background-color);
+                background: var(--step-default-complete-background-color);
                 border-color: var(--step-default-complete-border-color);
                 color: var(--step-default-complete-icon-color);
                 padding: 9px;
               }
 
               &.active {
-                background-color: var(--step-default-active-background-color);
+                background: var(--step-default-active-background-color);
                 border-color: var(--step-default-active-border-color);
                 color: var(--step-default-active-icon-color);
 
                 &:hover {
-                  background-color: var(--step-default-hover-background-color);
+                  background: var(--step-default-hover-background-color);
                 }
               }
             }
 
             &.circle-secondary-button {
-              background-color: var(--step-default-background-color);
+              background: var(--step-default-background-color);
               border: 1px solid var(--step-default-border-color);
               color: var(--step-default-icon-color);
 
               &:hover:not(.active) {
-                background-color: var(--step-default-hover-background-color);
+                background: var(--step-default-hover-background-color);
                 border-color: var(--step-default-hover-border-color);
                 color: var(--step-default-hover-icon-color);
               }
 
               &.active {
-                background-color: var(--step-default-active-background-color);
+                background: var(--step-default-active-background-color);
                 border-color: var(--step-default-active-border-color);
                 color: var(--step-default-active-icon-color);
               }
 
               &.complete {
-                background-color: var(--step-default-complete-background-color);
+                background: var(--step-default-complete-background-color);
                 border-color: var(--step-default-complete-border-color);
                 color: var(--step-default-complete-icon-color);
               }
@@ -334,15 +334,13 @@
               width: 28px;
 
               &.active {
-                background-color: var(--step-timeline-active-background-color);
+                background: var(--step-timeline-active-background-color);
                 border-color: var(--step-timeline-active-border-color);
                 color: var(--step-timeline-active-icon-color);
               }
 
               &.complete {
-                background-color: var(
-                  --step-timeline-complete-background-color
-                );
+                background: var(--step-timeline-complete-background-color);
                 border-color: var(--step-timeline-complete-border-color);
                 color: var(--step-timeline-complete-icon-color);
               }
@@ -373,22 +371,20 @@
               width: 28px;
 
               &.circle-default-button {
-                background-color: var(--step-timeline-background-color);
+                background: var(--step-timeline-background-color);
                 border: 1px solid var(--step-timeline-border-color);
                 box-shadow: var(--step-timeline-box-shadow);
                 color: var(--step-timeline-icon-color);
                 padding: $button-padding-vertical-small - 1;
 
                 &:hover:not(.active) {
-                  background-color: var(--step-timeline-hover-background-color);
+                  background: var(--step-timeline-hover-background-color);
                   border-color: var(--step-timeline-hover-border-color);
                   color: var(--step-timeline-hover-icon-color);
                 }
 
                 &.active {
-                  background-color: var(
-                    --step-timeline-active-background-color
-                  );
+                  background: var(--step-timeline-active-background-color);
                   border-color: var(--step-timeline-active-border-color);
                   color: var(--step-timeline-active-icon-color);
                 }
@@ -1506,6 +1502,544 @@
             );
             --step-timeline-complete-border-color: var(--warning-border-color);
             --step-timeline-complete-icon-color: var(--warning-color);
+          }
+        }
+      }
+    }
+  }
+
+  &.gradient {
+    .steps-container {
+      .steps {
+        .step {
+          .content {
+            .circle {
+              background: var(--step-default-background-gradient);
+
+              &.active {
+                background: var(--step-default-active-background-gradient);
+              }
+
+              &.complete {
+                background: var(--step-default-complete-background-gradient);
+              }
+            }
+
+            .circle-button {
+              &.circle-primary-button,
+              &.circle-secondary-button {
+                background: var(--step-default-background-gradient);
+
+                &:hover:not(.active) {
+                  background: var(--step-default-hover-background-gradient);
+                }
+
+                &.complete {
+                  background: var(--step-default-complete-background-gradient);
+                }
+
+                &.active {
+                  background: var(--step-default-active-background-gradient);
+
+                  &:hover {
+                    background: var(--step-default-hover-background-gradient);
+                  }
+                }
+              }
+
+              &.circle-secondary-button {
+                background: var(--step-default-background-gradient);
+
+                &:hover:not(.active) {
+                  background: var(--step-default-hover-background-gradient);
+                }
+
+                &.active {
+                  background: var(--step-default-active-background-gradient);
+                }
+
+                &.complete {
+                  background: var(--step-default-complete-background-gradient);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.timeline {
+      .steps-container {
+        .steps {
+          .step {
+            .content {
+              .circle {
+                background: var(--step-timeline-background-gradient);
+
+                &.active {
+                  background: var(--step-timeline-active-background-gradient);
+                }
+
+                &.complete {
+                  background: var(--step-timeline-complete-background-gradient);
+                }
+              }
+
+              .circle-button {
+                &.circle-default-button {
+                  background: var(--step-timeline-background-gradient);
+
+                  &:hover:not(.active) {
+                    background: var(--step-timeline-hover-background-gradient);
+                  }
+
+                  &.active {
+                    background: var(--step-timeline-active-background-gradient);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Default and shared properties
+    .steps-container {
+      .steps {
+        .separator,
+        .step .inner-separator,
+        .step .content .circle,
+        .step .content .circle-button.circle-primary-button,
+        .step .content .circle-button.circle-secondary-button {
+          &.red {
+            --step-default-active-background-gradient: var(
+              --red-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --red-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --red-background2-gradient
+            );
+          }
+
+          &.red-orange {
+            --step-default-active-background-gradient: var(
+              --redorange-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --redorange-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --redorange-background2-gradient
+            );
+          }
+
+          &.orange {
+            --step-default-active-background-gradient: var(
+              --orange-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --orange-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --orange-background2-gradient
+            );
+          }
+
+          &.yellow {
+            --step-default-active-background-gradient: var(
+              --yellow-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --yellow-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --yellow-background2-gradient
+            );
+          }
+
+          &.yellow-green {
+            --step-default-active-background-gradient: var(
+              --yellowgreen-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --yellowgreen-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --yellowgreen-background2-gradient
+            );
+          }
+
+          &.green {
+            --step-default-active-background-gradient: var(
+              --green-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --green-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --green-background2-gradient
+            );
+          }
+
+          &.blue-green {
+            --step-default-active-background-gradient: var(
+              --bluegreen-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --bluegreen-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --bluegreen-background2-gradient
+            );
+          }
+
+          &.blue {
+            --step-default-active-background-gradient: var(
+              --blue-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --blue-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --blue-background2-gradient
+            );
+          }
+
+          &.blue-violet {
+            --step-default-active-background-gradient: var(
+              --blueviolet-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --blueviolet-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --blueviolet-background2-gradient
+            );
+          }
+
+          &.violet {
+            --step-default-active-background-gradient: var(
+              --violet-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --violet-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --violet-background2-gradient
+            );
+          }
+
+          &.violet-red {
+            --step-default-active-background-gradient: var(
+              --violetred-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --violetred-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --violetred-background2-gradient
+            );
+          }
+
+          &.grey {
+            --step-default-active-background-gradient: var(
+              --grey-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --grey-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --grey-background2-gradient
+            );
+          }
+
+          &.error {
+            --step-default-active-background-gradient: var(
+              --red-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --red-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --red-background2-gradient
+            );
+          }
+
+          &.success {
+            --step-default-active-background-gradient: var(
+              --green-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --green-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --green-background2-gradient
+            );
+          }
+
+          &.warning {
+            --step-default-active-background-gradient: var(
+              --yellow-background2-gradient
+            );
+            --step-default-background-gradient: var(--background-color);
+            --step-default-hover-background-gradient: var(
+              --yellow-background1-gradient
+            );
+            --step-default-complete-background-gradient: var(
+              --yellow-background2-gradient
+            );
+          }
+        }
+      }
+    }
+
+    // Timeline theme properties
+    &.timeline {
+      .steps-container {
+        .steps {
+          .step .content .circle,
+          .step .content .circle-button.circle-default-button {
+            &.red {
+              --step-timeline-active-background-gradient: var(
+                --red-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --red-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --red-background1-gradient
+              );
+            }
+
+            &.red-orange {
+              --step-timeline-active-background-gradient: var(
+                --redorange-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --redorange-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --redorange-background1-gradient
+              );
+            }
+
+            &.orange {
+              --step-timeline-active-background-gradient: var(
+                --orange-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --orange-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --orange-background1-gradient
+              );
+            }
+
+            &.yellow {
+              --step-timeline-active-background-gradient: var(
+                --yellow-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --yellow-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --yellow-background1-gradient
+              );
+            }
+
+            &.yellow-green {
+              --step-timeline-active-background-gradient: var(
+                --yellowgreen-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --yellowgreen-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --yellowgreen-background1-gradient
+              );
+            }
+
+            &.green {
+              --step-timeline-active-background-gradient: var(
+                --green-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --green-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --green-background1-gradient
+              );
+            }
+
+            &.blue-green {
+              --step-timeline-active-background-gradient: var(
+                --bluegreen-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --bluegreen-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --bluegreen-background1-gradient
+              );
+            }
+
+            &.blue {
+              --step-timeline-active-background-gradient: var(
+                --blue-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --blue-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --blue-background1-gradient
+              );
+            }
+
+            &.blue-violet {
+              --step-timeline-active-background-gradient: var(
+                --blueviolet-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --blueviolet-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --blueviolet-background1-gradient
+              );
+            }
+
+            &.violet {
+              --step-timeline-active-background-gradient: var(
+                --violet-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --violet-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --violet-background1-gradient
+              );
+            }
+
+            &.violet-red {
+              --step-timeline-active-background-gradient: var(
+                --violetred-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --violetred-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --violetred-background1-gradient
+              );
+            }
+
+            &.grey {
+              --step-timeline-active-background-gradient: var(
+                --grey-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --grey-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --grey-background1-gradient
+              );
+            }
+
+            &.error {
+              --step-timeline-active-background-gradient: var(
+                --red-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --red-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --red-background1-gradient
+              );
+            }
+
+            &.success {
+              --step-timeline-active-background-gradient: var(
+                --green-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --green-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --green-background1-gradient
+              );
+            }
+
+            &.warning {
+              --step-timeline-active-background-gradient: var(
+                --yellow-background2-gradient
+              );
+              --step-timeline-background-gradient: var(
+                --yellow-background1-gradient
+              );
+              --step-timeline-hover-background-gradient: var(
+                --background-color
+              );
+              --step-timeline-complete-background-gradient: var(
+                --yellow-background1-gradient
+              );
+            }
           }
         }
       }

@@ -1,4 +1,5 @@
 import React, { Ref } from 'react';
+import { ConfigContextProps, OcThemeName } from '../../ConfigProvider';
 import { OcBaseProps } from '../../OcBase';
 import { ButtonProps } from '../../Button';
 import { IconName } from '../../Icon';
@@ -93,6 +94,10 @@ export interface BaseDialogProps
    */
   closeIcon?: IconName;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Custom classes for the dialog
    */
   dialogClassNames?: string;
@@ -111,6 +116,11 @@ export interface BaseDialogProps
    * @default true
    */
   focusTrap?: boolean;
+  /**
+   * The dialog gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * The header of the dialog
    */
@@ -193,6 +203,17 @@ export interface BaseDialogProps
    * @default `index.length - 1`
    */
   skipFocusableSelectorsFromIndex?: number;
+  /**
+   * Theme of the dialog.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the dialog.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Custom width of the dialog
    */

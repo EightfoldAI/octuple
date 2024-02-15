@@ -1,7 +1,7 @@
 import React from 'react';
-import { OcThemeName } from '../ConfigProvider';
-import { IconName } from '../Icon';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { OcBaseProps } from '../OcBase';
+import { IconName } from '../Icon';
 import { InputStatus } from '../../shared/utilities';
 
 export type SelectStepEvent<E = HTMLElement> =
@@ -88,9 +88,18 @@ export interface Step extends OcBaseProps<HTMLDivElement> {
    */
   completeAriaLabelText?: string;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * The Step content.
    */
   content?: React.ReactNode;
+  /**
+   * The Step gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /*
    * The Step index.
    */
@@ -125,6 +134,11 @@ export interface Step extends OcBaseProps<HTMLDivElement> {
    * Theme of the step.
    */
   theme?: StepperThemeName;
+  /**
+   * Theme container of the step button.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
 }
 
 export interface StepperProps
@@ -141,6 +155,15 @@ export interface StepperProps
    * @default 'complete'
    */
   completeAriaLabelText?: string;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
+   * The Stepper gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * The Stepper height.
    * Use when layout is `vertical`.
@@ -226,6 +249,11 @@ export interface StepperProps
    * Theme of the Stepper.
    */
   theme?: StepperThemeName;
+  /**
+   * Theme container of the Stepper buttons.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The Stepper variant.
    * options: Default, Timeline

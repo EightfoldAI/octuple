@@ -1348,6 +1348,9 @@
   --stat-tab-active-border-color: var(--grey-tertiary-color);
   --stat-tab-hover-background-color: var(--grey-background2-color);
   --stat-tab-hover-border-color: var(--grey-background2-color);
+
+  --stat-tab-background-gradient: var(--background-color);
+  --stat-tab-hover-background-gradient: var(--grey-background2-gradient);
   // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
@@ -1984,6 +1987,24 @@
   --step-timeline-complete-border-color: var(--step-timeline-background-color);
   --step-timeline-complete-icon-color: var(--step-timeline-icon-color);
 
+  --step-default-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --step-default-background-gradient: var(--background-color);
+  --step-default-hover-background-gradient: var(--primary-background1-gradient);
+  --step-default-complete-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --step-timeline-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --step-timeline-background-gradient: var(--primary-background1-gradient);
+  --step-timeline-hover-background-gradient: var(--background-color);
+  --step-timeline-complete-background-gradient: var(
+    --step-timeline-background-gradient
+  );
+  // ------ Stepper/Timeline theme ------
+
   // ------ Highlight box theme ------
   --highlight-background-color: var(--yellowgreen-background1-color);
   --highlight-border-color: var(--yellowgreen-background3-color);
@@ -2595,4 +2616,17 @@
   --form-item-tooltip-icon-cursor: help;
   --form-item-required-mark-color: var(--text-primary-color);
   // ------ Form theme ------
+
+  // ------ Pagination theme ------
+  --pager-button-hover-background-color: var(--accent-background1-color);
+  --pager-button-active-foreground-color: var(--primary-secondary-color);
+  --pager-button-active-outline-color: var(--primary-tertiary-color);
+  --pager-button-active-background-color: var(--accent-background2-color);
+  --pager-dot-outline-color: var(--accent-tertiary-color);
+
+  --pager-button-hover-background-gradient: var(--primary-background1-gradient);
+  --pager-button-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  // ------ Pagination theme ------
 }

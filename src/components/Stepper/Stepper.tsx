@@ -1,11 +1,13 @@
 import React, {
   FC,
   Ref,
+  useContext,
   useEffect,
   useLayoutEffect,
   useRef,
   useState,
 } from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import {
   Step,
   StepIndex,
@@ -18,14 +20,7 @@ import {
   StepperVariant,
   StepperValidationStatus,
 } from './Stepper.types';
-import {
-  ButtonShape,
-  ButtonSize,
-  DefaultButton,
-  NeutralButton,
-  PrimaryButton,
-  SecondaryButton,
-} from '../Button';
+import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { Icon, IconName, IconSize } from '../Icon';
 import LocaleReceiver, {
   useLocaleReceiver,
@@ -41,8 +36,13 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
   (props: StepperProps, ref: Ref<HTMLDivElement>) => {
     const {
       activeStepIndex = 0,
-      completeAriaLabelText: defaultCompleteAriaLabelText,
       classNames,
+      completeAriaLabelText: defaultCompleteAriaLabelText,
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
+      gradient = false,
       height,
       index = 0,
       layout = 'horizontal',
@@ -61,7 +61,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       status,
       steps,
       style,
-      theme,
+      theme, // TODO: migrate to theme context.
+      themeContainerId,
       variant = StepperVariant.Default,
       width,
       'data-test-id': dataTestId,
@@ -89,6 +90,11 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
     useEffect(() => {
       setCurrentActiveStep(index);
     }, [index]);
+
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
 
     // ============================ Strings ===========================
     const [stepperLocale] = useLocaleReceiver('Stepper');
@@ -158,6 +164,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       styles.stepper,
       {
         [styles.timeline]: variant === StepperVariant.Timeline,
+        [styles.gradient]: mergedGradient,
         [styles.medium]: size === StepperSize.Medium,
         [styles.small]: size === StepperSize.Small,
         [styles.vertical]: layout === 'vertical',
@@ -283,7 +290,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       status?: StepperValidationStatus,
       theme?: StepperThemeName
     ): JSX.Element => (
-      <DefaultButton
+      <Button
         ariaLabel={ariaLabel}
         classNames={mergeClasses([
           styles.circleButton,
@@ -293,6 +300,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           (styles as any)[`${theme}`],
           (styles as any)[`${status}`],
         ])}
+        configContextProps={configContextProps}
+        gradient={mergedGradient}
         iconProps={
           active && showActiveStepIndex
             ? null
@@ -306,6 +315,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         }
         shape={ButtonShape.Round}
         size={stepSizeToButtonSizeMap.get(size)}
+        theme={theme}
+        themeContainerId={themeContainerId}
         text={active && showActiveStepIndex ? `${index + 1}` : null}
       />
     );
@@ -318,7 +329,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       status?: StepperValidationStatus,
       theme?: StepperThemeName
     ): JSX.Element => (
-      <PrimaryButton
+      <Button
         ariaLabel={
           complete
             ? htmlDir === 'rtl'
@@ -335,6 +346,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           (styles as any)[`${theme}`],
           (styles as any)[`${status}`],
         ])}
+        configContextProps={configContextProps}
+        gradient={mergedGradient}
         iconProps={
           complete
             ? {
@@ -349,6 +362,9 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         shape={ButtonShape.Round}
         size={stepSizeToButtonSizeMap.get(size)}
         text={complete ? null : `${index + 1}`}
+        theme={theme}
+        themeContainerId={themeContainerId}
+        variant={ButtonVariant.Primary}
       />
     );
 
@@ -358,7 +374,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       status?: StepperValidationStatus,
       theme?: StepperThemeName
     ): JSX.Element => (
-      <SecondaryButton
+      <Button
         ariaLabel={`${index + 1}`}
         classNames={mergeClasses([
           styles.circleButton,
@@ -367,12 +383,17 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           (styles as any)[`${theme}`],
           (styles as any)[`${status}`],
         ])}
+        configContextProps={configContextProps}
+        gradient={mergedGradient}
         onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
           handleOnClick(event, index)
         }
         shape={ButtonShape.Round}
         size={stepSizeToButtonSizeMap.get(size)}
         text={`${index + 1}`}
+        theme={theme}
+        themeContainerId={themeContainerId}
+        variant={ButtonVariant.Secondary}
       />
     );
 
@@ -470,10 +491,12 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                 }}
               >
                 {mergedScrollable && (
-                  <NeutralButton
+                  <Button
                     ariaLabel={previousAriaLabel()}
                     classNames={styles.previous}
+                    configContextProps={configContextProps}
                     disabled={previousDisabled}
+                    gradient={mergedGradient}
                     iconProps={{
                       path:
                         htmlDir === 'rtl'
@@ -488,6 +511,9 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                     }
                     shape={ButtonShape.Round}
                     size={ButtonSize.Large}
+                    theme={theme}
+                    themeContainerId={themeContainerId}
+                    variant={ButtonVariant.Neutral}
                   />
                 )}
                 <div
@@ -829,10 +855,12 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                   </ul>
                 </div>
                 {mergedScrollable && (
-                  <NeutralButton
+                  <Button
                     ariaLabel={nextAriaLabel()}
                     classNames={styles.next}
+                    configContextProps={configContextProps}
                     disabled={nextDisabled}
+                    gradient={mergedGradient}
                     iconProps={{
                       path:
                         htmlDir === 'rtl'
@@ -847,6 +875,9 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                     }
                     shape={ButtonShape.Round}
                     size={ButtonSize.Large}
+                    theme={theme}
+                    themeContainerId={themeContainerId}
+                    variant={ButtonVariant.Neutral}
                   />
                 )}
               </div>

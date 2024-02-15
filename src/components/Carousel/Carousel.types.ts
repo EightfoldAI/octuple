@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import type { CustomEasing } from 'smooth-scroll-into-view-if-needed';
 import type { CustomScrollBehaviorCallback } from 'scroll-into-view-if-needed/typings/types';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { observerOptions as defaultObserverOptions } from './Settings';
 import { autoScrollApiType } from './autoScrollApi';
 import { OcBaseProps } from '../OcBase';
@@ -93,10 +94,19 @@ export interface CarouselProps
    */
   carouselScrollMenuProps?: ScrollMenuProps;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Whether to display the previous and next controls.
    * @default true
    */
   controls?: boolean;
+  /**
+   * The Carousel gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * The amount of time to delay between automatically cycling an item.
    * If false, carousel will not automatically cycle.
@@ -171,6 +181,17 @@ export interface CarouselProps
    * @default CarouselSize.Large
    */
   size?: CarouselSize;
+  /**
+   * Theme of the Carousel.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Carousel.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Set type of slide transition.
    * @default 'push'

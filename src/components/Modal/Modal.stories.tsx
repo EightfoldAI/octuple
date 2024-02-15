@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal, ModalSize } from './';
-import { DefaultButton, PrimaryButton } from '../Button';
+import { Button, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 
 export default {
@@ -75,6 +75,23 @@ export default {
       ],
       control: { type: 'select' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     positionStrategy: {
       options: ['absolute', 'fixed'],
       control: { type: 'inline-radio' },
@@ -86,7 +103,11 @@ const Modal_Story: ComponentStory<typeof Modal> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
+      <Button
+        text={'Open modal'}
+        onClick={() => setVisible(true)}
+        variant={ButtonVariant.Primary}
+      />
       <Modal {...args} onClose={() => setVisible(false)} visible={visible} />
     </>
   );
@@ -96,15 +117,34 @@ const Scrollable_Story: ComponentStory<typeof Modal> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
-      <PrimaryButton text={'Open modal'} onClick={() => setVisible(true)} />
+      <Button
+        text={'Open modal'}
+        onClick={() => setVisible(true)}
+        variant={ButtonVariant.Primary}
+      />
       <Modal
         {...args}
         onClose={() => setVisible(false)}
         visible={visible}
         actions={
           <>
-            <DefaultButton text={'Close'} onClick={() => setVisible(false)} />
-            <PrimaryButton text={'ok'} onClick={() => setVisible(false)} />
+            <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
+              onClick={() => setVisible(false)}
+              text={'Close'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
+            />
+            <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
+              onClick={() => setVisible(false)}
+              text={'OK'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
+              variant={ButtonVariant.Primary}
+            />
           </>
         }
       />
@@ -139,6 +179,13 @@ const modalArgs: Object = {
   body: 'Body 2 which is at 16px font size is used here in the body section of the modal. The modal body text can wrap to multiple lines.',
   bodyClassNames: 'my-modal-body-class',
   bodyPadding: true,
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  gradient: false,
+  theme: '',
+  themeContainerId: '',
   firstFocusableSelector: null,
   lastFocusableSelector: null,
   skipFocusableSelectorsFromIndex: null,
