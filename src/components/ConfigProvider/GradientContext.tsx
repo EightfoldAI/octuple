@@ -13,9 +13,9 @@ export const GradientContextProvider: FC<GradientContextProps> = ({
   children,
   gradient,
 }) => {
-  const originGradient = useContext(GradientContext);
+  const ancestorGradient = useContext(GradientContext);
   return (
-    <GradientContext.Provider value={gradient || originGradient}>
+    <GradientContext.Provider value={gradient || ancestorGradient}>
       {children}
     </GradientContext.Provider>
   );
