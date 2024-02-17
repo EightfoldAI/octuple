@@ -65,7 +65,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     replaceIcon,
     showDownloadIconButton: showDownloadIconButton = false,
     showPreviewIconButton: showPreviewIconButton = true,
-    showRemoveIconButton: showRemoveIconButton = true,
+    showRemoveIconButton: showRemoveIconButton = !maxCount,
     showReplaceButton: showReplaceButton = true,
     size,
     theme,
