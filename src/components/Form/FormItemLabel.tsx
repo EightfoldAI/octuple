@@ -126,7 +126,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
               {!requiredMark && !required && labelChildren}
               {(requiredMark === 'optional' || required) && (
                 <span>
-                  {labelChildren}
+                  <span className={styles.inlineEnforce}>{labelChildren}</span>
                   <span
                     className={mergeClasses([
                       styles.formItemOptional,
