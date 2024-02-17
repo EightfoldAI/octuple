@@ -142,7 +142,11 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                         text={cancelText}
                         theme={mergedTheme}
                         themeContainerId={themeContainerId}
-                        variant={ButtonVariant.Neutral}
+                        variant={
+                          mergedGradient
+                            ? ButtonVariant.Secondary
+                            : ButtonVariant.Neutral
+                        }
                         {...cancelButtonProps}
                         onClick={onCancel}
                       />

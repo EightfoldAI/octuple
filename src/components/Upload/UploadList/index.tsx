@@ -9,8 +9,7 @@ import {
 import { isImageUrl, previewImage } from '../Utils';
 import CSSMotion, { CSSMotionList } from '../../Motion';
 import type { CSSMotionListProps } from '../../Motion';
-import { ButtonShape, Button } from '../../Button';
-import { ButtonProps } from '../../Button';
+import { Button, ButtonProps, ButtonShape } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useForceUpdate } from '../../../hooks/useForceUpdate';
@@ -38,10 +37,12 @@ const InternalUploadList: React.ForwardRefRenderFunction<
   const {
     appendAction,
     appendActionVisible = true,
+    configContextProps,
     downloadFileText,
     downloadIcon,
     downloadIconButtonType = 'button',
     fullWidth = false,
+    gradient,
     iconRender,
     isImageUrl: isImgUrl = isImageUrl,
     itemRender,
@@ -67,6 +68,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     showRemoveIconButton: showRemoveIconButton = true,
     showReplaceButton: showReplaceButton = true,
     size,
+    theme,
+    themeContainerId,
     uploadErrorText,
     uploadingText,
   } = props;
@@ -153,7 +156,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     const dropIconColor: string =
       file.status === 'error'
         ? 'var(--error-color)'
-        : 'var(--text-primary-color)';
+        : 'var(--text-tertiary-color)';
     const fileIcon: JSX.Element =
       isImgUrl && isImgUrl(file) ? (
         <Icon path={IconName.mdiImageOutline} size={'48px'} />
@@ -203,11 +206,15 @@ const InternalUploadList: React.ForwardRefRenderFunction<
         styles.uploadListItemCardActionsButton,
         styles.iconDownload,
       ]),
+      configContextProps: configContextProps,
+      gradient: gradient,
       htmlType: downloadIconButtonType,
       iconProps: {
         path: IconName.mdiDownload,
       },
       shape: ButtonShape.Round,
+      theme: theme,
+      themeContainerId: themeContainerId,
       onClick: (_event: React.MouseEvent<HTMLElement>) => {
         callback();
       },
@@ -268,6 +275,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             downloadIcon={downloadIcon}
             downloadIconButtonType={downloadIconButtonType}
             file={file}
+            gradient={gradient}
             iconRender={internalIconRender}
             isImgUrl={isImgUrl}
             itemRender={itemRender}

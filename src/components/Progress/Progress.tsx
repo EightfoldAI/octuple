@@ -1,4 +1,8 @@
-import React, { FC, Ref, useRef } from 'react';
+import React, { FC, Ref, useContext, useRef } from 'react';
+import { DirectionType, OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
@@ -11,18 +15,21 @@ import {
 } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
 import { MAX_PERCENT } from './Internal/Common';
-import { DirectionType } from '../ConfigProvider';
 import { Icon, IconName, IconSize } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses, omit } from '../../shared/utilities';
 
 import styles from './progress.module.scss';
+import themedComponentStyles from './progress.theme.module.scss';
 
 const Progress: FC<ProgressProps> = React.forwardRef(
   (props: ProgressProps, ref: Ref<HTMLDivElement>) => {
     const {
       bordered = true,
       classNames,
+      configContextProps = {
+        noThemeContext: false,
+      },
       hideMax = false,
       hideMin = false,
       maxLabel,
@@ -38,6 +45,8 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       stepWidth,
       strokeColor,
       successLabel,
+      theme,
+      themeContainerId,
       type = 'line',
       variant = ProgressVariant.Default,
       width,
@@ -45,6 +54,11 @@ const Progress: FC<ProgressProps> = React.forwardRef(
     } = props;
 
     const htmlDir: string = useCanvasDirection();
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const maxLabelRef: React.MutableRefObject<HTMLSpanElement> =
       useRef<HTMLSpanElement>(null);
@@ -241,6 +255,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
         }`
       ],
       (styles as any)[`progress-status-${progressStatus}`],
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.progressSmall]: size === ProgressSize.Small },
       { [styles.progressRtl]: htmlDir === 'rtl' },
       classNames,
@@ -314,23 +329,29 @@ const Progress: FC<ProgressProps> = React.forwardRef(
     }
 
     return (
-      <div
-        ref={ref}
-        style={{ width: width }}
-        {...omit(rest, [
-          'gapDegree',
-          'gapPosition',
-          'format',
-          'status',
-          'strokeLinecap',
-          'strokeWidth',
-          'success',
-          'trailColor',
-        ])}
-        className={progressClassNames}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
       >
-        {progress}
-      </div>
+        <div
+          ref={ref}
+          style={{ width: width }}
+          {...omit(rest, [
+            'gapDegree',
+            'gapPosition',
+            'format',
+            'status',
+            'strokeLinecap',
+            'strokeWidth',
+            'success',
+            'trailColor',
+          ])}
+          className={progressClassNames}
+        >
+          {progress}
+        </div>
+      </ThemeContextProvider>
     );
   }
 );

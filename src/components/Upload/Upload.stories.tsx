@@ -45,7 +45,25 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof Upload>;
 
 const snackArgs: Object = {
@@ -56,8 +74,9 @@ const snackArgs: Object = {
   id: 'mySnackId',
 };
 
-const Basic_Story: ComponentStory<typeof Upload> = () => {
+const Basic_Story: ComponentStory<typeof Upload> = (args) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     headers: {
@@ -86,6 +105,8 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
     <>
       <Upload {...props}>
         <Button
+          configContextProps={args.configContextProps}
+          gradient={args.gradient}
           htmlType={'button'}
           onKeyDown={(event) => {
             if (
@@ -96,6 +117,8 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
             }
           }}
           text={'Select file'}
+          theme={args.theme}
+          themeContainerId={args.themeContainerId}
           variant={ButtonVariant.Primary}
         />
       </Upload>
@@ -104,8 +127,9 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
+const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = (args) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     headers: {
@@ -138,6 +162,8 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
     <>
       <Upload {...props}>
         <Button
+          configContextProps={args.configContextProps}
+          gradient={args.gradient}
           htmlType={'button'}
           onKeyDown={(event) => {
             if (
@@ -148,6 +174,8 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
             }
           }}
           text={'Select file'}
+          theme={args.theme}
+          themeContainerId={args.themeContainerId}
           variant={ButtonVariant.Primary}
         />
       </Upload>
@@ -326,8 +354,11 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
+const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     maxCount: 1,
     action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
@@ -363,10 +394,11 @@ const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
-  typeof Upload
-> = () => {
+const Drag_and_Drop_Multiple_Large_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     multiple: true,
     action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
@@ -406,7 +438,7 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
   );
 };
 
-const Image_List_Story: ComponentStory<typeof Upload> = () => {
+const Image_List_Story: ComponentStory<typeof Upload> = (args) => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
   const [previewTitle, setPreviewTitle] = useState<string>('');
@@ -475,6 +507,7 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
   return (
     <>
       <Upload
+        {...args}
         action="https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61"
         listType="picture-card"
         fileList={fileList}
@@ -484,6 +517,8 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
         {fileList.length >= 8 ? null : (
           <Button
             ariaLabel={'Select file'}
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
             onKeyDown={(event) => {
@@ -497,23 +532,29 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             variant={ButtonVariant.Primary}
           />
         )}
       </Upload>
       <Modal
-        visible={previewOpen}
-        header={previewTitle}
         body={
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         }
+        configContextProps={args.configContextProps}
+        gradient={args.gradient}
+        header={previewTitle}
         onClose={() => setPreviewOpen(false)}
+        theme={args.theme}
+        themeContainerId={args.themeContainerId}
+        visible={previewOpen}
       />
     </>
   );
 };
 
-const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
+const Image_Editor_Story: ComponentStory<typeof Upload> = (args) => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',
@@ -543,8 +584,15 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   };
 
   return (
-    <Cropper rotate>
+    <Cropper
+      configContextProps={args.configContextProps}
+      gradient={args.gradient}
+      rotate
+      theme={args.theme}
+      themeContainerId={args.themeContainerId}
+    >
       <Upload
+        {...args}
         action={'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61'}
         fileList={fileList}
         listType={'picture-card'}
@@ -554,6 +602,8 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
         {fileList.length < 5 && (
           <Button
             ariaLabel={'Select file'}
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
             onKeyDown={(event) => {
@@ -567,6 +617,8 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             variant={ButtonVariant.Primary}
           />
         )}
@@ -706,7 +758,17 @@ export const __namedExportsOrder = [
   'Basic_Deferred_API',
 ];
 
-const uploadArgs: Object = {};
+const uploadArgs: Object = {
+  disabled: false,
+  configContextProps: {
+    noDisabledContext: false,
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: '',
+  gradient: false,
+};
 
 Basic.args = {
   ...uploadArgs,

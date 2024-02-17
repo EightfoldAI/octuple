@@ -19,11 +19,11 @@ import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { InnerNudge, NudgeAnimation, NudgeProps } from './Nudge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
-import { mergeClasses } from '../../shared/utilities';
 import { Loader, LoaderSize } from '../Loader';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 import { useNudge } from './Nudge/Hooks/useNudge';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './button.module.scss';
 import themedComponentStyles from './button.theme.module.scss';

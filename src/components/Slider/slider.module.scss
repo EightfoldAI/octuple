@@ -1487,12 +1487,12 @@ $small-min-label-text-only-offset-with-steps: 8px;
   .slider-container {
     .thumb {
       &:focus-visible::-webkit-slider-thumb {
-        outline: $space-xxxs solid var(--primary-color-40);
+        outline: $space-xxxs solid var(--focus-visible-shadow-color);
         outline-offset: 1px;
       }
 
       &:focus-visible::-moz-range-thumb {
-        outline: $space-xxxs solid var(--primary-color-40);
+        outline: $space-xxxs solid var(--focus-visible-shadow-color);
         outline-offset: 1px;
       }
     }

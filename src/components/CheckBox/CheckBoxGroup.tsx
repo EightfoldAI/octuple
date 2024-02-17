@@ -1,6 +1,7 @@
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size } from '../ConfigProvider';
+import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import ThemeContext from '../ConfigProvider/ThemeContext';
 import { mergeClasses } from '../../shared/utilities';
 import {
   CheckBox,
@@ -26,6 +27,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
       configContextProps = {
         noDisabledContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
       formItemInput = false,
@@ -38,6 +40,8 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
       selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
+      theme,
+      themeContainerId,
       value,
       variant = SelectorVariant.Default,
       ...rest
@@ -61,6 +65,11 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const checkboxGroupClassNames = mergeClasses([
       styles.checkboxGroup,
@@ -104,6 +113,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
         {items.map((item) => (
           <CheckBox
             allowDisabledFocus={allowDisabledFocus}
+            configContextProps={configContextProps}
             disabled={mergedDisabled}
             labelPosition={labelPosition}
             labelAlign={labelAlign}
@@ -124,6 +134,8 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             }}
             selectorWidth={selectorWidth}
             size={mergedSize}
+            theme={mergedTheme}
+            themeContainerId={themeContainerId}
             variant={variant}
           />
         ))}

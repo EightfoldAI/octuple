@@ -175,9 +175,16 @@
       &:focus-visible {
         border: 2px solid var(--focus-visible-shadow-color);
         border-radius: $border-radius-xl;
-        padding: calc(#{$space-l} - 2px);
 
-        &-expanded {
+        &.large {
+          padding: calc(#{$space-m} - 2px) calc(#{$space-l} - 2px);
+        }
+
+        &.medium {
+          padding: calc(#{$space-s} - 2px) calc(#{$space-m} - 2px);
+        }
+
+        &.accordion-summary-expanded {
           border-radius: 0;
           border-top-left-radius: $border-radius-xl;
           border-top-right-radius: $border-radius-xl;
