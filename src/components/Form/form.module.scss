@@ -125,6 +125,10 @@
       font-weight: $text-font-weight-semibold;
       line-height: $text-line-height-2;
 
+      .inline-enforce * {
+        display: inline;
+      }
+
       .form-item-optional {
         display: inline-block;
         color: var(--form-item-optional-text-color);
