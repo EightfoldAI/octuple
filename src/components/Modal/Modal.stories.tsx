@@ -185,7 +185,7 @@ const modalArgs: Object = {
   },
   gradient: false,
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-modal-theme-container',
   firstFocusableSelector: null,
   lastFocusableSelector: null,
   skipFocusableSelectorsFromIndex: null,

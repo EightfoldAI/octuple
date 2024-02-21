@@ -88,7 +88,7 @@ const matchScoreArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-matchscore-theme-container',
   score: 3,
   total: 5,
   hideLabel: false,

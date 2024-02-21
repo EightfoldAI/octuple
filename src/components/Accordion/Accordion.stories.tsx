@@ -124,7 +124,7 @@ Single.args = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-accordion-theme-container',
   gradient: false,
   summary: 'Accordion Header',
   iconProps: {

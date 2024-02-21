@@ -89,7 +89,7 @@ const checkBoxArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-toggle-theme-container',
   disabled: false,
   name: 'myToggleName',
   value: 'label',

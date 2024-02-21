@@ -6,7 +6,6 @@ import {
   SearchBox,
   TextInputShape,
   TextInputSize,
-  TextInputTheme,
   TextInputWidth,
 } from '../index';
 
@@ -122,9 +121,26 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    status: {
+      options: ['success', 'warning', 'error', 'validating', 'highlight', ''],
+      control: 'select',
+    },
     theme: {
-      options: ['light', 'dark'],
-      control: { type: 'inline-radio' },
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
     },
     value: {
       control: { type: 'text' },
@@ -145,7 +161,16 @@ Search_Box.args = {
   autoFocus: true,
   classNames: 'my-searchbox-class',
   clearButtonAriaLabel: 'Clear',
+  configContextProps: {
+    noDisabledContext: false,
+    noShapeContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-searchbox-theme-container',
   disabled: false,
+  status: '',
   expandable: true,
   expandRight: false,
   iconProps: {
@@ -180,6 +205,5 @@ Search_Box.args = {
   shape: TextInputShape.Pill,
   size: TextInputSize.Medium,
   style: {},
-  theme: TextInputTheme.light,
   waitInterval: 10,
 };

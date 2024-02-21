@@ -1164,35 +1164,35 @@
 
   // Success (Validation) base colors
   --success-color: #2b715f;
-  --success-background-color: #b9f4e4;
+  --success-background-color: #f0fefa;
   --success-border-color: #3d8f79;
   --success-active-color: #1b5143;
-  --success-active-background-color: #b9f4e4;
+  --success-active-background-color: #f0fefa;
   --success-active-border-color: #3d8f79;
   --success-hover-color: #3d8f79;
-  --success-hover-background-color: #b9f4e4;
+  --success-hover-background-color: #f0fefa;
   --success-hover-border-color: #3d8f79;
 
   // Warning (Validation) base colors
   --warning-color: #9d6309;
-  --warning-background-color: #ffe3b0;
+  --warning-background-color: #fff8eb;
   --warning-border-color: #c97e19;
   --warning-active-color: #6c4500;
-  --warning-active-background-color: #ffe3b0;
+  --warning-active-background-color: #fff8eb;
   --warning-active-border-color: #c97e19;
   --warning-hover-color: #ce811a;
-  --warning-hover-background-color: #ffe3b0;
+  --warning-hover-background-color: #fff8eb;
   --warning-hover-border-color: #c97e19;
 
   // Error (Validation) base colors
   --error-color: #993838;
-  --error-background-color: #ffc6c6;
+  --error-background-color: #ffefef;
   --error-border-color: #c15151;
   --error-active-color: #6c2222;
-  --error-active-background-color: #ffc6c6;
+  --error-active-background-color: #ffefef;
   --error-active-border-color: #c15151;
   --error-hover-color: #c45353;
-  --error-hover-background-color: #ffc6c6;
+  --error-hover-background-color: #ffefef;
   --error-hover-border-color: #c15151;
 
   --background-color: #fff;
@@ -1278,14 +1278,23 @@
   --input-readonly-border-color: var(--grey-tertiary-color);
   --input-readonly-text-color: var(--input-text-color);
   --input-success-text-color: var(--input-text-color);
-  --input-success-border-color: var(--input-border-color);
+  --input-success-background-color: var(--success-background-color);
+  --input-success-border-color: var(--success-color);
+  --input-success-placeholder-color: var(--input-placeholder-text-color);
   --input-warning-text-color: var(--input-text-color);
+  --input-warning-background-color: var(--warning-background-color);
   --input-warning-border-color: var(--warning-color);
   --input-warning-placeholder-color: var(--input-placeholder-text-color);
   --input-error-text-color: var(--input-text-color);
+  --input-error-background-color: var(--error-background-color);
   --input-error-border-color: var(--error-color);
   --input-error-placeholder-color: var(--input-placeholder-text-color);
   --input-disabled-placeholder-text-color: var(--text-tertiary-color);
+  --input-highlight-text-color: var(--input-text-color);
+  --input-highlight-background-color: var(--primary-background1-color);
+  --input-highlight-border-color: var(--primary-tertiary-color);
+  --input-highlight-placeholder-color: var(--input-placeholder-text-color);
+  // ------ Input theme ------
 
   // ------ Tabs theme ------
   --tab-label: var(--text-secondary-color);

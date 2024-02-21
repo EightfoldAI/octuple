@@ -94,7 +94,7 @@ const infoBarArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-infobar-theme-container',
   gradient: false,
   icon: IconName.mdiCheckCircle,
   role: 'alert',

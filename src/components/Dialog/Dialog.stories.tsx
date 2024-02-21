@@ -222,7 +222,7 @@ const dialogArgs: Object = {
   },
   gradient: false,
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-dialog-theme-container',
   firstFocusableSelector: null,
   lastFocusableSelector: null,
   skipFocusableSelectorsFromIndex: null,

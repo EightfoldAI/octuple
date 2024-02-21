@@ -186,7 +186,7 @@ const linkButtonArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-linkbutton-theme-container',
   gradient: false,
   href: 'https://eightfold.ai',
   iconProps: {

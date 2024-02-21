@@ -122,7 +122,7 @@ const persistentBarArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-persistentbar-theme-container',
   gradient: false,
   style: {},
   classNames: 'my-persistent-bar-class',

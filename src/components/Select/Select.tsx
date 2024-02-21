@@ -8,7 +8,16 @@ import React, {
   Ref,
 } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { ShapeContext, Shape, SizeContext, Size } from '../ConfigProvider';
+import {
+  ShapeContext,
+  Shape,
+  SizeContext,
+  Size,
+  OcThemeName,
+} from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import { Dropdown, DropdownRef, NO_ANIMATION_DURATION } from '../Dropdown';
 import { Menu } from '../Menu';
 import {
@@ -42,6 +51,7 @@ import {
 } from '../../shared/utilities';
 
 import styles from './select.module.scss';
+import themedComponentStyles from './select.theme.module.scss';
 
 const inputPaddingHorizontal: number = +styles.inputPaddingHorizontal;
 const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
@@ -57,6 +67,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         noDisabledContext: false,
         noShapeContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       defaultValue,
       disabled = false,
@@ -88,8 +99,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
       spinner = (
         <Spinner classNames={styles.selectSpinner} size={SpinnerSize.Small} />
       ),
+      status,
       style,
       textInputProps = {},
+      theme,
+      themeContainerId,
       'data-test-id': dataTestId,
     },
     ref: Ref<HTMLDivElement>
@@ -149,6 +163,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const mergedSize: SelectSize | Size = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const firstRender: React.MutableRefObject<boolean> = useRef(true);
 
@@ -444,6 +463,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const dropdownWrapperClassNames: string = mergeClasses([
       dropdownProps.classNames,
+      { [themedComponentStyles.theme]: mergedTheme },
       styles.selectDropdownMainWrapper,
     ]);
 
@@ -487,6 +507,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       { [styles.selectMedium]: mergedSize === SelectSize.Medium },
       { [styles.selectSmall]: mergedSize === SelectSize.Small },
       { [styles.selectWrapperRtl]: htmlDir === 'rtl' },
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.selectWrapperDisabled]: mergedDisabled },
       { ['in-form-item']: mergedFormItemInput },
       classNames,
@@ -789,75 +810,85 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     return (
       <ResizeObserver onResize={updateLayout}>
-        <div
-          ref={ref}
-          className={componentClassNames}
-          data-test-id={dataTestId}
-          id={id}
-          style={style}
+        <ThemeContextProvider
+          componentClassName={themedComponentStyles.theme}
+          containerId={themeContainerId}
+          theme={mergedTheme}
         >
-          {/* When Dropdown is hidden, place Pills outside the reference element */}
-          {!dropdownVisible && showPills() ? getPills() : null}
-          <Dropdown
-            ariaRef={inputRef}
-            initialFocus={_initialFocus}
-            width={dropdownWidth}
-            closeOnReferenceClick={closeOnReferenceClick}
-            {...dropdownProps}
-            classNames={dropdownWrapperClassNames}
-            disabled={mergedDisabled || readonly}
-            dropdownClassNames={dropdownMenuOverlayClassNames}
-            onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
-            overlay={isLoading ? spinner : <OptionMenu options={options} />}
-            showDropdown={showDropdown}
-            visible={
-              dropdownVisible &&
-              (showEmptyDropdown ||
-                isLoading ||
-                searchQuery?.length > 0 ||
-                options?.length > 0)
-            }
-            ref={dropdownRef}
+          <div
+            ref={ref}
+            className={componentClassNames}
+            data-test-id={dataTestId}
+            id={id}
+            style={style}
           >
-            <div className={styles.selectInputWrapper}>
-              {/* When Dropdown is visible, place Pills in the reference element */}
-              {dropdownVisible && showPills() ? getPills() : null}
-              <TextInput
-                ref={inputRef}
-                {...selectInputProps}
-                autocomplete={autocomplete}
-                classNames={selectInputClassNames}
-                clear={
-                  (!dropdownVisible && getSelectedOptions().length === 0) ||
-                  (!dropdownVisible &&
-                    multiple &&
-                    filterable &&
-                    inputRef.current?.value !== '') ||
-                  clearInput
-                }
-                disabled={mergedDisabled}
-                formItemInput={mergedFormItemInput}
-                groupClassNames={styles.selectInputGroup}
-                onBlur={handleOnInputBlur}
-                onChange={filterable ? onInputChange : null}
-                onFocus={onFocus}
-                onKeyDown={handleInputKeyDown}
-                onReset={(): void => setResetTextInput(false)}
-                readonly={!filterable || readonly}
-                readOnlyProps={{
-                  clearable:
-                    (filterable || selectInputProps?.clearable) && !readonly,
-                  noStyleChange: !readonly,
-                }}
-                reset={resetTextInput}
-                role="combobox"
-                shape={selectShapeToTextInputShapeMap.get(mergedShape)}
-                size={selectSizeToTextInputSizeMap.get(mergedSize)}
-                value={selectedOptionText}
-              />
-            </div>
-          </Dropdown>
-        </div>
+            {/* When Dropdown is hidden, place Pills outside the reference element */}
+            {!dropdownVisible && showPills() ? getPills() : null}
+            <Dropdown
+              ariaRef={inputRef}
+              initialFocus={_initialFocus}
+              width={dropdownWidth}
+              closeOnReferenceClick={closeOnReferenceClick}
+              {...dropdownProps}
+              classNames={dropdownWrapperClassNames}
+              disabled={mergedDisabled || readonly}
+              dropdownClassNames={dropdownMenuOverlayClassNames}
+              onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
+              overlay={isLoading ? spinner : <OptionMenu options={options} />}
+              showDropdown={showDropdown}
+              visible={
+                dropdownVisible &&
+                (showEmptyDropdown ||
+                  isLoading ||
+                  searchQuery?.length > 0 ||
+                  options?.length > 0)
+              }
+              ref={dropdownRef}
+            >
+              <div className={styles.selectInputWrapper}>
+                {/* When Dropdown is visible, place Pills in the reference element */}
+                {dropdownVisible && showPills() ? getPills() : null}
+                <TextInput
+                  ref={inputRef}
+                  configContextProps={configContextProps}
+                  status={status}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
+                  {...selectInputProps}
+                  autocomplete={autocomplete}
+                  classNames={selectInputClassNames}
+                  clear={
+                    (!dropdownVisible && getSelectedOptions().length === 0) ||
+                    (!dropdownVisible &&
+                      multiple &&
+                      filterable &&
+                      inputRef.current?.value !== '') ||
+                    clearInput
+                  }
+                  disabled={mergedDisabled}
+                  formItemInput={mergedFormItemInput}
+                  groupClassNames={styles.selectInputGroup}
+                  onBlur={handleOnInputBlur}
+                  onChange={filterable ? onInputChange : null}
+                  onFocus={onFocus}
+                  onKeyDown={handleInputKeyDown}
+                  onReset={(): void => setResetTextInput(false)}
+                  readonly={!filterable || readonly}
+                  readOnlyProps={{
+                    clearable:
+                      (filterable || selectInputProps?.clearable) && !readonly,
+                    noStyleChange: !readonly,
+                  }}
+                  reset={resetTextInput}
+                  role="combobox"
+                  shape={selectShapeToTextInputShapeMap.get(mergedShape)}
+                  size={selectSizeToTextInputSizeMap.get(mergedSize)}
+                  value={selectedOptionText}
+                />
+              </div>
+            </Dropdown>
+          </div>
+        </ThemeContextProvider>
       </ResizeObserver>
     );
   }

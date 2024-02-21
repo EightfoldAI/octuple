@@ -766,7 +766,7 @@ const uploadArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-upload-theme-container',
   gradient: false,
 };
 

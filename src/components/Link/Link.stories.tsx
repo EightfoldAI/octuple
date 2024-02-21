@@ -117,7 +117,7 @@ const linkArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-link-theme-container',
   disabled: false,
   children: (
     <span

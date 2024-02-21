@@ -187,7 +187,7 @@ const stepperArgs: Object = {
   },
   gradient: false,
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-stepper-theme-container',
   index: 2,
   layout: 'horizontal',
   readonly: false,

@@ -353,7 +353,7 @@ const progressArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-progress-theme-container',
   gapDegree: null,
   gapPosition: null,
   hideMax: false,

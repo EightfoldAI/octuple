@@ -237,7 +237,7 @@ const buttonArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-button-theme-container',
   gradient: false,
   nudgeProps: null,
   htmlType: 'button',

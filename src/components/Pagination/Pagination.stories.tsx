@@ -104,7 +104,7 @@ const paginationArgs: Object = {
   },
   gradient: false,
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-pagination-theme-container',
   layout: [
     PaginationLayoutOptions.Previous,
     PaginationLayoutOptions.Pager,

@@ -268,7 +268,7 @@ const timelineArgs: Object = {
   },
   gradient: false,
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-timeline-theme-container',
   index: 2,
   layout: 'horizontal',
   lineStyle: null,

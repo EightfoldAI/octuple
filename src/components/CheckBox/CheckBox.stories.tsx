@@ -198,7 +198,7 @@ const checkBoxArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-checkbox-theme-container',
   disabled: false,
   indeterminate: false,
   name: 'myCheckBoxName',
@@ -239,7 +239,7 @@ Check_Box_Group.args = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-checkbox-group-theme-container',
   disabled: false,
   items: [
     {

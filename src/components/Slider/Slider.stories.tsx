@@ -4,7 +4,7 @@ import { Slider, SliderSize, SliderTrackStatus } from './';
 import { Stack } from '../Stack';
 import { Tooltip, TooltipTheme } from '../Tooltip';
 import { Col, Row } from '../Grid';
-import { PrimaryButton } from '../Button';
+import { Button, ButtonVariant } from '../Button';
 import { useArgs } from '@storybook/client-api';
 import { ConfigProvider } from '../ConfigProvider';
 
@@ -291,10 +291,11 @@ const Toggle_Thumb_Story: ComponentStory<typeof Slider> = (args) => {
         value={transientSlidingAValue}
       />
       <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-        <PrimaryButton
+        <Button
           onClick={toggleThumbVisibility}
           text={thumbHidden ? 'Show thumb' : 'Hide thumb'}
           toggle
+          variant={ButtonVariant.Primary}
         />
       </Stack>
     </Stack>
@@ -1067,13 +1068,14 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
           />
         </div>
         <Stack direction="horizontal" flexGap="xl" justify="center" fullWidth>
-          <PrimaryButton
+          <Button
             iconProps={{
               icomoonIconName: 'employee',
             }}
             onClick={updateValues}
             text={'Update active marker'}
             toggle
+            variant={ButtonVariant.Primary}
           />
         </Stack>
       </Stack>
@@ -1123,7 +1125,7 @@ const sliderArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-slider-theme-container',
   disabled: false,
   dots: false,
   dotClassNames: null,

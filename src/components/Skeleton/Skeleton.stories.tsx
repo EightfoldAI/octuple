@@ -8,7 +8,7 @@ import {
   SkeletonVariant,
 } from './Skeleton.types';
 import { Stack } from '../Stack';
-import { DefaultButton } from '../Button';
+import { Button } from '../Button';
 
 export default {
   title: 'Skeleton',
@@ -52,7 +52,7 @@ const Default_Story: ComponentStory<typeof Skeleton> = (args) => (
 
 const Child_Wrapper_Story: ComponentStory<typeof Skeleton> = (args) => (
   <Skeleton {...args}>
-    <DefaultButton text={'Sample button'} />
+    <Button text={'Sample button'} />
   </Skeleton>
 );
 

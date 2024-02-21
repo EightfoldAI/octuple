@@ -85,8 +85,8 @@ export default {
       control: { type: 'radio' },
     },
     status: {
-      options: ['error', 'warning'],
-      control: { type: 'radio' },
+      options: ['success', 'warning', 'error', 'validating', 'highlight', ''],
+      control: 'select',
     },
     popupPlacement: {
       options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
@@ -167,7 +167,7 @@ const Extra_Footer_Story: ComponentStory<typeof TimePicker> = (args) => {
           size={ButtonSize.Small}
           variant={ButtonVariant.Primary}
           onClick={() => setOpen(false)}
-          text={'OK'}
+          text="OK"
         />
       )}
     />
@@ -186,7 +186,7 @@ const Time_Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
 
 const Single_Borderless_Story: ComponentStory<typeof TimePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} flexGap={'xxl'}>
+    <Stack direction="vertical" flexGap="m">
       <TimePicker {...args} />
     </Stack>
   );
@@ -194,7 +194,7 @@ const Single_Borderless_Story: ComponentStory<typeof TimePicker> = (args) => {
 
 const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} flexGap={'xxl'}>
+    <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} />
     </Stack>
   );
@@ -202,18 +202,22 @@ const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
 
 const Single_Status_Story: ComponentStory<typeof TimePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} flexGap={'xxl'}>
-      <TimePicker {...args} status={'error'} />
-      <TimePicker {...args} status={'warning'} />
+    <Stack direction="vertical" flexGap="m">
+      <TimePicker {...args} status="success" />
+      <TimePicker {...args} status="warning" />
+      <TimePicker {...args} status="error" />
+      <TimePicker {...args} status="highlight" />
     </Stack>
   );
 };
 
 const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
-    <Stack direction={'vertical'} flexGap={'xxl'}>
-      <TimePicker.RangePicker {...args} status={'error'} />
-      <TimePicker.RangePicker {...args} status={'warning'} />
+    <Stack direction="vertical" flexGap="m">
+      <TimePicker.RangePicker {...args} status="success" />
+      <TimePicker.RangePicker {...args} status="warning" />
+      <TimePicker.RangePicker {...args} status="error" />
+      <TimePicker.RangePicker {...args} status="highlight" />
     </Stack>
   );
 };

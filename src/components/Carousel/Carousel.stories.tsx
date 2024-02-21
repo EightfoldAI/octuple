@@ -275,7 +275,7 @@ const carouselArgs: Object = {
   },
   gradient: false,
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-carousel-theme-container',
   controls: true,
   'data-test-id': 'myCarouselTestyId',
   overlayControls: true,

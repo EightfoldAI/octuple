@@ -35,43 +35,66 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof Breadcrumb>;
 
 const Breadcrumb_Story: ComponentStory<typeof Breadcrumb> = (args) => (
   <Breadcrumb {...args} />
 );
 
+// Prevents :visited from persisting or being shared between links.
+const testAnchor = (): string => {
+  return `#${Math.floor(Math.random() * 1000)}-eftestanchor`;
+};
+
 const myLinks = [
   {
     title: 'Home',
-    url: '#',
+    href: testAnchor(),
   },
   {
     title: 'Page 1',
-    url: '#',
+    href: testAnchor(),
   },
   {
     title: 'Page 2',
-    url: '#',
+    href: testAnchor(),
   },
   {
     title: 'Page 3',
-    url: '#',
+    href: testAnchor(),
   },
   {
     title: 'Page 4',
-    url: '#',
+    href: testAnchor(),
   },
   {
     title: 'Page 5',
-    url: '#',
+    href: testAnchor(),
   },
   {
     ariaCurrent: true,
     readonly: true,
     title: 'Page 6',
-    url: '#',
+    href: testAnchor(),
   },
 ];
 
@@ -86,6 +109,11 @@ export const With_Custom_Nodes = Breadcrumb_Story.bind({});
 const breadcrumbArgs: Object = {
   ariaLabel: 'Breadcrumbs',
   classNames: 'my-breadcrumb-root-class',
+  configContextProps: {
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-breadcrumb-theme-container',
   'data-testid': 'my-breadcrumb-testid',
   displayCurrent: true,
   divider: {
@@ -116,17 +144,17 @@ Basic_Few.args = {
   links: [
     {
       title: 'Home',
-      url: '#',
+      href: testAnchor(),
     },
     {
       title: 'Page 1',
-      url: '#',
+      href: testAnchor(),
     },
     {
       ariaCurrent: true,
       readonly: true,
       title: 'Page 2',
-      url: '#',
+      href: testAnchor(),
     },
   ],
 };
@@ -147,11 +175,11 @@ With_Link_Tooltip.args = {
   links: [
     {
       title: 'Home',
-      url: '#',
+      href: testAnchor(),
     },
     {
       title: 'Page 1',
-      url: '#',
+      href: testAnchor(),
       tooltipprops: {
         content: 'A tooltip',
       },
@@ -160,7 +188,7 @@ With_Link_Tooltip.args = {
       ariaCurrent: true,
       readonly: true,
       title: 'Page 2',
-      url: '#',
+      href: testAnchor(),
     },
   ],
 };
@@ -171,7 +199,7 @@ With_Custom_Links.args = {
     {
       title: 'Custom Home',
       children: (
-        <Link variant="primary" href="#">
+        <Link variant="primary" href={testAnchor()}>
           Custom home
         </Link>
       ),
@@ -179,7 +207,7 @@ With_Custom_Links.args = {
         <LinkButton
           alignText={LinkButtonTextAlign.Left}
           text="Custom home"
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
         />
@@ -188,7 +216,7 @@ With_Custom_Links.args = {
     {
       title: 'Custom page 1',
       children: (
-        <Link variant="disruptive" href="#">
+        <Link variant="disruptive" href={testAnchor()}>
           Custom page 1
         </Link>
       ),
@@ -196,7 +224,7 @@ With_Custom_Links.args = {
         <LinkButton
           alignText={LinkButtonTextAlign.Left}
           disruptive
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
           text="Custom page 1"
@@ -210,7 +238,7 @@ With_Custom_Links.args = {
     {
       title: 'Custom page 2',
       children: (
-        <Link variant="primary" href="#">
+        <Link variant="primary" href={testAnchor()}>
           Custom page 2
         </Link>
       ),
@@ -218,7 +246,7 @@ With_Custom_Links.args = {
         <LinkButton
           alignText={LinkButtonTextAlign.Left}
           text="Custom page 2"
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
         />
@@ -227,7 +255,7 @@ With_Custom_Links.args = {
     {
       title: 'Custom page 3',
       children: (
-        <Link variant="primary" href="#">
+        <Link variant="primary" href={testAnchor()}>
           Custom page 3
         </Link>
       ),
@@ -235,7 +263,7 @@ With_Custom_Links.args = {
         <LinkButton
           alignText={LinkButtonTextAlign.Left}
           text="Custom page 3"
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
         />
@@ -244,7 +272,7 @@ With_Custom_Links.args = {
     {
       title: 'Custom page 4',
       children: (
-        <Link variant="primary" href="#">
+        <Link variant="primary" href={testAnchor()}>
           Custom page 4
         </Link>
       ),
@@ -252,7 +280,7 @@ With_Custom_Links.args = {
         <LinkButton
           alignText={LinkButtonTextAlign.Left}
           text="Custom page 4"
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
         />
@@ -261,7 +289,7 @@ With_Custom_Links.args = {
     {
       title: 'Custom page 5',
       children: (
-        <Link variant="primary" href="#">
+        <Link variant="primary" href={testAnchor()}>
           Custom page 5
         </Link>
       ),
@@ -269,7 +297,7 @@ With_Custom_Links.args = {
         <LinkButton
           alignText={LinkButtonTextAlign.Left}
           text="Custom page 5"
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
         />
@@ -282,14 +310,14 @@ With_Custom_Links.args = {
           alignText={LinkButtonTextAlign.Left}
           disabled
           text="Custom page 6"
-          href="#"
+          href={testAnchor()}
           linkButtonWidth={LinkButtonWidth.fill}
           size={LinkButtonSize.Small}
         />
       ),
       readonly: true,
       title: 'Custom page 6',
-      url: '#',
+      href: testAnchor(),
     },
   ],
 };

@@ -1,6 +1,7 @@
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
+import { OcBaseProps } from '../OcBase';
 import { IconProps } from '../Icon';
 import { LinkProps } from '../Link';
-import { OcBaseProps } from '../OcBase';
 import { TooltipProps } from '../Tooltip';
 
 type Locale = {
@@ -75,6 +76,16 @@ export interface BreadcrumbProps extends OcBaseProps<HTMLDivElement> {
    */
   classNames?: string;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
+   * Whether to display the current page in the Breadcrumb.
+   * To be used if your links array includes the current page.
+   * @default true
+   */
+  displayCurrent?: boolean;
+  /**
    * Shared custom divider of the Breadcrumb list items.
    * Cutom dividers of individual Links will take priority.
    */
@@ -104,13 +115,18 @@ export interface BreadcrumbProps extends OcBaseProps<HTMLDivElement> {
    */
   overflowAriaLabel?: string;
   /**
-   * Whether to display the current page in the Breadcrumb.
-   * To be used if your links array includes the current page.
-   * @default true
-   */
-  displayCurrent?: boolean;
-  /**
    * Custom style of the root Breadcrumb element.
    */
   style?: React.CSSProperties;
+  /**
+   * Theme of the breadcrumb.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the breadcrumb.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
 }

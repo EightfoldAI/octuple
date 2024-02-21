@@ -358,7 +358,7 @@ const radioButtonArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-radiobutton-theme-container',
   disabled: false,
   id: 'myRadioButtonId',
   label: 'Label',
@@ -395,7 +395,7 @@ Radio_Group.args = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-radiogroup-theme-container',
   disabled: false,
   items: [1, 2, 3].map((i: number) => ({
     ariaLabel: `Radio${i}`,

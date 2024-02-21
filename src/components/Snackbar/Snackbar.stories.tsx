@@ -128,7 +128,7 @@ const snackArgs: Object = {
     noThemeContext: false,
   },
   theme: '',
-  themeContainerId: '',
+  themeContainerId: 'my-snackbar-theme-container',
   gradient: false,
   id: 'mySnackId',
 };
