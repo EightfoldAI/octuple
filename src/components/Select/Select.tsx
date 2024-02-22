@@ -39,6 +39,7 @@ import {
   canUseDocElement,
   eventKeys,
   mergeClasses,
+  uniqueId,
 } from '../../shared/utilities';
 
 import styles from './select.module.scss';
@@ -111,6 +112,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const pillRefs = useRef<HTMLElement[]>([]);
     const currentlySelectedOption: React.MutableRefObject<SelectOption> =
       useRef<SelectOption>(null);
+    const selectMenuId: React.MutableRefObject<string> = useRef<string>(
+      uniqueId('list-')
+    );
 
     const [clearInput, setClearInput] = useState<boolean>(false);
     const [closeOnReferenceClick, setCloseOnReferenceClick] = useState<boolean>(
@@ -124,6 +128,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         id: option.text + '-' + index,
         object: option.object,
         role: 'option',
+        'aria-selected': option.selected,
         ...option,
       }))
     );
@@ -185,6 +190,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           id: option.text + '-' + index,
           object: option.object,
           role: 'option',
+          'aria-selected': option.selected,
           ...option,
         }))
       );
@@ -204,6 +210,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           id: option.text + '-' + index,
           object: option.object,
           role: 'option',
+          'aria-selected': option.selected,
           ...option,
         }))
       );
@@ -548,6 +555,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             label={opt.text}
             onClose={() => toggleOption(opt)}
             size={selectSizeToPillSizeMap.get(size)}
+            tabIndex={0}
             theme={'blueGreen'}
             type={readonly ? PillType.default : PillType.closable}
             style={{
@@ -584,6 +592,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               id="select-pill-count"
               key="select-count"
               label={'+' + (moreOptionsCount - count)}
+              tabIndex={0}
               theme={'blueGreen'}
               size={selectSizeToPillSizeMap.get(mergedSize)}
               {...pillProps}
@@ -621,11 +630,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
           ...opt,
           classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
           role: 'option',
+          'aria-selected': opt.selected,
         })
       );
       if (filteredOptions.length > 0) {
         return (
           <Menu
+            aria-multiselectable={multiple ? 'true' : undefined}
+            id={selectMenuId?.current}
             {...menuProps}
             items={updatedItems}
             onChange={(value) => {
@@ -635,6 +647,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               currentlySelectedOption.current = option;
               toggleOption(option);
             }}
+            role="listbox"
           />
         );
       } else {
@@ -791,6 +804,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       <ResizeObserver onResize={updateLayout}>
         <div
           ref={ref}
+          aria-owns={dropdownVisible ? selectMenuId?.current : undefined}
           className={componentClassNames}
           data-test-id={dataTestId}
           id={id}
@@ -824,6 +838,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
               {dropdownVisible && showPills() ? getPills() : null}
               <TextInput
                 ref={inputRef}
+                aria-activedescendant={currentlySelectedOption.current?.id}
+                aria-controls={selectMenuId?.current}
                 {...selectInputProps}
                 autocomplete={autocomplete}
                 classNames={selectInputClassNames}

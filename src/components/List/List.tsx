@@ -67,6 +67,8 @@ export const List = <T extends any>({
     const arrowUp: boolean = event?.key === eventKeys.ARROWUP;
     const arrowDecrement: boolean = htmlDir === 'rtl' ? arrowRight : arrowLeft;
     const arrowIncrement: boolean = htmlDir === 'rtl' ? arrowLeft : arrowRight;
+    const end: boolean = event?.key === eventKeys.END;
+    const home: boolean = event?.key === eventKeys.HOME;
     if (
       ((arrowDown || arrowUp) && layout === 'vertical') ||
       ((arrowDecrement || arrowIncrement) && layout === 'horizontal')
@@ -118,6 +120,20 @@ export const List = <T extends any>({
         };
         const focusableElements: HTMLElement[] = getFocusableElements();
         focusableElements?.[0]?.focus();
+      }
+    }
+    if (home) {
+      event?.preventDefault();
+      setFocusIndex(0);
+      if (itemRefs.current[0]) {
+        itemRefs.current[0]?.focus();
+      }
+    }
+    if (end) {
+      event?.preventDefault();
+      setFocusIndex(items.length - 1);
+      if (itemRefs.current[items.length - 1]) {
+        itemRefs.current[items.length - 1]?.focus();
       }
     }
   };
