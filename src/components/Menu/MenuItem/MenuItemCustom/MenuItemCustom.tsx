@@ -21,7 +21,7 @@ export const MenuItemCustom: FC<MenuItemCustomProps> = forwardRef(
     ]);
 
     return (
-      <li className={menuItemClassNames}>
+      <li role="presentation" className={menuItemClassNames}>
         {item.render({ index, value: item, onChange, ref: ref })}
       </li>
     );

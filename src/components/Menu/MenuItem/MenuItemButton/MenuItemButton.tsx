@@ -169,6 +169,10 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       return dropdownMenuItems ? dropdownMenuButton() : menuButton();
     };
 
-    return <li className={menuItemClassNames}>{renderedItem()}</li>;
+    return (
+      <li role="presentation" className={menuItemClassNames}>
+        {renderedItem()}
+      </li>
+    );
   }
 );
