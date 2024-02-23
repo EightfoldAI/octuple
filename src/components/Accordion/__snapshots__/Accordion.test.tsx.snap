@@ -39,27 +39,32 @@ exports[`Accordion Accordion is large 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge badge-medium"
+          class="badge badge-medium badge"
         >
           2
         </span>
       </div>
-      <span
-        aria-hidden="false"
-        class="accordion-icon icon-wrapper"
-        role="presentation"
+      <button
+        aria-disabled="false"
+        class="button button-neutral button-medium round-shape icon-left"
       >
-        <svg
+        <span
+          aria-hidden="false"
+          class="icon accordion-icon icon-wrapper"
           role="presentation"
-          style="width: 20px; height: 20px;"
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style="fill: currentColor;"
-          />
-        </svg>
-      </span>
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       aria-labelledby="myAccordionId-header"
@@ -120,27 +125,32 @@ exports[`Accordion Accordion is medium 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge badge-medium"
+          class="badge badge-medium badge"
         >
           2
         </span>
       </div>
-      <span
-        aria-hidden="false"
-        class="accordion-icon icon-wrapper"
-        role="presentation"
+      <button
+        aria-disabled="false"
+        class="button button-neutral button-medium round-shape icon-left"
       >
-        <svg
+        <span
+          aria-hidden="false"
+          class="icon accordion-icon icon-wrapper"
           role="presentation"
-          style="width: 20px; height: 20px;"
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style="fill: currentColor;"
-          />
-        </svg>
-      </span>
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       aria-labelledby="myAccordionId-header"
@@ -201,27 +211,32 @@ exports[`Accordion Accordion is not bordered 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge badge-medium"
+          class="badge badge-medium badge"
         >
           2
         </span>
       </div>
-      <span
-        aria-hidden="false"
-        class="accordion-icon icon-wrapper"
-        role="presentation"
+      <button
+        aria-disabled="false"
+        class="button button-neutral button-medium round-shape icon-left"
       >
-        <svg
+        <span
+          aria-hidden="false"
+          class="icon accordion-icon icon-wrapper"
           role="presentation"
-          style="width: 20px; height: 20px;"
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style="fill: currentColor;"
-          />
-        </svg>
-      </span>
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       aria-labelledby="myAccordionId-header"
@@ -282,27 +297,32 @@ exports[`Accordion Accordion is pill shaped 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge badge-medium"
+          class="badge badge-medium badge"
         >
           2
         </span>
       </div>
-      <span
-        aria-hidden="false"
-        class="accordion-icon icon-wrapper"
-        role="presentation"
+      <button
+        aria-disabled="false"
+        class="button button-neutral button-medium round-shape icon-left"
       >
-        <svg
+        <span
+          aria-hidden="false"
+          class="icon accordion-icon icon-wrapper"
           role="presentation"
-          style="width: 20px; height: 20px;"
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style="fill: currentColor;"
-          />
-        </svg>
-      </span>
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       aria-labelledby="myAccordionId-header"
@@ -363,27 +383,32 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge badge-medium"
+          class="badge badge-medium badge"
         >
           2
         </span>
       </div>
-      <span
-        aria-hidden="false"
-        class="accordion-icon icon-wrapper"
-        role="presentation"
+      <button
+        aria-disabled="false"
+        class="button button-neutral button-medium round-shape icon-left"
       >
-        <svg
+        <span
+          aria-hidden="false"
+          class="icon accordion-icon icon-wrapper"
           role="presentation"
-          style="width: 20px; height: 20px;"
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style="fill: currentColor;"
-          />
-        </svg>
-      </span>
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       aria-labelledby="myAccordionId-header"
@@ -444,27 +469,32 @@ exports[`Accordion Renders without crashing 1`] = `
           Accordion Header
         </span>
         <span
-          class="badge badge-medium"
+          class="badge badge-medium badge"
         >
           2
         </span>
       </div>
-      <span
-        aria-hidden="false"
-        class="accordion-icon icon-wrapper"
-        role="presentation"
+      <button
+        aria-disabled="false"
+        class="button button-neutral button-medium round-shape icon-left"
       >
-        <svg
+        <span
+          aria-hidden="false"
+          class="icon accordion-icon icon-wrapper"
           role="presentation"
-          style="width: 20px; height: 20px;"
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style="fill: currentColor;"
-          />
-        </svg>
-      </span>
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       aria-labelledby="myAccordionId-header"

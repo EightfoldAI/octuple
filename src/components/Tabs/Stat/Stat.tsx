@@ -1,4 +1,7 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import GradientContext, {
+  Gradient,
+} from '../../ConfigProvider/GradientContext';
 import { StatProps, StatThemeName, TabSize } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Button, ButtonSize } from '../../Button';
@@ -20,9 +23,13 @@ export const Stat: FC<StatProps> = React.forwardRef(
       ariaLabel,
       buttonProps,
       classNames,
+      configContextProps = {
+        noGradientContext: false,
+      },
       disabled,
       direction = 'horizontal',
       fullWidth = false,
+      gradient = false,
       icon,
       label,
       loading,
@@ -49,6 +56,11 @@ export const Stat: FC<StatProps> = React.forwardRef(
 
     const mergedTheme: StatThemeName = theme ?? statgrouptheme;
 
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
     const iconExists: boolean = !!icon;
     const labelExists: boolean = !!label;
     const ratioAExists: boolean = !!ratioA;
@@ -59,6 +71,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
       styles.tab,
       (styles as any)[`${mergedTheme}`],
       {
+        [styles.gradient]: mergedGradient,
         [styles.readOnly]: !!readOnly,
         [styles.active]: isActive && !readOnly,
         [styles.statusSuccess]: status === 'success',

@@ -2,77 +2,174 @@ import { OcBaseTheme, OcTheme, OcThemeName } from './Theming.types';
 
 // NOTE: Theme should not provide defaults. The css variables provide
 // the defaults, and the ConfigProvider theme can override them accordingly.
+// Sunset of themeDefaults is planned for Octuple v3
 export const themeDefaults: OcBaseTheme = {};
 
 export const red: OcTheme = {
-  primaryColor: '#6C2222',
+  primaryColor: '#6c2222',
   accentName: 'violetRed',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#fff2ed',
+    '#ffd1bd',
+    '#ffb396',
+    '#d26743',
+    '#a54d2c',
+    '#78351a',
+  ],
+  gradientMiddlePalette: [
+    '#ffefef',
+    '#ffc6c6',
+    '#ffa3a3',
+    '#c15151',
+    '#993838',
+    '#6c2222',
+  ],
+  gradientStartPalette: [
+    '#fff0f9',
+    '#fcc8e7',
+    '#f3a5d4',
+    '#b5548e',
+    '#943d71',
+    '#702853',
+  ],
   palette: [
-    '#0A0202',
-    '#3B1010',
-    '#6C2222', //AAA ✅ (11.11:1) with $grey0 text
-    '#993838', //AAA ✅ (7.05:1) with $grey0 text
-    '#C45353', //AA ✔️️ (4.59:1) with $grey0 text
-    '#E46F6F',
-    '#F48686', //AA ✔️ (6.61:1) with $grey90 text
-    '#FFA3A3', //AAA ✅ (8.47:1) with $grey90 text
-    '#FFC6C6',
-    '#FFEFEF',
+    '#ffefef',
+    '#ffc6c6',
+    '#ffa3a3',
+    '#f48686',
+    '#e46f6f',
+    '#c45353',
+    '#993838',
+    '#6c2222',
+    '#3b1010',
+    '#0a0202',
   ],
 };
 
 export const redOrange: OcTheme = {
-  primaryColor: '#78351A',
+  primaryColor: '#78351a',
   accentName: 'red',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#fff8eb',
+    '#ffe3b0',
+    '#ffcd78',
+    '#c97e19',
+    '#9d6309',
+    '#6c4500',
+  ],
+  gradientMiddlePalette: [
+    '#fff2ed',
+    '#ffd1bd',
+    '#ffb396',
+    '#d26743',
+    '#a54d2c',
+    '#78351a',
+  ],
+  gradientStartPalette: [
+    '#ffefef',
+    '#ffc6c6',
+    '#ffa3a3',
+    '#c15151',
+    '#993838',
+    '#6c2222',
+  ],
   palette: [
-    '#1F0C03',
-    '#4C1F0C',
-    '#78351A',
-    '#A54D2C',
-    '#D26743',
-    '#F8845F',
-    '#FF9977',
-    '#FFB396',
-    '#FFD1BD',
-    '#FFF2ED',
+    '#fff2ed',
+    '#ffd1bd',
+    '#ffb396',
+    '#ff9977',
+    '#f8845f',
+    '#d26743',
+    '#a54d2c',
+    '#78351a',
+    '#4c1f0c',
+    '#1f0c03',
   ],
 };
 
 export const orange: OcTheme = {
-  primaryColor: '#6C4500',
+  primaryColor: '#6c4500',
   accentName: 'redOrange',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#ffffeb',
+    '#fff89c',
+    '#ffe44e',
+    '#a88f00',
+    '#857600',
+    '#5c5500',
+  ],
+  gradientMiddlePalette: [
+    '#fff8eb',
+    '#ffe3b0',
+    '#ffcd78',
+    '#c97e19',
+    '#9d6309',
+    '#6c4500',
+  ],
+  gradientStartPalette: [
+    '#fff2ed',
+    '#ffd1bd',
+    '#ffb396',
+    '#d26743',
+    '#a54d2c',
+    '#78351a',
+  ],
   palette: [
-    '#0A0700',
-    '#3B2600',
-    '#6C4500', //AAA ✅ (8.43:1) with $grey0 text
-    '#9D6309', //AA ✔️️ (4.97:1) with $grey0 text
-    '#CE811A', //AA ✔️ (4.98:1) with $grey90 text
-    '#F29D31', //AAA ✅ (7.41:1) with $grey90 text
-    '#FFB650', //AAA ✅ (9.26:1) with $grey90 text
-    '#FFCD78', //AAA ✅ (10.95:1) with $grey90 text
-    '#FFE3B0',
-    '#FFF8EB',
+    '#fff8eb',
+    '#ffe3b0',
+    '#ffcd78',
+    '#ffb650',
+    '#f29d31',
+    '#ce811a',
+    '#9d6309',
+    '#6c4500',
+    '#3b2600',
+    '#0a0700',
   ],
 };
 
 export const yellow: OcTheme = {
-  primaryColor: '#5C5500',
+  primaryColor: '#5c5500',
   accentName: 'orange',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#fdfeeb',
+    '#f3f5b0',
+    '#e2e575',
+    '#858707',
+    '#6d6f00',
+    '#525400',
+  ],
+  gradientMiddlePalette: [
+    '#ffffeb',
+    '#fff89c',
+    '#ffe44e',
+    '#a88f00',
+    '#857600',
+    '#5c5500',
+  ],
+  gradientStartPalette: [
+    '#fff8eb',
+    '#ffe3b0',
+    '#ffcd78',
+    '#c97e19',
+    '#9d6309',
+    '#6c4500',
+  ],
   palette: [
-    '#0A0A00',
+    '#ffffeb',
+    '#fff89c',
+    '#ffe44e',
+    '#f1c40f',
+    '#d6ad00',
+    '#ad9300',
+    '#857600',
+    '#5c5500',
     '#333100',
-    '#5C5500', //AAA ✅ (7.62:1) with $grey0 text
-    '#857600', //AA ✔️️ (4.57:1) with $grey0 text
-    '#AD9300', //AA ✔️️ (5.07:1) with $grey90 text
-    '#D6AD00', //AAA ✅️ (7.56:1) with $grey90 text
-    '#F1C40F', // AAA ✅ (9.71:1) with $grey90 text
-    '#FFE44E', // AAA ✅ (12.65:1) with $grey90 text
-    '#FFF89C',
-    '#FFFFEB',
+    '#0a0a00',
   ],
 };
 
@@ -80,35 +177,83 @@ export const yellowGreen: OcTheme = {
   primaryColor: '#525400',
   accentName: 'yellow',
   ...themeDefaults,
-  palette: [
-    '#131300',
-    '#343500',
-    '#525400',
-    '#6D6F00',
+  gradientEndPalette: [
+    '#f0fefa',
+    '#b9f4e4',
+    '#8ce1ca',
+    '#3d8f79',
+    '#2b715f',
+    '#1b5143',
+  ],
+  gradientMiddlePalette: [
+    '#fdfeeb',
+    '#f3f5b0',
+    '#e2e575',
     '#858707',
-    '#ABAE1F',
-    '#CACD46',
-    '#E2E575',
-    '#F3F5B0',
-    '#FDFEEB',
+    '#6d6f00',
+    '#525400',
+  ],
+  gradientStartPalette: [
+    '#ffffeb',
+    '#fff89c',
+    '#ffe44e',
+    '#a88f00',
+    '#857600',
+    '#5c5500',
+  ],
+  palette: [
+    '#fdfeeb',
+    '#f3f5b0',
+    '#e2e575',
+    '#cacd46',
+    '#abae1f',
+    '#858707',
+    '#6d6f00',
+    '#525400',
+    '#343500',
+    '#131300',
   ],
 };
 
 export const green: OcTheme = {
-  primaryColor: '#1B5143',
+  primaryColor: '#1b5143',
   accentName: 'yellowGreen',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#ebfdff',
+    '#b0f3fe',
+    '#7be4f4',
+    '#1999ac',
+    '#0b7b8b',
+    '#025966',
+  ],
+  gradientMiddlePalette: [
+    '#f0fefa',
+    '#b9f4e4',
+    '#8ce1ca',
+    '#3d8f79',
+    '#2b715f',
+    '#1b5143',
+  ],
+  gradientStartPalette: [
+    '#fdfeeb',
+    '#f3f5b0',
+    '#e2e575',
+    '#858707',
+    '#6d6f00',
+    '#525400',
+  ],
   palette: [
-    '#030A08',
-    '#0E2E26',
-    '#1B5143', //AAA ✅ (9.11:1) with $grey0 text
-    '#2B715F', //AA ✔️️ (5.78:1) with $grey0 text
-    '#3D8F79',
-    '#51AB93', //AA ✔️ (5.83:1) with $grey90 text
-    '#67C5AC', //AAA ✅ (7.8:1) with $grey90 text
-    '#8CE1CA', //AAA ✅ (10.56:1) with $grey90 text
-    '#B9F4E4',
-    '#F0FEFA',
+    '#f0fefa',
+    '#b9f4e4',
+    '#8ce1ca',
+    '#67c5ac',
+    '#51ab93',
+    '#3d8f79',
+    '#2b715f',
+    '#1b5143',
+    '#0e2e26',
+    '#030a08',
   ],
 };
 
@@ -116,71 +261,167 @@ export const blueGreen: OcTheme = {
   primaryColor: '#025966',
   accentName: 'green',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#ebf7ff',
+    '#bce4ff',
+    '#8ed0fa',
+    '#2c8cc9',
+    '#146da6',
+    '#054d7b',
+  ],
+  gradientMiddlePalette: [
+    '#ebfdff',
+    '#b0f3fe',
+    '#7be4f4',
+    '#1999ac',
+    '#0b7b8b',
+    '#025966',
+  ],
+  gradientStartPalette: [
+    '#f0fefa',
+    '#b9f4e4',
+    '#8ce1ca',
+    '#3d8f79',
+    '#2b715f',
+    '#1b5143',
+  ],
   palette: [
-    '#00090A',
-    '#00333B',
-    '#025966', //AAA ✅ (8:1) with $grey0 text
-    '#0B7B8B', //AA ✔️️ (4.97:1) with $grey0 text
-    '#1999AC', //AA ✔️ (4.76:1) with $grey90 text
-    '#2DB3C7', //AAA ✅ (6.44:1) with $grey90 text
-    '#50CEE1', //AAA ✅ (8.65:1) with $grey90 text
-    '#7BE4F4', //AAA ✅ (10.95:1) with $grey90 text
-    '#B0F3FE',
-    '#EBFDFF',
+    '#ebfdff',
+    '#b0f3fe',
+    '#7be4f4',
+    '#50cee1',
+    '#2db3c7',
+    '#1999ac',
+    '#0b7b8b',
+    '#025966',
+    '#00333b',
+    '#00090a',
   ],
 };
 
 export const blue: OcTheme = {
-  primaryColor: '#054D7B',
+  primaryColor: '#054d7b',
   accentName: 'blueGreen',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#f1f2ff',
+    '#cacffc',
+    '#a9b0f5',
+    '#5962b7',
+    '#414996',
+    '#2b3271',
+  ],
+  gradientMiddlePalette: [
+    '#ebf7ff',
+    '#bce4ff',
+    '#8ed0fa',
+    '#2c8cc9',
+    '#146da6',
+    '#054d7b',
+  ],
+  gradientStartPalette: [
+    '#ebfdff',
+    '#b0f3fe',
+    '#7be4f4',
+    '#1999ac',
+    '#0b7b8b',
+    '#025966',
+  ],
   palette: [
-    '#00060A',
-    '#002A47',
-    '#054D7B', //AAA ✅ (8.92:1) with $grey0 text
-    '#146DA6', //AA ✔️️ (5.57:1) with $grey0 text
-    '#2C8CC9',
-    '#47A4DF', //AA ✔️ (5.87:1) with $grey90 text
-    '#68BAEF', //AAA ✅ (7.57:1) with $grey90 text
-    '#8ED0FA', //AAA ✅ (9.64:1) with $grey90 text
-    '#BCE4FF',
-    '#EBF7FF',
+    '#ebf7ff',
+    '#bce4ff',
+    '#8ed0fa',
+    '#68baef',
+    '#47a4df',
+    '#2c8cc9',
+    '#146da6',
+    '#054d7b',
+    '#002a47',
+    '#00060a',
   ],
 };
 
 export const blueViolet: OcTheme = {
-  primaryColor: '#2B3271',
+  primaryColor: '#2b3271',
   accentName: 'blue',
   ...themeDefaults,
-  palette: [
-    '#090B1F',
-    '#191D4A',
-    '#2B3271',
+  gradientEndPalette: [
+    '#fbf6fb',
+    '#ead3e8',
+    '#dab4d6',
+    '#975590',
+    '#7e3a77',
+    '#5d2156',
+  ],
+  gradientMiddlePalette: [
+    '#f1f2ff',
+    '#cacffc',
+    '#a9b0f5',
+    '#5962b7',
     '#414996',
-    '#5962B7',
-    '#757ED6',
-    '#8C95E8',
-    '#A9B0F5',
-    '#CACFFC',
-    '#F1F2FF',
+    '#2b3271',
+  ],
+  gradientStartPalette: [
+    '#ebf7ff',
+    '#bce4ff',
+    '#8ed0fa',
+    '#2c8cc9',
+    '#146da6',
+    '#054d7b',
+  ],
+  palette: [
+    '#f1f2ff',
+    '#cacffc',
+    '#a9b0f5',
+    '#8c95e8',
+    '#757ed6',
+    '#5962b7',
+    '#414996',
+    '#2b3271',
+    '#191d4a',
+    '#090b1f',
   ],
 };
 
 export const violet: OcTheme = {
-  primaryColor: '#5D2156',
+  primaryColor: '#5d2156',
   accentName: 'blueViolet',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#fff0f9',
+    '#fcc8e7',
+    '#f3a5d4',
+    '#b5548e',
+    '#943d71',
+    '#702853',
+  ],
+  gradientMiddlePalette: [
+    '#fbf6fb',
+    '#ead3e8',
+    '#dab4d6',
+    '#975590',
+    '#7e3a77',
+    '#5d2156',
+  ],
+  gradientStartPalette: [
+    '#f1f2ff',
+    '#cacffc',
+    '#a9b0f5',
+    '#5962b7',
+    '#414996',
+    '#2b3271',
+  ],
   palette: [
+    '#fbf6fb',
+    '#ead3e8',
+    '#d8b1d4',
+    '#c491bf',
+    '#ae72a8',
+    '#975590',
+    '#7e3a77',
+    '#5d2156',
+    '#350e31',
     '#060106',
-    '#350E31',
-    '#5D2156', //AAA ✅ (11.55:1) with $grey0 text
-    '#7E3A77', //AAA ✅ (7.61:1) with $grey0 text
-    '#975590', //AA ✔️️ (5.22:1) with $grey0 text
-    '#AE72A8',
-    '#C491BF', //AA ✔️ (6.26:1) with $grey90 text
-    '#D8B1D4', //AAA ✅ (8.57:1) with $grey90 text
-    '#EAD3E8',
-    '#FBF6FB',
   ],
 };
 
@@ -188,35 +429,83 @@ export const violetRed: OcTheme = {
   primaryColor: '#702853',
   accentName: 'violet',
   ...themeDefaults,
-  palette: [
-    '#1F0816',
-    '#491635',
+  gradientEndPalette: [
+    '#ffefef',
+    '#ffc6c6',
+    '#ffa3a3',
+    '#c15151',
+    '#993838',
+    '#6c2222',
+  ],
+  gradientMiddlePalette: [
+    '#fff0f9',
+    '#fcc8e7',
+    '#f3a5d4',
+    '#b5548e',
+    '#943d71',
     '#702853',
-    '#943D71',
-    '#B5548E',
-    '#D36FAB',
-    '#E688C0',
-    '#F3A5D4',
-    '#FCC8E7',
-    '#FFF0F9',
+  ],
+  gradientStartPalette: [
+    '#fbf6fb',
+    '#ead3e8',
+    '#dab4d6',
+    '#975590',
+    '#7e3a77',
+    '#5d2156',
+  ],
+  palette: [
+    '#fff0f9',
+    '#fcc8e7',
+    '#f3a5d4',
+    '#e688c0',
+    '#d36fab',
+    '#b5548e',
+    '#943d71',
+    '#702853',
+    '#491635',
+    '#1f0816',
   ],
 };
 
 export const grey: OcTheme = {
-  primaryColor: '#343C4C',
+  primaryColor: '#343c4c',
   accentName: 'grey',
   ...themeDefaults,
+  gradientEndPalette: [
+    '#d9dce1',
+    '#bdc1c9',
+    '#a1a6b1',
+    '#4f5666',
+    '#343c4c',
+    '#1a212e',
+  ],
+  gradientMiddlePalette: [
+    '#f6f7f8',
+    '#d9dce1',
+    '#bdc1c9',
+    '#69717f',
+    '#4f5666',
+    '#343c4c',
+  ],
+  gradientStartPalette: [
+    '#ffffff',
+    '#f6f7f8',
+    '#d9dce1',
+    '#858b98',
+    '#69717f',
+    '#4f5666',
+  ],
   palette: [
-    '#05070A',
-    '#1A212E',
-    '#343C4C', //AAA ✅ (11.07:1) with $grey0 text
-    '#4F5666', //AAA ✅ (7.35:1) with $grey0 text
-    '#69717F', //AA ✔️️ (4.91:1) with $grey0 text
-    '#858B98', //AA ✔️ (4.72:1) with $grey90 text
-    '#A1A6B1', //AAA ✅ (6.61:1) with $grey90 text
-    '#BDC1C9', //AAA ✅ (8.94:1) with $grey90 text
-    '#D9DCE1',
-    '#F6F7F8',
+    '#f6f7f8',
+    '#d9dce1',
+    '#bdc1c9',
+    '#a1a6b1',
+    '#858b98',
+    '#69717f',
+    '#4f5666',
+    '#343c4c',
+    '#1a212e',
+    '#05070a',
   ],
 };
 

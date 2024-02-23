@@ -7,7 +7,7 @@ import {
   uniqueId,
 } from '../../../shared/utilities';
 import { IconName } from '../../Icon';
-import { ButtonShape, NeutralButton } from '../../Button';
+import { Button, ButtonShape, ButtonVariant } from '../../Button';
 import { useScrollLock } from '../../../hooks/useScrollLock';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { NoFormStyle } from '../../Form/Context';
@@ -31,10 +31,15 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       closeButtonAriaLabelText,
       closeButtonProps,
       closeIcon = IconName.mdiClose,
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
       dialogClassNames,
       dialogWrapperClassNames,
       firstFocusableSelector,
       focusTrap = true,
+      gradient = false,
       header,
       headerButtonProps,
       headerClassNames,
@@ -50,6 +55,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       renderContentAlways = true,
       skipFocusableSelectorsFromIndex,
       style,
+      theme,
+      themeContainerId,
       visible,
       width,
       zIndex,
@@ -146,14 +153,19 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                 <div className={headerClasses}>
                   <span id={labelId}>
                     {headerButtonProps && (
-                      <NeutralButton
+                      <Button
                         classNames={styles.headerButton}
+                        configContextProps={configContextProps}
+                        gradient={gradient}
                         shape={ButtonShape.Round}
                         iconProps={{ path: headerIcon }}
                         style={{
                           transform:
                             htmlDir === 'rtl' ? 'rotate(180deg)' : 'none',
                         }}
+                        theme={theme}
+                        themeContainerId={themeContainerId}
+                        variant={ButtonVariant.Neutral}
                         {...headerButtonProps}
                       />
                     )}
@@ -161,29 +173,49 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                   </span>
                   <span className={styles.headerButtons}>
                     {actionButtonThreeProps && (
-                      <NeutralButton
+                      <Button
+                        configContextProps={configContextProps}
+                        gradient={gradient}
                         shape={ButtonShape.Round}
+                        theme={theme}
+                        themeContainerId={themeContainerId}
+                        variant={ButtonVariant.Neutral}
                         {...actionButtonThreeProps}
                       />
                     )}
                     {actionButtonTwoProps && (
-                      <NeutralButton
+                      <Button
+                        configContextProps={configContextProps}
+                        gradient={gradient}
                         shape={ButtonShape.Round}
+                        theme={theme}
+                        themeContainerId={themeContainerId}
+                        variant={ButtonVariant.Neutral}
                         {...actionButtonTwoProps}
                       />
                     )}
                     {actionButtonOneProps && (
-                      <NeutralButton
+                      <Button
+                        configContextProps={configContextProps}
+                        gradient={gradient}
                         shape={ButtonShape.Round}
+                        theme={theme}
+                        themeContainerId={themeContainerId}
+                        variant={ButtonVariant.Neutral}
                         {...actionButtonOneProps}
                       />
                     )}
                     {closable && (
-                      <NeutralButton
+                      <Button
                         ariaLabel={closeButtonAriaLabelText}
+                        configContextProps={configContextProps}
+                        gradient={gradient}
                         iconProps={{ path: closeIcon }}
-                        shape={ButtonShape.Round}
                         onClick={onClose}
+                        shape={ButtonShape.Round}
+                        theme={theme}
+                        themeContainerId={themeContainerId}
+                        variant={ButtonVariant.Neutral}
                         {...closeButtonProps}
                       />
                     )}

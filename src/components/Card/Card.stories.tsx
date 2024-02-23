@@ -5,7 +5,7 @@ import { Card, CardSize } from './';
 import { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
 import { Pill } from '../Pills';
-import { ButtonShape, SecondaryButton } from '../Button';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
 
 export default {
   title: 'Card',
@@ -141,10 +141,11 @@ CustomCard.args = {
         <Pill label="High Risk" theme="violetRed" />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <SecondaryButton text="Add Development Plan" />
-        <SecondaryButton
+        <Button text="Add Development Plan" variant={ButtonVariant.Secondary} />
+        <Button
           iconProps={{ path: IconName.mdiDotsVertical }}
           shape={ButtonShape.Round}
+          variant={ButtonVariant.Secondary}
         />
       </div>
     </div>

@@ -1,11 +1,17 @@
 import React from 'react';
+import {
+  ConfigContextProps,
+  OcThemeName,
+  Shape,
+  Size,
+} from '../ConfigProvider';
+import { OcBaseProps } from '../OcBase';
 import { DropdownProps } from '../Dropdown';
 import { TextInputProps, TextInputWidth } from '../Inputs';
 import { MenuProps } from '../Menu';
-import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
 import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
-import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
+import { InputStatus } from '../../shared/utilities';
 
 export enum SelectShape {
   Rectangle = 'rectangle',
@@ -193,8 +199,23 @@ export interface SelectProps
    */
   spinner?: React.ReactElement;
   /**
+   * the validation status.
+   */
+  status?: InputStatus;
+  /**
    * The select input props.
    * @default {}
    */
   textInputProps?: TextInputProps;
+  /**
+   * Theme of the select.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the select.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
 }

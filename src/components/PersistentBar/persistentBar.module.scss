@@ -60,7 +60,7 @@
   &.bottom-with-text {
     justify-content: space-between;
 
-    .DefaultButton {
+    .default-button {
       margin-right: $space-m;
     }
   }
@@ -109,7 +109,7 @@
 
   &-rtl {
     &.bottom-with-text {
-      .DefaultButton {
+      .default-button {
         margin-left: $space-m;
         margin-right: unset;
       }

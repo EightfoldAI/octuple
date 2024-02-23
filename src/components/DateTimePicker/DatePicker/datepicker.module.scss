@@ -100,6 +100,24 @@
     }
   }
 
+  &-status-highlight.picker-underline {
+    div {
+      &:before {
+        border-color: var(--input-highlight-border-color);
+      }
+
+      &:after {
+        border-color: var(--input-highlight-border-color);
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--input-highlight-border-color);
+        }
+      }
+    }
+  }
+
   &-readonly-icon {
     margin: 0 $space-xs;
   }
@@ -120,18 +138,6 @@
       .picker-disabled {
         cursor: not-allowed;
       }
-    }
-  }
-
-  &-status-warning {
-    .picker-separator {
-      color: inherit;
-    }
-  }
-
-  &-status-error {
-    .picker-separator {
-      color: inherit;
     }
   }
 

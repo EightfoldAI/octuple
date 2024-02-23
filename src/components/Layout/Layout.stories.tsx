@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Layout from './';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Icon, IconName } from '../Icon';
-import { ButtonSize, NeutralButton } from '../Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { Link } from '../Link';
 import { Dropdown } from '../Dropdown';
 import { Avatar } from '../Avatar';
@@ -520,7 +520,7 @@ const Trigger_Story: ComponentStory<typeof Layout> = (args) => {
       </Aside>
       <Layout {...args}>
         <Header style={{ border: '1px solid #f6f7f8', textAlign: 'left' }}>
-          <NeutralButton
+          <Button
             classNames={'trigger'}
             iconProps={{
               path: collapsed ? IconName.mdiBackBurger : IconName.mdiBackBurger,
@@ -528,6 +528,7 @@ const Trigger_Story: ComponentStory<typeof Layout> = (args) => {
             }}
             size={ButtonSize.Large}
             onClick={() => setCollapsed(!collapsed)}
+            variant={ButtonVariant.Neutral}
           />
         </Header>
         <Content>

@@ -3,7 +3,7 @@ import { MessageBarsProps, MessageBarType } from './MessageBar.types';
 import { InfoBarLocale } from '../InfoBar/InfoBar.types';
 import { Icon, IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
-import { ButtonShape, NeutralButton } from '../Button';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
@@ -96,14 +96,18 @@ export const MessageBar: FC<MessageBarsProps> = React.forwardRef(
               {(actionButtonProps || closable) && (
                 <div className={styles.actions}>
                   {actionButtonProps && (
-                    <NeutralButton {...actionButtonProps} />
+                    <Button
+                      variant={ButtonVariant.Neutral}
+                      {...actionButtonProps}
+                    />
                   )}
                   {closable && (
-                    <NeutralButton
+                    <Button
                       ariaLabel={closeButtonAriaLabelText}
                       iconProps={{ path: closeIcon }}
                       onClick={onClose}
                       shape={ButtonShape.Round}
+                      variant={ButtonVariant.Neutral}
                       {...closeButtonProps}
                     />
                   )}

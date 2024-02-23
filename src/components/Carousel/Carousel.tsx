@@ -7,7 +7,13 @@ import React, {
   useEffect,
   useRef,
   useLayoutEffect,
+  useContext,
 } from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { OcThemeName, Size } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import {
   CarouselContext,
   CarouselProps,
@@ -24,7 +30,6 @@ import {
   scrollToItemOptions,
 } from './Carousel.types';
 import { ScrollMenu, VisibilityContext } from './ScrollMenu/ScrollMenu';
-import { Size } from '../ConfigProvider';
 import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import {
@@ -46,6 +51,7 @@ import {
 } from '../../shared/utilities';
 
 import styles from './carousel.module.scss';
+import themedComponentStyles from './carousel.theme.module.scss';
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
@@ -84,10 +90,15 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const {
       activeIndex = 0,
       auto = true,
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
       carouselScrollMenuProps,
       children,
       classNames,
       controls = true,
+      gradient = false,
       interval = 5000,
       locale = enUS,
       loop = true,
@@ -104,6 +115,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       previousButtonProps,
       single = false,
       size = CarouselSize.Large,
+      theme,
+      themeContainerId,
       transition = 'push',
       type = 'slide',
       'data-test-id': dataTestId,
@@ -138,6 +151,16 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const timerRef = useRef<NodeJS.Timeout>();
     const [_single, setSingle] = useState<boolean>(single);
     const [_visibleElements, setVisibleElements] = useState<number>(0);
+
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     // ============================ Strings ===========================
     const [paginationLocale] = useLocaleReceiver('Pagination');
@@ -217,6 +240,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       { [styles.carouselRtl]: htmlDir === 'rtl' },
       { [styles.carouselSlider]: type === 'slide' },
       { [styles.carouselFade]: transition === 'crossfade' },
+      { [themedComponentStyles.theme]: mergedTheme },
+      { [styles.gradient]: mergedGradient },
       classNames
     );
 
@@ -572,7 +597,9 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
               <Button
                 ariaLabel={nextIconButtonAriaLabel}
                 classNames={styles.carouselNext}
+                configContextProps={configContextProps}
                 disabled={nextDisabled()}
+                gradient={mergedGradient}
                 iconProps={{
                   role: 'presentation',
                   path:
@@ -611,6 +638,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                 }}
                 shape={ButtonShape.Rectangle}
                 size={carouselSizeToButtonSizeMap.get(size)}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
                 variant={ButtonVariant.Secondary}
                 {...nextButtonProps}
                 ref={nextButtonRef}
@@ -663,7 +692,9 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
               <Button
                 ariaLabel={previousIconButtonAriaLabel}
                 classNames={styles.carouselPrevious}
+                configContextProps={configContextProps}
                 disabled={previousDisabled()}
+                gradient={mergedGradient}
                 iconProps={{
                   role: 'presentation',
                   path:
@@ -703,6 +734,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                 }}
                 shape={ButtonShape.Rectangle}
                 size={carouselSizeToButtonSizeMap.get(size)}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
                 variant={ButtonVariant.Secondary}
                 {...previousButtonProps}
                 ref={previousButtonRef}
@@ -789,83 +822,93 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       <LocaleReceiver componentName={'Pagination'} defaultLocale={enUS}>
         {(_contextLocale: PaginationLocale) => {
           return (
-            <div
-              className={carouselClassNames}
-              data-test-id={dataTestId}
-              onMouseEnter={
-                type === 'slide' ? handlePause : () => setMouseEnter(true)
-              }
-              onMouseLeave={
-                type === 'slide' ? handleCycle : () => setMouseEnter(false)
-              }
-              {...rest}
-              ref={forkedRef}
+            <ThemeContextProvider
+              componentClassName={themedComponentStyles.theme}
+              containerId={themeContainerId}
+              theme={mergedTheme}
             >
-              <CarouselContext.Provider
-                value={{
-                  setAnimating,
-                  setCustomInterval,
-                }}
+              <div
+                className={carouselClassNames}
+                data-test-id={dataTestId}
+                onMouseEnter={
+                  type === 'slide' ? handlePause : () => setMouseEnter(true)
+                }
+                onMouseLeave={
+                  type === 'slide' ? handleCycle : () => setMouseEnter(false)
+                }
+                {...rest}
+                ref={forkedRef}
               >
-                {pagination && (
-                  <Pagination
-                    classNames={styles.carouselPagination}
-                    currentPage={active + 1}
-                    dots
-                    layout={[
-                      PaginationLayoutOptions.Previous,
-                      PaginationLayoutOptions.Pager,
-                      PaginationLayoutOptions.Next,
-                    ]}
-                    loop={loop}
-                    onCurrentChange={(currentPage: number) =>
-                      handleIndicatorClick(currentPage - 1)
-                    }
-                    restrictPageSizesPropToSizesLayout
-                    pageSize={1}
-                    total={itemsNumber}
-                  />
-                )}
-                <div className={styles.carouselInner} ref={carouselInnerRef}>
-                  {type === 'slide' &&
-                    Children?.map(children, (child, index) => {
-                      if (React.isValidElement(child)) {
-                        return React.cloneElement(
-                          child as React.ReactElement<any>,
-                          {
-                            active: active === index ? true : false,
-                            direction: direction,
-                            key: index,
-                          }
-                        );
+                <CarouselContext.Provider
+                  value={{
+                    setAnimating,
+                    setCustomInterval,
+                  }}
+                >
+                  {pagination && (
+                    <Pagination
+                      classNames={styles.carouselPagination}
+                      configContextProps={configContextProps}
+                      currentPage={active + 1}
+                      dots
+                      gradient={gradient}
+                      layout={[
+                        PaginationLayoutOptions.Previous,
+                        PaginationLayoutOptions.Pager,
+                        PaginationLayoutOptions.Next,
+                      ]}
+                      loop={loop}
+                      onCurrentChange={(currentPage: number) =>
+                        handleIndicatorClick(currentPage - 1)
                       }
-                      return null;
-                    })}
-                  {type === 'scroll' && (
-                    <ResizeObserver onResize={updateScrollMode}>
-                      <ScrollMenu
-                        controls={controls}
-                        nextButton={() => autoScrollButton('next')}
-                        onWheel={handleOnWheel}
-                        overlayControls={overlayControls}
-                        previousButton={() => autoScrollButton('previous')}
-                        rtl={htmlDir === 'rtl'}
-                        {...carouselScrollMenuProps}
-                        ref={scrollMenuRef}
-                      >
-                        {carouselScrollMenuProps?.children}
-                      </ScrollMenu>
-                    </ResizeObserver>
+                      restrictPageSizesPropToSizesLayout
+                      pageSize={1}
+                      theme={mergedTheme}
+                      themeContainerId={themeContainerId}
+                      total={itemsNumber}
+                    />
                   )}
-                </div>
-                {controls && type === 'slide' && (
-                  <>
-                    {previousButton()}
-                    {nextButton()}
-                  </>
-                )}
-              </CarouselContext.Provider>
-            </div>
+                  <div className={styles.carouselInner} ref={carouselInnerRef}>
+                    {type === 'slide' &&
+                      Children?.map(children, (child, index) => {
+                        if (React.isValidElement(child)) {
+                          return React.cloneElement(
+                            child as React.ReactElement<any>,
+                            {
+                              active: active === index ? true : false,
+                              direction: direction,
+                              key: index,
+                            }
+                          );
+                        }
+                        return null;
+                      })}
+                    {type === 'scroll' && (
+                      <ResizeObserver onResize={updateScrollMode}>
+                        <ScrollMenu
+                          controls={controls}
+                          nextButton={() => autoScrollButton('next')}
+                          onWheel={handleOnWheel}
+                          overlayControls={overlayControls}
+                          previousButton={() => autoScrollButton('previous')}
+                          rtl={htmlDir === 'rtl'}
+                          {...carouselScrollMenuProps}
+                          ref={scrollMenuRef}
+                        >
+                          {carouselScrollMenuProps?.children}
+                        </ScrollMenu>
+                      </ResizeObserver>
+                    )}
+                  </div>
+                  {controls && type === 'slide' && (
+                    <>
+                      {previousButton()}
+                      {nextButton()}
+                    </>
+                  )}
+                </CarouselContext.Provider>
+              </div>
+            </ThemeContextProvider>
           );
         }}
       </LocaleReceiver>

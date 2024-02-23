@@ -29,8 +29,14 @@ export const Tab: FC<TabProps> = React.forwardRef(
   ) => {
     const htmlDir: string = useCanvasDirection();
 
-    const { alignIcon, onTabClick, currentActiveTab, size, variant } =
-      useTabs();
+    const {
+      alignIcon,
+      colorInvert,
+      onTabClick,
+      currentActiveTab,
+      size,
+      variant,
+    } = useTabs();
 
     const iconExists: boolean = !!icon;
     const labelExists: boolean = !!label;
@@ -41,7 +47,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const tabClassNames: string = mergeClasses([
       styles.tab,
       { [styles.active]: isActive },
-      { [styles.inverse]: light },
+      { [styles.inverse]: light || colorInvert },
       { [styles.tabRtl]: htmlDir === 'rtl' },
       classNames,
     ]);

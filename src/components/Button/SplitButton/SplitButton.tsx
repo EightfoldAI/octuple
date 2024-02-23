@@ -35,6 +35,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       disabled = false,
       disruptive = false,
       dropShadow = false,
+      gradient,
       iconProps,
       id,
       nudgeProps,
@@ -77,6 +78,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       classNames,
       styles.splitButton,
       { [styles.splitRight]: split },
+      { [styles.gradient]: gradient },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },

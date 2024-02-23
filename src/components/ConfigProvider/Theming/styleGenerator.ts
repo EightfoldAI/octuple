@@ -22,6 +22,7 @@ import { themeGenerator } from './themeGenerator';
 import { canUseDocElement } from '../../../shared/utilities';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
+const THEME_COMPONENT_CONTAINER_ID = 'octuple-component-theme';
 const FONT_CONTAINER_ID = 'octuple-font';
 
 interface Options {
@@ -82,31 +83,120 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
 
   // ================ Use existing primary palette ================
   if (theme.palette) {
-    fillColor([...theme.palette].reverse(), 'primary-color');
+    fillColor([...theme.palette], 'primary-color');
     variables[`primary-color`] = theme.primaryColor;
+    if (theme.gradientEndPalette) {
+      fillColor([...theme.gradientEndPalette], 'primary-gradient-end-color');
+      variables[`primary-gradient-end-color`] = theme.primaryGradientEndColor;
+    }
+    if (theme.gradientMiddlePalette) {
+      fillColor(
+        [...theme.gradientMiddlePalette],
+        'primary-gradient-middle-color'
+      );
+      variables[`primary-gradient-middle-color`] =
+        theme.primaryGradientMiddleColor;
+    }
+    if (theme.gradientStartPalette) {
+      fillColor(
+        [...theme.gradientStartPalette],
+        'primary-gradient-start-color'
+      );
+      variables[`primary-gradient-start-color`] =
+        theme.primaryGradientStartColor;
+    }
   }
 
   // ================ Use existing accent palette ================
   if (accentTheme.palette) {
-    fillColor([...accentTheme.palette].reverse(), 'accent-color');
+    fillColor([...accentTheme.palette], 'accent-color');
     variables[`accent-color`] = accentTheme.primaryColor;
+    if (accentTheme.gradientEndPalette) {
+      fillColor(
+        [...accentTheme.gradientEndPalette],
+        'accent-gradient-end-color'
+      );
+      variables[`accent-gradient-end-color`] =
+        accentTheme.accentGradientEndColor;
+    }
+    if (accentTheme.gradientMiddlePalette) {
+      fillColor(
+        [...accentTheme.gradientMiddlePalette],
+        'accent-gradient-middle-color'
+      );
+      variables[`accent-gradient-middle-color`] =
+        accentTheme.accentGradientMiddleColor;
+    }
+    if (accentTheme.gradientStartPalette) {
+      fillColor(
+        [...accentTheme.gradientStartPalette],
+        'accent-gradient-start-color'
+      );
+      variables[`accent-gradient-start-color`] =
+        accentTheme.accentGradientStartColor;
+    }
   }
 
   // ================ Custom primary palette ================
   if (themeOptions.customTheme?.primaryColor) {
     generatePalette(theme.primaryColor, 'primary-color');
     variables[`primary-color`] = theme.primaryColor;
+    if (theme.primaryGradientEndColor) {
+      generatePalette(
+        theme.primaryGradientEndColor,
+        'primary-gradient-end-color'
+      );
+      variables[`primary-gradient-end-color`] = theme.primaryGradientEndColor;
+    }
+    if (theme.primaryGradientMiddleColor) {
+      generatePalette(
+        theme.primaryGradientMiddleColor,
+        'primary-gradient-middle-color'
+      );
+      variables[`primary-gradient-middle-color`] =
+        theme.primaryGradientMiddleColor;
+    }
+    if (theme.primaryGradientStartColor) {
+      generatePalette(
+        theme.primaryGradientStartColor,
+        'primary-gradient-start-color'
+      );
+      variables[`primary-gradient-start-color`] =
+        theme.primaryGradientStartColor;
+    }
   }
 
   // ================ Custom accent palette ================
   if (themeOptions.customTheme?.accentColor) {
     generatePalette(theme.accentColor, 'accent-color');
     variables[`accent-color`] = theme.accentColor;
+    if (theme.accentGradientEndColor) {
+      generatePalette(
+        theme.accentGradientEndColor,
+        'accent-gradient-end-color'
+      );
+      variables[`accent-gradient-end-color`] = theme.accentGradientEndColor;
+    }
+    if (theme.accentGradientMiddleColor) {
+      generatePalette(
+        theme.accentGradientMiddleColor,
+        'accent-gradient-middle-color'
+      );
+      variables[`accent-gradient-middle-color`] =
+        theme.accentGradientMiddleColor;
+    }
+    if (theme.accentGradientStartColor) {
+      generatePalette(
+        theme.accentGradientStartColor,
+        'accent-gradient-start-color'
+      );
+      variables[`accent-gradient-start-color`] = theme.accentGradientStartColor;
+    }
   }
 
   // ================ Disruptive palette ================
   if (!theme.disruptiveColor) {
-    fillColor([...OcThemes.red.palette].reverse(), 'disruptive-color');
+    fillColor([...OcThemes.red.palette], 'disruptive-color');
     variables[`disruptive-color`] = OcThemes.red.primaryColor;
   } else {
     generatePalette(theme.disruptiveColor, 'disruptive-color');
@@ -229,10 +319,12 @@ export function injectCSS(
   variables: Variables,
   id: string,
   customFonts: CustomFont[] = [],
-  option: Options = {}
+  option: Options = {},
+  className: string = ''
 ): HTMLStyleElement {
+  const target: string = className !== '' ? `.${className}` : ':root';
   const css = `
-    :root {
+    ${target} {
       ${Object.keys(variables)
         .map((key) => `--${key}: ${variables[key]};`)
         .join('\n')}
@@ -270,12 +362,20 @@ export function injectCSS(
   return styleNode;
 }
 
-export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
+export function registerTheme(
+  themeOptions: ThemeOptions,
+  containerId?: string,
+  componentClassName?: string
+): IRegisterTheme {
   const { themeName, light, variables } = getStyle(themeOptions);
   const styleNode: HTMLStyleElement = injectCSS(
     variables,
-    THEME_CONTAINER_ID,
-    themeOptions.customTheme?.customFonts
+    componentClassName
+      ? containerId || THEME_COMPONENT_CONTAINER_ID
+      : THEME_CONTAINER_ID,
+    themeOptions.customTheme?.customFonts,
+    {},
+    componentClassName || ''
   );
   return {
     themeName,

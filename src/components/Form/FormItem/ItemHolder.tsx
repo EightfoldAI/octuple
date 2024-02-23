@@ -40,6 +40,7 @@ const iconMap = {
     />
   ),
   validating: <Loader color={'var(--primary-color)'} size={LoaderSize.Small} />,
+  highlight: <></>,
 };
 
 export default function ItemHolder(props: ItemHolderProps) {

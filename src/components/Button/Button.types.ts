@@ -1,8 +1,14 @@
 import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
-import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
+import {
+  ConfigContextProps,
+  Shape,
+  Size,
+  OcThemeName,
+} from '../ConfigProvider';
 import { NudgeProps } from './Nudge/Nudge.types';
+import { BadgeProps } from '../Badge';
 
 export enum ButtonIconAlign {
   Left = 'left',
@@ -98,6 +104,10 @@ export interface ButtonProps extends NativeButtonProps {
    */
   ariaLabel?: string;
   /**
+   * The button counter badge props.
+   */
+  badgeProps?: BadgeProps;
+  /**
    * The button width type
    * @default fitContent
    */
@@ -137,6 +147,11 @@ export interface ButtonProps extends NativeButtonProps {
    * The button is always floating on bottom right corner.
    */
   floatingButtonProps?: FloatingButtonProps;
+  /**
+   * The button gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * The button nudge props.
    * @experimental
@@ -205,6 +220,17 @@ export interface ButtonProps extends NativeButtonProps {
    * The button text.
    */
   text?: string;
+  /**
+   * Theme of the button.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the button.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The button is a toggle button with distinct on and off states.
    */

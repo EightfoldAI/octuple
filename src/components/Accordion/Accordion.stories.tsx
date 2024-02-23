@@ -36,6 +36,23 @@ export default {
       options: [AccordionSize.Medium, AccordionSize.Large],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof Accordion>;
 
@@ -98,9 +115,17 @@ Single.args = {
     </>
   ),
   id: 'myAccordionId',
+  expandButtonProps: null,
   expandIconProps: {
     path: IconName.mdiChevronDown,
   },
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-accordion-theme-container',
+  gradient: false,
   summary: 'Accordion Header',
   iconProps: {
     color: 'green',
