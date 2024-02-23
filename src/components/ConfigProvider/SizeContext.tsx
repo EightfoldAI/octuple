@@ -19,8 +19,8 @@ export const SizeContextProvider: FC<SizeContextProps> = ({
   size,
 }) => (
   <SizeContext.Consumer>
-    {(originSize) => (
-      <SizeContext.Provider value={size || originSize}>
+    {(ancestorSize) => (
+      <SizeContext.Provider value={size || ancestorSize}>
         {children}
       </SizeContext.Provider>
     )}

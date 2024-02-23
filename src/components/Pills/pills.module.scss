@@ -51,117 +51,6 @@
     border: none;
   }
 
-  &.red {
-    --bg: var(--red-background2-color);
-    --label: var(--red-color);
-    --hover-bg: var(--red-background3-color);
-  }
-
-  &.red-orange {
-    --bg: var(--redorange-background2-color);
-    --label: var(--redorange-color);
-    --hover-bg: var(--redorange-background3-color);
-  }
-
-  &.orange {
-    --bg: var(--orange-background2-color);
-    --label: var(--orange-color);
-    --hover-bg: var(--orange-background3-color);
-  }
-
-  &.yellow {
-    --bg: var(--yellow-background2-color);
-    --label: var(--yellow-color);
-    --hover-bg: var(--yellow-background3-color);
-  }
-
-  &.yellow-green {
-    --bg: var(--yellowgreen-background2-color);
-    --label: var(--yellowgreen-color);
-    --hover-bg: var(--yellowgreen-background3-color);
-  }
-
-  &.green {
-    --bg: var(--green-background2-color);
-    --label: var(--green-color);
-    --hover-bg: var(--green-background3-color);
-  }
-
-  &.blue-green {
-    --bg: var(--bluegreen-background2-color);
-    --label: var(--bluegreen-color);
-    --hover-bg: var(--bluegreen-background3-color);
-  }
-
-  &.blue {
-    --bg: var(--blue-background2-color);
-    --label: var(--blue-color);
-  }
-
-  &.blue-violet {
-    --bg: var(--blueviolet-background2-color);
-    --label: var(--blueviolet-color);
-    --hover-bg: var(--blueviolet-background3-color);
-  }
-
-  &.violet {
-    --bg: var(--violet-background2-color);
-    --label: var(--violet-color);
-    --hover-bg: var(--violet-background3-color);
-  }
-
-  &.violet-red {
-    --bg: var(--violetred-background2-color);
-    --label: var(--violetred-color);
-    --hover-bg: var(--violetred-background3-color);
-  }
-
-  &.grey {
-    --bg: var(--grey-background2-color);
-    --label: var(--grey-color);
-    --hover-bg: var(--grey-background3-color);
-  }
-
-  &.white {
-    --bg: var(--white-color);
-    --label: var(--grey-tertiary-color);
-    --hover-bg: var(--grey-background1-color);
-
-    &:not(.xsmall) {
-      border: 1px solid var(--grey-tertiary-color);
-    }
-  }
-
-  &.large {
-    border-radius: var(--pill-large-size-border-radius);
-    padding: 10px $space-xs;
-  }
-
-  &.medium {
-    border-radius: var(--pill-medium-size-border-radius);
-    padding: 5px $space-xs;
-  }
-
-  &.small {
-    border-radius: var(--pill-small-size-border-radius);
-    padding: $space-xxs $space-xxs;
-  }
-
-  &.xsmall {
-    border-radius: var(--pill-xsmall-size-border-radius);
-    padding: $space-xxs $space-xxs;
-  }
-
-  &.small,
-  &.xsmall {
-    padding: $space-xxs $space-xxs;
-  }
-
-  &:hover:not(.tag-pills-disabled) {
-    --bg: var(--hover-bg);
-    --label: var(--hover-label);
-  }
-
   .button,
   .close-button {
     border: none;
@@ -186,9 +75,427 @@
     }
   }
 
+  &.red {
+    --bg: var(--red-background2-color);
+    --label: var(--red-color);
+    --hover-bg: var(--red-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--red-background1-color);
+        color: var(--red-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--red-background1-color);
+          color: var(--red-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--red-background1-color);
+          color: var(--red-color);
+        }
+      }
+    }
+  }
+
+  &.red-orange {
+    --bg: var(--redorange-background2-color);
+    --label: var(--redorange-color);
+    --hover-bg: var(--redorange-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--redorange-background1-color);
+        color: var(--redorange-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--redorange-background1-color);
+          color: var(--redorange-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--redorange-background1-color);
+          color: var(--redorange-color);
+        }
+      }
+    }
+  }
+
+  &.orange {
+    --bg: var(--orange-background2-color);
+    --label: var(--orange-color);
+    --hover-bg: var(--orange-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--orange-background1-color);
+        color: var(--orange-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--orange-background1-color);
+          color: var(--orange-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--orange-background1-color);
+          color: var(--orange-color);
+        }
+      }
+    }
+  }
+
+  &.yellow {
+    --bg: var(--yellow-background2-color);
+    --label: var(--yellow-color);
+    --hover-bg: var(--yellow-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--yellow-background1-color);
+        color: var(--yellow-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--yellow-background1-color);
+          color: var(--yellow-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--yellow-background1-color);
+          color: var(--yellow-color);
+        }
+      }
+    }
+  }
+
+  &.yellow-green {
+    --bg: var(--yellowgreen-background2-color);
+    --label: var(--yellowgreen-color);
+    --hover-bg: var(--yellowgreen-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--yellowgreen-background1-color);
+        color: var(--yellowgreen-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--yellowgreen-background1-color);
+          color: var(--yellowgreen-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--yellowgreen-background1-color);
+          color: var(--yellowgreen-color);
+        }
+      }
+    }
+  }
+
+  &.green {
+    --bg: var(--green-background2-color);
+    --label: var(--green-color);
+    --hover-bg: var(--green-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--green-background1-color);
+        color: var(--green-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--green-background1-color);
+          color: var(--green-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--green-background1-color);
+          color: var(--green-color);
+        }
+      }
+    }
+  }
+
+  &.blue-green {
+    --bg: var(--bluegreen-background2-color);
+    --label: var(--bluegreen-color);
+    --hover-bg: var(--bluegreen-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--bluegreen-background1-color);
+        color: var(--bluegreen-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--bluegreen-background1-color);
+          color: var(--bluegreen-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--bluegreen-background1-color);
+          color: var(--bluegreen-color);
+        }
+      }
+    }
+  }
+
+  &.blue {
+    --bg: var(--blue-background2-color);
+    --label: var(--blue-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--blue-background1-color);
+        color: var(--blue-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--blue-background1-color);
+          color: var(--blue-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--blue-background1-color);
+          color: var(--blue-color);
+        }
+      }
+    }
+  }
+
+  &.blue-violet {
+    --bg: var(--blueviolet-background2-color);
+    --label: var(--blueviolet-color);
+    --hover-bg: var(--blueviolet-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--blueviolet-background1-color);
+        color: var(--blueviolet-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--blueviolet-background1-color);
+          color: var(--blueviolet-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--blueviolet-background1-color);
+          color: var(--blueviolet-color);
+        }
+      }
+    }
+  }
+
+  &.violet {
+    --bg: var(--violet-background2-color);
+    --label: var(--violet-color);
+    --hover-bg: var(--violet-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--violet-background1-color);
+        color: var(--violet-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--violet-background1-color);
+          color: var(--violet-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--violet-background1-color);
+          color: var(--violet-color);
+        }
+      }
+    }
+  }
+
+  &.violet-red {
+    --bg: var(--violetred-background2-color);
+    --label: var(--violetred-color);
+    --hover-bg: var(--violetred-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--violetred-background1-color);
+        color: var(--violetred-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--violetred-background1-color);
+          color: var(--violetred-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--violetred-background1-color);
+          color: var(--violetred-color);
+        }
+      }
+    }
+  }
+
+  &.grey {
+    --bg: var(--grey-background2-color);
+    --label: var(--grey-color);
+    --hover-bg: var(--grey-background3-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--grey-background1-color);
+        color: var(--grey-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--grey-background1-color);
+          color: var(--grey-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--grey-background1-color);
+          color: var(--grey-color);
+        }
+      }
+    }
+  }
+
+  &.white {
+    --bg: var(--white-color);
+    --label: var(--grey-tertiary-color);
+    --hover-bg: var(--grey-background1-color);
+
+    .button,
+    .close-button {
+      .badge {
+        background-color: var(--grey-background2-color);
+        color: var(--grey-color);
+      }
+
+      &:hover {
+        .badge {
+          background-color: var(--grey-background2-color);
+          color: var(--grey-color);
+        }
+      }
+
+      &:active {
+        .badge {
+          background-color: var(--grey-background2-color);
+          color: var(--grey-color);
+        }
+      }
+    }
+
+    &:not(.xsmall) {
+      border: 1px solid var(--grey-tertiary-color);
+    }
+  }
+
   .label + .button:not(:empty) {
     border-left: 1px solid var(--label);
+    margin-left: $space-xxs;
     padding-left: $space-xxs;
+  }
+
+  &.large {
+    border-radius: var(--pill-large-size-border-radius);
+    padding: 10px $space-xs;
+
+    .label + .button:not(:empty) {
+      margin-left: $space-xs;
+      padding-left: $space-xs;
+    }
+  }
+
+  &.medium {
+    border-radius: var(--pill-medium-size-border-radius);
+    padding: 5px $space-xs;
+
+    .label + .button:not(:empty) {
+      margin-left: $space-xxs;
+      padding-left: $space-xxs;
+    }
+  }
+
+  &.small {
+    border-radius: var(--pill-small-size-border-radius);
+    padding: $space-xxs $space-xxs;
+
+    .label + .button:not(:empty) {
+      margin-left: $space-xxs;
+      padding-left: $space-xxs;
+    }
+  }
+
+  &.xsmall {
+    border-radius: var(--pill-xsmall-size-border-radius);
+    padding: $space-xxs $space-xxs;
+
+    .label + .button:not(:empty) {
+      margin-left: $space-xxs;
+      padding-left: $space-xxs;
+    }
+  }
+
+  &.small,
+  &.xsmall {
+    padding: $space-xxs $space-xxs;
+  }
+
+  &:hover:not(.tag-pills-disabled) {
+    --bg: var(--hover-bg);
+    --label: var(--hover-label);
   }
 
   .icon {
@@ -198,6 +505,93 @@
 
     &.icon-end {
       margin-left: $space-xxs;
+    }
+  }
+
+  &.gradient {
+    .button,
+    .close-button {
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        background: transparent;
+      }
+    }
+
+    &.red {
+      --bg: var(--red-background2-gradient);
+      --label: var(--red-color);
+      --hover-bg: var(--red-background3-gradient);
+    }
+
+    &.red-orange {
+      --bg: var(--redorange-background2-gradient);
+      --label: var(--redorange-color);
+      --hover-bg: var(--redorange-background3-gradient);
+    }
+
+    &.orange {
+      --bg: var(--orange-background2-gradient);
+      --label: var(--orange-color);
+      --hover-bg: var(--orange-background3-gradient);
+    }
+
+    &.yellow {
+      --bg: var(--yellow-background2-gradient);
+      --label: var(--yellow-color);
+      --hover-bg: var(--yellow-background3-gradient);
+    }
+
+    &.yellow-green {
+      --bg: var(--yellowgreen-background2-gradient);
+      --label: var(--yellowgreen-color);
+      --hover-bg: var(--yellowgreen-background3-gradient);
+    }
+
+    &.green {
+      --bg: var(--green-background2-gradient);
+      --label: var(--green-color);
+      --hover-bg: var(--green-background3-gradient);
+    }
+
+    &.blue-green {
+      --bg: var(--bluegreen-background2-gradient);
+      --label: var(--bluegreen-color);
+      --hover-bg: var(--bluegreen-background3-gradient);
+    }
+
+    &.blue {
+      --bg: var(--blue-background2-gradient);
+      --label: var(--blue-color);
+      --hover-bg: var(--blue-background3-gradient);
+    }
+
+    &.blue-violet {
+      --bg: var(--blueviolet-background2-gradient);
+      --label: var(--blueviolet-color);
+      --hover-bg: var(--blueviolet-background3-gradient);
+    }
+
+    &.violet {
+      --bg: var(--violet-background2-gradient);
+      --label: var(--violet-color);
+      --hover-bg: var(--violet-background3-gradient);
+    }
+
+    &.violet-red {
+      --bg: var(--violetred-background2-gradient);
+      --label: var(--violetred-color);
+      --hover-bg: var(--violetred-background3-gradient);
+    }
+
+    &.grey {
+      --bg: var(--grey-background2-gradient);
+      --label: var(--grey-color);
+      --hover-bg: var(--grey-background3-gradient);
     }
   }
 
@@ -214,9 +608,47 @@
 
     .label + .button:not(:empty) {
       border-left: unset;
+      margin-left: unset;
       padding-left: unset;
       border-right: 1px solid var(--label);
+      margin-right: $space-xxs;
       padding-right: $space-xxs;
+    }
+
+    &.large {
+      .label + .button:not(:empty) {
+        margin-left: unset;
+        padding-left: unset;
+        margin-right: $space-xs;
+        padding-right: $space-xs;
+      }
+    }
+
+    &.medium {
+      .label + .button:not(:empty) {
+        margin-left: unset;
+        padding-left: unset;
+        margin-right: $space-xxs;
+        padding-right: $space-xxs;
+      }
+    }
+
+    &.small {
+      .label + .button:not(:empty) {
+        margin-left: unset;
+        padding-left: unset;
+        margin-right: $space-xxs;
+        padding-right: $space-xxs;
+      }
+    }
+
+    &.xsmall {
+      .label + .button:not(:empty) {
+        margin-left: unset;
+        padding-left: unset;
+        margin-right: $space-xxs;
+        padding-right: $space-xxs;
+      }
     }
 
     .icon {

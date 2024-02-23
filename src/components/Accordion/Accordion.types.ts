@@ -1,7 +1,9 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { IconProps } from '../Icon';
 import { BadgeProps } from '../Badge';
+import { ButtonProps } from '../Button';
 
 export enum AccordionShape {
   Pill = 'pill',
@@ -15,15 +17,32 @@ export enum AccordionSize {
 
 interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
+   * If the accordion is disabled
+   */
+  disabled?: boolean;
+  /**
    * Accordion is in an expanded state or not
    * @default false
    */
   expanded?: boolean;
   /**
+   * Expand button props
+   */
+  expandButtonProps?: ButtonProps;
+  /**
    * Expand icon props
    * @default { path: IconName['mdiChevronDown'] }
    */
   expandIconProps?: IconProps;
+  /**
+   * The button gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Shape of the accordion
    * @default AccordionShape.Pill
@@ -40,9 +59,16 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   size?: AccordionSize;
   /**
-   * If the accordion is disabled
+   * Theme of the accordion.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
    */
-  disabled?: boolean;
+  theme?: OcThemeName;
+  /**
+   * Theme container of the accordion.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
 }
 
 export interface AccordionProps extends AccordionBaseProps {
@@ -72,7 +98,8 @@ export interface AccordionProps extends AccordionBaseProps {
   badgeProps?: BadgeProps;
 }
 
-export interface AccordionSummaryProps extends AccordionBaseProps {
+export interface AccordionSummaryProps
+  extends Omit<AccordionBaseProps, 'configContextProps'> {
   /**
    * Icon props for the header icon
    */
@@ -83,4 +110,8 @@ export interface AccordionSummaryProps extends AccordionBaseProps {
   badgeProps?: BadgeProps;
 }
 
-export interface AccordionBodyProps extends AccordionBaseProps {}
+export interface AccordionBodyProps
+  extends Omit<
+    AccordionBaseProps,
+    'configContextProps' | 'expandButtonProps'
+  > {}

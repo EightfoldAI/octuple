@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Pagination, PaginationLayoutOptions } from '.';
-import { DefaultButton } from '../Button';
+import { Button } from '../Button';
 import { fireEvent, getByTestId, render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -108,7 +108,7 @@ describe('Pagination', () => {
       const [total, setTotal] = useState(0);
       return (
         <>
-          <DefaultButton
+          <Button
             data-testid="valueButton"
             onClick={() => {
               setTotal(12);

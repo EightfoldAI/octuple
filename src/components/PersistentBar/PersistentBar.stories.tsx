@@ -43,6 +43,25 @@ export default {
       ),
     },
   },
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof PersistentBar>;
 
 const PersistentBar_Story: ComponentStory<typeof PersistentBar> = (args) => (
@@ -98,6 +117,13 @@ const paginationArgs: Object = {
 
 const persistentBarArgs: Object = {
   bordered: false,
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-persistentbar-theme-container',
+  gradient: false,
   style: {},
   classNames: 'my-persistent-bar-class',
   role: 'toolbar',

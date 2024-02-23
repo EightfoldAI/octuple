@@ -150,6 +150,23 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     variant: {
       options: [
         ButtonVariant.Default,
@@ -201,6 +218,7 @@ const buttonArgs: Object = {
   alignText: ButtonTextAlign.Center,
   allowDisabledFocus: false,
   ariaLabel: 'Button',
+  badgeProps: null,
   buttonWidth: ButtonWidth.fitContent,
   checked: false,
   classNames: 'my-btn-class',
@@ -212,6 +230,15 @@ const buttonArgs: Object = {
   floatingButtonProps: {
     enabled: false,
   },
+  configContextProps: {
+    noDisabledContext: false,
+    noGradientContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-button-theme-container',
+  gradient: false,
   nudgeProps: null,
   htmlType: 'button',
   iconProps: {

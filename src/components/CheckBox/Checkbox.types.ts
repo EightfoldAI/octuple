@@ -1,6 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import { ConfigContextProps, Size } from '../ConfigProvider';
+import { ConfigContextProps, OcThemeName, Size } from '../ConfigProvider';
 
 export type CheckboxValueType = string | number;
 
@@ -101,6 +101,17 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
    */
   size?: SelectorSize | Size;
   /**
+   * Theme of the checkbox.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the checkbox.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The Checkbox UI is toggle.
    * @default false
    */
@@ -171,10 +182,21 @@ export interface CheckboxGroupProps
    */
   selectorWidth?: SelectorWidth;
   /**
-   * The checkbox size.
+   * The checkbox group size.
    * @default SelectorSize.Medium
    */
   size?: SelectorSize;
+  /**
+   * Theme of the checkbox group.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the checkbox group.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The checkbox value.
    */

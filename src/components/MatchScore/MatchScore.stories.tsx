@@ -49,6 +49,23 @@ export default {
     label: {
       control: { type: 'text' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof MatchScore>;
 
@@ -67,6 +84,11 @@ export const __namedExportsOrder = ['Default', 'Custom_Label', 'Without_Label'];
 
 const matchScoreArgs: Object = {
   classNames: 'my-match-score-class',
+  configContextProps: {
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-matchscore-theme-container',
   score: 3,
   total: 5,
   hideLabel: false,

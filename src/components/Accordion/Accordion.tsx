@@ -1,5 +1,16 @@
-import React, { FC, Ref, useCallback, useEffect, useState } from 'react';
-import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
+import React, {
+  FC,
+  Ref,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import {
   AccordionBodyProps,
   AccordionProps,
@@ -7,17 +18,22 @@ import {
   AccordionSize,
   AccordionSummaryProps,
 } from './';
-import { Icon, IconName } from '../Icon';
 import { Badge } from '../Badge';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
+import { Icon, IconName } from '../Icon';
+import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
 
 import styles from './accordion.module.scss';
+import themedComponentStyles from './accordion.theme.module.scss';
 
 export const AccordionSummary: FC<AccordionSummaryProps> = ({
   children,
+  expandButtonProps,
   expandIconProps,
   expanded,
   onClick,
   classNames,
+  gradient,
   id,
   iconProps,
   badgeProps,
@@ -65,9 +81,15 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <div className={styles.accordionHeaderContainer}>
         {iconProps && <Icon {...iconProps} />}
         <span className={styles.accordionHeader}>{children}</span>
-        {badgeProps && <Badge {...badgeProps} />}
+        {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
-      <Icon classNames={iconStyles} {...expandIconProps} />
+      <Button
+        disabled={disabled}
+        gradient={gradient}
+        iconProps={{ classNames: iconStyles, ...expandIconProps }}
+        shape={ButtonShape.Round}
+        variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
+      />
     </div>
   );
 };
@@ -76,6 +98,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
   children,
   expanded,
   classNames,
+  gradient,
   id,
   size,
   bordered = true,
@@ -113,12 +136,18 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 export const Accordion: FC<AccordionProps> = React.forwardRef(
   (
     {
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
       expanded = false,
       onAccordionChange,
       classNames,
       summary,
       expandIconProps = { path: IconName.mdiChevronDown },
+      expandButtonProps,
       children,
+      gradient = false,
       id = uniqueId('accordion-'),
       headerProps,
       bodyProps,
@@ -127,12 +156,24 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
       iconProps,
       badgeProps,
       size = AccordionSize.Large,
+      theme,
+      themeContainerId,
       disabled,
       ...rest
     },
     ref: Ref<HTMLDivElement>
   ) => {
     const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
+
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     useEffect(() => {
       setIsExpanded(expanded);
@@ -149,35 +190,46 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         [styles.accordionBorder]: bordered,
         [styles.pill]: shape === AccordionShape.Pill,
         [styles.rectangle]: shape === AccordionShape.Rectangle,
+        [themedComponentStyles.theme]: mergedTheme,
+        [styles.gradient]: mergedGradient,
       },
       classNames
     );
 
     return (
-      <div className={accordionContainerStyle} ref={ref} {...rest}>
-        <AccordionSummary
-          expandIconProps={expandIconProps}
-          onClick={() => toggleAccordion(!isExpanded)}
-          expanded={isExpanded}
-          iconProps={iconProps}
-          badgeProps={badgeProps}
-          disabled={disabled}
-          size={size}
-          id={id}
-          {...headerProps}
-        >
-          {summary}
-        </AccordionSummary>
-        <AccordionBody
-          id={id}
-          expanded={isExpanded}
-          size={size}
-          bordered={bordered}
-          {...bodyProps}
-        >
-          {children}
-        </AccordionBody>
-      </div>
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
+      >
+        <div className={accordionContainerStyle} ref={ref} {...rest}>
+          <AccordionSummary
+            badgeProps={badgeProps}
+            disabled={disabled}
+            expanded={isExpanded}
+            expandIconProps={expandIconProps}
+            expandButtonProps={expandButtonProps}
+            gradient={gradient}
+            iconProps={iconProps}
+            id={id}
+            onClick={() => toggleAccordion(!isExpanded)}
+            size={size}
+            {...headerProps}
+          >
+            {summary}
+          </AccordionSummary>
+          <AccordionBody
+            id={id}
+            expanded={isExpanded}
+            size={size}
+            bordered={bordered}
+            gradient={gradient}
+            {...bodyProps}
+          >
+            {children}
+          </AccordionBody>
+        </div>
+      </ThemeContextProvider>
     );
   }
 );

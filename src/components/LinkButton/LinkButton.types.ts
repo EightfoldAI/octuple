@@ -1,7 +1,12 @@
 import React, { AnchorHTMLAttributes, Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
-import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
+import {
+  ConfigContextProps,
+  Shape,
+  Size,
+  OcThemeName,
+} from '../ConfigProvider';
 import { NudgeProps } from '../Button/Nudge/Nudge.types';
 import {
   ButtonIconAlign as LinkButtonIconAlign,
@@ -83,6 +88,11 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
    */
   floatingLinkButtonProps?: FloatingLinkButtonProps;
   /**
+   * The link button gradient state.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
    * The link button nudge props.
    * @experimental
    */
@@ -140,6 +150,17 @@ export interface LinkButtonProps extends NativeLinkButtonProps {
    * The link button text.
    */
   text?: string;
+  /**
+   * Theme of the link button.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the link button.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The link button will remain transparent
    * @default false

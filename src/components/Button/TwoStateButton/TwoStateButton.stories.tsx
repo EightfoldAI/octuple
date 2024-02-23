@@ -55,10 +55,6 @@ export default {
       ],
       control: { type: 'radio' },
     },
-    theme: {
-      options: ['light', 'dark'],
-      control: { type: 'inline-radio' },
-    },
   },
 } as ComponentMeta<typeof Button>;
 

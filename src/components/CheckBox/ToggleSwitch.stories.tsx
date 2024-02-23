@@ -53,6 +53,23 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof CheckBox>;
 
@@ -66,6 +83,13 @@ const checkBoxArgs: Object = {
   allowDisabledFocus: false,
   ariaLabel: 'Label',
   classNames: 'my-toggle-class',
+  configContextProps: {
+    noDisabledContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-toggle-theme-container',
   disabled: false,
   name: 'myToggleName',
   value: 'label',

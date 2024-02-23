@@ -126,6 +126,23 @@ export default {
       options: [SelectorWidth.fitContent, SelectorWidth.fill],
       control: { type: 'inline-radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof RadioButton>;
 
@@ -335,6 +352,13 @@ const radioButtonArgs: Object = {
   ariaLabel: 'Label',
   checked: false,
   classNames: 'my-radiobutton-class',
+  configContextProps: {
+    noDisabledContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-radiobutton-theme-container',
   disabled: false,
   id: 'myRadioButtonId',
   label: 'Label',
@@ -365,6 +389,13 @@ Radio_Button_Long_Text.args = {
 Radio_Group.args = {
   allowDisabledFocus: false,
   ariaLabel: 'Radio Group',
+  configContextProps: {
+    noDisabledContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-radiogroup-theme-container',
   disabled: false,
   items: [1, 2, 3].map((i: number) => ({
     ariaLabel: `Radio${i}`,

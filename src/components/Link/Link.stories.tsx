@@ -50,12 +50,29 @@ export default {
     },
   },
   argTypes: {
+    onClick: {
+      action: 'click',
+    },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     variant: {
       options: ['default', 'primary', 'secondary', 'neutral', 'disruptive'],
       control: { type: 'inline' },
-    },
-    onClick: {
-      action: 'click',
     },
   },
 } as ComponentMeta<typeof Link>;
@@ -77,11 +94,6 @@ export const Primary_Underline = Link_Story.bind({});
 export const Secondary_Underline = Link_Story.bind({});
 export const Neutral_Underline = Link_Story.bind({});
 export const Disruptive_Underline = Link_Story.bind({});
-export const Default_Disabled = Link_Story.bind({});
-export const Primary_Disabled = Link_Story.bind({});
-export const Secondary_Disabled = Link_Story.bind({});
-export const Neutral_Disabled = Link_Story.bind({});
-export const Disruptive_Disabled = Link_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -96,15 +108,17 @@ export const __namedExportsOrder = [
   'Secondary_Underline',
   'Neutral_Underline',
   'Disruptive_Underline',
-  'Default_Disabled',
-  'Primary_Disabled',
-  'Secondary_Disabled',
-  'Neutral_Disabled',
-  'Disruptive_Disabled',
 ];
 
 const linkArgs: Object = {
   classNames: 'my-link-class',
+  configContextProps: {
+    noDisabledContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-link-theme-container',
+  disabled: false,
   children: (
     <span
       style={{
@@ -271,99 +285,5 @@ Disruptive_Underline.args = {
   ),
   fullWidth: false,
   underline: true,
-  variant: 'disruptive',
-};
-
-Default_Disabled.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Default
-    </span>
-  ),
-  disabled: true,
-  fullWidth: false,
-};
-
-Primary_Disabled.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Primary
-    </span>
-  ),
-  disabled: true,
-  fullWidth: false,
-  variant: 'primary',
-};
-
-Neutral_Disabled.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Neutral
-    </span>
-  ),
-  disabled: true,
-  fullWidth: false,
-  variant: 'neutral',
-};
-
-Secondary_Disabled.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Secondary
-    </span>
-  ),
-  disabled: true,
-  fullWidth: false,
-  variant: 'secondary',
-};
-
-Disruptive_Disabled.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Disruptive
-    </span>
-  ),
-  disabled: true,
-  fullWidth: false,
   variant: 'disruptive',
 };

@@ -47,6 +47,23 @@ export default {
     onCurrentChange: {
       action: 'onCurrentChange',
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof Pagination>;
 
@@ -81,6 +98,13 @@ const paginationArgs: Object = {
   classNames: 'my-pagination-class',
   currentPage: 1,
   dots: false,
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  gradient: false,
+  theme: '',
+  themeContainerId: 'my-pagination-theme-container',
   layout: [
     PaginationLayoutOptions.Previous,
     PaginationLayoutOptions.Pager,

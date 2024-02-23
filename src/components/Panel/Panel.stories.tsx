@@ -96,6 +96,23 @@ export default {
       options: [PanelSize.large, PanelSize.medium, PanelSize.small],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     placement: {
       options: ['top', 'right', 'bottom', 'left'],
       control: { type: 'radio' },
@@ -117,8 +134,12 @@ const Panel_Story: ComponentStory<typeof Panel> = (args) => {
         footer={
           <div>
             <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
               onClick={() => setVisible(false)}
               text={'Close'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
               variant={ButtonVariant.Primary}
             />
           </div>
@@ -145,6 +166,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
       />
       <Panel {...args} visible={visible.simple} onClose={() => setVisible({})}>
         <Button
+          configContextProps={args.configContextProps}
+          gradient={args.gradient}
           onClick={() =>
             setVisible({
               ...visible,
@@ -152,6 +175,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
             })
           }
           text={'Open second panel'}
+          theme={args.theme}
+          themeContainerId={args.themeContainerId}
           variant={ButtonVariant.Primary}
         />
         <Panel
@@ -166,6 +191,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
           }
         >
           <Button
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             onClick={() =>
               setVisible({
                 ...visible,
@@ -173,6 +200,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
               })
             }
             text={'Open third panel'}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             variant={ButtonVariant.Primary}
           />
           <Panel
@@ -206,8 +235,12 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
         footer={
           <div>
             <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
               onClick={() => setVisible(false)}
               text={'Close'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
               variant={ButtonVariant.Primary}
             />
           </div>
@@ -240,7 +273,11 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
               transparent: true,
               onClick: () => setVisible(false),
             }}
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             onClose={() => setVisible(false)}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             title={'Header'}
           />
         }
@@ -275,6 +312,13 @@ export const __namedExportsOrder = [
 ];
 
 const panelArgs: Object = {
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  gradient: false,
+  theme: '',
+  themeContainerId: 'my-panel-theme',
   size: PanelSize.small,
   visible: false,
   closable: true,

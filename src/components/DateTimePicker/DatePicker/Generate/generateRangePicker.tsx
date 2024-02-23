@@ -179,20 +179,10 @@ export default function generateRangePicker<DateType>(
       [DatePickerSize.Small, IconSize.Small],
     ]);
 
-    const iconColor = (): string => {
-      let color: string = 'var(--grey-tertiary-color)';
-      if (mergedStatus === 'error') {
-        color = 'var(--error-color)';
-      } else if (mergedStatus === 'warning') {
-        color = 'var(--warning-color)';
-      }
-      return color;
-    };
-
     const readonlyNode = (
       <Icon
         classNames={styles.pickerReadonlyIcon}
-        color={iconColor()}
+        color="var(--grey-tertiary-color)"
         path={IconName.mdiLock}
         size={pickerSizeToIconSizeMap.get(mergedSize)}
       />
@@ -202,7 +192,7 @@ export default function generateRangePicker<DateType>(
       <>
         {picker === 'time' ? (
           <Icon
-            color={iconColor()}
+            color="var(--grey-tertiary-color)"
             path={
               mergedReadonly && mergedReadonly[0] && mergedReadonly[1]
                 ? IconName.mdiLock
@@ -212,7 +202,7 @@ export default function generateRangePicker<DateType>(
           />
         ) : (
           <Icon
-            color={iconColor()}
+            color="var(--grey-tertiary-color)"
             path={
               mergedReadonly && mergedReadonly[0] && mergedReadonly[1]
                 ? IconName.mdiLock
@@ -242,7 +232,7 @@ export default function generateRangePicker<DateType>(
               separator={
                 <span aria-label="to" className={styles.pickerSeparator}>
                   <Icon
-                    color={iconColor()}
+                    color="var(--grey-tertiary-color)"
                     path={IconName.mdiArrowRightThin}
                     rotate={htmlDir === 'rtl' ? 180 : 0}
                     size={pickerSizeToIconSizeMap.get(mergedSize)}
@@ -322,6 +312,9 @@ export default function generateRangePicker<DateType>(
                 },
                 {
                   [styles.pickerStatusSuccess]: mergedStatus === 'success',
+                },
+                {
+                  [styles.pickerStatusHighlight]: mergedStatus === 'highlight',
                 },
                 { [styles.pickerRtl]: htmlDir === 'rtl' },
                 { ['in-form-item']: mergedFormItemInput },

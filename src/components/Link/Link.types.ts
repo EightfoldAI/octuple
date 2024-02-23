@@ -1,4 +1,5 @@
 import { AnchorHTMLAttributes } from 'react';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { OcBaseProps } from '../OcBase';
 
 export type LinkType =
@@ -11,6 +12,10 @@ export type LinkType =
 export interface LinkProps
   extends OcBaseProps<HTMLAnchorElement>,
     AnchorHTMLAttributes<HTMLAnchorElement> {
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
   /**
    * Whether the Link is disabled.
    * @default false
@@ -29,6 +34,17 @@ export interface LinkProps
    * The Link role.
    */
   role?: string;
+  /**
+   * Theme of the Link.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Link.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Whether to show the Link underline.
    */

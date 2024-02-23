@@ -17,9 +17,11 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      badgeProps,
       buttonWidth,
       checked = false,
       classNames,
+      configContextProps,
       counter,
       disabled = false,
       dropShadow = false,
@@ -29,6 +31,8 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
       nudgeProps,
       onClick,
       text,
+      theme,
+      themeContainerId,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
       split,
@@ -49,9 +53,11 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
         alignText={alignText}
         allowDisabledFocus={allowDisabledFocus}
         ariaLabel={ariaLabel}
+        badgeProps={badgeProps}
         buttonWidth={buttonWidth}
         checked={checked}
         classNames={classNames}
+        configContextProps={configContextProps}
         counter={counter}
         disabled={disabled}
         dropShadow={dropShadow}
@@ -67,6 +73,8 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
         splitButtonProps={splitButtonProps}
         style={style}
         text={text}
+        theme={theme}
+        themeContainerId={themeContainerId}
         toggle={toggle}
         transparent={transparent}
         variant={ButtonVariant.SystemUI}

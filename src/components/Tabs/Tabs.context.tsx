@@ -14,6 +14,10 @@ const TabsContext = createContext<Partial<ITabsContext>>({});
 const TabsProvider = ({
   alignIcon = TabIconAlign.Start,
   children,
+  colorInvert = false,
+  configContextProps = {
+    noThemeContext: false,
+  },
   direction = 'horizontal',
   fullWidth = false,
   lineClamp,
@@ -21,6 +25,8 @@ const TabsProvider = ({
   onChange,
   readOnly,
   size = TabSize.Medium,
+  theme,
+  themeContainerId,
   statgrouptheme,
   value,
   variant = TabVariant.default,
@@ -39,6 +45,8 @@ const TabsProvider = ({
     <TabsContext.Provider
       value={{
         alignIcon,
+        colorInvert,
+        configContextProps,
         currentActiveTab,
         direction,
         fullWidth,
@@ -48,6 +56,8 @@ const TabsProvider = ({
         readOnly,
         size,
         statgrouptheme,
+        theme,
+        themeContainerId,
         variant,
       }}
     >

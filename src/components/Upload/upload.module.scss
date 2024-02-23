@@ -1041,6 +1041,38 @@ $upload-picture-card-size: 104px;
     }
   }
 
+  &.gradient {
+    .upload-list-picture-card {
+      .upload-list-item-actions {
+        a {
+          --bg: var(--primary-background1-gradient);
+          background-color: var(--bg);
+
+          &:hover:not([disabled]) {
+            --bg: var(--background-color);
+          }
+
+          &:active:not([disabled]) {
+            --bg: var(--primary-background2-gradient);
+          }
+        }
+      }
+
+      .upload-list-item-info:focus-within + .upload-list-item-actions,
+      .upload-list-item-info:hover + .upload-list-item-actions,
+      .upload-list-item-actions:focus-within,
+      .upload-list-item-actions:hover {
+        background: transparent;
+      }
+
+      .upload-list-item-uploading {
+        &.upload-list-item {
+          background-color: var(--background-color);
+        }
+      }
+    }
+  }
+
   &-full-width {
     &.upload-drop {
       width: 100%;

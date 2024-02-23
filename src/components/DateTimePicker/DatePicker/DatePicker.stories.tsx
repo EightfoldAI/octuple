@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import { Stories } from '@storybook/addon-docs';
-import { ButtonVariant } from '../../Button';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import DatePicker from './';
-import { DatePickerShape, DatePickerSize } from './';
+import DatePicker, { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
+import { ButtonVariant } from '../../Button';
 import { Stack } from '../../Stack';
 
 export default {
@@ -80,8 +79,8 @@ export default {
       control: { type: 'radio' },
     },
     status: {
-      options: ['error', 'warning'],
-      control: { type: 'radio' },
+      options: ['success', 'warning', 'error', 'validating', 'highlight', ''],
+      control: 'select',
     },
     popupPlacement: {
       options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
@@ -518,8 +517,10 @@ const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
 const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <DatePicker {...args} status="error" />
+      <DatePicker {...args} status="success" />
       <DatePicker {...args} status="warning" />
+      <DatePicker {...args} status="error" />
+      <DatePicker {...args} status="highlight" />
     </Stack>
   );
 };
@@ -527,8 +528,10 @@ const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
 const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <RangePicker {...args} status="error" />
+      <RangePicker {...args} status="success" />
       <RangePicker {...args} status="warning" />
+      <RangePicker {...args} status="error" />
+      <RangePicker {...args} status="highlight" />
     </Stack>
   );
 };

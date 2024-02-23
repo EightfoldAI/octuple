@@ -1,0 +1,250 @@
+.theme {
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  --primary-background1-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-10) 0%,
+    var(--primary-gradient-middle-color-10) 49%,
+    var(--primary-gradient-end-color-10) 100%
+  ); // Surface 1
+  --primary-background2-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-20) 0%,
+    var(--primary-gradient-middle-color-20) 49%,
+    var(--primary-gradient-end-color-20) 100%
+  ); // Surface 2
+  --primary-background3-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-30) 0%,
+    var(--primary-gradient-middle-color-30) 49%,
+    var(--primary-gradient-end-color-30) 100%
+  ); // Surface 3
+  --primary-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-60) 0%,
+    var(--primary-gradient-middle-color-60) 49%,
+    var(--primary-gradient-end-color-60) 100%
+  ); // Graphics
+  --primary-secondary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-70) 0%,
+    var(--primary-gradient-middle-color-70) 49%,
+    var(--primary-gradient-end-color-70) 100%
+  ); // Text
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-80) 0%,
+    var(--primary-gradient-middle-color-80) 49%,
+    var(--primary-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --accent-background1-color: var(--accent-color-10); // Surface 1
+  --accent-background2-color: var(--accent-color-20); // Surface 2
+  --accent-background3-color: var(--accent-color-30); // Surface 3
+  --accent-tertiary-color: var(--accent-color-60); // Graphics
+  --accent-secondary-color: var(--accent-color-70); // Text
+  --accent-color: var(--accent-color-80); // Extra high contrast
+
+  --accent-background1-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-10) 0%,
+    var(--accent-gradient-middle-color-10) 49%,
+    var(--accent-gradient-end-color-10) 100%
+  ); // Surface 1
+  --accent-background2-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-20) 0%,
+    var(--accent-gradient-middle-color-20) 49%,
+    var(--accent-gradient-end-color-20) 100%
+  ); // Surface 2
+  --accent-background3-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-30) 0%,
+    var(--accent-gradient-middle-color-30) 49%,
+    var(--accent-gradient-end-color-30) 100%
+  ); // Surface 3
+  --accent-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-60) 0%,
+    var(--accent-gradient-middle-color-60) 49%,
+    var(--accent-gradient-end-color-60) 100%
+  ); // Graphics
+  --accent-secondary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-70) 0%,
+    var(--accent-gradient-middle-color-70) 49%,
+    var(--accent-gradient-end-color-70) 100%
+  ); // Text
+  --accent-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-80) 0%,
+    var(--accent-gradient-middle-color-80) 49%,
+    var(--accent-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  --disruptive-background1-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-10) 0%,
+    var(--disruptive-gradient-middle-color-10) 49%,
+    var(--disruptive-gradient-end-color-10) 100%
+  ); // Surface 1
+  --disruptive-background2-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-20) 0%,
+    var(--disruptive-gradient-middle-color-20) 49%,
+    var(--disruptive-gradient-end-color-20) 100%
+  ); // Surface 2
+  --disruptive-background3-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-30) 0%,
+    var(--disruptive-gradient-middle-color-30) 49%,
+    var(--disruptive-gradient-end-color-30) 100%
+  ); // Surface 3
+  --disruptive-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-60) 0%,
+    var(--disruptive-gradient-middle-color-60) 49%,
+    var(--disruptive-gradient-end-color-60) 100%
+  ); // Graphics
+  --disruptive-secondary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-70) 0%,
+    var(--disruptive-gradient-middle-color-70) 49%,
+    var(--disruptive-gradient-end-color-70) 100%
+  ); // Text
+  --disruptive-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-80) 0%,
+    var(--disruptive-gradient-middle-color-80) 49%,
+    var(--disruptive-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // ------ Radio Button theme ------
+  --radio-button-background-color: transparent;
+  --radio-button-active-background-color: var(--accent-background3-color);
+  --radio-button-hover-background-color: var(--accent-background1-color);
+  --radio-button-checked-background-color: var(--accent-background3-color);
+  --radio-button-checked-active-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-checked-hover-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-border-color: var(--grey-secondary-color);
+  --radio-button-active-border-color: var(--primary-secondary-color);
+  --radio-button-hover-border-color: var(--primary-secondary-color);
+  --radio-button-checked-border-color: var(--primary-secondary-color);
+  --radio-button-checked-active-border-color: var(--primary-secondary-color);
+  --radio-button-checked-hover-border-color: var(--primary-secondary-color);
+  --radio-button-focus-visible-border-color: var(--primary-color);
+  --radio-button-border-width: 2px;
+  --radio-button-border-style: solid;
+  --radio-button-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-border-color);
+  --radio-button-active-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-active-border-color);
+  --radio-button-hover-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-hover-border-color);
+  --radio-button-checked-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-checked-border-color);
+  --radio-button-checked-active-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-checked-active-border-color);
+  --radio-button-checked-hover-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-checked-hover-border-color);
+  --radio-button-focus-visible-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-focus-visible-border-color);
+  --radio-button-pip-color: var(--primary-secondary-color);
+  --radio-button-focus-visible-pip-color: var(--primary-color);
+  --radio-button-text-color: var(--primary-secondary-color);
+
+  --radio-button-pill-container-background-color: var(--grey-background1-color);
+  --radio-button-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-color: var(--accent-background2-color);
+  --radio-button-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-radius: var(--border-radius-xl);
+  --radio-button-pill-container-border-style: solid;
+  --radio-button-pill-container-border-width: 0;
+  --radio-button-pill-container-text-color: var(--text-secondary-color);
+  --radio-button-pill-container-active-text-color: var(--primary-color);
+  --radio-button-pill-container-hover-text-color: var(--primary-color);
+  --radio-button-in-pill-background-color: transparent;
+  --radio-button-in-pill-active-background-color: transparent;
+  --radio-button-in-pill-hover-background-color: transparent;
+  --radio-button-in-pill-checked-background-color: transparent;
+  --radio-button-in-pill-checked-active-background-color: transparent;
+  --radio-button-in-pill-checked-hover-background-color: transparent;
+  --radio-button-in-pill-border-color: var(--grey-secondary-color);
+  --radio-button-in-pill-active-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-hover-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-border-width: 2px;
+  --radio-button-in-pill-border-style: solid;
+  --radio-button-in-pill-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-border-color);
+  --radio-button-in-pill-active-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-active-border-color);
+  --radio-button-in-pill-hover-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-hover-border-color);
+  --radio-button-in-pill-checked-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-border-color);
+  --radio-button-in-pill-checked-active-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-active-border-color);
+  --radio-button-in-pill-checked-hover-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-hover-border-color);
+  --radio-button-in-pill-focus-visible-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-focus-visible-border-color);
+  --radio-button-in-pill-pip-color: var(--primary-secondary-color);
+  --radio-button-in-pill-focus-visible-pip-color: var(
+    --primary-secondary-color
+  );
+  // ------ Radio Button theme ------
+}

@@ -181,6 +181,13 @@ const stepperArgs: Object = {
   activeStepIndex: 2,
   classNames: 'my-stepper',
   id: 'myStepperId',
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  gradient: false,
+  theme: '',
+  themeContainerId: 'my-stepper-theme-container',
   index: 2,
   layout: 'horizontal',
   readonly: false,

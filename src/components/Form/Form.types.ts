@@ -228,7 +228,14 @@ export interface FieldError {
   warnings: string[];
 }
 
-const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
+const ValidateStatuses = tuple(
+  'success',
+  'warning',
+  'error',
+  'validating',
+  'highlight',
+  ''
+);
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 export type RenderChildren<Values = any> = (

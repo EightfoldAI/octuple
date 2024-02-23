@@ -1,0 +1,138 @@
+.theme {
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  --primary-background1-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-10) 0%,
+    var(--primary-gradient-middle-color-10) 49%,
+    var(--primary-gradient-end-color-10) 100%
+  ); // Surface 1
+  --primary-background2-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-20) 0%,
+    var(--primary-gradient-middle-color-20) 49%,
+    var(--primary-gradient-end-color-20) 100%
+  ); // Surface 2
+  --primary-background3-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-30) 0%,
+    var(--primary-gradient-middle-color-30) 49%,
+    var(--primary-gradient-end-color-30) 100%
+  ); // Surface 3
+  --primary-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-60) 0%,
+    var(--primary-gradient-middle-color-60) 49%,
+    var(--primary-gradient-end-color-60) 100%
+  ); // Graphics
+  --primary-secondary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-70) 0%,
+    var(--primary-gradient-middle-color-70) 49%,
+    var(--primary-gradient-end-color-70) 100%
+  ); // Text
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-80) 0%,
+    var(--primary-gradient-middle-color-80) 49%,
+    var(--primary-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  --disruptive-background1-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-10) 0%,
+    var(--disruptive-gradient-middle-color-10) 49%,
+    var(--disruptive-gradient-end-color-10) 100%
+  ); // Surface 1
+  --disruptive-background2-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-20) 0%,
+    var(--disruptive-gradient-middle-color-20) 49%,
+    var(--disruptive-gradient-end-color-20) 100%
+  ); // Surface 2
+  --disruptive-background3-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-30) 0%,
+    var(--disruptive-gradient-middle-color-30) 49%,
+    var(--disruptive-gradient-end-color-30) 100%
+  ); // Surface 3
+  --disruptive-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-60) 0%,
+    var(--disruptive-gradient-middle-color-60) 49%,
+    var(--disruptive-gradient-end-color-60) 100%
+  ); // Graphics
+  --disruptive-secondary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-70) 0%,
+    var(--disruptive-gradient-middle-color-70) 49%,
+    var(--disruptive-gradient-end-color-70) 100%
+  ); // Text
+  --disruptive-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-80) 0%,
+    var(--disruptive-gradient-middle-color-80) 49%,
+    var(--disruptive-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // ------ Info Bar theme ------
+  --info-bar-disruptive-border-color: var(--red-background2-color);
+  --info-bar-neutral-border-color: var(--grey-background2-color);
+  --info-bar-positive-border-color: var(--green-background2-color);
+  --info-bar-warning-border-color: var(--orange-background2-color);
+  --info-bartip-border-style: solid;
+  --info-bar-border-width: 1px;
+  --info-bar-border: var(--info-bar-border-width)
+    var(--info-bartip-border-style) var(--info-bar-neutral-border-color);
+  --info-bar-border-radius: var(--border-radius-xl);
+  --info-bar-background-color: var(--grey-background1-color);
+  --info-bar-button-active-background-color: var(--grey-background2-color);
+  --info-bar-button-hover-background-color: var(--background-color);
+  --info-bar-text-color: var(--text-secondary-color);
+  --info-bar-positive-background-color: var(--green-background1-color);
+  --info-bar-positive-button-active-background-color: var(
+    --green-background2-color
+  );
+  --info-bar-positive-text-color: var(--green-secondary-color);
+  --info-bar-warning-background-color: var(--orange-background1-color);
+  --info-bar-warning-button-active-background-color: var(
+    --orange-background2-color
+  );
+  --info-bar-warning-text-color: var(--orange-secondary-color);
+  --info-bar-disruptive-background-color: var(--disruptive-background1-color);
+  --info-bar-disruptive-button-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --info-bar-disruptive-text-color: var(--disruptive-secondary-color);
+
+  --info-bar-background-gradient: var(--primary-background1-gradient);
+  --info-bar-gradient-disruptive-border-color: var(--red-tertiary-color);
+  --info-bar-gradient-neutral-border-color: var(--primary-tertiary-color);
+  --info-bar-gradient-positive-border-color: var(--green-tertiary-color);
+  --info-bar-gradient-warning-border-color: var(--orange-tertiary-color);
+  --info-bar-gradient-text-color: var(--primary-color);
+  --info-bar-gradient-button-active-background-color: var(
+    --primary-background2-color
+  );
+  --info-bar-gradient-button-hover-background-color: var(
+    --primary-background1-color
+  );
+  --info-bar-positive-background-gradient: var(--green-background1-gradient);
+  --info-bar-warning-background-gradient: var(--orange-background1-gradient);
+  --info-bar-disruptive-background-gradient: var(
+    --disruptive-background1-gradient
+  );
+  // ------ Info Bar theme ------
+}

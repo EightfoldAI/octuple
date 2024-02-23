@@ -2,16 +2,17 @@ import React, { FC, useState, useRef, useCallback } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
+import { CompactPicker } from 'react-color';
+import { tinycolor } from '@ctrl/tinycolor';
 import {
+  Button,
+  ButtonShape,
   ButtonSize,
-  DefaultButton,
-  PrimaryButton,
-  SecondaryButton,
+  ButtonVariant,
   TwoStateButton,
 } from '../Button';
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { Icon, IconName } from '../Icon';
-import { CompactPicker } from 'react-color';
 import {
   ConfigProvider,
   CustomFont,
@@ -388,6 +389,8 @@ const ThemedComponents: FC = () => {
                     customTheme: {
                       primaryColor: color.hex,
                       accentColor: customAccentColor,
+                      accentGradientEndColor: customAccentColor,
+                      accentGradientStartColor: customAccentColor,
                     },
                   });
                   setCustomPrimaryColor(color.hex);
@@ -399,11 +402,14 @@ const ThemedComponents: FC = () => {
               <CompactPicker
                 color={customAccentColor}
                 onChange={async (color) => {
+                  const colors = tinycolor(color.hex).splitcomplement();
                   updateThemeOptions({
                     name: 'custom',
                     customTheme: {
                       primaryColor: customPrimaryColor,
-                      accentColor: color.hex,
+                      accentColor: colors.at(0).toHexString(),
+                      accentGradientEndColor: colors.at(1).toHexString(),
+                      accentGradientStartColor: colors.at(2).toHexString(),
                     },
                   });
                   setCustomAccentColor(color.hex);
@@ -431,9 +437,13 @@ const ThemedComponents: FC = () => {
       </Stack>
 
       <div>
-        <PrimaryButton
+        <Button
           text="Edit varTheme"
           onClick={() => setShowVarThemeModal(true)}
+          variant={ButtonVariant.Primary}
+          configContextProps={{ noThemeContext: true }}
+          gradient
+          theme="blueViolet"
         />
         {showVarThemeModal && (
           <Dialog
@@ -496,53 +506,62 @@ const ThemedComponents: FC = () => {
       </div>
 
       <Stack direction="horizontal" flexGap="m">
-        <PrimaryButton
+        <Button
           ariaLabel="Primary Button"
           size={ButtonSize.Small}
           text="Primary Button"
+          variant={ButtonVariant.Primary}
         />
-        <PrimaryButton
+        <Button
           ariaLabel="Primary Button"
+          shape={ButtonShape.Round}
           size={ButtonSize.Small}
           iconProps={{ path: IconName.mdiCardsHeart }}
+          variant={ButtonVariant.Primary}
         />
-        <PrimaryButton
+        <Button
           ariaLabel="Primary Button"
           size={ButtonSize.Small}
           iconProps={{ path: IconName.mdiCardsHeart }}
           text="Primary Button"
+          variant={ButtonVariant.Primary}
         />
       </Stack>
       <Stack direction="horizontal" flexGap="m">
-        <SecondaryButton
+        <Button
           ariaLabel="Secondary Button"
           size={ButtonSize.Small}
           text="Secondary Button"
+          variant={ButtonVariant.Secondary}
         />
-        <SecondaryButton
+        <Button
           ariaLabel="Secondary Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
+          shape={ButtonShape.Round}
           size={ButtonSize.Small}
+          variant={ButtonVariant.Secondary}
         />
-        <SecondaryButton
+        <Button
           ariaLabel="Secondary Button"
           size={ButtonSize.Small}
           text="Secondary Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
+          variant={ButtonVariant.Secondary}
         />
       </Stack>
       <Stack direction="horizontal" flexGap="m">
-        <DefaultButton
+        <Button
           ariaLabel="Default Button"
           size={ButtonSize.Small}
           text="Default Button"
         />
-        <DefaultButton
+        <Button
           ariaLabel="Default Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
+          shape={ButtonShape.Round}
           size={ButtonSize.Small}
         />
-        <DefaultButton
+        <Button
           ariaLabel="Default Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
           size={ButtonSize.Small}
@@ -706,7 +725,7 @@ const ThemedComponents: FC = () => {
         }}
       />
       <Dropdown overlay={Overlay()} placement="top">
-        <DefaultButton text={'Menu dropdown'} />
+        <Button text={'Menu dropdown'} />
       </Dropdown>
     </Stack>
   );
@@ -1051,6 +1070,7 @@ const providerArgs = {
     fontStack: '--font-stack',
     fontSize: '--font-size',
   } as FontOptions,
+  gradient: false,
   // TODO: should get this from the ConfigProvider in order to restore any
   // customizations the storybook user has applied so far.
   themeOptions: {

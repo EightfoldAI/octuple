@@ -17,6 +17,7 @@ import {
 } from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
 import { DisabledContextProvider } from './DisabledContext';
+import { GradientContextProvider } from './GradientContext';
 import { ShapeContextProvider } from './ShapeContext';
 import { SizeContextProvider } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
@@ -44,6 +45,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
   },
   fontOptions: defaultFontOptions,
   form,
+  gradient = false,
   icomoonIconSet = {},
   locale,
   shape,
@@ -102,7 +104,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
       {};
   }
 
-  if (form && form.validateMessages) {
+  if (form?.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
   }
 
@@ -127,6 +129,14 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
   if (size) {
     childNode = (
       <SizeContextProvider size={size}>{childNode}</SizeContextProvider>
+    );
+  }
+
+  if (gradient !== undefined) {
+    childNode = (
+      <GradientContextProvider gradient={gradient}>
+        {childNode}
+      </GradientContextProvider>
     );
   }
 

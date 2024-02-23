@@ -8,6 +8,8 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
     const {
       alignIcon,
       children,
+      colorInvert,
+      configContextProps,
       direction,
       fullWidth,
       lineClamp,
@@ -16,12 +18,16 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       readOnly,
       size,
       statgrouptheme,
+      theme,
+      themeContainerId,
       value,
       variant,
     } = props;
     return (
       <TabsProvider
         alignIcon={alignIcon}
+        colorInvert={colorInvert}
+        configContextProps={configContextProps}
         direction={direction}
         fullWidth={fullWidth}
         lineClamp={lineClamp}
@@ -30,6 +36,8 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
         readOnly={readOnly}
         size={size}
         statgrouptheme={statgrouptheme}
+        theme={theme}
+        themeContainerId={themeContainerId}
         value={value}
         variant={variant}
       >

@@ -3,6 +3,7 @@ import type { Dispatch, SetStateAction, ForwardedRef } from 'react';
 import { default as EasyCropper } from 'react-easy-crop';
 import type { CropperProps as EasyCropperProps } from 'react-easy-crop';
 import type { Area } from 'react-easy-crop/types';
+import { ConfigContextProps, OcThemeName } from '../../ConfigProvider';
 import { UploadLocale } from '../Upload.types';
 
 export const INIT_ZOOM: number = 1;
@@ -24,7 +25,11 @@ export interface EasyCropProps
     Pick<
       CropperProps,
       | 'aspect'
+      | 'configContextProps'
+      | 'gradient'
       | 'shape'
+      | 'theme'
+      | 'themeContainerId'
       | 'grid'
       | 'zoom'
       | 'rotate'
@@ -79,6 +84,10 @@ export interface CropperProps {
    */
   children: JSX.Element;
   /**
+   * Configure how contextual props are consumed.
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * `react-easy-crop` dependency props.
    * May not be overridden. See https://github.com/ricardo-ch/react-easy-crop#props
    */
@@ -88,6 +97,11 @@ export interface CropperProps {
    * @default `var(--background-color)``
    */
   fillColor?: string;
+  /**
+   * The Cropper gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Show Cropper area grid.
    * @default false
@@ -176,6 +190,17 @@ export interface CropperProps {
    * @default 'rect'
    */
   shape?: 'rect' | 'round';
+  /**
+   * Theme of the Cropper.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Cropper.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Enables image zoom.
    * @default true
