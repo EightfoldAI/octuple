@@ -453,6 +453,8 @@ const menuArgs: object = {
   itemClassNames: 'my-menu-item-class',
   itemStyle: {},
   listType: 'ul',
+  role: 'list',
+  itemProps: { role: 'listitem' },
 };
 
 Basic_Menu.args = {

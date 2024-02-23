@@ -15,6 +15,7 @@ import styles from './list.module.scss';
 export const List = <T extends any>({
   additionalItem,
   disableArrowKeys = false,
+  disableKeys = false,
   items,
   footer,
   layout = 'vertical',
@@ -58,7 +59,7 @@ export const List = <T extends any>({
     index: number,
     external: boolean = false
   ): void => {
-    if (disableArrowKeys) {
+    if (disableArrowKeys || disableKeys) {
       return;
     }
     const arrowDown: boolean = event?.key === eventKeys.ARROWDOWN;
@@ -122,18 +123,31 @@ export const List = <T extends any>({
         focusableElements?.[0]?.focus();
       }
     }
-    if (home) {
-      event?.preventDefault();
-      setFocusIndex(0);
-      if (itemRefs.current[0]) {
-        itemRefs.current[0]?.focus();
+    if (end || home) {
+      const focusElement = (index: number) => {
+        event?.preventDefault();
+        setFocusIndex(index);
+        if (itemRefs.current[index]) {
+          const item: HTMLElement | null = external
+            ? itemRefs.current[index].parentElement
+            : itemRefs.current[index];
+          const getFocusableElements = (): HTMLElement[] => {
+            return [
+              ...(item.querySelectorAll(SELECTORS) as unknown as HTMLElement[]),
+            ].filter((el: HTMLElement) => focusable(el));
+          };
+          const focusableElements: HTMLElement[] = getFocusableElements();
+          const focusableElement: HTMLElement | null = focusableElements?.[0];
+          focusableElement?.focus();
+        }
+      };
+
+      if (end) {
+        focusElement(items.length - 1);
       }
-    }
-    if (end) {
-      event?.preventDefault();
-      setFocusIndex(items.length - 1);
-      if (itemRefs.current[items.length - 1]) {
-        itemRefs.current[items.length - 1]?.focus();
+
+      if (home) {
+        focusElement(0);
       }
     }
   };

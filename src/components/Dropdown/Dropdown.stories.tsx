@@ -129,7 +129,7 @@ const Overlay = () => (
         iconProps={{
           path: item.icon,
         }}
-        role="menuitem"
+        role="listitem"
         style={{
           margin: '4px 0',
         }}
@@ -137,7 +137,7 @@ const Overlay = () => (
         variant={ButtonVariant.Default}
       />
     )}
-    role="menu"
+    role="list"
   />
 );
 
@@ -152,7 +152,7 @@ const OverlayWithAdditionalListItem = () => (
         iconProps={{
           path: item.icon,
         }}
-        role="menuitem"
+        role="listitem"
         style={{
           margin: '4px 0',
         }}
@@ -167,7 +167,7 @@ const OverlayWithAdditionalListItem = () => (
         iconProps={{
           path: item.icon,
         }}
-        role="menuitem"
+        role="listitem"
         style={{
           margin: '4px 0',
         }}
@@ -175,7 +175,7 @@ const OverlayWithAdditionalListItem = () => (
         variant={ButtonVariant.Secondary}
       />
     )}
-    role="menu"
+    role="list"
   />
 );
 
@@ -326,6 +326,7 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
   const Overlay = () => (
     <List
       items={sampleList}
+      itemProps={{ role: 'listitem' }}
       itemStyle={{
         margin: '4px 0',
       }}
@@ -334,9 +335,11 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
           checked={(checkedItems as any)?.[item.name]}
           label={item.name}
           onChange={handleChange}
+          role="listitem"
           value={item.name}
         />
       )}
+      role="list"
     />
   );
 
