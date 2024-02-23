@@ -3,7 +3,7 @@ import { ListItemProps, UploadSize } from '../Upload.types';
 import { Icon, IconName, IconSize } from '../../Icon';
 import CSSMotion from '../../Motion';
 import Progress from '../../Progress';
-import { ButtonShape, ButtonSize } from '../../Button';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../../Button';
 import { Tooltip, TooltipTheme } from '../../Tooltip';
 import { canUseDom, eventKeys, mergeClasses } from '../../../shared/utilities';
 
@@ -18,6 +18,7 @@ const ListItem = React.forwardRef(
       downloadIcon: customDownloadIcon,
       downloadIconButtonType: downloadIconButtonType,
       file,
+      gradient,
       iconRender,
       isImgUrl,
       itemRender,
@@ -184,6 +185,7 @@ const ListItem = React.forwardRef(
               maxCount === 1
                 ? removeFileText
                 : null,
+            variant: gradient ? ButtonVariant.Secondary : ButtonVariant.Default,
           },
           () => onClose(file)
         )
@@ -211,6 +213,7 @@ const ListItem = React.forwardRef(
             },
             shape: replaceFileText ? ButtonShape.Pill : ButtonShape.Round,
             text: replaceFileText,
+            variant: gradient ? ButtonVariant.Primary : ButtonVariant.Default,
           },
           () => onReplace(file)
         )
@@ -229,6 +232,9 @@ const ListItem = React.forwardRef(
                     ? customDownloadIcon(file)
                     : customDownloadIcon || IconName.mdiDownloadOutline,
               },
+              variant: gradient
+                ? ButtonVariant.Secondary
+                : ButtonVariant.Default,
             },
             () => onDownload(file)
           )

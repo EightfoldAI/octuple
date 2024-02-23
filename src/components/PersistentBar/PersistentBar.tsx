@@ -1,4 +1,17 @@
-import React, { FC, ReactNode, Ref, useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  ReactNode,
+  Ref,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import {
   BUTTON_MENU_AFFORDANCE,
   BUTTON_PADDING,
@@ -34,6 +47,7 @@ import { Breakpoint, mergeClasses } from '../../shared/utilities';
 import enUS from './Locale/en_US';
 
 import styles from './persistentBar.module.scss';
+import themedComponentStyles from './persistentBar.theme.module.scss';
 
 const { useBreakpoint } = Grid;
 
@@ -42,7 +56,12 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
     const {
       buttonMenuProps,
       bordered = false,
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
       content,
+      gradient = false,
       icon,
       type = PersistentBarType.bottomBarWithText,
       closable, // TODO: implement close support when vscode instances are updated
@@ -56,6 +75,8 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
       actionButtonTwoProps,
       actionButtonThreeProps,
       role = 'toolbar',
+      theme,
+      themeContainerId,
       title,
       overflowAriaLabel: defaultOverflowAriaLabel,
       paginationArgs, // TODO: Remove in Octuple v3
@@ -82,6 +103,16 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
       LINES_TO_SHOW,
       buttonMenuProps?.length
     );
+
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     // ============================ Strings ===========================
     const [persistentBarLocale] = useLocaleReceiver('PersistentBar');
@@ -110,6 +141,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
     const persistentBarClassNames: string = mergeClasses([
       styles.persistentBar,
       classNames,
+      { [themedComponentStyles.theme]: mergedTheme },
       {
         [styles.bordered]: !!bordered,
       },
@@ -188,13 +220,26 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 {actionButtonTwoProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
+                    variant={
+                      mergedGradient
+                        ? ButtonVariant.Secondary
+                        : ButtonVariant.Default
+                    }
                     {...actionButtonTwoProps}
-                    classNames={styles.DefaultButton}
+                    classNames={styles.defaultButton}
                   />
                 )}
                 {actionButtonOneProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.Primary}
                     {...actionButtonOneProps}
                   />
@@ -208,12 +253,25 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
               <div>
                 {actionButtonTwoProps && (
                   <Button
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
+                    variant={
+                      mergedGradient
+                        ? ButtonVariant.Secondary
+                        : ButtonVariant.Default
+                    }
                     {...actionButtonTwoProps}
-                    classNames={styles.DefaultButton}
+                    classNames={styles.defaultButton}
                   />
                 )}
                 {actionButtonOneProps && (
                   <Button
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.Primary}
                     {...actionButtonOneProps}
                   />
@@ -233,6 +291,10 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 {actionButtonOneProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.Secondary}
                     {...actionButtonOneProps}
                   />
@@ -240,6 +302,10 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 {actionButtonTwoProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.Secondary}
                     {...actionButtonTwoProps}
                   />
@@ -247,6 +313,10 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 {actionButtonThreeProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.Secondary}
                     {...actionButtonThreeProps}
                   />
@@ -259,18 +329,30 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
             <>
               {actionButtonOneProps && (
                 <Button
+                  configContextProps={configContextProps}
+                  gradient={mergedGradient}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
                   variant={ButtonVariant.Secondary}
                   {...actionButtonOneProps}
                 />
               )}
               {actionButtonTwoProps && (
                 <Button
+                  configContextProps={configContextProps}
+                  gradient={mergedGradient}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
                   variant={ButtonVariant.Secondary}
                   {...actionButtonTwoProps}
                 />
               )}
               {actionButtonThreeProps && (
                 <Button
+                  configContextProps={configContextProps}
+                  gradient={mergedGradient}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
                   variant={ButtonVariant.Secondary}
                   {...actionButtonThreeProps}
                 />
@@ -290,18 +372,40 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 {actionButtonOneProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
+                    variant={
+                      mergedGradient
+                        ? ButtonVariant.Secondary
+                        : ButtonVariant.Default
+                    }
                     {...actionButtonOneProps}
                   />
                 )}
                 {actionButtonTwoProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
+                    variant={
+                      mergedGradient
+                        ? ButtonVariant.Secondary
+                        : ButtonVariant.Default
+                    }
                     {...actionButtonTwoProps}
                   />
                 )}
                 {actionButtonThreeProps && (
                   <Button
                     buttonWidth={ButtonWidth.fill}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.Primary}
                     {...actionButtonThreeProps}
                   />
@@ -312,10 +416,40 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
 
           return (
             <>
-              {actionButtonOneProps && <Button {...actionButtonOneProps} />}
-              {actionButtonTwoProps && <Button {...actionButtonTwoProps} />}
+              {actionButtonOneProps && (
+                <Button
+                  configContextProps={configContextProps}
+                  gradient={mergedGradient}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
+                  variant={
+                    mergedGradient
+                      ? ButtonVariant.Secondary
+                      : ButtonVariant.Default
+                  }
+                  {...actionButtonOneProps}
+                />
+              )}
+              {actionButtonTwoProps && (
+                <Button
+                  configContextProps={configContextProps}
+                  gradient={mergedGradient}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
+                  variant={
+                    mergedGradient
+                      ? ButtonVariant.Secondary
+                      : ButtonVariant.Default
+                  }
+                  {...actionButtonTwoProps}
+                />
+              )}
               {actionButtonThreeProps && (
                 <Button
+                  configContextProps={configContextProps}
+                  gradient={mergedGradient}
+                  theme={mergedTheme}
+                  themeContainerId={themeContainerId}
                   variant={ButtonVariant.Primary}
                   {...actionButtonThreeProps}
                 />
@@ -329,19 +463,27 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 <Stack direction="horizontal" fullWidth justify="space-between">
                   <Button
                     classNames={styles.iconButton}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
                     iconProps={{ path: getIconName() }}
                     shape={ButtonShape.Round}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     variant={ButtonVariant.SystemUI}
                     {...actionButtonOneProps}
                   />
                   <Pagination
-                    total={paginationTotal}
+                    configContextProps={configContextProps}
+                    gradient={mergedGradient}
                     layout={[
                       PaginationLayoutOptions.Previous,
                       PaginationLayoutOptions.Pager,
                       PaginationLayoutOptions.Next,
                       PaginationLayoutOptions.Simplified,
                     ]}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
+                    total={paginationTotal}
                     {...paginationArgs}
                     {...paginationProps}
                   />
@@ -359,21 +501,29 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
               justify="space-between"
             >
               <Button
+                configContextProps={configContextProps}
+                gradient={mergedGradient}
                 classNames={styles.iconButton}
                 iconProps={{ path: getIconName() }}
                 shape={ButtonShape.Round}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
                 variant={ButtonVariant.SystemUI}
                 {...actionButtonOneProps}
               />
               {getContent()}
               <Pagination
-                total={paginationTotal}
+                configContextProps={configContextProps}
+                gradient={mergedGradient}
                 layout={[
                   PaginationLayoutOptions.Previous,
                   PaginationLayoutOptions.Pager,
                   PaginationLayoutOptions.Next,
                   PaginationLayoutOptions.Simplified,
                 ]}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
+                total={paginationTotal}
                 {...paginationArgs}
                 {...paginationProps}
               />
@@ -382,6 +532,10 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
         case PersistentBarType.topBarPagination:
           return (
             <Pagination
+              configContextProps={configContextProps}
+              gradient={mergedGradient}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               total={paginationTotal}
               {...paginationArgs}
               {...paginationProps}
@@ -408,8 +562,12 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
           classNames: styles.persistentBarMenuItem,
           render: () => (
             <Button
-              variant={ButtonVariant.Secondary}
               buttonWidth={ButtonWidth.fill}
+              configContextProps={configContextProps}
+              gradient={mergedGradient}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
+              variant={ButtonVariant.Secondary}
               {...button}
               iconProps={{ ...button.iconProps }}
               key={'buttonMenuItem-' + idx}
@@ -433,8 +591,12 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
           >
             <Button
               ariaLabel={overflowAriaLabel}
+              configContextProps={configContextProps}
+              gradient={mergedGradient}
               iconProps={{ path: IconName.mdiDotsVertical }}
               shape={ButtonShape.Round}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.Secondary}
             />
           </Dropdown>
@@ -457,7 +619,13 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
             key={'buttonItem-' + idx}
             ref={(ref) => (buttonRefs.current[idx] = ref)}
           >
-            <Button {...item} />
+            <Button
+              configContextProps={configContextProps}
+              gradient={mergedGradient}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
+              {...item}
+            />
           </li>
         );
 
@@ -478,31 +646,43 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
         {(_contextLocale: PersistentBarLocale) => {
           if (children) {
             return (
-              <div
-                {...rest}
-                className={persistentBarClassNames}
-                ref={ref}
-                style={style}
-                role={role}
+              <ThemeContextProvider
+                componentClassName={themedComponentStyles.theme}
+                containerId={themeContainerId}
+                theme={mergedTheme}
               >
-                {children}
-              </div>
+                <div
+                  {...rest}
+                  className={persistentBarClassNames}
+                  ref={ref}
+                  style={style}
+                  role={role}
+                >
+                  {children}
+                </div>
+              </ThemeContextProvider>
             );
           }
 
           return (
-            <div
-              {...rest}
-              className={persistentBarClassNames}
-              ref={mergedRef}
-              style={style}
-              role={role}
+            <ThemeContextProvider
+              componentClassName={themedComponentStyles.theme}
+              containerId={themeContainerId}
+              theme={mergedTheme}
             >
-              {buttonMenuProps && (
-                <ul className={styles.persistentBarList}>{getButtons()}</ul>
-              )}
-              {getPersistentBarLayout()}
-            </div>
+              <div
+                {...rest}
+                className={persistentBarClassNames}
+                ref={mergedRef}
+                style={style}
+                role={role}
+              >
+                {buttonMenuProps && (
+                  <ul className={styles.persistentBarList}>{getButtons()}</ul>
+                )}
+                {getPersistentBarLayout()}
+              </div>
+            </ThemeContextProvider>
           );
         }}
       </LocaleReceiver>

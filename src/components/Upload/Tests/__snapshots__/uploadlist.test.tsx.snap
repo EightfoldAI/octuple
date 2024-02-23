@@ -70,7 +70,9 @@ exports[`Upload List itemRender 1`] = `
 `;
 
 exports[`Upload List should be uploading when upload a file 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -180,7 +182,9 @@ exports[`Upload List should be uploading when upload a file 1`] = `
 `;
 
 exports[`Upload List should non-image format file preview 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -881,7 +885,9 @@ exports[`Upload List should non-image format file preview 1`] = `
 `;
 
 exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -1080,7 +1086,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
 `;
 
 exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -1279,7 +1287,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
 `;
 
 exports[`Upload List should support showRemoveIconButton, showReplaceButton, and showPreviewIconButton 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >

@@ -13,9 +13,9 @@ export const DisabledContextProvider: FC<DisabledContextProps> = ({
   children,
   disabled,
 }) => {
-  const originDisabled = useContext(DisabledContext);
+  const ancestorDisabled = useContext(DisabledContext);
   return (
-    <DisabledContext.Provider value={disabled || originDisabled}>
+    <DisabledContext.Provider value={disabled || ancestorDisabled}>
       {children}
     </DisabledContext.Provider>
   );

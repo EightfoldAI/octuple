@@ -48,6 +48,23 @@ export default {
       options: [CarouselSize.Large, CarouselSize.Medium, CarouselSize.Small],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof Carousel>;
 
@@ -252,6 +269,13 @@ export const __namedExportsOrder = [
 
 const carouselArgs: Object = {
   classNames: 'my-carousel',
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  gradient: false,
+  theme: '',
+  themeContainerId: 'my-carousel-theme-container',
   controls: true,
   'data-test-id': 'myCarouselTestyId',
   overlayControls: true,

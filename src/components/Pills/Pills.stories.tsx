@@ -112,6 +112,7 @@ export const __namedExportsOrder = [
 
 const pillArgs: Object = {
   alignIcon: PillIconAlign.Start,
+  gradient: false,
   size: PillSize.Large,
   type: PillType.default,
   label: 'Pill label',
@@ -119,6 +120,7 @@ const pillArgs: Object = {
   disabled: false,
   configContextProps: {
     noDisabledContext: false,
+    noGradientContext: false,
     noSizeContext: false,
   },
   closeButtonProps: {
@@ -126,7 +128,7 @@ const pillArgs: Object = {
   },
   pillButtonProps: {
     iconProps: { path: IconName.mdiThumbUpOutline },
-    text: '2',
+    counter: 2,
     ariaLabel: 'Thumbs up',
   },
 };

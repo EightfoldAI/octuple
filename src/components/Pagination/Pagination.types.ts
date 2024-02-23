@@ -1,4 +1,5 @@
 import { OcBaseProps } from '../OcBase';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 
 type Locale = {
   /**
@@ -85,6 +86,10 @@ export interface PagerProps
 
 export interface PaginationProps extends OcBaseProps<HTMLElement> {
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * The current page.
    * @default 1
    */
@@ -99,6 +104,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    * @default 'Go to'
    */
   goToText?: string;
+  /**
+   * Pagination gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Hide pagination when there is a single page.
    * @default false
@@ -198,6 +208,17 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    * @default false
    */
   simplified?: boolean;
+  /**
+   * Pagination Theme.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Pagination Theme container.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The Pagination total number of items.
    * @default 1

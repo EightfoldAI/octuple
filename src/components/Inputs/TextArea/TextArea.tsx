@@ -2,7 +2,16 @@ import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
+import {
+  OcThemeName,
+  ShapeContext,
+  Shape,
+  SizeContext,
+  Size,
+} from '../../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../../ConfigProvider/ThemeContext';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
@@ -24,6 +33,7 @@ import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../input.module.scss';
+import themedComponentStyles from '../input.theme.module.scss';
 
 export const TextArea: FC<TextAreaProps> = React.forwardRef(
   (
@@ -37,6 +47,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         noDisabledContext: false,
         noShapeContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
       enableExpand = false,
@@ -65,6 +76,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       style,
       textAreaCols = 50,
       textAreaRows = 5,
+      theme,
+      themeContainerId,
       value,
       waitInterval = 10,
       ...rest
@@ -113,6 +126,11 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
+
     const getStatusClassNames = (
       status?: ValidateStatus,
       hasFeedback?: boolean
@@ -122,6 +140,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         [styles.statusWarning]: status === 'warning',
         [styles.statusError]: status === 'error',
         [styles.statusValidating]: status === 'validating',
+        [styles.statusHighlight]: status === 'highlight',
         [styles.hasFeedback]: hasFeedback,
       });
     };
@@ -187,6 +206,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       {
         [styles.inputStretch]: inputWidth === TextInputWidth.fill,
       },
+      { [themedComponentStyles.theme]: mergedTheme },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
@@ -262,58 +282,64 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
     ]);
 
     return (
-      <div className={textAreaWrapperClassNames}>
-        {labelProps && (
-          <Label
-            inline={inline}
-            size={inputSizeToLabelSizeMap.get(mergedSize)}
-            {...labelProps}
-          />
-        )}
-        <div className={textAreaGroupClassNames}>
-          <textarea
-            {...rest}
-            ref={ref}
-            aria-disabled={mergedDisabled}
-            aria-label={ariaLabel}
-            autoFocus={autoFocus}
-            className={textAreaClassNames}
-            cols={textAreaCols}
-            disabled={!allowDisabledFocus && mergedDisabled}
-            id={mergedFormItemInput ? id : textAreaId}
-            maxLength={maxlength}
-            minLength={minlength}
-            name={name}
-            onChange={!allowDisabledFocus ? handleChange : null}
-            onBlur={!allowDisabledFocus ? onBlur : null}
-            onFocus={!allowDisabledFocus ? onFocus : null}
-            onKeyDown={!allowDisabledFocus ? onKeyDown : null}
-            placeholder={placeholder}
-            readOnly={readonly}
-            required={required}
-            style={style}
-            rows={textAreaRows}
-            tabIndex={0}
-            value={inputValue}
-          />
-          {enableExpand && (
-            <Icon
-              classNames={styles.textAreaResizeIcon}
-              path={IconName.mdiResizeBottomRight}
-              rotate={htmlDir === 'rtl' ? 90 : 0}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
+      >
+        <div className={textAreaWrapperClassNames}>
+          {labelProps && (
+            <Label
+              inline={inline}
+              size={inputSizeToLabelSizeMap.get(mergedSize)}
+              {...labelProps}
             />
           )}
-          {readonly && !readOnlyProps?.noStyleChange && (
-            <div className={readOnlyIconClassNames}>
+          <div className={textAreaGroupClassNames}>
+            <textarea
+              {...rest}
+              ref={ref}
+              aria-disabled={mergedDisabled}
+              aria-label={ariaLabel}
+              autoFocus={autoFocus}
+              className={textAreaClassNames}
+              cols={textAreaCols}
+              disabled={!allowDisabledFocus && mergedDisabled}
+              id={mergedFormItemInput ? id : textAreaId}
+              maxLength={maxlength}
+              minLength={minlength}
+              name={name}
+              onChange={!allowDisabledFocus ? handleChange : null}
+              onBlur={!allowDisabledFocus ? onBlur : null}
+              onFocus={!allowDisabledFocus ? onFocus : null}
+              onKeyDown={!allowDisabledFocus ? onKeyDown : null}
+              placeholder={placeholder}
+              readOnly={readonly}
+              required={required}
+              style={style}
+              rows={textAreaRows}
+              tabIndex={0}
+              value={inputValue}
+            />
+            {enableExpand && (
               <Icon
-                path={IconName.mdiLock}
-                {...readOnlyProps?.iconProps}
-                size={inputSizeToIconSizeMap.get(mergedSize)}
+                classNames={styles.textAreaResizeIcon}
+                path={IconName.mdiResizeBottomRight}
+                rotate={htmlDir === 'rtl' ? 90 : 0}
               />
-            </div>
-          )}
+            )}
+            {readonly && !readOnlyProps?.noStyleChange && (
+              <div className={readOnlyIconClassNames}>
+                <Icon
+                  path={IconName.mdiLock}
+                  {...readOnlyProps?.iconProps}
+                  size={inputSizeToIconSizeMap.get(mergedSize)}
+                />
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </ThemeContextProvider>
     );
   }
 );

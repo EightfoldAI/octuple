@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { ConfigProvider, useConfig } from './ConfigProvider';
 import DisabledContext from './DisabledContext';
+import GradientContext from './GradientContext';
 import { IConfigContext } from './ConfigProvider.types';
 import ShapeContext, { Shape } from './ShapeContext';
 import SizeContext, { Size } from './SizeContext';
@@ -96,6 +97,32 @@ describe('ConfigProvider', () => {
       </ConfigProvider>
     );
     expect(getByTestId('disabled').textContent).toBe('false');
+  });
+
+  test('Provides gradient config if provided as prop', () => {
+    const { getByTestId } = render(
+      <ConfigProvider gradient>
+        <GradientContext.Consumer>
+          {(gradient): JSX.Element => (
+            <div data-testid="gradient">{gradient.toString()}</div>
+          )}
+        </GradientContext.Consumer>
+      </ConfigProvider>
+    );
+    expect(getByTestId('gradient').textContent).toBe('true');
+  });
+
+  test('Provides default gradient config if not provided as prop', () => {
+    const { getByTestId } = render(
+      <ConfigProvider gradient={null}>
+        <GradientContext.Consumer>
+          {(gradient): JSX.Element => (
+            <div data-testid="gradient">{gradient.toString()}</div>
+          )}
+        </GradientContext.Consumer>
+      </ConfigProvider>
+    );
+    expect(getByTestId('gradient').textContent).toBe('false');
   });
 
   test('Provides focusVisibleOptions if props are provided', () => {

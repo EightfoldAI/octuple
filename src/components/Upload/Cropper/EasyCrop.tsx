@@ -1,11 +1,14 @@
 import React, {
-  useState,
-  useCallback,
-  useRef,
-  useImperativeHandle,
   forwardRef,
   memo,
+  useCallback,
+  useContext,
+  useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
+import { OcThemeName } from '../../ConfigProvider';
+import ThemeContext from '../../ConfigProvider/ThemeContext';
 import { default as EasyCropper } from 'react-easy-crop';
 import type { Area, Point, Size } from 'react-easy-crop/types';
 import {
@@ -28,8 +31,10 @@ import styles from './cropper.module.scss';
 const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const {
     aspect,
+    configContextProps,
     cropperProps,
     cropperRef,
+    gradient,
     grid,
     image,
     maxZoom,
@@ -38,6 +43,8 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
     rotateLeftButtonAriaLabelText,
     rotateRightButtonAriaLabelText,
     shape,
+    theme,
+    themeContainerId,
     zoom,
     zoomInButtonAriaLabelText,
     zoomOutButtonAriaLabelText,
@@ -53,6 +60,11 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
     x: 0,
     y: 0,
   });
+
+  const contextualTheme: OcThemeName = useContext(ThemeContext);
+  const mergedTheme: OcThemeName = configContextProps.noThemeContext
+    ? theme
+    : contextualTheme || theme;
 
   const onMediaLoaded = useCallback(
     (mediaSize): void => {
@@ -114,20 +126,25 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
       />
       {zoom && (
         <section className={styles.cropperZoomControl}>
-          <Stack direction={'horizontal'} fullWidth gap={'s'}>
+          <Stack direction={'horizontal'} fullWidth flexGap={'s'}>
             <Button
               ariaLabel={zoomOutButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={zoomVal - ZOOM_STEP < minZoom}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiMinus,
               }}
               onClick={() => setZoomVal(zoomVal - ZOOM_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
             <Slider
+              configContextProps={configContextProps}
               containerClassNames={styles.cropperSlider}
               max={maxZoom}
               min={minZoom}
@@ -135,18 +152,24 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               hideMax
               hideMin
               step={ZOOM_STEP}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               value={zoomVal}
             />
             <Button
               ariaLabel={zoomInButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={zoomVal + ZOOM_STEP > maxZoom}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiPlus,
               }}
               onClick={() => setZoomVal(zoomVal + ZOOM_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
           </Stack>
@@ -154,20 +177,25 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
       )}
       {rotate && (
         <section className={styles.cropperRotateControl}>
-          <Stack direction={'horizontal'} fullWidth gap={'s'}>
+          <Stack direction={'horizontal'} fullWidth flexGap={'s'}>
             <Button
               ariaLabel={rotateLeftButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={rotateVal === MIN_ROTATE}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiRotateLeft,
               }}
               onClick={() => setRotateVal(rotateVal - ROTATE_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
             <Slider
+              configContextProps={configContextProps}
               containerClassNames={styles.cropperSlider}
               max={MAX_ROTATE}
               min={MIN_ROTATE}
@@ -177,18 +205,24 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               hideMax
               hideMin
               step={ROTATE_STEP}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               value={rotateVal}
             />
             <Button
               ariaLabel={rotateRightButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={rotateVal === MAX_ROTATE}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiRotateRight,
               }}
               onClick={() => setRotateVal(rotateVal + ROTATE_STEP)}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
           </Stack>

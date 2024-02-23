@@ -203,6 +203,13 @@
     }
   }
 
+  &.gradient {
+    .carousel-next,
+    .carousel-previous {
+      z-index: 3;
+    }
+  }
+
   &-rtl {
     direction: rtl;
 

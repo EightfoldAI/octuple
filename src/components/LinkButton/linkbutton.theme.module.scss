@@ -1,0 +1,417 @@
+.theme {
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  --primary-background1-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-10) 0%,
+    var(--primary-gradient-middle-color-10) 49%,
+    var(--primary-gradient-end-color-10) 100%
+  ); // Surface 1
+  --primary-background2-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-20) 0%,
+    var(--primary-gradient-middle-color-20) 49%,
+    var(--primary-gradient-end-color-20) 100%
+  ); // Surface 2
+  --primary-background3-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-30) 0%,
+    var(--primary-gradient-middle-color-30) 49%,
+    var(--primary-gradient-end-color-30) 100%
+  ); // Surface 3
+  --primary-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-60) 0%,
+    var(--primary-gradient-middle-color-60) 49%,
+    var(--primary-gradient-end-color-60) 100%
+  ); // Graphics
+  --primary-secondary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-70) 0%,
+    var(--primary-gradient-middle-color-70) 49%,
+    var(--primary-gradient-end-color-70) 100%
+  ); // Text
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-80) 0%,
+    var(--primary-gradient-middle-color-80) 49%,
+    var(--primary-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --accent-background1-color: var(--accent-color-10); // Surface 1
+  --accent-background2-color: var(--accent-color-20); // Surface 2
+  --accent-background3-color: var(--accent-color-30); // Surface 3
+  --accent-tertiary-color: var(--accent-color-60); // Graphics
+  --accent-secondary-color: var(--accent-color-70); // Text
+  --accent-color: var(--accent-color-80); // Extra high contrast
+
+  --accent-background1-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-10) 0%,
+    var(--accent-gradient-middle-color-10) 49%,
+    var(--accent-gradient-end-color-10) 100%
+  ); // Surface 1
+  --accent-background2-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-20) 0%,
+    var(--accent-gradient-middle-color-20) 49%,
+    var(--accent-gradient-end-color-20) 100%
+  ); // Surface 2
+  --accent-background3-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-30) 0%,
+    var(--accent-gradient-middle-color-30) 49%,
+    var(--accent-gradient-end-color-30) 100%
+  ); // Surface 3
+  --accent-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-60) 0%,
+    var(--accent-gradient-middle-color-60) 49%,
+    var(--accent-gradient-end-color-60) 100%
+  ); // Graphics
+  --accent-secondary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-70) 0%,
+    var(--accent-gradient-middle-color-70) 49%,
+    var(--accent-gradient-end-color-70) 100%
+  ); // Text
+  --accent-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-80) 0%,
+    var(--accent-gradient-middle-color-80) 49%,
+    var(--accent-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  --disruptive-background1-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-10) 0%,
+    var(--disruptive-gradient-middle-color-10) 49%,
+    var(--disruptive-gradient-end-color-10) 100%
+  ); // Surface 1
+  --disruptive-background2-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-20) 0%,
+    var(--disruptive-gradient-middle-color-20) 49%,
+    var(--disruptive-gradient-end-color-20) 100%
+  ); // Surface 2
+  --disruptive-background3-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-30) 0%,
+    var(--disruptive-gradient-middle-color-30) 49%,
+    var(--disruptive-gradient-end-color-30) 100%
+  ); // Surface 3
+  --disruptive-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-60) 0%,
+    var(--disruptive-gradient-middle-color-60) 49%,
+    var(--disruptive-gradient-end-color-60) 100%
+  ); // Graphics
+  --disruptive-secondary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-70) 0%,
+    var(--disruptive-gradient-middle-color-70) 49%,
+    var(--disruptive-gradient-end-color-70) 100%
+  ); // Text
+  --disruptive-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-80) 0%,
+    var(--disruptive-gradient-middle-color-80) 49%,
+    var(--disruptive-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // ------ Generic button vars ------
+  --button-font-family: var(--font-stack-full);
+  --button-border-radius: var(--border-radius-s);
+  --button-round-shape-border-radius: var(--border-radius-round);
+  --button-pill-shape-border-radius: var(--border-radius-xl);
+  --button-nudge-background-color-primary: var(--white-color);
+  --button-nudge-background-color-secondary: var(--accent-background2-color);
+  --button-nudge-background-color-tertiary: var(--white-color);
+  --button-nudge-gradient-color-one: var(--primary-tertiary-color);
+  --button-nudge-gradient-color-two: var(--primary-background2-color);
+  --button-nudge-gradient-color-three: var(--primary-tertiary-color);
+  --button-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 0s;
+  --button-transition-opacity: opacity 200ms cubic-bezier(0.42, 0, 0.58, 1) 0s;
+  // ------ Generic button vars ------
+
+  // ------ Default Button theme ------
+  --button-default-text-color: var(--primary-color);
+  --button-default-background-color: var(--primary-background1-color);
+  --button-default-border-width: 0;
+  --button-default-border-style: solid;
+  --button-default-border-color: var(--button-default-background-color);
+  --button-default-hover-text-color: var(--button-default-text-color);
+  --button-default-hover-background-color: var(--background-color);
+  --button-default-hover-border-width: var(--button-default-border-width);
+  --button-default-hover-border-style: var(--button-default-border-style);
+  --button-default-hover-border-color: var(
+    --button-default-hover-background-color
+  );
+  --button-default-active-text-color: var(--button-default-text-color);
+  --button-default-active-background-color: var(--primary-background2-color);
+  --button-default-active-border-width: var(--button-default-border-width);
+  --button-default-active-border-style: var(--button-default-border-style);
+  --button-default-active-border-color: var(
+    --button-default-active-background-color
+  );
+  // ------ Default Button theme ------
+
+  // ------ Default Disruptive Button theme ------
+  --button-default-disruptive-text-color: var(--disruptive-secondary-color);
+  --button-default-disruptive-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-default-disruptive-border-width: 0;
+  --button-default-disruptive-border-style: solid;
+  --button-default-disruptive-border-color: var(
+    --button-default-disruptive-background-color
+  );
+  --button-default-disruptive-hover-text-color: var(
+    --disruptive-secondary-color
+  );
+  --button-default-disruptive-hover-background-color: var(--background-color);
+  --button-default-disruptive-hover-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-hover-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-hover-border-color: var(
+    --button-default-disruptive-hover-background-color
+  );
+  --button-default-disruptive-active-text-color: var(--disruptive-color);
+  --button-default-disruptive-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-default-disruptive-active-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-active-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-active-border-color: var(
+    --button-default-disruptive-active-background-color
+  );
+  // ------ Default Disruptive Button theme ------
+
+  // ------ Neutral Button theme ------
+  --button-neutral-text-color: var(--grey-color);
+  --button-neutral-background-color: var(--grey-background1-color);
+  --button-neutral-counter-default-text-color: var(--grey-color);
+  --button-neutral-hover-text-color: var(--button-neutral-text-color);
+  --button-neutral-hover-background-color: var(--background-color);
+  --button-neutral-focus-visible-background-color: var(
+    --grey-background1-color
+  );
+  --button-neutral-active-text-color: var(--button-neutral-text-color);
+  --button-neutral-active-background-color: var(--grey-background2-color);
+  // ------ Neutral Button theme ------
+
+  // ------ Primary Button theme ------
+  --button-primary-text-color: var(--primary-color);
+  --button-primary-background-color: var(--accent-background2-color);
+  --button-primary-border-width: 0;
+  --button-primary-border-style: solid;
+  --button-primary-border-color: var(--button-primary-background-color);
+  --button-primary-hover-text-color: var(--button-primary-text-color);
+  --button-primary-hover-background-color: var(--accent-background1-color);
+  --button-primary-hover-border-width: var(--button-primary-border-width);
+  --button-primary-hover-border-style: var(--button-primary-border-style);
+  --button-primary-hover-border-color: var(
+    --button-primary-hover-background-color
+  );
+  --button-primary-active-text-color: var(--button-primary-text-color);
+  --button-primary-active-background-color: var(--accent-background3-color);
+  --button-primary-active-border-width: var(--button-primary-border-width);
+  --button-primary-active-border-style: var(--button-primary-border-style);
+  --button-primary-active-border-color: var(
+    --button-primary-active-background-color
+  );
+
+  --button-primary-background-gradient: var(--primary-background2-gradient);
+  --button-primary-hover-background-gradient: var(
+    --primary-background1-gradient
+  );
+  --button-primary-active-background-gradient: var(
+    --primary-background3-gradient
+  );
+  // ------ Primary Button theme ------
+
+  // ------ Primary Disruptive Button theme ------
+  --button-primary-disruptive-text-color: var(--disruptive-color);
+  --button-primary-disruptive-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-primary-disruptive-border-width: 0;
+  --button-primary-disruptive-border-style: solid;
+  --button-primary-disruptive-border-color: var(
+    --button-primary-disruptive-background-color
+  );
+  --button-primary-disruptive-hover-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-primary-disruptive-hover-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-hover-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-hover-border-color: var(
+    --button-primary-disruptive-hover-background-color
+  );
+  --button-primary-disruptive-active-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-active-background-color: var(
+    --disruptive-background3-color
+  );
+  --button-primary-disruptive-active-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-active-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-active-border-color: var(
+    --button-primary-disruptive-active-background-color
+  );
+
+  --button-primary-disruptive-background-gradient: var(
+    --disruptive-background2-gradient
+  );
+  --button-primary-disruptive-hover-background-gradient: var(
+    --disruptive-background1-gradient
+  );
+  --button-primary-disruptive-active-background-gradient: var(
+    --disruptive-background3-gradient
+  );
+  // ------ Primary Disruptive Button theme ------
+
+  // ------ Secondary Button theme ------
+  --button-secondary-text-color: var(--primary-color);
+  --button-secondary-background-color: var(--background-color);
+  --button-secondary-border-width: 1px;
+  --button-secondary-border-style: solid;
+  --button-secondary-border-color: var(--accent-tertiary-color);
+  --button-secondary-hover-text-color: var(--button-secondary-text-color);
+  --button-secondary-hover-background-color: var(--accent-background1-color);
+  --button-secondary-hover-border-width: var(--button-secondary-border-width);
+  --button-secondary-hover-border-style: var(--button-secondary-border-style);
+  --button-secondary-hover-border-color: var(--button-secondary-border-color);
+  --button-secondary-active-text-color: var(--button-secondary-text-color);
+  --button-secondary-active-background-color: var(--accent-background2-color);
+  --button-secondary-active-border-width: var(--button-secondary-border-width);
+  --button-secondary-active-border-style: var(--button-secondary-border-style);
+  --button-secondary-active-border-color: var(--button-secondary-border-color);
+
+  --button-secondary-gradient-border-color: var(--primary-tertiary-color);
+  --button-secondary-gradient-hover-border-color: var(--primary-tertiary-color);
+  --button-secondary-gradient-active-border-color: var(
+    --primary-tertiary-color
+  );
+  --button-secondary-gradient-text-color: var(--primary-color);
+  --button-secondary-gradient-hover-text-color: var(--primary-color);
+  --button-secondary-gradient-active-text-color: var(--primary-color);
+  --button-secondary-hover-background-gradient: var(
+    --primary-background1-gradient
+  );
+  --button-secondary-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  // ------ Secondary Button theme ------
+
+  // ------ Secondary Disruptive Button theme ------
+  --button-secondary-disruptive-text-color: var(--disruptive-color);
+  --button-secondary-disruptive-background-color: var(--background-color);
+  --button-secondary-disruptive-border-width: 1px;
+  --button-secondary-disruptive-border-style: solid;
+  --button-secondary-disruptive-border-color: var(--disruptive-tertiary-color);
+  --button-secondary-disruptive-hover-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-secondary-disruptive-hover-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-hover-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-hover-border-color: var(
+    --button-secondary-disruptive-border-color
+  );
+  --button-secondary-disruptive-active-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-secondary-disruptive-active-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-active-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-active-border-color: var(
+    --button-secondary-disruptive-border-color
+  );
+
+  --button-secondary-disruptive-gradient-border-color: var(
+    --disruptive-tertiary-color
+  );
+  --button-secondary-disruptive-gradient-hover-border-color: var(
+    --disruptive-tertiary-color
+  );
+  --button-secondary-disruptive-gradient-active-border-color: var(
+    --disruptive-tertiary-color
+  );
+  --button-secondary-disruptive-gradient-text-color: var(--disruptive-color);
+  --button-secondary-disruptive-gradient-hover-text-color: var(
+    --disruptive-color
+  );
+  --button-secondary-disruptive-gradient-active-text-color: var(
+    --disruptive-color
+  );
+  --button-secondary-disruptive-hover-background-gradient: var(
+    --disruptive-background1-gradient
+  );
+  --button-secondary-disruptive-active-background-gradient: var(
+    --disruptive-background2-gradient
+  );
+  // ------ Secondary Disruptive Button theme ------
+
+  // ------ System UI Button theme ------
+  --button-system-ui-text-color: var(--grey-color);
+  --button-system-ui-background-color: var(--background-color);
+  --button-system-ui-counter-default-text-color: var(--grey-color);
+  --button-system-ui-hover-text-color: var(--button-system-ui-text-color);
+  --button-system-ui-hover-background-color: var(--grey-background1-color);
+  --button-system-ui-focus-visible-background-color: var(--background-color);
+  --button-system-ui-active-text-color: var(--button-system-ui-text-color);
+  --button-system-ui-active-background-color: var(--grey-background2-color);
+  // ------ System UI Button theme ------
+
+  // ------ Button Counter theme ------
+  --button-counter-default-background-color: var(--grey-background2-color);
+  --button-counter-hover-background-color: var(--grey-background2-color);
+  --button-counter-checked-background-color: var(--grey-background1-color);
+  --button-counter-focus-background-color: var(--grey-background2-color);
+  --button-counter-active-background-color: var(--grey-background1-color);
+  --button-counter-default-text-color: var(--primary-color);
+  // ------ Button Counter theme ------
+}

@@ -1,12 +1,20 @@
 import React, {
   forwardRef,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
 import { default as EasyCropper } from 'react-easy-crop';
+import GradientContext, {
+  Gradient,
+} from '../../ConfigProvider/GradientContext';
+import { OcThemeName } from '../../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../../ConfigProvider/ThemeContext';
 import type { CropperProps } from './Cropper.types';
 import { EasyCropHandle, INIT_ZOOM, INIT_ROTATE } from './Cropper.types';
 import EasyCrop from './EasyCrop';
@@ -22,14 +30,20 @@ import { canUseDocElement, mergeClasses } from '../../../shared/utilities';
 import enUS from '../Locale/en_US';
 
 import styles from './cropper.module.scss';
+import themedComponentStyles from './cropper.theme.module.scss';
 
 const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const {
     aspect = 1,
     beforeCrop,
     children,
+    configContextProps = {
+      noGradientContext: false,
+      noThemeContext: false,
+    },
     cropperProps,
     fillColor = 'white',
+    gradient = false,
     grid = false,
     locale = enUS,
     maxZoom = 3,
@@ -49,6 +63,8 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
     rotateLeftButtonAriaLabelText: defaultRotateLeftButtonAriaLabelText,
     rotateRightButtonAriaLabelText: defaultRotateRightButtonAriaLabelText,
     shape = 'rect',
+    theme,
+    themeContainerId,
     zoom = true,
     zoomInButtonAriaLabelText: defaultZoomInButtonAriaLabelText,
     zoomOutButtonAriaLabelText: defaultZoomOutButtonAriaLabelText,
@@ -56,7 +72,12 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const cb = useRef<
     Pick<
       CropperProps,
-      'onModalOk' | 'onModalCancel' | 'beforeCrop' | 'onUploadFail'
+      | 'configContextProps'
+      | 'onModalOk'
+      | 'onModalCancel'
+      | 'beforeCrop'
+      | 'onUploadFail'
+      | 'themeContainerId'
     >
   >({});
   cb.current.onModalOk = onModalOk;
@@ -69,6 +90,16 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const beforeUploadRef = useRef<UploadProps['beforeUpload']>();
   const resolveRef = useRef<CropperProps['onModalOk']>();
   const rejectRef = useRef<(err: Error) => void>();
+
+  const contextualGradient: Gradient = useContext(GradientContext);
+  const mergedGradient: boolean = configContextProps.noGradientContext
+    ? gradient
+    : contextualGradient || gradient;
+
+  const contextualTheme: OcThemeName = useContext(ThemeContext);
+  const mergedTheme: OcThemeName = configContextProps.noThemeContext
+    ? theme
+    : contextualTheme || theme;
 
   // ============================ Strings ===========================
   const [uploadLocale] = useLocaleReceiver('Upload');
@@ -143,7 +174,16 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
 
   const uploadComponent = useMemo(() => {
     const upload = Array.isArray(children) ? children[0] : children;
-    const { beforeUpload, accept, ...restUploadProps } = upload.props;
+    const {
+      accept,
+      beforeUpload,
+      classNames,
+      configContextProps,
+      gradient,
+      theme,
+      themeContainerId,
+      ...restUploadProps
+    } = upload.props;
     beforeUploadRef.current = beforeUpload;
 
     return {
@@ -182,6 +222,11 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
             reader.readAsDataURL(file);
           });
         },
+        classNames: mergedTheme && themedComponentStyles.theme,
+        configContextProps: cb.current.configContextProps,
+        gradient: mergedGradient,
+        theme: mergedTheme,
+        themeContainerId: cb.current.themeContainerId,
       },
     };
   }, [children]);
@@ -346,16 +391,36 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
     <LocaleReceiver componentName={'Upload'} defaultLocale={enUS}>
       {(_contextLocale: UploadLocale) => {
         return (
-          <>
+          <ThemeContextProvider
+            componentClassName={themedComponentStyles.theme}
+            containerId={themeContainerId}
+            theme={mergedTheme}
+          >
             {uploadComponent}
             {image && (
               <Modal
                 actions={
                   <>
-                    <Button text={modalCancelText} onClick={onCancel} />
                     <Button
-                      text={modalOkText}
+                      configContextProps={configContextProps}
+                      gradient={mergedGradient}
+                      onClick={onCancel}
+                      text={modalCancelText}
+                      theme={mergedTheme}
+                      themeContainerId={themeContainerId}
+                      variant={
+                        mergedGradient
+                          ? ButtonVariant.Secondary
+                          : ButtonVariant.Default
+                      }
+                    />
+                    <Button
+                      configContextProps={configContextProps}
+                      gradient={mergedGradient}
                       onClick={onOk}
+                      text={modalOkText}
+                      theme={mergedTheme}
+                      themeContainerId={themeContainerId}
                       variant={ButtonVariant.Primary}
                     />
                   </>
@@ -364,8 +429,10 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
                   <EasyCrop
                     ref={easyCropRef}
                     aspect={aspect}
+                    configContextProps={configContextProps}
                     cropperProps={cropperProps}
                     cropperRef={ref}
+                    gradient={mergedGradient}
                     grid={grid}
                     image={image}
                     maxZoom={maxZoom}
@@ -378,24 +445,31 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
                       rotateRightButtonAriaLabelText
                     }
                     shape={shape}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     zoom={zoom}
                     zoomInButtonAriaLabelText={zoomInButtonAriaLabelText}
                     zoomOutButtonAriaLabelText={zoomOutButtonAriaLabelText}
                   />
                 }
+                configContextProps={configContextProps}
+                gradient={mergedGradient}
                 maskClosable={false}
                 modalClassNames={styles.cropperModal}
                 modalWrapperClassNames={mergeClasses([
                   styles.cropperModal,
+                  { [themedComponentStyles.theme]: mergedTheme },
                   modalWrapperClassNames,
                 ])}
                 onClose={onCancel}
                 size={ModalSize.medium}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
                 visible={true}
                 {...modalProps}
               />
             )}
-          </>
+          </ThemeContextProvider>
         );
       }}
     </LocaleReceiver>

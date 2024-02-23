@@ -18,8 +18,8 @@ export const ShapeContextProvider: FC<ShapeContextProps> = ({
   shape,
 }) => (
   <ShapeContext.Consumer>
-    {(originShape) => (
-      <ShapeContext.Provider value={shape || originShape}>
+    {(ancestorShape) => (
+      <ShapeContext.Provider value={shape || ancestorShape}>
         {children}
       </ShapeContext.Provider>
     )}

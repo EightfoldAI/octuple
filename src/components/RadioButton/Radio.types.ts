@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConfigContextProps, OcThemeName, Size } from '../ConfigProvider';
 import { OcBaseProps } from '../OcBase';
 import {
   LabelAlign,
@@ -7,7 +8,6 @@ import {
   SelectorWidth,
   SelectorVariant,
 } from '../CheckBox';
-import { ConfigContextProps, Size } from '../ConfigProvider';
 
 export type RadioButtonValue = string | number;
 
@@ -85,6 +85,17 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
    */
   size?: SelectorSize | Size;
   /**
+   * Theme of the radio button.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the radio button.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The value of the input.
    */
   value?: RadioButtonValue;
@@ -151,6 +162,17 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
    * @default SelectorSize.Medium
    */
   size?: SelectorSize;
+  /**
+   * Theme of the radio group.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the radio group.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The input radio default selected value.
    */

@@ -29,6 +29,25 @@ export default {
       ),
     },
   },
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof InfoBar>;
 
 const InfoBar_Story: ComponentStory<typeof InfoBar> = (args) => (
@@ -70,6 +89,13 @@ const infoBarArgs: Object = {
     id: 'myCloseButton',
   },
   closeIcon: IconName.mdiClose,
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-infobar-theme-container',
+  gradient: false,
   icon: IconName.mdiCheckCircle,
   role: 'alert',
   type: InfoBarType.positive,

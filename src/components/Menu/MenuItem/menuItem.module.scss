@@ -119,34 +119,33 @@
   }
 
   &.primary {
-    --label: var(--primary-secondary-color);
+    --label: var(--button-primary-text-color);
 
     &:hover {
-      --background: var(--accent-background1-color);
+      --background: var(--button-primary-hover-background-color);
     }
 
     &.active,
     &:active {
-      --background: var(--accent-background2-color);
+      --background: var(--button-primary-active-background-color);
     }
   }
 
   &.disruptive {
-    --label: var(--disruptive-color);
+    --label: var(--button-primary-disruptive-text-color);
 
     &:hover {
-      --background: var(--disruptive-background1-color);
+      --background: var(--button-primary-disruptive-hover-background-color);
     }
 
     &.active,
     &:active {
-      --background: var(--disruptive-background2-color);
+      --background: var(--button-primary-disruptive-active-background-color);
     }
   }
 
   &.neutral {
-    --active-background: var(--grey-background1-color);
-    --label: var(--grey-color-90);
+    --label: var(--button-neutral-text-color);
 
     &:hover {
       --background: var(--grey-background1-color);
@@ -154,7 +153,7 @@
 
     &.active,
     &:active {
-      --background: var(--grey-background2-color);
+      --background: var(--button-neutral-active-background-color);
     }
   }
 

@@ -57,10 +57,21 @@ import {
 
 import {
   ConfigProvider,
+  CustomFont,
   OcThemeName,
   Shape,
   Size,
+  ThemeOptions,
+  useConfig,
 } from './components/ConfigProvider';
+
+import GradientContext, {
+  Gradient,
+} from './components/ConfigProvider/GradientContext';
+
+import ThemeContext, {
+  ThemeContextProvider,
+} from './components/ConfigProvider/ThemeContext';
 
 import Cropper from './components/Upload/Cropper';
 
@@ -72,6 +83,11 @@ import {
   DatePickerSize,
   RangePickerProps,
 } from './components/DateTimePicker/DatePicker';
+
+import {
+  EventValue,
+  RangeValue,
+} from './components/DateTimePicker/Internal/OcPicker.types';
 
 import { Dialog, DialogHelper, DialogSize } from './components/Dialog';
 
@@ -89,7 +105,17 @@ import Grid, { Col, Row } from './components/Grid';
 
 import { Icon, IconName, IconSize } from './components/Icon';
 
-import { InlineSvgProps, InlineSvg } from './components/InlineSvg';
+import {
+  CopilotFullLogoLarge,
+  CopilotFullLogoMedium,
+  CopilotFullLogoSmall,
+  CopilotIconGradient,
+  CopilotIconLargeSolidColor,
+  CopilotIconMediumSolidColor,
+  CopilotIconSmallSolidColor,
+  InlineSvgProps,
+  InlineSvg,
+} from './components/InlineSvg';
 
 import { Label, LabelSize } from './components/Label';
 
@@ -162,7 +188,12 @@ import {
   SkeletonAnimation,
 } from './components/Skeleton';
 
-import { Select, SelectShape, SelectSize } from './components/Select';
+import {
+  Select,
+  SelectOption,
+  SelectShape,
+  SelectSize,
+} from './components/Select';
 
 import {
   BelowLargeImg,
@@ -341,7 +372,15 @@ export {
   ColumnType,
   ColumnsType,
   ConfigProvider,
+  CopilotFullLogoLarge,
+  CopilotFullLogoMedium,
+  CopilotFullLogoSmall,
+  CopilotIconGradient,
+  CopilotIconLargeSolidColor,
+  CopilotIconMediumSolidColor,
+  CopilotIconSmallSolidColor,
   Cropper,
+  CustomFont,
   DatePicker,
   DatePickerProps,
   DatePickerShape,
@@ -354,6 +393,7 @@ export {
   DropdownRef,
   Empty,
   EmptyMode,
+  EventValue,
   ExceedLargeImg,
   ExceedMediumImg,
   ExceedSmallImg,
@@ -368,6 +408,8 @@ export {
   Form,
   FormInstance,
   Gestures,
+  Gradient,
+  GradientContext,
   Grid,
   Icon,
   IconName,
@@ -441,12 +483,14 @@ export {
   RadioButton,
   RadioGroup,
   RangePickerProps,
+  RangeValue,
   ResizeObserver,
   Row,
   Skeleton,
   SkeletonVariant,
   SkeletonAnimation,
   Select,
+  SelectOption,
   SelectShape,
   SelectSize,
   SelectorSize,
@@ -503,6 +547,9 @@ export {
   TextInputSize,
   TextInputTheme,
   TextInputWidth,
+  ThemeContext,
+  ThemeContextProvider,
+  ThemeOptions,
   TimePicker,
   Tooltip,
   TooltipTheme,
@@ -519,6 +566,7 @@ export {
   UpskillingSmallImg,
   useBoolean,
   useCanvasDirection,
+  useConfig,
   useFocusTrap,
   useGestures,
   useMatchMedia,

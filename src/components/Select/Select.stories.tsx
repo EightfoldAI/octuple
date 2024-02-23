@@ -1,5 +1,6 @@
 import React, { FC, useState, useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { Select } from './';
 import {
@@ -100,6 +101,27 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    status: {
+      options: ['success', 'warning', 'error', 'validating', 'highlight', ''],
+      control: 'select',
+    },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
   },
 } as ComponentMeta<typeof Select>;
 
@@ -137,17 +159,11 @@ const DynamicSelect: FC<SelectProps> = (args) => {
 };
 
 const Basic_Story: ComponentStory<typeof Select> = (args) => (
-  <>
-    <Wrapper>
-      <Select {...args} />
-    </Wrapper>
-  </>
+  <Select {...args} />
 );
 
 const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
-  <Wrapper>
-    <DynamicSelect {...args} />
-  </Wrapper>
+  <DynamicSelect {...args} />
 );
 
 export type SelectStory = ComponentStory<React.FC<SelectProps>>;
@@ -183,7 +199,16 @@ export const __namedExportsOrder = [
 
 const SelectArgs: SelectProps = {
   classNames: 'octuple-select-class',
+  configContextProps: {
+    noDisabledContext: false,
+    noShapeContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '' as OcThemeName,
+  themeContainerId: 'my-textinput-theme-container',
   disabled: false,
+  status: '',
   readonly: false,
   'data-test-id': 'octuple-select-test-id',
   shape: SelectShape.Rectangle,

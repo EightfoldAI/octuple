@@ -1,4 +1,8 @@
-import { DirectionType } from '../ConfigProvider';
+import {
+  ConfigContextProps,
+  DirectionType,
+  OcThemeName,
+} from '../ConfigProvider';
 import { OcBaseProps } from '../OcBase';
 import type { GapPositionType } from './Internal/OcProgress.types';
 import { tuple } from '../../shared/utilities';
@@ -43,6 +47,10 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
    * The Progress class names.
    */
   classNames?: string;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
   /**
    * The Progress value label function.
    * Used by minLabel or valueLabel.
@@ -151,6 +159,17 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
    * The custom success segment value label of Progress.
    */
   successLabel?: string;
+  /**
+   * The Progress Theme.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of Progress.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The color of the unfilled part.
    */
