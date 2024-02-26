@@ -15,6 +15,7 @@ import styles from './list.module.scss';
 export const List = <T extends any>({
   additionalItem,
   disableArrowKeys = false,
+  disableKeys = false,
   items,
   footer,
   layout = 'vertical',
@@ -58,7 +59,7 @@ export const List = <T extends any>({
     index: number,
     external: boolean = false
   ): void => {
-    if (disableArrowKeys) {
+    if (disableArrowKeys || disableKeys) {
       return;
     }
     const arrowDown: boolean = event?.key === eventKeys.ARROWDOWN;
@@ -67,6 +68,8 @@ export const List = <T extends any>({
     const arrowUp: boolean = event?.key === eventKeys.ARROWUP;
     const arrowDecrement: boolean = htmlDir === 'rtl' ? arrowRight : arrowLeft;
     const arrowIncrement: boolean = htmlDir === 'rtl' ? arrowLeft : arrowRight;
+    const end: boolean = event?.key === eventKeys.END;
+    const home: boolean = event?.key === eventKeys.HOME;
     if (
       ((arrowDown || arrowUp) && layout === 'vertical') ||
       ((arrowDecrement || arrowIncrement) && layout === 'horizontal')
@@ -118,6 +121,33 @@ export const List = <T extends any>({
         };
         const focusableElements: HTMLElement[] = getFocusableElements();
         focusableElements?.[0]?.focus();
+      }
+    }
+    if (end || home) {
+      const focusElement = (index: number) => {
+        event?.preventDefault();
+        setFocusIndex(index);
+        if (itemRefs.current[index]) {
+          const item: HTMLElement | null = external
+            ? itemRefs.current[index].parentElement
+            : itemRefs.current[index];
+          const getFocusableElements = (): HTMLElement[] => {
+            return [
+              ...(item.querySelectorAll(SELECTORS) as unknown as HTMLElement[]),
+            ].filter((el: HTMLElement) => focusable(el));
+          };
+          const focusableElements: HTMLElement[] = getFocusableElements();
+          const focusableElement: HTMLElement | null = focusableElements?.[0];
+          focusableElement?.focus();
+        }
+      };
+
+      if (end) {
+        focusElement(items.length - 1);
+      }
+
+      if (home) {
+        focusElement(0);
       }
     }
   };

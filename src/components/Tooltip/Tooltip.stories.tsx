@@ -155,7 +155,6 @@ Tooltips.args = {
   portalRoot: null,
   children: (
     <Button
-      aria-describedby="myTooltipId"
       onClick={() => {
         console.log('clicked');
       }}

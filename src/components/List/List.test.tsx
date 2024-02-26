@@ -110,6 +110,26 @@ describe('List', () => {
     expect(item1).toHaveFocus();
   });
 
+  test('handleItemKeyDown should update activeIndex correctly for end and home keys', () => {
+    const { getByTestId } = render(<List {...listProps} layout="vertical" />);
+    const item1 = getByTestId('User1');
+    const item2 = getByTestId('User2');
+    const item3 = getByTestId('User3');
+    const item5 = getByTestId('User5');
+    item1.focus();
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowDown' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'ArrowDown' });
+    expect(item3).toHaveFocus();
+    fireEvent.keyDown(item2, { key: 'Home' });
+    expect(item1).toHaveFocus();
+    fireEvent.keyDown(item1, { key: 'ArrowDown' });
+    expect(item2).toHaveFocus();
+    fireEvent.keyDown(item3, { key: 'End' });
+    expect(item5).toHaveFocus();
+  });
+
   test('handleItemKeyDown should update activeIndex correctly for horizontal layout', () => {
     const { getByTestId } = render(<List {...listProps} layout="horizontal" />);
     const item1 = getByTestId('User1');
@@ -145,9 +165,9 @@ describe('List', () => {
     expect(item1).toHaveFocus();
   });
 
-  test('handleItemKeyDown should not update activeIndex if disableArrowKeys is true', () => {
+  test('handleItemKeyDown should not update activeIndex if disableKeys is true', () => {
     const { getByTestId } = render(
-      <List {...listProps} disableArrowKeys layout="horizontal" />
+      <List {...listProps} disableKeys layout="horizontal" />
     );
     const item1 = getByTestId('User1');
     const item2 = getByTestId('User2');
