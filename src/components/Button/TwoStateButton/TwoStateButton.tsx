@@ -229,7 +229,6 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       <button
         {...rest}
         ref={mergedRef}
-        aria-checked={toggle ? !!checked : undefined}
         aria-disabled={mergedDisabled || loading}
         aria-label={ariaLabel}
         aria-pressed={toggle ? !!checked : undefined}

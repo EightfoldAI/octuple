@@ -9,6 +9,8 @@ export const eventKeys = {
   CONTROLLEFT: 'Control',
   ALTLEFT: 'Alt',
   CAPSLOCK: 'CapsLock',
+  HOME: 'Home',
+  END: 'End',
   LANG1: 'Unidentified',
   LANG2: 'Unidentified',
   ESCAPE: 'Escape',

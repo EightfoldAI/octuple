@@ -600,6 +600,12 @@
     opacity: $disabled-alpha-value;
   }
 
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+
   &-rtl {
     .button,
     .close-button {
@@ -661,6 +667,15 @@
         margin-left: unset;
         margin-right: $space-xxs;
       }
+    }
+  }
+}
+
+:global(.focus-visible) {
+  .tag-pills {
+    &.focus-visible,
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
     }
   }
 }

@@ -165,7 +165,6 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       <button
         {...rest}
         ref={mergedRef}
-        aria-checked={split ? !!checked : undefined}
         aria-disabled={mergedDisabled}
         aria-label={ariaLabel}
         aria-pressed={split ? !!checked : undefined}

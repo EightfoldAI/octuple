@@ -559,7 +559,6 @@ exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
         >
           <li>
             <button
-              aria-checked="true"
               aria-disabled="false"
               aria-label="Endorsements"
               aria-pressed="true"
@@ -1412,6 +1411,7 @@ exports[`SkillTag Skill tag has a tooltip 1`] = `
     id="tooltip--wrapper"
   >
     <div
+      aria-describedby="tooltip-"
       aria-disabled="false"
       class="skill tag bordered clickable white medium tooltip-reference"
       data-reference-id="tooltip--reference"

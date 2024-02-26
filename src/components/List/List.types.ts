@@ -14,9 +14,15 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
   additionalItem?: T;
   /**
    * Optionally disable default arrow key handling.
+   * @deprecated Use disableKeys instead.
    * @default false
    */
   disableArrowKeys?: boolean;
+  /**
+   * Optionally disable default arrow, end, and home key handling.
+   * @default false
+   */
+  disableKeys?: boolean;
   /**
    * List footer renderer
    */
