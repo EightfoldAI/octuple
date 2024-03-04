@@ -571,6 +571,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                       allowDisabledFocus={allowDisabledFocus}
                       ariaLabel={clearButtonAriaLabel}
                       classNames={clearIconButtonClassNames}
+                      configContextProps={{ noSizeContext: true }}
                       disabled={mergedDisabled}
                       htmlType={'button'}
                       iconProps={{ path: IconName.mdiClose }}

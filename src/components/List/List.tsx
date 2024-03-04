@@ -143,7 +143,11 @@ export const List = <T extends any>({
       };
 
       if (end) {
-        focusElement(items.length - 1);
+        if (renderAdditionalItem) {
+          focusElement(items.length);
+        } else {
+          focusElement(items.length - 1);
+        }
       }
 
       if (home) {

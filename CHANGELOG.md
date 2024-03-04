@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.49.0](https://github.com/EightfoldAI/octuple/compare/v2.48.0...v2.49.0) (2024-02-26)
+
+### Features
+
+- carousel: adds size overlaycontrols and button props ([#774](https://github.com/EightfoldAI/octuple/issues/774)) ([74bcec2](https://github.com/EightfoldAI/octuple/commits/74bcec219bc578e5143c2180362000df548b8a90))
+- configprovider: add support for gradient and individual component theme containers ([#783](https://github.com/EightfoldAI/octuple/issues/783)) ([c9d0e83](https://github.com/EightfoldAI/octuple/commits/c9d0e837d36b39602ce52e357d9a01106d9d4a60))
+- navbar: adds navbar height semantic variable and update the height to 80 pixels ([#745](https://github.com/EightfoldAI/octuple/issues/745)) ([a53158e](https://github.com/EightfoldAI/octuple/commits/a53158e40eec63880641f269a2416ac8d91f85bc))
+- stat: adds direction lineclamp fullwidth and maxwidth props ([#781](https://github.com/EightfoldAI/octuple/issues/781)) ([f796ff9](https://github.com/EightfoldAI/octuple/commits/f796ff97ee5e40b39a20f670832b63f7c36fe0a8))
+- table: expandable config improvements ([#777](https://github.com/EightfoldAI/octuple/issues/777)) ([adfb54d](https://github.com/EightfoldAI/octuple/commits/adfb54db8b06ef59547eb85d583b8779582299bb))
+- tabs: alignIcon for default and pill and updates stat to add xsmall and optional button ([#780](https://github.com/EightfoldAI/octuple/issues/780)) ([4d1d324](https://github.com/EightfoldAI/octuple/commits/4d1d3241e4162df408957727dd96855f6d7c41fe))
+- upload: adds delete button to single dropzones and other updates ([#775](https://github.com/EightfoldAI/octuple/issues/775)) ([1057618](https://github.com/EightfoldAI/octuple/commits/10576184b94e11bc958f04e880fef34c67259145))
+
+### Bug Fixes
+
+- a11y: numerous screen reader fixes ([#789](https://github.com/EightfoldAI/octuple/issues/789)) ([1e6589a](https://github.com/EightfoldAI/octuple/commits/1e6589a701cc776f50c3a54b57b032c47a6547c4))
+- form: ensure form item label custom node content display is inline ([#786](https://github.com/EightfoldAI/octuple/issues/786)) ([e828a69](https://github.com/EightfoldAI/octuple/commits/e828a691460b4faed868beed5e4060e9757788e0))
+- linkbutton: adjust anchor specificity to ignore bootstrap styles ([#776](https://github.com/EightfoldAI/octuple/issues/776)) ([a0bd86a](https://github.com/EightfoldAI/octuple/commits/a0bd86a571c03477e910820ba3c4f4abb88bfefd))
+- table: adds indeterminate state to check all box if only some rows are selected ([#772](https://github.com/EightfoldAI/octuple/issues/772)) ([300f535](https://github.com/EightfoldAI/octuple/commits/300f5353a5cbfc0255dee4d374d477cbaedc5d68))
+- upstream: ensures upstream snaps do not minify function component names ([#779](https://github.com/EightfoldAI/octuple/issues/779)) ([c4c52c1](https://github.com/EightfoldAI/octuple/commits/c4c52c151b6a8a07bad91d5ecb3b53ad20c92299))
+
 ## [2.48.0](https://github.com/EightfoldAI/octuple/compare/v2.47.0...v2.48.0) (2024-01-09)
 
 ### Features

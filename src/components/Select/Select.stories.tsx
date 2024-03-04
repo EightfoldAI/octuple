@@ -158,9 +158,16 @@ const DynamicSelect: FC<SelectProps> = (args) => {
   );
 };
 
-const Basic_Story: ComponentStory<typeof Select> = (args) => (
-  <Select {...args} />
-);
+const Basic_Story: ComponentStory<typeof Select> = (args) => {
+  if (args.multiple) {
+    return (
+      <Wrapper>
+        <Select {...args} />
+      </Wrapper>
+    );
+  }
+  return <Select {...args} />;
+};
 
 const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
   <DynamicSelect {...args} />
