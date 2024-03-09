@@ -1,15 +1,13 @@
-import { HTMLAttributes, Key, ReactNode } from 'react';
+import { Key, ReactNode } from 'react';
 import * as React from 'react';
 import { OcBaseProps } from '../OcBase';
+import { ListItemProps } from './ListItem';
 
 export type ItemLayout = 'horizontal' | 'vertical';
 
-export interface ListItemProps
-  extends Omit<HTMLAttributes<HTMLLIElement>, 'onClick'> {}
-
 export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
   /**
-   * Additonal item.
+   * Optional additonal list item.
    */
   additionalItem?: T;
   /**
@@ -18,15 +16,15 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   disableArrowKeys?: boolean;
   /**
-   * List footer renderer
+   * List footer renderer.
    */
   footer?: ReactNode;
   /**
-   * Get custom list item
+   * Get custom list item.
    */
   getItem?: (item: T, index: number) => ReactNode;
   /**
-   * List header renderer
+   * List header renderer.
    */
   header?: ReactNode;
   /**
@@ -34,47 +32,47 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   itemClassNames?: string;
   /**
-   * List item props
+   * List item props.
    */
   itemProps?: ListItemProps;
   /**
-   * Array of items
+   * Array of list items.
    */
   items: T[];
   /**
-   * Style of the item
+   * Style of the item.
    */
   itemStyle?: React.CSSProperties;
   /**
-   * The list layout direction
+   * The list layout direction.
    * @default vertical
    */
   layout?: ItemLayout;
   /**
-   * Custom classes for the list
+   * Custom classes for the list.
    */
   listClassNames?: string;
   /**
-   * The list html type
+   * The list html type.
    * @default ul
    */
   listType?: 'ul' | 'ol';
   /**
-   * Render method for list item
+   * Render method for list item.
    * @param item
    */
   renderItem?: (item: T) => ReactNode;
   /**
-   * Render method for additional list item
+   * Render method for additional list item.
    * @param item
    */
   renderAdditionalItem?: (item: T) => ReactNode;
   /**
-   * Role of the list
+   * Role of the list.
    */
   role?: string;
   /**
-   * Unique key for the item
+   * Unique key for the list item.
    * @param item
    */
   rowKey?: (item: T) => Key | keyof T;
