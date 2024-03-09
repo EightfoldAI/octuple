@@ -1,13 +1,12 @@
 import React, { Key, useEffect, useRef, useState } from 'react';
 import { ListProps } from './List.types';
+import { ExternalListItem } from './ListItem';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import {
-  cloneElement,
   eventKeys,
   focusable,
   mergeClasses,
   SELECTORS,
-  uniqueId,
 } from '../../shared/utilities';
 
 import styles from './list.module.scss';
@@ -219,23 +218,20 @@ export const List = <T extends any>({
     if (!node) {
       return null;
     }
-    const item = React.Children.only(node) as React.ReactElement<HTMLElement>;
-    const itemId: string = item.props.id
-      ? item.props.id
-      : uniqueId(`listItem${index}-`);
-    const referenceElement: HTMLElement | null =
-      document.getElementById(itemId);
-    itemRef(referenceElement);
-    itemRefs.current[index] = referenceElement;
-    return cloneElement(item, {
-      id: itemId,
-      ref: itemRef,
-      tabIndex: 0,
-      onKeyDown: (event: KeyboardEvent) => {
-        item.props.onkeydown?.(event);
-        handleItemKeyDown(event, index, true);
-      },
-    });
+    const item: React.ReactElement<
+      HTMLElement,
+      string | React.JSXElementConstructor<any>
+    > = React.Children.only(node) as React.ReactElement<HTMLElement>;
+    return (
+      <ExternalListItem
+        handleItemKeyDown={handleItemKeyDown}
+        id={item?.props?.id}
+        index={index}
+        item={item}
+        itemRefs={itemRefs}
+        itemRef={itemRef}
+      />
+    );
   };
 
   const getItems = (): React.ReactNode[] =>
