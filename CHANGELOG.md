@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.49.1](https://github.com/EightfoldAI/octuple/compare/v2.49.0...v2.49.1) (2024-03-09)
+
+### Bug Fixes
+
+- list: move external item into its own function component to address hook bug ([#792](https://github.com/EightfoldAI/octuple/issues/792)) ([5ff2f69](https://github.com/EightfoldAI/octuple/commits/5ff2f69abbd26a0d24d833d8a7e1f6b31a1e7f65))
+
 ## [2.49.0](https://github.com/EightfoldAI/octuple/compare/v2.48.0...v2.49.0) (2024-02-26)
 
 ### Features
