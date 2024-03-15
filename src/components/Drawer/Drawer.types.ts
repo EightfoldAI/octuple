@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanelProps, PanelHeaderProps } from '../Panel';
+import { PanelProps } from '../Panel';
 
 export enum DrawerVariant {
   Default = 'default',
@@ -112,12 +112,4 @@ export interface DrawerProps
    * @default DrawerVariant.Default
    */
   variant?: DrawerVariant;
-}
-
-export interface DrawerHeaderProps extends Omit<PanelHeaderProps, 'locale'> {
-  /**
-   * The DrawerHeader locale.
-   * @default 'enUS'
-   */
-  locale?: DrawerLocale;
 }
