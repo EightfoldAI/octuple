@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/he_IL';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/he_IL';
 import Dialog from '../Dialog/BaseDialog/Locale/he_IL';
+import Drawer from '../Drawer/Locale/he_IL';
 import InfoBar from '../InfoBar/Locale/he_IL';
 import Pagination from '../Pagination/Locale/he_IL';
 import Panel from '../Panel/Locale/he_IL';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     defaultValidateMessages: {
       default: 'ערך השדה שגוי ${label}',

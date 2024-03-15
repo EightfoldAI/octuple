@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/te_IN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/te_IN';
 import Dialog from '../Dialog/BaseDialog/Locale/te_IN';
+import Drawer from '../Drawer/Locale/te_IN';
 import InfoBar from '../InfoBar/Locale/te_IN';
 import Pagination from '../Pagination/Locale/te_IN';
 import Panel from '../Panel/Locale/te_IN';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(ఐచ్ఛికం)',
     defaultValidateMessages: {
