@@ -3,7 +3,12 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Accordion, AccordionProps, AccordionShape, AccordionSize } from './';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
+import { Badge } from '../Badge';
 import { IconName } from '../Icon';
+import Layout from '../Layout';
+import { List } from '../List';
+import { Stack } from '../Stack';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -53,6 +58,13 @@ const accordionProps: AccordionProps = {
   disabled: false,
   'data-testid': 'test-accordion',
 };
+
+const buttons = [0, 1].map((i) => ({
+  ariaLabel: `Button ${i}`,
+  disruptive: i === 0 ? false : true,
+  icon: i === 0 ? IconName.mdiCogOutline : IconName.mdiDeleteOutline,
+  variant: i === 0 ? ButtonVariant.Neutral : ButtonVariant.Secondary,
+}));
 
 describe('Accordion', () => {
   beforeAll(() => {
@@ -133,6 +145,79 @@ describe('Accordion', () => {
       <Accordion {...accordionProps} shape={AccordionShape.Rectangle} />
     );
     expect(container.querySelector('.rectangle')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Accordion renders custom content', () => {
+    const { container } = render(
+      <Accordion
+        {...accordionProps}
+        expanded={true}
+        headerProps={{
+          fullWidth: true,
+          style: { gap: '8px' },
+        }}
+        size={AccordionSize.Medium}
+        summary={
+          <Layout octupleStyles>
+            <Stack
+              fullWidth
+              direction="horizontal"
+              flexGap="m"
+              justify="space-between"
+              wrap="wrap"
+            >
+              <Stack direction="vertical" flexGap="xxxs">
+                <h4
+                  className="octuple-h4"
+                  style={{
+                    alignSelf: 'center',
+                    flexWrap: 'nowrap',
+                    margin: 0,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  Accordion Header <Badge style={{ margin: '0 8px' }}>2</Badge>
+                </h4>
+                <div
+                  className="octuple-content"
+                  style={{
+                    color: 'var(--grey-tertiary-color)',
+                    fontWeight: 400,
+                  }}
+                >
+                  Supporting text
+                </div>
+              </Stack>
+              <Stack
+                align="center"
+                direction="horizontal"
+                flexGap="m"
+                justify="flex-end"
+                style={{ width: 'min-content' }}
+              >
+                <List
+                  items={buttons}
+                  layout="horizontal"
+                  listStyle={{ display: 'flex', gap: '8px' }}
+                  renderItem={(item) => (
+                    <Button
+                      ariaLabel={item.ariaLabel}
+                      disruptive={item.disruptive}
+                      iconProps={{ path: item.icon }}
+                      onClick={(e) => e.preventDefault()}
+                      shape={ButtonShape.Round}
+                      variant={item.variant}
+                    />
+                  )}
+                />
+              </Stack>
+            </Stack>
+          </Layout>
+        }
+      />
+    );
+    expect(() => container).not.toThrowError();
     expect(container).toMatchSnapshot();
   });
 });
