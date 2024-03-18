@@ -59,6 +59,10 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   listClassNames?: string;
   /**
+   * Style of the list
+   */
+  listStyle?: React.CSSProperties;
+  /**
    * The list html type.
    * @default ul
    */

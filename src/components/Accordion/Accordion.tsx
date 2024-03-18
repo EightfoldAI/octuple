@@ -27,24 +27,27 @@ import styles from './accordion.module.scss';
 import themedComponentStyles from './accordion.theme.module.scss';
 
 export const AccordionSummary: FC<AccordionSummaryProps> = ({
-  children,
-  expandButtonProps,
-  expandIconProps,
-  expanded,
-  onClick,
-  classNames,
-  gradient,
-  id,
-  iconProps,
   badgeProps,
-  size,
+  children,
+  classNames,
   disabled,
+  expandButtonProps,
+  expanded,
+  expandIconProps,
+  fullWidth = false,
+  gradient,
+  iconProps,
+  id,
+  onIconButtonClick,
+  onClick,
+  size,
   ...rest
 }) => {
   const headerClassnames = mergeClasses([
     styles.accordionSummary,
     classNames,
     {
+      [styles.accordionSummaryFullWidth]: fullWidth,
       [styles.medium]: size === AccordionSize.Medium,
       [styles.large]: size === AccordionSize.Large,
       [styles.accordionSummaryExpanded]: expanded,
@@ -52,16 +55,19 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     },
   ]);
 
-  const iconStyles: string = mergeClasses([
-    styles.accordionIcon,
+  const iconButtonClassNames: string = mergeClasses([
+    styles.accordionIconButton,
     // Conditional classes can also be handled as follows
-    { [styles.expandedIcon]: expanded },
+    { [styles.expandedIconButton]: expanded },
   ]);
 
   // to handle enter press on accordion header
   const handleKeyDown = useCallback(
     (event) => {
-      event.key === eventKeys.ENTER && onClick?.(event);
+      if (event.key === eventKeys.ENTER || event.key === eventKeys.SPACE) {
+        event.preventDefault();
+        onClick?.(event);
+      }
     },
     [onClick]
   );
@@ -86,9 +92,12 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <Button
         disabled={disabled}
         gradient={gradient}
-        iconProps={{ classNames: iconStyles, ...expandIconProps }}
+        iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
+        onClick={onIconButtonClick}
+        onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
+        {...expandButtonProps}
       />
     </div>
   );
@@ -212,6 +221,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             gradient={gradient}
             iconProps={iconProps}
             id={id}
+            onIconButtonClick={() => toggleAccordion(!isExpanded)}
             onClick={() => toggleAccordion(!isExpanded)}
             size={size}
             {...headerProps}

@@ -50,7 +50,7 @@ exports[`Accordion Accordion is large 1`] = `
       >
         <span
           aria-hidden="false"
-          class="icon accordion-icon icon-wrapper"
+          class="icon accordion-icon-button icon-wrapper"
           role="presentation"
         >
           <svg
@@ -136,7 +136,7 @@ exports[`Accordion Accordion is medium 1`] = `
       >
         <span
           aria-hidden="false"
-          class="icon accordion-icon icon-wrapper"
+          class="icon accordion-icon-button icon-wrapper"
           role="presentation"
         >
           <svg
@@ -222,7 +222,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
       >
         <span
           aria-hidden="false"
-          class="icon accordion-icon icon-wrapper"
+          class="icon accordion-icon-button icon-wrapper"
           role="presentation"
         >
           <svg
@@ -308,7 +308,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       >
         <span
           aria-hidden="false"
-          class="icon accordion-icon icon-wrapper"
+          class="icon accordion-icon-button icon-wrapper"
           role="presentation"
         >
           <svg
@@ -394,7 +394,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       >
         <span
           aria-hidden="false"
-          class="icon accordion-icon icon-wrapper"
+          class="icon accordion-icon-button icon-wrapper"
           role="presentation"
         >
           <svg
@@ -480,7 +480,7 @@ exports[`Accordion Renders without crashing 1`] = `
       >
         <span
           aria-hidden="false"
-          class="icon accordion-icon icon-wrapper"
+          class="icon accordion-icon-button icon-wrapper"
           role="presentation"
         >
           <svg
