@@ -149,6 +149,66 @@ exports[`Button Button is system ui 1`] = `
 </div>
 `;
 
+exports[`Button is default warning 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-default button-default-warning button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test default warning
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button is primary warning 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-primary button-primary-warning button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test primary warning
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button is secondary warning 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-secondary button-secondary-warning button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test secondary warning
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button is system ui warning 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-system-ui button-system-ui-warning button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test system ui warning
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Button simulate click on disabled button 1`] = `
 <div>
   <button
