@@ -17,7 +17,11 @@ const RowJustify = tuple(
 
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-export interface RowProps extends OcBaseProps<HTMLDivElement> {
+export interface RowProps
+  extends Omit<
+    OcBaseProps<HTMLDivElement>,
+    'placeholder' | 'onPointerEnterCapture' | 'onPointerLeaveCapture'
+  > {
   /**
    * The row align attributes.
    */
@@ -48,7 +52,11 @@ export interface ColSize {
   pull?: ColSpanType;
 }
 
-export interface ColProps extends OcBaseProps<HTMLDivElement> {
+export interface ColProps
+  extends Omit<
+    OcBaseProps<HTMLDivElement>,
+    'placeholder' | 'onPointerEnterCapture' | 'onPointerLeaveCapture'
+  > {
   /**
    * The col flex type.
    */
