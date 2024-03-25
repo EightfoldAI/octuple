@@ -1,4 +1,4 @@
-import { HTMLAttributes, Key, ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 import * as React from 'react';
 
 export interface ExternalListItemProps {
