@@ -1029,7 +1029,8 @@
     }
   }
 
-  .icon-wrapper:not(:empty) + .icon-button {
+  .icon-wrapper:not(:empty) + .icon-button,
+  .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
     &.left-icon {
       left: $space-xl;
     }
@@ -1406,7 +1407,8 @@
       width: 36px;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
+    .icon-wrapper:not(:empty) + .icon-button,
+    .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
       &.left-icon {
         left: calc($space-xxl + $space-xxs);
       }
@@ -1469,7 +1471,8 @@
       width: 28px;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
+    .icon-wrapper:not(:empty) + .icon-button,
+    .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
       &.left-icon {
         left: $space-xl;
       }
@@ -1533,7 +1536,8 @@
       width: $space-l;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
+    .icon-wrapper:not(:empty) + .icon-button,
+    .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
       &.left-icon {
         left: 28px;
       }
