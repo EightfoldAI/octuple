@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/ja_JP';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ja_JP';
 import Dialog from '../Dialog/BaseDialog/Locale/ja_JP';
+import Drawer from '../Drawer/Locale/ja_JP';
 import InfoBar from '../InfoBar/Locale/ja_JP';
 import Pagination from '../Pagination/Locale/ja_JP';
 import Panel from '../Panel/Locale/ja_JP';
@@ -19,6 +20,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     defaultValidateMessages: {
       default: '${label}のフィールド検証エラー',

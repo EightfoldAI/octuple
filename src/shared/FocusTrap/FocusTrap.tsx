@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
-import { useFocusTrap } from './hooks/useFocusTrap';
+import React, { FC, Ref } from 'react';
 import { OcBaseProps } from '../../components/OcBase';
+import { useFocusTrap } from './hooks/useFocusTrap';
+import { useMergedRefs } from '../../hooks/useMergedRefs';
 
 interface FocusTrapProps extends OcBaseProps<HTMLDivElement> {
   /**
@@ -25,30 +26,40 @@ interface FocusTrapProps extends OcBaseProps<HTMLDivElement> {
   skipFocusableSelectorsFromIndex?: number;
 }
 
-export const FocusTrap: FC<FocusTrapProps> = ({
-  trap = true,
-  children,
-  classNames,
-  firstFocusableSelector,
-  lastFocusableSelector,
-  skipFocusableSelectorsFromIndex,
-  'data-test-id': dataTestId,
-  ...rest
-}) => {
-  const focusRef: React.MutableRefObject<HTMLDivElement> = useFocusTrap(
-    trap,
-    firstFocusableSelector,
-    lastFocusableSelector,
-    skipFocusableSelectorsFromIndex
-  );
-  return (
-    <div
-      ref={focusRef}
-      className={classNames}
-      data-test-id={dataTestId}
-      {...rest}
-    >
-      {children}
-    </div>
-  );
-};
+export const FocusTrap: FC<FocusTrapProps> = React.forwardRef(
+  (props: FocusTrapProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      trap = true,
+      children,
+      classNames,
+      firstFocusableSelector,
+      lastFocusableSelector,
+      skipFocusableSelectorsFromIndex,
+      'data-test-id': dataTestId,
+      ...rest
+    } = props;
+
+    const focusRef: React.MutableRefObject<HTMLDivElement> = useFocusTrap(
+      trap,
+      firstFocusableSelector,
+      lastFocusableSelector,
+      skipFocusableSelectorsFromIndex
+    );
+
+    const mergedRef: (node: HTMLDivElement) => void = useMergedRefs(
+      focusRef,
+      ref
+    );
+
+    return (
+      <div
+        ref={mergedRef}
+        className={classNames}
+        data-test-id={dataTestId}
+        {...rest}
+      >
+        {children}
+      </div>
+    );
+  }
+);

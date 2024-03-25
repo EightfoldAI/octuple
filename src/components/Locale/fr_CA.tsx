@@ -2,6 +2,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/fr_CA';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/fr_CA';
 import Dialog from '../Dialog/BaseDialog/Locale/fr_CA';
+import Drawer from '../Drawer/Locale/fr_CA';
 import InfoBar from '../InfoBar/Locale/fr_CA';
 import Pagination from '../Pagination/Locale/fr_CA';
 import Panel from '../Panel/Locale/fr_CA';
@@ -16,6 +17,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   InfoBar,
   Pagination,
   Panel,

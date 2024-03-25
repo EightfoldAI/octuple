@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/vi_VN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/vi_VN';
 import Dialog from '../Dialog/BaseDialog/Locale/vi_VN';
+import Drawer from '../Drawer/Locale/vi_VN';
 import InfoBar from '../InfoBar/Locale/vi_VN';
 import Pagination from '../Pagination/Locale/vi_VN';
 import Panel from '../Panel/Locale/vi_VN';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(tùy chọn)',
     defaultValidateMessages: {

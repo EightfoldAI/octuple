@@ -65,6 +65,8 @@ import {
   useConfig,
 } from './components/ConfigProvider';
 
+import { Drawer, DrawerVariant, useDrawer } from './components/Drawer';
+
 import GradientContext, {
   Gradient,
 } from './components/ConfigProvider/GradientContext';
@@ -390,6 +392,8 @@ export {
   Dialog,
   DialogHelper,
   DialogSize,
+  Drawer,
+  DrawerVariant,
   Dropdown,
   DropdownRef,
   Empty,
@@ -569,6 +573,7 @@ export {
   useBoolean,
   useCanvasDirection,
   useConfig,
+  useDrawer,
   useFocusTrap,
   useGestures,
   useMatchMedia,

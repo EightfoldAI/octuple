@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/zh_CN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/zh_CN';
 import Dialog from '../Dialog/BaseDialog/Locale/zh_CN';
+import Drawer from '../Drawer/Locale/zh_CN';
 import InfoBar from '../InfoBar/Locale/zh_CN';
 import Pagination from '../Pagination/Locale/zh_CN';
 import Panel from '../Panel/Locale/zh_CN';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '（可选）',
     defaultValidateMessages: {
