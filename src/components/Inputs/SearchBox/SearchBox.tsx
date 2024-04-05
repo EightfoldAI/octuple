@@ -66,6 +66,8 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       readonly = false,
       readOnlyProps,
       reset = false,
+      role,
+      searchButtonAriaLabel,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,
       status,
@@ -123,6 +125,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           htmlType="search"
           iconProps={iconProps}
           iconButtonProps={{
+            ariaLabel: searchButtonAriaLabel ? searchButtonAriaLabel : 'Search',
             htmlType: 'button',
             iconProps: {
               path: IconName.mdiMagnify,
@@ -147,6 +150,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           readonly={readonly}
           readOnlyProps={readOnlyProps}
           reset={reset}
+          role={role}
           shape={mergedShape}
           size={mergedSize}
           status={mergedStatus}

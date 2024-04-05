@@ -52,6 +52,7 @@ const baseCardArgs: Object = {
   style: {},
   classNames: 'my-card-class',
   bordered: true,
+  tabIndex: 0,
 };
 
 CustomCard.args = {
