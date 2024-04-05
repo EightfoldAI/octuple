@@ -136,6 +136,11 @@ export interface CardProps extends OcBaseProps<HTMLDivElement> {
    */
   icon?: IconName;
   /**
+   * Option to inset the :focus-visible CSS box-shadow.
+   * Use this if the :focus-visible CSS box-shadow is being clipped.
+   */
+  insetFocusVisible?: boolean;
+  /**
    * The boolean value if a list card is selected.
    */
   isSelected?: boolean;

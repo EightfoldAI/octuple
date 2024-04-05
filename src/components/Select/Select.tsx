@@ -105,6 +105,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       textInputProps = {},
       theme,
       themeContainerId,
+      toggleButtonAriaLabel,
       'data-test-id': dataTestId,
     },
     ref: Ref<HTMLDivElement>
@@ -766,6 +767,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       inputWidth: inputWidth,
       iconButtonProps: !readonly
         ? {
+            ariaLabel: toggleButtonAriaLabel
+              ? toggleButtonAriaLabel
+              : 'Toggle dropdown',
             htmlType: 'button',
             iconProps: {
               path: dropdownVisible
