@@ -43,6 +43,7 @@ export const Card: FC<CardProps> = React.forwardRef(
       headerTitle,
       height,
       icon,
+      insetFocusVisible = false,
       isSelected = false,
       name,
       size = CardSize.Medium,
@@ -96,6 +97,7 @@ export const Card: FC<CardProps> = React.forwardRef(
       { [styles.cardMedium]: mergedSize === CardSize.Medium },
       { [styles.cardSmall]: mergedSize === CardSize.Small },
       { [styles.dropShadow]: dropShadow },
+      { [styles.insetFocusVisible]: insetFocusVisible },
       { [styles.cardRtl]: htmlDir === 'rtl' },
     ]);
 

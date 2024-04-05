@@ -170,6 +170,14 @@
       &.drop-shadow {
         box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
       }
+
+      &.inset-focus-visible {
+        box-shadow: inset var(--focus-visible-box-shadow);
+
+        &.drop-shadow {
+          box-shadow: inset var(--focus-visible-box-shadow), $shadow-object-s;
+        }
+      }
     }
   }
 }
