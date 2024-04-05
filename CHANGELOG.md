@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.49.3](https://github.com/EightfoldAI/octuple/compare/v2.49.2...v2.49.3) (2024-04-05)
+
+### Bug Fixes
+
+- accordion: ensure expand button props are passed down to the button ([#808](https://github.com/EightfoldAI/octuple/issues/808)) ([c423c40](https://github.com/EightfoldAI/octuple/commits/c423c4012e26289ef7369716dd407e2cc7ad75aa))
+
 ### [2.49.2](https://github.com/EightfoldAI/octuple/compare/v2.49.1...v2.49.2) (2024-04-05)
 
 ### Bug Fixes
