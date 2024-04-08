@@ -58,7 +58,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       removable = false,
       removeButtonAriaLabel,
       removeButtonProps,
-      role,
+      role = clickable ? 'button' : undefined,
       showLabelAssessmentIcon = true,
       size = SkillSize.Medium,
       status = SkillStatus.Default,
@@ -160,7 +160,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
         tabIndex={!allowDisabledFocus && disabled ? null : tabIndex}
         title={title}
         ref={ref}
-        role={clickable ? 'button' : role}
+        role={role}
       >
         <div
           className={styles.background}

@@ -48,6 +48,7 @@ import {
 import {
   CheckBox,
   CheckBoxGroup,
+  CheckboxValueType,
   LabelPosition,
   LabelAlign,
   SelectorSize,
@@ -368,6 +369,7 @@ export {
   CascadingMenu,
   CheckBox,
   CheckBoxGroup,
+  CheckboxValueType,
   Col,
   ColumnGroupType,
   ColumnType,

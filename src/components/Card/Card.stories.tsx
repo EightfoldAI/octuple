@@ -48,10 +48,12 @@ export const __namedExportsOrder = ['CustomCard'];
 
 const baseCardArgs: Object = {
   dropShadow: true,
+  insetFocusVisible: false,
   size: CardSize.Medium,
   style: {},
   classNames: 'my-card-class',
   bordered: true,
+  tabIndex: 0,
 };
 
 CustomCard.args = {

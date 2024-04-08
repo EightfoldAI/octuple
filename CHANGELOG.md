@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.49.3](https://github.com/EightfoldAI/octuple/compare/v2.49.2...v2.49.3) (2024-04-05)
+
+### Bug Fixes
+
+- accordion: ensure expand button props are passed down to the button ([#808](https://github.com/EightfoldAI/octuple/issues/808)) ([c423c40](https://github.com/EightfoldAI/octuple/commits/c423c4012e26289ef7369716dd407e2cc7ad75aa))
+
+### [2.49.2](https://github.com/EightfoldAI/octuple/compare/v2.49.1...v2.49.2) (2024-04-05)
+
+### Bug Fixes
+
+- a11y: card focus visible styles and aria label placeholders with additional code cleanup ([#806](https://github.com/EightfoldAI/octuple/issues/806)) ([d27adbe](https://github.com/EightfoldAI/octuple/commits/d27adbed1e683b2111768142323b116b1df9bfdd))
+- card: types file cleanup and enable string dimension types via string union ([#800](https://github.com/EightfoldAI/octuple/issues/800)) ([af9f076](https://github.com/EightfoldAI/octuple/commits/af9f07602357868854461c04330f824e8b038aea))
+- select: address selector scoping bugs when portal and right icon and export type ([#802](https://github.com/EightfoldAI/octuple/issues/802)) ([ca88b52](https://github.com/EightfoldAI/octuple/commits/ca88b526a515bac96fe045d3bf258a582c0f70d3))
+
 ### [2.49.1](https://github.com/EightfoldAI/octuple/compare/v2.49.0...v2.49.1) (2024-03-09)
 
 ### Bug Fixes
