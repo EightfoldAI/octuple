@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.49.4](https://github.com/EightfoldAI/octuple/compare/v2.49.3...v2.49.4) (2024-04-08)
+
+### Bug Fixes
+
+- grid: omit some attributes to avoid upstream linter errors when node lts ([#801](https://github.com/EightfoldAI/octuple/issues/801)) ([41a4399](https://github.com/EightfoldAI/octuple/commits/41a4399a0faa1f92c5a6a52e8e75cdceb3611ffd))
+
 ### [2.49.3](https://github.com/EightfoldAI/octuple/compare/v2.49.2...v2.49.3) (2024-04-05)
 
 ### Bug Fixes
