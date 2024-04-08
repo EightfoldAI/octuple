@@ -1,3 +1,4 @@
+import React from 'react';
 import { OcBaseProps } from '../OcBase';
 import type { Breakpoint } from '../../shared/utilities';
 import { tuple } from '../../shared/utilities';
@@ -39,6 +40,27 @@ export interface RowProps
    * The row wraps.
    */
   wrap?: boolean;
+  /**
+   * React 18 typing error workaround. Make `placeholder` optional.
+   * This type was improperly removed from the public `HTMLDivElement`/`HTMLElement` API in React 18.
+   * Not entirely sure why this effects `Row` and `Col` components, but it does.
+   * Probably because of the `OcBaseProps<HTMLDivElement>` type and `Col`/`Row` tags are shadowed in React somewhere.
+   * https://github.com/facebook/react/issues/17883
+   * @private Internal usage only.
+   */
+  placeholder?: string;
+  /**
+   * React 18 typing error workaround. Define and Make `onPointerEnterCapture` optional.
+   * https://github.com/facebook/react/issues/17883
+   * @private Internal usage only.
+   */
+  onPointerEnterCapture?: React.PointerEventHandler<HTMLDivElement>;
+  /**
+   * React 18 typing error workaround. Define and Make `onPointerLeaveCapture` optional.
+   * https://github.com/facebook/react/issues/17883
+   * @private Internal usage only.
+   */
+  onPointerLeaveCapture?: React.PointerEventHandler<HTMLDivElement>;
 }
 
 export type FlexType = number | 'none' | 'auto' | string;
@@ -101,4 +123,22 @@ export interface ColProps
    * The col size is extra-large.
    */
   xl?: ColSpanType | ColSize;
+  /**
+   * React 18 typing error workaround.
+   * https://github.com/facebook/react/issues/17883
+   * @private Internal usage only.
+   */
+  placeholder?: string;
+  /**
+   * React 18 typing error workaround. Define and Make `onPointerEnterCapture` optional.
+   * https://github.com/facebook/react/issues/17883
+   * @private Internal usage only.
+   */
+  onPointerEnterCapture?: React.PointerEventHandler<HTMLDivElement>;
+  /**
+   * React 18 typing error workaround. Define and Make `onPointerLeaveCapture` optional.
+   * https://github.com/facebook/react/issues/17883
+   * @private Internal usage only.
+   */
+  onPointerLeaveCapture?: React.PointerEventHandler<HTMLDivElement>;
 }
