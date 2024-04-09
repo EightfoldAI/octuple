@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.50.0](https://github.com/EightfoldAI/octuple/compare/v2.49.4...v2.50.0) (2024-04-09)
+
+### Features
+
+- ssr: improve ssr support via globalobject this and use client strings ([#810](https://github.com/EightfoldAI/octuple/issues/810)) ([e3a71f2](https://github.com/EightfoldAI/octuple/commits/e3a71f2de07927bf1c017e25e7728294b7cc23c0))
+
+### Bug Fixes
+
+- ssr: remove memoizeone dep and replace it with local function in locale ([#811](https://github.com/EightfoldAI/octuple/issues/811)) ([233f812](https://github.com/EightfoldAI/octuple/commits/233f812539779b37e07f05284b6e8681c9efcc32))
+
 ### [2.49.4](https://github.com/EightfoldAI/octuple/compare/v2.49.3...v2.49.4) (2024-04-08)
 
 ### Bug Fixes
