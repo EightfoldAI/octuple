@@ -1,5 +1,6 @@
-import React from 'react';
-import { useRef } from 'react';
+'use client';
+
+import React, { useRef } from 'react';
 import {
   DomWrapper,
   findDOMNode,

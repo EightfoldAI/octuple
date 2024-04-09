@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   FC,
   SyntheticEvent,
@@ -104,9 +106,14 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         useRef<HTMLDivElement>(null);
 
       const [hiding, setHiding] = useState<boolean>(false);
+
+      // TODO: Upgrade to React 18 and use the new `useId` hook.
+      // This way the id will match on the server and client.
+      // For now, pass an id via props if using SSR.
       const tooltipId: React.MutableRefObject<string> = useRef<string>(
         id || uniqueId('tooltip-')
       );
+
       const tooltipReferenceId: React.MutableRefObject<string> = useRef<string>(
         `${tooltipId?.current}-reference`
       );

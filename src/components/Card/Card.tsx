@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { CardProps, CardSize, CardType } from './Card.types';

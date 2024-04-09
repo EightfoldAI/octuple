@@ -1,3 +1,5 @@
+'use client';
+
 import type React from 'react';
 
 // Firefox has low performance of map.

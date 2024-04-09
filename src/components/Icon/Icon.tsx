@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import IcomoonReact from 'icomoon-react';
 

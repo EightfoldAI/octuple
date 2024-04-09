@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import { AtomProps } from './Atom.types';

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import memoizeOne from 'memoize-one';
 import type { BreadcrumbLocale } from '../Breadcrumb/Breadcrumb.types';

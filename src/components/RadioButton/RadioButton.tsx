@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
@@ -59,7 +61,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
     const htmlDir: string = useCanvasDirection();
 
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const radioButtonId = useRef<string>(id || generateId());
+
     const radioGroupContext = useRadioGroup();
     const [isActive, setIsActive] = useState<boolean>(
       radioGroupContext?.value === value || checked

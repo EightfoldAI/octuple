@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, ReactNode, Ref, useRef } from 'react';
 import {
   matchingSkillAssessment,
@@ -71,6 +73,10 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       tooltipProps,
       ...rest
     } = props;
+
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const skillId: React.MutableRefObject<string> = useRef<string>(
       id || generateId()
     );
@@ -148,8 +154,8 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
         {...rest}
         aria-disabled={disabled}
         className={skillClassNames}
-        id={skillId.current}
-        key={key || `${skillId.current}-key`}
+        id={skillId?.current}
+        key={key || `${skillId?.current}-key`}
         onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
           if (disabled || readonly) {
             return;

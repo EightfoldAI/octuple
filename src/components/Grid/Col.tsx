@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Ref } from 'react';
 import { ColProps, ColSize, FlexType } from './Grid.types';
 import { mergeClasses } from '../../shared/utilities';

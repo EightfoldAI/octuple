@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Ref, FC, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { OcThemeName } from '../ConfigProvider';

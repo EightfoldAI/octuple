@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   FC,
   Ref,
@@ -130,6 +132,9 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
       useState<MenuItemTypes[]>(menuItems);
     const [_itemMenuOnly, setItemMenuOnly] = useState<boolean>(false);
 
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const skillId: React.MutableRefObject<string> = useRef<string>(
       id || generateId()
     );
@@ -523,8 +528,8 @@ export const SkillBlock: FC<SkillBlockProps> = React.forwardRef(
           {...rest}
           aria-disabled={disabled}
           className={skillClassNames}
-          id={skillId.current}
-          key={key || `${skillId.current}-key`}
+          id={skillId?.current}
+          key={key || `${skillId?.current}-key`}
           onBlur={(e: React.FocusEvent<HTMLDivElement>) => {
             if (disabled || readonly) {
               return;

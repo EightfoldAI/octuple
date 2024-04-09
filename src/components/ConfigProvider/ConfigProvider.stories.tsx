@@ -658,12 +658,12 @@ const ThemedComponents: FC = () => {
         </NavbarContent>
         <NavbarContent>
           <Link
-            href="https://www.twitter.com"
+            href="https://www.x.com"
             target="_self"
             variant="default"
             style={{ padding: '8px', color: 'inherit' }}
           >
-            <Icon path={IconName.mdiTwitter} />
+            <Icon path={IconName.mdiX} />
           </Link>
           <Link
             href="https://www.facebook.com"

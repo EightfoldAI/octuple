@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref } from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import { EmptyMode, EmptyProps } from './Empty.types';
