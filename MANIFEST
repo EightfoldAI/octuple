@@ -108,15 +108,6 @@ Install with npm: `npm install lottie-web`<br/>
 Install with yarn: `yarn add lottie-web`
 
 ---
-## memoize-one
-A memoization library which only remembers the latest invocation
-
-[npm](http://npmjs.org/memoize-one) - [Homepage](https://github.com/alexreardon/memoize-one#readme) - [Repository](https://github.com/alexreardon/memoize-one) - [Issues](https://github.com/alexreardon/memoize-one/issues) - Licence: MIT
-
-Install with npm: `npm install memoize-one`<br/>
-Install with yarn: `yarn add memoize-one`
-
----
 ## react-easy-crop
 A React component to crop images/videos with easy interactions
 
