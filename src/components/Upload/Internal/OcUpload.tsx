@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import AjaxUpload from './AjaxUploader';

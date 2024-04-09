@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { toArray } from '../utilities';
 import { SingleObserver } from './SingleObserver/SingleObserver';

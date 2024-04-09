@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Ref, FC } from 'react';
 
 import { NavbarProps } from './';

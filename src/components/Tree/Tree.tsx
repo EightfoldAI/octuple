@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import OcTree, { TreeNode } from './Internal';
 import { DraggableConfig, OcTreeNodeProps, TreeProps } from './Tree.types';

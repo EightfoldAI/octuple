@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref } from 'react';
 import {
   SkeletonAnimation,

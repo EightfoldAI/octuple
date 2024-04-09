@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useState, useRef } from 'react';
 import { CarouselContext, CarouselSlideProps } from '../Carousel.types';
 import { useForkedRef } from '../../../hooks/useForkedRef';

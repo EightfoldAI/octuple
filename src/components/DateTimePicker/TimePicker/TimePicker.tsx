@@ -1,3 +1,5 @@
+'use client';
+
 import React, { forwardRef, useMemo } from 'react';
 import DatePicker from '../DatePicker';
 import { TimePickerProps, TimeRangePickerProps } from './TimePicker.types';

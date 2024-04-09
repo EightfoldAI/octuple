@@ -92,7 +92,7 @@ const statTabs = [1, 2, 3, 4].map((i) => ({
   label: `Label ${i}`,
   ratioA: 2,
   ratioB: '(5%)',
-  status: i === 3 ? ('success' as StatValidationStatus) : null,
+  status: i === 3 ? ('success' as StatValidationStatus) : '',
   value: `tab${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));
@@ -103,7 +103,7 @@ const statTabsThemed = [1, 2, 3, 4].map((i) => ({
   label: `Label ${i}`,
   ratioA: 2,
   ratioB: '(5%)',
-  status: i === 3 ? ('success' as StatValidationStatus) : null,
+  status: i === 3 ? ('success' as StatValidationStatus) : '',
   value: `tab${i}`,
   ...(i === 2 ? { theme: themes[8] } : {}),
   ...(i === 4 ? { disabled: true } : {}),
@@ -125,7 +125,7 @@ const statTabsWithButtons = [1, 2, 3, 4].map((i) => ({
   label: `Label ${i}`,
   ratioA: 2,
   ratioB: '(5%)',
-  status: i === 3 ? ('success' as StatValidationStatus) : null,
+  status: i === 3 ? ('success' as StatValidationStatus) : '',
   value: `tab${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));

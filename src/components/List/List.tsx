@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Key, useEffect, useRef, useState } from 'react';
 import { ListProps } from './List.types';
 import { ExternalListItem } from './ListItem';
