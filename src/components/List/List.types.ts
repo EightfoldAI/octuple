@@ -46,11 +46,11 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   items: T[];
   /**
-   * Style of the item
+   * Style of the item.
    */
   itemStyle?: React.CSSProperties;
   /**
-   * The list layout direction
+   * The list layout direction.
    * @default vertical
    */
   layout?: ItemLayout;
@@ -68,17 +68,17 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   listType?: 'ul' | 'ol';
   /**
-   * Render method for list item
+   * Render method for list item.
    * @param item
    */
   renderItem?: (item: T) => ReactNode;
   /**
-   * Render method for additional list item
+   * Render method for additional list item.
    * @param item
    */
   renderAdditionalItem?: (item: T) => ReactNode;
   /**
-   * Role of the list
+   * Role of the list.
    */
   role?: string;
   /**

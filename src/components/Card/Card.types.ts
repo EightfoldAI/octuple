@@ -1,6 +1,6 @@
 import { IconName, IconProps } from '../Icon';
 import { ButtonProps } from '../Button';
-import { PillProps, PillType } from '../Pills';
+import { PillProps } from '../Pills';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps, Size } from '../ConfigProvider';
 import { AvatarProps } from '../Avatar';
@@ -36,31 +36,31 @@ export interface CardProps extends OcBaseProps<HTMLDivElement> {
    */
   allowDisabledFocus?: boolean;
   /**
-   * Avatar of the employee
+   * Avatar of the card.
    */
   avatar?: AvatarProps;
   /**
-   * The Body of the dialog
+   * The Body of the card.
    */
   body?: React.ReactNode;
   /**
-   * Custom classes for the Body
+   * Custom classes for the Body.
    */
   bodyClassNames?: string;
   /**
-   * Pill props for the first body list
+   * Pill props for the first body list.
    */
   bodyListOnePillProps?: PillProps;
   /**
-   * Pill props for the second body list
+   * Pill props for the second body list.
    */
   bodyListTwoPillProps?: PillProps;
   /**
-   * List of items for body
+   * List of items for body.
    */
   bodyListOneProps?: BodyProps;
   /**
-   * List of items for body
+   * List of items for body.
    */
   bodyListTwoProps?: BodyProps;
   /**
@@ -73,7 +73,7 @@ export interface CardProps extends OcBaseProps<HTMLDivElement> {
    */
   classNames?: string;
   /**
-   * Configure how contextual props are consumed
+   * Configure how contextual props are consumed.
    */
   configContextProps?: ConfigContextProps;
   /**
@@ -82,70 +82,75 @@ export interface CardProps extends OcBaseProps<HTMLDivElement> {
    */
   disabled?: boolean;
   /**
-   * The card has a drop shadow
+   * The card has a drop shadow.
    * @default false
    */
   dropShadow?: boolean;
   /**
-   * The Footer of the dialog
+   * The Footer of the card.
    */
   footer?: React.ReactNode;
   /**
-   * Props for the Footer button
+   * Props for the Footer button.
    */
   footerButtonProps?: ButtonProps;
   /**
-   * Custom classes for the Footer
+   * Custom classes for the Footer.
    */
   footerClassNames?: string;
   /**
-   * Footer icon name
+   * Footer icon name.
    */
   footerIcon?: IconName;
   /**
-   * The props for the footer
+   * The props for the footer.
    */
   footerProps?: FooterItems;
   /**
-   * The Header of the dialog
+   * The Header of the card.
    */
   header?: React.ReactNode;
   /**
-   * Props for the header button
+   * Props for the header button.
    */
   headerButtonProps?: ButtonProps;
   /**
-   * Custom classes for the header
+   * Custom classes for the header.
    */
   headerClassNames?: string;
   /**
-   * Header icon name
+   * Header icon name.
    */
   headerIcon?: IconName;
   /**
-   * Header title name
+   * Header title name.
    */
   headerTitle?: string;
   /**
-   * Custom height of the panel
+   * Custom height of the card.
    */
-  height?: number;
+  height?: number | string;
   /**
-   * Custom icon for the card
+   * Custom icon for the card.
    * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
    */
   icon?: IconName;
   /**
-   * The boolean value if a list card is selected
+   * Option to inset the :focus-visible CSS box-shadow.
+   * Use this if the :focus-visible CSS box-shadow is being clipped.
+   */
+  insetFocusVisible?: boolean;
+  /**
+   * The boolean value if a list card is selected.
    */
   isSelected?: boolean;
   /**
-   * Name of the employee card
+   * Name of the employee card.
    */
   name?: string;
   /**
-   * The checkbox size.
-   * @default SelectorSize.Medium
+   * The card size.
+   * @default CardSize.Medium
    */
   size?: CardSize | Size;
   /**
@@ -153,24 +158,24 @@ export interface CardProps extends OcBaseProps<HTMLDivElement> {
    */
   style?: React.CSSProperties;
   /**
-   * The props for the subheaders
+   * The props for the subheaders.
    */
   subHeaderProps?: Array<string>;
   /**
-   * Custom icon subheader separator
+   * Custom icon subheader separator.
    */
   subHeaderSeparatorIcon?: IconName;
   /**
-   * Tags for the employee
+   * Tags for the card.
    */
   tag?: PillProps;
   /**
-   * Type of the card
+   * Type of the card.
    * @default CardType.neutral
    */
   type?: CardType;
   /**
-   * Custom width of the panel
+   * Custom width of the card.
    */
-  width?: number;
+  width?: number | string;
 }

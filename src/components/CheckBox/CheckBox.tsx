@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
@@ -70,7 +72,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       ref
     );
 
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const checkBoxId = useRef<string>(id || generateId());
+
     const [isChecked, setIsChecked] = useState<boolean>(
       defaultChecked || checked
     );

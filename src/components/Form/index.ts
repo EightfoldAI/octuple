@@ -1,3 +1,5 @@
+'use client';
+
 import {
   OcRule as Rule,
   OcRuleObject as RuleObject,

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import OriginCSSMotion from './CSSMotion';
 import type { CSSMotionProps } from './CSSMotion.types';

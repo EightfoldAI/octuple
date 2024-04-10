@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { LoaderProps, LoaderSize } from './Loader.types';
 import { mergeClasses } from '../../shared/utilities';

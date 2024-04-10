@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   cloneElement,
   FC,
@@ -83,7 +85,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       const [closing, setClosing] = useState<boolean>(false);
       const previouslyClosing: boolean = usePreviousState(closing);
 
+      // TODO: Upgrade to React 18 and use the new `useId` hook.
+      // This way the id will match on the server and client.
+      // For now, pass an id via props if using SSR.
       const dropdownId: string = uniqueId('dropdown-');
+
       const [dropdownReferenceId, setReferenceElementId] = useState<string>(
         `${dropdownId}reference`
       );

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { HOOK_MARK } from './OcFieldContext';
 import type {

@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.49.1",
+  "version": "2.50.0",
   "license": "MIT",
   "main": "lib/octuple.js",
   "types": "lib/octuple.d.ts",
@@ -63,7 +63,6 @@
     "dayjs": "1.11.3",
     "dom-align": "1.12.3",
     "lottie-web": "5.8.1",
-    "memoize-one": "6.0.0",
     "react-easy-crop": "4.6.1",
     "react-flip-toolkit": "7.0.13",
     "react-is": "18.1.0",

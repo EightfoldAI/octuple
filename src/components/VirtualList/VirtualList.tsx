@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import Filler from './Filler';

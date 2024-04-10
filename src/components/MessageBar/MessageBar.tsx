@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useEffect, useState } from 'react';
 import { MessageBarsProps, MessageBarType } from './MessageBar.types';
 import { InfoBarLocale } from '../InfoBar/InfoBar.types';

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useMemo, useState, useRef, FC, Ref } from 'react';
 import { InlineSvgProps } from './InlineSvg.types';
 import { Icon, IconName } from '../Icon';

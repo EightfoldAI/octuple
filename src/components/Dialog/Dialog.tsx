@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { OcFormInstance } from '../Internal';
 import { useForm as useOcForm } from '../Internal';

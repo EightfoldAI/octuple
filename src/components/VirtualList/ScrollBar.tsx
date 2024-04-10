@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   MIN_SCROLL_BAR_SIZE,

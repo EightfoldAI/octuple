@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';

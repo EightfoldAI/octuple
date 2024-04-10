@@ -1,3 +1,5 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from '../Internal/Generate/dayjs';
 import type {

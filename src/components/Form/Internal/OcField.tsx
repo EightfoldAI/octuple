@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import toChildrenArray from '../../../shared/utilities/toArray';
 import type {

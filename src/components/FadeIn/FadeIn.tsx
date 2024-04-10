@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref } from 'react';
 import { FadeInProps } from './FadeIn.types';
 import { animated, useSpring, UseSpringProps } from '@react-spring/web';
