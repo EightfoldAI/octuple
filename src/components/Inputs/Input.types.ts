@@ -113,6 +113,10 @@ export interface ReadOnlyProps {
 export interface SearchBoxProps
   extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
   /**
+   * The input search button aria label text.
+   */
+  searchButtonAriaLabel?: string;
+  /**
    * onclear event handler.
    */
   onClear?: React.MouseEventHandler<Element>;

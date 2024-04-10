@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+'use client';
+
+import React, { FC, useRef } from 'react';
 import {
   PopupProps,
   PopupRef,
@@ -43,7 +45,12 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
     ref: React.ForwardedRef<PopupRef>
   ) => {
     const htmlDir: string = useCanvasDirection();
+
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const popupId: string = !!id ? id : uniqueId('popup-');
+
     const popupClassNames: string = mergeClasses([
       styles.popup,
       { [styles.small]: size === PopupSize.Small },

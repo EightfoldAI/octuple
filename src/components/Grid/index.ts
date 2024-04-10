@@ -1,3 +1,5 @@
+'use client';
+
 import { Col } from './Col';
 import { useBreakpoint as useInternalBreakpoint } from '../../hooks/useBreakpoint';
 import { Row } from './Row';

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useEffect, useMemo, useRef, useState } from 'react';
 import {
   AvatarFallbackProps,

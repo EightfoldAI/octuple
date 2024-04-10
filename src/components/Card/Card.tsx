@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { CardProps, CardSize, CardType } from './Card.types';
@@ -43,6 +45,7 @@ export const Card: FC<CardProps> = React.forwardRef(
       headerTitle,
       height,
       icon,
+      insetFocusVisible = false,
       isSelected = false,
       name,
       size = CardSize.Medium,
@@ -96,6 +99,7 @@ export const Card: FC<CardProps> = React.forwardRef(
       { [styles.cardMedium]: mergedSize === CardSize.Medium },
       { [styles.cardSmall]: mergedSize === CardSize.Small },
       { [styles.dropShadow]: dropShadow },
+      { [styles.insetFocusVisible]: insetFocusVisible },
       { [styles.cardRtl]: htmlDir === 'rtl' },
     ]);
 

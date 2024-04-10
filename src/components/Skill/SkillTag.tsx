@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, ReactNode, Ref, useRef } from 'react';
 import {
   matchingSkillAssessment,
@@ -58,7 +60,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       removable = false,
       removeButtonAriaLabel,
       removeButtonProps,
-      role,
+      role = clickable ? 'button' : undefined,
       showLabelAssessmentIcon = true,
       size = SkillSize.Medium,
       status = SkillStatus.Default,
@@ -71,6 +73,10 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       tooltipProps,
       ...rest
     } = props;
+
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const skillId: React.MutableRefObject<string> = useRef<string>(
       id || generateId()
     );
@@ -148,8 +154,8 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
         {...rest}
         aria-disabled={disabled}
         className={skillClassNames}
-        id={skillId.current}
-        key={key || `${skillId.current}-key`}
+        id={skillId?.current}
+        key={key || `${skillId?.current}-key`}
         onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
           if (disabled || readonly) {
             return;
@@ -160,7 +166,7 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
         tabIndex={!allowDisabledFocus && disabled ? null : tabIndex}
         title={title}
         ref={ref}
-        role={clickable ? 'button' : role}
+        role={role}
       >
         <div
           className={styles.background}

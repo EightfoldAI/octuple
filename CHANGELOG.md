@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.50.0](https://github.com/EightfoldAI/octuple/compare/v2.49.4...v2.50.0) (2024-04-09)
+
+### Features
+
+- ssr: improve ssr support via globalobject this and use client strings ([#810](https://github.com/EightfoldAI/octuple/issues/810)) ([e3a71f2](https://github.com/EightfoldAI/octuple/commits/e3a71f2de07927bf1c017e25e7728294b7cc23c0))
+
+### Bug Fixes
+
+- ssr: remove memoizeone dep and replace it with local function in locale ([#811](https://github.com/EightfoldAI/octuple/issues/811)) ([233f812](https://github.com/EightfoldAI/octuple/commits/233f812539779b37e07f05284b6e8681c9efcc32))
+
+### [2.49.4](https://github.com/EightfoldAI/octuple/compare/v2.49.3...v2.49.4) (2024-04-08)
+
+### Bug Fixes
+
+- grid: omit some attributes to avoid upstream linter errors when node lts ([#801](https://github.com/EightfoldAI/octuple/issues/801)) ([41a4399](https://github.com/EightfoldAI/octuple/commits/41a4399a0faa1f92c5a6a52e8e75cdceb3611ffd))
+
+### [2.49.3](https://github.com/EightfoldAI/octuple/compare/v2.49.2...v2.49.3) (2024-04-05)
+
+### Bug Fixes
+
+- accordion: ensure expand button props are passed down to the button ([#808](https://github.com/EightfoldAI/octuple/issues/808)) ([c423c40](https://github.com/EightfoldAI/octuple/commits/c423c4012e26289ef7369716dd407e2cc7ad75aa))
+
+### [2.49.2](https://github.com/EightfoldAI/octuple/compare/v2.49.1...v2.49.2) (2024-04-05)
+
+### Bug Fixes
+
+- a11y: card focus visible styles and aria label placeholders with additional code cleanup ([#806](https://github.com/EightfoldAI/octuple/issues/806)) ([d27adbe](https://github.com/EightfoldAI/octuple/commits/d27adbed1e683b2111768142323b116b1df9bfdd))
+- card: types file cleanup and enable string dimension types via string union ([#800](https://github.com/EightfoldAI/octuple/issues/800)) ([af9f076](https://github.com/EightfoldAI/octuple/commits/af9f07602357868854461c04330f824e8b038aea))
+- select: address selector scoping bugs when portal and right icon and export type ([#802](https://github.com/EightfoldAI/octuple/issues/802)) ([ca88b52](https://github.com/EightfoldAI/octuple/commits/ca88b526a515bac96fe045d3bf258a582c0f70d3))
+
 ### [2.49.1](https://github.com/EightfoldAI/octuple/compare/v2.49.0...v2.49.1) (2024-03-09)
 
 ### Bug Fixes

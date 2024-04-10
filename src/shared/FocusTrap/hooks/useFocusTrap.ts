@@ -1,3 +1,5 @@
+'use client';
+
 // Based on https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
 import { useRef, useEffect } from 'react';
 import { eventKeys } from '../../utilities/eventKeys';

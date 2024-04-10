@@ -1,3 +1,5 @@
+'use client';
+
 import { ISnack, SnackbarPosition, SnackbarProps } from './Snackbar.types';
 import { canUseDocElement, generateId } from '../../shared/utilities';
 import { InfoBarType } from '../InfoBar';

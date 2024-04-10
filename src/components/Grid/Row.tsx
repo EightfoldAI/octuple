@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Ref, useEffect } from 'react';
 import { Gutter, RowProps } from './Grid.types';
 import useFlexGapSupport from '../../hooks/useFlexGapSupport';

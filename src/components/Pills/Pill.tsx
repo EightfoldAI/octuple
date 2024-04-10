@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { PillIconAlign, PillProps, PillSize, PillType } from './Pills.types';

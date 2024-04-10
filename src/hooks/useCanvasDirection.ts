@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect, useState } from 'react';
 import { canUseDocElement, canUseDom } from '../shared/utilities';
 

@@ -218,4 +218,8 @@ export interface SelectProps
    * Use with `theme` to generate a unique container or a common one.
    */
   themeContainerId?: string;
+  /**
+   * The Select toggle dropdown chevron button aria label.
+   */
+  toggleButtonAriaLabel?: string;
 }
