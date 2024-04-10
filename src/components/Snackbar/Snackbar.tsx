@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { InfoBar } from '../InfoBar';
 import { SnackbarProps } from './Snackbar.types';

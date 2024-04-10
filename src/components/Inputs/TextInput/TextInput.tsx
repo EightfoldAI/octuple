@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, {
   Disabled,
@@ -110,6 +112,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     const [inputValue, setInputValue] = useState(value);
 
     const [clearButtonShown, _setClearButtonShown] = useState<boolean>(false);
+
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const inputId: string = !!id ? id : uniqueId('input-');
 
     const clearButtonRef: React.MutableRefObject<HTMLButtonElement> =

@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint react/no-is-mounted:0,react/sort-comp:0,react/prop-types:0 */
 import React, { Component } from 'react';
 import type { ReactElement } from 'react';

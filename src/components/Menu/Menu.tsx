@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { MenuItemTypes, MenuProps, MenuSize, MenuVariant } from './Menu.types';
 import { List } from '../List';

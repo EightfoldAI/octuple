@@ -23,6 +23,11 @@ export interface DropdownProps {
    */
   ariaRef?: React.MutableRefObject<HTMLElement>;
   /**
+   * The child renderer.
+   * @deprecated Wrap your element instead, e.g. `<Dropdown><MyElement /></Dropdown>`.
+   */
+  children?: React.ReactNode;
+  /**
    * Class names of the main wrapper
    */
   classNames?: string;

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { useFocusTrap } from './hooks/useFocusTrap';
 import { OcBaseProps } from '../../components/OcBase';

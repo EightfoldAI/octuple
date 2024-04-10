@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, useContext } from 'react';
 import { Button, ButtonSize, ButtonShape } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';

@@ -1,3 +1,5 @@
+'use client';
+
 import { separatorString } from './Carousel.types';
 import type {
   IntersectionObserverItem,

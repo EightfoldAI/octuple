@@ -68,5 +68,6 @@ module.exports = (_, { mode }) => ({
     library: 'Octuple',
     filename: '[name].js',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
 });

@@ -1,3 +1,5 @@
+'use client';
+
 import type { InternalOcNamePath } from '../OcForm.types';
 
 interface KV<T> {

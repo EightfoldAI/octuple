@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   FC,
   Ref,
@@ -84,6 +86,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
+        {...expandButtonProps}
         disabled={disabled}
         gradient={gradient}
         iconProps={{ classNames: iconStyles, ...expandIconProps }}

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext } from 'react';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {

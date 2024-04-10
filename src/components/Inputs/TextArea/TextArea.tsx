@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import DisabledContext, {
   Disabled,
@@ -91,7 +93,11 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
 
     const htmlDir: string = useCanvasDirection();
 
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const textAreaId: string = !!id ? id : uniqueId('textarea-');
+
     const [inputValue, setInputValue] = useState(value);
 
     const {

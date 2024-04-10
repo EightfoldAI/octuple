@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo, useRef, useState, useCallback } from 'react';
 export enum Gestures {
   SwipeUp = 'SwipeUp',
