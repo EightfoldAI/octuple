@@ -259,4 +259,33 @@ describe('Menu', () => {
 
     expect(handleChange).toHaveBeenCalled();
   });
+
+  test('secondaryButtonProps onClick event is triggered when secondary button is clicked', () => {
+    const handleClick = jest.fn();
+
+    const { getByRole } = render(
+      <Menu
+        items={[
+          {
+            iconProps: {
+              path: IconName.mdiCalendar,
+            },
+            text: 'Date',
+            value: 'menu 0',
+            counter: '8',
+            secondaryButtonProps: {
+              iconProps: {
+                path: IconName.mdiTrashCan,
+              },
+              onClick: handleClick,
+            },
+          },
+        ]}
+      />
+    );
+
+    fireEvent.click(getByRole('button'));
+
+    expect(handleClick).toHaveBeenCalled();
+  });
 });
