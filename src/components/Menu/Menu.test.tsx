@@ -10,7 +10,7 @@ import { Button } from '../Button';
 import { IconName } from '../Icon';
 import { RadioGroup } from '../RadioButton';
 import { SelectorSize } from '../CheckBox';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -226,5 +226,66 @@ describe('Menu', () => {
       'small'
     );
     expect(container).toMatchSnapshot();
+  });
+
+  test('Menu onChange event is triggered when item is clicked', () => {
+    const handleChange = jest.fn();
+
+    const { getByText } = render(
+      <Menu
+        onChange={handleChange}
+        items={[
+          {
+            iconProps: {
+              path: IconName.mdiCalendar,
+            },
+            text: 'Date',
+            value: 'menu 0',
+            counter: '8',
+            secondaryButtonProps: {
+              iconProps: {
+                path: IconName.mdiTrashCan,
+              },
+              onClick: () => {
+                console.log('Delete clicked');
+              },
+            },
+          },
+        ]}
+      />
+    );
+
+    fireEvent.click(getByText('Date'));
+
+    expect(handleChange).toHaveBeenCalled();
+  });
+
+  test('secondaryButtonProps onClick event is triggered when secondary button is clicked', () => {
+    const handleClick = jest.fn();
+
+    const { getByRole } = render(
+      <Menu
+        items={[
+          {
+            iconProps: {
+              path: IconName.mdiCalendar,
+            },
+            text: 'Date',
+            value: 'menu 0',
+            counter: '8',
+            secondaryButtonProps: {
+              iconProps: {
+                path: IconName.mdiTrashCan,
+              },
+              onClick: handleClick,
+            },
+          },
+        ]}
+      />
+    );
+
+    fireEvent.click(getByRole('button'));
+
+    expect(handleClick).toHaveBeenCalled();
   });
 });
