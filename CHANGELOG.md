@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.48.3](https://github.com/EightfoldAI/octuple/compare/v2.48.2...v2.48.3) (2024-04-12)
+
+### Bug Fixes
+
+- hotfix: adds onclick handler back to main button when secondarybuttonprops fixing menu onchange ([e7ae364](https://github.com/EightfoldAI/octuple/commits/e7ae364a5789f9a7e4f3b549e312fa4eba18b051))
+
 ### [2.48.2](https://github.com/EightfoldAI/octuple/compare/v2.48.1...v2.48.2) (2024-03-09)
 
 ### Bug Fixes
