@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer Drawer no body padding 1`] = `<div />`;
+
+exports[`Drawer Drawer no header padding 1`] = `<div />`;
+
+exports[`Drawer Drawer renders 1`] = `<div />`;
