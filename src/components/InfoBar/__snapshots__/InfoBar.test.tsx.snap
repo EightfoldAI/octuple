@@ -23,9 +23,13 @@ exports[`InfoBar InfoBar is Disruptive 1`] = `
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test disruptive
+      <div
+        class="message body2"
+      >
+        InfoBar test disruptive
+      </div>
     </div>
   </div>
 </div>
@@ -54,9 +58,13 @@ exports[`InfoBar InfoBar is Neutral 1`] = `
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test neutral
+      <div
+        class="message body2"
+      >
+        InfoBar test neutral
+      </div>
     </div>
   </div>
 </div>
@@ -85,9 +93,13 @@ exports[`InfoBar InfoBar is Positive 1`] = `
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test positive
+      <div
+        class="message body2"
+      >
+        InfoBar test positive
+      </div>
     </div>
   </div>
 </div>
@@ -116,9 +128,13 @@ exports[`InfoBar InfoBar is Warning 1`] = `
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test warning
+      <div
+        class="message body2"
+      >
+        InfoBar test warning
+      </div>
     </div>
   </div>
 </div>
@@ -147,9 +163,13 @@ exports[`InfoBar InfoBar is bordered 1`] = `
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test border
+      <div
+        class="message body2"
+      >
+        InfoBar test border
+      </div>
     </div>
   </div>
 </div>
@@ -178,9 +198,13 @@ exports[`InfoBar Renders a custom icon when the icon prop uses a custom icon 1`]
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test icon
+      <div
+        class="message body2"
+      >
+        InfoBar test icon
+      </div>
     </div>
   </div>
 </div>
@@ -209,9 +233,13 @@ exports[`InfoBar Renders without crashing 1`] = `
       </svg>
     </span>
     <div
-      class="message body2"
+      class="content-wrapper"
     >
-      InfoBar test render
+      <div
+        class="message body2"
+      >
+        InfoBar test render
+      </div>
     </div>
   </div>
 </div>
