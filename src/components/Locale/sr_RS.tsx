@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/sr_RS';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/sr_RS';
 import Dialog from '../Dialog/BaseDialog/Locale/sr_RS';
+import Drawer from '../Drawer/Locale/sr_RS';
 import InfoBar from '../InfoBar/Locale/sr_RS';
 import Pagination from '../Pagination/Locale/sr_RS';
 import Panel from '../Panel/Locale/sr_RS';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(opciono)',
     defaultValidateMessages: {

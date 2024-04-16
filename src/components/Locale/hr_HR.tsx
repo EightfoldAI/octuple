@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/hr_HR';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/hr_HR';
 import Dialog from '../Dialog/BaseDialog/Locale/hr_HR';
+import Drawer from '../Drawer/Locale/hr_HR';
 import InfoBar from '../InfoBar/Locale/hr_HR';
 import Pagination from '../Pagination/Locale/hr_HR';
 import Panel from '../Panel/Locale/hr_HR';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(neobavezno)',
     defaultValidateMessages: {
