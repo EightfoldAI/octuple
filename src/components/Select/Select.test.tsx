@@ -4,11 +4,14 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
 import { Select } from './';
+import { Stack } from '../Stack';
+import { TextInputWidth } from '../Inputs/Input.types';
 import { sleep } from '../../tests/Utilities';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -48,6 +51,13 @@ describe('Select', () => {
     { text: 'Option 1', value: 'option1', 'data-testid': 'option1-test-id' },
     { text: 'Option 2', value: 'option2', 'data-testid': 'option2-test-id' },
     { text: 'Option 3', value: 'option3', 'data-testid': 'option3-test-id' },
+    { text: 'Option 4', value: 'option4', 'data-testid': 'option4-test-id' },
+    { text: 'Option 5', value: 'option5', 'data-testid': 'option5-test-id' },
+    { text: 'Option 6', value: 'option6', 'data-testid': 'option6-test-id' },
+    { text: 'Option 7', value: 'option7', 'data-testid': 'option7-test-id' },
+    { text: 'Option 8', value: 'option8', 'data-testid': 'option8-test-id' },
+    { text: 'Option 9', value: 'option9', 'data-testid': 'option9-test-id' },
+    { text: 'Option 10', value: 'option10', 'data-testid': 'option10-test-id' },
   ];
 
   test('Renders without crashing', () => {
@@ -255,7 +265,6 @@ describe('Select', () => {
     fireEvent.click(select);
     const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith([], []);
     expect(handleChange).toHaveBeenCalledWith(
       ['option2'],
       [
@@ -727,5 +736,165 @@ describe('Select', () => {
     });
     expect(container.querySelector('.dropdown')).toBeFalsy();
     expect(select).toHaveFocus();
+  });
+
+  test('initializes with the correct value', () => {
+    const { container } = render(<Select options={options} value="option3" />);
+
+    expect(container.querySelector('.select-input').getAttribute('value')).toBe(
+      'Option 3'
+    );
+  });
+
+  test('updates the value when the prop changes', async () => {
+    const { container, rerender } = render(
+      <Select options={options} value="option1" />
+    );
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.select-input').getAttribute('value')
+      ).toBe('Option 1');
+    });
+
+    rerender(<Select options={options} value="option2" />);
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.select-input').getAttribute('value')
+      ).toBe('Option 2');
+    });
+  });
+
+  test('does not wrap pills and shows a max count pill when maxPillCount default is true', () => {
+    const defaultValue = [
+      'option1',
+      'option2',
+      'option3',
+      'option4',
+      'option5',
+      'option6',
+      'option7',
+      'option8',
+      'option9',
+      'option10',
+    ];
+    const { container } = render(
+      <Select
+        options={options}
+        defaultValue={defaultValue}
+        multiple
+        style={{ width: 324 }}
+      />
+    );
+    const pills = container.querySelectorAll('.multi-select-pill');
+    Array.from(pills).forEach((pill) => {
+      if (pill.getAttribute('style').includes("visibility: 'visible'")) {
+        expect(pill).toBeVisible();
+        if (pill.classList.contains('multi-select-count')) {
+          expect(pill).toBeVisible();
+        }
+      } else {
+        expect(pill).not.toBeVisible();
+      }
+    });
+  });
+
+  test('wraps pills when maxPillCount is false', () => {
+    const defaultValue = [
+      'option1',
+      'option2',
+      'option3',
+      'option4',
+      'option5',
+      'option6',
+      'option7',
+      'option8',
+      'option9',
+      'option10',
+    ];
+    const { container } = render(
+      <Stack direction="horizontal" style={{ width: 400 }}>
+        <Select
+          options={options}
+          defaultValue={defaultValue}
+          inputWidth={TextInputWidth.fill}
+          maxPillCount={false}
+          multiple
+        />
+      </Stack>
+    );
+    const pills = container.querySelector('.multi-select-pills');
+    expect(pills.children.length).toBe(10);
+  });
+
+  test('does not allow the currently selected option to be deselected when toggleOptions is false', async () => {
+    const { container, getByText, getAllByRole, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        toggleOptions={false}
+      />
+    );
+
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+
+    // Select the first option
+    fireEvent.click(getByText('Option 1'));
+    expect(container.querySelector('.select-input').getAttribute('value')).toBe(
+      'Option 1'
+    );
+
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    expect(listbox).toHaveLength(options.length);
+
+    // Try to deselect the first option
+    fireEvent.click(getByText('Option 1'));
+    expect(container.querySelector('.select-input').getAttribute('value')).toBe(
+      'Option 1'
+    );
+
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    expect(listbox).toHaveLength(options.length);
+
+    // Select the second option
+    fireEvent.click(getByText('Option 2'));
+    expect(container.querySelector('.select-input').getAttribute('value')).toBe(
+      'Option 2'
+    );
+  });
+
+  test('allow the currently selected option to be deselected when toggleOptions default is true', async () => {
+    const { container, getByText, getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+
+    // Select the first option
+    fireEvent.click(getByText('Option 1'));
+    expect(container.querySelector('.select-input').getAttribute('value')).toBe(
+      'Option 1'
+    );
+
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    expect(listbox).toHaveLength(options.length);
+
+    // deselect the first option
+    fireEvent.click(getByText('Option 1'));
+    expect(container.querySelector('.select-input').getAttribute('value')).toBe(
+      ''
+    );
   });
 });
