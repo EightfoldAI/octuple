@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
 import { Select } from './';
+import { ANIMATION_DURATION } from '../Tooltip';
 import { Stack } from '../Stack';
 import { TextInputWidth } from '../Inputs/Input.types';
 import { sleep } from '../../tests/Utilities';
@@ -896,5 +897,29 @@ describe('Select', () => {
     expect(container.querySelector('.select-input').getAttribute('value')).toBe(
       ''
     );
+  });
+
+  test('selects first filtered option when Enter is pressed', () => {
+    const onInputChange = jest.fn();
+    const { container } = render(
+      <Select filterable onOptionsChange={onInputChange} options={options} />
+    );
+    const input = container.querySelector('.select-input');
+    fireEvent.change(input, { target: { value: 'option1' } });
+    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+
+    // Wait for the click event to be fired
+    setTimeout(() => {
+      expect(onInputChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.objectContaining({
+            value: 'option1',
+          }),
+        })
+      );
+
+      // Check that the first filtered option is selected
+      expect(input.getAttribute('value')).toBe('Option 1');
+    }, ANIMATION_DURATION);
   });
 });

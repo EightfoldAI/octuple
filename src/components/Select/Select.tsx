@@ -42,7 +42,7 @@ import {
 } from './Select.types';
 import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
-import { Tooltip, TooltipTheme } from '../Tooltip';
+import { ANIMATION_DURATION, Tooltip, TooltipTheme } from '../Tooltip';
 import { FormItemInputContext } from '../Form/Context';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -296,7 +296,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // When dropdown not visible and select is filterable
       // reset the search query and visibility of the options.
       if (prevDropdownVisible && !dropdownVisible && filterable) {
-        resetSelectOnDropdownHide();
+        setTimeout(() => {
+          resetSelectOnDropdownHide();
+        }, ANIMATION_DURATION);
       }
 
       // Resets closeOnReferenceClick
@@ -854,7 +856,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
     ): void => {
       if (filterable && !multiple && !dropdownVisible) {
         resetSingleSelectOnDropdownToggle();
-        resetSelectOnDropdownHide();
+        setTimeout(() => {
+          resetSelectOnDropdownHide();
+        }, ANIMATION_DURATION);
       }
       onBlur?.(event);
     };
@@ -872,6 +876,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
         document.activeElement === event.target
       ) {
         dropdownRef.current?.focusFirstElement?.();
+      }
+      if (
+        filterable &&
+        event?.key === eventKeys.ENTER &&
+        document.activeElement === event.target
+      ) {
+        event.preventDefault();
+        dropdownRef.current?.focusFirstElement?.();
+        setTimeout(() => {
+          (document.activeElement as HTMLElement)?.click();
+        }, ANIMATION_DURATION);
       }
     };
 
