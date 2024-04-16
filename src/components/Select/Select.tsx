@@ -296,9 +296,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // When dropdown not visible and select is filterable
       // reset the search query and visibility of the options.
       if (prevDropdownVisible && !dropdownVisible && filterable) {
-        setTimeout(() => {
-          resetSelectOnDropdownHide();
-        }, ANIMATION_DURATION);
+        resetSelectOnDropdownHide();
       }
 
       // Resets closeOnReferenceClick
@@ -856,9 +854,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     ): void => {
       if (filterable && !multiple && !dropdownVisible) {
         resetSingleSelectOnDropdownToggle();
-        setTimeout(() => {
-          resetSelectOnDropdownHide();
-        }, ANIMATION_DURATION);
+        resetSelectOnDropdownHide();
       }
       onBlur?.(event);
     };
@@ -882,7 +878,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
         event?.key === eventKeys.ENTER &&
         document.activeElement === event.target
       ) {
-        event.preventDefault();
         dropdownRef.current?.focusFirstElement?.();
         setTimeout(() => {
           (document.activeElement as HTMLElement)?.click();
