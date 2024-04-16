@@ -17,6 +17,11 @@ export enum AccordionSize {
 
 interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
   /**
+   * If the accordion is bordered or not
+   * @default true
+   */
+  bordered?: boolean;
+  /**
    * Configure how contextual props are consumed
    */
   configContextProps?: ConfigContextProps;
@@ -44,15 +49,16 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   gradient?: boolean;
   /**
+   * The onClick callback for the accordion.
+   * @param event
+   * @returns
+   */
+  onIconButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
    * Shape of the accordion
    * @default AccordionShape.Pill
    */
   shape?: AccordionShape;
-  /**
-   * If the accordion is bordered or not
-   * @default true
-   */
-  bordered?: boolean;
   /**
    * Size of the accordion
    * @default AccordionSize.Large
@@ -108,6 +114,10 @@ export interface AccordionSummaryProps
    * Badge props for the header badge
    */
   badgeProps?: BadgeProps;
+  /**
+   * Whether the accordion summary is full width or not.
+   */
+  fullWidth?: boolean;
 }
 
 export interface AccordionBodyProps
