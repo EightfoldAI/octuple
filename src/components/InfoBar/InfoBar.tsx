@@ -9,7 +9,7 @@ import ThemeContext, {
 import { InfoBarLocale, InfoBarsProps, InfoBarType } from './InfoBar.types';
 import { Icon, IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
-import { Button, ButtonShape, ButtonVariant } from '../Button';
+import { Button, ButtonShape, ButtonWidth, ButtonVariant } from '../Button';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
@@ -21,6 +21,7 @@ import themedComponentStyles from './infoBar.theme.module.scss';
 export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
   (props: InfoBarsProps, ref: Ref<HTMLDivElement>) => {
     const {
+      actionButtonClassNames,
       actionButtonProps,
       bordered = false,
       classNames,
@@ -33,8 +34,11 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
         noThemeContext: false,
       },
       content,
+      contentClassNames,
+      contentWrapperClassNames,
       gradient = false,
       icon,
+      iconClassNames,
       locale = enUS,
       onClose,
       role = 'alert',
@@ -90,7 +94,11 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       { [styles.gradient]: mergedGradient },
     ]);
 
-    const messageClasses: string = mergeClasses([styles.message, 'body2']);
+    const messageClasses: string = mergeClasses([
+      styles.message,
+      'body2',
+      contentClassNames,
+    ]);
 
     const getIconName = (): IconName => {
       if (icon) {
@@ -123,19 +131,31 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 style={style}
                 role={role}
               >
-                <Icon path={getIconName()} classNames={styles.icon} />
-                <div className={messageClasses}>{content}</div>
-                {actionButtonProps && (
-                  <Button
-                    transparent
-                    {...actionButtonProps}
-                    classNames={mergeClasses([
-                      styles.actionButton,
-                      actionButtonProps.classNames,
-                    ])}
-                    variant={ButtonVariant.SystemUI}
-                  />
-                )}
+                <Icon
+                  path={getIconName()}
+                  classNames={mergeClasses([styles.icon, iconClassNames])}
+                />
+                <div
+                  className={mergeClasses([
+                    styles.contentWrapper,
+                    contentWrapperClassNames,
+                  ])}
+                >
+                  <div className={messageClasses}>{content}</div>
+                  {actionButtonProps && (
+                    <Button
+                      buttonWidth={ButtonWidth.fitContent}
+                      transparent
+                      {...actionButtonProps}
+                      classNames={mergeClasses([
+                        styles.actionButton,
+                        actionButtonClassNames,
+                        actionButtonProps.classNames,
+                      ])}
+                      variant={ButtonVariant.SystemUI}
+                    />
+                  )}
+                </div>
                 {closable && (
                   <Button
                     ariaLabel={closeButtonAriaLabelText}
