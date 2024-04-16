@@ -1,5 +1,5 @@
 .snackbar {
-  align-items: center;
+  align-items: start;
   box-shadow: $shadow-object-l;
   border: none;
   font-family: var(--font-stack-full);
@@ -9,6 +9,44 @@
     forwards;
   margin-bottom: $space-s;
   background-color: var(--white-color);
+
+  .content-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: $space-xs;
+
+    .content {
+      color: inherit;
+      display: flex;
+      min-width: 100%;
+      padding-top: $space-xs;
+    }
+
+    .action-button {
+      align-self: self-start;
+      margin-left: -10px;
+    }
+  }
+
+  @media (min-width: $medium-screen-size) {
+    .content-wrapper {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: $space-m;
+
+      .action-button {
+        margin-left: unset;
+      }
+
+      .content {
+        flex: 1;
+        margin-top: unset;
+        min-width: unset;
+      }
+    }
+  }
 
   @media (max-width: $small-screen-size) {
     max-width: 90vw;

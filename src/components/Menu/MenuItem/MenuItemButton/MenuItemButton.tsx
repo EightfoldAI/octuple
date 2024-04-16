@@ -122,6 +122,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
             tabIndex={tabIndex}
             type={htmlType}
             {...rest}
+            onClick={handleOnClick}
             ref={ref}
             role={role}
           >

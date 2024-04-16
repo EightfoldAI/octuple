@@ -29,6 +29,7 @@ export const List = <T extends any>({
   itemClassNames,
   itemStyle,
   listClassNames,
+  listStyle,
   listType = 'ul',
   role,
   itemProps,
@@ -251,13 +252,13 @@ export const List = <T extends any>({
     <div {...rest} className={classNames} style={style}>
       {getHeader()}
       {listType === 'ul' && (
-        <ul role={role} className={containerClasses}>
+        <ul role={role} className={containerClasses} style={{ ...listStyle }}>
           {getItems()}
           {!!renderAdditionalItem && getAdditionalItem()}
         </ul>
       )}
       {listType === 'ol' && (
-        <ol role={role} className={containerClasses}>
+        <ol role={role} className={containerClasses} style={{ ...listStyle }}>
           {getItems()}
           {!!renderAdditionalItem && getAdditionalItem()}
         </ol>
