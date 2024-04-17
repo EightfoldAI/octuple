@@ -122,6 +122,7 @@ export const __namedExportsOrder = [
 ];
 
 Single.args = {
+  renderContentAlways: true,
   children: (
     <>
       <div style={{ height: 'auto' }}>

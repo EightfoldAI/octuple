@@ -28,6 +28,8 @@ import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
 import styles from './accordion.module.scss';
 import themedComponentStyles from './accordion.theme.module.scss';
 
+const ANIMATION_DURATION: number = 400;
+
 export const AccordionSummary: FC<AccordionSummaryProps> = ({
   badgeProps,
   children,
@@ -107,15 +109,39 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
 };
 
 export const AccordionBody: FC<AccordionBodyProps> = ({
+  bordered = true,
   children,
-  expanded,
   classNames,
+  expanded,
   gradient,
   id,
   size,
-  bordered = true,
+  renderContentAlways,
   ...rest
 }) => {
+  const [shouldRender, setShouldRender] =
+    useState<boolean>(renderContentAlways);
+
+  let timeout: ReturnType<typeof setTimeout>;
+
+  useEffect(() => {
+    if (renderContentAlways) {
+      setShouldRender(true);
+    } else if (expanded) {
+      setShouldRender(true);
+      if (timeout) clearTimeout(timeout);
+    } else {
+      timeout = setTimeout(() => {
+        setShouldRender(false);
+      }, ANIMATION_DURATION);
+    }
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [expanded, renderContentAlways]);
+
   const accordionBodyContainerStyles: string = mergeClasses(
     styles.accordionBodyContainer,
     { [styles.show]: expanded }
@@ -140,7 +166,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
       role="region"
       {...rest}
     >
-      <div className={accordionBodyStyles}>{children}</div>
+      <div className={accordionBodyStyles}>{shouldRender && children}</div>
     </div>
   );
 };
@@ -148,29 +174,30 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 export const Accordion: FC<AccordionProps> = React.forwardRef(
   (
     {
+      badgeProps,
+      bodyProps,
+      bordered = true,
+      children,
+      classNames,
       configContextProps = {
         noGradientContext: false,
         noThemeContext: false,
       },
-      expanded = false,
-      onAccordionChange,
-      classNames,
-      summary,
-      expandIconProps = { path: IconName.mdiChevronDown },
+      disabled,
       expandButtonProps,
-      children,
+      expanded = false,
+      expandIconProps = { path: IconName.mdiChevronDown },
       gradient = false,
-      id = uniqueId('accordion-'),
       headerProps,
-      bodyProps,
-      shape = AccordionShape.Pill,
-      bordered = true,
       iconProps,
-      badgeProps,
+      id = uniqueId('accordion-'),
+      onAccordionChange,
+      renderContentAlways = true,
+      shape = AccordionShape.Pill,
       size = AccordionSize.Large,
+      summary,
       theme,
       themeContainerId,
-      disabled,
       ...rest
     },
     ref: Ref<HTMLDivElement>
@@ -232,11 +259,12 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             {summary}
           </AccordionSummary>
           <AccordionBody
-            id={id}
-            expanded={isExpanded}
-            size={size}
             bordered={bordered}
+            expanded={isExpanded}
             gradient={gradient}
+            id={id}
+            renderContentAlways={renderContentAlways}
+            size={size}
             {...bodyProps}
           >
             {children}

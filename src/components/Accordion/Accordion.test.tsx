@@ -10,6 +10,7 @@ import Layout from '../Layout';
 import { List } from '../List';
 import { Stack } from '../Stack';
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -219,5 +220,31 @@ describe('Accordion', () => {
     );
     expect(() => container).not.toThrowError();
     expect(container).toMatchSnapshot();
+  });
+
+  test('renders content always when renderContentAlways is true', () => {
+    const { queryByText } = render(
+      <Accordion {...accordionProps} renderContentAlways={true}>
+        <div>Test Content</div>
+      </Accordion>
+    );
+
+    expect(queryByText('Test Content')).not.toBeNull();
+  });
+
+  test('does not render content when renderContentAlways is false and expanded is false', async () => {
+    const { queryByText } = render(
+      <Accordion
+        {...accordionProps}
+        renderContentAlways={false}
+        expanded={false}
+      >
+        <div>Test Content</div>
+      </Accordion>
+    );
+
+    await waitFor(() => {
+      expect(queryByText('Test Content')).not.toBeInTheDocument();
+    });
   });
 });
