@@ -55,6 +55,11 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   onIconButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
   /**
+   * Whether to render Accordion Body content when Accordion `expanded` is `false`.
+   * @default true
+   */
+  renderContentAlways?: boolean;
+  /**
    * Shape of the accordion
    * @default AccordionShape.Pill
    */
