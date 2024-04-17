@@ -119,20 +119,20 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
   renderContentAlways,
   ...rest
 }) => {
-  const [shouldRender, setShouldRender] =
+  const [shouldRenderContent, setShouldRenderContent] =
     useState<boolean>(renderContentAlways);
 
   let timeout: ReturnType<typeof setTimeout>;
 
   useEffect(() => {
     if (renderContentAlways) {
-      setShouldRender(true);
+      setShouldRenderContent(true);
     } else if (expanded) {
-      setShouldRender(true);
+      setShouldRenderContent(true);
       if (timeout) clearTimeout(timeout);
     } else {
       timeout = setTimeout(() => {
-        setShouldRender(false);
+        setShouldRenderContent(false);
       }, ANIMATION_DURATION);
     }
     return () => {
@@ -166,7 +166,9 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
       role="region"
       {...rest}
     >
-      <div className={accordionBodyStyles}>{shouldRender && children}</div>
+      <div className={accordionBodyStyles}>
+        {shouldRenderContent && children}
+      </div>
     </div>
   );
 };
