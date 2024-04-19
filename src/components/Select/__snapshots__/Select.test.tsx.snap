@@ -376,7 +376,7 @@ exports[`Select Renders with default values when multiple 1`] = `
     class="select-wrapper select-wrapper-multiple select-medium"
   >
     <div
-      class="multi-select-pills"
+      class="multi-select-pills multi-select-pills-max-count"
     >
       <div
         class="tag-pills multi-select-pill blue-green medium"
@@ -471,6 +471,7 @@ exports[`Select Renders with default values when multiple 1`] = `
                 placeholder=""
                 readonly=""
                 role="combobox"
+                style="padding-right: 56px;"
                 tabindex="0"
                 type="text"
                 value=""
