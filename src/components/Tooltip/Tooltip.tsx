@@ -412,6 +412,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               clonedElementProps['className'] = defaultReferenceClassNames;
             } else if (child.props.classNames) {
               clonedElementProps['classNames'] = defaultReferenceClassNames;
+            } else {
+              clonedElementProps['className'] = defaultReferenceClassNames;
             }
 
             return cloneElement(child, clonedElementProps);
