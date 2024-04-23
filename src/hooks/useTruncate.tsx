@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { OcBaseProps } from '../components/OcBase';
 import { canUseDom, hasOverflow, mergeClasses } from '../shared/utilities';
 
-export interface TruncateTextProps extends OcBaseProps<HTMLDivElement> {
+export interface TruncateTextProps extends OcBaseProps<HTMLSpanElement> {
   children: React.ReactNode;
 }
 
@@ -22,8 +22,8 @@ export const useTruncate = (options?: {
   isTextTruncated: boolean;
 } => {
   const [isTextTruncated, setIsTextTruncated] = useState<boolean>(false);
-  const textRef: React.MutableRefObject<HTMLDivElement> =
-    useRef<HTMLDivElement>(null);
+  const textRef: React.MutableRefObject<HTMLSpanElement> =
+    useRef<HTMLSpanElement>(null);
 
   const checkTruncation = useCallback((): void => {
     if (!textRef.current) {
@@ -54,7 +54,7 @@ export const useTruncate = (options?: {
   ]);
 
   const TruncateText = ({ children, ...rest }: TruncateTextProps) => (
-    <div
+    <span
       {...rest}
       className={mergeClasses([
         textClassNames,
@@ -73,7 +73,7 @@ export const useTruncate = (options?: {
       }}
     >
       {children}
-    </div>
+    </span>
   );
 
   return { TruncateText, isTextTruncated };
