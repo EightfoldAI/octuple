@@ -114,6 +114,21 @@ describe('Drawer', () => {
     );
     expect(
       getByTestId('testDrawer').classList.contains('modeless')
+    ).toBeFalsy();
+  });
+
+  test('Handles DrawerVariant.Default modeless', () => {
+    const { getByTestId } = render(
+      <Drawer
+        children={<div>Test drawer</div>}
+        data-testid="testDrawer"
+        variant={DrawerVariant.Default}
+        maskClosable={false}
+        overlay={false}
+      />
+    );
+    expect(
+      getByTestId('testDrawer').classList.contains('modeless')
     ).toBeTruthy();
   });
 
@@ -128,6 +143,21 @@ describe('Drawer', () => {
     expect(
       getByTestId('testDrawer').classList.contains('modeless')
     ).toBeFalsy();
+  });
+
+  test('Handles DrawerVariant.Hint modeless', () => {
+    const { getByTestId } = render(
+      <Drawer
+        children={<div>Test drawer</div>}
+        data-testid="testDrawer"
+        variant={DrawerVariant.Hint}
+        maskClosable={false}
+        overlay={false}
+      />
+    );
+    expect(
+      getByTestId('testDrawer').classList.contains('modeless')
+    ).toBeTruthy();
   });
 
   test('Drawer visibility', () => {
