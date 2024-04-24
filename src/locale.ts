@@ -1,4 +1,5 @@
 import type { Locale } from './components/LocaleProvider';
+import { useLocaleReceiver } from './components/LocaleProvider/LocaleReceiver';
 
 // Supported locales
 import arSA from './components/Locale/ar_SA'; // العربية
@@ -85,6 +86,7 @@ export {
   thTH,
   trTR,
   ukUA,
+  useLocaleReceiver,
   viVN,
   zhCN,
   zhTW,

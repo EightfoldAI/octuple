@@ -274,6 +274,16 @@ import {
   TooltipTouchInteraction,
 } from './components/Tooltip';
 
+import { Truncate } from './components/Truncate';
+
+import { useTruncate } from './hooks/useTruncate';
+
+import {
+  hasHorizontalOverflow,
+  hasOverflow,
+  hasVerticalOverflow,
+} from './shared/utilities';
+
 import { Loader, LoaderSize } from './components/Loader';
 
 import { MatchScore } from './components/MatchScore';
@@ -418,6 +428,9 @@ export {
   Gradient,
   GradientContext,
   Grid,
+  hasHorizontalOverflow,
+  hasOverflow,
+  hasVerticalOverflow,
   Icon,
   IconName,
   IconSize,
@@ -563,6 +576,7 @@ export {
   TooltipTheme,
   TooltipSize,
   TooltipTouchInteraction,
+  Truncate,
   TwoStateButton,
   Upload,
   UploadFile,
@@ -582,5 +596,6 @@ export {
   useMaxVisibleSections,
   useOnClickOutside,
   useScrollLock,
+  useTruncate,
   VisibilityContext,
 };
