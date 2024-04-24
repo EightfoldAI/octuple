@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/te_IN';
 import Breadcrumb from '../Breadcrumb/Locale/te_IN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/te_IN';
 import Dialog from '../Dialog/BaseDialog/Locale/te_IN';
@@ -20,6 +21,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'ఎంచుకోండి',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,

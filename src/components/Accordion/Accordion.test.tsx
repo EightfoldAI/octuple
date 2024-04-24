@@ -90,15 +90,15 @@ describe('Accordion', () => {
     const { container } = render(
       <Accordion {...accordionProps} size={AccordionSize.Large} />
     );
-    const summary = container.querySelector('.accordion-summary');
-    fireEvent.click(summary);
+    const summaryClickableArea = container.querySelector('.clickable-area');
+    fireEvent.click(summaryClickableArea);
     await waitFor(() =>
       expect(
         container.getElementsByClassName('accordion-summary-expanded')
       ).toHaveLength(1)
     );
     expect(container.querySelector('.show')).toBeTruthy();
-    fireEvent.click(summary);
+    fireEvent.click(summaryClickableArea);
     await waitFor(() =>
       expect(
         container.getElementsByClassName('accordion-summary-expanded')
@@ -149,8 +149,8 @@ describe('Accordion', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('Accordion renders custom content', () => {
-    const { container } = render(
+  test('Accordion renders custom content and its buttons are clickable', () => {
+    const { container, getByRole, getByText } = render(
       <Accordion
         {...accordionProps}
         expanded={true}
@@ -187,7 +187,7 @@ describe('Accordion', () => {
                     fontWeight: 400,
                   }}
                 >
-                  Supporting text
+                  <span>Supporting text</span>
                 </div>
               </Stack>
               <Stack
@@ -218,6 +218,13 @@ describe('Accordion', () => {
         }
       />
     );
+    const textElement = getByText('Supporting text');
+    expect(textElement).toBeInTheDocument();
+    buttons.forEach((button) => {
+      const buttonElement = getByRole('button', { name: button.ariaLabel });
+      fireEvent.click(buttonElement);
+      expect(buttonElement).toBeEnabled();
+    });
     expect(() => container).not.toThrowError();
     expect(container).toMatchSnapshot();
   });

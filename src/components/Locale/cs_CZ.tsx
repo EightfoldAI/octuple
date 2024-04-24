@@ -1,4 +1,5 @@
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/cs_CZ';
 import Breadcrumb from '../Breadcrumb/Locale/cs_CZ';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/cs_CZ';
 import Dialog from '../Dialog/BaseDialog/Locale/cs_CZ';
@@ -17,6 +18,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Prosím vyber',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,

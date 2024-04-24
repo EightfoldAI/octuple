@@ -251,7 +251,7 @@ Custom.args = {
             className="octuple-content"
             style={{ color: 'var(--grey-tertiary-color)', fontWeight: 400 }}
           >
-            Supporting text
+            <span>Supporting text</span>
           </div>
         </Stack>
         <Stack

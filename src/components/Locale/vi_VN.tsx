@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/vi_VN';
 import Breadcrumb from '../Breadcrumb/Locale/vi_VN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/vi_VN';
 import Dialog from '../Dialog/BaseDialog/Locale/vi_VN';
@@ -20,6 +21,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Chọn',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
