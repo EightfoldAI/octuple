@@ -74,8 +74,8 @@ export const Drawer: FC<DrawerProps> = React.forwardRef(
       focusTrap = true,
       zIndex,
       variant = DrawerVariant.Default,
-      maskClosable = variant === DrawerVariant.Hint,
-      overlay = variant === DrawerVariant.Hint,
+      maskClosable = true,
+      overlay = true,
       ...rest
     } = props;
 

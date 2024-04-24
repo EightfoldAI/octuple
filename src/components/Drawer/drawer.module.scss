@@ -15,17 +15,24 @@ $handle_height: 40px;
   }
 
   &:not(.modeless) {
-    background-color: $all-backdrops;
+    pointer-events: none;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+    &.visible {
+      background-color: $all-backdrops;
+      pointer-events: auto;
+    }
   }
 
   &.modeless {
     background: none;
-    pointer-events: none; // Fix blocking overlay
+    pointer-events: none;
 
     &-mask {
       &.expand {
-        pointer-events: auto;
+        &.visible {
+          pointer-events: auto;
+        }
       }
     }
   }
