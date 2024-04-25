@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'sk_SK',
-    collapseAriaLabelText: 'Zbaliť obsah',
-    expandAriaLabelText: 'Rozbaliť obsah',
+    collapseAriaLabelText: 'Zatvoriť obsah',
+    expandAriaLabelText: 'Otvoriť obsah',
   },
 };
 

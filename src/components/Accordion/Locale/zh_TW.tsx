@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'zh_TW',
-    collapseAriaLabelText: '摺疊內容',
-    expandAriaLabelText: '展開內容',
+    collapseAriaLabelText: '關閉內容',
+    expandAriaLabelText: '開啟內容',
   },
 };
 

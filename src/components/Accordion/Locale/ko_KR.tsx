@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'ko_KR',
-    collapseAriaLabelText: '내용 축소',
-    expandAriaLabelText: '내용 확장',
+    collapseAriaLabelText: '내용 닫기',
+    expandAriaLabelText: '내용 열기',
   },
 };
 

@@ -11,11 +11,11 @@ type Locale = {
    */
   locale: string;
   /**
-   * The Accordion `Collapse content` aria label string.
+   * The Accordion `Close content` aria label string.
    */
   collapseAriaLabelText?: string;
   /**
-   * The Accordion `Expand content` aria label string.
+   * The Accordion `Open content` aria label string.
    */
   expandAriaLabelText?: string;
 };
@@ -41,7 +41,7 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   bordered?: boolean;
   /**
-   * The Accordion `Collapse content` aria label string.
+   * The Accordion `Close content` aria label string.
    */
   collapseAriaLabelText?: string;
   /**
@@ -53,7 +53,7 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   disabled?: boolean;
   /**
-   * The Accordion `Expand content` aria label string.
+   * The Accordion `Open content` aria label string.
    */
   expandAriaLabelText?: string;
   /**

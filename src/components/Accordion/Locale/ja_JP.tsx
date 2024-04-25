@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'ja_JP',
-    collapseAriaLabelText: 'コンテンツを折りたたむ',
-    expandAriaLabelText: 'コンテンツを展開する',
+    collapseAriaLabelText: 'コンテンツを閉じる',
+    expandAriaLabelText: 'コンテンツを開く',
   },
 };
 

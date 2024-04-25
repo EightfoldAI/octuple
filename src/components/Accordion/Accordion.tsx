@@ -87,7 +87,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     <div className={headerClassnames} id={`${id}-header`} {...rest}>
       <div
         aria-controls={`${id}-content`}
-        aria-label={expanded ? collapseAriaLabelText : expandAriaLabelText}
+        aria-label={expanded ? expandAriaLabelText : collapseAriaLabelText}
         aria-expanded={expanded}
         className={styles.clickableArea}
         onClick={onClick}
@@ -104,7 +104,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       </div>
       <Button
         aria-controls={`${id}-content`}
-        ariaLabel={expanded ? collapseAriaLabelText : expandAriaLabelText}
+        ariaLabel={expanded ? expandAriaLabelText : collapseAriaLabelText}
         aria-expanded={expanded}
         disabled={disabled}
         gradient={gradient}

@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'de_DE',
-    collapseAriaLabelText: 'Inhalt einklappen',
-    expandAriaLabelText: 'Inhalt ausklappen',
+    collapseAriaLabelText: 'Inhalt schließen',
+    expandAriaLabelText: 'Inhalt öffnen',
   },
 };
 
