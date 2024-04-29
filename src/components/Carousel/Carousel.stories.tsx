@@ -11,6 +11,7 @@ import {
 import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { Card } from '../Card';
 import { IconName } from '../Icon';
+import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 export default {
@@ -310,7 +311,9 @@ Scroller.args = {
             width: '100%',
           }}
         >
-          {item.name}
+          <Tooltip content={item.name} portal>
+            {item.name}
+          </Tooltip>
         </div>
       </Card>
     )),
@@ -335,7 +338,9 @@ Scroller_Single.args = {
             width: '100%',
           }}
         >
-          {item.name}
+          <Tooltip content={item.name} portal>
+            {item.name}
+          </Tooltip>
         </div>
       </Card>
     )),
@@ -361,7 +366,9 @@ Scroller_Custom_Buttons.args = {
             width: '100%',
           }}
         >
-          {item.name}
+          <Tooltip content={item.name} portal>
+            {item.name}
+          </Tooltip>
         </div>
       </Card>
     )),
