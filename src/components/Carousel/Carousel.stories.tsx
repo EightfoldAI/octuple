@@ -11,7 +11,7 @@ import {
 import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { Card } from '../Card';
 import { IconName } from '../Icon';
-import { Tooltip } from '../Tooltip';
+import { Tooltip, TooltipSize, TooltipTheme } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 export default {
@@ -119,6 +119,11 @@ const sampleList: SampleItem[] = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
   name: `Item ${i}`,
   key: `key-${i}`,
 }));
+
+const TOOLTIP_INFO_TEXT =
+  'Try dragging on me in a mobile view!\n\nWhen inside a Carousel, Tooltips will set preventTouchMoveDefault={false} by default to enable touch scrolling.';
+// const TOOLTIP_INFO_SUBTITLE_TEXT =
+//   ' When inside a Carousel, Tooltips will set preventTouchMoveDefault={false} by default to enable touch scrolling.'
 
 const Scroll_Story: ComponentStory<typeof Carousel> = (args) => (
   <Carousel {...args} />
@@ -257,6 +262,7 @@ export const Slider = Slide_Story.bind({});
 export const Scroller = Scroll_Story.bind({});
 export const Scroller_Single = Scroll_Story.bind({});
 export const Scroller_Custom_Buttons = Scroll_Custom_Buttons_Story.bind({});
+export const Scroller_With_Tooltips = Scroll_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -266,6 +272,7 @@ export const __namedExportsOrder = [
   'Scroller',
   'Scroller_Single',
   'Scroller_Custom_Buttons',
+  'Scroller_With_Tooltips',
 ];
 
 const carouselArgs: Object = {
@@ -311,9 +318,7 @@ Scroller.args = {
             width: '100%',
           }}
         >
-          <Tooltip content={item.name} portal>
-            {item.name}
-          </Tooltip>
+          {item.name}
         </div>
       </Card>
     )),
@@ -338,9 +343,7 @@ Scroller_Single.args = {
             width: '100%',
           }}
         >
-          <Tooltip content={item.name} portal>
-            {item.name}
-          </Tooltip>
+          {item.name}
         </div>
       </Card>
     )),
@@ -366,9 +369,7 @@ Scroller_Custom_Buttons.args = {
             width: '100%',
           }}
         >
-          <Tooltip content={item.name} portal>
-            {item.name}
-          </Tooltip>
+          {item.name}
         </div>
       </Card>
     )),
@@ -380,5 +381,55 @@ Scroller_Custom_Buttons.args = {
   id: 'myCarouselScrollId',
   single: true,
   style: { background: 'transparent' },
+  type: 'scroll',
+};
+
+Scroller_With_Tooltips.args = {
+  ...carouselArgs,
+  carouselScrollMenuProps: {
+    children: sampleList.map((item: SampleItem) => (
+      <Card bordered height={344} key={item.key} tabIndex={0} width={280}>
+        <div
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 24,
+            height: '100%',
+            justifyContent: 'center',
+            width: '100%',
+          }}
+        >
+          {item.name}
+          <Tooltip
+            content={TOOLTIP_INFO_TEXT}
+            portal
+            size={TooltipSize.Medium}
+            theme={TooltipTheme.dark}
+            tooltipStyle={{ fontSize: 14 }}
+            wrapperStyle={{ width: 'fit-content' }}
+          >
+            <div
+              style={{
+                display: '-webkit-box',
+                overflow: 'hidden',
+                textAlign: 'center',
+                textOverflow: 'ellipsis',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 4,
+                whiteSpace: 'pre-line',
+                width: '100%',
+              }}
+            >
+              {TOOLTIP_INFO_TEXT}
+            </div>
+          </Tooltip>
+        </div>
+      </Card>
+    )),
+    containerPadding: 8,
+    gap: 24,
+  },
+  id: 'myCarouselScrollId',
   type: 'scroll',
 };
