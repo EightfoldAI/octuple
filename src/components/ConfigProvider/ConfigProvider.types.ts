@@ -69,6 +69,10 @@ export interface ConfigProviderProps {
    */
   children?: React.ReactNode;
   /**
+   * The name of the component for use in child components to determine if they are a child of this component.
+   */
+  componentName?: string;
+  /**
    * Used by the disabled context provider to disable components.
    */
   disabled?: boolean;
