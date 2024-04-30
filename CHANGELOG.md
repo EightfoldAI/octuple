@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.1](https://github.com/EightfoldAI/octuple/compare/v2.51.0...v2.51.1) (2024-04-30)
+
+### Bug Fixes
+
+- carousel and tooltip: preventTouchMoveDefault false for tooltips inside carousels ([#825](https://github.com/EightfoldAI/octuple/issues/825)) ([f0c025d](https://github.com/EightfoldAI/octuple/commits/f0c025d6e385dc43e05bb34222d9ccd07521353c))
+- tab: fixes stat tabs word wrap and spacing when border is false ([#826](https://github.com/EightfoldAI/octuple/issues/826)) ([4554ba4](https://github.com/EightfoldAI/octuple/commits/4554ba4e76ce3a082b3da4e45095e44501db6d4f))
+
 ## [2.51.0](https://github.com/EightfoldAI/octuple/compare/v2.50.1...v2.51.0) (2024-04-25)
 
 ### Features
