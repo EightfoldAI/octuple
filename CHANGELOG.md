@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.50.2](https://github.com/EightfoldAI/octuple/compare/v2.50.1...v2.50.2) (2024-04-30)
+
+### Bug Fixes
+
+- hotfix: tab fixes stat tabs word wrap and spacing when border is false ([cb44c52](https://github.com/EightfoldAI/octuple/commits/cb44c526e0f1abc0274766fd032ae3f0c0011672))
+
 ### [2.50.1](https://github.com/EightfoldAI/octuple/compare/v2.50.0...v2.50.1) (2024-04-12)
 
 ### Bug Fixes
