@@ -285,22 +285,15 @@ const CarouselCardWithTooltip = ({
           justifyContent: 'center',
         }}
       >
-        {isTextTruncated ? (
-          <Tooltip
-            content={children}
-            portal
-            size={TooltipSize.Medium}
-            theme={TooltipTheme.dark}
-            tooltipStyle={{ fontSize: 14 }}
-            wrapperStyle={{ width: 'fit-content' }}
-          >
-            <TruncateText>{children}</TruncateText>
-          </Tooltip>
-        ) : (
-          <TruncateText style={{ wordBreak: 'initial' }}>
-            {children}
-          </TruncateText>
-        )}
+        <Tooltip
+          content={children}
+          disabled={!isTextTruncated}
+          portal
+          size={TooltipSize.Medium}
+          theme={TooltipTheme.dark}
+        >
+          <TruncateText>{children}</TruncateText>
+        </Tooltip>
       </div>
       <span>Line Clamp: {lineClamp}</span>
     </Card>
