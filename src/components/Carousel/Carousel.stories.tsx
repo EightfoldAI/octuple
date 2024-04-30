@@ -13,6 +13,7 @@ import { Card } from '../Card';
 import { IconName } from '../Icon';
 import { Tooltip, TooltipSize, TooltipTheme } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { useTruncate } from '../../hooks/useTruncate';
 
 export default {
   title: 'Carousel',
@@ -119,11 +120,6 @@ const sampleList: SampleItem[] = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
   name: `Item ${i}`,
   key: `key-${i}`,
 }));
-
-const TOOLTIP_INFO_TEXT =
-  'Try dragging on me in a mobile view!\n\nWhen inside a Carousel, Tooltips will set preventTouchMoveDefault={false} by default to enable touch scrolling.';
-// const TOOLTIP_INFO_SUBTITLE_TEXT =
-//   ' When inside a Carousel, Tooltips will set preventTouchMoveDefault={false} by default to enable touch scrolling.'
 
 const Scroll_Story: ComponentStory<typeof Carousel> = (args) => (
   <Carousel {...args} />
@@ -258,6 +254,59 @@ const Scroll_Custom_Buttons_Story: ComponentStory<typeof Carousel> = (args) => {
   );
 };
 
+const CarouselCardWithTooltip = ({
+  children,
+  lineClamp,
+}: {
+  children?: React.ReactNode;
+  lineClamp?: number;
+}) => {
+  const { TruncateText, isTextTruncated } = useTruncate({ lineClamp });
+  return (
+    <Card
+      bordered
+      height={344}
+      tabIndex={0}
+      width={280}
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        width: '100%',
+      }}
+    >
+      <div
+        style={{
+          alignItems: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 1,
+          justifyContent: 'center',
+        }}
+      >
+        {isTextTruncated ? (
+          <Tooltip
+            content={children}
+            portal
+            size={TooltipSize.Medium}
+            theme={TooltipTheme.dark}
+            tooltipStyle={{ fontSize: 14 }}
+            wrapperStyle={{ width: 'fit-content' }}
+          >
+            <TruncateText>{children}</TruncateText>
+          </Tooltip>
+        ) : (
+          <TruncateText style={{ wordBreak: 'initial' }}>
+            {children}
+          </TruncateText>
+        )}
+      </div>
+      <span>Line Clamp: {lineClamp}</span>
+    </Card>
+  );
+};
+
 export const Slider = Slide_Story.bind({});
 export const Scroller = Scroll_Story.bind({});
 export const Scroller_Single = Scroll_Story.bind({});
@@ -387,45 +436,12 @@ Scroller_Custom_Buttons.args = {
 Scroller_With_Tooltips.args = {
   ...carouselArgs,
   carouselScrollMenuProps: {
-    children: sampleList.map((item: SampleItem) => (
-      <Card bordered height={344} key={item.key} tabIndex={0} width={280}>
-        <div
-          style={{
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 24,
-            height: '100%',
-            justifyContent: 'center',
-            width: '100%',
-          }}
-        >
-          {item.name}
-          <Tooltip
-            content={TOOLTIP_INFO_TEXT}
-            portal
-            size={TooltipSize.Medium}
-            theme={TooltipTheme.dark}
-            tooltipStyle={{ fontSize: 14 }}
-            wrapperStyle={{ width: 'fit-content' }}
-          >
-            <div
-              style={{
-                display: '-webkit-box',
-                overflow: 'hidden',
-                textAlign: 'center',
-                textOverflow: 'ellipsis',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 4,
-                whiteSpace: 'pre-line',
-                width: '100%',
-              }}
-            >
-              {TOOLTIP_INFO_TEXT}
-            </div>
-          </Tooltip>
-        </div>
-      </Card>
+    children: sampleList.map((item: SampleItem, index: number) => (
+      <CarouselCardWithTooltip key={item.key} lineClamp={index + 1}>
+        Try dragging on me in a mobile view! When inside a Carousel, Tooltips
+        will set preventTouchMoveDefault to {'false'} by default to enable touch
+        scrolling.
+      </CarouselCardWithTooltip>
     )),
     containerPadding: 8,
     gap: 24,
