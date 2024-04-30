@@ -18,6 +18,7 @@ import {
   ThemeOptions,
 } from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
+import { ParentComponentsContextProvider } from './ParentComponentsContext';
 import { DisabledContextProvider } from './DisabledContext';
 import { GradientContextProvider } from './GradientContext';
 import { ShapeContextProvider } from './ShapeContext';
@@ -40,6 +41,7 @@ const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = canUseDocElement()
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
   children,
+  componentName,
   disabled = false,
   focusVisibleOptions = {
     focusVisible: DEFAULT_FOCUS_VISIBLE,
@@ -147,6 +149,14 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
       <DisabledContextProvider disabled={disabled}>
         {childNode}
       </DisabledContextProvider>
+    );
+  }
+
+  if (componentName !== undefined) {
+    childNode = (
+      <ParentComponentsContextProvider componentName={componentName}>
+        {childNode}
+      </ParentComponentsContextProvider>
     );
   }
 
