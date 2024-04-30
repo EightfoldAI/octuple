@@ -72,6 +72,10 @@ import GradientContext, {
   Gradient,
 } from './components/ConfigProvider/GradientContext';
 
+import ParentComponentsContext, {
+  ParentComponentsContextProvider,
+} from './components/ConfigProvider/ParentComponentsContext';
+
 import ThemeContext, {
   ThemeContextProvider,
 } from './components/ConfigProvider/ThemeContext';
@@ -485,6 +489,8 @@ export {
   PanelHeader,
   PanelPlacement,
   PanelSize,
+  ParentComponentsContext,
+  ParentComponentsContextProvider,
   PersistentBar,
   PersistentBarType,
   Pill,
