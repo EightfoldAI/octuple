@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Tooltip, TooltipSize } from './';
 import { Button, ButtonVariant } from '../Button';
+import { Truncate } from '../Truncate';
 import useGestures, { Gestures } from '../../hooks/useGestures';
 import {
   fireEvent,
@@ -15,6 +16,7 @@ import {
 } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import '@testing-library/jest-dom/extend-expect';
+import 'window-resizeto/polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -28,6 +30,11 @@ const mockNavigator = (agent: string): void => {
 };
 
 jest.useFakeTimers();
+
+const fireResize = (width: number) => {
+  window.innerWidth = width;
+  window.dispatchEvent(new Event('resize'));
+};
 
 describe('Tooltip', () => {
   beforeAll(() => {
@@ -405,5 +412,89 @@ describe('Tooltip', () => {
     expect(result.current).toBe(Gestures.TapAndHold);
     await waitFor(() => screen.getByTestId('tooltip'));
     expect(container.querySelector('.tooltip')).toBeTruthy();
+  });
+
+  test('disables tooltip when content is not truncated', async () => {
+    const TestComponent: FC = () => {
+      const [truncationStatus, setTruncationStatus] = useState<
+        Record<string, boolean>
+      >({});
+      const handleTruncationChange = (id: string, isTruncated: boolean) => {
+        setTruncationStatus((prev: Record<string, boolean>) => ({
+          ...prev,
+          [id]: isTruncated,
+        }));
+      };
+      return (
+        <Tooltip
+          content="Short content"
+          disabled={!truncationStatus['truncate2']}
+          data-testid="tooltip"
+        >
+          <Truncate
+            id="truncate2"
+            onTruncateChange={handleTruncationChange}
+            text="Short content"
+            data-testid="test-truncate-id"
+          />
+        </Tooltip>
+      );
+    };
+    const { getByTestId } = render(<TestComponent />);
+    const content = getByTestId('test-truncate-id');
+    fireEvent.mouseEnter(content);
+    await waitFor(() => expect(screen.queryByTestId('tooltip')).toBeNull());
+    expect(content.getAttribute('aria-describedby')).not.toBeNull();
+  });
+
+  test('enables tooltip when content is truncated', async () => {
+    // Mock clientWidth and scrollWidth
+    Object.defineProperties(HTMLElement.prototype, {
+      clientWidth: {
+        get() {
+          return 100;
+        }, // Mock clientWidth to be 100
+        configurable: true,
+      },
+      scrollWidth: {
+        get() {
+          return 200;
+        }, // Mock scrollWidth to be larger than clientWidth to simulate truncation
+        configurable: true,
+      },
+    });
+    const TestComponent: FC = () => {
+      const [truncationStatus, setTruncationStatus] = useState<
+        Record<string, boolean>
+      >({});
+      const handleTruncationChange = (id: string, isTruncated: boolean) => {
+        setTruncationStatus((prev: Record<string, boolean>) => ({
+          ...prev,
+          [id]: isTruncated,
+        }));
+      };
+      return (
+        <Tooltip
+          content="Very long content that will definitely be truncated"
+          disabled={!truncationStatus['truncate2']}
+          data-testid="tooltip"
+        >
+          <Truncate
+            id="truncate2"
+            onTruncateChange={handleTruncationChange}
+            text="Very long content that will definitely be truncated"
+            data-testid="test-truncate-id"
+          />
+        </Tooltip>
+      );
+    };
+    await waitFor(() => {
+      fireResize(100);
+    });
+    const { getByTestId } = render(<TestComponent />);
+    const content = getByTestId('test-truncate-id');
+    fireEvent.mouseEnter(content);
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(content.getAttribute('aria-describedby')).not.toBeNull();
   });
 });

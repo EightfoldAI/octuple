@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.1](https://github.com/EightfoldAI/octuple/compare/v2.51.0...v2.51.1) (2024-04-30)
+
+### Bug Fixes
+
+- carousel and tooltip: preventTouchMoveDefault false for tooltips inside carousels ([#825](https://github.com/EightfoldAI/octuple/issues/825)) ([f0c025d](https://github.com/EightfoldAI/octuple/commits/f0c025d6e385dc43e05bb34222d9ccd07521353c))
+- tab: fixes stat tabs word wrap and spacing when border is false ([#826](https://github.com/EightfoldAI/octuple/issues/826)) ([4554ba4](https://github.com/EightfoldAI/octuple/commits/4554ba4e76ce3a082b3da4e45095e44501db6d4f))
+
+## [2.51.0](https://github.com/EightfoldAI/octuple/compare/v2.50.1...v2.51.0) (2024-04-25)
+
+### Features
+
+- accordion: adds rendercontentalways prop managed by expanded ([#816](https://github.com/EightfoldAI/octuple/issues/816)) ([891d37e](https://github.com/EightfoldAI/octuple/commits/891d37e12f32dc108a853399a6c6a17ca37ec411))
+- accordion: enable custom summary layout using full width ([#799](https://github.com/EightfoldAI/octuple/issues/799)) ([e66947d](https://github.com/EightfoldAI/octuple/commits/e66947d4c58db3846b885e4dba5c5dda00e61cc3))
+- drawer: add drawer component ([#795](https://github.com/EightfoldAI/octuple/issues/795)) ([fbcbc50](https://github.com/EightfoldAI/octuple/commits/fbcbc50687e380a667ae27917ebbab6082290039))
+- infobar: reflow to support small screens according to latest design spec ([#798](https://github.com/EightfoldAI/octuple/issues/798)) ([3cf3525](https://github.com/EightfoldAI/octuple/commits/3cf352596306217ac897b8a8cc84a775984c09b8))
+- select: performance optimizations and features ([#815](https://github.com/EightfoldAI/octuple/issues/815)) ([7330c30](https://github.com/EightfoldAI/octuple/commits/7330c306247447a65e6400df5d0e1b9b4076d2d4))
+- truncate: adds truncate hook and component with overflow utils ([#820](https://github.com/EightfoldAI/octuple/issues/820)) ([95ea6e5](https://github.com/EightfoldAI/octuple/commits/95ea6e513b435259a8aed2f7504cff0848e7ee4e))
+
 ### [2.50.1](https://github.com/EightfoldAI/octuple/compare/v2.50.0...v2.50.1) (2024-04-12)
 
 ### Bug Fixes

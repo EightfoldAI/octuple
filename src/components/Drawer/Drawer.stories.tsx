@@ -117,8 +117,6 @@ const Hint_Story: ComponentStory<typeof Drawer> = (args) => {
         </div>
       }
       visible={visible}
-      overlay={visible}
-      maskClosable={visible}
       onVisibleChange={(visible) => setVisible(visible)}
     />
   );

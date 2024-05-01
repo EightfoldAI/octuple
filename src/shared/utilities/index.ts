@@ -19,6 +19,7 @@ export * from './mobileDetector';
 export * from './motion';
 export { default as collapseMotion } from './motion';
 export * from './omit';
+export * from './overflow';
 export * from './pickAttrs';
 export * from './raf';
 export * from './reactNode';
