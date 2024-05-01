@@ -66,9 +66,15 @@ import {
   useConfig,
 } from './components/ConfigProvider';
 
+import { Drawer, DrawerVariant, useDrawer } from './components/Drawer';
+
 import GradientContext, {
   Gradient,
 } from './components/ConfigProvider/GradientContext';
+
+import ParentComponentsContext, {
+  ParentComponentsContextProvider,
+} from './components/ConfigProvider/ParentComponentsContext';
 
 import ThemeContext, {
   ThemeContextProvider,
@@ -272,6 +278,16 @@ import {
   TooltipTouchInteraction,
 } from './components/Tooltip';
 
+import { Truncate } from './components/Truncate';
+
+import { useTruncate } from './hooks/useTruncate';
+
+import {
+  hasHorizontalOverflow,
+  hasOverflow,
+  hasVerticalOverflow,
+} from './shared/utilities';
+
 import { Loader, LoaderSize } from './components/Loader';
 
 import { MatchScore } from './components/MatchScore';
@@ -392,6 +408,8 @@ export {
   Dialog,
   DialogHelper,
   DialogSize,
+  Drawer,
+  DrawerVariant,
   Dropdown,
   DropdownRef,
   Empty,
@@ -414,6 +432,9 @@ export {
   Gradient,
   GradientContext,
   Grid,
+  hasHorizontalOverflow,
+  hasOverflow,
+  hasVerticalOverflow,
   Icon,
   IconName,
   IconSize,
@@ -468,6 +489,8 @@ export {
   PanelHeader,
   PanelPlacement,
   PanelSize,
+  ParentComponentsContext,
+  ParentComponentsContextProvider,
   PersistentBar,
   PersistentBarType,
   Pill,
@@ -559,6 +582,7 @@ export {
   TooltipTheme,
   TooltipSize,
   TooltipTouchInteraction,
+  Truncate,
   TwoStateButton,
   Upload,
   UploadFile,
@@ -571,11 +595,13 @@ export {
   useBoolean,
   useCanvasDirection,
   useConfig,
+  useDrawer,
   useFocusTrap,
   useGestures,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,
   useScrollLock,
+  useTruncate,
   VisibilityContext,
 };

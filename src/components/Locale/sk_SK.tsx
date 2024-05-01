@@ -3,6 +3,7 @@ import type { Locale } from '../LocaleProvider';
 import Breadcrumb from '../Breadcrumb/Locale/sk_SK';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/sk_SK';
 import Dialog from '../Dialog/BaseDialog/Locale/sk_SK';
+import Drawer from '../Drawer/Locale/sk_SK';
 import InfoBar from '../InfoBar/Locale/sk_SK';
 import Pagination from '../Pagination/Locale/sk_SK';
 import Panel from '../Panel/Locale/sk_SK';
@@ -22,6 +23,7 @@ const localeValues: Locale = {
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(voliteľné)',
     defaultValidateMessages: {

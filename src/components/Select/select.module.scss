@@ -1,9 +1,13 @@
-$input-padding-horizontal: $space-xs;
+$input-padding: $space-xs;
 $multi-select-count-offset: 54px;
+$multi-select-pill-gap: $space-xs;
+$multi-select-pill-large-padding: 6px;
+$multi-select-pill-medium-padding: 5px;
+$multi-select-pill-small-padding: 4px;
 
 // Export values for typescript consumption.
 :export {
-  inputPaddingHorizontal: strip-units($input-padding-horizontal);
+  inputPadding: strip-units($input-padding);
   multiSelectCountOffset: strip-units($multi-select-count-offset);
 }
 
@@ -49,26 +53,45 @@ $multi-select-count-offset: 54px;
     align-items: center;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: $multi-select-pill-gap;
     left: $space-xs;
     right: $space-xxl;
+    padding: $multi-select-pill-medium-padding 0;
     pointer-events: none;
     position: absolute;
-    top: 6px;
+    top: 0;
+    white-space: normal;
     z-index: 1;
-  }
 
-  .multi-select-pill {
-    margin-right: $space-xs;
-    max-width: 144px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    padding: 3px $space-xs;
-    pointer-events: all;
+    &.multi-select-pills-divider {
+      border-bottom: 1px solid var(--grey-tertiary-color);
+      right: $space-xs;
+    }
 
-    span {
-      @include text-overflow;
-      max-width: 128px;
+    .multi-select-pill {
+      max-width: 100%;
+      text-align: start;
+      display: flex;
+      justify-content: center;
+      min-width: fit-content;
+      pointer-events: all;
+    }
+
+    &-max-count {
+      flex-wrap: nowrap;
+      white-space: inherit;
+
+      .multi-select-pill {
+        max-width: 144px;
+        min-width: unset;
+        text-align: center;
+
+        span {
+          @include text-overflow;
+          max-width: 128px;
+        }
+      }
     }
   }
 
@@ -79,11 +102,18 @@ $multi-select-count-offset: 54px;
 
   &.select-large {
     .multi-select-pills {
-      top: 7px;
+      padding: $multi-select-pill-large-padding 0;
 
-      .multi-select-count,
       .multi-select-pill {
-        padding: 3px $space-xs;
+        height: auto;
+        min-height: $space-xl;
+      }
+
+      &-max-count {
+        .multi-select-count,
+        .multi-select-pill {
+          height: $space-xl;
+        }
       }
     }
 
@@ -107,11 +137,18 @@ $multi-select-count-offset: 54px;
 
   &.select-medium {
     .multi-select-pills {
-      top: 5px;
+      padding: $multi-select-pill-medium-padding 0;
 
-      .multi-select-count,
       .multi-select-pill {
-        padding: 3px $space-xs;
+        height: auto;
+        min-height: 26px;
+      }
+
+      &-max-count {
+        .multi-select-count,
+        .multi-select-pill {
+          height: 26px;
+        }
       }
     }
 
@@ -134,12 +171,24 @@ $multi-select-count-offset: 54px;
   }
 
   &.select-small {
-    .multi-select-pills {
-      top: $space-xxs;
+    .multi-select-count {
+      margin-left: $space-xs;
+      margin-right: 0;
+    }
 
-      .multi-select-count,
+    .multi-select-pills {
+      padding: $multi-select-pill-small-padding 0;
+
       .multi-select-pill {
-        padding: $space-xxxs $space-s;
+        height: auto;
+        min-height: $space-ml;
+      }
+
+      &-max-count {
+        .multi-select-count,
+        .multi-select-pill {
+          height: $space-ml;
+        }
       }
     }
 

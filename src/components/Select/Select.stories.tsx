@@ -1,7 +1,10 @@
-import React, { FC, useState, useRef } from 'react';
+import React, { FC, useState, useRef, useCallback } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
+import { Label, LabelSize } from '../Label';
+import { List } from '../List';
+import { Stack } from '../Stack';
 import { Select } from './';
 import {
   SelectOption,
@@ -10,6 +13,7 @@ import {
   SelectSize,
 } from './Select.types';
 import { Stories } from '@storybook/addon-docs';
+import { TextInputWidth } from '../Inputs';
 
 const defaultOptions: SelectOption[] = [
   {
@@ -52,6 +56,236 @@ const defaultOptions: SelectOption[] = [
     iconProps: { path: IconName.mdiBell },
     text: 'Bell',
     value: 'bell',
+  },
+];
+
+export const locations = {
+  current: 'Current location',
+  bengalaru: 'Bengalaru, Karnataka, India',
+  noida: 'Noida, Uttar Pradesh, India',
+  santa: 'Santa Clara, CA, United States',
+  london: 'London, England, United Kingdom',
+  hybrid: 'Hybrid',
+};
+
+const locationOptions: SelectOption[] = [
+  {
+    text: 'Current location',
+    value: locations.current,
+  },
+  {
+    text: 'Bengalaru, Karnataka, India',
+    value: locations.bengalaru,
+  },
+  {
+    text: 'Noida, Uttar Pradesh, India',
+    value: locations.noida,
+  },
+  {
+    text: 'Santa Clara, CA, United States',
+    value: locations.santa,
+  },
+  {
+    text: 'London, England, United Kingdom',
+    value: locations.london,
+  },
+  {
+    text: 'Hybrid',
+    value: locations.hybrid,
+  },
+];
+
+export interface Role {
+  current?: boolean;
+  geo?: string | string[];
+  index?: number;
+  location?: string;
+  role?: string;
+  selected?: boolean;
+  title?: string;
+}
+
+export const sampleRoleList: Role[] = [
+  {
+    current: false,
+    geo: 'Bangalore, Karnataka, India',
+    index: 0,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Software Engineer, Customer Engineering',
+  },
+  {
+    current: false,
+    geo: ['Bangalore, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 1,
+    location: 'Hybrid',
+    role: 'Product',
+    selected: false,
+    title: 'Product Manager II - Talent Management',
+  },
+  {
+    current: false,
+    geo: 'Bangalore, Karnataka, India',
+    index: 2,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Lead SDET (Accessibility)',
+  },
+  {
+    current: true,
+    geo: 'Santa Clara, CA, United States',
+    index: 3,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Staff Machine Learning Engineer',
+  },
+  {
+    current: false,
+    geo: 'London, England, United Kingdom',
+    index: 4,
+    location: 'Hybrid',
+    role: 'Operations',
+    selected: false,
+    title: 'Senior Director, Field Operations - EMEA & APJ',
+  },
+  {
+    current: true,
+    geo: 'Santa Clara, CA, United States',
+    index: 5,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Machine Learning Engineer - AI/ML',
+  },
+  {
+    current: false,
+    geo: ['Bangalore, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 6,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Lead Engineer - Backend',
+  },
+  {
+    current: false,
+    geo: 'Bangalore, Karnataka, India',
+    index: 7,
+    location: 'Hybrid',
+    role: 'Product',
+    selected: false,
+    title: 'Sr Product Manager - Talent Management',
+  },
+  {
+    current: false,
+    geo: ['Bangalore, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 8,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Senior Engineer',
+  },
+  {
+    current: false,
+    geo: ['Bengalaru, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 9,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Staff/Lead Engineer - Frontend',
+  },
+  {
+    current: true,
+    geo: 'Santa Clara, CA, United States',
+    index: 10,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Senior Software Engineer - AI Product Dev Teams',
+  },
+  {
+    current: false,
+    geo: 'Bangalore, Karnataka, India',
+    index: 11,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title: 'Support Language Specialist (On Contract)',
+  },
+  {
+    current: false,
+    geo: ['Bangalore, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 12,
+    location: 'Hybrid',
+    role: 'Product',
+    selected: false,
+    title: 'UX Designer',
+  },
+  {
+    current: true,
+    geo: 'Santa Clara, CA, United States',
+    index: 13,
+    location: 'Hybrid',
+    role: 'Engineering',
+    selected: false,
+    title:
+      'Staff Software Engineer - Core Infrastructure (Distributed Systems)',
+  },
+  {
+    current: true,
+    geo: 'San Francisco, CA, United States',
+    index: 14,
+    location: 'Hybrid',
+    role: 'Marketing',
+    selected: false,
+    title: 'Senior Events Marketing Contractor',
+  },
+  {
+    current: false,
+    geo: 'London, England, United Kingdom',
+    index: 15,
+    location: 'Hybrid',
+    role: 'Operations',
+    selected: false,
+    title: 'Deal Desk Manager - EMEA',
+  },
+  {
+    current: false,
+    geo: ['Bangalore, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 16,
+    location: 'Hybrid',
+    role: 'Customer Support',
+    selected: false,
+    title: 'Senior Technical Support Engineer',
+  },
+  {
+    current: false,
+    geo: ['Bangalaru, Karnataka, India', 'Noida, Uttar Pradesh, India'],
+    index: 17,
+    location: 'Hybrid',
+    role: 'G&A',
+    selected: false,
+    title: 'Sr. Accountant',
+  },
+  {
+    current: false,
+    geo: 'London, England, United Kingdom',
+    index: 18,
+    location: 'Hybrid',
+    role: 'Product Delivery',
+    selected: false,
+    title: 'Product Delivery Manager - EMEA',
+  },
+  {
+    current: true,
+    geo: 'Santa Clara, CA, United States',
+    index: 19,
+    location: 'Hybrid',
+    role: 'Sales',
+    selected: false,
+    title: 'Senior Solutions Consultant',
   },
 ];
 
@@ -173,6 +407,118 @@ const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
   <DynamicSelect {...args} />
 );
 
+const Shared_State_Story: ComponentStory<typeof Select> = (args) => {
+  const [filteredRoleList, setFilteredRoleList] =
+    useState<Role[]>(sampleRoleList);
+  const [myLocation, setMyLocation] = useState(null);
+
+  const locationSelectOneRef = useRef<HTMLDivElement>(null);
+  const locationSelectTwoRef = useRef<HTMLDivElement>(null);
+
+  const onLocationSelectChange = useCallback(
+    async (options: SelectOption[]) => {
+      for (const option of options) {
+        setMyLocation(option);
+
+        const getLocationResults = async (
+          option: SelectOption
+        ): Promise<Role[]> => {
+          if (option === locations.current) {
+            return sampleRoleList.filter((role) => role.current);
+          } else {
+            return sampleRoleList.filter((role) =>
+              Object.values(role).some((value) =>
+                value.toString().includes(option)
+              )
+            );
+          }
+        };
+
+        const results = await getLocationResults(option);
+        setFilteredRoleList(results.map((role, index) => ({ ...role, index })));
+      }
+    },
+    [sampleRoleList, filteredRoleList]
+  );
+
+  return (
+    <Stack direction="vertical" flexGap="xxl" fullWidth>
+      <Stack direction="vertical" flexGap="xs" fullWidth>
+        <Label id="select-one-label" size={LabelSize.Medium} text="Select A" />
+        <Select
+          {...args}
+          aria-labelledby="select-one-label"
+          clearable
+          value={myLocation}
+          filterable
+          initialFocus={false}
+          inputWidth={TextInputWidth.fill}
+          onClear={() => {
+            setMyLocation('');
+            setFilteredRoleList(sampleRoleList);
+          }}
+          onOptionsChange={(options: SelectOption[]) =>
+            onLocationSelectChange(options)
+          }
+          options={locationOptions}
+          ref={locationSelectOneRef}
+          shape={SelectShape.Pill}
+          style={{ minWidth: 'fit-content' }}
+          textInputProps={{
+            iconProps: { path: IconName.mdiMapMarkerOutline },
+            placeholder: 'City, state, zip code, or "hybrid"',
+          }}
+        />
+      </Stack>
+      <Stack direction="vertical" flexGap="xs" fullWidth>
+        <Label id="select-two-label" size={LabelSize.Medium} text="Select B" />
+        <Select
+          {...args}
+          aria-labelledby="select-two-label"
+          clearable
+          value={myLocation}
+          filterable
+          initialFocus={false}
+          inputWidth={TextInputWidth.fill}
+          onClear={() => {
+            setMyLocation('');
+            setFilteredRoleList(sampleRoleList);
+          }}
+          onOptionsChange={(options: SelectOption[]) =>
+            onLocationSelectChange(options)
+          }
+          options={locationOptions}
+          ref={locationSelectTwoRef}
+          shape={SelectShape.Pill}
+          style={{ minWidth: 'fit-content' }}
+          textInputProps={{
+            iconProps: { path: IconName.mdiMapMarkerOutline },
+            placeholder: 'City, state, zip code, or "hybrid"',
+          }}
+        />
+      </Stack>
+      <Stack direction="vertical" flexGap="xs" fullWidth>
+        <Label
+          id="filtered-location-label"
+          size={LabelSize.Medium}
+          text="Filtered location"
+        />
+        <List
+          aria-labelledby="filtered-location-label"
+          items={filteredRoleList}
+          layout="vertical"
+          renderItem={(item: Role) => (
+            <p>
+              {typeof item.geo === 'string' ? item.geo : item.geo?.join(' • ')}{' '}
+              - {item.location ? item.location : 'Remote'}
+            </p>
+          )}
+        />
+      </Stack>
+    </Stack>
+  );
+};
+
 export type SelectStory = ComponentStory<React.FC<SelectProps>>;
 
 export const Basic: SelectStory = Basic_Story.bind({});
@@ -186,6 +532,7 @@ export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
 export const Multiple_With_No_Filter: SelectStory = Basic_Story.bind({});
 export const Dynamic: SelectStory = Dynamic_Story.bind({});
+export const Shared_State: SelectStory = Shared_State_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -202,6 +549,7 @@ export const __namedExportsOrder = [
   'Multiple',
   'Multiple_With_No_Filter',
   'Dynamic',
+  'Shared_State',
 ];
 
 const SelectArgs: SelectProps = {
@@ -214,6 +562,8 @@ const SelectArgs: SelectProps = {
   },
   theme: '' as OcThemeName,
   themeContainerId: 'my-textinput-theme-container',
+  toggleOptions: true,
+  maxPillCount: true,
   disabled: false,
   status: '',
   readonly: false,

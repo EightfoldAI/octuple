@@ -1,9 +1,13 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { List } from '../List';
-import { IconName } from '../Icon';
 import { Accordion, AccordionProps, AccordionSize, AccordionShape } from './';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
+import { Badge } from '../Badge';
+import { IconName } from '../Icon';
+import Layout from '../Layout';
+import { List } from '../List';
+import { Stack } from '../Stack';
 
 export default {
   title: 'Accordion',
@@ -85,15 +89,27 @@ const listItems: AccordionProps[] = [
   },
 ];
 
+const buttons = [0, 1].map((i) => ({
+  ariaLabel: `Button ${i}`,
+  disruptive: i === 0 ? false : true,
+  icon: i === 0 ? IconName.mdiCogOutline : IconName.mdiDeleteOutline,
+  variant: i === 0 ? ButtonVariant.Neutral : ButtonVariant.Secondary,
+}));
+
 const Single_Story: ComponentStory<typeof Accordion> = (args) => (
   <Accordion {...args} />
 );
 
 const List_Story: ComponentStory<typeof List> = (args) => <List {...args} />;
 
+const Custom_Story: ComponentStory<typeof Accordion> = (args) => (
+  <Accordion {...args} />
+);
+
 export const Single = Single_Story.bind({});
 export const List_Vertical = List_Story.bind({});
 export const List_Horizontal = List_Story.bind({});
+export const Custom = Custom_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -102,9 +118,11 @@ export const __namedExportsOrder = [
   'Single',
   'List_Vertical',
   'List_Horizontal',
+  'Custom',
 ];
 
 Single.args = {
+  renderContentAlways: true,
   children: (
     <>
       <div style={{ height: 'auto' }}>
@@ -178,4 +196,93 @@ List_Horizontal.args = {
   itemStyle: {
     padding: '8px',
   },
+};
+
+Custom.args = {
+  children: (
+    <>
+      <div style={{ height: 'auto' }}>
+        Icons are optional for accordions. The body area in the expanded view is
+        like a modal or a slide-in panel. You can put any smaller components
+        inside to build a layout.
+      </div>
+    </>
+  ),
+  id: 'myAccordionId',
+  expandButtonProps: null,
+  expandIconProps: {
+    path: IconName.mdiChevronDown,
+  },
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-accordion-theme-container',
+  gradient: false,
+  headerProps: {
+    fullWidth: true,
+    style: { gap: '8px' },
+  },
+  summary: (
+    <Layout octupleStyles>
+      {' '}
+      {/* octupleStyles enables scoped Octuple BEM. */}
+      <Stack
+        fullWidth
+        direction="horizontal"
+        flexGap="m"
+        justify="space-between"
+        wrap="wrap"
+      >
+        <Stack direction="vertical" flexGap="xxxs">
+          <h4
+            className="octuple-h4"
+            style={{
+              alignSelf: 'center',
+              flexWrap: 'nowrap',
+              margin: 0,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Accordion Header <Badge style={{ margin: '0 8px' }}>2</Badge>
+          </h4>
+          <div
+            className="octuple-content"
+            style={{ color: 'var(--grey-tertiary-color)', fontWeight: 400 }}
+          >
+            Supporting text
+          </div>
+        </Stack>
+        <Stack
+          align="center"
+          direction="horizontal"
+          flexGap="m"
+          justify="flex-end"
+          style={{ width: 'min-content' }}
+        >
+          <List
+            items={buttons}
+            layout="horizontal"
+            listStyle={{ display: 'flex', gap: '8px' }}
+            renderItem={(item) => (
+              <Button
+                ariaLabel={item.ariaLabel}
+                disruptive={item.disruptive}
+                iconProps={{ path: item.icon }}
+                onClick={(e) => e.preventDefault()} // prevent accordion toggle, then apply your own logic.
+                shape={ButtonShape.Round}
+                variant={item.variant}
+              />
+            )}
+          />
+        </Stack>
+      </Stack>
+    </Layout>
+  ),
+  bordered: true,
+  shape: AccordionShape.Pill,
+  size: AccordionSize.Large,
+  expanded: false,
+  disabled: false,
 };

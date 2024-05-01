@@ -30,6 +30,11 @@ export type InfoBarLocale = {
 
 export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
   /**
+   * Custom classes for the action button.
+   * May be implemnted without the need for a button.
+   */
+  actionButtonClassNames?: string;
+  /**
    * Props for the action button
    */
   actionButtonProps?: ButtonProps;
@@ -39,7 +44,7 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   bordered?: boolean;
   /**
-   * If the InfoBar is closable or not
+   * If the InfoBar is closable or not.
    */
   closable?: boolean;
   /**
@@ -65,6 +70,14 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   content: React.ReactNode;
   /**
+   * Custom classes of the content.
+   */
+  contentClassNames?: string;
+  /**
+   * Custom classes of the content wrapper.
+   */
+  contentWrapperClassNames?: string;
+  /**
    * The InfoBar gradient state.
    * @default false
    */
@@ -74,6 +87,10 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
    */
   icon?: IconName;
+  /**
+   * Custom classes of the icon.
+   */
+  iconClassNames?: string;
   /**
    * The InfoBar locale.
    * @default 'enUS'
