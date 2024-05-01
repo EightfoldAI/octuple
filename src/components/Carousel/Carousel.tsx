@@ -13,6 +13,7 @@ import React, {
 } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName, Size } from '../ConfigProvider';
+import { ParentComponentsContextProvider } from '../ConfigProvider/ParentComponentsContext';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -829,87 +830,92 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
               containerId={themeContainerId}
               theme={mergedTheme}
             >
-              <div
-                className={carouselClassNames}
-                data-test-id={dataTestId}
-                onMouseEnter={
-                  type === 'slide' ? handlePause : () => setMouseEnter(true)
-                }
-                onMouseLeave={
-                  type === 'slide' ? handleCycle : () => setMouseEnter(false)
-                }
-                {...rest}
-                ref={forkedRef}
-              >
-                <CarouselContext.Provider
-                  value={{
-                    setAnimating,
-                    setCustomInterval,
-                  }}
+              <ParentComponentsContextProvider componentName="Carousel">
+                <div
+                  className={carouselClassNames}
+                  data-test-id={dataTestId}
+                  onMouseEnter={
+                    type === 'slide' ? handlePause : () => setMouseEnter(true)
+                  }
+                  onMouseLeave={
+                    type === 'slide' ? handleCycle : () => setMouseEnter(false)
+                  }
+                  {...rest}
+                  ref={forkedRef}
                 >
-                  {pagination && (
-                    <Pagination
-                      classNames={styles.carouselPagination}
-                      configContextProps={configContextProps}
-                      currentPage={active + 1}
-                      dots
-                      gradient={gradient}
-                      layout={[
-                        PaginationLayoutOptions.Previous,
-                        PaginationLayoutOptions.Pager,
-                        PaginationLayoutOptions.Next,
-                      ]}
-                      loop={loop}
-                      onCurrentChange={(currentPage: number) =>
-                        handleIndicatorClick(currentPage - 1)
-                      }
-                      restrictPageSizesPropToSizesLayout
-                      pageSize={1}
-                      theme={mergedTheme}
-                      themeContainerId={themeContainerId}
-                      total={itemsNumber}
-                    />
-                  )}
-                  <div className={styles.carouselInner} ref={carouselInnerRef}>
-                    {type === 'slide' &&
-                      Children?.map(children, (child, index) => {
-                        if (React.isValidElement(child)) {
-                          return React.cloneElement(
-                            child as React.ReactElement<any>,
-                            {
-                              active: active === index ? true : false,
-                              direction: direction,
-                              key: index,
-                            }
-                          );
+                  <CarouselContext.Provider
+                    value={{
+                      setAnimating,
+                      setCustomInterval,
+                    }}
+                  >
+                    {pagination && (
+                      <Pagination
+                        classNames={styles.carouselPagination}
+                        configContextProps={configContextProps}
+                        currentPage={active + 1}
+                        dots
+                        gradient={gradient}
+                        layout={[
+                          PaginationLayoutOptions.Previous,
+                          PaginationLayoutOptions.Pager,
+                          PaginationLayoutOptions.Next,
+                        ]}
+                        loop={loop}
+                        onCurrentChange={(currentPage: number) =>
+                          handleIndicatorClick(currentPage - 1)
                         }
-                        return null;
-                      })}
-                    {type === 'scroll' && (
-                      <ResizeObserver onResize={updateScrollMode}>
-                        <ScrollMenu
-                          controls={controls}
-                          nextButton={() => autoScrollButton('next')}
-                          onWheel={handleOnWheel}
-                          overlayControls={overlayControls}
-                          previousButton={() => autoScrollButton('previous')}
-                          rtl={htmlDir === 'rtl'}
-                          {...carouselScrollMenuProps}
-                          ref={scrollMenuRef}
-                        >
-                          {carouselScrollMenuProps?.children}
-                        </ScrollMenu>
-                      </ResizeObserver>
+                        restrictPageSizesPropToSizesLayout
+                        pageSize={1}
+                        theme={mergedTheme}
+                        themeContainerId={themeContainerId}
+                        total={itemsNumber}
+                      />
                     )}
-                  </div>
-                  {controls && type === 'slide' && (
-                    <>
-                      {previousButton()}
-                      {nextButton()}
-                    </>
-                  )}
-                </CarouselContext.Provider>
-              </div>
+                    <div
+                      className={styles.carouselInner}
+                      ref={carouselInnerRef}
+                    >
+                      {type === 'slide' &&
+                        Children?.map(children, (child, index) => {
+                          if (React.isValidElement(child)) {
+                            return React.cloneElement(
+                              child as React.ReactElement<any>,
+                              {
+                                active: active === index ? true : false,
+                                direction: direction,
+                                key: index,
+                              }
+                            );
+                          }
+                          return null;
+                        })}
+                      {type === 'scroll' && (
+                        <ResizeObserver onResize={updateScrollMode}>
+                          <ScrollMenu
+                            controls={controls}
+                            nextButton={() => autoScrollButton('next')}
+                            onWheel={handleOnWheel}
+                            overlayControls={overlayControls}
+                            previousButton={() => autoScrollButton('previous')}
+                            rtl={htmlDir === 'rtl'}
+                            {...carouselScrollMenuProps}
+                            ref={scrollMenuRef}
+                          >
+                            {carouselScrollMenuProps?.children}
+                          </ScrollMenu>
+                        </ResizeObserver>
+                      )}
+                    </div>
+                    {controls && type === 'slide' && (
+                      <>
+                        {previousButton()}
+                        {nextButton()}
+                      </>
+                    )}
+                  </CarouselContext.Provider>
+                </div>
+              </ParentComponentsContextProvider>
             </ThemeContextProvider>
           );
         }}

@@ -3,6 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { ConfigProvider, useConfig } from './ConfigProvider';
+import { useParentComponents } from './ParentComponentsContext';
 import DisabledContext from './DisabledContext';
 import GradientContext from './GradientContext';
 import { IConfigContext } from './ConfigProvider.types';
@@ -71,6 +72,26 @@ describe('ConfigProvider', () => {
       ),
     });
     expect(result.current.fontOptions.customFont).toEqual(fontOptions);
+  });
+
+  test('Provides the parent component names if provided as a prop', () => {
+    const { result } = renderHook(() => useParentComponents(), {
+      wrapper: ({ children }) => (
+        <ConfigProvider componentName="Parent1">
+          <ConfigProvider componentName="Parent2">{children}</ConfigProvider>
+        </ConfigProvider>
+      ),
+    });
+    expect(result.current.length).toEqual(2);
+    expect(result.current[0]).toEqual('Parent1');
+    expect(result.current[1]).toEqual('Parent2');
+  });
+
+  test('Provides no parent component names if not provided as a prop', () => {
+    const { result } = renderHook(() => useParentComponents(), {
+      wrapper: ConfigProvider,
+    });
+    expect(result.current.length).toEqual(0);
   });
 
   test('Provides disabled config if provided as prop', () => {

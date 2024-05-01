@@ -68,7 +68,7 @@ export const useTruncate = (options?: {
         WebkitLineClamp: options?.lineClamp || 1,
         overflowY: 'hidden',
         textOverflow: 'ellipsis',
-        wordBreak: 'break-all',
+        ...(isTextTruncated && { wordBreak: 'break-all' }),
         ...rest?.style,
       }}
     >
