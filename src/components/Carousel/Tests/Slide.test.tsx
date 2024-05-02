@@ -199,4 +199,22 @@ describe('Slide', () => {
     expect(buttonNext).toHaveClass('button-small');
     expect(buttonPrev).toHaveClass('button-small');
   });
+
+  test('Carousel renders only React elements', () => {
+    const { container } = render(
+      <Carousel controls={false} pagination={false}>
+        <Slide classNames="slide-1">Slide-1</Slide>
+        <Slide classNames="slide-2">Slide-2</Slide>
+        <Slide classNames="slide-3">Slide-3</Slide>
+        {/* The below elements will not be rendered */}
+        {'Invalid Element'}
+        {42}
+        {true}
+        {false}
+      </Carousel>
+    );
+    const carousel = container.querySelector('.carousel');
+    const carouselInner = carousel.children[0];
+    expect(carouselInner.children.length).toBe(3);
+  });
 });

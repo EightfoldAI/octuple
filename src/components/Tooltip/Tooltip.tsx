@@ -32,6 +32,7 @@ import {
   TRIGGER_TO_HANDLER_MAP_ON_LEAVE,
   TooltipTouchInteraction,
 } from './Tooltip.types';
+import { useParentComponents } from '../ConfigProvider/ParentComponentsContext';
 import useGestures, { Gestures } from '../../hooks/useGestures';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
@@ -76,7 +77,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         portalId,
         portalRoot,
         positionStrategy = 'absolute',
-        preventTouchMoveDefault = true,
+        preventTouchMoveDefault,
         referenceOnClick,
         referenceOnKeydown,
         showTooltip,
@@ -145,9 +146,10 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         ],
       });
 
+      const parentComponents = useParentComponents();
       const gestureType: Gestures = useGestures(
         refs.reference?.current as HTMLElement,
-        preventTouchMoveDefault
+        preventTouchMoveDefault ?? !parentComponents.includes('Carousel')
       );
 
       const toggle: Function =

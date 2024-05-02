@@ -212,7 +212,7 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   /**
    * Determines the interaction that triggers
    * the equivalent of hover on touch interfaces.
-   * @default TooltipTouchInteraction.Tap
+   * @default TooltipTouchInteraction.TapAndHold
    */
   touchInteraction?: TooltipTouchInteraction;
   /**
