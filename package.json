@@ -2,15 +2,8 @@
   "name": "@eightfold.ai/octuple",
   "version": "2.51.1",
   "license": "MIT",
-  "type": "module",
-  "main": "lib/octuple.cjs",
-  "module": "lib/octuple.mjs",
-  "types": "lib/octuple.d.ts",
   "sideEffects": [
     "**/*.css"
-  ],
-  "files": [
-    "lib"
   ],
   "exports": {
     ".": {
@@ -28,6 +21,12 @@
       "require": "./lib/octuple.css"
     }
   },
+  "main": "lib/octuple.cjs",
+  "module": "lib/octuple.mjs",
+  "types": "lib/octuple.d.ts",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/EightfoldAI/octuple"

@@ -8,9 +8,9 @@ scripts
 
 tsconfig.json
 yarn.lock
-webpack.common.cjs
-webpack.dev.cjs
-webpack.prod.cjs
+webpack.common.js
+webpack.dev.js
+webpack.prod.js
 MANIFEST.txt
 npm-debug.log*
 yarn-debug.log*
