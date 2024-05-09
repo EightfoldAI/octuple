@@ -2,10 +2,18 @@
   "name": "@eightfold.ai/octuple",
   "version": "2.51.1",
   "license": "MIT",
-  "type": "module",
-  "main": "lib/cjs/octuple.js",
-  "module": "lib/esm/octuple.js",
+  "main": "lib/octuple.js",
+  "module": "lib/octuple.esm.js",
+  "source": "src/octuple.ts",
   "types": "lib/octuple.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/octuple.esm.js",
+      "require": "./lib/octuple.js"
+    },
+    "./lib/*": "./lib/*"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/EightfoldAI/octuple"
@@ -13,10 +21,10 @@
   "scripts": {
     "storybook": "start-storybook -p 2022",
     "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
-    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.cjs --mode production",
+    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
     "build:rollup": "rm -rf lib && npm run lint && rollup -c",
-    "details": "webpack --config webpack.dev.cjs --mode development --stats-error-details",
-    "analyze": "webpack --config webpack.dev.cjs --mode production --json > stats.json",
+    "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
+    "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
     "prepublish": "yarn build",
     "test": "jest --collectCoverage=true",
     "test:update": "jest -u",

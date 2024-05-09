@@ -16,9 +16,9 @@ npm-debug.log*
 README.md
 stats.json
 tsconfig.json
-webpack.common.cjs
-webpack.dev.cjs
-webpack.prod.cjs
+webpack.common.js
+webpack.dev.js
+webpack.prod.js
 yarn.lock
 yarn-debug.log*
 yarn-error.log*
@@ -26,9 +26,9 @@ commitlint.config.js
 rollup.config.js
 
 .eslintignore
-.eslintrc.cjs
+.eslintrc.js
 .commitlintrc.json
-.prettierrc.cjs
+.prettierrc.js
 .DS_Store
 .env.development.local
 .env.local
