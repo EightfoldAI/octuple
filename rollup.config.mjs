@@ -8,25 +8,32 @@ import { defineConfig } from 'rollup';
 import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
+import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 
-import pkg from './package.json' assert { type: 'json' };
+/**
+ * @type {import('rollup').OutputOptions}
+ */
+const SHARED_OUTPUT_OPTIONS = {
+  dir: 'lib',
+  sourcemap: false,
+  preserveModules: true,
+  preserveModulesRoot: 'src',
+};
 
 export default defineConfig(
   {
-    input: './src/octuple.ts',
+    input: 'src/octuple.ts',
     output: [
       {
-        file: pkg.main,
+        ...SHARED_OUTPUT_OPTIONS,
         format: 'cjs',
-        sourcemap: false,
-        exports: 'named',
-        name: pkg.name,
+        entryFileNames: '[name].cjs',
+        exports: 'auto',
       },
       {
-        file: pkg.module,
+        ...SHARED_OUTPUT_OPTIONS,
         format: 'es',
-        exports: 'named',
-        sourcemap: false,
       },
     ],
     plugins: [
@@ -38,6 +45,7 @@ export default defineConfig(
       peerDepsExternal(),
       resolve(),
       commonjs(),
+      preserveDirectives(),
       typescript({
         tsconfig: './tsconfig.json',
         sourceMap: false,
@@ -59,11 +67,15 @@ export default defineConfig(
           '**/*.stories.js+(|x)',
         ],
       }),
+      typescriptPaths(),
       url(),
       svgr(),
       terser(),
     ],
-    // ignore warnings about "use client" directive
+    /**
+     * Ignore warnings about "use client" directive, these are preserved by rollup-plugin-preserve-directives
+     * @see https://github.com/Ephem/rollup-plugin-preserve-directives?tab=readme-ov-file#disabling-warnings
+     */
     onwarn(warning, warn) {
       if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
         return;
@@ -72,8 +84,8 @@ export default defineConfig(
     },
   },
   {
-    input: 'lib/esm/types/src/index.d.ts',
-    output: [{ file: 'lib/index.d.ts', format: 'esm' }],
+    input: 'lib/octuple.d.ts',
+    output: [{ file: 'lib/octuple.d.ts', format: 'esm' }],
     external: [/\.(css|less|scss)$/],
     plugins: [dts()],
   }
