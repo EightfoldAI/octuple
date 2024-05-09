@@ -2,7 +2,9 @@
   "name": "@eightfold.ai/octuple",
   "version": "2.51.1",
   "license": "MIT",
-  "main": "lib/octuple.js",
+  "type": "module",
+  "main": "lib/cjs/octuple.js",
+  "module": "lib/esm/octuple.js",
   "types": "lib/octuple.d.ts",
   "repository": {
     "type": "git",
@@ -11,9 +13,10 @@
   "scripts": {
     "storybook": "start-storybook -p 2022",
     "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
-    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
-    "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
-    "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
+    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.cjs --mode production",
+    "build:rollup": "rm -rf lib && npm run lint && rollup -c",
+    "details": "webpack --config webpack.dev.cjs --mode development --stats-error-details",
+    "analyze": "webpack --config webpack.dev.cjs --mode production --json > stats.json",
     "prepublish": "yarn build",
     "test": "jest --collectCoverage=true",
     "test:update": "jest -u",
@@ -83,6 +86,11 @@
     "@commitlint/config-conventional": "16.2.1",
     "@ctrl/tinycolor": "3.4.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
+    "@rollup/plugin-commonjs": "25.0.7",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "11.1.6",
+    "@rollup/plugin-url": "^8.0.2",
     "@storybook/addon-a11y": "6.5.13",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-docs": "6.5.13",
@@ -180,6 +188,10 @@
     "regenerator-runtime": "0.13.7",
     "resolve": "1.20.0",
     "resolve-url-loader": "4.0.0",
+    "rollup": "4.17.2",
+    "rollup-plugin-dts": "6.1.0",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-postcss": "4.0.2",
     "sass": "1.47.0",
     "sass-loader": "12.3.0",
     "semver": "7.5.2",
@@ -282,8 +294,7 @@
     ]
   },
   "engines": {
-    "node": ">=16.13.0 < 17",
-    "npm": ">=8.5.0 < 9"
+    "node": ">=18.0.0"
   },
   "packageManager": "yarn@1.22.19"
 }

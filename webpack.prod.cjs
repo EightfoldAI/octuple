@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const WebpackCommonConfig = require('./webpack.common');
+const WebpackCommonConfig = require('./webpack.common.cjs');
 
 process.env.NODE_ENV = 'production';
 

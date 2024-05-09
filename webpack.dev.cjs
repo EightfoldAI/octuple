@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const WebpackCommonConfig = require('./webpack.common');
+const WebpackCommonConfig = require('./webpack.common.cjs');
 
 process.env.NODE_ENV = 'development';
 
