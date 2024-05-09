@@ -40,6 +40,7 @@ export default defineConfig(
       postcss({
         minimize: true,
         extract: true,
+        // link the variable definitions to the source files (since main.scss is not imported in the library code)
         use: [['sass', { data: '@import "./src/styles/main.scss";' }]],
       }),
       peerDepsExternal(),
