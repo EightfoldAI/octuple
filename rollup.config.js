@@ -8,7 +8,7 @@ import svgr from '@svgr/rollup';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
-// import typescriptEngine from 'typescript';
+import typescriptEngine from 'typescript';
 
 import pkg from './package.json' assert { type: 'json' };
 
@@ -38,37 +38,39 @@ export default defineConfig(
       external({ includeDependencies: true }),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
-      // typescript({
-      //   tsconfig: './tsconfig.json',
-      //   typescript: typescriptEngine,
-      //   sourceMap: false,
-      //   exclude: [
-      //     'coverage',
-      //     '.storybook',
-      //     'storybook-static',
-      //     'config',
-      //     'dist',
-      //     'node_modules/**',
-      //     '*.cjs',
-      //     '*.mjs',
-      //     '**/__snapshots__/*',
-      //     '**/__tests__',
-      //     '**/*.test.js+(|x)',
-      //     '**/*.test.ts+(|x)',
-      //     '**/*.mdx',
-      //     '**/*.story.ts+(|x)',
-      //     '**/*.story.js+(|x)',
-      //     '**/*.stories.ts+(|x)',
-      //     '**/*.stories.js+(|x)',
-      //     'setupTests.ts',
-      //     'vitest.config.ts',
-      //   ],
-      // }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        typescript: typescriptEngine,
+        sourceMap: false,
+        exclude: [
+          'coverage',
+          '.storybook',
+          'storybook-static',
+          'config',
+          'lib',
+          'node_modules/**',
+          '*.cjs',
+          '*.mjs',
+          '**/__snapshots__/*',
+          '**/tests/*',
+          '**/Tests/*',
+          '**/*.test.js+(|x)',
+          '**/*.test.ts+(|x)',
+          '**/*.stories.ts+(|x)',
+          '**/*.stories.js+(|x)',
+        ],
+      }),
       url(),
       svgr(),
       terser(),
     ],
+    // ignore warnings about "use client" directive
+    onwarn(warning, warn) {
+      if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+        return;
+      }
+      warn(warning);
+    },
   },
   {
     input: 'dist/esm/types/src/index.d.ts',
