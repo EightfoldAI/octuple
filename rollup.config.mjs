@@ -23,7 +23,7 @@ const SHARED_OUTPUT_OPTIONS = {
 
 export default defineConfig(
   {
-    input: 'src/octuple.ts',
+    input: ['src/octuple.ts', 'src/locale.ts'],
     output: [
       {
         ...SHARED_OUTPUT_OPTIONS,
@@ -51,10 +51,10 @@ export default defineConfig(
         tsconfig: './tsconfig.json',
         sourceMap: false,
         exclude: [
-          'coverage',
           '.storybook',
           'storybook-static',
           'config',
+          'coverage',
           'lib',
           'node_modules/**',
           '*.cjs',

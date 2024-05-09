@@ -2,17 +2,25 @@
   "name": "@eightfold.ai/octuple",
   "version": "2.51.1",
   "license": "MIT",
-  "main": "lib/octuple.js",
-  "module": "lib/octuple.esm.js",
+  "main": "lib/octuple.cjs",
+  "module": "lib/octuple.js",
   "source": "src/octuple.ts",
   "types": "lib/octuple.d.ts",
+  "files": [
+    "lib"
+  ],
   "exports": {
     ".": {
       "types": "./lib/octuple.d.ts",
-      "import": "./lib/octuple.esm.js",
-      "require": "./lib/octuple.js"
+      "import": "./lib/octuple.js",
+      "require": "./lib/octuple.cjs"
     },
-    "./lib/*": "./lib/*"
+    "./locale": {
+      "types": "./lib/locale.d.ts",
+      "import": "./lib/locale.js",
+      "require": "./lib/locale.cjs"
+    },
+    "./lib/octuple.css": "./lib/octuple.css"
   },
   "repository": {
     "type": "git",
