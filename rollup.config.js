@@ -9,35 +9,31 @@ import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
+import progress from 'rollup-plugin-progress';
 import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
-
-/**
- * @type {import('rollup').OutputOptions}
- */
-const SHARED_OUTPUT_OPTIONS = {
-  dir: 'lib',
-  preserveModules: true,
-  preserveModulesRoot: 'src',
-  sourcemap: false,
-};
 
 export default defineConfig(
   {
     input: ['src/octuple.ts', 'src/locale.ts'],
     output: [
       {
+        chunkFileNames: '[name]-[hash].cjs',
+        dir: 'lib',
         entryFileNames: '[name].cjs',
         format: 'cjs',
-        ...SHARED_OUTPUT_OPTIONS,
+        sourcemap: false,
       },
       {
+        chunkFileNames: '[name]-[hash].mjs',
+        dir: 'lib',
         entryFileNames: '[name].mjs',
         format: 'es',
-        ...SHARED_OUTPUT_OPTIONS,
+        sourcemap: false,
       },
     ],
     plugins: [
+      progress(),
       postcss({
         modules: { localsConvention: 'camelCase' },
         minimize: true,
