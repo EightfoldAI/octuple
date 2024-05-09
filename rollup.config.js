@@ -10,15 +10,16 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 import { typescriptPaths } from 'rollup-plugin-typescript-paths';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 /**
  * @type {import('rollup').OutputOptions}
  */
 const SHARED_OUTPUT_OPTIONS = {
   dir: 'lib',
-  sourcemap: false,
   preserveModules: true,
   preserveModulesRoot: 'src',
+  sourcemap: false,
 };
 
 export default defineConfig(
@@ -26,27 +27,29 @@ export default defineConfig(
     input: ['src/octuple.ts', 'src/locale.ts'],
     output: [
       {
-        ...SHARED_OUTPUT_OPTIONS,
-        format: 'cjs',
         entryFileNames: '[name].cjs',
-        exports: 'auto',
+        format: 'cjs',
+        ...SHARED_OUTPUT_OPTIONS,
       },
       {
-        ...SHARED_OUTPUT_OPTIONS,
+        entryFileNames: '[name].mjs',
         format: 'es',
+        ...SHARED_OUTPUT_OPTIONS,
       },
     ],
     plugins: [
       postcss({
+        modules: { localsConvention: 'camelCase' },
         minimize: true,
         extract: true,
+        inject: false, // don't inject <style> tags for components
         // link the variable definitions to the source files (since main.scss is not imported in the library code)
-        use: [['sass', { data: '@import "./src/styles/main.scss";' }]],
+        use: { sass: { data: '@import "./src/styles/main.scss";' } },
       }),
-      peerDepsExternal(),
+      peerDepsExternal(), // ensures peer deps like "react" and "react-dom" are not bundled
       resolve(),
       commonjs(),
-      preserveDirectives(),
+      preserveDirectives(), // preserve "use client" directives
       typescript({
         tsconfig: './tsconfig.json',
         sourceMap: false,
@@ -69,9 +72,10 @@ export default defineConfig(
         ],
       }),
       typescriptPaths(),
-      url(),
-      svgr(),
+      url(), // TODO: audit if this is needed
+      svgr(), // TODO: audit if this is needed
       terser(),
+      visualizer(),
     ],
     /**
      * Ignore warnings about "use client" directive, these are preserved by rollup-plugin-preserve-directives
@@ -85,6 +89,7 @@ export default defineConfig(
     },
   },
   {
+    // TODO: audit if this is needed (or add the same for lib/locale.d.ts)
     input: 'lib/octuple.d.ts',
     output: [{ file: 'lib/octuple.d.ts', format: 'esm' }],
     external: [/\.(css|less|scss)$/],

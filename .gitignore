@@ -16,6 +16,7 @@
 /dist
 
 # misc
+stats.html
 stats.json
 .DS_Store
 .env.local

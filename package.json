@@ -4,24 +4,29 @@
   "license": "MIT",
   "type": "module",
   "main": "lib/octuple.cjs",
-  "module": "lib/octuple.js",
-  "source": "src/octuple.ts",
+  "module": "lib/octuple.mjs",
   "types": "lib/octuple.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "lib"
   ],
   "exports": {
     ".": {
       "types": "./lib/octuple.d.ts",
-      "import": "./lib/octuple.js",
+      "import": "./lib/octuple.mjs",
       "require": "./lib/octuple.cjs"
     },
     "./locale": {
       "types": "./lib/locale.d.ts",
-      "import": "./lib/locale.js",
+      "import": "./lib/locale.mjs",
       "require": "./lib/locale.cjs"
     },
-    "./lib/octuple.css": "./lib/octuple.css"
+    "./lib/octuple.css": {
+      "import": "./lib/octuple.css",
+      "require": "./lib/octuple.css"
+    }
   },
   "repository": {
     "type": "git",
@@ -213,6 +218,7 @@
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "rollup-plugin-typescript-paths": "^1.5.0",
+    "rollup-plugin-visualizer": "^5.12.0",
     "sass": "1.47.0",
     "sass-loader": "12.3.0",
     "semver": "7.5.2",
