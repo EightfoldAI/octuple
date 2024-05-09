@@ -1,14 +1,13 @@
-import { defineConfig } from 'rollup';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import url from '@rollup/plugin-url';
 import svgr from '@svgr/rollup';
-import external from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
+import { defineConfig } from 'rollup';
 import dts from 'rollup-plugin-dts';
-import typescriptEngine from 'typescript';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
 
 import pkg from './package.json' assert { type: 'json' };
 
@@ -32,15 +31,15 @@ export default defineConfig(
     ],
     plugins: [
       postcss({
-        plugins: [],
         minimize: true,
+        extract: true,
+        use: [['sass', { data: '@import "./src/styles/main.scss";' }]],
       }),
-      external({ includeDependencies: true }),
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({
         tsconfig: './tsconfig.json',
-        typescript: typescriptEngine,
         sourceMap: false,
         exclude: [
           'coverage',
@@ -51,9 +50,9 @@ export default defineConfig(
           'node_modules/**',
           '*.cjs',
           '*.mjs',
-          '**/__snapshots__/*',
-          '**/tests/*',
-          '**/Tests/*',
+          '**/__snapshots__/**',
+          '**/tests/**',
+          '**/Tests/**',
           '**/*.test.js+(|x)',
           '**/*.test.ts+(|x)',
           '**/*.stories.ts+(|x)',
@@ -73,8 +72,8 @@ export default defineConfig(
     },
   },
   {
-    input: 'dist/esm/types/src/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    input: 'lib/esm/types/src/index.d.ts',
+    output: [{ file: 'lib/index.d.ts', format: 'esm' }],
     external: [/\.(css|less|scss)$/],
     plugins: [dts()],
   }
