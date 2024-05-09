@@ -8,7 +8,7 @@
   "types": "lib/octuple.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
+      "types": "./lib/octuple.d.ts",
       "import": "./lib/octuple.esm.js",
       "require": "./lib/octuple.js"
     },
@@ -21,8 +21,9 @@
   "scripts": {
     "storybook": "start-storybook -p 2022",
     "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
-    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
-    "build:rollup": "rm -rf lib && npm run lint && rollup -c",
+    "prebuild": "rm -rf lib && yarn lint",
+    "build": "rollup -c",
+    "build:webpack": "yarn prebuild && webpack --config webpack.prod.js --mode production",
     "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
     "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
     "prepublish": "yarn build",
@@ -201,6 +202,8 @@
     "rollup-plugin-dts": "6.1.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "rollup-plugin-typescript-paths": "^1.5.0",
     "sass": "1.47.0",
     "sass-loader": "12.3.0",
     "semver": "7.5.2",
