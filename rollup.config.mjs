@@ -70,7 +70,7 @@ export default defineConfig(
       typescriptPaths(),
       url(), // TODO: audit if this is needed
       svgr(), // TODO: audit if this is needed
-      terser(),
+      terser({ keep_fnames: true }),
       visualizer(),
     ],
     /**
