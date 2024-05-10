@@ -88,7 +88,7 @@ export default defineConfig(
     // TODO: audit if this is needed (or add the same for lib/locale.d.ts)
     input: 'lib/octuple.d.ts',
     output: [{ file: 'lib/octuple.d.ts', format: 'esm' }],
-    external: [/\.(css|less|scss)$/],
+    external: [/\.(css|scss)$/],
     plugins: [dts()],
   }
 );
