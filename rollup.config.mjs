@@ -7,7 +7,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 import progress from 'rollup-plugin-progress';
-import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 /**
@@ -73,7 +72,6 @@ export default defineConfig({
         '**/*.stories.js+(|x)',
       ],
     }),
-    typescriptPaths(),
     terser({ keep_fnames: true }),
     visualizer(),
   ],
