@@ -11,10 +11,10 @@
       "import": "./lib/octuple.mjs",
       "require": "./lib/octuple.cjs"
     },
-    "./locale": {
-      "types": "./lib/locale.d.ts",
-      "import": "./lib/locale.mjs",
-      "require": "./lib/locale.cjs"
+    "./lib/*": {
+      "types": "./lib/*.d.ts",
+      "import": "./lib/*.mjs",
+      "require": "./lib/*.cjs"
     },
     "./lib/octuple.css": {
       "import": "./lib/octuple.css",
