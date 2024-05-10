@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/EightfoldAI/octuple/branch/main/graph/badge.svg?token=XSAVLS0SVP)](https://codecov.io/gh/EightfoldAI/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-20.13.0-brightgreen.svg) [![codecov](https://codecov.io/gh/EightfoldAI/octuple/branch/main/graph/badge.svg?token=XSAVLS0SVP)](https://codecov.io/gh/EightfoldAI/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![npm package minimized gzipped size](https://img.shields.io/badge/octuple.js-337.4k-blueviolet?link=https://bundlephobia.com/package/@eightfold.ai/octuple)
 ![bundlesize-css-image](<https://img.shields.io/badge/@eightfold.ai/octuple/lib/octuple.css-163.5k_(gzipped)-blue?link=https://facia.dev/tools/compress-decompress/gzip-compress/>)
