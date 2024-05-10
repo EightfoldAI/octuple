@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.2-rollup.0](https://github.com/EightfoldAI/octuple/compare/v2.51.1...v2.51.2-rollup.0) (2024-05-10)
+
+### Bug Fixes
+
+- cjs artifacts from type module ([c6bed72](https://github.com/EightfoldAI/octuple/commits/c6bed72430a6caac7d2d59c52e1320d495ce0384))
+- cjs artifacts from type module ([8f283fe](https://github.com/EightfoldAI/octuple/commits/8f283fe0f12337e2723bb619b7eff5c7a5dedf0e))
+- **deps:** lockfile ([6c2643b](https://github.com/EightfoldAI/octuple/commits/6c2643b038b51d611ff6c289cbb591c618aaa259))
+- **infra:** bundle splitting and output ([249c3e7](https://github.com/EightfoldAI/octuple/commits/249c3e7a4b9e3c97a33caf5e8fdef158fb8a94af))
+- **infra:** css bundling & cleanup ([97d3d29](https://github.com/EightfoldAI/octuple/commits/97d3d290c8e61927aab3a329e0b854ab9dde7ff1))
+- **infra:** rollup 'use client' directive ([f590c4d](https://github.com/EightfoldAI/octuple/commits/f590c4db57c1cb4e148f6a80a57b7a91862573f3))
+- **infra:** rollup style loading ([963c18d](https://github.com/EightfoldAI/octuple/commits/963c18ddca9b4fb617ecf72e8e08c9566517ea37))
+- locale bundling and exports ([58cd223](https://github.com/EightfoldAI/octuple/commits/58cd223bbe1d1b549ebf85c696fe36f091fe26bc))
+- use client directives missing from output ([4b12076](https://github.com/EightfoldAI/octuple/commits/4b120764e8290e09fbaf7752cdf374174851ba43))
+
 ### [2.51.1](https://github.com/EightfoldAI/octuple/compare/v2.51.0...v2.51.1) (2024-04-30)
 
 ### Bug Fixes
