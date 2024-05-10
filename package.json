@@ -34,9 +34,8 @@
   "scripts": {
     "storybook": "start-storybook -p 2022",
     "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
-    "prebuild": "rm -rf lib && yarn lint",
-    "build": "rollup -c",
-    "build:webpack": "yarn prebuild && webpack --config webpack.prod.cjs --mode production",
+    "build": "rm -rf lib && yarn lint && rollup -c",
+    "build:webpack": "rm -rf lib && yarn lint && webpack --config webpack.prod.cjs --mode production",
     "details": "webpack --config webpack.dev.cjs --mode development --stats-error-details",
     "analyze": "webpack --config webpack.dev.cjs --mode production --json > stats.json",
     "prepublish": "yarn build",
