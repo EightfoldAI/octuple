@@ -24,8 +24,8 @@ export default defineConfig({
   output: [
     {
       ...SHARED_OUTPUT_OPTIONS,
-      chunkFileNames: '[name]-[hash].cjs',
-      entryFileNames: '[name].cjs',
+      chunkFileNames: '[name]-[hash].js',
+      entryFileNames: '[name].js',
       format: 'cjs',
     },
     {

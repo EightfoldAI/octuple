@@ -9,19 +9,19 @@
     ".": {
       "types": "./lib/octuple.d.ts",
       "import": "./lib/octuple.mjs",
-      "require": "./lib/octuple.cjs"
+      "require": "./lib/octuple.js"
     },
     "./lib/locale": {
       "types": "./lib/locale.d.ts",
       "import": "./lib/locale.mjs",
-      "require": "./lib/locale.cjs"
+      "require": "./lib/locale.js"
     },
     "./lib/octuple.css": {
       "import": "./lib/octuple.css",
       "require": "./lib/octuple.css"
     }
   },
-  "main": "lib/octuple.cjs",
+  "main": "lib/octuple.js",
   "module": "lib/octuple.mjs",
   "types": "lib/octuple.d.ts",
   "files": [
