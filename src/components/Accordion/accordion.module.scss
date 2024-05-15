@@ -1,7 +1,6 @@
 .accordion-container {
   font-family: var(--accordion-font-family);
   overflow: hidden;
-  min-width: fit-content;
 
   &.accordion-border {
     border: var(--accordion-border);
