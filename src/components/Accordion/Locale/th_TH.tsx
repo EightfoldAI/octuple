@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'th_TH',
-    collapseAriaLabelText: 'ปิดเนื้อหา',
-    expandAriaLabelText: 'เปิดเนื้อหา',
+    collapseAriaLabelText: 'แอคคอร์เดียน',
+    expandAriaLabelText: 'แอคคอร์เดียน',
   },
 };
 

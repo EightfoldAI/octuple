@@ -1,10 +1,13 @@
 import type { AccordionLocale } from '../Accordion.types';
 
+/**
+ * Please note that 'Accordion' does not have a direct translation in Vietnamese and is commonly used as is.
+ */
 const locale: AccordionLocale = {
   lang: {
     locale: 'vi_VN',
-    collapseAriaLabelText: 'Đóng nội dung',
-    expandAriaLabelText: 'Mở nội dung',
+    collapseAriaLabelText: 'Accordion',
+    expandAriaLabelText: 'Accordion',
   },
 };
 

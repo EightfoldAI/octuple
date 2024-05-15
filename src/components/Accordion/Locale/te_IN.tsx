@@ -3,8 +3,8 @@ import type { AccordionLocale } from '../Accordion.types';
 const locale: AccordionLocale = {
   lang: {
     locale: 'te_IN',
-    collapseAriaLabelText: 'కంటెంట్ మూసివేయండి',
-    expandAriaLabelText: 'కంటెంట్ తెరవండి',
+    collapseAriaLabelText: 'అకార్డియన్',
+    expandAriaLabelText: 'అకార్డియన్',
   },
 };
 
