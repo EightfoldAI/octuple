@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { isEqual } from '@ngard/tiny-isequal';
 import {
   ButtonSize,
   DefaultButton,
@@ -28,7 +27,7 @@ import { flattenKeys } from './index';
 import { useSyncState } from '../../../../hooks/useSyncState';
 import { IconName, IconSize } from '../../../Icon';
 import { useCanvasDirection } from '../../../../hooks/useCanvasDirection';
-import { canUseDom, mergeClasses } from '../../../../shared/utilities';
+import { canUseDom, isEqual, mergeClasses } from '../../../../shared/utilities';
 
 import styles from '../../Styles/table.module.scss';
 

@@ -18,15 +18,6 @@ Install with npm: `npm install @mdi/react`<br/>
 Install with yarn: `yarn add @mdi/react`
 
 ---
-## @ngard/tiny-isequal
-A minimal-weight utility similar to lodash.isequal
-
-[npm](http://npmjs.org/@ngard/tiny-isequal) - [Homepage](https://github.com/NickGard/tiny-isequal#readme) - [Repository](https://github.com/NickGard/tiny-isequal) - [Issues](https://github.com/NickGard/tiny-isequal/issues) - Licence: MIT
-
-Install with npm: `npm install @ngard/tiny-isequal`<br/>
-Install with yarn: `yarn add @ngard/tiny-isequal`
-
----
 ## @react-spring/web
 `react-dom` support
 
