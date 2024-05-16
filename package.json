@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.51.2-rollup-rc.0",
+  "version": "2.51.2-rollup-rc.1",
   "license": "MIT",
   "sideEffects": [
     "**/*.css"

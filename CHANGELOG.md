@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.2-rollup-rc.1](https://github.com/EightfoldAI/octuple/compare/v2.51.2-rollup-rc.0...v2.51.2-rollup-rc.1) (2024-05-16)
+
+### Bug Fixes
+
+- accordion: reverts fit content change in sass ([#831](https://github.com/EightfoldAI/octuple/issues/831)) ([72abf1f](https://github.com/EightfoldAI/octuple/commits/72abf1fd017150bc3ef3a0e3948304cd8841c503))
+- isequal: remove dep and replace with utility function derivation ([#833](https://github.com/EightfoldAI/octuple/issues/833)) ([8f6222a](https://github.com/EightfoldAI/octuple/commits/8f6222a0ce178c9d704d17a59207b385194ce0e8))
+
 ### [2.51.2-rollup-rc.0](https://github.com/EightfoldAI/octuple/compare/v2.51.1...v2.51.2-rollup-rc.0) (2024-05-14)
 
 ### Bug Fixes
