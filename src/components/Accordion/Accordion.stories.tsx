@@ -270,7 +270,7 @@ Custom.args = {
                 ariaLabel={item.ariaLabel}
                 disruptive={item.disruptive}
                 iconProps={{ path: item.icon }}
-                onClick={(e) => e.preventDefault()} // prevent accordion toggle, then apply your own logic.
+                onClick={(e) => e.stopPropagation()} // prevent accordion toggle, then apply your own logic.
                 shape={ButtonShape.Round}
                 variant={item.variant}
               />
