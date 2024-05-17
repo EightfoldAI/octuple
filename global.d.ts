@@ -3,8 +3,6 @@ declare module '*.scss' {
   export default styles;
 }
 
-declare module '@ngard/tiny-isequal';
-
 /**
  * userLanguage type for IE i18n
  */

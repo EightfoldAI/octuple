@@ -9,7 +9,6 @@ import {
   isVisible,
 } from '../../shared/utilities';
 import { alignElement, alignPoint } from 'dom-align';
-import { isEqual } from '@ngard/tiny-isequal';
 import { isSamePoint, restoreFocus, onViewportResize } from './util';
 import type {
   AlignType,
@@ -18,6 +17,7 @@ import type {
   TargetPoint,
 } from './Align.types';
 import useBuffer from './Hooks/useBuffer';
+import { isEqual } from '../../shared/utilities';
 
 type OnAlign = (source: HTMLElement, result: AlignResult) => void;
 
@@ -216,7 +216,7 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
   if (React.isValidElement(childNode)) {
     childNode = React.cloneElement(childNode, {
       ref: composeRef((childNode as any).ref, nodeRef),
-    });
+    } as React.Attributes & { ref?: React.Ref<unknown> });
   }
 
   return childNode;
