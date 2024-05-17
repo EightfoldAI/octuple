@@ -224,7 +224,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
   return (
     <>
       {baseRowNode}
-      {rowSupportExpand && expanded && expandRowNode}
+      {!!rowSupportExpand && !!expanded && expandRowNode}
     </>
   );
 }
