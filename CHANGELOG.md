@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.50.3](https://github.com/EightfoldAI/octuple/compare/v2.50.2...v2.50.3) (2024-05-17)
+
+### Bug Fixes
+
+- hotfix: table ensure boolean types in react render when expandable row ([0fbc8db](https://github.com/EightfoldAI/octuple/commits/0fbc8db58ac2d0d59235f6bfd82604a6caf947d1))
+
 ### [2.50.2](https://github.com/EightfoldAI/octuple/compare/v2.50.1...v2.50.2) (2024-04-30)
 
 ### Bug Fixes
