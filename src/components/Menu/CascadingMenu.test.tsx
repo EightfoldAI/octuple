@@ -107,8 +107,8 @@ const cascadingMenuItems = [
   },
   {
     type: MenuItemType.link,
-    text: 'Twitter link',
-    href: 'https://twitter.com',
+    text: 'X link',
+    href: 'https://x.com',
     target: '_blank',
   },
 ];
@@ -156,7 +156,7 @@ describe('Menu', () => {
     const menuitem2 = screen.getByText('Disabled button');
     const menuitem3 = screen.getByText('Date');
     const menuitem4 = screen.getByText('Sub menu 1');
-    const menuitem5 = screen.getByText('Twitter link');
+    const menuitem5 = screen.getByText('X link');
     expect(menuitem1).toBeTruthy();
     expect(menuitem2).toBeTruthy();
     expect(menuitem3).toBeTruthy();
