@@ -62,12 +62,69 @@
     align-items: center;
     background: var(--accordion-summary-background-color);
     color: var(--accordion-summary-text-color);
-    cursor: pointer;
     display: flex;
     gap: $space-s;
     justify-content: space-between;
+    position: relative;
     width: 100%;
     transition: background-color $motion-duration-fast $motion-easing-easeout;
+
+    .clickable-area {
+      bottom: 0;
+      border-radius: $border-radius-xl;
+      cursor: pointer;
+      left: 0;
+      pointer-events: all;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 0;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    // By default we ensure the header content does not obscure the clickable area.
+    .accordion-header-container {
+      pointer-events: none;
+      z-index: 1;
+
+      // If there's custom content in the header, its interactive children should be clickable or selectable.
+      a[href],
+      area,
+      audio,
+      blockquote,
+      button:not([disabled]),
+      cite,
+      details,
+      dd,
+      dt,
+      dl,
+      em,
+      embed,
+      figcaption,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      iframe,
+      input:not([disabled]),
+      label,
+      object,
+      p,
+      select:not([disabled]),
+      span,
+      strong,
+      [tabindex]:not([tabindex='-1']),
+      textarea:not([disabled]),
+      video {
+        pointer-events: auto;
+      }
+    }
 
     &.large {
       padding: $space-m $space-l;
@@ -112,18 +169,6 @@
       }
     }
 
-    &:focus,
-    &:focus-visible {
-      outline: none;
-    }
-
-    &-expanded {
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
-    }
-
     &:hover {
       background: var(--accordion-summary-background-hover-color);
       color: var(--accordion-summary-text-hover-color);
@@ -132,6 +177,7 @@
 
   .accordion-icon-button {
     transition: transform $motion-duration-fast;
+    z-index: 1;
 
     &.expanded-icon-button {
       transform: rotate(180deg);
@@ -180,20 +226,19 @@
 :global(.focus-visible) {
   .accordion-container {
     .accordion-summary {
-      &.focus-visible,
-      &:focus-visible {
-        border: 2px solid var(--focus-visible-shadow-color);
-        border-radius: $border-radius-xl;
-
-        &.large {
-          padding: calc(#{$space-m} - 2px) calc(#{$space-l} - 2px);
+      .clickable-area {
+        &.focus-visible,
+        &:focus-visible {
+          box-shadow: inset var(--focus-visible-box-shadow);
         }
+      }
 
-        &.medium {
-          padding: calc(#{$space-s} - 2px) calc(#{$space-m} - 2px);
-        }
+      &.accordion-summary-expanded {
+        border-radius: 0;
+        border-top-left-radius: $border-radius-xl;
+        border-top-right-radius: $border-radius-xl;
 
-        &.accordion-summary-expanded {
+        .clickable-area {
           border-radius: 0;
           border-top-left-radius: $border-radius-xl;
           border-top-right-radius: $border-radius-xl;

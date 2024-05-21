@@ -1,4 +1,5 @@
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/ms_MY';
 import Breadcrumb from '../Breadcrumb/Locale/ms_MY';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ms_MY';
 import Dialog from '../Dialog/BaseDialog/Locale/ms_MY';
@@ -17,6 +18,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Sila pilih',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,

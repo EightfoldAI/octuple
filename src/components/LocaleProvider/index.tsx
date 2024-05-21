@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import type { AccordionLocale } from '../Accordion/Accordion.types';
 import type { BreadcrumbLocale } from '../Breadcrumb/Breadcrumb.types';
 import type { DialogLocale } from '../Dialog/BaseDialog/BaseDialog.types';
 import type { DrawerLocale } from '../Drawer/Drawer.types';
@@ -18,6 +19,7 @@ import LocaleContext from './Context';
 export interface Locale {
   locale: string;
   global?: Record<string, any>;
+  Accordion?: AccordionLocale;
   Breadcrumb?: BreadcrumbLocale;
   DatePicker?: DatePickerLocale;
   Dialog?: DialogLocale;
