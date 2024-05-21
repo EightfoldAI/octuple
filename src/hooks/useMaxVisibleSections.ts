@@ -51,7 +51,7 @@ export const useMaxVisibleSections = (
   };
 
   useEffect(() => {
-    if (!itemsRef.current) {
+    if (!itemsRef?.current) {
       return () => {};
     }
     computeVisibleSections();
@@ -59,7 +59,7 @@ export const useMaxVisibleSections = (
   }, [itemsRef, itemsLength, extraItemWidth, itemPadding, linesToShow]);
 
   useEffect(() => {
-    if (!containerRef.current) {
+    if (!containerRef?.current) {
       return () => {};
     }
     const ro = new ResizeObserver(() => {
