@@ -121,8 +121,8 @@ const LinkOverlay = (args: any) => (
     items={[
       {
         type: MenuItemType.link,
-        text: 'Twitter link',
-        href: 'https://twitter.com',
+        text: 'X link',
+        href: 'https://x.com',
         target: '_blank',
       },
       {
@@ -188,8 +188,8 @@ const SubHeaderOverlay = (args: any) => {
         },
         {
           type: MenuItemType.link,
-          text: 'Twitter link',
-          href: 'https://twitter.com',
+          text: 'X link',
+          href: 'https://x.com',
           target: '_blank',
         },
         {
@@ -405,8 +405,8 @@ const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
         },
         {
           type: MenuItemType.link,
-          text: 'Twitter link',
-          href: 'https://twitter.com',
+          text: 'X link',
+          href: 'https://x.com',
           target: '_blank',
         },
         {
