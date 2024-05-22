@@ -234,7 +234,6 @@ const Success_Segment_Story: ComponentStory<typeof Progress> = (args) => {
           success={{ percent: 30 }}
           showSuccessLabel
           showValueLabel
-          width={200}
         />
       </Tooltip>
       <div style={{ width: 120 }}>
