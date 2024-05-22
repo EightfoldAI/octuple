@@ -225,7 +225,7 @@ const Success_Segment_Story: ComponentStory<typeof Progress> = (args) => {
     <Stack direction={'vertical'} flexGap={'l'} fullWidth>
       <Tooltip
         content={'3 done / 3 in progress / 4 to do'}
-        offset={-24}
+        offset={8}
         theme={TooltipTheme.dark}
       >
         <Progress
@@ -234,6 +234,7 @@ const Success_Segment_Story: ComponentStory<typeof Progress> = (args) => {
           success={{ percent: 30 }}
           showSuccessLabel
           showValueLabel
+          width={200}
         />
       </Tooltip>
       <div style={{ width: 120 }}>
