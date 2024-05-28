@@ -1,7 +1,7 @@
 import { ValidateStatus } from '../../components/Form/Form.types';
 import { tuple } from './';
 
-const InputStatuses = tuple(
+const InputStatuses = tuple?.(
   'success',
   'warning',
   'error',

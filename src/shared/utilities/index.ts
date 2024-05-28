@@ -12,6 +12,7 @@ export * from './generateId';
 export * from './get';
 export * from './getScroll';
 export * from './getScrollBarSize';
+export * from './isEqual';
 export * from './isNumeric';
 export * from './isVisible';
 export * from './mergeClasses';
