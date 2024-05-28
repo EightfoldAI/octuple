@@ -2638,4 +2638,29 @@
     --primary-background2-gradient
   );
   // ------ Pagination theme ------
+
+  // ------ Menu theme ------
+  --menu-background-color: var(--background-color);
+  --menu-border-color: var(--border-color);
+  --menu-footer-background-color: var(--background-color);
+  --menu-header-color: var(--text-primary-color);
+  --menu-sub-header-color: var(--grey-tertiary-color);
+  --menu-item-primary-label-color: var(--primary-color);
+  --menu-item-primary-background-color: transparent;
+  --menu-item-primary-hover-background-color: var(--accent-background1-color);
+  --menu-item-primary-active-background-color: var(--accent-background3-color);
+  --menu-item-disruptive-label-color: var(--disruptive-color);
+  --menu-item-disruptive-background-color: transparent;
+  --menu-item-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --menu-item-disruptive-active-background-color: var(
+    --disruptive-background3-color
+  );
+  --menu-item-neutral-label-color: var(--text-primary-color);
+  --menu-item-neutral-background-color: transparent;
+  --menu-item-neutral-hover-background-color: var(--grey-background1-color);
+  --menu-item-neutral-active-background-color: var(--grey-background2-color);
+  --menu-item-sub-text-color: var(--grey-tertiary-color);
+  // ------ Menu theme ------
 }

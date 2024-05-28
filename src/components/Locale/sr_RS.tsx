@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/sr_RS';
 import Breadcrumb from '../Breadcrumb/Locale/sr_RS';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/sr_RS';
 import Dialog from '../Dialog/BaseDialog/Locale/sr_RS';
@@ -20,6 +21,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Izaberi',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,

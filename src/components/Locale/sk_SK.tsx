@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/sk_SK';
 import Breadcrumb from '../Breadcrumb/Locale/sk_SK';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/sk_SK';
 import Dialog from '../Dialog/BaseDialog/Locale/sk_SK';
@@ -20,6 +21,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vyberte',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
