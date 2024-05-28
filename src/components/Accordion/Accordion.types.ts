@@ -5,6 +5,25 @@ import { IconProps } from '../Icon';
 import { BadgeProps } from '../Badge';
 import { ButtonProps } from '../Button';
 
+type Locale = {
+  /**
+   * The Accordion locale.
+   */
+  locale: string;
+  /**
+   * The Accordion `Close content` aria label string.
+   */
+  collapseAriaLabelText?: string;
+  /**
+   * The Accordion `Open content` aria label string.
+   */
+  expandAriaLabelText?: string;
+};
+
+export type AccordionLocale = {
+  lang: Locale;
+};
+
 export enum AccordionShape {
   Pill = 'pill',
   Rectangle = 'rectangle',
@@ -22,6 +41,10 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   bordered?: boolean;
   /**
+   * The Accordion `Close content` aria label string.
+   */
+  collapseAriaLabelText?: string;
+  /**
    * Configure how contextual props are consumed
    */
   configContextProps?: ConfigContextProps;
@@ -29,6 +52,10 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    * If the accordion is disabled
    */
   disabled?: boolean;
+  /**
+   * The Accordion `Open content` aria label string.
+   */
+  expandAriaLabelText?: string;
   /**
    * Accordion is in an expanded state or not
    * @default false
@@ -48,6 +75,11 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    * @default false
    */
   gradient?: boolean;
+  /**
+   * The Accordion locale.
+   * @default 'enUS'
+   */
+  locale?: AccordionLocale;
   /**
    * The onClick callback for the accordion.
    * @param event

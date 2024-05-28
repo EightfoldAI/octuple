@@ -7,13 +7,17 @@ exports[`Accordion Accordion is large 1`] = `
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="false"
       class="accordion-summary large"
       id="myAccordionId-header"
-      role="button"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="false"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -33,11 +37,13 @@ exports[`Accordion Accordion is large 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
-          Accordion Header
-        </span>
+          <span>
+            Accordion Header
+          </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -45,7 +51,10 @@ exports[`Accordion Accordion is large 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
@@ -93,13 +102,17 @@ exports[`Accordion Accordion is medium 1`] = `
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="false"
       class="accordion-summary medium"
       id="myAccordionId-header"
-      role="button"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="false"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -119,11 +132,13 @@ exports[`Accordion Accordion is medium 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
-          Accordion Header
-        </span>
+          <span>
+            Accordion Header
+          </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -131,7 +146,10 @@ exports[`Accordion Accordion is medium 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
@@ -179,13 +197,17 @@ exports[`Accordion Accordion is not bordered 1`] = `
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="false"
       class="accordion-summary large"
       id="myAccordionId-header"
-      role="button"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="false"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -205,11 +227,13 @@ exports[`Accordion Accordion is not bordered 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
-          Accordion Header
-        </span>
+          <span>
+            Accordion Header
+          </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -217,7 +241,10 @@ exports[`Accordion Accordion is not bordered 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
@@ -265,13 +292,17 @@ exports[`Accordion Accordion is pill shaped 1`] = `
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="false"
       class="accordion-summary large"
       id="myAccordionId-header"
-      role="button"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="false"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -291,11 +322,13 @@ exports[`Accordion Accordion is pill shaped 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
-          Accordion Header
-        </span>
+          <span>
+            Accordion Header
+          </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -303,7 +336,10 @@ exports[`Accordion Accordion is pill shaped 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
@@ -351,13 +387,17 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="false"
       class="accordion-summary large"
       id="myAccordionId-header"
-      role="button"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="false"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -377,11 +417,13 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
-          Accordion Header
-        </span>
+          <span>
+            Accordion Header
+          </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -389,7 +431,10 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
@@ -430,21 +475,25 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
 </div>
 `;
 
-exports[`Accordion Accordion renders custom content 1`] = `
+exports[`Accordion Accordion renders custom content and its buttons are clickable 1`] = `
 <div>
   <div
     class="accordion-container accordion-border pill"
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="true"
       class="accordion-summary accordion-summary-full-width medium accordion-summary-expanded"
       id="myAccordionId-header"
-      role="button"
       style="gap: 8px;"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="true"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -464,7 +513,7 @@ exports[`Accordion Accordion renders custom content 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
           <div
@@ -493,7 +542,9 @@ exports[`Accordion Accordion renders custom content 1`] = `
                   class="octuple-content"
                   style="font-weight: 400;"
                 >
-                  Supporting text
+                  <span>
+                    Supporting text
+                  </span>
                 </div>
               </div>
               <div
@@ -562,7 +613,7 @@ exports[`Accordion Accordion renders custom content 1`] = `
               </div>
             </div>
           </div>
-        </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -570,7 +621,10 @@ exports[`Accordion Accordion renders custom content 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="true"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
@@ -618,13 +672,17 @@ exports[`Accordion Renders without crashing 1`] = `
     data-testid="test-accordion"
   >
     <div
-      aria-controls="myAccordionId-content"
-      aria-expanded="false"
       class="accordion-summary large"
       id="myAccordionId-header"
-      role="button"
-      tabindex="0"
     >
+      <div
+        aria-controls="myAccordionId-content"
+        aria-expanded="false"
+        aria-label="Accordion"
+        class="clickable-area"
+        role="button"
+        tabindex="0"
+      />
       <div
         class="accordion-header-container"
       >
@@ -644,11 +702,13 @@ exports[`Accordion Renders without crashing 1`] = `
             />
           </svg>
         </span>
-        <span
+        <div
           class="accordion-header"
         >
-          Accordion Header
-        </span>
+          <span>
+            Accordion Header
+          </span>
+        </div>
         <span
           class="badge badge-medium badge"
         >
@@ -656,7 +716,10 @@ exports[`Accordion Renders without crashing 1`] = `
         </span>
       </div>
       <button
+        aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
       >
         <span
