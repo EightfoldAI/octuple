@@ -124,7 +124,7 @@ exports[`Menu Menu is large 1`] = `
             <a
               aria-disabled="false"
               class="link-style full-width menu-link"
-              href="https://twitter.com"
+              href="https://x.com"
               id="listItem3-"
               role="menuitem"
               tabindex="0"
@@ -139,7 +139,7 @@ exports[`Menu Menu is large 1`] = `
                   <span
                     class="label"
                   >
-                    Twitter link
+                    X link
                   </span>
                 </span>
               </span>
@@ -365,7 +365,7 @@ exports[`Menu Menu is medium 1`] = `
             <a
               aria-disabled="false"
               class="link-style full-width menu-link"
-              href="https://twitter.com"
+              href="https://x.com"
               id="listItem3-"
               role="menuitem"
               tabindex="0"
@@ -380,7 +380,7 @@ exports[`Menu Menu is medium 1`] = `
                   <span
                     class="label"
                   >
-                    Twitter link
+                    X link
                   </span>
                 </span>
               </span>
@@ -606,7 +606,7 @@ exports[`Menu Menu is small 1`] = `
             <a
               aria-disabled="false"
               class="link-style full-width menu-link"
-              href="https://twitter.com"
+              href="https://x.com"
               id="listItem3-"
               role="menuitem"
               tabindex="0"
@@ -621,7 +621,7 @@ exports[`Menu Menu is small 1`] = `
                   <span
                     class="label"
                   >
-                    Twitter link
+                    X link
                   </span>
                 </span>
               </span>

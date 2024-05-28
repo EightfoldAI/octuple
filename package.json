@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.51.1",
+  "version": "2.51.2",
   "license": "MIT",
   "main": "lib/octuple.js",
   "types": "lib/octuple.d.ts",
@@ -53,7 +53,6 @@
   "dependencies": {
     "@floating-ui/react": "0.20.1",
     "@mdi/react": "1.6.1",
-    "@ngard/tiny-isequal": "1.1.0",
     "@react-spring/web": "9.6.1",
     "@types/react-is": "17.0.3",
     "@types/shallowequal": "1.1.1",

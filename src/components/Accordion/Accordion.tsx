@@ -15,6 +15,7 @@ import ThemeContext, {
 } from '../ConfigProvider/ThemeContext';
 import {
   AccordionBodyProps,
+  AccordionLocale,
   AccordionProps,
   AccordionShape,
   AccordionSize,
@@ -24,6 +25,10 @@ import { Badge } from '../Badge';
 import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { Icon, IconName } from '../Icon';
 import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
+import LocaleReceiver, {
+  useLocaleReceiver,
+} from '../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 
 import styles from './accordion.module.scss';
 import themedComponentStyles from './accordion.theme.module.scss';
@@ -34,7 +39,9 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   badgeProps,
   children,
   classNames,
+  collapseAriaLabelText,
   disabled,
+  expandAriaLabelText,
   expandButtonProps,
   expanded,
   expandIconProps,
@@ -77,24 +84,28 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   );
 
   return (
-    <div
-      aria-expanded={expanded}
-      aria-controls={`${id}-content`}
-      className={headerClassnames}
-      onClick={onClick}
-      onKeyDown={handleKeyDown}
-      id={`${id}-header`}
-      role="button"
-      tabIndex={0}
-      {...rest}
-    >
+    <div className={headerClassnames} id={`${id}-header`} {...rest}>
+      <div
+        aria-controls={`${id}-content`}
+        aria-label={expanded ? expandAriaLabelText : collapseAriaLabelText}
+        aria-expanded={expanded}
+        className={styles.clickableArea}
+        onClick={onClick}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+      ></div>
       <div className={styles.accordionHeaderContainer}>
         {iconProps && <Icon {...iconProps} />}
-        <span className={styles.accordionHeader}>{children}</span>
+        <div className={styles.accordionHeader}>
+          {typeof children === 'string' ? <span>{children}</span> : children}
+        </div>
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
-        {...expandButtonProps}
+        aria-controls={`${id}-content`}
+        ariaLabel={expanded ? expandAriaLabelText : collapseAriaLabelText}
+        aria-expanded={expanded}
         disabled={disabled}
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
@@ -174,18 +185,20 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 };
 
 export const Accordion: FC<AccordionProps> = React.forwardRef(
-  (
-    {
+  (props: AccordionProps, ref: Ref<HTMLDivElement>) => {
+    const {
       badgeProps,
       bodyProps,
       bordered = true,
       children,
       classNames,
+      collapseAriaLabelText: defaultCollapseAriaLabelText,
       configContextProps = {
         noGradientContext: false,
         noThemeContext: false,
       },
       disabled,
+      expandAriaLabelText: defaultExpandAriaLabelText,
       expandButtonProps,
       expanded = false,
       expandIconProps = { path: IconName.mdiChevronDown },
@@ -193,6 +206,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
       headerProps,
       iconProps,
       id = uniqueId('accordion-'),
+      locale = enUS,
       onAccordionChange,
       renderContentAlways = true,
       shape = AccordionShape.Pill,
@@ -201,9 +215,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
       theme,
       themeContainerId,
       ...rest
-    },
-    ref: Ref<HTMLDivElement>
-  ) => {
+    } = props;
     const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
 
     const contextualGradient: Gradient = useContext(GradientContext);
@@ -219,6 +231,38 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
     useEffect(() => {
       setIsExpanded(expanded);
     }, [expanded]);
+
+    // ============================ Strings ===========================
+    const [accordionLocale] = useLocaleReceiver('Accordion');
+    let mergedLocale: AccordionLocale;
+
+    if (props.locale) {
+      mergedLocale = props.locale;
+    } else {
+      mergedLocale = accordionLocale || props.locale;
+    }
+
+    const [collapseAriaLabelText, setCollapseAriaLabelText] = useState<string>(
+      defaultCollapseAriaLabelText
+    );
+    const [expandAriaLabelText, setExpandAriaLabelText] = useState<string>(
+      defaultExpandAriaLabelText
+    );
+
+    // Locs: if the prop isn't provided use the loc defaults.
+    // If the mergedLocale is changed, update.
+    useEffect(() => {
+      setCollapseAriaLabelText(
+        props.collapseAriaLabelText
+          ? props.collapseAriaLabelText
+          : mergedLocale.lang!.collapseAriaLabelText
+      );
+      setExpandAriaLabelText(
+        props.expandAriaLabelText
+          ? props.expandAriaLabelText
+          : mergedLocale.lang!.expandAriaLabelText
+      );
+    }, [mergedLocale]);
 
     const toggleAccordion = (expand: boolean): void => {
       setIsExpanded(expand);
@@ -238,41 +282,49 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
     );
 
     return (
-      <ThemeContextProvider
-        componentClassName={themedComponentStyles.theme}
-        containerId={themeContainerId}
-        theme={mergedTheme}
-      >
-        <div className={accordionContainerStyle} ref={ref} {...rest}>
-          <AccordionSummary
-            badgeProps={badgeProps}
-            disabled={disabled}
-            expanded={isExpanded}
-            expandIconProps={expandIconProps}
-            expandButtonProps={expandButtonProps}
-            gradient={gradient}
-            iconProps={iconProps}
-            id={id}
-            onIconButtonClick={() => toggleAccordion(!isExpanded)}
-            onClick={() => toggleAccordion(!isExpanded)}
-            size={size}
-            {...headerProps}
-          >
-            {summary}
-          </AccordionSummary>
-          <AccordionBody
-            bordered={bordered}
-            expanded={isExpanded}
-            gradient={gradient}
-            id={id}
-            renderContentAlways={renderContentAlways}
-            size={size}
-            {...bodyProps}
-          >
-            {children}
-          </AccordionBody>
-        </div>
-      </ThemeContextProvider>
+      <LocaleReceiver componentName={'Accordion'} defaultLocale={enUS}>
+        {(_contextLocale: AccordionLocale) => {
+          return (
+            <ThemeContextProvider
+              componentClassName={themedComponentStyles.theme}
+              containerId={themeContainerId}
+              theme={mergedTheme}
+            >
+              <div className={accordionContainerStyle} ref={ref} {...rest}>
+                <AccordionSummary
+                  badgeProps={badgeProps}
+                  collapseAriaLabelText={collapseAriaLabelText}
+                  disabled={disabled}
+                  expandAriaLabelText={expandAriaLabelText}
+                  expanded={isExpanded}
+                  expandIconProps={expandIconProps}
+                  expandButtonProps={expandButtonProps}
+                  gradient={gradient}
+                  iconProps={iconProps}
+                  id={id}
+                  onIconButtonClick={() => toggleAccordion(!isExpanded)}
+                  onClick={() => toggleAccordion(!isExpanded)}
+                  size={size}
+                  {...headerProps}
+                >
+                  {summary}
+                </AccordionSummary>
+                <AccordionBody
+                  bordered={bordered}
+                  expanded={isExpanded}
+                  gradient={gradient}
+                  id={id}
+                  renderContentAlways={renderContentAlways}
+                  size={size}
+                  {...bodyProps}
+                >
+                  {children}
+                </AccordionBody>
+              </div>
+            </ThemeContextProvider>
+          );
+        }}
+      </LocaleReceiver>
     );
   }
 );
