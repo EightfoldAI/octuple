@@ -46,8 +46,8 @@ const MenuOverlay = (args: any) => {
         },
         {
           type: MenuItemType.link,
-          text: 'Twitter link',
-          href: 'https://twitter.com',
+          text: 'X link',
+          href: 'https://x.com',
           target: '_blank',
         },
         {
@@ -161,7 +161,7 @@ describe('Menu', () => {
     await waitFor(() => screen.getByText('Date'));
     const menuitem1 = screen.getByText('Date');
     const menuitem2 = screen.getByText('Disabled button');
-    const menuitem3 = screen.getByText('Twitter link');
+    const menuitem3 = screen.getByText('X link');
     const menuitem4 = screen.getByText('Radio1');
     const menuitem5 = screen.getByText('Radio2');
     const menuitem6 = screen.getByText('Radio3');

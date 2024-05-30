@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/ro_RO';
 import Breadcrumb from '../Breadcrumb/Locale/ro_RO';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ro_RO';
 import Dialog from '../Dialog/BaseDialog/Locale/ro_RO';
@@ -20,6 +21,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selectați',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,

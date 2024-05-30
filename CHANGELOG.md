@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.2](https://github.com/EightfoldAI/octuple/compare/v2.51.1...v2.51.2) (2024-05-22)
+
+### Features
+
+- accordion: deep accessibility updates ([#823](https://github.com/EightfoldAI/octuple/issues/823)) ([bc92489](https://github.com/EightfoldAI/octuple/commits/bc92489f92f51c4cebc6047f2e679f39086f9cb2))
+- menu: adds semantic css variables ([#836](https://github.com/EightfoldAI/octuple/issues/836)) ([de5174c](https://github.com/EightfoldAI/octuple/commits/de5174c6c0842a8094e2f1d7765d128313525801))
+
+### Bug Fixes
+
+- accordion: reverts fit content change in sass ([#831](https://github.com/EightfoldAI/octuple/issues/831)) ([72abf1f](https://github.com/EightfoldAI/octuple/commits/72abf1fd017150bc3ef3a0e3948304cd8841c503))
+- isequal: remove dep and replace with utility function derivation ([#833](https://github.com/EightfoldAI/octuple/issues/833)) ([8f6222a](https://github.com/EightfoldAI/octuple/commits/8f6222a0ce178c9d704d17a59207b385194ce0e8))
+- table: ensure boolean types in react render when expandable row ([#834](https://github.com/EightfoldAI/octuple/issues/834)) ([11c96e0](https://github.com/EightfoldAI/octuple/commits/11c96e0550dc96f39d3d62eba62cfaaa7787913f))
+
 ### [2.51.1](https://github.com/EightfoldAI/octuple/compare/v2.51.0...v2.51.1) (2024-04-30)
 
 ### Bug Fixes
