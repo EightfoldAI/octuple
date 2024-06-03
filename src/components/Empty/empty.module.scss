@@ -30,6 +30,10 @@
       .white-color {
         color: var(--empty-svg-white-color);
       }
+      .white-color-fill-accent-color-20-stroke {
+        fill: var(--empty-svg-white-color);
+        stroke: var(--empty-svg-accent-20-color);
+      }
       .white-color-fill-primary-color-30-stroke {
         fill: var(--empty-svg-white-color);
         stroke: var(--empty-svg-primary-30-color);
