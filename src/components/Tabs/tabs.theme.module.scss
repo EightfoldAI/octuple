@@ -1,0 +1,68 @@
+.theme {
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  // ------ Badge theme ------
+  --badge-font-family: var(--font-stack-full);
+  --badge-background-color: var(--grey-background2-color);
+  --badge-border-radius: 6px;
+  --badge-text-color: var(--grey-color);
+  --badge-active-background-color: var(--primary-background2-color);
+  --badge-active-text-color: var(--primary-color);
+  --badge-disruptive-background-color: var(--disruptive-background2-color);
+  --badge-disruptive-text-color: var(--disruptive-color);
+  // ------ Badge theme ------
+
+  // ------ Tabs theme ------
+  --tab-label: var(--text-secondary-color);
+  --tab-background: transparent;
+  --tab-active-label: var(--primary-secondary-color);
+  --tab-active-background: transparent;
+  --tab-hover-label: var(--primary-color);
+  --tab-hover-background: transparent;
+  --tab-indicator-color: var(--primary-secondary-color);
+  --tab-small-active-background: transparent;
+  --tab-small-hover-background: transparent;
+  --tab-pill-border-radius: var(--border-radius-xl);
+  --tab-pill-large-padding: 8px;
+  --tab-pill-medium-padding: 6px;
+  --tab-pill-small-padding: 4px;
+  --tab-pill-border-color: var(--grey-background1-color);
+  --tab-pill-border-style: solid;
+  --tab-pill-border-width: 1px;
+  --tab-pill-border: var(--tab-pill-border-width) var(--tab-pill-border-style)
+    var(--tab-pill-border-color);
+  --tab-pill-label: var(--text-secondary-color);
+  --tab-pill-active-label: var(--primary-color);
+  --tab-pill-active-background: var(--primary-background2-color);
+  --tab-pill-active-border-color: var(--primary-tertiary-color);
+  --tab-pill-active-border-style: solid;
+  --tab-pill-active-border-width: 1px;
+  --tab-pill-active-border: var(--tab-pill-active-border-width)
+    var(--tab-pill-active-border-style) var(--tab-pill-active-border-color);
+  --tab-pill-hover-label: var(--primary-color);
+  --tab-pill-background: var(--grey-background1-color);
+
+  --tab-inverse-pill-label: var(--text-inverse-color);
+  --tab-inverse-pill-hover-label: var(--primary-color-20);
+  --tab-inverse-pill-active-label: var(--primary-color);
+  --tab-inverse-pill-background: rgba(0, 0, 0, 0.1);
+  --tab-inverse-pill-active-background: var(--background-color);
+  --tab-inverse-pill-border-color: transparent;
+  --tab-inverse-pill-border-style: solid;
+  --tab-inverse-pill-border-width: 1px;
+  --tab-inverse-pill-border: var(--tab-inverse-pill-border-width)
+    var(--tab-inverse-pill-border-style) var(--tab-inverse-pill-border-color);
+  --tab-inverse-pill-active-border-color: var(--background-color);
+  --tab-inverse-pill-active-border-style: solid;
+  --tab-inverse-pill-active-border-width: 1px;
+  --tab-inverse-pill-active-border: var(--tab-inverse-pill-active-border-width)
+    var(--tab-inverse-pill-active-border-style)
+    var(--tab-inverse-pill-active-border-color);
+  --tab-underline: var(--border-color);
+  // ------ Tabs theme ------
+}

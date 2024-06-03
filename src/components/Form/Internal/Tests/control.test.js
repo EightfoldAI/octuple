@@ -8,40 +8,40 @@ import { changeValue, matchError } from './Common';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('OcForm.Control', () => {
-    test('fields', () => {
-        const wrapper = mount(
-            <OcForm>
-                <InfoField name="username" />
-            </OcForm>
-        );
+  test('fields', () => {
+    const wrapper = mount(
+      <OcForm>
+        <InfoField name="username" />
+      </OcForm>
+    );
 
-        wrapper.setProps({
-            fields: [{ name: 'username', value: 'Bamboo' }],
-        });
-        wrapper.update();
-
-        expect(wrapper.find('input').props().value).toEqual('Bamboo');
+    wrapper.setProps({
+      fields: [{ name: 'username', value: 'Bamboo' }],
     });
+    wrapper.update();
 
-    test('fully test', async () => {
-        const Test = () => {
-            const [fields, setFields] = React.useState([]);
+    expect(wrapper.find('input').props().value).toEqual('Bamboo');
+  });
 
-            return (
-                <OcForm
-                    fields={fields}
-                    onFieldsChange={(_, allFields) => {
-                        setFields(allFields);
-                    }}
-                >
-                    <InfoField name="test" rules={[{ required: true }]} />
-                </OcForm>
-            );
-        };
+  test('fully test', async () => {
+    const Test = () => {
+      const [fields, setFields] = React.useState([]);
 
-        const wrapper = mount(<Test />);
+      return (
+        <OcForm
+          fields={fields}
+          onFieldsChange={(_, allFields) => {
+            setFields(allFields);
+          }}
+        >
+          <InfoField name="test" rules={[{ required: true }]} />
+        </OcForm>
+      );
+    };
 
-        await changeValue(wrapper, '');
-        matchError(wrapper, "'test' is required");
-    });
+    const wrapper = mount(<Test />);
+
+    await changeValue(wrapper, '');
+    matchError(wrapper, "'test' is required");
+  });
 });

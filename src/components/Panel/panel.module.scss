@@ -1,230 +1,310 @@
 .panel-backdrop {
-    &:not(.modeless) {
-        @include backdrop;
+  &:not(.modeless) {
+    @include backdrop;
+  }
+
+  &.modeless {
+    @include no-backdrop;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-stack-full);
+    position: absolute;
+    padding: 0 $space-xl;
+    background: var(--background-color);
+    box-shadow: $shadow-panel-right;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    overflow: auto;
+
+    &.left,
+    &.right {
+      height: 100%;
+
+      &.small {
+        width: 480px;
+      }
+
+      &.medium {
+        width: 640px;
+      }
+
+      &.large {
+        width: 860px;
+      }
     }
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+
+    &.top,
+    &.bottom {
+      width: 100%;
+
+      &.small,
+      &.medium,
+      &.large {
+        height: 100%;
+      }
+    }
+
+    &.top,
+    &.bottom {
+      width: 100%;
+
+      &.small {
+        height: 480px;
+      }
+
+      &.medium {
+        height: 640px;
+      }
+
+      &.large {
+        height: 860px;
+      }
+    }
+
+    &.top {
+      top: 0;
+    }
+
+    &.bottom {
+      bottom: 0;
+    }
+
+    .header {
+      background-color: inherit;
+      padding: $space-l 0 $space-m;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+
+      &-button {
+        margin-right: $space-m;
+      }
+
+      &-buttons {
+        align-items: flex-end;
+        align-self: start;
+        height: fit-content;
+        justify-content: right;
+        white-space: nowrap;
+
+        button {
+          margin-left: $space-xs;
+        }
+      }
+    }
+
+    .body {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .footer {
+      background-color: inherit;
+      padding: $space-m 0 $space-l 0;
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    &.no-body-padding {
+      padding: 0;
+
+      .footer {
+        padding: $space-m $space-xl $space-l $space-xl;
+      }
+
+      .header {
+        padding: $space-l $space-xl $space-m $space-xl;
+      }
+
+      &.no-header-padding {
+        .header {
+          padding: 0;
+        }
+      }
+    }
+
+    &.no-header-padding {
+      padding: 0;
+
+      .body {
+        padding: 0 $space-xl;
+      }
+
+      .footer {
+        padding: $space-m $space-xl $space-l $space-xl;
+      }
+
+      .header {
+        padding: 0;
+      }
+
+      &.no-body-padding {
+        .body {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
 
     &.modeless {
-        @include no-backdrop;
+      pointer-events: none;
+
+      .panel {
+        pointer-events: all;
+      }
     }
 
-    .panel {
-        display: flex;
-        flex-direction: column;
-        font-family: $octuple-font-family;
-        position: absolute;
-        padding: 0 $space-xl;
-        background: var(--background-color);
-        box-shadow: $shadow-panel-right;
-        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-        overflow: auto;
-
-        &.left,
-        &.right {
-            height: 100%;
-
-            &.small {
-                width: 480px;
-            }
-
-            &.medium {
-                width: 640px;
-            }
-
-            &.large {
-                width: 860px;
-            }
-        }
-
-        &.left {
-            left: 0;
-        }
-
-        &.right {
-            right: 0;
-        }
-
-        &.top,
-        &.bottom {
-            width: 100%;
-
-            &.small {
-                height: 480px;
-            }
-
-            &.medium {
-                height: 640px;
-            }
-
-            &.large {
-                height: 860px;
-            }
-        }
-
-        &.top {
-            top: 0;
-        }
-
-        &.bottom {
-            bottom: 0;
-        }
-
-        .header {
-            background-color: inherit;
-            padding: $space-l 0 $space-m;
-            position: sticky;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-
-            &-button {
-                margin-right: $space-m;
-            }
-
-            &-buttons {
-                align-items: flex-end;
-                align-self: start;
-                height: fit-content;
-                justify-content: right;
-                white-space: nowrap;
-
-                button {
-                    margin-left: $space-xs;
-                }
-            }
-        }
-
-        .body {
-            display: flex;
-            flex-grow: 1;
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .footer {
-            background-color: inherit;
-            padding: $space-m 0 $space-l 0;
-            position: sticky;
-            bottom: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-        }
-
-        &.no-body-padding {
-            padding: 0;
-
-            .header {
-                padding: $space-l $space-xl $space-m $space-xl;
-            }
-
-            .footer {
-                padding: $space-m $space-xl $space-l $space-xl;
-            }
-        }
-
-        &.no-header-padding {
-            padding: 0;
-            .header {
-                padding: 0;
-            }
-            .body {
-                padding: 0 $space-xl;
-            }
-            .footer {
-                padding: $space-m $space-xl $space-l $space-xl;
-            }
-        }
+    &.modeless-mask {
+      pointer-events: auto;
     }
-
-    &.visible {
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-
-        &.modeless {
-            pointer-events: none;
-
-            .panel {
-                pointer-events: all;
-            }
-        }
-
-        &.modeless-mask {
-            pointer-events: auto;
-        }
-    }
+  }
 }
 
 // Custom Headers Styles
 .panel-backdrop .panel {
-    .logo-gradient-header-wrapper {
-        display: flex;
-        padding: 0 $space-xl;
-        min-height: 52px;
-        margin-bottom: $space-ml;
-        position: sticky;
-        top: 0;
-        justify-content: space-between;
-        align-items: center;
-        background: $eightfold-logo-gradient-dark;
+  .logo-gradient-header-wrapper {
+    display: flex;
+    padding: 0 $space-xl;
+    min-height: 52px;
+    margin-bottom: $space-ml;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    background: $eightfold-logo-gradient-dark;
 
-        .header-title {
-            @include octuple-h4();
-            padding: 0;
-            margin: 0;
-            color: var(--white-color);
-            display: flex;
-            align-items: center;
+    .header-title {
+      @include octuple-h4();
+      padding: 0;
+      margin: 0;
+      color: var(--white-color);
+      display: flex;
+      align-items: center;
 
-            & > :first-child {
-                padding-left: 0;
-            }
-        }
-
-        .header-action-buttons {
-            margin-right: calc(-#{$space-xl} / 2);
-        }
+      & > :first-child {
+        padding-left: 0;
+      }
     }
+
+    .header-action-buttons {
+      margin-right: calc(-#{$space-xl} / 2);
+    }
+  }
 }
 
 .panel-backdrop-rtl {
-    .panel {
-        &.left {
-            left: unset;
-            right: 0;
-        }
-
-        &.right {
-            left: 0;
-            right: unset;
-        }
-
-        .header {
-            &-button {
-                margin-left: $space-m;
-                margin-right: unset;
-            }
-
-            &-buttons {
-                button {
-                    margin-left: unset;
-                    margin-right: $space-xs;
-                }
-            }
-        }
-
-        .logo-gradient-header-wrapper {
-            .header-title {
-                & > :first-child {
-                    padding-left: $space-s;
-                    padding-right: 0;
-                }
-            }
-
-            .header-action-buttons {
-                margin-left: calc(-#{$space-xl} / 2);
-                margin-right: unset;
-            }
-        }
+  .panel {
+    &.left {
+      left: unset;
+      right: 0;
     }
+
+    &.right {
+      left: 0;
+      right: unset;
+    }
+
+    .header {
+      &-button {
+        margin-left: $space-m;
+        margin-right: unset;
+      }
+
+      &-buttons {
+        button {
+          margin-left: unset;
+          margin-right: $space-xs;
+        }
+      }
+    }
+
+    .logo-gradient-header-wrapper {
+      .header-title {
+        & > :first-child {
+          padding-left: $space-s;
+          padding-right: 0;
+        }
+      }
+
+      .header-action-buttons {
+        margin-left: calc(-#{$space-xl} / 2);
+        margin-right: unset;
+      }
+    }
+  }
+}
+
+@media (max-height: 640px) {
+  .panel-backdrop {
+    .panel {
+      &.top,
+      &.bottom {
+        &.small,
+        &.medium {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 860px) {
+  .panel-backdrop {
+    .panel {
+      &.top,
+      &.bottom {
+        &.large {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .panel-backdrop {
+    .panel {
+      &.left,
+      &.right {
+        &.small,
+        &.medium {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .panel-backdrop {
+    .panel {
+      &.left,
+      &.right {
+        &.large {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

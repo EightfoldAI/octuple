@@ -1,9 +1,9 @@
 function requestAnimationFrame(callback: Function) {
-    return setTimeout(callback);
+  return setTimeout(callback);
 }
 
 requestAnimationFrame.cancel = (id: number) => {
-    clearTimeout(id);
+  clearTimeout(id);
 };
 
 export default requestAnimationFrame;

@@ -1,49 +1,100 @@
 .main-wrapper {
-    display: inline-block;
-    font-family: $octuple-font-family;
-    white-space: nowrap;
+  display: inline-block;
+  font-family: var(--font-stack-full);
+  white-space: nowrap;
 
-    .reference-wrapper {
-        display: flex;
-        cursor: pointer;
-        padding: $space-xs;
+  .reference-wrapper {
+    display: flex;
+    cursor: pointer;
+    padding: $space-xs;
 
-        &:focus-visible {
-            outline: $space-xxxs solid var(--primary-color-80);
-        }
-
-        &.disabled {
-            pointer-events: none;
-            cursor: auto;
-        }
+    &:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-visible-box-shadow);
     }
+
+    &.disabled {
+      pointer-events: none;
+      cursor: auto;
+    }
+  }
 }
 
 .dropdown-wrapper {
-    background: var(--background-color);
-    padding: $space-xs;
-    box-shadow: $shadow-object-m;
-    border-radius: $corner-radius-xl;
-    font-family: $octuple-font-family;
-    transition: all $motion-duration-fast $motion-easing-easeout;
-    min-width: 200px;
+  @include scroll-bars;
+
+  background: var(--dropdown-background-color);
+  padding: $space-xs;
+  box-shadow: $shadow-object-m;
+  border-radius: $border-radius-l; // TODO: ENG-46367 Add DropdownSize type and handle mapping via trigger size, then L 24px, M 20px, S 16px border-radius determined by size of the trigger.
+  font-family: var(--font-stack-full);
+  min-width: 200px;
+  opacity: 0;
+  white-space: normal;
+  z-index: $z-index-400;
+  max-height: min(45vh, 600px);
+  overflow-y: auto;
+
+  &.open {
+    animation-name: slideUpIn;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easeout;
+    animation-fill-mode: forwards;
+  }
+
+  &.close {
+    animation-name: slideUpOut;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easein;
+    animation-fill-mode: forwards;
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+:global(.focus-visible) {
+  .dropdown-wrapper {
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
+    }
+  }
+}
+
+@keyframes slideUpIn {
+  0% {
     opacity: 0;
-    white-space: normal;
-    z-index: $z-index-400;
-    max-height: min(50vh, 600px);
-    overflow-y: auto;
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+}
 
-    &.open {
-        animation: slideUpIn $motion-duration-extra-fast
-            $motion-easing-easeinout 0s forwards;
-    }
-
-    &.close {
-        animation: slideUpOut $motion-duration-extra-fast
-            $motion-easing-easeinout 0s forwards;
-    }
-
-    &.no-padding {
-        padding: 0;
-    }
+@keyframes slideUpOut {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+  }
 }

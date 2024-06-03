@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown Should render a dropdown button 1`] = `
+<div>
+  <div
+    class="my-dropdown-class main-wrapper"
+  >
+    <button
+      aria-controls="dropdown-"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="button button-default button-medium pill-shape icon-right"
+      data-testid="dropdown-reference"
+      id="test-button-id"
+      role="button"
+      tabindex="0"
+    >
+      <span>
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+        <span
+          class="button-text-medium"
+        >
+          Dropdown menu test
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;

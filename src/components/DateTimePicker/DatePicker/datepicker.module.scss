@@ -2,300 +2,312 @@
 @import './Styles/status';
 
 .picker {
-    @include reset-component();
+  @include reset-component();
 
-    @include picker-padding(
-        $picker-input-height-m,
-        $picker-font-size-m,
-        $picker-input-padding-horizontal-m
-    );
+  @include picker-padding(
+    $picker-input-height-m,
+    $picker-font-size-m,
+    $picker-input-padding-horizontal-m
+  );
 
-    align-items: center;
-    background: $picker-background-color;
-    border: $picker-border-width $picker-border-style $picker-border-color;
-    border-radius: $picker-border-radius;
-    display: inline-flex;
-    font-family: $octuple-font-family;
+  align-items: center;
+  background: var(--picker-background-color);
+  border: var(--picker-border);
+  border-radius: $picker-border-radius;
+  display: inline-flex;
+  font-family: var(--font-stack-full);
+  position: relative;
+  transition: border $motion-duration-extra-fast,
+    box-shadow $motion-duration-extra-fast;
+
+  &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+    @include hover();
+  }
+
+  &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+    @include hover();
+  }
+
+  &-disabled {
+    @include disabled();
+  }
+
+  &-borderless {
+    border-color: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &-pill {
+    border-radius: $border-radius-xl;
+  }
+
+  &-underline {
+    border-color: transparent;
+  }
+
+  &-status-success.picker-underline {
+    div {
+      &:before {
+        border-color: var(--input-border-color);
+      }
+
+      &:after {
+        border-color: var(--input-border-color-underline-active);
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--input-border-color-underline-hover);
+        }
+      }
+    }
+  }
+
+  &-status-warning.picker-underline {
+    div {
+      &:before {
+        border-color: var(--warning-color);
+      }
+
+      &:after {
+        border-color: var(--warning-color);
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--warning-color);
+        }
+      }
+    }
+  }
+
+  &-status-error.picker-underline {
+    div {
+      &:before {
+        border-color: var(--error-color);
+      }
+
+      &:after {
+        border-color: var(--error-color);
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--error-color);
+        }
+      }
+    }
+  }
+
+  &-status-highlight.picker-underline {
+    div {
+      &:before {
+        border-color: var(--input-highlight-border-color);
+      }
+
+      &:after {
+        border-color: var(--input-highlight-border-color);
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--input-highlight-border-color);
+        }
+      }
+    }
+  }
+
+  &-readonly-icon {
+    margin: 0 $space-xs;
+  }
+
+  &-separator {
+    color: var(--picker-foreground-color);
+    cursor: default;
+    display: inline-block;
+    margin-right: $space-xs;
     position: relative;
-    transition: border $motion-duration-fast, box-shadow $motion-duration-fast;
+    top: $space-xs;
 
-    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-        @include hover();
+    .picker-focused {
+      color: var(--picker-foreground-color);
     }
 
-    &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-        @include active();
+    .picker-range-separator {
+      .picker-disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &-range {
+    position: relative;
+    display: inline-flex;
+
+    .picker-clear {
+      right: $picker-input-padding-horizontal-l;
     }
 
-    &-disabled {
-        @include disabled();
+    &:hover {
+      .picker-clear {
+        opacity: 1;
+      }
     }
 
-    &-borderless {
-        border-color: transparent;
-        box-shadow: none;
-        outline: none;
+    .picker-active-bar {
+      bottom: -$picker-border-width;
+      height: $space-xxxs;
+      margin-left: $picker-input-padding-horizontal-l;
+      background: var(--picker-input-active-bar-color);
+      opacity: 0;
+      transition: all $motion-duration-extra-fast;
+      pointer-events: none;
     }
 
-    &-pill {
-        border-radius: $corner-radius-xl;
-    }
-
-    &-underline {
-        border-color: transparent;
-    }
-
-    &-status-success.picker-underline {
-        div {
-            &:before {
-                border-color: var(--border-color);
-            }
-
-            &:after {
-                border-color: var(--primary-color-60);
-            }
-
-            &:hover {
-                &:before {
-                    border-color: var(--grey-color-60);
-                }
-            }
-        }
-    }
-
-    &-status-warning.picker-underline {
-        div {
-            &:before {
-                border-color: var(--warning-color);
-            }
-
-            &:after {
-                border-color: var(--warning-color);
-            }
-
-            &:hover {
-                &:before {
-                    border-color: var(--warning-color);
-                }
-            }
-        }
-    }
-
-    &-status-error.picker-underline {
-        div {
-            &:before {
-                border-color: var(--error-color);
-            }
-
-            &:after {
-                border-color: var(--error-color);
-            }
-
-            &:hover {
-                &:before {
-                    border-color: var(--error-color);
-                }
-            }
-        }
+    &.picker-focused {
+      .picker-active-bar {
+        opacity: 1;
+      }
     }
 
     &-separator {
-        color: $picker-foreground-color;
-        cursor: default;
-        display: inline-block;
-        position: relative;
-        top: 8px;
-
-        .picker-focused {
-            color: $picker-foreground-color;
-        }
-
-        .picker-range-separator {
-            .picker-disabled {
-                cursor: not-allowed;
-            }
-        }
+      align-items: center;
+      padding: 0 $space-xs;
+      line-height: 1;
     }
 
-    &-status-warning {
-        .picker-separator {
-            color: inherit;
-        }
+    &.picker-large {
+      .picker-clear {
+        transform: translateY(-12px);
+        right: $picker-input-padding-horizontal-l;
+      }
     }
 
-    &-status-error {
-        .picker-separator {
-            color: inherit;
-        }
+    &.picker-medium {
+      .picker-clear {
+        transform: translateY(-7px);
+        right: $picker-input-padding-horizontal-l;
+      }
     }
 
-    &-range {
-        position: relative;
-        display: inline-flex;
+    &.picker-small {
+      .picker-clear {
+        transform: translateY(-7px);
+        right: $picker-input-padding-horizontal-s;
+      }
 
-        .picker-clear {
-            right: $picker-input-padding-horizontal-l;
-        }
+      .picker-active-bar {
+        margin-left: $picker-input-padding-horizontal-s;
+      }
+    }
+  }
 
-        &:hover {
-            .picker-clear {
-                opacity: 1;
-            }
-        }
+  &-dropdown-range {
+    padding: calc($picker-arrow-size * 2 / 3) 0;
 
-        .picker-active-bar {
-            bottom: -$picker-border-width;
-            height: 2px;
-            margin-left: $picker-input-padding-horizontal-l;
-            background: $picker-input-active-bar-color;
-            opacity: 0;
-            transition: all $motion-duration-fast ease-out;
-            pointer-events: none;
-        }
+    &-hidden {
+      display: none;
+    }
+  }
 
-        &.picker-focused {
-            .picker-active-bar {
-                opacity: 1;
-            }
-        }
+  &-partial > &-time-partial {
+    padding-top: calc($space-xs / 2);
+  }
 
-        &-separator {
-            align-items: center;
-            padding: 0 $space-xs;
-            line-height: 1;
-        }
+  &-ranges {
+    margin-bottom: 0;
+    padding: ($space-xs / 2) $space-s;
+    overflow: hidden;
+    line-height: $picker-line-height-m - 2 * $picker-border-width -
+      calc($space-xs / 2);
+    text-align: left;
+    list-style: none;
 
-        &.picker-large {
-            .picker-clear {
-                transform: translateY(-12px);
-                right: $picker-input-padding-horizontal-l;
-            }
-        }
-
-        &.picker-medium {
-            .picker-clear {
-                transform: translateY(-7px);
-                right: $picker-input-padding-horizontal-l;
-            }
-        }
-
-        &.picker-small {
-            .picker-clear {
-                transform: translateY(-7px);
-                right: $picker-input-padding-horizontal-s;
-            }
-
-            .picker-active-bar {
-                margin-left: $picker-input-padding-horizontal-s;
-            }
-        }
+    li {
+      display: inline-block;
     }
 
-    &-dropdown-range {
-        padding: calc($picker-arrow-size * 2 / 3) 0;
-
-        &-hidden {
-            display: none;
-        }
+    .picker-preset {
+      margin-right: $space-m;
     }
 
-    &-partial > &-time-partial {
-        padding-top: calc($space-xs / 2);
+    .picker-ok {
+      float: right;
+      margin-left: $space-xs;
+    }
+  }
+
+  &-range-wrapper {
+    display: flex;
+  }
+
+  &-large &-ranges {
+    line-height: $picker-line-height-l - 2 * $picker-border-width -
+      calc($space-xs / 2);
+  }
+
+  &-medium &-ranges {
+    line-height: $picker-line-height-m - 2 * $picker-border-width -
+      calc($space-xs / 2);
+  }
+
+  &-small &-ranges {
+    line-height: $picker-line-height-s - 2 * $picker-border-width -
+      calc($space-xs / 2);
+  }
+
+  &-large {
+    @include picker-padding(
+      $picker-line-height-l,
+      $picker-font-size-l,
+      $picker-input-padding-horizontal-l
+    );
+
+    input {
+      @include input-size-1();
     }
 
-    &-ranges {
-        margin-bottom: 0;
-        padding: ($space-xs / 2) $space-s;
-        overflow: hidden;
-        line-height: $picker-line-height-m - 2 * $picker-border-width -
-            calc($space-xs / 2);
-        text-align: left;
-        list-style: none;
+    .picker-separator {
+      top: 10px;
 
-        li {
-            display: inline-block;
-        }
+      svg {
+        transform: scale(1.5);
+      }
+    }
+  }
 
-        .picker-preset {
-            margin-right: 16px;
-        }
+  &-medium {
+    @include picker-padding(
+      $picker-line-height-m,
+      $picker-font-size-m,
+      $picker-input-padding-horizontal-m
+    );
 
-        .picker-ok {
-            float: right;
-            margin-left: $space-xs;
-        }
+    input {
+      @include input-size-2();
     }
 
-    &-range-wrapper {
-        display: flex;
+    .picker-separator {
+      top: $space-xs;
+    }
+  }
+
+  &-small {
+    @include picker-padding(
+      $picker-line-height-s,
+      $picker-font-size-s,
+      $picker-input-padding-horizontal-s
+    );
+
+    input {
+      @include input-size-3();
     }
 
-    &-large &-ranges {
-        line-height: $picker-line-height-l - 2 * $picker-border-width -
-            calc($space-xs / 2);
+    .picker-separator {
+      top: 6px;
     }
-
-    &-medium &-ranges {
-        line-height: $picker-line-height-m - 2 * $picker-border-width -
-            calc($space-xs / 2);
-    }
-
-    &-small &-ranges {
-        line-height: $picker-line-height-s - 2 * $picker-border-width -
-            calc($space-xs / 2);
-    }
-
-    &-large {
-        @include picker-padding(
-            $picker-line-height-l,
-            $picker-font-size-l,
-            $picker-input-padding-horizontal-l
-        );
-
-        input {
-            @include input-size-1();
-        }
-
-        .picker-separator {
-            top: 13px;
-
-            svg {
-                transform: scale(1.5);
-            }
-        }
-    }
-
-    &-medium {
-        @include picker-padding(
-            $picker-line-height-m,
-            $picker-font-size-m,
-            $picker-input-padding-horizontal-m
-        );
-
-        input {
-            @include input-size-2();
-        }
-
-        .picker-separator {
-            top: 8px;
-        }
-    }
-
-    &-small {
-        @include picker-padding(
-            $picker-line-height-s,
-            $picker-font-size-s,
-            $picker-input-padding-horizontal-s
-        );
-
-        input {
-            @include input-size-3();
-        }
-
-        .picker-separator {
-            top: 4px;
-        }
-    }
+  }
 }
 
 @import './Styles/partial';

@@ -1,107 +1,280 @@
-import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import React, { useState } from 'react';
+import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { ButtonSize } from './Button.types';
+import { ButtonSize, ButtonVariant } from './Button.types';
+import { Button } from './';
+import { NudgeAnimation } from './Nudge';
 import {
-    DefaultButton,
-    NeutralButton,
-    PrimaryButton,
-    SecondaryButton,
-    SystemUIButton,
-} from './';
+  fireEvent,
+  getByTestId,
+  render,
+  waitFor,
+} from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia: any;
 
 describe('Button', () => {
-    beforeAll(() => {
-        matchMedia = new MatchMediaMock();
-    });
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+  });
 
-    afterEach(() => {
-        matchMedia.clear();
-    });
+  afterEach(() => {
+    matchMedia.clear();
+  });
 
-    it('simulate click on button', () => {
-        const wrapper = mount(<PrimaryButton text="test Button" />);
-        wrapper.find('.button').at(0).simulate('click');
-    });
+  test('simulate click on button', () => {
+    const ButtonToClick = (): JSX.Element => {
+      const [total, setTotal] = useState<number>(0);
+      return (
+        <>
+          <Button
+            data-testid="button-1"
+            onClick={() => {
+              setTotal(12);
+            }}
+            text={`The value is ${total}`}
+            variant={ButtonVariant.Primary}
+          />
+        </>
+      );
+    };
+    const { container } = render(<ButtonToClick />);
+    const buttonTestElement: HTMLElement = getByTestId(container, 'button-1');
+    expect(buttonTestElement.innerHTML).toContain('The value is 0');
+    fireEvent.click(buttonTestElement);
+    expect(buttonTestElement.innerHTML).toContain('The value is 12');
+  });
 
-    it('simulate click on enabled button', () => {
-        let testCounter = 0;
-        const disabled = false;
-        const wrapper = mount(
-            <PrimaryButton
-                disabled={disabled}
-                onClick={() => (testCounter += 1)}
-                text="test Button"
-            />
-        );
-        wrapper.find('.button').at(0).simulate('click');
-        wrapper.find('.button').at(0).simulate('click');
-        expect(testCounter).toEqual(2);
-    });
+  test('simulate click on enabled button', () => {
+    let testCounter = 0;
+    const disabled = false;
+    const { container } = render(
+      <Button
+        data-testid="button-2"
+        disabled={disabled}
+        onClick={() => (testCounter += 1)}
+        text="test Button"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    const buttonTestElement: HTMLElement = getByTestId(container, 'button-2');
+    fireEvent.click(buttonTestElement);
+    fireEvent.click(buttonTestElement);
+    expect(testCounter).toEqual(2);
+  });
 
-    it('simulate click on disabled button', () => {
-        let testCounter = 0;
-        const disabled = true;
-        const wrapper = mount(
-            <PrimaryButton
-                disabled={disabled}
-                onClick={() => (testCounter += 1)}
-                text="test Button"
-            />
-        );
-        wrapper.find('.button').at(0).simulate('click');
-        wrapper.find('.button').at(0).simulate('click');
-        expect(testCounter).toEqual(0);
-    });
+  test('simulate click on disabled button', () => {
+    let testCounter = 0;
+    const disabled = true;
+    const { container } = render(
+      <Button
+        data-testid="button-3"
+        disabled={disabled}
+        onClick={() => (testCounter += 1)}
+        text="test Button"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    const buttonTestElement: HTMLElement = getByTestId(container, 'button-3');
+    fireEvent.click(buttonTestElement);
+    fireEvent.click(buttonTestElement);
+    expect(testCounter).toEqual(0);
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is default', () => {
-        const wrapper = mount(<DefaultButton text="test default" />);
-        expect(wrapper.find('.button-default')).toBeTruthy();
-    });
+  test('Button is default', () => {
+    const { container } = render(
+      <Button text="test default" variant={ButtonVariant.Default} />
+    );
+    expect(container.getElementsByClassName('button-default')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is neutral', () => {
-        const wrapper = mount(<NeutralButton text="test neutral" />);
-        expect(wrapper.find('.button-neutral')).toBeTruthy();
-    });
+  test('Button is neutral', () => {
+    const { container } = render(
+      <Button text="test neutral" variant={ButtonVariant.Neutral} />
+    );
+    expect(container.getElementsByClassName('button-neutral')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is primary', () => {
-        const wrapper = mount(<PrimaryButton text="test" />);
-        expect(wrapper.find('.button-primary')).toBeTruthy();
-    });
+  test('Button is primary', () => {
+    const { container } = render(
+      <Button text="test" variant={ButtonVariant.Primary} />
+    );
+    expect(container.getElementsByClassName('button-primary')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is secondary', () => {
-        const wrapper = mount(<SecondaryButton text="test secondary" />);
-        expect(wrapper.find('.button-secondary')).toBeTruthy();
-    });
+  test('Button is secondary', () => {
+    const { container } = render(
+      <Button text="test secondary" variant={ButtonVariant.Secondary} />
+    );
+    expect(container.getElementsByClassName('button-secondary')).toHaveLength(
+      1
+    );
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is system ui', () => {
-        const wrapper = mount(<SystemUIButton text="test system ui" />);
-        expect(wrapper.find('.button-system-ui')).toBeTruthy();
-    });
+  test('Button is system ui', () => {
+    const { container } = render(
+      <Button text="test system ui" variant={ButtonVariant.SystemUI} />
+    );
+    expect(container.getElementsByClassName('button-system-ui')).toHaveLength(
+      1
+    );
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is large', () => {
-        const wrapper = mount(
-            <PrimaryButton size={ButtonSize.Large} text="test" />
-        );
-        expect(wrapper.find('.button-large')).toBeTruthy();
-    });
+  test('Button is large', () => {
+    const { container } = render(
+      <Button
+        size={ButtonSize.Large}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    expect(container.getElementsByClassName('button-large')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is medium', () => {
-        const wrapper = mount(
-            <PrimaryButton size={ButtonSize.Medium} text="test" />
-        );
-        expect(wrapper.find('.button-medium')).toBeTruthy();
-    });
+  test('Button is medium', () => {
+    const { container } = render(
+      <Button
+        size={ButtonSize.Medium}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    expect(container.getElementsByClassName('button-medium')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 
-    it('Button is small', () => {
-        const wrapper = mount(
-            <PrimaryButton size={ButtonSize.Small} text="test" />
-        );
-        expect(wrapper.find('.button-small')).toBeTruthy();
-    });
+  test('Button is small', () => {
+    const { container } = render(
+      <Button
+        size={ButtonSize.Small}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    expect(container.getElementsByClassName('button-small')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Button nudge is background', async () => {
+    const { container } = render(
+      <Button
+        nudgeProps={{
+          animation: NudgeAnimation.Background,
+          delay: 0,
+          enabled: true,
+          iterations: 1,
+        }}
+        size={ButtonSize.Small}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    await waitFor(() =>
+      expect(container.getElementsByClassName('background')).toHaveLength(1)
+    );
+    expect(container.getElementsByClassName('background')).toHaveLength(1);
+  });
+
+  test('Button nudge is bounce', async () => {
+    const { container } = render(
+      <Button
+        nudgeProps={{
+          animation: NudgeAnimation.Bounce,
+          delay: 0,
+          enabled: true,
+          iterations: 1,
+        }}
+        size={ButtonSize.Small}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    await waitFor(() =>
+      expect(container.getElementsByClassName('bounce')).toHaveLength(1)
+    );
+    expect(container.getElementsByClassName('bounce')).toHaveLength(1);
+  });
+
+  test('Button nudge is conic', async () => {
+    const { container } = render(
+      <Button
+        nudgeProps={{
+          animation: NudgeAnimation.Conic,
+          delay: 0,
+          enabled: true,
+          iterations: 1,
+        }}
+        size={ButtonSize.Small}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    await waitFor(() =>
+      expect(container.getElementsByClassName('conic')).toHaveLength(1)
+    );
+    expect(container.getElementsByClassName('conic')).toHaveLength(1);
+  });
+
+  test('Button nudge is ring', async () => {
+    const { container } = render(
+      <Button
+        nudgeProps={{
+          animation: NudgeAnimation.Ring,
+          delay: 0,
+          enabled: true,
+          iterations: 1,
+        }}
+        size={ButtonSize.Small}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    await waitFor(() =>
+      expect(container.getElementsByClassName('ring')).toHaveLength(1)
+    );
+    expect(container.getElementsByClassName('ring')).toHaveLength(1);
+  });
+
+  test('Button nudge is size', async () => {
+    const { container, rerender } = render(
+      <Button
+        nudgeProps={{
+          animation: NudgeAnimation.Size,
+          delay: 0,
+          enabled: true,
+          iterations: 1,
+        }}
+        size={ButtonSize.Small}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    await waitFor(() =>
+      expect(container.getElementsByClassName('size')).toHaveLength(1)
+    );
+    expect(container.getElementsByClassName('size')).toHaveLength(1);
+  });
+
+  test('Button is loading', () => {
+    const { container } = render(
+      <Button
+        loading
+        size={ButtonSize.Medium}
+        text="test"
+        variant={ButtonVariant.Primary}
+      />
+    );
+    expect(container.getElementsByClassName('loader')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 });

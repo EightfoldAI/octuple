@@ -1,4 +1,5 @@
 import { canUseDom } from './canUseDom';
+import { canUseDocElement } from './flexGapSupported';
 
 /**
  * Utility to determine if the browser supprts a given style name.
@@ -7,15 +8,13 @@ import { canUseDom } from './canUseDom';
  * @returns {boolean}
  */
 const isStyleNameSupport = (styleName: string | string[]): boolean => {
-    if (canUseDom()) {
-        const styleNameList = Array.isArray(styleName)
-            ? styleName
-            : [styleName];
-        const { documentElement } = window.document;
+  if (canUseDom() && canUseDocElement()) {
+    const styleNameList = Array.isArray(styleName) ? styleName : [styleName];
+    const { documentElement } = window.document;
 
-        return styleNameList.some((name) => name in documentElement.style);
-    }
-    return false;
+    return styleNameList.some((name) => name in documentElement.style);
+  }
+  return false;
 };
 
 /**
@@ -26,14 +25,14 @@ const isStyleNameSupport = (styleName: string | string[]): boolean => {
  * @returns {boolean}
  */
 const isStyleValueSupport = (styleName: string, value: any): boolean => {
-    if (!isStyleNameSupport(styleName)) {
-        return false;
-    }
+  if (!isStyleNameSupport(styleName)) {
+    return false;
+  }
 
-    const ele = document.createElement('div');
-    const origin = (<any>ele.style)[styleName];
-    (<any>ele.style)[styleName] = value;
-    return (<any>ele.style)[styleName] !== origin;
+  const ele = document.createElement('div');
+  const origin = (<any>ele.style)[styleName];
+  (<any>ele.style)[styleName] = value;
+  return (<any>ele.style)[styleName] !== origin;
 };
 
 /**
@@ -44,12 +43,12 @@ const isStyleValueSupport = (styleName: string, value: any): boolean => {
  * @returns {boolean}
  */
 export const isStyleSupport = (
-    styleName: string | string[],
-    styleValue?: any
+  styleName: string | string[],
+  styleValue?: any
 ): boolean => {
-    if (!Array.isArray(styleName) && styleValue !== undefined) {
-        return isStyleValueSupport(styleName, styleValue);
-    }
+  if (!Array.isArray(styleName) && styleValue !== undefined) {
+    return isStyleValueSupport(styleName, styleValue);
+  }
 
-    return isStyleNameSupport(styleName);
+  return isStyleNameSupport(styleName);
 };

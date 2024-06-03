@@ -6,12 +6,12 @@
 
 ## CHANGE TYPE:
 
--   [ ] Bugfix Pull Request
--   [ ] Feature Pull Request
+- [ ] Bugfix Pull Request
+- [ ] Feature Pull Request
 
 ## TEST COVERAGE:
 
--   [ ] Tests for this change already exist
--   [ ] I have added unittests for this change
+- [ ] Tests for this change already exist
+- [ ] I have added unittests for this change
 
 ## TEST PLAN:

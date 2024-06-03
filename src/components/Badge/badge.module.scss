@@ -1,22 +1,46 @@
 .badge {
-    @include octuple-h6();
-    --bg: var(--grey-color-20);
-    --label: var(--grey-color-80);
-    background-color: var(--bg);
-    border-radius: $space-m;
-    color: var(--label);
-    font-family: $octuple-font-family;
+  background-color: var(--badge-background-color);
+  border-radius: var(--badge-border-radius);
+  color: var(--badge-text-color);
+  font-family: var(--badge-font-family);
+  font-size: $text-font-size-2;
+  font-weight: $text-font-weight-regular;
+  line-height: $text-line-height-2;
+  padding: 0 $space-xxs;
+  width: fit-content;
+  height: fit-content;
+
+  &-large {
+    border-radius: calc(var(--badge-border-radius) + 2px);
+    font-size: $text-font-size-3;
+    font-weight: $text-font-weight-regular;
+    line-height: $text-line-height-3;
+    padding: $space-xxxs 5px;
+  }
+
+  &-medium {
+    border-radius: var(--badge-border-radius);
+    font-size: $text-font-size-2;
+    font-weight: $text-font-weight-regular;
+    line-height: $text-line-height-2;
     padding: 0 $space-xxs;
-    width: fit-content;
-    height: fit-content;
+  }
 
-    &.active {
-        --bg: var(--accent-color-30);
-        --label: var(--primary-color-80);
+  &-small {
+    border-radius: calc(var(--badge-border-radius) - 2px);
+    font-size: $text-font-size-1;
+    font-weight: $text-font-weight-regular;
+    line-height: $text-line-height-1;
+    padding: 0 3px;
+  }
 
-        &.disruptive {
-            --bg: var(--disruptive-color-20);
-            --label: var(--disruptive-color);
-        }
+  &.active {
+    background-color: var(--badge-active-background-color);
+    color: var(--badge-active-text-color);
+
+    &.disruptive {
+      background-color: var(--badge-disruptive-background-color);
+      color: var(--badge-disruptive-text-color);
     }
+  }
 }

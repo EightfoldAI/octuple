@@ -6,7 +6,7 @@ import { ConditonalWrapperProps } from './utilities.types';
  * @returns A conditionally wrapped element
  */
 export const ConditionalWrapper: React.FC<ConditonalWrapperProps> = ({
-    condition,
-    wrapper,
-    children,
+  condition,
+  wrapper,
+  children,
 }) => (condition ? wrapper(children) : children);

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useRef } from 'react';
 
 /**
@@ -6,24 +8,24 @@ import React, { useCallback, useEffect, useRef } from 'react';
  * @param shouldLock
  */
 export const useScrollLock = (
-    element: HTMLElement,
-    shouldLock: boolean
+  element: HTMLElement,
+  shouldLock: boolean
 ): void => {
-    let originalOverflow: React.MutableRefObject<string> = useRef<string>('');
+  let originalOverflow: React.MutableRefObject<string> = useRef<string>('');
 
-    const lockScroll = useCallback(() => {
-        originalOverflow.current = element.style.overflow;
-        element.style.overflow = 'hidden';
-    }, []);
+  const lockScroll = useCallback(() => {
+    originalOverflow.current = element.style.overflow;
+    element.style.overflow = 'hidden';
+  }, []);
 
-    const unlockScroll = useCallback(() => {
-        element.style.overflow = originalOverflow.current;
-    }, []);
+  const unlockScroll = useCallback(() => {
+    element.style.overflow = originalOverflow.current;
+  }, []);
 
-    useEffect(() => {
-        if (shouldLock) {
-            lockScroll();
-        }
-        return unlockScroll;
-    }, [element, shouldLock]);
+  useEffect(() => {
+    if (shouldLock) {
+      lockScroll();
+    }
+    return unlockScroll;
+  }, [element, shouldLock]);
 };

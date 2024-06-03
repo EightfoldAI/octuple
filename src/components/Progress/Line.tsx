@@ -1,9 +1,10 @@
 import React, { FC, useLayoutEffect, useRef } from 'react';
-import { LineProps, ProgressSize } from './Progress.types';
+import { LineProps, ProgressSize, ProgressVariant } from './Progress.types';
 import type { ProgressGradient, StringGradients } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
 import type { DirectionType } from '../ConfigProvider';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './progress.module.scss';
 
@@ -18,18 +19,18 @@ import styles from './progress.module.scss';
  *   }
  */
 export const sortGradient = (gradients: StringGradients) => {
-    let tempArr: any[] = [];
-    Object.keys(gradients).forEach((key) => {
-        const formattedKey = parseFloat(key.replace(/%/g, ''));
-        if (!isNaN(formattedKey)) {
-            tempArr.push({
-                key: formattedKey,
-                value: gradients[key],
-            });
-        }
-    });
-    tempArr = tempArr.sort((a, b) => a.key - b.key);
-    return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
+  let tempArr: any[] = [];
+  Object.keys(gradients).forEach((key) => {
+    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    if (!isNaN(formattedKey)) {
+      tempArr.push({
+        key: formattedKey,
+        value: gradients[key],
+      });
+    }
+  });
+  tempArr = tempArr.sort((a, b) => a.key - b.key);
+  return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
 };
 
 /**
@@ -43,228 +44,252 @@ export const sortGradient = (gradients: StringGradients) => {
  *   }
  */
 export const handleGradient = (
-    strokeColor: ProgressGradient,
-    directionConfig?: DirectionType
+  strokeColor: ProgressGradient,
+  directionConfig?: DirectionType
 ) => {
-    const {
-        from = 'var(--primary-color)',
-        to = 'var(--primary-color)',
-        direction = directionConfig === 'rtl' ? 'to left' : 'to right',
-        ...rest
-    } = strokeColor;
-    if (Object.keys(rest).length !== 0) {
-        const sortedGradients = sortGradient(rest as StringGradients);
-        return {
-            backgroundImage: `linear-gradient(${direction}, ${sortedGradients})`,
-        };
-    }
-    return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
+  const {
+    from = 'var(--progress-complete-background-color)',
+    to = 'var(--progress-complete-background-color)',
+    direction = directionConfig === 'rtl' ? 'to left' : 'to right',
+    ...rest
+  } = strokeColor;
+  if (Object.keys(rest).length !== 0) {
+    const sortedGradients = sortGradient(rest as StringGradients);
+    return {
+      backgroundImage: `linear-gradient(${direction}, ${sortedGradients})`,
+    };
+  }
+  return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
 const Line: FC<LineProps> = (props) => {
-    const {
-        children,
-        direction: directionConfig,
-        maxLabelRef,
-        minLabelRef,
-        percent,
-        showLabels,
-        showSuccessLabel,
-        showValueLabel,
-        size,
-        strokeColor,
-        strokeLinecap = 'round',
-        strokeWidth,
-        success,
-        successLabelRef,
-        trailColor = null,
-        valueLabelRef,
-    } = props;
+  const {
+    bordered,
+    children,
+    direction: directionConfig,
+    maxLabelRef,
+    minLabelRef,
+    percent,
+    pillBordered,
+    showLabels,
+    showSuccessLabel,
+    showValueLabel,
+    size,
+    strokeColor,
+    strokeLinecap = 'round',
+    strokeWidth,
+    success,
+    successLabelRef,
+    trailColor = null,
+    valueLabelRef,
+    variant,
+  } = props;
 
-    const progressBgRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const successSegmentRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
+  const progressBgRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const successSegmentRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
 
-    const backgroundProps =
-        strokeColor && typeof strokeColor !== 'string'
-            ? handleGradient(strokeColor, directionConfig)
-            : {
-                  background: typeof strokeColor === 'string' && strokeColor,
-              };
+  const backgroundProps =
+    strokeColor && typeof strokeColor !== 'string'
+      ? handleGradient(strokeColor, directionConfig)
+      : {
+          background: typeof strokeColor === 'string' && strokeColor,
+        };
 
-    const borderRadius =
-        strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-    const trailStyle = {
-        backgroundColor: trailColor || undefined,
-        borderRadius,
-    };
+  const borderRadius =
+    strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
+  const trailStyle = {
+    background: trailColor || undefined,
+    borderRadius,
+  };
 
-    const percentStyle = {
-        width: `${validProgress(percent)}%`,
-        height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
-        borderRadius,
-        ...backgroundProps,
-    };
+  const getPercentHeight = (): number => {
+    let height: number = 6;
+    if (size === ProgressSize.Large) {
+      height = 12;
+    } else if (size === ProgressSize.Medium) {
+      height = 6;
+    } else if (size === ProgressSize.Small) {
+      height = 4;
+    }
+    return height;
+  };
 
-    const successPercent = getSuccessPercent(props);
+  const percentStyle = {
+    width: `${validProgress(percent)}%`,
+    height: strokeWidth || getPercentHeight(),
+    borderRadius,
+    ...backgroundProps,
+  };
 
-    const successPercentStyle = {
-        width: `${validProgress(successPercent)}%`,
-        height: strokeWidth || (size === ProgressSize.Small ? 2 : 4),
-        borderRadius,
-        backgroundColor: success?.strokeColor,
-    };
+  const successPercent = getSuccessPercent(props);
 
-    const successSegment =
-        successPercent !== undefined ? (
-            <div
-                ref={successSegmentRef}
-                className={styles.progressSuccessBg}
-                style={successPercentStyle}
-            />
-        ) : null;
+  const successPercentStyle = {
+    width: `${validProgress(successPercent)}%`,
+    height: strokeWidth || getPercentHeight(),
+    borderRadius,
+    background: success?.strokeColor,
+  };
 
-    const updateLayout = (): void => {
-        // Early exit if there is no ref available yet. The DOM has yet to initialize
-        // and its not possible to calculate positions.
-        if (!valueLabelRef?.current || !showValueLabel) {
-            return;
-        }
+  const successSegment =
+    successPercent !== undefined ? (
+      <div
+        ref={successSegmentRef}
+        className={styles.progressSuccessBg}
+        style={successPercentStyle}
+      />
+    ) : null;
 
-        // Hide the min/max labels if the value labels would collide.
-        let progressBarOffset: number;
-        const valueLabelOffset: number = valueLabelRef.current.offsetWidth;
+  const updateLayout = (): void => {
+    // Early exit if there is no ref available yet. The DOM has yet to initialize
+    // and its not possible to calculate positions.
+    if (!valueLabelRef?.current || !showValueLabel) {
+      return;
+    }
 
-        let showMaxLabel: boolean;
-        let showMinLabel: boolean;
+    // Hide the min/max labels if the value labels would collide.
+    let progressBarOffset: number;
+    const valueLabelOffset: number = valueLabelRef.current.offsetWidth;
 
-        if (directionConfig === 'rtl') {
-            progressBarOffset = progressBgRef.current.offsetWidth;
+    let showMaxLabel: boolean;
+    let showMinLabel: boolean;
 
-            showMaxLabel =
-                showLabels &&
-                valueLabelRef.current.getBoundingClientRect().left >
-                    maxLabelRef.current.getBoundingClientRect().right;
-            maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+    if (directionConfig === 'rtl') {
+      progressBarOffset = progressBgRef.current.offsetWidth;
 
-            showMinLabel =
-                showLabels &&
-                valueLabelRef.current.getBoundingClientRect().left +
-                    valueLabelOffset <
-                    minLabelRef.current.getBoundingClientRect().left;
-            minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
+      showMaxLabel =
+        showLabels &&
+        valueLabelRef.current.getBoundingClientRect().left >
+          maxLabelRef.current.getBoundingClientRect().right;
+      maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
-            valueLabelRef.current.style.right = `${
-                progressBarOffset - valueLabelOffset / 2
-            }px`;
-            valueLabelRef.current.style.left = 'unset';
-        } else {
-            progressBarOffset =
-                progressBgRef.current.getBoundingClientRect().right;
-            showMaxLabel =
-                showLabels &&
-                valueLabelRef.current.getBoundingClientRect().left +
-                    valueLabelOffset <
-                    maxLabelRef.current.getBoundingClientRect().left;
-            maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+      showMinLabel =
+        showLabels &&
+        valueLabelRef.current.getBoundingClientRect().left + valueLabelOffset <
+          minLabelRef.current.getBoundingClientRect().left;
+      minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
 
-            showMinLabel =
-                showLabels &&
-                valueLabelRef.current.getBoundingClientRect().left >
-                    minLabelRef.current.getBoundingClientRect().right;
-            minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
+      valueLabelRef.current.style.right = `${
+        progressBarOffset - valueLabelOffset / 2
+      }px`;
+      valueLabelRef.current.style.left = 'unset';
+    } else {
+      progressBarOffset = progressBgRef.current.getBoundingClientRect().right;
+      showMaxLabel =
+        showLabels &&
+        valueLabelRef.current.getBoundingClientRect().left + valueLabelOffset <
+          maxLabelRef.current.getBoundingClientRect().left;
+      maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
-            valueLabelRef.current.style.left = `${
-                progressBarOffset - valueLabelOffset
-            }px`;
-            valueLabelRef.current.style.right = 'unset';
-        }
+      showMinLabel =
+        showLabels &&
+        valueLabelRef.current.getBoundingClientRect().left >
+          minLabelRef.current.getBoundingClientRect().right;
+      minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
 
-        if (!successLabelRef?.current || !showSuccessLabel) {
-            return;
-        }
+      valueLabelRef.current.style.left = `${
+        progressBarOffset - valueLabelOffset
+      }px`;
+      valueLabelRef.current.style.right = 'unset';
+    }
 
-        let successBarOffset: number;
-        const successLabelOffset: number = successLabelRef.current.offsetWidth;
+    if (!successLabelRef?.current || !showSuccessLabel) {
+      return;
+    }
 
-        let showValLabel: boolean;
+    let successBarOffset: number;
+    const successLabelOffset: number = successLabelRef.current.offsetWidth;
 
-        if (directionConfig === 'rtl') {
-            successBarOffset = successSegmentRef.current.offsetWidth;
+    let showValLabel: boolean;
 
-            showMaxLabel =
-                showLabels &&
-                successLabelRef.current.getBoundingClientRect().left >
-                    maxLabelRef.current.getBoundingClientRect().right;
-            maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+    if (directionConfig === 'rtl') {
+      successBarOffset = successSegmentRef.current.offsetWidth;
 
-            showMinLabel =
-                showLabels &&
-                successLabelRef.current.getBoundingClientRect().left +
-                    valueLabelOffset <
-                    minLabelRef.current.getBoundingClientRect().left;
-            minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
+      showMaxLabel =
+        showLabels &&
+        successLabelRef.current.getBoundingClientRect().left >
+          maxLabelRef.current.getBoundingClientRect().right;
+      maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
-            showValLabel =
-                showLabels &&
-                successLabelRef.current.getBoundingClientRect().left >
-                    valueLabelRef.current.getBoundingClientRect().right;
-            valueLabelRef.current.style.opacity = showValLabel ? '1' : '0';
+      showMinLabel =
+        showLabels &&
+        successLabelRef.current.getBoundingClientRect().left +
+          valueLabelOffset <
+          minLabelRef.current.getBoundingClientRect().left;
+      minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
 
-            successLabelRef.current.style.right = `${
-                successBarOffset - successLabelOffset / 2
-            }px`;
-            successLabelRef.current.style.left = 'unset';
-        } else {
-            successBarOffset =
-                successSegmentRef.current.getBoundingClientRect().right;
-            showMaxLabel =
-                showLabels &&
-                successLabelRef.current.getBoundingClientRect().left +
-                    successLabelOffset <
-                    maxLabelRef.current.getBoundingClientRect().left;
-            maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+      showValLabel =
+        showLabels &&
+        successLabelRef.current.getBoundingClientRect().left >
+          valueLabelRef.current.getBoundingClientRect().right;
+      valueLabelRef.current.style.opacity = showValLabel ? '1' : '0';
 
-            showMinLabel =
-                showLabels &&
-                successLabelRef.current.getBoundingClientRect().left >
-                    minLabelRef.current.getBoundingClientRect().right;
-            minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
+      successLabelRef.current.style.right = `${
+        successBarOffset - successLabelOffset / 2
+      }px`;
+      successLabelRef.current.style.left = 'unset';
+    } else {
+      successBarOffset =
+        successSegmentRef.current.getBoundingClientRect().right;
+      showMaxLabel =
+        showLabels &&
+        successLabelRef.current.getBoundingClientRect().left +
+          successLabelOffset <
+          maxLabelRef.current.getBoundingClientRect().left;
+      maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
-            showValLabel =
-                showLabels &&
-                successLabelRef.current.getBoundingClientRect().left +
-                    successLabelOffset <
-                    valueLabelRef.current.getBoundingClientRect().left;
-            valueLabelRef.current.style.opacity = showValLabel ? '1' : '0';
+      showMinLabel =
+        showLabels &&
+        successLabelRef.current.getBoundingClientRect().left >
+          minLabelRef.current.getBoundingClientRect().right;
+      minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
 
-            successLabelRef.current.style.left = `${
-                successBarOffset - successLabelOffset
-            }px`;
-            successLabelRef.current.style.right = 'unset';
-        }
-    };
+      showValLabel =
+        showLabels &&
+        successLabelRef.current.getBoundingClientRect().left +
+          successLabelOffset <
+          valueLabelRef.current.getBoundingClientRect().left;
+      valueLabelRef.current.style.opacity = showValLabel ? '1' : '0';
 
-    useLayoutEffect(() => {
-        updateLayout();
-    }, [showLabels, showValueLabel, success]);
+      successLabelRef.current.style.left = `${
+        successBarOffset - successLabelOffset
+      }px`;
+      successLabelRef.current.style.right = 'unset';
+    }
+  };
 
-    return (
-        <ResizeObserver onResize={updateLayout}>
-            <div className={styles.progressOuter}>
-                <div className={styles.progressInner} style={trailStyle}>
-                    <div
-                        ref={progressBgRef}
-                        className={styles.progressBg}
-                        style={percentStyle}
-                    />
-                    {successSegment}
-                </div>
-            </div>
-            {children}
-        </ResizeObserver>
-    );
+  useLayoutEffect(() => {
+    updateLayout();
+  }, [showLabels, showValueLabel, success]);
+
+  return (
+    <ResizeObserver onResize={updateLayout}>
+      <div
+        className={mergeClasses([
+          styles.progressOuter,
+          { [styles.progressOuterPill]: variant === ProgressVariant.Pill },
+          { [styles.progressOuterPillBordered]: !!pillBordered },
+        ])}
+      >
+        <div
+          className={mergeClasses([
+            styles.progressInner,
+            { [styles.bordered]: !!bordered },
+          ])}
+          style={trailStyle}
+        >
+          <div
+            ref={progressBgRef}
+            className={styles.progressBg}
+            style={percentStyle}
+          />
+          {successSegment}
+        </div>
+      </div>
+      {children}
+    </ResizeObserver>
+  );
 };
 
 export default Line;

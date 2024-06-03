@@ -1,1029 +1,1138 @@
 $upload-picture-card-size: 104px;
 
 .upload {
+  @include reset-component();
+
+  &-button {
+    display: block;
+    outline: none;
+    width: 100%;
+  }
+
+  input[type='file'] {
+    cursor: pointer;
+  }
+
+  &-select {
+    display: inline-block;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    opacity: $disabled-alpha-value;
+  }
+
+  &-list {
     @include reset-component();
 
-    &-button {
-        display: block;
-        outline: none;
-        width: 100%;
-    }
+    &-item {
+      color: var(--text-primary-color);
+      font-size: $text-font-size-3;
+      height: auto;
+      line-height: $text-line-height-3;
+      margin-top: $space-xs;
+      position: relative;
 
-    input[type='file'] {
-        cursor: pointer;
-    }
-
-    &-select {
+      &-name {
         display: inline-block;
-    }
+        overflow: hidden;
+        padding-left: $space-l;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+      }
 
-    &-disabled {
-        cursor: not-allowed;
-        opacity: $disabled-alpha-value;
-    }
+      &-card-actions {
+        margin-left: $space-l;
+        position: absolute;
+        right: 0;
 
-    &-list {
-        @include reset-component();
-
-        &-item {
-            color: var(--text-primary-color);
-            font-size: $text-font-size-3;
-            height: auto;
-            line-height: $text-line-height-3;
-            margin-top: $space-xs;
-            position: relative;
-
-            &-name {
-                display: inline-block;
-                overflow: hidden;
-                padding-left: $space-l;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                width: 100%;
-            }
-
-            &-card-actions {
-                margin-left: $space-l;
-                position: absolute;
-                right: 0;
-
-                &-button {
-                    opacity: 0;
-                }
-
-                &-button {
-                    vertical-align: top;
-                }
-
-                .icon-view,
-                .icon-download,
-                .icon-delete,
-                .icon-replace {
-                    margin-left: $space-xs;
-                }
-
-                &.picture {
-                    top: 22px;
-                    line-height: 0;
-                }
-
-                &-button:focus,
-                &.picture &-button {
-                    opacity: 1;
-                }
-
-                .icon {
-                    color: var(--text-secondary-color);
-                    transition: all $motion-duration-extra-fast;
-                }
-
-                &:hover .icon {
-                    color: var(--text-primary-color);
-                }
-            }
-
-            &-info {
-                border-radius: $corner-radius-xl;
-                height: 48px;
-                padding: $space-xs;
-                transition: background-color $motion-duration-extra-fast;
-                width: 400px;
-
-                > span {
-                    display: block;
-                    height: 100%;
-                    width: 100%;
-                }
-
-                .upload-list-item-file,
-                .upload-drop-icon {
-                    height: $space-l;
-                    width: $space-l;
-
-                    svg {
-                        max-height: $space-l;
-                        max-width: $space-l;
-                    }
-                }
-
-                .upload-spin-icon {
-                    height: $space-l;
-                    left: 9px;
-                    position: relative;
-                    width: $space-l;
-                }
-            }
-
-            &:hover &-info {
-                background-color: var(--grey-color-10);
-            }
-
-            &:hover &-card-actions-button {
-                opacity: 1;
-            }
-
-            &-error,
-            &-error .upload-list-item-text-icon,
-            &-error &-name {
-                color: var(--error-color);
-            }
-
-            &-error &-card-actions {
-                .icon {
-                    color: var(--error-color);
-                }
-
-                &-button {
-                    opacity: 1;
-                }
-            }
-
-            &-single {
-                font-size: $text-font-size-3;
-                height: 62px;
-                line-height: $text-line-height-3;
-                margin-top: 0;
-                width: 100%;
-
-                .upload-list-item-card-actions {
-                    margin-left: 0;
-                }
-
-                .upload-list-item-name {
-                    display: inline-block;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    width: 100%;
-                }
-
-                .upload-list-item-info {
-                    border-radius: 0;
-                    height: 100%;
-                    padding: 0 $space-s;
-                    width: 100%;
-
-                    > span {
-                        display: flex;
-                    }
-
-                    .upload-list-item-file,
-                    .upload-drop-icon {
-                        height: 48px;
-                        width: 48px;
-
-                        svg {
-                            max-height: 48px;
-                            max-width: 48px;
-                        }
-                    }
-
-                    .upload-spin-icon {
-                        height: 48px;
-                        left: 18px;
-                        position: relative;
-                        width: 48px;
-                    }
-                }
-
-                &:hover .upload-list-item-info {
-                    background-color: unset;
-                }
-            }
-
-            &-progress {
-                bottom: -$space-s;
-                padding: 0 $space-m;
-                position: absolute;
-                width: 100%;
-            }
-        }
-
-        &-small {
-            &:not(.upload-list-picture-card) {
-                width: 400px;
-            }
-        }
-
-        &-medium {
-            &:not(.upload-list-picture-card) {
-                width: 400px;
-            }
-        }
-
-        &-large {
-            &:not(.upload-list-picture-card) {
-                width: 100%;
-
-                .upload-list-item-tooltip-wrapper {
-                    width: 100%;
-                }
-
-                .upload-list-item-info {
-                    width: 100%;
-                }
-            }
-        }
-
-        &-picture {
-            .upload-list-item-thumbnail {
-                height: $space-l;
-                position: relative;
-                width: $space-l;
-
-                .upload-list-item-image {
-                    height: auto;
-                    left: 50%;
-                    max-height: $space-l;
-                    max-width: $space-l;
-                    position: absolute;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    width: auto;
-                }
-            }
-        }
-
-        &-text,
-        &-picture {
-            &-container {
-                transition: opacity $motion-duration-extra-fast,
-                    height $motion-duration-extra-fast;
-
-                &:before {
-                    content: '';
-                    display: table;
-                    height: 0;
-                    width: 0;
-                }
-
-                .upload-span {
-                    display: block;
-                    flex: auto;
-                }
-            }
-
-            .upload-span {
-                align-items: center;
-                display: flex;
-
-                > * {
-                    flex: none;
-                }
-            }
-
-            .upload-list-item-name {
-                flex: auto;
-                margin: 0;
-                padding: 0 $space-s;
-            }
-
-            .upload-list-item-card-actions {
-                position: static;
-            }
-
-            .upload-list-item-single {
-                .upload-list-item-name {
-                    padding: 0 $space-m;
-                }
-            }
-        }
-
-        .upload-animate-inline-appear,
-        .upload-animate-inline-enter,
-        .upload-animate-inline-leave {
-            animation-duration: $motion-duration-fast;
-            animation-fill-mode: forwards;
-            animation-timing-function: $motion-easing-easeinout;
-        }
-
-        .upload-animate-inline-appear,
-        .upload-animate-inline-enter {
-            animation-name: uploadAnimateInlineIn;
-        }
-
-        .upload-animate-inline-leave {
-            animation-name: uploadAnimateInlineOut;
-        }
-    }
-
-    &-drop {
-        background: var(--background-color);
-        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23bec2ca' stroke-width='1' stroke-dasharray='8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-        border-radius: $corner-radius-xl;
-        cursor: pointer;
-        height: 188px;
-        position: relative;
-        transition: border-color $motion-duration-extra-fast;
-        width: 400px;
-
-        &.upload-disabled {
-            cursor: not-allowed;
-            opacity: $disabled-alpha-value;
-        }
-
-        &:hover:not(.upload-disabled),
-        &-hover:not(.upload-disabled) {
-            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%234f5666' stroke-width='1' stroke-dasharray='8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-        }
-
-        &-container {
-            border-radius: $corner-radius-xl;
-            margin: 0 auto;
-            padding: $space-xl;
-            position: relative;
-            width: fit-content;
+        &-button {
+          opacity: 0;
         }
 
         &-button {
-            margin: 0 auto;
-            width: fit-content;
+          vertical-align: top;
         }
 
-        &-icon {
-            color: var(--text-tertiary-color);
+        .icon-view,
+        .icon-download,
+        .icon-delete,
+        .icon-replace {
+          margin-left: $space-xs;
         }
 
-        &-text {
-            color: var(--text-primary-color);
-            font-size: $text-font-size-5;
-            line-height: $text-line-height-5;
+        &.picture {
+          top: 22px;
+          line-height: 0;
         }
 
-        &-hint-text {
-            color: var(--text-secondary-color);
-            font-size: $text-font-size-4;
-            line-height: $text-line-height-4;
+        &-button:focus,
+        &.picture &-button {
+          opacity: 1;
         }
 
-        .upload-list {
-            text-align: center;
-            width: 336px;
-
-            .upload-list-item-single {
-                .upload-list-item-progress {
-                    bottom: -$space-l;
-                }
-            }
+        .icon {
+          color: var(--text-secondary-color);
+          transition: all $motion-duration-extra-fast;
         }
 
-        .upload-list-picture {
-            .upload-list-item-file,
-            .upload-list-item-icon {
-                display: block;
-                height: 48px;
-                line-height: 48px;
-                margin: 0;
-                text-align: unset;
-                width: 48px;
-            }
-
-            .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
-                display: block;
-                height: 80px;
-                line-height: 80px;
-                margin: 0 auto;
-                opacity: 1;
-                position: relative;
-                text-align: center;
-                width: 80px;
-
-                .upload-list-item-image {
-                    display: block;
-                    height: 80px;
-                    overflow: hidden;
-                    width: 80px;
-                }
-            }
+        &:hover .icon {
+          color: var(--text-primary-color);
         }
-    }
+      }
 
-    &-picture-card-wrapper {
-        display: inline-block;
+      &-info {
+        border-radius: $border-radius-xl;
+        height: 48px;
+        padding: $space-xs;
+        transition: background-color $motion-duration-extra-fast;
+        width: 400px;
+
+        > span {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+
+        .upload-list-item-file,
+        .upload-drop-icon {
+          height: $space-l;
+          width: $space-l;
+
+          svg {
+            max-height: $space-l;
+            max-width: $space-l;
+          }
+        }
+
+        .upload-spin-icon {
+          height: $space-l;
+          left: 9px;
+          position: relative;
+          width: $space-l;
+        }
+      }
+
+      &:hover &-info {
+        background-color: var(--grey-background1-color);
+      }
+
+      &:hover &-card-actions-button {
+        opacity: 1;
+      }
+
+      &-error,
+      &-error .upload-list-item-text-icon,
+      &-error &-name {
+        color: var(--error-color);
+      }
+
+      &-error &-card-actions {
+        .icon {
+          color: var(--error-color);
+        }
+
+        &-button {
+          opacity: 1;
+        }
+      }
+
+      &-single {
+        font-size: $text-font-size-3;
+        height: 62px;
+        line-height: $text-line-height-3;
+        margin-top: 0;
         width: 100%;
-    }
 
-    &-list-picture-card {
-        &-container {
-            display: inline-block;
-            width: $upload-picture-card-size;
-            height: $upload-picture-card-size;
-            margin-bottom: $space-xs;
-            margin-right: $space-xs;
-            vertical-align: top;
-
-            .upload-list-item-progress {
-                bottom: $space-xxl;
-                padding: 0 $space-xs;
-                position: relative;
-            }
+        .upload-list-item-card-actions {
+          margin-left: 0;
         }
 
-        .upload-list-item-tooltip-wrapper {
-            height: 100%;
-            width: 100%;
-        }
-
-        .upload-list-item {
-            border: 1px solid var(--border-color);
-            border-radius: $corner-radius-m;
-            height: 100%;
-            margin: 0;
-            padding: $space-xs;
-            position: relative;
-
-            &:focus-within,
-            &:hover {
-                .upload-list-item-info {
-                    &:before {
-                        opacity: 1;
-                    }
-                }
-            }
-
-            &-error {
-                border-color: var(--error-color);
-            }
+        .upload-list-item-name {
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
         }
 
         .upload-list-item-info {
-            border-radius: $corner-radius-m;
-            font-size: $text-font-size-2;
-            height: 100%;
-            overflow: hidden;
-            padding: 0;
-            position: relative;
-            width: 100%;
+          border-radius: 0;
+          height: 100%;
+          padding: 0 $space-s;
+          width: 100%;
 
-            &:before {
-                background-color: $all-backdrops;
-                content: ' ';
-                height: 100%;
-                opacity: 0;
-                position: absolute;
-                transition: all $motion-duration-extra-fast;
-                width: 100%;
-                z-index: 1;
-            }
-
-            .upload-list-item-file,
-            .upload-drop-icon {
-                height: 48px;
-                margin: 0 auto;
-                width: 48px;
-
-                svg {
-                    max-height: 48px;
-                    max-width: 48px;
-                }
-            }
-        }
-
-        .upload-list-item-actions {
-            left: 50%;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: all $motion-duration-extra-fast;
-            white-space: nowrap;
-            z-index: 10;
-
-            .icon-download,
-            .icon-delete,
-            .icon-replace {
-                margin: 0 $space-xxs;
-            }
-
-            a {
-                --bg: var(--primary-color-10);
-                --color: var(--primary-color-70);
-                color: var(--color);
-                background-color: var(--bg);
-                border-radius: 50%;
-                display: inline-block;
-                font-weight: $text-font-weight-semibold;
-                font-size: $text-font-size-2;
-                height: 28px;
-                line-height: $text-line-height-2;
-                margin: 0 $space-xxs;
-                padding: $button-padding-vertical-small;
-                transition: all $motion-duration-extra-fast
-                    $motion-easing-easeinout 0s;
-                vertical-align: top;
-                width: 28px;
-
-                // Hides the browser default keyboard focus-visible styles.
-                // Use the ConfigProvider instead.
-                &:focus-visible {
-                    outline: none;
-                }
-
-                &:disabled {
-                    opacity: $disabled-alpha-value;
-                    cursor: not-allowed;
-                }
-
-                &:hover:not([disabled]) {
-                    --bg: var(--background-color);
-                }
-
-                &:active:not([disabled]) {
-                    --bg: var(--primary-color-20);
-                    color: var(--primary-color-80);
-                }
-
-                .icon-view {
-                    margin: 0;
-                }
-            }
-        }
-
-        .upload-list-item-info:focus-within + .upload-list-item-actions,
-        .upload-list-item-info:hover + .upload-list-item-actions,
-        .upload-list-item-actions:focus-within,
-        .upload-list-item-actions:hover {
-            background: transparent;
-            opacity: 1;
-        }
-
-        .upload-list-item-thumbnail,
-        .upload-list-item-image {
-            display: block;
-            font-size: $text-font-size-2;
-            height: 100%;
-            line-height: 88px;
-            object-fit: contain;
-            position: static;
-            text-align: center;
-            width: 100%;
-        }
-
-        .upload-list-item-error .upload-list-item-thumbnail {
-            .icon {
-                svg path {
-                    &[fill='#e6f7ff'] {
-                        fill: var(--error-color);
-                    }
-
-                    &[fill='#1890ff'] {
-                        fill: var(--error-color);
-                    }
-                }
-            }
-        }
-
-        .upload-list-item-name {
-            box-sizing: border-box;
-            display: inline-block;
-            line-height: 44px;
-            margin: 0 0 0 $space-xs;
-            max-width: 100%;
-            overflow: hidden;
-            padding-left: 48px;
-            padding-right: $space-xs;
-            text-overflow: ellipsis;
-            transition: all $motion-duration-extra-fast;
-            white-space: nowrap;
-        }
-
-        .upload-list-item-uploading .upload-list-item-name {
-            margin-bottom: $space-s;
-        }
-
-        .upload-list-item-name {
-            display: none;
-            line-height: $text-line-height-3;
-            margin: $space-xs 0 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .upload-list-item-file + .upload-list-item-name {
-            bottom: 10px;
-            display: block;
-            position: absolute;
-        }
-
-        .upload-list-item-uploading {
-            &.upload-list-item {
-                background-color: var(--background-color);
-            }
-
-            .upload-list-item-info {
-                height: auto;
-
-                &:before,
-                .icon-view,
-                .icon-delete,
-                .icon-replace {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    &-select-picture-card {
-        background-color: var(--background-color);
-        border: 1px solid var(--border-color);
-        border-radius: $corner-radius-m;
-        cursor: pointer;
-        height: $upload-picture-card-size;
-        margin-bottom: $space-xs;
-        margin-right: $space-xs;
-        text-align: center;
-        transition: border-color $motion-duration-extra-fast;
-        vertical-align: top;
-        width: $upload-picture-card-size;
-
-        .upload-disabled {
-            opacity: $disabled-alpha-value;
-            pointer-events: none;
-        }
-
-        > .upload {
-            align-items: center;
+          > span {
             display: flex;
-            height: 100%;
-            justify-content: center;
-            text-align: center;
+          }
+
+          .upload-list-item-file,
+          .upload-drop-icon {
+            height: 48px;
+            width: 48px;
+
+            svg {
+              max-height: 48px;
+              max-width: 48px;
+            }
+          }
+
+          .upload-spin-icon {
+            height: 48px;
+            left: 18px;
+            position: relative;
+            width: 48px;
+          }
         }
 
-        &:focus-within:not(.upload-disabled) &:hover:not(.upload-disabled) {
-            border-color: var(--primary-color-70);
+        &:hover .upload-list-item-info {
+          background-color: unset;
         }
+      }
+
+      &-progress {
+        bottom: -$space-s;
+        padding: 0 $space-m;
+        position: absolute;
+        width: 100%;
+      }
     }
 
     &-small {
-        &.upload-drop {
-            height: 88px;
-            min-width: 400px;
-            width: fit-content;
-
-            .upload-drop-container {
-                margin: unset;
-                padding: $space-s;
-                width: 100%;
-            }
-
-            .upload-drop-button {
-                margin: auto 0 auto $space-l;
-            }
-
-            .upload-drop-text {
-                font-size: $text-font-size-5;
-                line-height: $text-line-height-5;
-            }
-
-            .upload-drop-hint-text {
-                font-size: $text-font-size-4;
-                line-height: $text-line-height-4;
-            }
-
-            .upload-list-item-single {
-                font-size: $text-font-size-3;
-                height: 62px;
-                line-height: $text-line-height-3;
-                margin-top: 0;
-                width: 376px;
-
-                .upload-list-item-card-actions {
-                    margin-left: 0;
-                }
-
-                .upload-list-item-name {
-                    display: inline-block;
-                    overflow: hidden;
-                    text-align: left;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    width: 100%;
-                }
-
-                .upload-list-item-info {
-                    border-radius: 0;
-                    height: 100%;
-                    min-width: unset;
-                    padding: 0 $space-s;
-                    width: 100%;
-
-                    > span {
-                        display: flex;
-                    }
-
-                    .upload-spin-icon {
-                        height: 48px;
-                        left: 18px;
-                        position: relative;
-                        width: 48px;
-                    }
-                }
-
-                .upload-list-item-progress {
-                    bottom: -$space-s;
-                }
-
-                &:hover .upload-list-item-info {
-                    background-color: unset;
-                }
-            }
-
-            .upload-list-picture {
-                .upload-list-item-file,
-                .upload-list-item-icon {
-                    display: block;
-                    height: 48px;
-                    line-height: 48px;
-                    margin: 0;
-                    text-align: unset;
-                    width: 48px;
-                }
-
-                .upload-list-item-thumbnail:not(.upload-list-item-file) {
-                    display: block;
-                    height: 48px;
-                    line-height: 48px;
-                    margin: 0;
-                    text-align: unset;
-                    width: 48px;
-
-                    .upload-list-item-image {
-                        height: auto;
-                        left: 50%;
-                        max-height: 48px;
-                        max-width: 48px;
-                        position: absolute;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                        width: auto;
-                    }
-                }
-
-                .upload-list-item-progress {
-                    bottom: -$space-s;
-                }
-            }
-        }
+      &:not(.upload-list-picture-card) {
+        width: 400px;
+      }
     }
 
     &-medium {
-        &.upload-drop {
-            height: auto;
-            min-width: 400px;
-            width: fit-content;
-
-            .upload-list-item-single {
-                font-size: $text-font-size-3;
-                height: auto;
-                line-height: $text-line-height-3;
-                margin-top: 0;
-
-                .upload-list-item-card-actions {
-                    margin-left: 0;
-                }
-
-                .upload-list-item-name {
-                    display: block;
-                    margin-bottom: $space-m;
-                    overflow: hidden;
-                    text-align: center;
-                    text-overflow: ellipsis;
-                    width: 100%;
-                    white-space: nowrap;
-                }
-
-                .upload-list-item-info {
-                    border-radius: 0;
-                    height: 100%;
-                    min-width: unset;
-                    text-align: center;
-
-                    > span {
-                        display: block;
-                    }
-
-                    .upload-list-item-thumbnail {
-                        span {
-                            align-items: unset;
-                            display: block;
-                            margin: 0 auto;
-                            position: relative;
-                        }
-                    }
-
-                    .upload-spin-icon {
-                        height: 48px;
-                        left: unset;
-                        position: relative;
-                        width: 48px;
-                    }
-                }
-
-                &:hover .upload-list-item-info {
-                    background-color: unset;
-                }
-            }
-
-            .upload-list-picture {
-                .upload-list-item-file,
-                .upload-list-item-icon {
-                    display: block;
-                    height: 48px;
-                    line-height: 48px;
-                    margin: 0 auto $space-m auto;
-                    text-align: unset;
-                    width: 48px;
-                }
-
-                .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
-                    display: block;
-                    height: 80px;
-                    margin: 0 auto $space-m auto;
-                    opacity: 1;
-                    position: relative;
-                    width: auto;
-
-                    .upload-list-item-image {
-                        height: 100%;
-                        left: unset;
-                        max-height: unset;
-                        max-width: unset;
-                        object-fit: contain;
-                        position: unset;
-                        top: unset;
-                        transform: none;
-                        width: 100%;
-                    }
-                }
-            }
-        }
+      &:not(.upload-list-picture-card) {
+        width: 400px;
+      }
     }
 
     &-large {
-        &.upload-drop {
-            height: auto;
-            min-width: 272px;
-            width: 100%;
+      &:not(.upload-list-picture-card) {
+        width: 100%;
 
-            .upload-drop-container {
-                padding: $space-xl $space-xs;
-            }
-
-            .upload-drop-icon,
-            .upload-drop-text,
-            .upload-drop-hint-text {
-                margin: 0 auto;
-                text-align: center;
-            }
-
-            .upload-list {
-                min-width: 272px;
-                width: 100%;
-
-                .upload-list-item-single {
-                    .upload-list-item-progress {
-                        bottom: -$space-l;
-                    }
-                }
-            }
-
-            .upload-list-item-single {
-                font-size: $text-font-size-3;
-                height: auto;
-                line-height: $text-line-height-3;
-                margin-top: 0;
-
-                .upload-list-item-card-actions {
-                    margin-left: 0;
-                }
-
-                .upload-list-item-name {
-                    display: block;
-                    margin-bottom: $space-m;
-                    overflow: hidden;
-                    text-align: center;
-                    text-overflow: ellipsis;
-                    width: 100%;
-                    white-space: nowrap;
-                }
-
-                .upload-list-item-info {
-                    border-radius: 0;
-                    height: 100%;
-                    min-width: unset;
-                    text-align: center;
-
-                    > span {
-                        display: block;
-                    }
-
-                    .upload-list-item-thumbnail {
-                        span {
-                            align-items: unset;
-                            display: block;
-                            margin: 0 auto;
-                            position: relative;
-                        }
-                    }
-
-                    .upload-spin-icon {
-                        height: 48px;
-                        left: unset;
-                        position: relative;
-                        width: 48px;
-                    }
-                }
-
-                &:hover .upload-list-item-info {
-                    background-color: unset;
-                }
-            }
-
-            .upload-list-picture {
-                .upload-list-item-file,
-                .upload-list-item-icon {
-                    display: block;
-                    height: 48px;
-                    line-height: 48px;
-                    margin: 0 auto $space-m auto;
-                    text-align: unset;
-                    width: 48px;
-                }
-
-                .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
-                    display: block;
-                    height: 80px;
-                    margin: 0 auto $space-m auto;
-                    opacity: 1;
-                    position: relative;
-                    width: auto;
-
-                    .upload-list-item-image {
-                        height: 100%;
-                        left: unset;
-                        max-height: unset;
-                        max-width: unset;
-                        object-fit: contain;
-                        position: unset;
-                        top: unset;
-                        transform: none;
-                        width: 100%;
-                    }
-                }
-            }
+        .upload-list-item-tooltip-wrapper {
+          width: 100%;
         }
 
-        @media screen and (min-width: 600px) {
-            &.upload-drop {
-                .upload-drop-container {
-                    padding: $space-xl;
-                }
-
-                .upload-list-picture {
-                    .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
-                        height: 160px;
-                    }
-                }
-            }
+        .upload-list-item-info {
+          width: 100%;
         }
+      }
     }
+
+    &-full-width {
+      .upload-list-item-tooltip-wrapper {
+        width: 100%;
+      }
+
+      .upload-list-item {
+        .upload-list-item-info {
+          width: 100%;
+        }
+      }
+
+      &.upload-list-small {
+        &:not(.upload-list-picture-card) {
+          width: 100%;
+        }
+      }
+
+      &.upload-list-medium {
+        &:not(.upload-list-picture-card) {
+          width: 100%;
+        }
+      }
+    }
+
+    &-picture {
+      .upload-list-item-thumbnail {
+        height: $space-l;
+        position: relative;
+        width: $space-l;
+
+        .upload-list-item-image {
+          height: auto;
+          left: 50%;
+          max-height: $space-l;
+          max-width: $space-l;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: auto;
+        }
+      }
+    }
+
+    &-text,
+    &-picture {
+      &-container {
+        transition: opacity $motion-duration-extra-fast,
+          height $motion-duration-extra-fast;
+
+        &:before {
+          content: '';
+          display: table;
+          height: 0;
+          width: 0;
+        }
+
+        .upload-span {
+          display: block;
+          flex: auto;
+        }
+      }
+
+      .upload-span {
+        align-items: center;
+        display: flex;
+
+        > * {
+          flex: none;
+        }
+      }
+
+      .upload-list-item-name {
+        flex: auto;
+        margin: 0;
+        padding: 0 $space-s;
+      }
+
+      .upload-list-item-card-actions {
+        position: static;
+      }
+
+      .upload-list-item-single {
+        .upload-list-item-name {
+          padding: 0 $space-m;
+        }
+      }
+    }
+
+    .upload-animate-inline-appear,
+    .upload-animate-inline-enter,
+    .upload-animate-inline-leave {
+      animation-duration: $motion-duration-fast;
+      animation-fill-mode: forwards;
+      animation-timing-function: $motion-easing-easeinout;
+    }
+
+    .upload-animate-inline-appear,
+    .upload-animate-inline-enter {
+      animation-name: uploadAnimateInlineIn;
+    }
+
+    .upload-animate-inline-leave {
+      animation-name: uploadAnimateInlineOut;
+    }
+  }
+
+  &-drop {
+    background: var(--background-color);
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23bec2ca' stroke-width='1' stroke-dasharray='8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: $border-radius-xl;
+    cursor: pointer;
+    height: 188px;
+    position: relative;
+    transition: border-color $motion-duration-extra-fast;
+    width: 400px;
+
+    &.upload-disabled {
+      cursor: not-allowed;
+      opacity: $disabled-alpha-value;
+    }
+
+    &:hover:not(.upload-disabled),
+    &-hover:not(.upload-disabled) {
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%234f5666' stroke-width='1' stroke-dasharray='8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+
+    &-container {
+      border-radius: $border-radius-xl;
+      margin: 0 auto;
+      padding: $space-xl;
+      position: relative;
+      width: fit-content;
+    }
+
+    &-button {
+      margin: 0 auto;
+      width: fit-content;
+    }
+
+    &-icon {
+      color: var(--text-tertiary-color);
+    }
+
+    &-text {
+      color: var(--text-primary-color);
+      font-size: $text-font-size-5;
+      line-height: $text-line-height-5;
+    }
+
+    &-hint-text {
+      color: var(--text-secondary-color);
+      font-size: $text-font-size-4;
+      line-height: $text-line-height-4;
+    }
+
+    .upload-list {
+      text-align: center;
+      width: 336px;
+
+      .upload-list-item-single {
+        .upload-list-item-progress {
+          bottom: -$space-l;
+        }
+      }
+    }
+
+    .upload-list-picture {
+      .upload-list-item-file,
+      .upload-list-item-icon {
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        margin: 0;
+        text-align: unset;
+        width: 48px;
+      }
+
+      .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
+        display: block;
+        height: 80px;
+        line-height: 80px;
+        margin: 0 auto;
+        opacity: 1;
+        position: relative;
+        text-align: center;
+        width: 80px;
+
+        .upload-list-item-image {
+          display: block;
+          height: 80px;
+          overflow: hidden;
+          width: 80px;
+        }
+      }
+    }
+  }
+
+  &-picture-card-wrapper {
+    display: inline-block;
+    width: 100%;
+  }
+
+  &-list-picture-card {
+    &-container {
+      display: inline-block;
+      width: $upload-picture-card-size;
+      height: $upload-picture-card-size;
+      margin-bottom: $space-xs;
+      margin-right: $space-xs;
+      vertical-align: top;
+
+      .upload-list-item-progress {
+        bottom: $space-xxl;
+        padding: 0 $space-xs;
+        position: relative;
+      }
+    }
+
+    .upload-list-item-tooltip-wrapper {
+      height: 100%;
+      width: 100%;
+    }
+
+    .upload-list-item {
+      border: 1px solid var(--border-color);
+      border-radius: $border-radius-m;
+      height: 100%;
+      margin: 0;
+      padding: $space-xs;
+      position: relative;
+
+      &:focus-within,
+      &:hover {
+        .upload-list-item-info {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+
+      &-error {
+        border-color: var(--error-color);
+      }
+    }
+
+    .upload-list-item-info {
+      border-radius: $border-radius-m;
+      font-size: $text-font-size-2;
+      height: 100%;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+      width: 100%;
+
+      &:before {
+        background-color: $all-backdrops;
+        content: ' ';
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        transition: all $motion-duration-extra-fast;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .upload-list-item-file,
+      .upload-drop-icon {
+        height: 48px;
+        margin: 0 auto;
+        width: 48px;
+
+        svg {
+          max-height: 48px;
+          max-width: 48px;
+        }
+      }
+    }
+
+    .upload-list-item-actions {
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all $motion-duration-extra-fast;
+      white-space: nowrap;
+      z-index: 10;
+
+      .icon-download,
+      .icon-delete,
+      .icon-replace {
+        margin: 0 $space-xxs;
+      }
+
+      a {
+        --bg: var(--primary-background1-color);
+        --color: var(--primary-secondary-color);
+        color: var(--color);
+        background-color: var(--bg);
+        border-radius: 50%;
+        display: inline-block;
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-2;
+        height: 28px;
+        line-height: $text-line-height-2;
+        margin: 0 $space-xxs;
+        padding: $button-padding-vertical-small;
+        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+        vertical-align: top;
+        width: 28px;
+
+        // Hides the browser default keyboard focus-visible styles.
+        // Use the ConfigProvider instead.
+        &:focus-visible {
+          outline: none;
+        }
+
+        &:disabled {
+          opacity: $disabled-alpha-value;
+          cursor: not-allowed;
+        }
+
+        &:hover:not([disabled]) {
+          --bg: var(--background-color);
+        }
+
+        &:active:not([disabled]) {
+          --bg: var(--primary-background2-color);
+          color: var(--primary-color);
+        }
+
+        &:has(.icon-view) {
+          padding: 7px;
+        }
+
+        .icon-view {
+          margin: 0;
+        }
+      }
+    }
+
+    .upload-list-item-info:focus-within + .upload-list-item-actions,
+    .upload-list-item-info:hover + .upload-list-item-actions,
+    .upload-list-item-actions:focus-within,
+    .upload-list-item-actions:hover {
+      background: transparent;
+      opacity: 1;
+    }
+
+    .upload-list-item-thumbnail,
+    .upload-list-item-image {
+      display: block;
+      font-size: $text-font-size-2;
+      height: 100%;
+      line-height: 88px;
+      object-fit: contain;
+      position: static;
+      text-align: center;
+      width: 100%;
+    }
+
+    .upload-list-item-error .upload-list-item-thumbnail {
+      .icon {
+        svg path {
+          &[fill='#e6f7ff'] {
+            fill: var(--error-color);
+          }
+
+          &[fill='#1890ff'] {
+            fill: var(--error-color);
+          }
+        }
+      }
+    }
+
+    .upload-list-item-name {
+      box-sizing: border-box;
+      display: inline-block;
+      line-height: 44px;
+      margin: 0 0 0 $space-xs;
+      max-width: 100%;
+      overflow: hidden;
+      padding-left: 48px;
+      padding-right: $space-xs;
+      text-overflow: ellipsis;
+      transition: all $motion-duration-extra-fast;
+      white-space: nowrap;
+    }
+
+    .upload-list-item-uploading .upload-list-item-name {
+      margin-bottom: $space-s;
+    }
+
+    .upload-list-item-name {
+      display: none;
+      line-height: $text-line-height-3;
+      margin: $space-xs 0 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .upload-list-item-file + .upload-list-item-name {
+      bottom: 10px;
+      display: block;
+      position: absolute;
+    }
+
+    .upload-list-item-uploading {
+      &.upload-list-item {
+        background-color: var(--background-color);
+      }
+
+      .upload-list-item-info {
+        height: auto;
+
+        &:before,
+        .icon-view,
+        .icon-delete,
+        .icon-replace {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-select-picture-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-m;
+    cursor: pointer;
+    height: $upload-picture-card-size;
+    margin-bottom: $space-xs;
+    margin-right: $space-xs;
+    text-align: center;
+    transition: border-color $motion-duration-extra-fast;
+    vertical-align: top;
+    width: $upload-picture-card-size;
+
+    .upload-disabled {
+      opacity: $disabled-alpha-value;
+      pointer-events: none;
+    }
+
+    > .upload {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &:focus-within:not(.upload-disabled) &:hover:not(.upload-disabled) {
+      border-color: var(--primary-secondary-color);
+    }
+  }
+
+  &-small {
+    &.upload-drop {
+      height: 88px;
+      min-width: 400px;
+      width: fit-content;
+
+      .upload-drop-container {
+        margin: unset;
+        padding: $space-ml;
+        width: 100%;
+      }
+
+      .upload-drop-button {
+        margin: auto 0 auto $space-l;
+      }
+
+      .upload-drop-text {
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+      }
+
+      .upload-drop-hint-text {
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+      }
+
+      .upload-list {
+        width: 356px;
+      }
+
+      .upload-list-item-single {
+        font-size: $text-font-size-3;
+        height: 48px;
+        line-height: $text-line-height-3;
+        margin-top: 0;
+        width: 356px;
+
+        .upload-list-item-card-actions {
+          margin-left: 0;
+        }
+
+        .upload-list-item-name {
+          display: inline-block;
+          overflow: hidden;
+          padding: 0 $space-xs;
+          text-align: left;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+        }
+
+        .upload-list-item-info {
+          border-radius: 0;
+          height: 100%;
+          min-width: unset;
+          padding: 0;
+          width: 100%;
+
+          > span {
+            display: flex;
+          }
+
+          .upload-spin-icon {
+            height: 48px;
+            left: 18px;
+            position: relative;
+            width: 48px;
+          }
+        }
+
+        .upload-list-item-progress {
+          bottom: -$space-s;
+          padding: 0 $space-s;
+        }
+
+        &:hover .upload-list-item-info {
+          background-color: unset;
+        }
+      }
+
+      .upload-list-picture {
+        .upload-list-item-file,
+        .upload-list-item-icon {
+          display: block;
+          height: 48px;
+          line-height: 48px;
+          margin: 0;
+          text-align: unset;
+          width: 48px;
+        }
+
+        .upload-list-item-thumbnail:not(.upload-list-item-file) {
+          display: block;
+          height: 48px;
+          line-height: 48px;
+          margin: 0;
+          text-align: unset;
+          width: 48px;
+
+          .upload-list-item-image {
+            height: auto;
+            left: 50%;
+            max-height: 48px;
+            max-width: 48px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+          }
+        }
+
+        .upload-list-item-progress {
+          bottom: -$space-s;
+        }
+      }
+    }
+  }
+
+  &-medium {
+    &.upload-drop {
+      height: auto;
+      min-width: 400px;
+      width: fit-content;
+
+      .upload-drop-text {
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+      }
+
+      .upload-drop-hint-text {
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+      }
+
+      .upload-list-item-single {
+        font-size: $text-font-size-3;
+        height: auto;
+        line-height: $text-line-height-3;
+        margin-top: 0;
+
+        .upload-list-item-card-actions {
+          margin-left: 0;
+        }
+
+        .upload-list-item-name {
+          display: block;
+          margin-bottom: $space-m;
+          overflow: hidden;
+          text-align: center;
+          text-overflow: ellipsis;
+          width: 100%;
+          white-space: nowrap;
+        }
+
+        .upload-list-item-info {
+          border-radius: 0;
+          height: 100%;
+          min-width: unset;
+          text-align: center;
+
+          > span {
+            display: block;
+          }
+
+          .upload-list-item-thumbnail {
+            span {
+              align-items: unset;
+              display: block;
+              margin: 0 auto;
+              position: relative;
+            }
+          }
+
+          .upload-spin-icon {
+            height: 48px;
+            left: unset;
+            position: relative;
+            width: 48px;
+          }
+        }
+
+        &:hover .upload-list-item-info {
+          background-color: unset;
+        }
+      }
+
+      .upload-list-picture {
+        .upload-list-item-file,
+        .upload-list-item-icon {
+          display: block;
+          height: 48px;
+          line-height: 48px;
+          margin: 0 auto $space-m auto;
+          text-align: unset;
+          width: 48px;
+        }
+
+        .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
+          display: block;
+          height: 80px;
+          margin: 0 auto $space-m auto;
+          opacity: 1;
+          position: relative;
+          width: auto;
+
+          .upload-list-item-image {
+            height: 100%;
+            left: unset;
+            max-height: unset;
+            max-width: unset;
+            object-fit: contain;
+            position: unset;
+            top: unset;
+            transform: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &-large {
+    &.upload-drop {
+      height: auto;
+      min-width: 272px;
+      width: 100%;
+
+      .upload-drop-container {
+        padding: $space-xl $space-xs;
+      }
+
+      .upload-drop-icon,
+      .upload-drop-text,
+      .upload-drop-hint-text {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .upload-drop-text {
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+      }
+
+      .upload-drop-hint-text {
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+      }
+
+      .upload-list {
+        min-width: 272px;
+        width: 100%;
+
+        .upload-list-item-single {
+          .upload-list-item-progress {
+            bottom: -$space-l;
+          }
+        }
+      }
+
+      .upload-list-item-single {
+        font-size: $text-font-size-3;
+        height: auto;
+        line-height: $text-line-height-3;
+        margin-top: 0;
+
+        .upload-list-item-card-actions {
+          margin-left: 0;
+        }
+
+        .upload-list-item-name {
+          display: block;
+          margin-bottom: $space-s;
+          overflow: hidden;
+          text-align: center;
+          text-overflow: ellipsis;
+          width: 100%;
+          white-space: nowrap;
+        }
+
+        .upload-list-item-info {
+          border-radius: 0;
+          height: 100%;
+          min-width: unset;
+          text-align: center;
+
+          > span {
+            display: block;
+          }
+
+          .upload-list-item-thumbnail {
+            span {
+              align-items: unset;
+              display: block;
+              margin: 0 auto;
+              position: relative;
+            }
+          }
+
+          .upload-spin-icon {
+            height: 48px;
+            left: unset;
+            position: relative;
+            width: 48px;
+          }
+        }
+
+        &:hover .upload-list-item-info {
+          background-color: unset;
+        }
+      }
+
+      .upload-list-picture {
+        .upload-list-item-file,
+        .upload-list-item-icon {
+          display: block;
+          height: 48px;
+          line-height: 48px;
+          margin: 0 auto $space-s auto;
+          text-align: unset;
+          width: 48px;
+        }
+
+        .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
+          display: block;
+          height: 80px;
+          margin: 0 auto $space-s auto;
+          opacity: 1;
+          position: relative;
+          width: auto;
+
+          .upload-list-item-image {
+            height: 100%;
+            left: unset;
+            max-height: unset;
+            max-width: unset;
+            object-fit: contain;
+            position: unset;
+            top: unset;
+            transform: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      &.upload-drop {
+        .upload-drop-container {
+          padding: $space-xl;
+        }
+
+        .upload-list-picture {
+          .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
+            height: 160px;
+          }
+        }
+      }
+    }
+  }
+
+  &.gradient {
+    .upload-list-picture-card {
+      .upload-list-item-actions {
+        a {
+          --bg: var(--primary-background1-gradient);
+          background-color: var(--bg);
+
+          &:hover:not([disabled]) {
+            --bg: var(--background-color);
+          }
+
+          &:active:not([disabled]) {
+            --bg: var(--primary-background2-gradient);
+          }
+        }
+      }
+
+      .upload-list-item-info:focus-within + .upload-list-item-actions,
+      .upload-list-item-info:hover + .upload-list-item-actions,
+      .upload-list-item-actions:focus-within,
+      .upload-list-item-actions:hover {
+        background: transparent;
+      }
+
+      .upload-list-item-uploading {
+        &.upload-list-item {
+          background-color: var(--background-color);
+        }
+      }
+    }
+  }
+
+  &-full-width {
+    &.upload-drop {
+      width: 100%;
+
+      .upload-list {
+        width: 100%;
+      }
+    }
+
+    &.upload-small {
+      &.upload-drop {
+        .upload-list-item-single {
+          width: 100%;
+        }
+      }
+    }
+
+    &.upload-medium {
+      &.upload-drop {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @keyframes uploadAnimateInlineIn {
-    from {
-        height: 0;
-        margin: 0;
-        opacity: 0;
-        padding: 0;
-        width: 0;
-    }
+  from {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    width: 0;
+  }
 }
 
 @keyframes uploadAnimateInlineOut {
-    to {
-        height: 0;
-        margin: 0;
-        opacity: 0;
-        padding: 0;
-        width: 0;
-    }
+  to {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    width: 0;
+  }
 }
 
 :global(.focus-visible) {
-    .upload-list-picture-card {
-        .upload-list-item-actions {
-            a {
-                &.focus-visible,
-                &:focus-visible {
-                    box-shadow: $focus-visible-box-shadow;
+  .upload-list-picture-card {
+    .upload-list-item-actions {
+      a {
+        &.focus-visible,
+        &:focus-visible {
+          box-shadow: var(--focus-visible-box-shadow);
 
-                    &.drop-shadow {
-                        box-shadow: $focus-visible-box-shadow, $shadow-object-s;
-                    }
-                }
-            }
+          &.drop-shadow {
+            box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
+          }
         }
+      }
     }
+  }
 }
 
 @import './Styles/rtl';

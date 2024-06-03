@@ -1,0 +1,67 @@
+.breadcrumb {
+  display: block;
+
+  a {
+    white-space: nowrap;
+  }
+
+  &-dropdown-link {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-list {
+    display: flex;
+    font-family: var(--font-stack-full);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &-item {
+      list-style-type: none;
+    }
+
+    &-overflow-menu {
+      color: var(--anchor-primary-color);
+      margin: -$space-xs;
+
+      &:active {
+        color: var(--anchor-primary-active-color);
+      }
+
+      &:hover {
+        color: var(--anchor-primary-hover-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-link {
+    white-space: nowrap;
+
+    &-read-only {
+      color: var(--text-primary-color);
+      font-family: var(--font-stack-full);
+      font-weight: $text-font-weight-semibold;
+      font-size: $text-font-size-2;
+    }
+  }
+
+  &-dropdown-link-menu {
+    padding: $space-s 0;
+
+    ul {
+      gap: $space-xxs;
+
+      li {
+        &:first-child,
+        &:last-child {
+          margin-bottom: 0;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+@import './rtl';

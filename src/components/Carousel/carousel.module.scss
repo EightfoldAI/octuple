@@ -1,0 +1,322 @@
+.carousel {
+  background: var(--background-color);
+  position: relative;
+
+  &-fade {
+    .carousel-slide {
+      opacity: 0;
+      transition-property: opacity;
+      transform: none;
+
+      &.active,
+      &-next.carousel-slide-start,
+      &-previous.carousel-slide-end {
+        z-index: 1;
+        opacity: 1;
+      }
+
+      &.active.carousel-slide-start,
+      &.active.carousel-slide-end {
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0s $motion-duration-fast;
+      }
+    }
+  }
+
+  &-inner {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  &-auto-scroll-inner-wrapper {
+    margin: 0;
+  }
+
+  &-next,
+  &-previous {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    height: 44px;
+    justify-content: center;
+    margin: -22px $space-l 0 $space-l;
+    min-width: 44px;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 44px;
+    z-index: 3;
+
+    &-mask {
+      backdrop-filter: blur(5px);
+      background: rgba(255, 255, 255, 0.92);
+      height: 100%;
+      left: 0;
+      width: 68px;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  &-next {
+    right: 0;
+
+    &-mask {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  &-pagination {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    list-style: none;
+    margin-bottom: $space-xxl;
+    position: absolute;
+    right: 0;
+    z-index: 4;
+  }
+
+  &-large {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0 68px;
+    }
+    .carousel-next,
+    .carousel-previous {
+      height: 44px;
+      margin: -22px $space-l 0 $space-l;
+      min-width: 44px;
+      width: 44px;
+
+      &-mask {
+        width: 68px;
+      }
+    }
+  }
+
+  &-medium {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0 52px;
+    }
+    .carousel-next,
+    .carousel-previous {
+      height: 36px;
+      margin: -18px $space-m 0 $space-m;
+      min-width: 36px;
+      width: 36px;
+
+      &-mask {
+        width: 52px;
+      }
+    }
+  }
+
+  &-small {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0 40px;
+    }
+    .carousel-next,
+    .carousel-previous {
+      height: 28px;
+      margin: -14px $space-s 0 $space-s;
+      min-width: 28px;
+      width: 28px;
+
+      &-mask {
+        width: 40px;
+      }
+    }
+  }
+
+  &-overlay-controls {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0;
+    }
+  }
+
+  &-slider {
+    .carousel-slide {
+      backface-visibility: hidden;
+      display: none;
+      float: left;
+      margin-right: -100%;
+      position: relative;
+      transition: transform $motion-duration-fast $motion-easing-easeinout;
+      width: 100%;
+
+      &.active,
+      &-next,
+      &-previous {
+        display: block;
+      }
+
+      &-next:not(.carousel-slide-start),
+      &.active.carousel-slide-end {
+        transform: translateX(100%);
+      }
+
+      &-previous:not(.carousel-slide-end),
+      &.active.carousel-slide-start {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &-auto-scroll {
+    display: block;
+
+    &-container {
+      display: flex;
+      height: max-content;
+      list-style: none;
+      margin: 0;
+      overflow: hidden;
+      overflow-x: auto;
+      padding: 0;
+      position: relative;
+      scrollbar-width: none; /* Firefox */
+      width: 100%;
+      -ms-overflow-style: none; /* IE and Edge */
+
+      &::-webkit-scrollbar {
+        visibility: hidden;
+      }
+    }
+
+    .carousel-next,
+    .carousel-previous {
+      margin: -22px 0 0 0;
+    }
+
+    .carousel-next {
+      right: 0;
+    }
+
+    .carousel-previous {
+      left: 0;
+    }
+  }
+
+  &.gradient {
+    .carousel-next,
+    .carousel-previous {
+      z-index: 3;
+    }
+  }
+
+  &-rtl {
+    direction: rtl;
+
+    .carousel-next,
+    .carousel-previous {
+      &-mask {
+        left: unset;
+        right: 0;
+      }
+    }
+
+    .carousel-next {
+      left: 0;
+      right: unset;
+
+      &-mask {
+        left: 0;
+        right: unset;
+      }
+    }
+
+    .carousel-slider {
+      .carousel-slide {
+        float: right;
+        margin-left: -100%;
+        margin-right: unset;
+
+        &-next:not(.carousel-slide-start),
+        &.active.carousel-slide-end {
+          transform: translateX(-100%);
+        }
+
+        &-previous:not(.carousel-slide-end),
+        &.active.carousel-slide-start {
+          transform: translateX(100%);
+        }
+      }
+    }
+
+    .carousel-auto-scroll {
+      direction: rtl;
+      display: block;
+
+      &-container {
+        &-rtl {
+          direction: rtl;
+        }
+      }
+
+      .carousel-next {
+        left: 0;
+        right: unset;
+      }
+
+      .carousel-previous {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
+}
+
+// TODO: Fix rtl directional scroll does not work in Firefox.
+// Temorarily ensure scroll functionality is preseved in Firefox.
+// The components/elements within the scroll menu should still use rtl layout.
+// Once functionality is achieved, this block may be removed.
+// This bug does not effect slide mode.
+@-moz-document url-prefix() {
+  .carousel {
+    &-rtl {
+      .carousel-auto-scroll {
+        direction: ltr;
+
+        &-container {
+          &-rtl {
+            direction: ltr;
+          }
+        }
+
+        .carousel-next {
+          left: unset;
+          right: 0;
+
+          svg {
+            transform: rotate(180deg);
+          }
+
+          &-mask {
+            left: unset;
+            right: 0;
+          }
+        }
+
+        .carousel-previous {
+          left: 0;
+          right: unset;
+
+          svg {
+            transform: rotate(180deg);
+          }
+
+          &-mask {
+            left: 0;
+            right: unset;
+          }
+        }
+      }
+    }
+  }
+}

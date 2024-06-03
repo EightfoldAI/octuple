@@ -1,0 +1,528 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb Crumb should support string \`0\` 1`] = `
+<div
+  aria-label="Breadcrumbs"
+  class="breadcrumb my-breadcrumb-root-class"
+  data-testid="my-breadcrumb-testid"
+  id="myBreadcrumb"
+  role="navigation"
+>
+  <ol
+    class="breadcrumb-list"
+  >
+    <li>
+      <div
+        class="stack horizontal undefined gap-xxxs"
+      >
+        <div
+          class="reference-wrapper"
+          id="tooltip--wrapper"
+        >
+          <a
+            aria-describedby="tooltip-"
+            aria-disabled="false"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+            data-reference-id="tooltip--reference"
+            id="tooltip--reference"
+            role="link"
+            target="_self"
+            title="0"
+          >
+            0
+          </a>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`Breadcrumb Crumb should use custom links 1`] = `
+<div>
+  <div
+    aria-label="Breadcrumbs"
+    class="breadcrumb my-breadcrumb-root-class"
+    data-testid="my-breadcrumb-testid"
+    id="myBreadcrumb"
+    role="navigation"
+  >
+    <ol
+      class="breadcrumb-list"
+    >
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width secondary"
+              data-reference-id="tooltip--reference"
+              href="#"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+            >
+              Custom home
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width disruptive"
+              data-reference-id="tooltip--reference"
+              href="#"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+            >
+              Custom Page 1
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <span
+              aria-current="location"
+              aria-describedby="tooltip-"
+              class="breadcrumb-link my-breadcrumb-links-class breadcrumb-link-read-only tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+            >
+              Page 2
+            </span>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`Breadcrumb Renders without crashing 1`] = `
+<div>
+  <div
+    aria-label="Breadcrumbs"
+    class="breadcrumb my-breadcrumb-root-class"
+    data-testid="my-breadcrumb-testid"
+    id="myBreadcrumb"
+    role="navigation"
+  >
+    <ol
+      class="breadcrumb-list"
+    >
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Home"
+              url="#"
+            >
+              Home
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Page 1"
+              url="#"
+            >
+              Page 1
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Page 2"
+              url="#"
+            >
+              Page 2
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Page 3"
+              url="#"
+            >
+              Page 3
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Page 4"
+              url="#"
+            >
+              Page 4
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Page 5"
+              url="#"
+            >
+              Page 5
+            </a>
+          </div>
+          <span
+            aria-hidden="false"
+            class="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="stack horizontal undefined gap-xxxs"
+        >
+          <div
+            class="reference-wrapper"
+            id="tooltip--wrapper"
+          >
+            <a
+              aria-describedby="tooltip-"
+              aria-disabled="false"
+              class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+              data-reference-id="tooltip--reference"
+              id="tooltip--reference"
+              role="link"
+              target="_self"
+              title="Page 6"
+              url="#"
+            >
+              Page 6
+            </a>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`Breadcrumb should accept undefined links 1`] = `
+<div
+  aria-label="Breadcrumbs"
+  class="breadcrumb my-breadcrumb-root-class"
+  data-testid="my-breadcrumb-testid"
+  id="myBreadcrumb"
+  role="navigation"
+>
+  <ol
+    class="breadcrumb-list"
+  />
+</div>
+`;
+
+exports[`Breadcrumb should support custom attribute 1`] = `
+<div
+  aria-label="Breadcrumbs"
+  class="breadcrumb my-breadcrumb-root-class"
+  data-custom="custom"
+  data-testid="my-breadcrumb-testid"
+  id="myBreadcrumb"
+  role="navigation"
+>
+  <ol
+    class="breadcrumb-list"
+  >
+    <li>
+      <div
+        class="stack horizontal undefined gap-xxxs"
+      >
+        <div
+          class="reference-wrapper"
+          id="tooltip--wrapper"
+        >
+          <a
+            aria-describedby="tooltip-"
+            aria-disabled="false"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+            data-custom="custom-item"
+            data-reference-id="tooltip--reference"
+            id="tooltip--reference"
+            role="link"
+            target="_self"
+            title="xxx"
+          >
+            xxx
+          </a>
+        </div>
+        <span
+          aria-hidden="false"
+          class="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="stack horizontal undefined gap-xxxs"
+      >
+        <div
+          class="reference-wrapper"
+          id="tooltip--wrapper"
+        >
+          <a
+            aria-describedby="tooltip-"
+            aria-disabled="false"
+            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
+            data-reference-id="tooltip--reference"
+            id="tooltip--reference"
+            role="link"
+            target="_self"
+            title="yyy"
+          >
+            yyy
+          </a>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;

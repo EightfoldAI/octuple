@@ -1,150 +1,164 @@
 .table-wrapper {
-    .table {
-        font-size: $table-font-size;
+  .table {
+    font-size: $table-font-size;
 
-        thead tr th,
-        tbody tr td,
-        tfoot tr th,
-        tfoot tr td {
-            padding: $table-padding-vertical $table-padding-horizontal;
-        }
-
-        &-title {
-            padding: $table-padding-vertical $table-padding-horizontal;
-        }
-
-        &-filter-trigger {
-            margin-right: -($table-padding-horizontal / 2);
-        }
-
-        &-expanded-row-fixed {
-            margin: -$table-padding-vertical -$table-padding-horizontal;
-        }
-
-        &-tbody {
-            .table-wrapper:only-child {
-                .table {
-                    margin: -$table-padding-vertical -$table-padding-horizontal -$table-padding-vertical
-                        ($table-padding-horizontal + ceil((14 * 1.4)));
-                }
-            }
-        }
-
-        &-selection-column {
-            padding-inline-start: 0;
-        }
-
-        // TODO: Work with UX to determine large styling
-        &-large {
-            font-size: $table-font-size-md;
-
-            thead tr th,
-            tbody tr td,
-            tfoot tr th,
-            tfoot tr td {
-                padding: $table-padding-vertical-md $table-padding-horizontal-md;
-            }
-
-            .table-title {
-                padding: $table-padding-vertical-md $table-padding-horizontal-md;
-            }
-
-            .table-filter-trigger {
-                margin-right: -($table-padding-horizontal-md / 2);
-            }
-
-            .table-expanded-row-fixed {
-                margin: -$table-padding-vertical-md -$table-padding-horizontal-md;
-            }
-
-            .table-tbody {
-                .table-wrapper:only-child {
-                    .table {
-                        margin: -$table-padding-vertical-md -$table-padding-horizontal-md -$table-padding-vertical-md
-                            ($table-padding-horizontal-md + ceil((14 * 1.4)));
-                    }
-                }
-            }
-
-            .table-selection-column {
-                padding-inline-start: ($table-padding-horizontal-md / 4);
-            }
-        }
-
-        &-medium {
-            font-size: $table-font-size-md;
-
-            thead tr th,
-            tbody tr td,
-            tfoot tr th,
-            tfoot tr td {
-                padding: $table-padding-vertical-md $table-padding-horizontal-md;
-            }
-
-            .table-title {
-                padding: $table-padding-vertical-md $table-padding-horizontal-md;
-            }
-
-            .table-filter-trigger {
-                margin-right: -($table-padding-horizontal-md / 2);
-            }
-
-            .table-expanded-row-fixed {
-                margin: -$table-padding-vertical-md -$table-padding-horizontal-md;
-            }
-
-            .table-tbody {
-                .table-wrapper:only-child {
-                    .table {
-                        margin: -$table-padding-vertical-md -$table-padding-horizontal-md -$table-padding-vertical-md
-                            ($table-padding-horizontal-md + ceil((14 * 1.4)));
-                    }
-                }
-            }
-
-            .table-selection-column {
-                padding-inline-start: ($table-padding-horizontal-md / 4);
-            }
-        }
-
-        &-small {
-            font-size: $table-font-size-sm;
-
-            thead tr th,
-            tbody tr td,
-            tfoot tr th,
-            tfoot tr td {
-                padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
-            }
-
-            .table-title {
-                padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
-            }
-
-            .table-footer {
-                padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
-            }
-
-            .table-filter-trigger {
-                margin-right: -($table-padding-horizontal-sm / 2);
-            }
-
-            .table-expanded-row-fixed {
-                margin: -$table-padding-vertical-sm -$table-padding-horizontal-sm;
-            }
-
-            .table-tbody {
-                .table-wrapper:only-child {
-                    .table {
-                        margin: -$table-padding-vertical-sm -$table-padding-horizontal-sm -$table-padding-vertical-sm
-                            ($table-padding-horizontal-sm + ceil((14 * 1.4)));
-                    }
-                }
-            }
-
-            .table-selection-column {
-                padding-inline-start: ($table-padding-horizontal-sm / 4);
-            }
-        }
+    thead tr th,
+    tbody tr td,
+    tfoot tr th,
+    tfoot tr td {
+      padding: $table-padding-vertical $table-padding-horizontal;
     }
+
+    &-title {
+      padding: $table-padding-vertical $table-padding-horizontal;
+    }
+
+    &-filter-trigger {
+      margin-right: calc(($table-padding-horizontal / 2) * -1);
+    }
+
+    &-expanded-row-fixed {
+      margin: -$table-padding-vertical -$table-padding-horizontal;
+    }
+
+    &-tbody {
+      .table-wrapper:only-child {
+        .table {
+          margin: -$table-padding-vertical -$table-padding-horizontal -$table-padding-vertical
+            calc($table-padding-horizontal + ceil((14 * 1.4)));
+        }
+      }
+    }
+
+    &-selection-column {
+      padding-inline-start: 0;
+    }
+
+    &-large {
+      font-size: $table-font-size-lg;
+
+      thead tr th,
+      tbody tr td,
+      tfoot tr th,
+      tfoot tr td {
+        padding: $table-padding-vertical-lg $table-padding-horizontal-lg;
+      }
+
+      &.table-bordered {
+        &.table-ping-right {
+          .table-cell-fix-right-first,
+          .table-cell-fix-right-last {
+            padding-left: calc($table-padding-horizontal-lg - 1px);
+          }
+        }
+      }
+
+      .table-title {
+        padding: $table-padding-vertical-lg $table-padding-horizontal-lg;
+      }
+
+      .table-filter-trigger {
+        margin-right: calc(($table-padding-horizontal-lg / 2) * -1);
+      }
+
+      .table-expanded-row-fixed {
+        margin: -$table-padding-vertical-lg -$table-padding-horizontal-lg;
+      }
+
+      .table-tbody {
+        .table-wrapper:only-child {
+          .table {
+            margin: -$table-padding-vertical-lg -$table-padding-horizontal-lg -$table-padding-vertical-lg
+              calc($table-padding-horizontal-lg + ceil((14 * 1.4)));
+          }
+        }
+      }
+    }
+
+    &-medium {
+      font-size: $table-font-size-md;
+
+      thead tr th,
+      tbody tr td,
+      tfoot tr th,
+      tfoot tr td {
+        padding: $table-padding-vertical-md $table-padding-horizontal-md;
+      }
+
+      &.table-bordered {
+        &.table-ping-right {
+          .table-cell-fix-right-first,
+          .table-cell-fix-right-last {
+            padding-left: calc($table-padding-horizontal-md - 1px);
+          }
+        }
+      }
+
+      .table-title {
+        padding: $table-padding-vertical-md $table-padding-horizontal-md;
+      }
+
+      .table-filter-trigger {
+        margin-right: -($table-padding-horizontal-md / 2);
+      }
+
+      .table-expanded-row-fixed {
+        margin: -$table-padding-vertical-md -$table-padding-horizontal-md;
+      }
+
+      .table-tbody {
+        .table-wrapper:only-child {
+          .table {
+            margin: -$table-padding-vertical-md -$table-padding-horizontal-md -$table-padding-vertical-md
+              calc($table-padding-horizontal-md + ceil((14 * 1.4)));
+          }
+        }
+      }
+    }
+
+    &-small {
+      font-size: $table-font-size-sm;
+
+      thead tr th,
+      tbody tr td,
+      tfoot tr th,
+      tfoot tr td {
+        padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
+      }
+
+      &.table-bordered {
+        &.table-ping-right {
+          .table-cell-fix-right-first,
+          .table-cell-fix-right-last {
+            padding-left: calc($table-padding-horizontal-sm - 1px);
+          }
+        }
+      }
+
+      .table-title {
+        padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
+      }
+
+      .table-footer {
+        padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
+      }
+
+      .table-filter-trigger {
+        margin-right: calc(calc($table-padding-horizontal-sm / 2) * -1);
+      }
+
+      .table-expanded-row-fixed {
+        margin: -$table-padding-vertical-sm -$table-padding-horizontal-sm;
+      }
+
+      .table-tbody {
+        .table-wrapper:only-child {
+          .table {
+            margin: -$table-padding-vertical-sm -$table-padding-horizontal-sm -$table-padding-vertical-sm
+              calc($table-padding-horizontal-sm + ceil((14 * 1.4)));
+          }
+        }
+      }
+    }
+  }
 }

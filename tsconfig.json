@@ -1,30 +1,31 @@
 {
-    "compilerOptions": {
-        "declaration": true,
-        "downlevelIteration": true,
-        "emitDecoratorMetadata": true,
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "jsx": "react",
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": false,
-        "noUnusedParameters": true,
-        "outDir": "lib",
-        "removeComments": true,
-        "resolveJsonModule": true,
-        "sourceMap": true,
-        "target": "es5",
-        "lib": ["es5", "es2015.promise", "dom"],
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    "classnameTransform": "camelCase"
-                }
-            }
-        ]
-    },
-    "include": ["src/**/*", "./global.d.ts"]
+  "compilerOptions": {
+    "declaration": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "outDir": "lib",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "target": "es2015",
+    "lib": ["es2015", "esnext", "dom"],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase"
+        }
+      }
+    ]
+  },
+  "include": ["src/**/*", "./global.d.ts"]
 }

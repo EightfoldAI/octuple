@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { ForwardedRef } from 'react';
 import { FrameWrapperProps } from './FrameWrapper.types';
 
-export const FrameWrapper = ({ classNames, children }: FrameWrapperProps) => {
-    return <div className={classNames}>{children}</div>;
-};
+export const FrameWrapper = React.forwardRef(
+  (
+    { classNames, children }: FrameWrapperProps,
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
+    return (
+      <div ref={ref} className={classNames}>
+        {children}
+      </div>
+    );
+  }
+);

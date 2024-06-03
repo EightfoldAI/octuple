@@ -1,632 +1,998 @@
 .selector {
-    display: flex;
-    font-family: $octuple-font-family;
-    position: relative;
-    width: fit-content;
+  display: flex;
+  font-family: var(--font-stack-full);
+  position: relative;
+  width: fit-content;
 
-    input {
-        position: absolute;
-        opacity: 0;
-        height: 100%;
-        width: 100%;
-        cursor: pointer;
-        z-index: 1;
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1;
 
-        &[disabled] {
-            cursor: not-allowed;
+    &[disabled] {
+      cursor: not-allowed;
 
-            & + label {
-                opacity: $disabled-alpha-value;
-                cursor: not-allowed;
-            }
-        }
-
-        & + label {
-            &.align-start {
-                align-items: flex-start;
-                display: flex;
-            }
-
-            &.align-start .checkmark {
-                margin-top: $space-xxxs;
-            }
-
-            &.align-end {
-                align-items: flex-end;
-                display: flex;
-            }
-
-            .checkmark {
-                border: $space-xxxs solid var(--grey-color-70);
-                border-radius: $corner-radius-xs;
-                height: $checkmark-medium-height;
-                width: $checkmark-medium-width;
-                min-height: $checkmark-medium-height;
-                min-width: $checkmark-medium-width;
-                left: 0;
-                position: relative;
-                top: 0;
-                transition: all $motion-duration-extra-fast $motion-ease-in-back
-                    $motion-delay-s;
-
-                &:after {
-                    border: solid var(--primary-color);
-                    border-width: 0 $space-xxxs $space-xxxs 0;
-                    content: '';
-                    display: block;
-                    height: $checkmark-medium-after-height;
-                    left: $checkmark-medium-after-left;
-                    opacity: 0;
-                    position: absolute;
-                    top: $checkmark-medium-after-top;
-                    transform: rotate(45deg) scale(0);
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-in-back $motion-delay-s;
-                    width: $checkmark-medium-after-width;
-                }
-
-                &.toggle {
-                    border: $space-xxxs solid var(--grey-color-70);
-                    border-radius: $toggle-medium-height;
-                    min-height: $toggle-medium-height;
-                    height: $toggle-medium-height;
-                    left: 0;
-                    min-width: $toggle-medium-width;
-                    position: relative;
-                    top: 0;
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-in-back $motion-delay-s;
-                    width: $toggle-medium-width;
-
-                    &:after {
-                        background-color: var(--grey-color-70);
-                        border: solid var(--grey-color-70);
-                        border-radius: 50%;
-                        border-width: $space-xxxs;
-                        content: '';
-                        display: block;
-                        height: $toggle-medium-after-height;
-                        left: $toggle-medium-after-left;
-                        opacity: 1;
-                        position: absolute;
-                        top: $toggle-medium-after-top;
-                        transform: none;
-                        transition: all $motion-duration-extra-fast
-                            $motion-ease-in-back $motion-delay-s;
-                        width: $toggle-medium-after-width;
-                    }
-                }
-            }
-        }
-
-        &:not(.disabled):not([disabled]):active + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color-70);
-                background-color: var(--accent-color-30);
-
-                &.toggle {
-                    border: $space-xxxs solid var(--primary-color-70);
-                    background-color: var(--accent-color-30);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-        }
-
-        &:not(.disabled):not([disabled]):hover + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color-70);
-                background-color: var(--accent-color-10);
-
-                &.toggle {
-                    border: $space-xxxs solid var(--primary-color-70);
-                    background-color: var(--accent-color-10);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-        }
+      & + label {
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+      }
     }
 
-    input:checked {
-        &[disabled] {
-            cursor: not-allowed;
+    & + label {
+      &.align-start {
+        align-items: flex-start;
+        display: flex;
+      }
+
+      &.align-start .checkmark {
+        margin-top: $space-xxxs;
+      }
+
+      &.align-end {
+        align-items: flex-end;
+        display: flex;
+      }
+
+      .checkmark {
+        background: var(--check-box-background-color);
+        border: var(--check-box-border);
+        border-radius: $border-radius-xs;
+        height: $checkmark-medium-height;
+        width: $checkmark-medium-width;
+        min-height: $checkmark-medium-height;
+        min-width: $checkmark-medium-width;
+        left: 0;
+        position: relative;
+        top: 0;
+        transition: all $motion-duration-extra-fast $motion-ease-in-back
+          $motion-delay-s;
+
+        &:after {
+          border: solid var(--check-box-mark-color);
+          border-width: 0 $space-xxxs $space-xxxs 0;
+          content: '';
+          display: block;
+          height: $checkmark-medium-after-height;
+          left: $checkmark-medium-after-left;
+          opacity: 0;
+          position: absolute;
+          top: $checkmark-medium-after-top;
+          transform: rotate(45deg) scale(0);
+          transition: all $motion-duration-extra-fast $motion-ease-in-back
+            $motion-delay-s;
+          width: $checkmark-medium-after-width;
         }
 
-        & + label {
+        &.toggle {
+          background: var(--toggle-switch-background-color);
+          border: var(--toggle-switch-border);
+          border-radius: $toggle-medium-height;
+          min-height: $toggle-medium-height;
+          height: $toggle-medium-height;
+          left: 0;
+          min-width: $toggle-medium-width;
+          position: relative;
+          top: 0;
+          transition: all $motion-duration-extra-fast $motion-ease-in-back
+            $motion-delay-s;
+          width: $toggle-medium-width;
+
+          &:after {
+            background: var(--toggle-switch-pip-color);
+            border: solid var(--toggle-switch-pip-color);
+            border-radius: 50%;
+            border-width: $space-xxxs;
+            content: '';
+            display: block;
+            height: $toggle-medium-after-height;
+            left: $toggle-medium-after-left;
+            opacity: 1;
+            position: absolute;
+            top: $toggle-medium-after-top;
+            transform: none;
+            transition: all $motion-duration-extra-fast $motion-ease-in-back
+              $motion-delay-s;
+            width: $toggle-medium-after-width;
+          }
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):active + label {
+      .checkmark {
+        background: var(--check-box-active-background-color);
+        border: var(--check-box-active-border);
+
+        &.toggle {
+          background: var(--toggle-switch-active-background-color);
+          border: var(--toggle-switch-active-border);
+
+          &:after {
+            background: var(--toggle-switch-active-pip-color);
+            border-color: var(--toggle-switch-active-pip-color);
+          }
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):hover + label {
+      .checkmark {
+        background: var(--check-box-hover-background-color);
+        border: var(--check-box-hover-border);
+
+        &.toggle {
+          background: var(--toggle-switch-hover-background-color);
+          border: var(--toggle-switch-hover-border);
+
+          &:after {
+            background: var(--toggle-switch-hover-pip-color);
+            border-color: var(--toggle-switch-hover-pip-color);
+          }
+        }
+      }
+    }
+  }
+
+  input:checked {
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    & + label {
+      .checkmark {
+        background: var(--check-box-checked-background-color);
+        border: var(--check-box-checked-border);
+
+        &.toggle {
+          background: var(--toggle-switch-checked-background-color);
+          border: var(--toggle-switch-checked-border);
+
+          &:after {
+            background: var(--toggle-switch-checked-pip-color);
+            border-color: var(--toggle-switch-checked-pip-color);
+          }
+        }
+      }
+
+      .checkmark {
+        &:after {
+          border-color: var(--check-box-mark-color);
+          opacity: 1;
+          transform: rotate(45deg) scale(0.7);
+          transition: all $motion-duration-extra-fast $motion-ease-out-back
+            $motion-delay-s;
+        }
+
+        &.toggle {
+          &:after {
+            background: var(--toggle-switch-checked-pip-color);
+            border-color: var(--toggle-switch-checked-pip-color);
+            left: $toggle-medium-after-left-checked;
+            opacity: 1;
+            transform: none;
             transition: all $motion-duration-extra-fast $motion-ease-out-back
-                $motion-delay-s;
-
-            .checkmark {
-                background-color: var(--accent-color-30);
-                border: $space-xxxs solid var(--primary-color-70);
-
-                &.toggle {
-                    background-color: var(--accent-color-30);
-                    border: $space-xxxs solid var(--primary-color-70);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-
-            .checkmark {
-                &:after {
-                    border-color: var(--primary-color-70);
-                    opacity: 1;
-                    transform: rotate(45deg) scale(0.7);
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-out-back $motion-delay-s;
-                }
-
-                &.toggle {
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                        left: $toggle-medium-after-left-checked;
-                        opacity: 1;
-                        transform: none;
-                        transition: all $motion-duration-extra-fast
-                            $motion-ease-out-back $motion-delay-s;
-                    }
-                }
-            }
+              $motion-delay-s;
+          }
         }
+      }
+    }
 
-        &:not(.disabled):not([disabled]):active + label {
-            .checkmark {
-                transform: scale(0.98);
-                background-color: var(--accent-color-10);
-                border: $space-xxxs solid var(--primary-color-70);
+    &:not(.disabled):not([disabled]):active + label {
+      .checkmark {
+        transform: scale(0.98);
+        background: var(--check-box-checked-active-background-color);
+        border: var(--check-box-checked-active-border);
 
-                &.toggle {
-                    transform: scale(0.98);
-                    background-color: var(--accent-color-10);
-                    border: $space-xxxs solid var(--primary-color-70);
+        &.toggle {
+          transform: scale(0.98);
+          background: var(--toggle-switch-checked-active-background-color);
+          border: var(--toggle-switch-checked-active-border);
 
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
+          &:after {
+            background: var(--toggle-switch-checked-active-pip-color);
+            border-color: var(--toggle-switch-checked-active-pip-color);
+          }
         }
+      }
+    }
 
-        &:not(.disabled):not([disabled]):hover + label {
-            .checkmark {
-                background-color: var(--accent-color-20);
-                border: $space-xxxs solid var(--primary-color-70);
+    &:not(.disabled):not([disabled]):hover + label {
+      .checkmark {
+        background: var(--check-box-checked-hover-background-color);
+        border: var(--check-box-checked-hover-border);
 
-                &.toggle {
-                    background-color: var(--accent-color-20);
-                    border: $space-xxxs solid var(--primary-color-70);
+        &.toggle {
+          background: var(--toggle-switch-checked-hover-background-color);
+          border: var(--toggle-switch-checked-hover-border);
 
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
+          &:after {
+            background: var(--toggle-switch-checked-hover-pip-color);
+            border-color: var(--toggle-switch-checked-hover-pip-color);
+          }
         }
+      }
+    }
+  }
+
+  input:indeterminate {
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    & + label {
+      .checkmark {
+        background: var(--check-box-checked-background-color);
+        border: var(--check-box-checked-border);
+
+        &:after {
+          border-width: 1px;
+          height: 1px;
+          left: $space-xxxs;
+          opacity: 1;
+          top: 5px;
+          transform: none;
+          transition: opacity $motion-duration-extra-fast $motion-ease-out-back
+            $motion-delay-s;
+          width: $space-xs;
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):active + label {
+      .checkmark {
+        transform: scale(0.98);
+        background: var(--check-box-checked-active-background-color);
+        border: var(--check-box-checked-active-border);
+      }
+    }
+
+    &:not(.disabled):not([disabled]):hover + label {
+      .checkmark {
+        background: var(--check-box-checked-hover-background-color);
+        border: var(--check-box-checked-hover-border);
+      }
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    font-weight: $text-font-weight-regular;
+  }
+
+  .selector-label {
+    font-size: $text-font-size-2;
+
+    &-end {
+      margin-left: $space-xs;
+    }
+
+    &-start {
+      margin-right: $space-xs;
+    }
+  }
+
+  &-pill {
+    background: var(--check-box-pill-container-background-color);
+    border-color: var(--check-box-pill-container-border-color);
+    border-radius: var(--check-box-pill-container-border-radius);
+    border-style: var(--check-box-pill-container-border-style);
+    border-width: var(--check-box-pill-container-border-width);
+    color: var(--check-box-pill-container-text-color);
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+    &-active,
+    &-indeterminate {
+      background: var(--check-box-pill-container-active-background-color);
+      border-color: var(--check-box-pill-container-active-border-color);
+      color: var(--check-box-pill-container-active-text-color);
     }
 
     label {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0;
-        font-weight: $text-font-weight-regular;
+      height: auto;
+      min-height: 36px;
+      padding: $selector-padding-vertical-medium
+        $selector-padding-horizontal-medium;
+    }
+
+    input {
+      & + label {
+        .checkmark {
+          background: var(--check-box-in-pill-background-color);
+          border: var(--check-box-in-pill-border);
+
+          &:after {
+            border-color: var(--check-box-in-pill-mark-color);
+          }
+        }
+      }
+
+      &:not(.disabled):not([disabled]):active + label {
+        .checkmark {
+          background: var(--check-box-in-pill-active-background-color);
+          border: var(--check-box-in-pill-active-border);
+        }
+      }
+
+      &:not(.disabled):not([disabled]):hover + label {
+        .checkmark {
+          background: var(--check-box-in-pill-hover-background-color);
+          border: var(--check-box-in-pill-hover-border);
+        }
+      }
+    }
+
+    input:checked {
+      & + label {
+        .checkmark {
+          background: var(--check-box-in-pill-checked-background-color);
+          border: var(--check-box-in-pill-checked-border);
+        }
+      }
+
+      &:not(.disabled):not([disabled]):active + label {
+        .checkmark {
+          background: var(--check-box-in-pill-checked-active-background-color);
+          border: var(--check-box-in-pill-checked-active-border);
+        }
+      }
+
+      &:not(.disabled):not([disabled]):hover + label {
+        .checkmark {
+          background: var(--check-box-in-pill-checked-hover-background-color);
+          border: var(--check-box-in-pill-checked-hover-border);
+        }
+      }
+    }
+
+    input:indeterminate {
+      & + label {
+        .checkmark {
+          background: var(--check-box-in-pill-checked-background-color);
+          border: var(--check-box-in-pill-checked-border);
+        }
+      }
+
+      &:not(.disabled):not([disabled]):active + label {
+        .checkmark {
+          background: var(--check-box-in-pill-checked-active-background-color);
+          border: var(--check-box-in-pill-checked-active-border);
+        }
+      }
+
+      &:not(.disabled):not([disabled]):hover + label {
+        .checkmark {
+          background: var(--check-box-in-pill-checked-hover-background-color);
+          border: var(--check-box-in-pill-checked-hover-border);
+        }
+      }
+    }
+
+    &:hover:not([disabled]) {
+      background: var(--check-box-pill-container-hover-background-color);
+      border-color: var(--check-box-pill-container-hover-border-color);
+      color: var(--check-box-pill-container-hover-text-color);
+
+      input {
+        &:not(.disabled):not([disabled]) + label {
+          .checkmark {
+            background: var(--check-box-in-pill-hover-background-color);
+            border: var(--check-box-in-pill-hover-border);
+          }
+        }
+      }
+    }
+
+    &:active:not([disabled]) {
+      background: var(--check-box-pill-container-active-background-color);
+      border-color: var(--check-box-pill-container-active-border-color);
+      color: var(--check-box-pill-container-active-text-color);
+
+      input {
+        &:not(.disabled):not([disabled]) + label {
+          .checkmark {
+            background: var(--check-box-in-pill-active-background-color);
+            border: var(--check-box-in-pill-active-border);
+          }
+        }
+      }
+    }
+
+    &:disabled,
+    &.disabled {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+
+      input {
+        &[disabled] {
+          & + label {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &-stretch {
+      width: 100%;
+    }
+  }
+
+  &-large {
+    input {
+      & + label {
+        .checkmark {
+          min-height: $checkmark-large-height;
+          height: $checkmark-large-height;
+          width: $checkmark-large-width;
+          min-width: $checkmark-large-width;
+
+          &:after {
+            height: $checkmark-large-after-height;
+            left: $checkmark-large-after-left;
+            top: $checkmark-large-after-top;
+            width: $checkmark-large-after-width;
+          }
+
+          &.toggle {
+            border-radius: $toggle-large-height;
+            min-height: $toggle-large-height;
+            height: $toggle-large-height;
+            min-width: $toggle-large-width;
+            width: $toggle-large-width;
+
+            &:after {
+              height: $toggle-large-after-height;
+              left: $toggle-large-after-left;
+              top: $toggle-large-after-top;
+              width: $toggle-large-after-width;
+            }
+          }
+        }
+      }
+    }
+
+    input:checked {
+      & + label {
+        .checkmark {
+          &:after {
+            transform: rotate(45deg) scale(0.76);
+          }
+
+          &.toggle {
+            &:after {
+              left: $toggle-large-after-left-checked;
+            }
+          }
+        }
+      }
+    }
+
+    input:indeterminate {
+      & + label {
+        .checkmark {
+          &:after {
+            left: 3px;
+            top: 7px;
+            width: 10px;
+          }
+        }
+      }
     }
 
     .selector-label {
-        font-size: $text-font-size-2;
+      font-size: $text-font-size-3;
 
+      &-end {
+        margin-left: $space-m;
+      }
+
+      &-start {
+        margin-right: $space-m;
+      }
+    }
+
+    &.selector-pill {
+      label {
+        min-height: 44px;
+        padding: $selector-padding-vertical-large
+          $selector-padding-horizontal-large;
+      }
+    }
+  }
+
+  &-medium {
+    input {
+      & + label {
+        .checkmark {
+          min-height: $checkmark-medium-height;
+          height: $checkmark-medium-height;
+          min-width: $checkmark-medium-width;
+          width: $checkmark-medium-width;
+
+          &:after {
+            height: $checkmark-medium-after-height;
+            left: $checkmark-medium-after-left;
+            top: $checkmark-medium-after-top;
+            width: $checkmark-medium-after-width;
+          }
+
+          &.toggle {
+            border-radius: $toggle-medium-height;
+            min-height: $toggle-medium-height;
+            height: $toggle-medium-height;
+            min-width: $toggle-medium-width;
+            width: $toggle-medium-width;
+
+            &:after {
+              height: $toggle-medium-after-height;
+              left: $toggle-medium-after-left;
+              top: $toggle-medium-after-top;
+              width: $toggle-medium-after-width;
+            }
+          }
+        }
+      }
+    }
+
+    input:checked {
+      & + label {
+        .checkmark {
+          &:after {
+            transform: rotate(45deg) scale(0.7);
+          }
+
+          &.toggle {
+            &:after {
+              left: $toggle-medium-after-left-checked;
+            }
+          }
+        }
+      }
+    }
+
+    input:indeterminate {
+      & + label {
+        .checkmark {
+          &:after {
+            left: $space-xxxs;
+            top: 5px;
+            width: $space-xs;
+          }
+        }
+      }
+    }
+
+    .selector-label {
+      font-size: $text-font-size-2;
+
+      &-end {
+        margin-left: $space-xs;
+      }
+
+      &-start {
+        margin-right: $space-xs;
+      }
+    }
+
+    &.selector-pill {
+      label {
+        min-height: 36px;
+        padding: $selector-padding-vertical-medium
+          $selector-padding-horizontal-medium;
+      }
+    }
+  }
+
+  &-small {
+    input {
+      & + label {
+        .checkmark {
+          min-height: $checkmark-small-height;
+          height: $checkmark-small-height;
+          min-width: $checkmark-small-width;
+          width: $checkmark-small-width;
+
+          &:after {
+            height: $checkmark-small-after-height;
+            left: $checkmark-small-after-left;
+            top: $checkmark-small-after-top;
+            width: $checkmark-small-after-width;
+          }
+
+          &.toggle {
+            border-radius: $toggle-small-height;
+            min-height: $toggle-small-height;
+            height: $toggle-small-height;
+            min-width: $toggle-small-width;
+            width: $toggle-small-width;
+
+            &:after {
+              height: $toggle-small-after-height;
+              left: $toggle-small-after-left;
+              top: $toggle-small-after-top;
+              width: $toggle-small-after-width;
+            }
+          }
+        }
+      }
+    }
+
+    input:checked {
+      & + label {
+        .checkmark {
+          &.toggle {
+            &:after {
+              left: $toggle-small-after-left-checked;
+            }
+          }
+        }
+      }
+    }
+
+    input:indeterminate {
+      & + label {
+        .checkmark {
+          &:after {
+            left: $space-xxxs;
+            top: $space-xxs;
+            width: 6px;
+          }
+        }
+      }
+    }
+
+    .selector-label {
+      font-size: $text-font-size-1;
+
+      &-end {
+        margin-left: $space-xxs;
+      }
+
+      &-start {
+        margin-right: $space-xxs;
+      }
+    }
+
+    &.selector-pill {
+      label {
+        min-height: 28px;
+        padding: $selector-padding-vertical-small
+          $selector-padding-horizontal-small;
+      }
+    }
+  }
+
+  &.disabled {
+    input {
+      cursor: not-allowed;
+
+      & + label {
+        .checkmark {
+          opacity: 50%;
+
+          &.toggle {
+            opacity: 50%;
+          }
+        }
+      }
+    }
+
+    input:checked,
+    input:indeterminate {
+      cursor: not-allowed;
+    }
+  }
+
+  &-rtl {
+    .selector-label {
+      &-end {
+        margin-left: 0;
+        margin-right: $space-xs;
+      }
+
+      &-start {
+        margin-left: $space-xs;
+        margin-right: 0;
+      }
+    }
+
+    &-large {
+      .selector-label {
         &-end {
-            margin-left: $space-xs;
+          margin-left: 0;
+          margin-right: $space-m;
         }
 
         &-start {
-            margin-right: $space-xs;
+          margin-left: $space-m;
+          margin-right: 0;
         }
-    }
-
-    &-large {
-        input {
-            & + label {
-                .checkmark {
-                    min-height: $checkmark-large-height;
-                    height: $checkmark-large-height;
-                    width: $checkmark-large-width;
-                    min-width: $checkmark-large-width;
-
-                    &:after {
-                        height: $checkmark-large-after-height;
-                        left: $checkmark-large-after-left;
-                        top: $checkmark-large-after-top;
-                        width: $checkmark-large-after-width;
-                    }
-
-                    &.toggle {
-                        border-radius: $toggle-large-height;
-                        min-height: $toggle-large-height;
-                        height: $toggle-large-height;
-                        min-width: $toggle-large-width;
-                        width: $toggle-large-width;
-
-                        &:after {
-                            height: $toggle-large-after-height;
-                            left: $toggle-large-after-left;
-                            top: $toggle-large-after-top;
-                            width: $toggle-large-after-width;
-                        }
-                    }
-                }
-            }
-        }
-
-        input:checked {
-            & + label {
-                .checkmark {
-                    &:after {
-                        transform: rotate(45deg) scale(0.76);
-                    }
-
-                    &.toggle {
-                        &:after {
-                            left: $toggle-large-after-left-checked;
-                        }
-                    }
-                }
-            }
-        }
-
-        .selector-label {
-            font-size: $text-font-size-3;
-
-            &-end {
-                margin-left: $space-m;
-            }
-
-            &-start {
-                margin-right: $space-m;
-            }
-        }
+      }
     }
 
     &-medium {
-        input {
-            & + label {
-                .checkmark {
-                    min-height: $checkmark-medium-height;
-                    height: $checkmark-medium-height;
-                    min-width: $checkmark-medium-width;
-                    width: $checkmark-medium-width;
-
-                    &:after {
-                        height: $checkmark-medium-after-height;
-                        left: $checkmark-medium-after-left;
-                        top: $checkmark-medium-after-top;
-                        width: $checkmark-medium-after-width;
-                    }
-
-                    &.toggle {
-                        border-radius: $toggle-medium-height;
-                        min-height: $toggle-medium-height;
-                        height: $toggle-medium-height;
-                        min-width: $toggle-medium-width;
-                        width: $toggle-medium-width;
-
-                        &:after {
-                            height: $toggle-medium-after-height;
-                            left: $toggle-medium-after-left;
-                            top: $toggle-medium-after-top;
-                            width: $toggle-medium-after-width;
-                        }
-                    }
-                }
-            }
+      .selector-label {
+        &-end {
+          margin-left: 0;
+          margin-right: $space-xs;
         }
 
-        input:checked {
-            & + label {
-                .checkmark {
-                    &:after {
-                        transform: rotate(45deg) scale(0.7);
-                    }
-
-                    &.toggle {
-                        &:after {
-                            left: $toggle-medium-after-left-checked;
-                        }
-                    }
-                }
-            }
+        &-start {
+          margin-left: $space-xs;
+          margin-right: 0;
         }
-
-        .selector-label {
-            font-size: $text-font-size-2;
-
-            &-end {
-                margin-left: $space-xs;
-            }
-
-            &-start {
-                margin-right: $space-xs;
-            }
-        }
+      }
     }
 
     &-small {
-        input {
-            & + label {
-                .checkmark {
-                    min-height: $checkmark-small-height;
-                    height: $checkmark-small-height;
-                    min-width: $checkmark-small-width;
-                    width: $checkmark-small-width;
-
-                    &:after {
-                        height: $checkmark-small-after-height;
-                        left: $checkmark-small-after-left;
-                        top: $checkmark-small-after-top;
-                        width: $checkmark-small-after-width;
-                    }
-
-                    &.toggle {
-                        border-radius: $toggle-small-height;
-                        min-height: $toggle-small-height;
-                        height: $toggle-small-height;
-                        min-width: $toggle-small-width;
-                        width: $toggle-small-width;
-
-                        &:after {
-                            height: $toggle-small-after-height;
-                            left: $toggle-small-after-left;
-                            top: $toggle-small-after-top;
-                            width: $toggle-small-after-width;
-                        }
-                    }
-                }
-            }
+      .selector-label {
+        &-end {
+          margin-left: 0;
+          margin-right: $space-xxs;
         }
 
-        input:checked {
-            & + label {
-                .checkmark {
-                    &.toggle {
-                        &:after {
-                            left: $toggle-small-after-left-checked;
-                        }
-                    }
-                }
-            }
+        &-start {
+          margin-left: $space-xxs;
+          margin-right: 0;
         }
-
-        .selector-label {
-            font-size: $text-font-size-1;
-
-            &-end {
-                margin-left: $space-xxs;
-            }
-
-            &-start {
-                margin-right: $space-xxs;
-            }
-        }
+      }
     }
-
-    &.disabled {
-        input {
-            cursor: not-allowed;
-
-            & + label {
-                .checkmark {
-                    opacity: 50%;
-
-                    &.toggle {
-                        opacity: 50%;
-                    }
-                }
-            }
-        }
-
-        input:checked {
-            cursor: not-allowed;
-        }
-    }
-
-    &-rtl {
-        .selector-label {
-            &-end {
-                margin-left: 0;
-                margin-right: $space-xs;
-            }
-
-            &-start {
-                margin-left: $space-xs;
-                margin-right: 0;
-            }
-        }
-
-        &-large {
-            .selector-label {
-                &-end {
-                    margin-left: 0;
-                    margin-right: $space-m;
-                }
-
-                &-start {
-                    margin-left: $space-m;
-                    margin-right: 0;
-                }
-            }
-        }
-
-        &-medium {
-            .selector-label {
-                &-end {
-                    margin-left: 0;
-                    margin-right: $space-xs;
-                }
-
-                &-start {
-                    margin-left: $space-xs;
-                    margin-right: 0;
-                }
-            }
-        }
-
-        &-small {
-            .selector-label {
-                &-end {
-                    margin-left: 0;
-                    margin-right: $space-xxs;
-                }
-
-                &-start {
-                    margin-left: $space-xxs;
-                    margin-right: 0;
-                }
-            }
-        }
-    }
+  }
 }
 
 :global(.focus-visible) {
-    input[type='checkbox'] {
-        &:checked {
-            &:focus-visible + label {
-                .checkmark {
-                    outline: $space-xxxs solid var(--primary-color-50);
-                    outline-offset: $selector-outline-offset;
+  input[type='checkbox'] {
+    &:checked {
+      &:focus-visible + label {
+        .checkmark {
+          outline: var(--focus-visible-outline);
+          outline-offset: $selector-outline-offset;
 
-                    &.toggle {
-                        outline: $space-xxxs solid var(--primary-color-50);
-                        outline-offset: $selector-outline-offset;
-                    }
-                }
+          &.toggle {
+            outline: var(--focus-visible-outline);
+            outline-offset: $selector-outline-offset;
+          }
+        }
+      }
+    }
+
+    &:indeterminate {
+      &:focus-visible + label {
+        .checkmark {
+          outline: var(--focus-visible-outline);
+          outline-offset: $selector-outline-offset;
+        }
+      }
+    }
+
+    &:focus-visible + label {
+      .checkmark {
+        border: var(--check-box-focus-visible-border);
+        outline: var(--focus-visible-outline);
+        outline-offset: $selector-outline-offset;
+
+        &:after {
+          border-color: var(--check-box-focus-visible-mark-color);
+        }
+
+        &.toggle {
+          border: var(--toggle-switch-focus-visible-border);
+          outline: var(--focus-visible-outline);
+          outline-offset: $selector-outline-offset;
+
+          &:after {
+            background: var(--toggle-switch-focus-visible-pip-color);
+            border-color: var(--toggle-switch-focus-visible-pip-color);
+          }
+        }
+      }
+    }
+
+    &[disabled] {
+      &:checked {
+        &:focus-visible + label {
+          .checkmark {
+            outline: none;
+
+            &.toggle {
+              outline: none;
             }
+          }
+        }
+      }
+
+      &:indeterminate {
+        &:focus-visible + label {
+          .checkmark {
+            outline: none;
+          }
+        }
+      }
+
+      &:focus-visible + label {
+        .checkmark {
+          outline: none;
+          border: var(--check-box-border);
+
+          &.toggle {
+            outline: none;
+            border: var(--toggle-switch-border);
+
+            &:after {
+              background: var(--toggle-switch-pip-color);
+              border-color: var(--toggle-switch-pip-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .selector {
+    &.disabled {
+      input {
+        &:checked {
+          &:focus-visible + label {
+            .checkmark {
+              outline: none;
+
+              &.toggle {
+                outline: none;
+              }
+            }
+          }
+        }
+
+        &:indeterminate {
+          &:focus-visible + label {
+            .checkmark {
+              outline: none;
+            }
+          }
         }
 
         &:focus-visible + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color);
-                outline: $space-xxxs solid var(--primary-color-50);
-                outline-offset: $selector-outline-offset;
+          .checkmark {
+            outline: none;
+            border: var(--check-box-border);
 
-                &.toggle {
-                    border: $space-xxxs solid var(--primary-color);
-                    outline: $space-xxxs solid var(--primary-color-50);
-                    outline-offset: $selector-outline-offset;
+            &.toggle {
+              outline: none;
+              border: var(--toggle-switch-border);
 
-                    &:after {
-                        background-color: var(--primary-color);
-                        border-color: var(--primary-color);
-                    }
-                }
+              &:after {
+                background: var(--toggle-switch-pip-color);
+                border-color: var(--toggle-switch-pip-color);
+              }
             }
+          }
+        }
+      }
+    }
+  }
+
+  .selector-pill:has(:focus-visible) {
+    &:focus-within {
+      background: var(--check-box-pill-container-active-background-color);
+      box-shadow: var(--focus-visible-box-shadow);
+      color: var(--check-box-pill-container-active-text-color);
+
+      input[type='checkbox'] {
+        &:checked {
+          &:focus-visible + label {
+            .checkmark {
+              outline: none;
+            }
+          }
+        }
+
+        &:indeterminate {
+          &:focus-visible + label {
+            .checkmark {
+              outline: none;
+            }
+          }
+        }
+
+        &:focus-visible + label {
+          .checkmark {
+            border: var(--check-box-in-pill-focus-visible-border);
+            outline: none;
+
+            &:after {
+              border-color: var(--check-box-in-pill-focus-visible-mark-color);
+            }
+          }
         }
 
         &[disabled] {
-            &:checked {
-                &:focus-visible + label {
-                    .checkmark {
-                        outline: none;
-
-                        &.toggle {
-                            outline: none;
-                        }
-                    }
-                }
-            }
-
+          &:checked {
             &:focus-visible + label {
-                .checkmark {
-                    outline: none;
-                    border: $space-xxxs solid var(--grey-color-70);
-
-                    &.toggle {
-                        outline: none;
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &:after {
-                            background-color: var(--primary-color-70);
-                            border-color: var(--primary-color-70);
-                        }
-                    }
-                }
+              .checkmark {
+                outline: none;
+              }
             }
-        }
-    }
+          }
 
-    .selector {
-        &.disabled {
-            input {
-                &:checked {
-                    &:focus-visible + label {
-                        .checkmark {
-                            outline: none;
-
-                            &.toggle {
-                                outline: none;
-                            }
-                        }
-                    }
-                }
-
-                &:focus-visible + label {
-                    .checkmark {
-                        outline: none;
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &.toggle {
-                            outline: none;
-                            border: $space-xxxs solid var(--grey-color-70);
-
-                            &:after {
-                                background-color: var(--primary-color-70);
-                                border-color: var(--primary-color-70);
-                            }
-                        }
-                    }
-                }
+          &:indeterminate {
+            &:focus-visible + label {
+              .checkmark {
+                outline: none;
+              }
             }
+          }
+
+          &:focus-visible + label {
+            .checkmark {
+              outline: none;
+              border: var(--check-box-in-pill-border);
+            }
+          }
         }
+      }
+
+      &:hover:not([disabled]) {
+        background: var(--check-box-pill-container-hover-background-color);
+        border-color: var(--check-box-pill-container-hover-border-color);
+        color: var(--check-box-pill-container-hover-text-color);
+
+        input {
+          &:not(.disabled):not([disabled]) + label {
+            .checkmark {
+              background: var(--check-box-in-pill-hover-background-color);
+              border: var(--check-box-in-pill-hover-border);
+            }
+          }
+        }
+      }
+
+      &:active:not([disabled]) {
+        background: var(--check-box-pill-container-active-background-color);
+        border-color: var(--check-box-pill-container-active-border-color);
+        color: var(--check-box-pill-container-active-text-color);
+
+        input {
+          &:not(.disabled):not([disabled]) + label {
+            .checkmark {
+              background: var(--check-box-in-pill-active-background-color);
+              border: var(--check-box-in-pill-active-border);
+            }
+          }
+        }
+      }
     }
+  }
 }
 
 .checkbox-group {
-    display: flex;
+  display: flex;
+  gap: $space-s;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+
+  &-large {
+    gap: $space-m;
+  }
+
+  &-medium {
     gap: $space-s;
+  }
 
-    &.vertical {
-        flex-direction: column;
-    }
-
-    &.horizontal {
-        flex-direction: row;
-    }
-
-    &-large {
-        gap: $space-m;
-    }
-
-    &-medium {
-        gap: $space-s;
-    }
-
-    &-small {
-        gap: $space-xs;
-    }
+  &-small {
+    gap: $space-xs;
+  }
 }
 
 .label-no-value {
-    margin-bottom: $label-no-value-margin-bottom;
+  margin-bottom: $label-no-value-margin-bottom;
 }

@@ -1,72 +1,140 @@
 // Export values for typescript consumption.
 :export {
-    maxCountFontSize: $text-font-size-3;
+  maxCountFontSize: $text-font-size-3;
 }
 
 .wrapper-style {
-    align-items: center;
-    display: flex;
-    font-family: $octuple-font-family;
-    justify-content: center;
-    color: var(--text-inverse-color);
+  align-items: center;
+  color: var(--text-inverse-color);
+  display: flex;
+  font-family: var(--avatar-font-family);
+  justify-content: center;
 
-    &.red {
-        background-color: var(--red-color-60);
-    }
+  &.red {
+    background: var(--red-secondary-color);
+  }
 
-    &.orange {
-        background-color: var(--orange-color-60);
-    }
+  &.orange {
+    background: var(--orange-secondary-color);
+  }
 
-    &.red-orange {
-        background-color: var(--redorange-color-60);
-    }
+  &.red-orange {
+    background: var(--redorange-secondary-color);
+  }
 
-    &.yellow {
-        background-color: var(--yellow-color-60);
-    }
+  &.yellow {
+    background: var(--yellow-secondary-color);
+  }
 
-    &.yellow-green {
-        background-color: var(--yellowgreen-color-60);
-    }
+  &.yellow-green {
+    background: var(--yellowgreen-secondary-color);
+  }
 
-    &.green {
-        background-color: var(--green-color-60);
-    }
+  &.green {
+    background: var(--green-secondary-color);
+  }
 
-    &.blue-green {
-        background-color: var(--bluegreen-color-60);
-    }
+  &.blue-green {
+    background: var(--bluegreen-secondary-color);
+  }
 
-    &.blue {
-        background-color: var(--blue-color-60);
-    }
+  &.blue {
+    background: var(--blue-secondary-color);
+  }
 
-    &.blue-violet {
-        background-color: var(--blueviolet-color-60);
-    }
+  &.blue-violet {
+    background: var(--blueviolet-secondary-color);
+  }
 
-    &.violet {
-        background-color: var(--violet-color-60);
-    }
+  &.violet {
+    background: var(--violet-secondary-color);
+  }
 
-    &.violet-red {
-        background-color: var(--violetred-color-60);
-    }
+  &.violet-red {
+    background: var(--violetred-secondary-color);
+  }
 
-    &.grey {
-        background-color: var(--grey-color-60);
-    }
-}
-
-.round-image {
-    border-radius: 50%;
+  &.grey {
+    background: var(--grey-secondary-color);
+  }
 }
 
 .image-style {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.avatar-status-item {
+  display: flex;
+  position: absolute;
+  border-radius: var(--avatar-status-item-border-radius);
+
+  .clickable {
+    cursor: pointer;
+  }
+}
+
+.avatar-status-item-text {
+  font-weight: 600;
+
+  &.text-margin-right {
+    margin-right: 2px;
+  }
+
+  &.text-margin-left {
+    margin-left: 2px;
+  }
+}
+
+.avatar-status-item-icon {
+  margin: 0;
+}
+
+.avatar-img-wrapper {
+  align-items: center;
+  display: flex;
+  font-family: var(--avatar-font-family);
+  justify-content: center;
+}
+
+.avatar-popup {
+  z-index: $z-index-500;
+}
+
+.avatar-group-max-count,
+.avatar-popup,
+.avatar-popup-hidden,
+.avatar-popup-visible,
+.wrapper-style,
+.image-style,
+.avatar-img-wrapper {
+  border-radius: var(--avatar-border-radius);
+  position: relative;
+
+  &.round {
+    border-radius: var(--avatar-round-border-radius);
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+:global(.focus-visible) {
+  .avatar-group-max-count,
+  .avatar-popup,
+  .avatar-popup-hidden,
+  .avatar-popup-visible,
+  .avatar-img-wrapper,
+  .image-style,
+  .wrapper-style {
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
+    }
+  }
 }
 
 @import './Styles/group';

@@ -2,12 +2,12 @@
 
 ## Prerequisites
 
--   Install the following:
+- Install the following:
 
--   [Git](https://git-scm.com/)
--   [Node](https://nodejs.org/en/download/)
--   [Yarn](https://yarnpkg.com/getting-started/install)
--   [NVM (optional to quickly use different versions of Node)](https://github.com/nvm-sh/nvm)
+- [Git](https://git-scm.com/)
+- [Node](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/getting-started/install)
+- [NVM (optional to quickly use different versions of Node)](https://github.com/nvm-sh/nvm)
 
 ## Available Scripts
 
@@ -23,16 +23,16 @@ You will also see any lint errors in the console.
 
 ### `yarn build-storybook`
 
-Builds the Octuple Design System Storybook project for deployment to the `dist` folder.
+Builds the Octuple Design System Storybook project to the `storybook-static` folder for deployment.
 
 ### `yarn test`
 
-Runs the UTs.
+Runs the unit tests.
 
 ### `yarn`
 
-Builds the Octuple Design System Component Library for prod publishing to NPM in to the `lib` folder.
-Should also run the UTs as part of the process.
+Builds the Octuple Design System Component Library for production publishing to NPM in to the `lib` folder.
+Should also run the unit tests as part of the process.
 Your package is ready to be published!
 
 ## Contributing
@@ -43,10 +43,11 @@ This section describes the steps to set up a Git repository on your local machin
 
 One-time setup activities to start contributing:
 
--   Fork the [Octuple repository](https://github.com/EightfoldAI/octuple) to your GitHub account
--   Choose a local folder for the cloned files
--   Clone the repository to your local machine
--   Configure the upstream remote value
+- Fork the [Octuple repository](https://github.com/EightfoldAI/octuple) to your GitHub account
+- Choose a local folder for the cloned files
+- Clone the repository to your local machine
+- Configure the upstream remote value
+- Configure git to ignore specified commits via `git config blame.ignoreRevsFile .git-blame-ignore-revs`
 
 ### Overview
 
@@ -62,7 +63,7 @@ A personal fork is required since the main repositorty provides read-only access
 
 1. Go to the main repository's GitHub page and click the Fork button on the upper right.
 
-    ![Fork the Octuple repository](../public/assets/fork.png)
+   ![Fork the Octuple repository](../public/assets/fork.png)
 
 2. If you are prompted, select your GitHub account tile as the destination where the fork should be created. This prompt creates a copy of the repository within your GitHub account, known as a fork.
 
@@ -144,7 +145,7 @@ When committing changes the Octuple project lints commit messages using the [Con
 An example of such a message:
 
 ```
-fix: ABC-123: button not keyboard accessible
+fix: ABC123: button not keyboard accessible
 
 The button component had a tabIndex of -1 by default
 and therefore it was not keyboard accessible
@@ -156,10 +157,10 @@ A pull request provides a convenient way for a contributor to propose a set of c
 
 To learn more please read:
 
--   [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
--   [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
--   [Creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
+- [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
+- [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+- [Creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 
 ## License
 
-MIT (c) 2022 Eightfold
+MIT (c) 2024 Eightfold

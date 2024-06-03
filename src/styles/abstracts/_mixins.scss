@@ -1,354 +1,393 @@
 @mixin rem($properties, $values...) {
-    @include convert($properties, $values...);
+  @include convert($properties, $values...);
 }
 
 @mixin baseline($zoom: 100%) {
-    font-size: _divide($zoom, 16px) * $baseline;
+  font-size: _divide($zoom, 16px) * $baseline;
 }
 
 @mixin surface-layout {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: $z-index-500;
-    pointer-events: none;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: $z-index-500;
+  pointer-events: none;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 @mixin reset-component() {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: var(--text-primary-color);
-    font-size: $text-font-size-2;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text-primary-color);
+  font-size: $text-font-size-2;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
 }
 
 @mixin clearfix() {
-    &:before {
-        display: table;
-        content: '';
-    }
+  &:before {
+    display: table;
+    content: '';
+  }
 
-    &:after {
-        display: table;
-        clear: both;
-        content: '';
-    }
+  &:after {
+    display: table;
+    clear: both;
+    content: '';
+  }
 }
 
 @mixin backdrop {
-    @include surface-layout();
+  @include surface-layout();
 
-    background-color: $all-backdrops;
+  background-color: $all-backdrops;
 }
 
 @mixin no-backdrop {
-    @include surface-layout();
+  @include surface-layout();
 
-    background: none;
+  background: none;
+}
+
+@mixin scroll-bars {
+  overflow: auto;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: $space-m;
+    width: $space-m;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 5px solid transparent;
+    border-radius: $border-radius-xl;
+    box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+    height: $space-xxxl;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+
+  // Firefox
+  scrollbar-color: rgba(105, 113, 127, 0.7) transparent;
 }
 
 @mixin no-scrollbars {
-    // IE and Edge
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    // Firefox and chrome
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  // IE and Edge
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  // Firefox and chrome
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @mixin text-overflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /** Only to be used for octuple non-hashed BEM and Layout component styles
     Maps to vertical spacing for any font size as specified by UX team */
 @mixin content-padding($line-height) {
-    padding-bottom: calc(#{$line-height} * 0.25);
-    padding-top: calc(#{$line-height} * 0.25);
+  padding-bottom: calc(#{$line-height} * 0.25);
+  padding-top: calc(#{$line-height} * 0.25);
 
-    // Resets defaults
-    margin-block-end: 0;
-    margin-block-start: 0;
-    margin-inline-end: 0;
-    margin-inline-start: 0;
+  // Resets defaults
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
 }
 
 @mixin octuple-h1 {
-    font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-8;
-    line-height: $text-line-height-7;
-    letter-spacing: $text-letter-spacing-m;
-    @include content-padding($text-line-height-7);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-8;
+  line-height: $text-line-height-7;
+  letter-spacing: $text-letter-spacing-m;
+  @include content-padding($text-line-height-7);
 }
 
 @mixin octuple-h2 {
-    font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-7;
-    line-height: $text-line-height-6;
-    letter-spacing: $text-letter-spacing-xs;
-    @include content-padding($text-line-height-6);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-7;
+  line-height: $text-line-height-6;
+  letter-spacing: $text-letter-spacing-xs;
+  @include content-padding($text-line-height-6);
 }
 
 @mixin octuple-h3 {
-    font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-6;
-    line-height: $text-line-height-5;
-    @include content-padding($text-line-height-5);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-6;
+  line-height: $text-line-height-5;
+  @include content-padding($text-line-height-5);
 }
 
 @mixin octuple-h4 {
-    font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-5;
-    line-height: $text-line-height-3;
-    @include content-padding($text-line-height-3);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-5;
+  line-height: $text-line-height-3;
+  @include content-padding($text-line-height-3);
 }
 
 @mixin octuple-h5 {
-    font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-3;
-    line-height: $text-line-height-2;
-    @include content-padding($text-line-height-2);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-3;
+  line-height: $text-line-height-2;
+  @include content-padding($text-line-height-2);
 }
 
 @mixin octuple-h6 {
-    font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-2;
-    line-height: $text-line-height-2;
-    @include content-padding($text-line-height-2);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-2;
+  line-height: $text-line-height-2;
+  @include content-padding($text-line-height-2);
 }
 
 @mixin octuple-hr {
-    background-color: $divider-line-color;
-    width: 100%;
+  background-color: var(--horizontal-rule-color);
+  width: 100%;
 }
 
 @mixin octuple-content {
-    font-weight: $text-font-weight-regular;
-    font-size: $text-font-size-3;
-    line-height: $text-line-height-3;
-    @include content-padding($text-line-height-3);
+  font-weight: $text-font-weight-regular;
+  font-size: $text-font-size-3;
+  line-height: $text-line-height-3;
+  @include content-padding($text-line-height-3);
 }
 
 @mixin octuple-content-semibold {
-    font-weight: $text-font-weight-semibold;
+  font-weight: $text-font-weight-semibold;
 }
 
 @mixin octuple-content-large {
-    font-size: $text-font-size-4;
-    line-height: $text-line-height-3;
+  font-size: $text-font-size-4;
+  line-height: $text-line-height-3;
 }
 
 @mixin octuple-content-medium {
-    font-size: $text-font-size-3;
-    line-height: $text-line-height-3;
+  font-size: $text-font-size-3;
+  line-height: $text-line-height-3;
 }
 
 @mixin octuple-content-small {
-    font-size: $text-font-size-2;
-    line-height: $text-line-height-2;
+  font-size: $text-font-size-2;
+  line-height: $text-line-height-2;
 }
 
 /** A set of opinionated styles to be used privately by Octuple components */
 @mixin octuple-chrome {
+  .octuple-content {
+    padding: 0 1.6rem;
+  }
+
+  .octuple-display {
+    font-style: normal;
+    font-weight: $text-font-weight-light;
+    font-size: $text-font-size-11;
+    line-height: $text-line-height-10;
+    letter-spacing: $text-letter-spacing-l;
+    @include content-padding($text-line-height-10);
+
+    &__large {
+      font-size: $text-font-size-12;
+      line-height: $text-line-height-11;
+      letter-spacing: $text-letter-spacing-l;
+      @include content-padding($text-line-height-11);
+    }
+
+    &__medium {
+      font-size: $text-font-size-11;
+      line-height: $text-line-height-10;
+      letter-spacing: $text-letter-spacing-l;
+      @include content-padding($text-line-height-10);
+    }
+
+    &__small {
+      font-size: $text-font-size-10;
+      line-height: $text-line-height-9;
+      letter-spacing: $text-letter-spacing-m;
+      @include content-padding($text-line-height-9);
+    }
+
+    &__extra-small {
+      font-size: $text-font-size-9;
+      line-height: $text-line-height-8;
+      letter-spacing: $text-letter-spacing-m;
+      @include content-padding($text-line-height-8);
+    }
+  }
+
+  h1,
+  .octuple-h1 {
+    @include octuple-h1();
+  }
+
+  h2,
+  .octuple-h2 {
+    @include octuple-h2();
+  }
+
+  h3,
+  .octuple-h3 {
+    @include octuple-h3();
+  }
+
+  h4,
+  .octuple-h4 {
+    @include octuple-h4();
+  }
+
+  h5,
+  .octuple-h5 {
+    @include octuple-h5();
+  }
+
+  h6,
+  .octuple-h6 {
+    @include octuple-h6();
+  }
+
+  hr,
+  .octuple-hr {
+    @include octuple-hr();
+  }
+
+  .octuple-subtitle {
+    font-weight: $text-font-weight-semibold;
+    font-size: $text-font-size-6;
+    line-height: $text-line-height-5;
+    letter-spacing: $text-letter-spacing-xs;
+    @include content-padding($text-line-height-5);
+
+    &__large {
+      font-weight: $text-font-weight-light;
+      font-size: $text-font-size-7;
+      line-height: $text-line-height-6;
+      letter-spacing: $text-letter-spacing-s;
+      @include content-padding($text-line-height-6);
+    }
+
+    &__medium {
+      font-weight: $text-font-weight-semibold;
+      font-size: $text-font-size-6;
+      line-height: $text-line-height-5;
+      letter-spacing: $text-letter-spacing-xs;
+      @include content-padding($text-line-height-5);
+    }
+  }
+
+  .octuple-pre-display {
+    font-weight: $text-font-weight-semibold;
+    font-size: $text-font-size-5;
+    line-height: $text-line-height-4;
+    text-transform: uppercase;
+    @include content-padding($text-line-height-4);
+  }
+
+  body,
+  p,
+  .octuple-content {
+    @include octuple-content();
+
+    &.semibold {
+      @include octuple-content-semibold();
+    }
+
+    a,
+    .octuple-link {
+      &__primary {
+        color: var(--primary-color);
+      }
+    }
+
+    &__large {
+      @include octuple-content-large();
+      @include content-padding($text-line-height-3);
+    }
+
+    &__medium {
+      @include octuple-content-medium();
+      @include content-padding($text-line-height-3);
+    }
+
+    &__small {
+      @include octuple-content-small();
+      @include content-padding($text-line-height-2);
+    }
+  }
+
+  label,
+  .octuple-label {
+    font-weight: $text-font-weight-semibold;
+  }
+
+  caption,
+  .octuple-caption {
+    font-weight: $text-font-weight-regular;
+    font-size: $text-font-size-1;
+    line-height: $text-line-height-1;
+    @include content-padding($text-line-height-1);
+  }
+
+  i,
+  .octuple-icon {
+    font-size: $icon-font-size-material-m;
+
+    &__large {
+      font-size: $icon-font-size-material-l;
+    }
+
+    &__medium {
+      font-size: $icon-font-size-material-m;
+    }
+
+    &__small {
+      font-size: $icon-font-size-material-s;
+    }
+
+    &__extra-small {
+      font-size: $icon-font-size-material-xs;
+    }
+  }
+
+  /* BEGIN Responsive Styles */
+
+  @media (min-width: 600px) {
     .octuple-content {
-        padding: 0 1.6rem;
+      padding: 0 2.4rem;
     }
+  }
 
-    .octuple-display {
-        font-style: normal;
-        font-weight: $text-font-weight-light;
-        font-size: $text-font-size-11;
-        line-height: $text-line-height-10;
-        letter-spacing: $text-letter-spacing-l;
-        @include content-padding($text-line-height-10);
-
-        &__large {
-            font-size: $text-font-size-12;
-            line-height: $text-line-height-11;
-            letter-spacing: $text-letter-spacing-l;
-            @include content-padding($text-line-height-11);
-        }
-
-        &__medium {
-            font-size: $text-font-size-11;
-            line-height: $text-line-height-10;
-            letter-spacing: $text-letter-spacing-l;
-            @include content-padding($text-line-height-10);
-        }
-
-        &__small {
-            font-size: $text-font-size-10;
-            line-height: $text-line-height-9;
-            letter-spacing: $text-letter-spacing-m;
-            @include content-padding($text-line-height-9);
-        }
-
-        &__extra-small {
-            font-size: $text-font-size-9;
-            line-height: $text-line-height-8;
-            letter-spacing: $text-letter-spacing-m;
-            @include content-padding($text-line-height-8);
-        }
-    }
-
-    h1,
-    .octuple-h1 {
-        @include octuple-h1();
-    }
-
-    h2,
-    .octuple-h2 {
-        @include octuple-h2();
-    }
-
-    h3,
-    .octuple-h3 {
-        @include octuple-h3();
-    }
-
-    h4,
-    .octuple-h4 {
-        @include octuple-h4();
-    }
-
-    h5,
-    .octuple-h5 {
-        @include octuple-h5();
-    }
-
-    h6,
-    .octuple-h6 {
-        @include octuple-h6();
-    }
-
-    hr,
-    .octuple-hr {
-        @include octuple-hr();
-    }
-
-    .octuple-subtitle {
-        font-weight: $text-font-weight-semibold;
-        font-size: $text-font-size-6;
-        line-height: $text-line-height-5;
-        letter-spacing: $text-letter-spacing-xs;
-        @include content-padding($text-line-height-5);
-
-        &__large {
-            font-weight: $text-font-weight-light;
-            font-size: $text-font-size-7;
-            line-height: $text-line-height-6;
-            letter-spacing: $text-letter-spacing-s;
-            @include content-padding($text-line-height-6);
-        }
-
-        &__medium {
-            font-weight: $text-font-weight-semibold;
-            font-size: $text-font-size-6;
-            line-height: $text-line-height-5;
-            letter-spacing: $text-letter-spacing-xs;
-            @include content-padding($text-line-height-5);
-        }
-    }
-
-    .octuple-pre-display {
-        font-weight: $text-font-weight-semibold;
-        font-size: $text-font-size-5;
-        line-height: $text-line-height-4;
-        text-transform: uppercase;
-        @include content-padding($text-line-height-4);
-    }
-
-    body,
-    p,
+  @media (min-width: 1200px) {
     .octuple-content {
-        @include octuple-content();
-
-        &.semibold {
-            @include octuple-content-semibold();
-        }
-
-        a,
-        .octuple-link {
-            &__primary {
-                color: var(--primary-color);
-            }
-        }
-
-        &__large {
-            @include octuple-content-large();
-            @include content-padding($text-line-height-3);
-        }
-
-        &__medium {
-            @include octuple-content-medium();
-            @include content-padding($text-line-height-3);
-        }
-
-        &__small {
-            @include octuple-content-small();
-            @include content-padding($text-line-height-2);
-        }
+      padding: 0 4rem;
     }
+  }
 
-    label,
-    .octuple-label {
-        font-weight: $text-font-weight-semibold;
-    }
-
-    caption,
-    .octuple-caption {
-        font-weight: $text-font-weight-regular;
-        font-size: $text-font-size-1;
-        line-height: $text-line-height-1;
-        @include content-padding($text-line-height-1);
-    }
-
-    i,
-    .octuple-icon {
-        font-size: $icon-font-size-material-m;
-
-        &__large {
-            font-size: $icon-font-size-material-l;
-        }
-
-        &__medium {
-            font-size: $icon-font-size-material-m;
-        }
-
-        &__small {
-            font-size: $icon-font-size-material-s;
-        }
-
-        &__extra-small {
-            font-size: $icon-font-size-material-xs;
-        }
-    }
-
-    /* BEGIN Responsive Styles */
-
-    @media (min-width: 600px) {
-        .octuple-content {
-            padding: 0 2.4rem;
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .octuple-content {
-            padding: 0 4rem;
-        }
-    }
-
-    /* END Responsive Styles */
+  /* END Responsive Styles */
 }

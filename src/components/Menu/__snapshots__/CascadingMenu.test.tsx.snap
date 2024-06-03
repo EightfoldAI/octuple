@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Should render a menu button 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="button button-default button-medium pill-shape"
+    data-testid="menu-reference"
+    id="floating-ui-3"
+    role="button"
+  >
+    <span
+      class="button-text-medium"
+    >
+      Cascading menu
+    </span>
+  </button>
+</div>
+`;

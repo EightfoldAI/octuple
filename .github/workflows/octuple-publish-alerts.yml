@@ -1,0 +1,102 @@
+name: Octuple Publish Alerts
+
+# Only trigger when the npm-publish workflow succeeded
+on:
+  workflow_run:
+    workflows: [Publish Octuple]
+    types:
+      - completed
+
+env:
+  NODE_VERSION: 16.14.2
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: yarn
+      - run: yarn test
+
+  octuple-publish-alerts:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version from tag
+        id: tag_name
+        run: |
+          echo ::set-output name=current_version::${{ github.event.workflow_run.head_commit.tag_name }}
+        shell: bash
+      - name: Prerelease check
+        id: prerelease_check
+        if: contains(steps.tag_name.outputs.current_version, '-')
+        run: |
+          echo ::set-output name=prerelease::true
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org/
+      - name: Run Yarn
+        run: yarn
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: artlaman/conventional-changelog-reader-action@v1.1.0
+        with:
+          version: ${{ steps.tag_name.outputs.current_version }}
+          path: ./CHANGELOG.md
+      - name: Slack Markdown Converter
+        id: slack_md_converter
+        uses: LoveToKnow/slackify-markdown-action@v1.0.0
+        with:
+          text: ${{ steps.changelog_reader.outputs.changes }}
+      - name: Prepare slack message
+        id: slack_prepare
+        run: |
+          CHANGE_LOG="${{ steps.slack_md_converter.outputs.text }}"
+          CHANGE_LOG="$(echo "$CHANGE_LOG" | sed -z 's/\n/\\n/g')"
+          echo "::set-output name=changelog::${CHANGE_LOG}"
+      - name: Post to Slack channel
+        uses: slackapi/slack-github-action@v1.19.0
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "📦 Release ${{ steps.changelog_reader.outputs.version }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.slack_prepare.outputs.changelog }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": " "
+                  },
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "📦 Go to Release",
+                        "emoji": true
+                    },
+                    "url": "https://github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK

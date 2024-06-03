@@ -3,51 +3,69 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { RadioButton } from './';
-import { SelectorSize } from '../CheckBox';
+import { SelectorSize, SelectorWidth, SelectorVariant } from '../CheckBox';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia: any;
 
 describe('RadioButton', () => {
-    beforeAll(() => {
-        matchMedia = new MatchMediaMock();
-    });
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+  });
 
-    afterEach(() => {
-        matchMedia.clear();
-    });
+  afterEach(() => {
+    matchMedia.clear();
+  });
 
-    it('Radio button renders', () => {
-        const wrapper = mount(<RadioButton checked={true} />);
-        expect(
-            wrapper.containsMatchingElement(<RadioButton checked={true} />)
-        ).toEqual(true);
-    });
+  test('Radio button renders', () => {
+    const wrapper = mount(<RadioButton checked={true} />);
+    expect(
+      wrapper.containsMatchingElement(<RadioButton checked={true} />)
+    ).toEqual(true);
+  });
 
-    it('simulate disabled RadioButton', () => {
-        const wrapper = mount(<RadioButton disabled label="test label" />);
-        wrapper.find('input').html().includes('disabled=""');
-    });
+  test('simulate disabled RadioButton', () => {
+    const wrapper = mount(<RadioButton disabled label="test label" />);
+    wrapper.find('input').html().includes('disabled=""');
+  });
 
-    it('RadioButton is large', () => {
-        const wrapper = mount(
-            <RadioButton size={SelectorSize.Large} label="test label" />
-        );
-        expect(wrapper.find('.selector-large')).toBeTruthy();
-    });
+  test('RadioButton is pill', () => {
+    const wrapper = mount(
+      <RadioButton variant={SelectorVariant.Pill} label="test label" />
+    );
+    expect(wrapper.find('.selector-pill')).toBeTruthy();
+  });
 
-    it('RadioButton is medium', () => {
-        const wrapper = mount(
-            <RadioButton size={SelectorSize.Medium} label="test label" />
-        );
-        expect(wrapper.find('.selector-medium')).toBeTruthy();
-    });
+  test('RadioButton is fill pill', () => {
+    const wrapper = mount(
+      <RadioButton
+        selectorWidth={SelectorWidth.fill}
+        variant={SelectorVariant.Pill}
+        label="test label"
+      />
+    );
+    expect(wrapper.find('.selector-pill-stretch')).toBeTruthy();
+  });
 
-    it('RadioButton is small', () => {
-        const wrapper = mount(
-            <RadioButton size={SelectorSize.Small} label="test label" />
-        );
-        expect(wrapper.find('.selector-small')).toBeTruthy();
-    });
+  test('RadioButton is large', () => {
+    const wrapper = mount(
+      <RadioButton size={SelectorSize.Large} label="test label" />
+    );
+    expect(wrapper.find('.selector-large')).toBeTruthy();
+  });
+
+  test('RadioButton is medium', () => {
+    const wrapper = mount(
+      <RadioButton size={SelectorSize.Medium} label="test label" />
+    );
+    expect(wrapper.find('.selector-medium')).toBeTruthy();
+  });
+
+  test('RadioButton is small', () => {
+    const wrapper = mount(
+      <RadioButton size={SelectorSize.Small} label="test label" />
+    );
+    expect(wrapper.find('.selector-small')).toBeTruthy();
+  });
 });

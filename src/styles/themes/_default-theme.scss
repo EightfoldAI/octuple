@@ -1,242 +1,2666 @@
 :root {
-    --primary-color-10: #ebf7ff;
-    --primary-color-20: #bce4ff;
-    --primary-color-30: #8ed0fa;
-    --primary-color-40: #68baef;
-    --primary-color-50: #47a4df;
-    --primary-color-60: #2c8cc9;
-    --primary-color-70: #146da6;
-    --primary-color-80: #054d7b;
-    --primary-color-90: #002a47;
-    --primary-color-100: #00060a;
-    --primary-color: #054d7b;
-    --accent-color-10: #ebfdff;
-    --accent-color-20: #b0f3fe;
-    --accent-color-30: #7be4f4;
-    --accent-color-40: #50cee1;
-    --accent-color-50: #2db3c7;
-    --accent-color-60: #1999ac;
-    --accent-color-70: #0b7b8b;
-    --accent-color-80: #025966;
-    --accent-color-90: #00333b;
-    --accent-color-100: #00090a;
-    --accent-color: #025966;
-    --disruptive-color-10: #ffefef;
-    --disruptive-color-20: #ffc6c6;
-    --disruptive-color-30: #ffa3a3;
-    --disruptive-color-40: #f48686;
-    --disruptive-color-50: #e46f6f;
-    --disruptive-color-60: #c45353;
-    --disruptive-color-70: #993838;
-    --disruptive-color-80: #6c2222;
-    --disruptive-color-90: #3b1010;
-    --disruptive-color-100: #0a0202;
-    --disruptive-color: #6c2222;
-    --red-color-10: #ffefef;
-    --red-color-20: #ffc6c6;
-    --red-color-30: #ffa3a3;
-    --red-color-40: #f48686;
-    --red-color-50: #e46f6f;
-    --red-color-60: #c45353;
-    --red-color-70: #993838;
-    --red-color-80: #6c2222;
-    --red-color-90: #3b1010;
-    --red-color-100: #0a0202;
-    --red-color: #6c2222;
-    --redorange-color-10: #fff2ed;
-    --redorange-color-20: #ffd1bd;
-    --redorange-color-30: #ffb396;
-    --redorange-color-40: #ff9977;
-    --redorange-color-50: #f8845f;
-    --redorange-color-60: #d26743;
-    --redorange-color-70: #a54d2c;
-    --redorange-color-80: #78351a;
-    --redorange-color-90: #4c1f0c;
-    --redorange-color-100: #1f0c03;
-    --redorange-color: #78351a;
-    --orange-color-10: #fff8eb;
-    --orange-color-20: #ffe3b0;
-    --orange-color-30: #ffcd78;
-    --orange-color-40: #ffb650;
-    --orange-color-50: #f29d31;
-    --orange-color-60: #ce811a;
-    --orange-color-70: #9d6309;
-    --orange-color-80: #6c4500;
-    --orange-color-90: #3b2600;
-    --orange-color-100: #0a0700;
-    --orange-color: #6c4500;
-    --yellow-color-10: #ffffeb;
-    --yellow-color-20: #fff89c;
-    --yellow-color-30: #ffe44e;
-    --yellow-color-40: #f1c40f;
-    --yellow-color-50: #d6ad00;
-    --yellow-color-60: #ad9300;
-    --yellow-color-70: #857600;
-    --yellow-color-80: #5c5500;
-    --yellow-color-90: #333100;
-    --yellow-color-100: #0a0a00;
-    --yellow-color: #5c5500;
-    --yellowgreen-color-10: #fdfeeb;
-    --yellowgreen-color-20: #f3f5b0;
-    --yellowgreen-color-30: #e2e575;
-    --yellowgreen-color-40: #cacd46;
-    --yellowgreen-color-50: #abae1f;
-    --yellowgreen-color-60: #858707;
-    --yellowgreen-color-70: #6d6f00;
-    --yellowgreen-color-80: #525400;
-    --yellowgreen-color-90: #343500;
-    --yellowgreen-color-100: #131300;
-    --yellowgreen-color: #525400;
-    --green-color-10: #f0fefa;
-    --green-color-20: #b9f4e4;
-    --green-color-30: #8ce1ca;
-    --green-color-40: #67c5ac;
-    --green-color-50: #51ab93;
-    --green-color-60: #3d8f79;
-    --green-color-70: #2b715f;
-    --green-color-80: #1b5143;
-    --green-color-90: #0e2e26;
-    --green-color-100: #030a08;
-    --green-color: #1b5143;
-    --bluegreen-color-10: #ebfdff;
-    --bluegreen-color-20: #b0f3fe;
-    --bluegreen-color-30: #7be4f4;
-    --bluegreen-color-40: #50cee1;
-    --bluegreen-color-50: #2db3c7;
-    --bluegreen-color-60: #1999ac;
-    --bluegreen-color-70: #0b7b8b;
-    --bluegreen-color-80: #025966;
-    --bluegreen-color-90: #00333b;
-    --bluegreen-color-100: #00090a;
-    --bluegreen-color: #025966;
-    --blue-color-10: #ebf7ff;
-    --blue-color-20: #bce4ff;
-    --blue-color-30: #8ed0fa;
-    --blue-color-40: #68baef;
-    --blue-color-50: #47a4df;
-    --blue-color-60: #2c8cc9;
-    --blue-color-70: #146da6;
-    --blue-color-80: #054d7b;
-    --blue-color-90: #002a47;
-    --blue-color-100: #00060a;
-    --blue-color: #054d7b;
-    --blueviolet-color-10: #f1f2ff;
-    --blueviolet-color-20: #cacffc;
-    --blueviolet-color-30: #a9b0f5;
-    --blueviolet-color-40: #8c95e8;
-    --blueviolet-color-50: #757ed6;
-    --blueviolet-color-60: #5962b7;
-    --blueviolet-color-70: #414996;
-    --blueviolet-color-80: #2b3271;
-    --blueviolet-color-90: #191d4a;
-    --blueviolet-color-100: #090b1f;
-    --blueviolet-color: #2b3271;
-    --violet-color-10: #fbf6fb;
-    --violet-color-20: #ead3e8;
-    --violet-color-30: #d8b1d4;
-    --violet-color-40: #c491bf;
-    --violet-color-50: #ae72a8;
-    --violet-color-60: #975590;
-    --violet-color-70: #7e3a77;
-    --violet-color-80: #5d2156;
-    --violet-color-90: #350e31;
-    --violet-color-100: #060106;
-    --violet-color: #5d2156;
-    --violetred-color-10: #fff0f9;
-    --violetred-color-20: #fcc8e7;
-    --violetred-color-30: #f3a5d4;
-    --violetred-color-40: #e688c0;
-    --violetred-color-50: #d36fab;
-    --violetred-color-60: #b5548e;
-    --violetred-color-70: #943d71;
-    --violetred-color-80: #702853;
-    --violetred-color-90: #491635;
-    --violetred-color-100: #1f0816;
-    --violetred-color: #702853;
-    --grey-color-10: #f6f7f8;
-    --grey-color-20: #d9dce1;
-    --grey-color-30: #bdc1c9;
-    --grey-color-40: #a1a6b1;
-    --grey-color-50: #858b98;
-    --grey-color-60: #69717f;
-    --grey-color-70: #4f5666;
-    --grey-color-80: #343c4c;
-    --grey-color-90: #1a212e;
-    --grey-color-100: #05070a;
-    --grey-color: #343c4c;
-    --background-color: #fff;
-    --border-color: #bec2ca;
-    --text-primary-color: #1a212e;
-    --text-secondary-color: #4f5666;
-    --text-tertiary-color: #69717f;
-    --text-inverse-color: #fff;
-    --success-color: #2b715f;
-    --warning-color: #9d6309;
-    --error-color: #993838;
-    --info-color: #4f5666;
-    --white-color: #fff;
-    --black-color: #000;
-    --font-family: 'Source Sans Pro';
-    --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    --font-size: 16px;
+  // ------ Base colors ------
+  // NOTE: Colors with no annotation are present to support
+  // overall base color palette in increments of 10 percent
 
-    /* ------ Tabs theme ------ */
-    --tab-label: var(--text-secondary-color);
-    --tab-active-label: var(--primary-color-70);
-    --tab-active-background: transparent;
-    --tab-hover-label: var(--primary-color);
-    --tab-hover-background: transparent;
-    --tab-indicator-color: var(--primary-color-70);
-    --tab-small-active-background: transparent;
-    --tab-small-hover-background: transparent;
-    --tab-pill-label: var(--text-secondary-color);
-    --tab-pill-active-label: var(--primary-color);
-    --tab-pill-active-background: var(--accent-color-20);
-    --tab-pill-hover-label: var(--primary-color);
-    --tab-pill-background: var(--grey-color-10);
-    --tab-underline: var(--border-color);
-    /* ------ Tabs theme ------ */
+  // Primary base colors
+  // Equivalent to Blue (Link) base colors
+  // Distinct to support discreet theming scenarios
+  --primary-color-10: #ebf7ff;
+  --primary-color-20: #bce4ff;
+  --primary-color-30: #8ed0fa;
+  --primary-color-40: #68baef;
+  --primary-color-50: #47a4df;
+  --primary-color-60: #2c8cc9;
+  --primary-color-70: #146da6;
+  --primary-color-80: #054d7b;
+  --primary-color-90: #002a47;
+  --primary-color-100: #00060a;
 
-    /* ------ Navbar theme ------ */
-    --navbar-background: var(--primary-color-80);
-    --navbar-text-color: var(--text-inverse-color);
-    --navbar-text-hover-background: var(--navbar-background);
-    --navbar-text-hover-color: var(--navbar-text-color);
-    /* ------ Navbar theme ------ */
+  --primary-gradient-end-color-10: #f1f2ff;
+  --primary-gradient-end-color-20: #cacffc;
+  --primary-gradient-end-color-30: #a9b0f5;
+  --primary-gradient-end-color-60: #5962b7;
+  --primary-gradient-end-color-70: #414996;
+  --primary-gradient-end-color-80: #2b3271;
 
-    /* ------ Picker theme ------ */
-    --picker-background-color: var(--background-color);
-    --picker-foreground-color: var(--text-secondary-color);
-    --picker-border-color: var(--border-color);
-    --picker-border-color-active: var(--primary-color);
-    --picker-cell-background-color: var(--background-color);
-    --picker-cell-background-color-active: var(--primary-color-20);
-    --picker-cell-background-color-hover: var(--accent-color-30);
-    --picker-cell-today-background-color: var(--accent-color-30);
-    --picker-cell-selected-background-color-active: var(--accent-color-30);
-    --picker-cell-range-start-background-color-hover: var(--accent-color-30);
-    --picker-cell-range-start-background-color-active: var(--accent-color-30);
-    --picker-cell-range-end-background-color-hover: var(--accent-color-30);
-    --picker-cell-range-end-background-color-active: var(--accent-color-30);
-    --picker-cell-foreground-color: var(--text-tertiary-color);
-    --picker-cell-foreground-color-active: var(--primary-color);
-    --picker-cell-foreground-color-hover: var(--primary-color);
-    --picker-column-background-color: var(--background-color);
-    --picker-column-background-color-active: var(--primary-color-20);
-    --picker-column-background-color-hover: var(--primary-color-20);
-    --picker-column-foreground-color: var(--text-secondary-color);
-    --picker-column-foreground-color-active: var(--primary-color);
-    --picker-column-foreground-color-hover: var(--primary-color);
-    --picker-header-cell-foreground-color: var(--grey-color-60);
-    --picker-input-active-bar-color: var(--primary-color);
-    --picker-input-background-color: var(--background-color);
-    --picker-input-border-color-active: var(--primary-color-40);
-    --picker-input-border-color-hover: var(--primary-color-40);
-    --picker-input-clear-icon-color: var(--grey-color-60);
-    --picker-input-clear-icon-color-active: var(--grey-color-60);
-    --picker-input-foreground-color: var(--text-primary-color);
-    --picker-input-placeholder-color: var(--grey-color-60);
-    --picker-outline-color: var(--primary-color-40);
-    /* ------ Picker theme ------ */
+  --primary-gradient-middle-color-10: #ebf7ff;
+  --primary-gradient-middle-color-20: #bce4ff;
+  --primary-gradient-middle-color-30: #8ed0fa;
+  --primary-gradient-middle-color-60: #2c8cc9;
+  --primary-gradient-middle-color-70: #146da6;
+  --primary-gradient-middle-color-80: #054d7b;
+
+  --primary-gradient-start-color-10: #ebfdff;
+  --primary-gradient-start-color-20: #b0f3fe;
+  --primary-gradient-start-color-30: #7be4f4;
+  --primary-gradient-start-color-60: #1999ac;
+  --primary-gradient-start-color-70: #0b7b8b;
+  --primary-gradient-start-color-80: #025966;
+
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  --primary-background1-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-10) 0%,
+    var(--primary-gradient-middle-color-10) 49%,
+    var(--primary-gradient-end-color-10) 100%
+  ); // Surface 1
+  --primary-background2-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-20) 0%,
+    var(--primary-gradient-middle-color-20) 49%,
+    var(--primary-gradient-end-color-20) 100%
+  ); // Surface 2
+  --primary-background3-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-30) 0%,
+    var(--primary-gradient-middle-color-30) 49%,
+    var(--primary-gradient-end-color-30) 100%
+  ); // Surface 3
+  --primary-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-60) 0%,
+    var(--primary-gradient-middle-color-60) 49%,
+    var(--primary-gradient-end-color-60) 100%
+  ); // Graphics
+  --primary-secondary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-70) 0%,
+    var(--primary-gradient-middle-color-70) 49%,
+    var(--primary-gradient-end-color-70) 100%
+  ); // Text
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-80) 0%,
+    var(--primary-gradient-middle-color-80) 49%,
+    var(--primary-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Accent base colors
+  --accent-color-10: #ebfdff;
+  --accent-color-20: #b0f3fe;
+  --accent-color-30: #7be4f4;
+  --accent-color-40: #50cee1;
+  --accent-color-50: #2db3c7;
+  --accent-color-60: #1999ac;
+  --accent-color-70: #0b7b8b;
+  --accent-color-80: #025966;
+  --accent-color-90: #00333b;
+  --accent-color-100: #00090a;
+
+  --accent-gradient-end-color-10: #ebf7ff;
+  --accent-gradient-end-color-20: #bce4ff;
+  --accent-gradient-end-color-30: #8ed0fa;
+  --accent-gradient-end-color-60: #2c8cc9;
+  --accent-gradient-end-color-70: #146da6;
+  --accent-gradient-end-color-80: #054d7b;
+
+  --accent-gradient-middle-color-10: #ebfdff;
+  --accent-gradient-middle-color-20: #b0f3fe;
+  --accent-gradient-middle-color-30: #7be4f4;
+  --accent-gradient-middle-color-60: #1999ac;
+  --accent-gradient-middle-color-70: #0b7b8b;
+  --accent-gradient-middle-color-80: #025966;
+
+  --accent-gradient-start-color-10: #f0fefa;
+  --accent-gradient-start-color-20: #b9f4e4;
+  --accent-gradient-start-color-30: #8ce1ca;
+  --accent-gradient-start-color-60: #3d8f79;
+  --accent-gradient-start-color-70: #2b715f;
+  --accent-gradient-start-color-80: #1b5143;
+
+  --accent-background1-color: var(--accent-color-10); // Surface 1
+  --accent-background2-color: var(--accent-color-20); // Surface 2
+  --accent-background3-color: var(--accent-color-30); // Surface 3
+  --accent-tertiary-color: var(--accent-color-60); // Graphics
+  --accent-secondary-color: var(--accent-color-70); // Text
+  --accent-color: var(--accent-color-80); // Extra high contrast
+
+  --accent-background1-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-10) 0%,
+    var(--accent-gradient-middle-color-10) 49%,
+    var(--accent-gradient-end-color-10) 100%
+  ); // Surface 1
+  --accent-background2-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-20) 0%,
+    var(--accent-gradient-middle-color-20) 49%,
+    var(--accent-gradient-end-color-20) 100%
+  ); // Surface 2
+  --accent-background3-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-30) 0%,
+    var(--accent-gradient-middle-color-30) 49%,
+    var(--accent-gradient-end-color-30) 100%
+  ); // Surface 3
+  --accent-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-60) 0%,
+    var(--accent-gradient-middle-color-60) 49%,
+    var(--accent-gradient-end-color-60) 100%
+  ); // Graphics
+  --accent-secondary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-70) 0%,
+    var(--accent-gradient-middle-color-70) 49%,
+    var(--accent-gradient-end-color-70) 100%
+  ); // Text
+  --accent-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-80) 0%,
+    var(--accent-gradient-middle-color-80) 49%,
+    var(--accent-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Red base colors
+  --red-color-10: #ffefef;
+  --red-color-20: #ffc6c6;
+  --red-color-30: #ffa3a3;
+  --red-color-40: #f48686;
+  --red-color-50: #e46f6f;
+  --red-color-60: #c15151;
+  --red-color-70: #993838;
+  --red-color-80: #6c2222;
+  --red-color-90: #3b1010;
+  --red-color-100: #0a0202;
+
+  --red-gradient-end-color-10: #fff2ed;
+  --red-gradient-end-color-20: #ffd1bd;
+  --red-gradient-end-color-30: #ffb396;
+  --red-gradient-end-color-60: #d26743;
+  --red-gradient-end-color-70: #a54d2c;
+  --red-gradient-end-color-80: #78351a;
+
+  --red-gradient-middle-color-10: #ffefef;
+  --red-gradient-middle-color-20: #ffc6c6;
+  --red-gradient-middle-color-30: #ffa3a3;
+  --red-gradient-middle-color-60: #c15151;
+  --red-gradient-middle-color-70: #993838;
+  --red-gradient-middle-color-80: #6c2222;
+
+  --red-gradient-start-color-10: #fff0f9;
+  --red-gradient-start-color-20: #fcc8e7;
+  --red-gradient-start-color-30: #f3a5d4;
+  --red-gradient-start-color-60: #b5548e;
+  --red-gradient-start-color-70: #943d71;
+  --red-gradient-start-color-80: #702853;
+
+  --red-background1-color: var(--red-color-10); // Surface 1
+  --red-background2-color: var(--red-color-20); // Surface 2
+  --red-background3-color: var(--red-color-30); // Surface 3
+  --red-tertiary-color: var(--red-color-60); // Graphics
+  --red-secondary-color: var(--red-color-70); // Text
+  --red-color: var(--red-color-80); // Extra high contrast
+
+  --red-background1-gradient: linear-gradient(
+    90deg,
+    var(--red-gradient-start-color-10) 0%,
+    var(--red-gradient-middle-color-10) 49%,
+    var(--red-gradient-end-color-10) 100%
+  ); // Surface 1
+  --red-background2-gradient: linear-gradient(
+    90deg,
+    var(--red-gradient-start-color-20) 0%,
+    var(--red-gradient-middle-color-20) 49%,
+    var(--red-gradient-end-color-20) 100%
+  ); // Surface 2
+  --red-background3-gradient: linear-gradient(
+    90deg,
+    var(--red-gradient-start-color-30) 0%,
+    var(--red-gradient-middle-color-30) 49%,
+    var(--red-gradient-end-color-30) 100%
+  ); // Surface 3
+  --red-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--red-gradient-start-color-60) 0%,
+    var(--red-gradient-middle-color-60) 49%,
+    var(--red-gradient-end-color-60) 100%
+  ); // Graphics
+  --red-secondary-gradient: linear-gradient(
+    90deg,
+    var(--red-gradient-start-color-70) 0%,
+    var(--red-gradient-middle-color-70) 49%,
+    var(--red-gradient-end-color-70) 100%
+  ); // Text
+  --red-gradient: linear-gradient(
+    90deg,
+    var(--red-gradient-start-color-80) 0%,
+    var(--red-gradient-middle-color-80) 49%,
+    var(--red-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Disruptive base colors
+  // Equivalent to Red base colors
+  // Distinct to support discreet theming scenarios
+  --disruptive-color-10: #ffefef;
+  --disruptive-color-20: #ffc6c6;
+  --disruptive-color-30: #ffa3a3;
+  --disruptive-color-40: #f48686;
+  --disruptive-color-50: #e46f6f;
+  --disruptive-color-60: #c15151;
+  --disruptive-color-70: #993838;
+  --disruptive-color-80: #6c2222;
+  --disruptive-color-90: #3b1010;
+  --disruptive-color-100: #0a0202;
+
+  --disruptive-gradient-end-color-10: #fff2ed;
+  --disruptive-gradient-end-color-20: #ffd1bd;
+  --disruptive-gradient-end-color-30: #ffb396;
+  --disruptive-gradient-end-color-60: #d26743;
+  --disruptive-gradient-end-color-70: #a54d2c;
+  --disruptive-gradient-end-color-80: #78351a;
+
+  --disruptive-gradient-middle-color-10: #ffefef;
+  --disruptive-gradient-middle-color-20: #ffc6c6;
+  --disruptive-gradient-middle-color-30: #ffa3a3;
+  --disruptive-gradient-middle-color-60: #c15151;
+  --disruptive-gradient-middle-color-70: #993838;
+  --disruptive-gradient-middle-color-80: #6c2222;
+
+  --disruptive-gradient-start-color-10: #fff0f9;
+  --disruptive-gradient-start-color-20: #fcc8e7;
+  --disruptive-gradient-start-color-30: #f3a5d4;
+  --disruptive-gradient-start-color-60: #b5548e;
+  --disruptive-gradient-start-color-70: #943d71;
+  --disruptive-gradient-start-color-80: #702853;
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  --disruptive-background1-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-10) 0%,
+    var(--disruptive-gradient-middle-color-10) 49%,
+    var(--disruptive-gradient-end-color-10) 100%
+  ); // Surface 1
+  --disruptive-background2-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-20) 0%,
+    var(--disruptive-gradient-middle-color-20) 49%,
+    var(--disruptive-gradient-end-color-20) 100%
+  ); // Surface 2
+  --disruptive-background3-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-30) 0%,
+    var(--disruptive-gradient-middle-color-30) 49%,
+    var(--disruptive-gradient-end-color-30) 100%
+  ); // Surface 3
+  --disruptive-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-60) 0%,
+    var(--disruptive-gradient-middle-color-60) 49%,
+    var(--disruptive-gradient-end-color-60) 100%
+  ); // Graphics
+  --disruptive-secondary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-70) 0%,
+    var(--disruptive-gradient-middle-color-70) 49%,
+    var(--disruptive-gradient-end-color-70) 100%
+  ); // Text
+  --disruptive-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-80) 0%,
+    var(--disruptive-gradient-middle-color-80) 49%,
+    var(--disruptive-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Red-Orange base colors
+  --redorange-color-10: #fff2ed;
+  --redorange-color-20: #ffd1bd;
+  --redorange-color-30: #ffb396;
+  --redorange-color-40: #ff9977;
+  --redorange-color-50: #f8845f;
+  --redorange-color-60: #d26743;
+  --redorange-color-70: #a54d2c;
+  --redorange-color-80: #78351a;
+  --redorange-color-90: #4c1f0c;
+  --redorange-color-100: #1f0c03;
+
+  --redorange-gradient-end-color-10: #fff8eb;
+  --redorange-gradient-end-color-20: #ffe3b0;
+  --redorange-gradient-end-color-30: #ffcd78;
+  --redorange-gradient-end-color-60: #c97e19;
+  --redorange-gradient-end-color-70: #9d6309;
+  --redorange-gradient-end-color-80: #6c4500;
+
+  --redorange-gradient-middle-color-10: #fff2ed;
+  --redorange-gradient-middle-color-20: #ffd1bd;
+  --redorange-gradient-middle-color-30: #ffb396;
+  --redorange-gradient-middle-color-60: #d26743;
+  --redorange-gradient-middle-color-70: #a54d2c;
+  --redorange-gradient-middle-color-80: #78351a;
+
+  --redorange-gradient-start-color-10: #ffefef;
+  --redorange-gradient-start-color-20: #ffc6c6;
+  --redorange-gradient-start-color-30: #ffa3a3;
+  --redorange-gradient-start-color-60: #c15151;
+  --redorange-gradient-start-color-70: #993838;
+  --redorange-gradient-start-color-80: #6c2222;
+
+  --redorange-background1-color: var(--redorange-color-10); // Surface 1
+  --redorange-background2-color: var(--redorange-color-20); // Surface 2
+  --redorange-background3-color: var(--redorange-color-30); // Surface 3
+  --redorange-tertiary-color: var(--redorange-color-60); // Graphics
+  --redorange-secondary-color: var(--redorange-color-70); // Text
+  --redorange-color: var(--redorange-color-80); // Extra high contrast
+
+  --redorange-background1-gradient: linear-gradient(
+    90deg,
+    var(--redorange-gradient-start-color-10) 0%,
+    var(--redorange-gradient-middle-color-10) 49%,
+    var(--redorange-gradient-end-color-10) 100%
+  ); // Surface 1
+  --redorange-background2-gradient: linear-gradient(
+    90deg,
+    var(--redorange-gradient-start-color-20) 0%,
+    var(--redorange-gradient-middle-color-20) 49%,
+    var(--redorange-gradient-end-color-20) 100%
+  ); // Surface 2
+  --redorange-background3-gradient: linear-gradient(
+    90deg,
+    var(--redorange-gradient-start-color-30) 0%,
+    var(--redorange-gradient-middle-color-30) 49%,
+    var(--redorange-gradient-end-color-30) 100%
+  ); // Surface 3
+  --redorange-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--redorange-gradient-start-color-60) 0%,
+    var(--redorange-gradient-middle-color-60) 49%,
+    var(--redorange-gradient-end-color-60) 100%
+  ); // Graphics
+  --redorange-secondary-gradient: linear-gradient(
+    90deg,
+    var(--redorange-gradient-start-color-70) 0%,
+    var(--redorange-gradient-middle-color-70) 49%,
+    var(--redorange-gradient-end-color-70) 100%
+  ); // Text
+  --redorange-gradient: linear-gradient(
+    90deg,
+    var(--redorange-gradient-start-color-80) 0%,
+    var(--redorange-gradient-middle-color-80) 49%,
+    var(--redorange-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Orange base colors
+  --orange-color-10: #fff8eb;
+  --orange-color-20: #ffe3b0;
+  --orange-color-30: #ffcd78;
+  --orange-color-40: #ffb650;
+  --orange-color-50: #f29d31;
+  --orange-color-60: #c97e19;
+  --orange-color-70: #9d6309;
+  --orange-color-80: #6c4500;
+  --orange-color-90: #3b2600;
+  --orange-color-100: #0a0700;
+
+  --orange-gradient-end-color-10: #ffffeb;
+  --orange-gradient-end-color-20: #fff89c;
+  --orange-gradient-end-color-30: #ffe44e;
+  --orange-gradient-end-color-60: #a88f00;
+  --orange-gradient-end-color-70: #857600;
+  --orange-gradient-end-color-80: #5c5500;
+
+  --orange-gradient-middle-color-10: #fff8eb;
+  --orange-gradient-middle-color-20: #ffe3b0;
+  --orange-gradient-middle-color-30: #ffcd78;
+  --orange-gradient-middle-color-60: #c97e19;
+  --orange-gradient-middle-color-70: #9d6309;
+  --orange-gradient-middle-color-80: #6c4500;
+
+  --orange-gradient-start-color-10: #fff2ed;
+  --orange-gradient-start-color-20: #ffd1bd;
+  --orange-gradient-start-color-30: #ffb396;
+  --orange-gradient-start-color-60: #d26743;
+  --orange-gradient-start-color-70: #a54d2c;
+  --orange-gradient-start-color-80: #78351a;
+
+  --orange-background1-color: var(--orange-color-10); // Surface 1
+  --orange-background2-color: var(--orange-color-20); // Surface 2
+  --orange-background3-color: var(--orange-color-30); // Surface 3
+  --orange-tertiary-color: var(--orange-color-60); // Graphics
+  --orange-secondary-color: var(--orange-color-70); // Text
+  --orange-color: var(--orange-color-80); // Extra high contrast
+
+  --orange-background1-gradient: linear-gradient(
+    90deg,
+    var(--orange-gradient-start-color-10) 0%,
+    var(--orange-gradient-middle-color-10) 49%,
+    var(--orange-gradient-end-color-10) 100%
+  ); // Surface 1
+  --orange-background2-gradient: linear-gradient(
+    90deg,
+    var(--orange-gradient-start-color-20) 0%,
+    var(--orange-gradient-middle-color-20) 49%,
+    var(--orange-gradient-end-color-20) 100%
+  ); // Surface 2
+  --orange-background3-gradient: linear-gradient(
+    90deg,
+    var(--orange-gradient-start-color-30) 0%,
+    var(--orange-gradient-middle-color-30) 49%,
+    var(--orange-gradient-end-color-30) 100%
+  ); // Surface 3
+  --orange-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--orange-gradient-start-color-60) 0%,
+    var(--orange-gradient-middle-color-60) 49%,
+    var(--orange-gradient-end-color-60) 100%
+  ); // Graphics
+  --orange-secondary-gradient: linear-gradient(
+    90deg,
+    var(--orange-gradient-start-color-70) 0%,
+    var(--orange-gradient-middle-color-70) 49%,
+    var(--orange-gradient-end-color-70) 100%
+  ); // Text
+  --orange-gradient: linear-gradient(
+    90deg,
+    var(--orange-gradient-start-color-80) 0%,
+    var(--orange-gradient-middle-color-80) 49%,
+    var(--orange-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Yellow base colors
+  --yellow-color-10: #ffffeb;
+  --yellow-color-20: #fff89c;
+  --yellow-color-30: #ffe44e;
+  --yellow-color-40: #f1c40f;
+  --yellow-color-50: #d6ad00;
+  --yellow-color-60: #a88f00;
+  --yellow-color-70: #857600;
+  --yellow-color-80: #5c5500;
+  --yellow-color-90: #333100;
+  --yellow-color-100: #0a0a00;
+
+  --yellow-gradient-end-color-10: #fdfeeb;
+  --yellow-gradient-end-color-20: #f3f5b0;
+  --yellow-gradient-end-color-30: #e2e575;
+  --yellow-gradient-end-color-60: #858707;
+  --yellow-gradient-end-color-70: #6d6f00;
+  --yellow-gradient-end-color-80: #525400;
+
+  --yellow-gradient-middle-color-10: #ffffeb;
+  --yellow-gradient-middle-color-20: #fff89c;
+  --yellow-gradient-middle-color-30: #ffe44e;
+  --yellow-gradient-middle-color-60: #a88f00;
+  --yellow-gradient-middle-color-70: #857600;
+  --yellow-gradient-middle-color-80: #5c5500;
+
+  --yellow-gradient-start-color-10: #fff8eb;
+  --yellow-gradient-start-color-20: #ffe3b0;
+  --yellow-gradient-start-color-30: #ffcd78;
+  --yellow-gradient-start-color-60: #c97e19;
+  --yellow-gradient-start-color-70: #9d6309;
+  --yellow-gradient-start-color-80: #6c4500;
+
+  --yellow-background1-color: var(--yellow-color-10); // Surface 1
+  --yellow-background2-color: var(--yellow-color-20); // Surface 2
+  --yellow-background3-color: var(--yellow-color-30); // Surface 3
+  --yellow-tertiary-color: var(--yellow-color-60); // Graphics
+  --yellow-secondary-color: var(--yellow-color-70); // Text
+  --yellow-color: var(--yellow-color-80); // Extra high contrast
+
+  --yellow-background1-gradient: linear-gradient(
+    90deg,
+    var(--yellow-gradient-start-color-10) 0%,
+    var(--yellow-gradient-middle-color-10) 49%,
+    var(--yellow-gradient-end-color-10) 100%
+  ); // Surface 1
+  --yellow-background2-gradient: linear-gradient(
+    90deg,
+    var(--yellow-gradient-start-color-20) 0%,
+    var(--yellow-gradient-middle-color-20) 49%,
+    var(--yellow-gradient-end-color-20) 100%
+  ); // Surface 2
+  --yellow-background3-gradient: linear-gradient(
+    90deg,
+    var(--yellow-gradient-start-color-30) 0%,
+    var(--yellow-gradient-middle-color-30) 49%,
+    var(--yellow-gradient-end-color-30) 100%
+  ); // Surface 3
+  --yellow-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--yellow-gradient-start-color-60) 0%,
+    var(--yellow-gradient-middle-color-60) 49%,
+    var(--yellow-gradient-end-color-60) 100%
+  ); // Graphics
+  --yellow-secondary-gradient: linear-gradient(
+    90deg,
+    var(--yellow-gradient-start-color-70) 0%,
+    var(--yellow-gradient-middle-color-70) 49%,
+    var(--yellow-gradient-end-color-70) 100%
+  ); // Text
+  --yellow-gradient: linear-gradient(
+    90deg,
+    var(--yellow-gradient-start-color-80) 0%,
+    var(--yellow-gradient-middle-color-80) 49%,
+    var(--yellow-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Yellow-Green base colors
+  --yellowgreen-color-10: #fdfeeb;
+  --yellowgreen-color-20: #f3f5b0;
+  --yellowgreen-color-30: #e2e575;
+  --yellowgreen-color-40: #cacd46;
+  --yellowgreen-color-50: #abae1f;
+  --yellowgreen-color-60: #858707;
+  --yellowgreen-color-70: #6d6f00;
+  --yellowgreen-color-80: #525400;
+  --yellowgreen-color-90: #343500;
+  --yellowgreen-color-100: #131300;
+
+  --yellowgreen-gradient-end-color-10: #f0fefa;
+  --yellowgreen-gradient-end-color-20: #b9f4e4;
+  --yellowgreen-gradient-end-color-30: #8ce1ca;
+  --yellowgreen-gradient-end-color-60: #3d8f79;
+  --yellowgreen-gradient-end-color-70: #2b715f;
+  --yellowgreen-gradient-end-color-80: #1b5143;
+
+  --yellowgreen-gradient-middle-color-10: #fdfeeb;
+  --yellowgreen-gradient-middle-color-20: #f3f5b0;
+  --yellowgreen-gradient-middle-color-30: #e2e575;
+  --yellowgreen-gradient-middle-color-60: #858707;
+  --yellowgreen-gradient-middle-color-70: #6d6f00;
+  --yellowgreen-gradient-middle-color-80: #525400;
+
+  --yellowgreen-gradient-start-color-10: #ffffeb;
+  --yellowgreen-gradient-start-color-20: #fff89c;
+  --yellowgreen-gradient-start-color-30: #ffe44e;
+  --yellowgreen-gradient-start-color-60: #a88f00;
+  --yellowgreen-gradient-start-color-70: #857600;
+  --yellowgreen-gradient-start-color-80: #5c5500;
+
+  --yellowgreen-background1-color: var(--yellowgreen-color-10); // Surface 1
+  --yellowgreen-background2-color: var(--yellowgreen-color-20); // Surface 2
+  --yellowgreen-background3-color: var(--yellowgreen-color-30); // Surface 3
+  --yellowgreen-tertiary-color: var(--yellowgreen-color-60); // Graphics
+  --yellowgreen-secondary-color: var(--yellowgreen-color-70); // Text
+  --yellowgreen-color: var(--yellowgreen-color-80); // Extra high contrast
+
+  --yellowgreen-background1-gradient: linear-gradient(
+    90deg,
+    var(--yellowgreen-gradient-start-color-10) 0%,
+    var(--yellowgreen-gradient-middle-color-10) 49%,
+    var(--yellowgreen-gradient-end-color-10) 100%
+  ); // Surface 1
+  --yellowgreen-background2-gradient: linear-gradient(
+    90deg,
+    var(--yellowgreen-gradient-start-color-20) 0%,
+    var(--yellowgreen-gradient-middle-color-20) 49%,
+    var(--yellowgreen-gradient-end-color-20) 100%
+  ); // Surface 2
+  --yellowgreen-background3-gradient: linear-gradient(
+    90deg,
+    var(--yellowgreen-gradient-start-color-30) 0%,
+    var(--yellowgreen-gradient-middle-color-30) 49%,
+    var(--yellowgreen-gradient-end-color-30) 100%
+  ); // Surface 3
+  --yellowgreen-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--yellowgreen-gradient-start-color-60) 0%,
+    var(--yellowgreen-gradient-middle-color-60) 49%,
+    var(--yellowgreen-gradient-end-color-60) 100%
+  ); // Graphics
+  --yellowgreen-secondary-gradient: linear-gradient(
+    90deg,
+    var(--yellowgreen-gradient-start-color-70) 0%,
+    var(--yellowgreen-gradient-middle-color-70) 49%,
+    var(--yellowgreen-gradient-end-color-70) 100%
+  ); // Text
+  --yellowgreen-gradient: linear-gradient(
+    90deg,
+    var(--yellowgreen-gradient-start-color-80) 0%,
+    var(--yellowgreen-gradient-middle-color-80) 49%,
+    var(--yellowgreen-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Green base colors
+  --green-color-10: #f0fefa;
+  --green-color-20: #b9f4e4;
+  --green-color-30: #8ce1ca;
+  --green-color-40: #67c5ac;
+  --green-color-50: #51ab93;
+  --green-color-60: #3d8f79;
+  --green-color-70: #2b715f;
+  --green-color-80: #1b5143;
+  --green-color-90: #0e2e26;
+  --green-color-100: #030a08;
+
+  --green-gradient-end-color-10: #ebfdff;
+  --green-gradient-end-color-20: #b0f3fe;
+  --green-gradient-end-color-30: #7be4f4;
+  --green-gradient-end-color-60: #1999ac;
+  --green-gradient-end-color-70: #0b7b8b;
+  --green-gradient-end-color-80: #025966;
+
+  --green-gradient-middle-color-10: #f0fefa;
+  --green-gradient-middle-color-20: #b9f4e4;
+  --green-gradient-middle-color-30: #8ce1ca;
+  --green-gradient-middle-color-60: #3d8f79;
+  --green-gradient-middle-color-70: #2b715f;
+  --green-gradient-middle-color-80: #1b5143;
+
+  --green-gradient-start-color-10: #fdfeeb;
+  --green-gradient-start-color-20: #f3f5b0;
+  --green-gradient-start-color-30: #e2e575;
+  --green-gradient-start-color-60: #858707;
+  --green-gradient-start-color-70: #6d6f00;
+  --green-gradient-start-color-80: #525400;
+
+  --green-background1-color: var(--green-color-10); // Surface 1
+  --green-background2-color: var(--green-color-20); // Surface 2
+  --green-background3-color: var(--green-color-30); // Surface 3
+  --green-tertiary-color: var(--green-color-60); // Graphics
+  --green-secondary-color: var(--green-color-70); // Text
+  --green-color: var(--green-color-80); // Extra high contrast
+
+  --green-background1-gradient: linear-gradient(
+    90deg,
+    var(--green-gradient-start-color-10) 0%,
+    var(--green-gradient-middle-color-10) 49%,
+    var(--green-gradient-end-color-10) 100%
+  ); // Surface 1
+  --green-background2-gradient: linear-gradient(
+    90deg,
+    var(--green-gradient-start-color-20) 0%,
+    var(--green-gradient-middle-color-20) 49%,
+    var(--green-gradient-end-color-20) 100%
+  ); // Surface 2
+  --green-background3-gradient: linear-gradient(
+    90deg,
+    var(--green-gradient-start-color-30) 0%,
+    var(--green-gradient-middle-color-30) 49%,
+    var(--green-gradient-end-color-30) 100%
+  ); // Surface 3
+  --green-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--green-gradient-start-color-60) 0%,
+    var(--green-gradient-middle-color-60) 49%,
+    var(--green-gradient-end-color-60) 100%
+  ); // Graphics
+  --green-secondary-gradient: linear-gradient(
+    90deg,
+    var(--green-gradient-start-color-70) 0%,
+    var(--green-gradient-middle-color-70) 49%,
+    var(--green-gradient-end-color-70) 100%
+  ); // Text
+  --green-gradient: linear-gradient(
+    90deg,
+    var(--green-gradient-start-color-80) 0%,
+    var(--green-gradient-middle-color-80) 49%,
+    var(--green-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Blue-Green base colors
+  --bluegreen-color-10: #ebfdff;
+  --bluegreen-color-20: #b0f3fe;
+  --bluegreen-color-30: #7be4f4;
+  --bluegreen-color-40: #50cee1;
+  --bluegreen-color-50: #2db3c7;
+  --bluegreen-color-60: #1999ac;
+  --bluegreen-color-70: #0b7b8b;
+  --bluegreen-color-80: #025966;
+  --bluegreen-color-90: #00333b;
+  --bluegreen-color-100: #00090a;
+
+  --bluegreen-gradient-end-color-10: #ebf7ff;
+  --bluegreen-gradient-end-color-20: #bce4ff;
+  --bluegreen-gradient-end-color-30: #8ed0fa;
+  --bluegreen-gradient-end-color-60: #2c8cc9;
+  --bluegreen-gradient-end-color-70: #146da6;
+  --bluegreen-gradient-end-color-80: #054d7b;
+
+  --bluegreen-gradient-middle-color-10: #ebfdff;
+  --bluegreen-gradient-middle-color-20: #b0f3fe;
+  --bluegreen-gradient-middle-color-30: #7be4f4;
+  --bluegreen-gradient-middle-color-60: #1999ac;
+  --bluegreen-gradient-middle-color-70: #0b7b8b;
+  --bluegreen-gradient-middle-color-80: #025966;
+
+  --bluegreen-gradient-start-color-10: #f0fefa;
+  --bluegreen-gradient-start-color-20: #b9f4e4;
+  --bluegreen-gradient-start-color-30: #8ce1ca;
+  --bluegreen-gradient-start-color-60: #3d8f79;
+  --bluegreen-gradient-start-color-70: #2b715f;
+  --bluegreen-gradient-start-color-80: #1b5143;
+
+  --bluegreen-background1-color: var(--bluegreen-color-10); // Surface 1
+  --bluegreen-background2-color: var(--bluegreen-color-20); // Surface 2
+  --bluegreen-background3-color: var(--bluegreen-color-30); // Surface 3
+  --bluegreen-tertiary-color: var(--bluegreen-color-60); // Graphics
+  --bluegreen-secondary-color: var(--bluegreen-color-70); // Text
+  --bluegreen-color: var(--bluegreen-color-80); // Extra high contrast
+
+  --bluegreen-background1-gradient: linear-gradient(
+    90deg,
+    var(--bluegreen-gradient-start-color-10) 0%,
+    var(--bluegreen-gradient-middle-color-10) 49%,
+    var(--bluegreen-gradient-end-color-10) 100%
+  ); // Surface 1
+  --bluegreen-background2-gradient: linear-gradient(
+    90deg,
+    var(--bluegreen-gradient-start-color-20) 0%,
+    var(--bluegreen-gradient-middle-color-20) 49%,
+    var(--bluegreen-gradient-end-color-20) 100%
+  ); // Surface 2
+  --bluegreen-background3-gradient: linear-gradient(
+    90deg,
+    var(--bluegreen-gradient-start-color-30) 0%,
+    var(--bluegreen-gradient-middle-color-30) 49%,
+    var(--bluegreen-gradient-end-color-30) 100%
+  ); // Surface 3
+  --bluegreen-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--bluegreen-gradient-start-color-60) 0%,
+    var(--bluegreen-gradient-middle-color-60) 49%,
+    var(--bluegreen-gradient-end-color-60) 100%
+  ); // Graphics
+  --bluegreen-secondary-gradient: linear-gradient(
+    90deg,
+    var(--bluegreen-gradient-start-color-70) 0%,
+    var(--bluegreen-gradient-middle-color-70) 49%,
+    var(--bluegreen-gradient-end-color-70) 100%
+  ); // Text
+  --bluegreen-gradient: linear-gradient(
+    90deg,
+    var(--bluegreen-gradient-start-color-80) 0%,
+    var(--bluegreen-gradient-middle-color-80) 49%,
+    var(--bluegreen-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Blue (Link) base colors
+  --blue-color-10: #ebf7ff;
+  --blue-color-20: #bce4ff;
+  --blue-color-30: #8ed0fa;
+  --blue-color-40: #68baef;
+  --blue-color-50: #47a4df;
+  --blue-color-60: #2c8cc9;
+  --blue-color-70: #146da6;
+  --blue-color-80: #054d7b;
+  --blue-color-90: #002a47;
+  --blue-color-100: #00060a;
+
+  --blue-gradient-end-color-10: #f1f2ff;
+  --blue-gradient-end-color-20: #cacffc;
+  --blue-gradient-end-color-30: #a9b0f5;
+  --blue-gradient-end-color-60: #5962b7;
+  --blue-gradient-end-color-70: #414996;
+  --blue-gradient-end-color-80: #2b3271;
+
+  --blue-gradient-middle-color-10: #ebf7ff;
+  --blue-gradient-middle-color-20: #bce4ff;
+  --blue-gradient-middle-color-30: #8ed0fa;
+  --blue-gradient-middle-color-60: #2c8cc9;
+  --blue-gradient-middle-color-70: #146da6;
+  --blue-gradient-middle-color-80: #054d7b;
+
+  --blue-gradient-start-color-10: #ebfdff;
+  --blue-gradient-start-color-20: #b0f3fe;
+  --blue-gradient-start-color-30: #7be4f4;
+  --blue-gradient-start-color-60: #1999ac;
+  --blue-gradient-start-color-70: #0b7b8b;
+  --blue-gradient-start-color-80: #025966;
+
+  --blue-background1-color: var(--blue-color-10); // Surface 1
+  --blue-background2-color: var(--blue-color-20); // Surface 2
+  --blue-background3-color: var(--blue-color-30); // Surface 3
+  --blue-tertiary-color: var(--blue-color-60); // Graphics
+  --blue-secondary-color: var(--blue-color-70); // Text
+  --blue-color: var(--blue-color-80); // Extra high contrast
+
+  --blue-background1-gradient: linear-gradient(
+    90deg,
+    var(--blue-gradient-start-color-10) 0%,
+    var(--blue-gradient-middle-color-10) 49%,
+    var(--blue-gradient-end-color-10) 100%
+  ); // Surface 1
+  --blue-background2-gradient: linear-gradient(
+    90deg,
+    var(--blue-gradient-start-color-20) 0%,
+    var(--blue-gradient-middle-color-20) 49%,
+    var(--blue-gradient-end-color-20) 100%
+  ); // Surface 2
+  --blue-background3-gradient: linear-gradient(
+    90deg,
+    var(--blue-gradient-start-color-30) 0%,
+    var(--blue-gradient-middle-color-30) 49%,
+    var(--blue-gradient-end-color-30) 100%
+  ); // Surface 3
+  --blue-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--blue-gradient-start-color-60) 0%,
+    var(--blue-gradient-middle-color-60) 49%,
+    var(--blue-gradient-end-color-60) 100%
+  ); // Graphics
+  --blue-secondary-gradient: linear-gradient(
+    90deg,
+    var(--blue-gradient-start-color-70) 0%,
+    var(--blue-gradient-middle-color-70) 49%,
+    var(--blue-gradient-end-color-70) 100%
+  ); // Text
+  --blue-gradient: linear-gradient(
+    90deg,
+    var(--blue-gradient-start-color-80) 0%,
+    var(--blue-gradient-middle-color-80) 49%,
+    var(--blue-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Blue-Violet base colors
+  --blueviolet-color-10: #f1f2ff;
+  --blueviolet-color-20: #cacffc;
+  --blueviolet-color-30: #a9b0f5;
+  --blueviolet-color-40: #8c95e8;
+  --blueviolet-color-50: #757ed6;
+  --blueviolet-color-60: #5962b7;
+  --blueviolet-color-70: #414996;
+  --blueviolet-color-80: #2b3271;
+  --blueviolet-color-90: #191d4a;
+  --blueviolet-color-100: #090b1f;
+
+  --blueviolet-gradient-end-color-10: #fbf6fb;
+  --blueviolet-gradient-end-color-20: #ead3e8;
+  --blueviolet-gradient-end-color-30: #dab4d6;
+  --blueviolet-gradient-end-color-60: #975590;
+  --blueviolet-gradient-end-color-70: #7e3a77;
+  --blueviolet-gradient-end-color-80: #5d2156;
+
+  --blueviolet-gradient-middle-color-10: #f1f2ff;
+  --blueviolet-gradient-middle-color-20: #cacffc;
+  --blueviolet-gradient-middle-color-30: #a9b0f5;
+  --blueviolet-gradient-middle-color-60: #5962b7;
+  --blueviolet-gradient-middle-color-70: #414996;
+  --blueviolet-gradient-middle-color-80: #2b3271;
+
+  --blueviolet-gradient-start-color-10: #ebf7ff;
+  --blueviolet-gradient-start-color-20: #bce4ff;
+  --blueviolet-gradient-start-color-30: #8ed0fa;
+  --blueviolet-gradient-start-color-60: #2c8cc9;
+  --blueviolet-gradient-start-color-70: #146da6;
+  --blueviolet-gradient-start-color-80: #054d7b;
+
+  --blueviolet-background1-color: var(--blueviolet-color-10); // Surface 1
+  --blueviolet-background2-color: var(--blueviolet-color-20); // Surface 2
+  --blueviolet-background3-color: var(--blueviolet-color-30); // Surface 3
+  --blueviolet-tertiary-color: var(--blueviolet-color-60); // Graphics
+  --blueviolet-secondary-color: var(--blueviolet-color-70); // Text
+  --blueviolet-color: var(--blueviolet-color-80); // Extra high contrast
+
+  --blueviolet-background1-gradient: linear-gradient(
+    90deg,
+    var(--blueviolet-gradient-start-color-10) 0%,
+    var(--blueviolet-gradient-middle-color-10) 49%,
+    var(--blueviolet-gradient-end-color-10) 100%
+  ); // Surface 1
+  --blueviolet-background2-gradient: linear-gradient(
+    90deg,
+    var(--blueviolet-gradient-start-color-20) 0%,
+    var(--blueviolet-gradient-middle-color-20) 49%,
+    var(--blueviolet-gradient-end-color-20) 100%
+  ); // Surface 2
+  --blueviolet-background3-gradient: linear-gradient(
+    90deg,
+    var(--blueviolet-gradient-start-color-30) 0%,
+    var(--blueviolet-gradient-middle-color-30) 49%,
+    var(--blueviolet-gradient-end-color-30) 100%
+  ); // Surface 3
+  --blueviolet-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--blueviolet-gradient-start-color-60) 0%,
+    var(--blueviolet-gradient-middle-color-60) 49%,
+    var(--blueviolet-gradient-end-color-60) 100%
+  ); // Graphics
+  --blueviolet-secondary-gradient: linear-gradient(
+    90deg,
+    var(--blueviolet-gradient-start-color-70) 0%,
+    var(--blueviolet-gradient-middle-color-70) 49%,
+    var(--blueviolet-gradient-end-color-70) 100%
+  ); // Text
+  --blueviolet-gradient: linear-gradient(
+    90deg,
+    var(--blueviolet-gradient-start-color-80) 0%,
+    var(--blueviolet-gradient-middle-color-80) 49%,
+    var(--blueviolet-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Violet base colors
+  --violet-color-10: #fbf6fb;
+  --violet-color-20: #ead3e8;
+  --violet-color-30: #dab4d6;
+  --violet-color-40: #c491bf;
+  --violet-color-50: #ae72a8;
+  --violet-color-60: #975590;
+  --violet-color-70: #7e3a77;
+  --violet-color-80: #5d2156;
+  --violet-color-90: #350e31;
+  --violet-color-100: #060106;
+
+  --violet-gradient-end-color-10: #fff0f9;
+  --violet-gradient-end-color-20: #fcc8e7;
+  --violet-gradient-end-color-30: #f3a5d4;
+  --violet-gradient-end-color-60: #b5548e;
+  --violet-gradient-end-color-70: #943d71;
+  --violet-gradient-end-color-80: #702853;
+
+  --violet-gradient-middle-color-10: #fbf6fb;
+  --violet-gradient-middle-color-20: #ead3e8;
+  --violet-gradient-middle-color-30: #dab4d6;
+  --violet-gradient-middle-color-60: #975590;
+  --violet-gradient-middle-color-70: #7e3a77;
+  --violet-gradient-middle-color-80: #5d2156;
+
+  --violet-gradient-start-color-10: #f1f2ff;
+  --violet-gradient-start-color-20: #cacffc;
+  --violet-gradient-start-color-30: #a9b0f5;
+  --violet-gradient-start-color-60: #5962b7;
+  --violet-gradient-start-color-70: #414996;
+  --violet-gradient-start-color-80: #2b3271;
+
+  --violet-background1-color: var(--violet-color-10); // Surface 1
+  --violet-background2-color: var(--violet-color-20); // Surface 2
+  --violet-background3-color: var(--violet-color-30); // Surface 3
+  --violet-tertiary-color: var(--violet-color-60); // Graphics
+  --violet-secondary-color: var(--violet-color-70); // Text
+  --violet-color: var(--violet-color-80); // Extra high contrast
+
+  --violet-background1-gradient: linear-gradient(
+    90deg,
+    var(--violet-gradient-start-color-10) 0%,
+    var(--violet-gradient-middle-color-10) 49%,
+    var(--violet-gradient-end-color-10) 100%
+  ); // Surface 1
+  --violet-background2-gradient: linear-gradient(
+    90deg,
+    var(--violet-gradient-start-color-20) 0%,
+    var(--violet-gradient-middle-color-20) 49%,
+    var(--violet-gradient-end-color-20) 100%
+  ); // Surface 2
+  --violet-background3-gradient: linear-gradient(
+    90deg,
+    var(--violet-gradient-start-color-30) 0%,
+    var(--violet-gradient-middle-color-30) 49%,
+    var(--violet-gradient-end-color-30) 100%
+  ); // Surface 3
+  --violet-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--violet-gradient-start-color-60) 0%,
+    var(--violet-gradient-middle-color-60) 49%,
+    var(--violet-gradient-end-color-60) 100%
+  ); // Graphics
+  --violet-secondary-gradient: linear-gradient(
+    90deg,
+    var(--violet-gradient-start-color-70) 0%,
+    var(--violet-gradient-middle-color-70) 49%,
+    var(--violet-gradient-end-color-70) 100%
+  ); // Text
+  --violet-gradient: linear-gradient(
+    90deg,
+    var(--violet-gradient-start-color-80) 0%,
+    var(--violet-gradient-middle-color-80) 49%,
+    var(--violet-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Violet-Red base colors
+  --violetred-color-10: #fff0f9;
+  --violetred-color-20: #fcc8e7;
+  --violetred-color-30: #f3a5d4;
+  --violetred-color-40: #e688c0;
+  --violetred-color-50: #d36fab;
+  --violetred-color-60: #b5548e;
+  --violetred-color-70: #943d71;
+  --violetred-color-80: #702853;
+  --violetred-color-90: #491635;
+  --violetred-color-100: #1f0816;
+
+  --violetred-gradient-end-color-10: #ffefef;
+  --violetred-gradient-end-color-20: #ffc6c6;
+  --violetred-gradient-end-color-30: #ffa3a3;
+  --violetred-gradient-end-color-60: #c15151;
+  --violetred-gradient-end-color-70: #993838;
+  --violetred-gradient-end-color-80: #6c2222;
+
+  --violetred-gradient-middle-color-10: #fff0f9;
+  --violetred-gradient-middle-color-20: #fcc8e7;
+  --violetred-gradient-middle-color-30: #f3a5d4;
+  --violetred-gradient-middle-color-60: #b5548e;
+  --violetred-gradient-middle-color-70: #943d71;
+  --violetred-gradient-middle-color-80: #702853;
+
+  --violetred-gradient-start-color-10: #fbf6fb;
+  --violetred-gradient-start-color-20: #ead3e8;
+  --violetred-gradient-start-color-30: #dab4d6;
+  --violetred-gradient-start-color-60: #975590;
+  --violetred-gradient-start-color-70: #7e3a77;
+  --violetred-gradient-start-color-80: #5d2156;
+
+  --violetred-background1-color: var(--violetred-color-10); // Surface 1
+  --violetred-background2-color: var(--violetred-color-20); // Surface 2
+  --violetred-background3-color: var(--violetred-color-30); // Surface 3
+  --violetred-tertiary-color: var(--violetred-color-60); // Graphics
+  --violetred-secondary-color: var(--violetred-color-70); // Text
+  --violetred-color: var(--violetred-color-80); // Extra high contrast
+
+  --violetred-background1-gradient: linear-gradient(
+    90deg,
+    var(--violetred-gradient-start-color-10) 0%,
+    var(--violetred-gradient-middle-color-10) 49%,
+    var(--violetred-gradient-end-color-10) 100%
+  ); // Surface 1
+  --violetred-background2-gradient: linear-gradient(
+    90deg,
+    var(--violetred-gradient-start-color-20) 0%,
+    var(--violetred-gradient-middle-color-20) 49%,
+    var(--violetred-gradient-end-color-20) 100%
+  ); // Surface 2
+  --violetred-background3-gradient: linear-gradient(
+    90deg,
+    var(--violetred-gradient-start-color-30) 0%,
+    var(--violetred-gradient-middle-color-30) 49%,
+    var(--violetred-gradient-end-color-30) 100%
+  ); // Surface 3
+  --violetred-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--violetred-gradient-start-color-60) 0%,
+    var(--violetred-gradient-middle-color-60) 49%,
+    var(--violetred-gradient-end-color-60) 100%
+  ); // Graphics
+  --violetred-secondary-gradient: linear-gradient(
+    90deg,
+    var(--violetred-gradient-start-color-70) 0%,
+    var(--violetred-gradient-middle-color-70) 49%,
+    var(--violetred-gradient-end-color-70) 100%
+  ); // Text
+  --violetred-gradient: linear-gradient(
+    90deg,
+    var(--violetred-gradient-start-color-80) 0%,
+    var(--violetred-gradient-middle-color-80) 49%,
+    var(--violetred-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Grey (Neutral) base colors
+  --grey-color-10: #f6f7f8;
+  --grey-color-20: #d9dce1;
+  --grey-color-30: #bdc1c9;
+  --grey-color-40: #a1a6b1;
+  --grey-color-50: #858b98;
+  --grey-color-60: #69717f;
+  --grey-color-70: #4f5666;
+  --grey-color-80: #343c4c;
+  --grey-color-90: #1a212e;
+  --grey-color-100: #05070a;
+
+  --grey-gradient-end-color-10: #d9dce1;
+  --grey-gradient-end-color-20: #bdc1c9;
+  --grey-gradient-end-color-30: #a1a6b1;
+  --grey-gradient-end-color-60: #4f5666;
+  --grey-gradient-end-color-70: #343c4c;
+  --grey-gradient-end-color-80: #1a212e;
+
+  --grey-gradient-middle-color-10: #f6f7f8;
+  --grey-gradient-middle-color-20: #d9dce1;
+  --grey-gradient-middle-color-30: #bdc1c9;
+  --grey-gradient-middle-color-60: #69717f;
+  --grey-gradient-middle-color-70: #4f5666;
+  --grey-gradient-middle-color-80: #343c4c;
+
+  --grey-gradient-start-color-10: #ffffff;
+  --grey-gradient-start-color-20: #f6f7f8;
+  --grey-gradient-start-color-30: #d9dce1;
+  --grey-gradient-start-color-60: #858b98;
+  --grey-gradient-start-color-70: #69717f;
+  --grey-gradient-start-color-80: #4f5666;
+
+  --grey-background1-color: var(--grey-color-10); // Surface 1
+  --grey-background2-color: var(--grey-color-20); // Surface 2
+  --grey-background3-color: var(--grey-color-30); // Surface 3
+  --grey-tertiary-color: var(--grey-color-60); // Graphics
+  --grey-secondary-color: var(--grey-color-70); // Text
+  --grey-color: var(--grey-color-80); // Extra high contrast
+
+  --grey-background1-gradient: linear-gradient(
+    90deg,
+    var(--grey-gradient-start-color-10) 0%,
+    var(--grey-gradient-middle-color-10) 49%,
+    var(--grey-gradient-end-color-10) 100%
+  ); // Surface 1
+  --grey-background2-gradient: linear-gradient(
+    90deg,
+    var(--grey-gradient-start-color-20) 0%,
+    var(--grey-gradient-middle-color-20) 49%,
+    var(--grey-gradient-end-color-20) 100%
+  ); // Surface 2
+  --grey-background3-gradient: linear-gradient(
+    90deg,
+    var(--grey-gradient-start-color-30) 0%,
+    var(--grey-gradient-middle-color-30) 49%,
+    var(--grey-gradient-end-color-30) 100%
+  ); // Surface 3
+  --grey-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--grey-gradient-start-color-60) 0%,
+    var(--grey-gradient-middle-color-60) 49%,
+    var(--grey-gradient-end-color-60) 100%
+  ); // Graphics
+  --grey-secondary-gradient: linear-gradient(
+    90deg,
+    var(--grey-gradient-start-color-70) 0%,
+    var(--grey-gradient-middle-color-70) 49%,
+    var(--grey-gradient-end-color-70) 100%
+  ); // Text
+  --grey-gradient: linear-gradient(
+    90deg,
+    var(--grey-gradient-start-color-80) 0%,
+    var(--grey-gradient-middle-color-80) 49%,
+    var(--grey-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // Success (Validation) base colors
+  --success-color: #2b715f;
+  --success-background-color: #f0fefa;
+  --success-border-color: #3d8f79;
+  --success-active-color: #1b5143;
+  --success-active-background-color: #f0fefa;
+  --success-active-border-color: #3d8f79;
+  --success-hover-color: #3d8f79;
+  --success-hover-background-color: #f0fefa;
+  --success-hover-border-color: #3d8f79;
+
+  // Warning (Validation) base colors
+  --warning-color: #9d6309;
+  --warning-background-color: #fff8eb;
+  --warning-border-color: #c97e19;
+  --warning-active-color: #6c4500;
+  --warning-active-background-color: #fff8eb;
+  --warning-active-border-color: #c97e19;
+  --warning-hover-color: #ce811a;
+  --warning-hover-background-color: #fff8eb;
+  --warning-hover-border-color: #c97e19;
+
+  // Error (Validation) base colors
+  --error-color: #993838;
+  --error-background-color: #ffefef;
+  --error-border-color: #c15151;
+  --error-active-color: #6c2222;
+  --error-active-background-color: #ffefef;
+  --error-active-border-color: #c15151;
+  --error-hover-color: #c45353;
+  --error-hover-background-color: #ffefef;
+  --error-hover-border-color: #c15151;
+
+  --background-color: #fff;
+  --border-color: #bec2ca;
+  --text-primary-color: #1a212e;
+  --text-secondary-color: #4f5666;
+  --text-tertiary-color: #69717f;
+  --text-inverse-color: #fff;
+  --info-color: #4f5666;
+  --white-color: #fff;
+  --black-color: #000;
+  --horizontal-rule-color: var(--grey-color-40);
+  // ------ Base colors ------
+
+  // ------ Font theme ------
+  --font-family: 'Source Sans Pro';
+  --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-stack-full: var(--font-family), var(--font-stack);
+  --font-size: 16px;
+  // ------ Font theme ------
+
+  // ------ Glassmorphism theme ------
+  --backdrop-filter: blur(5px);
+  // ------ Glassmorphism theme ------
+
+  // ------ Link theme ------
+  --anchor-color: var(--primary-secondary-color);
+  --anchor-disruptive-color: var(--disruptive-secondary-color);
+  --anchor-neutral-color: var(--grey-secondary-color);
+  --anchor-primary-color: var(--primary-secondary-color);
+  --anchor-secondary-color: var(--grey-color-90);
+  --anchor-active-color: var(--primary-color);
+  --anchor-disruptive-active-color: var(--disruptive-color);
+  --anchor-neutral-active-color: var(--grey-color);
+  --anchor-primary-active-color: var(--primary-color);
+  --anchor-secondary-active-color: var(--grey-color-90);
+  --anchor-hover-color: var(--primary-color-90);
+  --anchor-disruptive-hover-color: var(--disruptive-secondary-color);
+  --anchor-neutral-hover-color: var(--grey-secondary-color);
+  --anchor-primary-hover-color: var(--primary-secondary-color);
+  --anchor-secondary-hover-color: var(--grey-color-90);
+  --anchor-visited-color: var(--violet-secondary-color);
+  --anchor-disruptive-visited-color: var(--violet-secondary-color);
+  --anchor-neutral-visited-color: var(--violet-secondary-color);
+  --anchor-primary-visited-color: var(--violet-secondary-color);
+  --anchor-secondary-visited-color: var(--violet-color);
+  // ------ Link theme ------
+
+  // ------ Focus Visible theme ------
+  --focus-visible-color: var(--blueviolet-color-50);
+  --focus-visible-shadow-color: var(--focus-visible-color);
+  --focus-visible-shadow-width: 2px;
+  --focus-visible-box-shadow: 0 0 0 var(--focus-visible-shadow-width)
+    var(--focus-visible-shadow-color);
+  --focus-visible-outline-width: 2px;
+  --focus-visible-outline-style: solid;
+  --focus-visible-outline: var(--focus-visible-outline-width)
+    var(--focus-visible-outline-style) var(--focus-visible-color);
+  // ------ Focus Visible theme ------
+
+  // ------ Border Radius theme ------
+  --border-radius-xs: 2px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-round: 50%;
+  // ------ Border Radius theme ------
+
+  // ------ Input theme ------
+  --input-border-color: var(--grey-tertiary-color);
+  --input-border-color-active: var(--grey-color);
+  --input-border-color-hover: var(--input-border-color-active);
+  --input-border-color-underline-active: var(--primary-secondary-color);
+  --input-border-color-underline-hover: var(--input-border-color-active);
+  --input-background-color: var(--background-color);
+  --input-border-color: var(--grey-tertiary-color);
+  --input-border-color-active: var(--grey-color);
+  --input-text-color: var(--text-primary-color);
+  --input-placeholder-text-color: var(--text-secondary-color);
+  --input-readonly-background-color: var(--grey-background1-color);
+  --input-readonly-border-color: var(--grey-tertiary-color);
+  --input-readonly-text-color: var(--input-text-color);
+  --input-success-text-color: var(--input-text-color);
+  --input-success-background-color: var(--success-background-color);
+  --input-success-border-color: var(--success-color);
+  --input-success-placeholder-color: var(--input-placeholder-text-color);
+  --input-warning-text-color: var(--input-text-color);
+  --input-warning-background-color: var(--warning-background-color);
+  --input-warning-border-color: var(--warning-color);
+  --input-warning-placeholder-color: var(--input-placeholder-text-color);
+  --input-error-text-color: var(--input-text-color);
+  --input-error-background-color: var(--error-background-color);
+  --input-error-border-color: var(--error-color);
+  --input-error-placeholder-color: var(--input-placeholder-text-color);
+  --input-disabled-placeholder-text-color: var(--text-tertiary-color);
+  --input-highlight-text-color: var(--input-text-color);
+  --input-highlight-background-color: var(--primary-background1-color);
+  --input-highlight-border-color: var(--primary-tertiary-color);
+  --input-highlight-placeholder-color: var(--input-placeholder-text-color);
+  // ------ Input theme ------
+
+  // ------ Tabs theme ------
+  --tab-label: var(--text-secondary-color);
+  --tab-background: transparent;
+  --tab-active-label: var(--primary-secondary-color);
+  --tab-active-background: transparent;
+  --tab-hover-label: var(--primary-color);
+  --tab-hover-background: transparent;
+  --tab-indicator-color: var(--primary-secondary-color);
+  --tab-small-active-background: transparent;
+  --tab-small-hover-background: transparent;
+  --tab-pill-border-radius: var(--border-radius-xl);
+  --tab-pill-large-padding: 8px;
+  --tab-pill-medium-padding: 6px;
+  --tab-pill-small-padding: 4px;
+  --tab-pill-border-color: var(--grey-background1-color);
+  --tab-pill-border-style: solid;
+  --tab-pill-border-width: 1px;
+  --tab-pill-border: var(--tab-pill-border-width) var(--tab-pill-border-style)
+    var(--tab-pill-border-color);
+  --tab-pill-label: var(--text-secondary-color);
+  --tab-pill-active-label: var(--primary-color);
+  --tab-pill-active-background: var(--primary-background2-color);
+  --tab-pill-active-border-color: var(--primary-tertiary-color);
+  --tab-pill-active-border-style: solid;
+  --tab-pill-active-border-width: 1px;
+  --tab-pill-active-border: var(--tab-pill-active-border-width)
+    var(--tab-pill-active-border-style) var(--tab-pill-active-border-color);
+  --tab-pill-hover-label: var(--primary-color);
+  --tab-pill-background: var(--grey-background1-color);
+
+  --tab-inverse-pill-label: var(--text-inverse-color);
+  --tab-inverse-pill-hover-label: var(--primary-color-20);
+  --tab-inverse-pill-active-label: var(--primary-color);
+  --tab-inverse-pill-background: rgba(0, 0, 0, 0.1);
+  --tab-inverse-pill-active-background: var(--background-color);
+  --tab-inverse-pill-border-color: transparent;
+  --tab-inverse-pill-border-style: solid;
+  --tab-inverse-pill-border-width: 1px;
+  --tab-inverse-pill-border: var(--tab-inverse-pill-border-width)
+    var(--tab-inverse-pill-border-style) var(--tab-inverse-pill-border-color);
+  --tab-inverse-pill-active-border-color: var(--background-color);
+  --tab-inverse-pill-active-border-style: solid;
+  --tab-inverse-pill-active-border-width: 1px;
+  --tab-inverse-pill-active-border: var(--tab-inverse-pill-active-border-width)
+    var(--tab-inverse-pill-active-border-style)
+    var(--tab-inverse-pill-active-border-color);
+  --tab-underline: var(--border-color);
+  // ------ Tabs theme ------
+
+  // ------ Stat tab theme ------
+  --stat-tab-border-radius-m: 40px;
+  --stat-tab-border-radius-s: 24px;
+  --stat-tab-border-radius-xs: 16px;
+  --stat-tab-label-color: var(--text-secondary-color);
+  --stat-tab-background-color: var(--background-color);
+  --stat-tab-border-color: var(--stat-tab-background-color);
+  --stat-tab-icon-color: var(--stat-tab-label-color);
+  --stat-tab-icon-background-color: var(--grey-background2-color);
+  --stat-tab-active-border-color: var(--grey-tertiary-color);
+  --stat-tab-hover-background-color: var(--grey-background2-color);
+  --stat-tab-hover-border-color: var(--grey-background2-color);
+
+  --stat-tab-background-gradient: var(--background-color);
+  --stat-tab-hover-background-gradient: var(--grey-background2-gradient);
+  // ------ Stat tab theme ------
+
+  // ------ Navbar theme ------
+  --navbar-background: #ffffffe6;
+  --navbar-height: 80px;
+  --navbar-text-color: var(--text-secondary-color);
+  --navbar-text-hover-background: var(--navbar-background);
+  --navbar-text-hover-color: var(--primary-color);
+  --navbar-backdrop-filter: var(--backdrop-filter);
+  --navbar-border-bottom: 1px solid var(--grey-background2-color);
+  --navbar-box-shadow: none;
+  // ------ Navbar theme ------
+
+  // ------ Picker theme ------
+  --picker-background-color: var(--background-color);
+  --picker-foreground-color: var(--text-secondary-color);
+  --picker-border-color: var(--input-border-color);
+  --picker-border-color-active: var(--input-border-color-active);
+  --picker-border-style: solid;
+  --picker-border-width: 1px;
+  --picker-border: var(--picker-border-width) var(--picker-border-style)
+    var(--picker-border-color);
+  --picker-border-active: var(--picker-border-width) var(--picker-border-style)
+    var(--picker-border-color-active);
+
+  --picker-cell-background-color: var(--background-color);
+  --picker-cell-background-color-active: var(--accent-background2-color);
+  --picker-cell-background-color-hover: var(--primary-background2-color);
+  --picker-cell-border-color-active: var(--primary-tertiary-color);
+  --picker-cell-border-color-hover: var(--primary-tertiary-color);
+  --picker-cell-border: var(--picker-border-width) var(--picker-border-style)
+    var(--picker-background-color);
+  --picker-cell-foreground-color: var(--text-tertiary-color);
+  --picker-cell-foreground-color-active: var(--primary-color);
+  --picker-cell-foreground-color-hover: var(--primary-color);
+  --picker-cell-today-background-color: var(--primary-background2-color);
+  --picker-cell-today-foreground-color: var(--primary-color);
+  --picker-cell-range-start-background-color-hover: var(
+    --accent-background2-color
+  );
+  --picker-cell-range-start-background-color-active: var(
+    --accent-background2-color
+  );
+  --picker-cell-range-end-background-color-hover: var(
+    --accent-background2-color
+  );
+  --picker-cell-range-end-background-color-active: var(
+    --accent-background2-color
+  );
+
+  --picker-column-background-color: var(--background-color);
+  --picker-column-background-color-active: var(--primary-background2-color);
+  --picker-column-foreground-color-active: var(--primary-color);
+
+  --picker-header-cell-foreground-color: var(--grey-tertiary-color);
+
+  --picker-input-active-bar-color: var(--primary-color);
+  --picker-input-background-color: var(--background-color);
+  --picker-input-border-color-active: var(--input-border-color-active);
+  --picker-input-border-color-hover: var(--input-border-color-active);
+  --picker-input-clear-icon-color: var(--grey-tertiary-color);
+  --picker-input-clear-icon-color-active: var(--grey-tertiary-color);
+  --picker-input-foreground-color: var(--text-primary-color);
+  --picker-input-placeholder-color: var(--grey-tertiary-color);
+  --picker-outline-color: var(--primary-color-40);
+  // ------ Picker theme ------
+
+  // ------ Table theme ------
+  --table-background-color: var(--background-color);
+  --table-foreground-color: var(--text-primary-color);
+  --table-background-alternate-color: var(--grey-background1-color);
+  --table-border-color: var(--grey-background2-color);
+  --table-border-active-color: transparent;
+  --table-header-background-color: var(--background-color);
+  --table-header-foreground-color: var(--grey-tertiary-color);
+  --table-header-icon-color: var(--grey-tertiary-color);
+  --table-header-icon-hover-color: var(--primary-color);
+  --table-header-cell-split-color: var(--grey-background2-color);
+  --table-body-sort-background-color: var(--background-color);
+  --table-header-sort-background-color: var(--background-color);
+  --table-header-sort-active-background-color: var(--grey-background1-color);
+  --table-header-filter-background-color: var(--background-color);
+  --table-header-filter-active-background-color: var(--grey-background1-color);
+  --table-header-filter-dropdown-background-color: var(--background-color);
+  --table-header-filter-buttons-background-color: var(--background-color);
+  --table-expand-icon-background-color: var(--background-color);
+  --table-row-hover-background-color: var(--accent-background1-color);
+  --table-row-selected-background-color: var(--grey-background1-color);
+  --table-row-selected-hover-background-color: var(--accent-background1-color);
+  --table-row-selected-foregroud-color: var(--text-primary-color);
+  --table-row-expanded-background-color: var(--grey-background1-color);
+  --table-body-selected-sort-background-color: var(--grey-background1-color);
+  --table-footer-background-color: var(--background-color);
+  --table-footer-foreground-color: var(--text-primary-color);
+
+  --table-border-radius: var(--border-radius-xl);
+  --table-border-style: solid;
+  --table-border-width: 1px;
+  --table-border-active-width: 2px;
+  --table-border: var(--table-border-width) var(--table-border-style)
+    var(--table-border-color);
+  --table-border-active: var(--table-border-active-width)
+    var(--table-border-style) var(--table-border-active-color);
+  --table-padding-vertical: 8px;
+  --table-padding-horizontal: 16px;
+  --table-padding-vertical-lg: 24px;
+  --table-padding-horizontal-lg: 16px;
+  --table-padding-vertical-md: 12px;
+  --table-padding-horizontal-md: 8px;
+  --table-padding-vertical-sm: 8px;
+  --table-padding-horizontal-sm: 8px;
+  --table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
+    0 2px 8px rgba(15, 20, 31, 0.08);
+  --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
+  --table-fixed-right-box-shadow: inset -32px 0 8px -32px rgba(15, 20, 31, 0.08);
+  --table-header-font-size: 14px;
+  --table-header-line-height: 24px;
+  --table-footer-font-size: 16px;
+  --table-footer-line-height: 24px;
+  --table-font-size: 14px;
+  --table-font-size-lg: 14px;
+  --table-font-size-md: 14px;
+  --table-font-size-sm: 14px;
+  --table-line-height: 20px;
+  --table-selection-column-width: 80px;
+  // ------ Table theme ------
+
+  // ------ Generic button vars ------
+  --button-font-family: var(--font-stack-full);
+  --button-border-radius: var(--border-radius-s);
+  --button-round-shape-border-radius: var(--border-radius-round);
+  --button-pill-shape-border-radius: var(--border-radius-xl);
+  --button-nudge-background-color-primary: var(--white-color);
+  --button-nudge-background-color-secondary: var(--accent-background2-color);
+  --button-nudge-background-color-tertiary: var(--white-color);
+  --button-nudge-gradient-color-one: var(--primary-tertiary-color);
+  --button-nudge-gradient-color-two: var(--primary-background2-color);
+  --button-nudge-gradient-color-three: var(--primary-tertiary-color);
+  --button-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 0s;
+  --button-transition-opacity: opacity 200ms cubic-bezier(0.42, 0, 0.58, 1) 0s;
+  // TODO: button text/font related vars
+  // ------ Generic button vars ------
+
+  // ------ Default Button theme ------
+  --button-default-text-color: var(--primary-color);
+  --button-default-background-color: var(--primary-background1-color);
+  --button-default-border-width: 0;
+  --button-default-border-style: solid;
+  --button-default-border-color: var(--button-default-background-color);
+  --button-default-hover-text-color: var(--button-default-text-color);
+  --button-default-hover-background-color: var(--background-color);
+  --button-default-hover-border-width: var(--button-default-border-width);
+  --button-default-hover-border-style: var(--button-default-border-style);
+  --button-default-hover-border-color: var(
+    --button-default-hover-background-color
+  );
+  --button-default-active-text-color: var(--button-default-text-color);
+  --button-default-active-background-color: var(--primary-background2-color);
+  --button-default-active-border-width: var(--button-default-border-width);
+  --button-default-active-border-style: var(--button-default-border-style);
+  --button-default-active-border-color: var(
+    --button-default-active-background-color
+  );
+  --button-default-split-divider-color: var(--primary-secondary-color);
+  // ------ Default Button theme ------
+
+  // ------ Default Disruptive Button theme ------
+  --button-default-disruptive-text-color: var(--disruptive-secondary-color);
+  --button-default-disruptive-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-default-disruptive-border-width: 0;
+  --button-default-disruptive-border-style: solid;
+  --button-default-disruptive-border-color: var(
+    --button-default-disruptive-background-color
+  );
+  --button-default-disruptive-hover-text-color: var(
+    --disruptive-secondary-color
+  );
+  --button-default-disruptive-hover-background-color: var(--background-color);
+  --button-default-disruptive-hover-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-hover-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-hover-border-color: var(
+    --button-default-disruptive-hover-background-color
+  );
+  --button-default-disruptive-active-text-color: var(--disruptive-color);
+  --button-default-disruptive-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-default-disruptive-active-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-active-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-active-border-color: var(
+    --button-default-disruptive-active-background-color
+  );
+  --button-default-disruptive-split-divider-color: var(
+    --disruptive-secondary-color
+  );
+  // ------ Default Disruptive Button theme ------
+
+  // ------ Neutral Button theme ------
+  --button-neutral-text-color: var(--grey-color);
+  --button-neutral-background-color: var(--grey-background1-color);
+  --button-neutral-counter-default-text-color: var(--grey-color);
+  --button-neutral-hover-text-color: var(--button-neutral-text-color);
+  --button-neutral-hover-background-color: var(--background-color);
+  --button-neutral-focus-visible-background-color: var(
+    --grey-background1-color
+  );
+  --button-neutral-active-text-color: var(--button-neutral-text-color);
+  --button-neutral-active-background-color: var(--grey-background2-color);
+  --button-neutral-split-divider-color: var(--grey-secondary-color);
+  // ------ Neutral Button theme ------
+
+  // ------ Primary Button theme ------
+  --button-primary-text-color: var(--primary-color);
+  --button-primary-background-color: var(--accent-background2-color);
+  --button-primary-border-width: 0;
+  --button-primary-border-style: solid;
+  --button-primary-border-color: var(--button-primary-background-color);
+  --button-primary-hover-text-color: var(--button-primary-text-color);
+  --button-primary-hover-background-color: var(--accent-background1-color);
+  --button-primary-hover-border-width: var(--button-primary-border-width);
+  --button-primary-hover-border-style: var(--button-primary-border-style);
+  --button-primary-hover-border-color: var(
+    --button-primary-hover-background-color
+  );
+  --button-primary-active-text-color: var(--button-primary-text-color);
+  --button-primary-active-background-color: var(--accent-background3-color);
+  --button-primary-active-border-width: var(--button-primary-border-width);
+  --button-primary-active-border-style: var(--button-primary-border-style);
+  --button-primary-active-border-color: var(
+    --button-primary-active-background-color
+  );
+  --button-primary-split-divider-color: var(--primary-color);
+
+  --button-primary-background-gradient: var(--primary-background2-gradient);
+  --button-primary-hover-background-gradient: var(
+    --primary-background1-gradient
+  );
+  --button-primary-active-background-gradient: var(
+    --primary-background3-gradient
+  );
+  --button-primary-split-background-gradient-edge: var(
+    --primary-gradient-end-color-20
+  );
+  --button-primary-split-active-background-gradient-edge: var(
+    --primary-gradient-end-color-30
+  );
+  --button-primary-split-hover-background-gradient-edge: var(
+    --primary-gradient-end-color-10
+  );
+  --button-primary-split-rtl-background-gradient-edge: var(
+    --primary-gradient-start-color-20
+  );
+  --button-primary-split-rtl-active-background-gradient-edge: var(
+    --primary-gradient-start-color-30
+  );
+  --button-primary-split-rtl-hover-background-gradient-edge: var(
+    --primary-gradient-start-color-10
+  );
+  // ------ Primary Button theme ------
+
+  // ------ Primary Disruptive Button theme ------
+  --button-primary-disruptive-text-color: var(--disruptive-color);
+  --button-primary-disruptive-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-primary-disruptive-border-width: 0;
+  --button-primary-disruptive-border-style: solid;
+  --button-primary-disruptive-border-color: var(
+    --button-primary-disruptive-background-color
+  );
+  --button-primary-disruptive-hover-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-primary-disruptive-hover-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-hover-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-hover-border-color: var(
+    --button-primary-disruptive-hover-background-color
+  );
+  --button-primary-disruptive-active-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-active-background-color: var(
+    --disruptive-background3-color
+  );
+  --button-primary-disruptive-active-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-active-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-active-border-color: var(
+    --button-primary-disruptive-active-background-color
+  );
+  --button-primary-disruptive-split-divider-color: var(--disruptive-color);
+
+  --button-primary-disruptive-background-gradient: var(
+    --disruptive-background2-gradient
+  );
+  --button-primary-disruptive-hover-background-gradient: var(
+    --disruptive-background1-gradient
+  );
+  --button-primary-disruptive-active-background-gradient: var(
+    --disruptive-background3-gradient
+  );
+  --button-primary-disruptive-split-background-gradient-edge: var(
+    --redorange-color-20
+  );
+  --button-primary-disruptive-split-active-background-gradient-edge: var(
+    --redorange-color-30
+  );
+  --button-primary-disruptive-split-hover-background-gradient-edge: var(
+    --redorange-color-10
+  );
+  --button-primary-disruptive-split-rtl-background-gradient-edge: var(
+    --violetred-color-20
+  );
+  --button-primary-disruptive-split-rtl-active-background-gradient-edge: var(
+    --violetred-color-30
+  );
+  --button-primary-disruptive-split-rtl-hover-background-gradient-edge: var(
+    --violetred-color-10
+  );
+  // ------ Primary Disruptive Button theme ------
+
+  // ------ Secondary Button theme ------
+  --button-secondary-text-color: var(--primary-color);
+  --button-secondary-background-color: var(--background-color);
+  --button-secondary-border-width: 1px;
+  --button-secondary-border-style: solid;
+  --button-secondary-border-color: var(--accent-tertiary-color);
+  --button-secondary-hover-text-color: var(--button-secondary-text-color);
+  --button-secondary-hover-background-color: var(--accent-background1-color);
+  --button-secondary-hover-border-width: var(--button-secondary-border-width);
+  --button-secondary-hover-border-style: var(--button-secondary-border-style);
+  --button-secondary-hover-border-color: var(--button-secondary-border-color);
+  --button-secondary-active-text-color: var(--button-secondary-text-color);
+  --button-secondary-active-background-color: var(--accent-background2-color);
+  --button-secondary-active-border-width: var(--button-secondary-border-width);
+  --button-secondary-active-border-style: var(--button-secondary-border-style);
+  --button-secondary-active-border-color: var(--button-secondary-border-color);
+  --button-secondary-split-divider-color: var(--primary-secondary-color);
+
+  --button-secondary-gradient-border-color: var(--primary-tertiary-color);
+  --button-secondary-gradient-hover-border-color: var(--primary-tertiary-color);
+  --button-secondary-gradient-active-border-color: var(
+    --primary-tertiary-color
+  );
+  --button-secondary-gradient-text-color: var(--primary-color);
+  --button-secondary-gradient-hover-text-color: var(--primary-color);
+  --button-secondary-gradient-active-text-color: var(--primary-color);
+  --button-secondary-hover-background-gradient: var(
+    --primary-background1-gradient
+  );
+  --button-secondary-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --button-secondary-split-active-background-gradient-edge: var(
+    --primary-gradient-end-color-20
+  );
+  --button-secondary-split-hover-background-gradient-edge: var(
+    --primary-gradient-end-color-10
+  );
+  --button-secondary-split-rtl-active-background-gradient-edge: var(
+    --primary-gradient-start-color-20
+  );
+  --button-secondary-split-rtl-hover-background-gradient-edge: var(
+    --primary-gradient-start-color-10
+  );
+  --button-secondary-gradient-split-divider-color: var(--primary-color);
+  // ------ Secondary Button theme ------
+
+  // ------ Secondary Disruptive Button theme ------
+  --button-secondary-disruptive-text-color: var(--disruptive-color);
+  --button-secondary-disruptive-background-color: var(--background-color);
+  --button-secondary-disruptive-border-width: 1px;
+  --button-secondary-disruptive-border-style: solid;
+  --button-secondary-disruptive-border-color: var(--disruptive-tertiary-color);
+  --button-secondary-disruptive-hover-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --button-secondary-disruptive-hover-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-hover-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-hover-border-color: var(
+    --button-secondary-disruptive-border-color
+  );
+  --button-secondary-disruptive-active-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --button-secondary-disruptive-active-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-active-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-active-border-color: var(
+    --button-secondary-disruptive-border-color
+  );
+  --button-secondary-disruptive-split-divider-color: var(--disruptive-color);
+
+  --button-secondary-disruptive-gradient-border-color: var(
+    --disruptive-tertiary-color
+  );
+  --button-secondary-disruptive-gradient-hover-border-color: var(
+    --disruptive-tertiary-color
+  );
+  --button-secondary-disruptive-gradient-active-border-color: var(
+    --disruptive-tertiary-color
+  );
+  --button-secondary-disruptive-gradient-text-color: var(--disruptive-color);
+  --button-secondary-disruptive-gradient-hover-text-color: var(
+    --disruptive-color
+  );
+  --button-secondary-disruptive-gradient-active-text-color: var(
+    --disruptive-color
+  );
+  --button-secondary-disruptive-hover-background-gradient: var(
+    --disruptive-background1-gradient
+  );
+  --button-secondary-disruptive-active-background-gradient: var(
+    --disruptive-background2-gradient
+  );
+  --button-secondary-disruptive-split-active-background-gradient-edge: var(
+    --disruptive-gradient-end-color-20
+  );
+  --button-secondary-disruptive-split-hover-background-gradient-edge: var(
+    --disruptive-gradient-end-color-10
+  );
+  --button-secondary-disruptive-split-rtl-active-background-gradient-edge: var(
+    --disruptive-gradient-start-color-20
+  );
+  --button-secondary-disruptive-split-rtl-hover-background-gradient-edge: var(
+    --disruptive-gradient-start-color-10
+  );
+  --button-secondary-disruptive-gradient-split-divider-color: var(
+    --disruptive-color
+  );
+  // ------ Secondary Disruptive Button theme ------
+
+  // ------ System UI Button theme ------
+  --button-system-ui-text-color: var(--grey-color);
+  --button-system-ui-background-color: var(--background-color);
+  --button-system-ui-counter-default-text-color: var(--grey-color);
+  --button-system-ui-hover-text-color: var(--button-system-ui-text-color);
+  --button-system-ui-hover-background-color: var(--grey-background1-color);
+  --button-system-ui-focus-visible-background-color: var(--background-color);
+  --button-system-ui-active-text-color: var(--button-system-ui-text-color);
+  --button-system-ui-active-background-color: var(--grey-background2-color);
+  --button-system-ui-split-divider-color: var(--grey-secondary-color);
+  // ------ System UI Button theme ------
+
+  // ------ Two State Button theme ------
+  --button-two-state-text-color: var(--grey-color);
+  --button-two-state-background-color: var(--grey-background1-color);
+  --button-two-state-border-color: var(--button-two-state-background-color);
+  --button-two-state-default-counter-background-color: var(
+    --green-background2-color
+  );
+  --button-two-state-hover-counter-background-color: var(
+    --green-background2-color
+  );
+  --button-two-state-checked-counter-background-color: var(
+    --green-background1-color
+  );
+  --button-two-state-focus-counter-background-color: var(
+    --green-background2-color
+  );
+  --button-two-state-active-counter-background-color: var(
+    --green-background1-color
+  );
+  --button-two-state-default-counter-text-color: var(--green-color);
+  --button-two-state-hover-text-color: var(--bluegreen-color);
+  --button-two-state-hover-background-color: var(--green-background1-color);
+  --button-two-state-active-text-color: var(--bluegreen-color);
+  --button-two-state-active-background-color: var(--green-background2-color);
+  --button-two-state-checked-text-color: var(--bluegreen-color);
+  --button-two-state-checked-background-color: var(--green-background2-color);
+  // ------ Two State Button theme ------
+
+  // ------ Button Counter theme ------
+  --button-counter-default-background-color: var(--grey-background2-color);
+  --button-counter-hover-background-color: var(--grey-background2-color);
+  --button-counter-checked-background-color: var(--grey-background1-color);
+  --button-counter-focus-background-color: var(--grey-background2-color);
+  --button-counter-active-background-color: var(--grey-background1-color);
+  --button-counter-default-text-color: var(--primary-color);
+  // ------ Button Counter theme ------
+
+  // ------ Badge theme ------
+  --badge-font-family: var(--font-stack-full);
+  --badge-background-color: var(--grey-background2-color);
+  --badge-border-radius: 6px;
+  --badge-text-color: var(--grey-color);
+  --badge-active-background-color: var(--primary-background2-color);
+  --badge-active-text-color: var(--primary-color);
+  --badge-disruptive-background-color: var(--disruptive-background2-color);
+  --badge-disruptive-text-color: var(--disruptive-color);
+  // ------ Badge theme ------
+
+  // ------ Avatar theme ------
+  --avatar-font-family: var(--font-stack-full);
+  --avatar-border-radius: 0;
+  --avatar-round-border-radius: 50%;
+  --avatar-status-item-background: var(--background-color);
+  --avatar-status-item-border-radius: 999px;
+  // ------ Avatar theme ------
+
+  // ------ Card theme ------
+  --card-background-color: var(--background-color);
+  --card-font-family: var(--font-stack-full);
+  --card-text-color: var(--black-color);
+  --card-border-color: var(--grey-background2-color);
+  --card-border-radius: var(--border-radius-xl);
+  --card-border-width: 1px;
+  --card-border-style: solid;
+  --card-border: var(--card-border-width) var(--card-border-style)
+    var(--card-border-color);
+  --card-hover-box-shadow: 0 4px 16px 0 #0f141f29;
+
+  // TODO: component implementation
+  --card-selected-border: 1px solid var(--blue-tertiary-color);
+  --card-selected-box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
+  --card-hover-border: 1px solid var(--grey-background3-color);
+  // ------ Card theme ------
+
+  // ------ Info Bar theme ------
+  --info-bar-disruptive-border-color: var(--red-background2-color);
+  --info-bar-neutral-border-color: var(--grey-background2-color);
+  --info-bar-positive-border-color: var(--green-background2-color);
+  --info-bar-warning-border-color: var(--orange-background2-color);
+  --info-bartip-border-style: solid;
+  --info-bar-border-width: 1px;
+  --info-bar-border: var(--info-bar-border-width)
+    var(--info-bartip-border-style) var(--info-bar-neutral-border-color);
+  --info-bar-border-radius: var(--border-radius-xl);
+  --info-bar-background-color: var(--grey-background1-color);
+  --info-bar-button-active-background-color: var(--grey-background2-color);
+  --info-bar-button-hover-background-color: var(--background-color);
+  --info-bar-text-color: var(--text-secondary-color);
+  --info-bar-positive-background-color: var(--green-background1-color);
+  --info-bar-positive-button-active-background-color: var(
+    --green-background2-color
+  );
+  --info-bar-positive-text-color: var(--green-secondary-color);
+  --info-bar-warning-background-color: var(--orange-background1-color);
+  --info-bar-warning-button-active-background-color: var(
+    --orange-background2-color
+  );
+  --info-bar-warning-text-color: var(--orange-secondary-color);
+  --info-bar-disruptive-background-color: var(--disruptive-background1-color);
+  --info-bar-disruptive-button-active-background-color: var(
+    --disruptive-background2-color
+  );
+  --info-bar-disruptive-text-color: var(--disruptive-secondary-color);
+
+  --info-bar-background-gradient: var(--primary-background1-gradient);
+  --info-bar-gradient-disruptive-border-color: var(--red-tertiary-color);
+  --info-bar-gradient-neutral-border-color: var(--primary-tertiary-color);
+  --info-bar-gradient-positive-border-color: var(--green-tertiary-color);
+  --info-bar-gradient-warning-border-color: var(--orange-tertiary-color);
+  --info-bar-gradient-text-color: var(--primary-color);
+  --info-bar-gradient-button-active-background-color: var(
+    --primary-background2-color
+  );
+  --info-bar-gradient-button-hover-background-color: var(
+    --primary-background1-color
+  );
+  --info-bar-positive-background-gradient: var(--green-background1-gradient);
+  --info-bar-warning-background-gradient: var(--orange-background1-gradient);
+  --info-bar-disruptive-background-gradient: var(
+    --disruptive-background1-gradient
+  );
+  // ------ Info Bar theme ------
+
+  // ------ Stepper/Timeline theme ------
+  --stepper-line-color: var(--primary-tertiary-color);
+  --stepper-line-horizontal-offset: 6px;
+  --stepper-line-width: 1px;
+  --stepper-line-vertical-offset: 14px;
+  --step-default-active-background-color: var(--accent-background2-color);
+  --step-default-active-border-color: var(--accent-tertiary-color);
+  --step-default-active-icon-color: var(--primary-color);
+  --step-default-background-color: var(--background-color);
+  --step-default-box-shadow: 0 0 0 2px var(--background-color);
+  --step-default-border-color: var(--accent-tertiary-color);
+  --step-default-icon-color: var(--primary-color);
+  --step-default-hover-background-color: var(--accent-background1-color);
+  --step-default-hover-border-color: var(--step-default-active-border-color);
+  --step-default-hover-icon-color: var(--step-default-icon-color);
+  --step-default-complete-background-color: var(--accent-background2-color);
+  --step-default-complete-border-color: var(
+    --step-default-active-background-color
+  );
+  --step-default-complete-icon-color: var(--primary-color);
+  --step-timeline-active-background-color: var(--primary-background2-color);
+  --step-timeline-active-border-color: var(--primary-tertiary-color);
+  --step-timeline-active-icon-color: var(--primary-color);
+  --step-timeline-background-color: var(--primary-background1-color);
+  --step-timeline-box-shadow: 0 0 0 2px var(--background-color);
+  --step-timeline-border-color: var(--step-timeline-background-color);
+  --step-timeline-icon-color: var(--primary-secondary-color);
+  --step-timeline-hover-background-color: var(--background-color);
+  --step-timeline-hover-border-color: var(--step-timeline-active-border-color);
+  --step-timeline-hover-icon-color: var(--step-timeline-icon-color);
+  --step-timeline-complete-background-color: var(
+    --step-timeline-background-color
+  );
+  --step-timeline-complete-border-color: var(--step-timeline-background-color);
+  --step-timeline-complete-icon-color: var(--step-timeline-icon-color);
+
+  --step-default-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --step-default-background-gradient: var(--background-color);
+  --step-default-hover-background-gradient: var(--primary-background1-gradient);
+  --step-default-complete-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --step-timeline-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  --step-timeline-background-gradient: var(--primary-background1-gradient);
+  --step-timeline-hover-background-gradient: var(--background-color);
+  --step-timeline-complete-background-gradient: var(
+    --step-timeline-background-gradient
+  );
+  // ------ Stepper/Timeline theme ------
+
+  // ------ Highlight box theme ------
+  --highlight-background-color: var(--yellowgreen-background1-color);
+  --highlight-border-color: var(--yellowgreen-background3-color);
+  --highlight-foreground-color: var(--yellowgreen-color);
+  // ------ Highlight box theme ------
+
+  // ------ Dropdown theme ------
+  --dropdown-background-color: var(--background-color);
+  // ------ Dropdown theme ------
+
+  // ------ Skeleton theme ------
+  --skeleton-background-color: var(--grey-background1-color);
+  --skeleton-shimmer-color: #eaedf1;
+  --skeleton-wave-background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimmer-color),
+    transparent
+  );
+  // ------ Skeleton theme ------
+
+  // ------ Spinner theme ------
+  --spinner-color: var(--primary-color);
+  // ------ Spinner theme ------
+
+  // ------ Slider theme ------
+  --slider-data-active-mark-one-background-color: var(--grey-background3-color);
+  --slider-data-active-mark-one-border-color: var(--grey-tertiary-color);
+  --slider-data-dot-background-color: var(--grey-background1-color);
+  --slider-data-inactive-mark-one-background-color: var(
+    --violet-background3-color
+  );
+  --slider-data-inactive-mark-one-border-color: var(--violetred-tertiary-color);
+  --slider-data-inactive-mark-two-background-color: var(
+    --blue-background3-color
+  );
+  --slider-data-inactive-mark-two-border-color: var(
+    --blueviolet-tertiary-color
+  );
+  --slider-data-inactive-mark-three-background-color: var(
+    --orange-background3-color
+  );
+  --slider-data-inactive-mark-three-border-color: var(--orange-tertiary-color);
+  --slider-data-rail-background-color: var(--grey-background3-color);
+  --slider-data-rail-border-color: var(--grey-tertiary-color);
+  --slider-extremity-text-color: var(--grey-tertiary-color);
+  --slider-benchmark-background-color: var(--grey-background3-color);
+  --slider-benchmark-border-color: var(--grey-tertiary-color);
+  --slider-rail-background-color: var(--accent-background1-color);
+  --slider-rail-border-color: var(--primary-tertiary-color);
+  --slider-thumb-color: var(--accent-background2-color);
+  --slider-track-background-color: var(--primary-tertiary-color);
+  --slider-track-border-color: var(--primary-tertiary-color);
+  --slider-track-success-background-color: var(--green-background3-color);
+  --slider-track-success-border-color: var(--green-tertiary-color);
+  --slider-track-warning-background-color: var(--orange-background3-color);
+  --slider-track-warning-border-color: var(--orange-tertiary-color);
+  --slider-track-error-background-color: var(--red-background3-color);
+  --slider-track-error-border-color: var(--red-tertiary-color);
+  --slider-value-text-color: var(--text-secondary-color);
+  // ------ Slider theme ------
+
+  // ------ Tooltip theme ------
+  --tooltip-background-color-dark: var(--grey-color);
+  --tooltip-background-color-light: var(--background-color);
+  --tooltip-border-color-dark: var(--grey-color-40);
+  --tooltip-border-color-light: var(--grey-tertiary-color);
+  --tooltip-border-radius: var(--border-radius-s);
+  --tooltip-border-style: solid;
+  --tooltip-border-width: 1px;
+  --tooltip-text-color-dark: var(--text-inverse-color);
+  --tooltip-text-color-light: var(--text-primary-color);
+  --tooltip-border-dark: var(--tooltip-border-width) var(--tooltip-border-style)
+    var(--tooltip-border-color-dark);
+  --tooltip-border-light: var(--tooltip-border-width)
+    var(--tooltip-border-style) var(--tooltip-border-color-light);
+  // ------ Tooltip theme ------
+
+  // ------ Accordion theme ------
+  --accordion-font-family: var(--font-stack-full);
+  --accordion-body-background-color: var(--background-color);
+  --accordion-body-text-color: var(--text-primary-color);
+  --accordion-border-color: var(--grey-background2-color);
+  --accordion-border-style: solid;
+  --accordion-border-width: 1px;
+  --accordion-border: var(--accordion-border-width)
+    var(--accordion-border-style) var(--accordion-border-color);
+  --accordion-rectangle-shape-border-radius: var(--border-radius-s);
+  --accordion-summary-background-color: var(--background-color);
+  --accordion-summary-background-hover-color: var(--grey-background1-color);
+  --accordion-summary-text-color: var(--text-primary-color);
+  --accordion-summary-text-hover-color: var(--text-primary-color);
+  --accordion-pill-shape-border-radius: var(--border-radius-xl);
+
+  --accordion-body-background-gradient: var(--primary-background1-gradient);
+  --accordion-gradient-body-text-color: var(--primary-color);
+  --accordion-gradient-border-color: var(--primary-background3-color);
+  --accordion-gradient-border-style: solid;
+  --accordion-gradient-border-width: 1px;
+  --accordion-gradient-border: var(--accordion-gradient-border-width)
+    var(--accordion-gradient-border-style)
+    var(--accordion-gradient-border-color);
+  --accordion-gradient-summary-text-color: var(--primary-color);
+  --accordion-gradient-summary-text-hover-color: var(--primary-color);
+  --accordion-summary-background-gradient: var(--primary-background1-gradient);
+  --accordion-summary-background-hover-gradient: var(
+    --primary-background2-gradient
+  );
+  // ------ Accordion theme ------
+
+  // ------ Empty theme ------
+  --empty-svg-accent-20-color: var(--accent-color-20);
+  --empty-svg-primary-10-color: var(--primary-color-10);
+  --empty-svg-primary-30-color: var(--primary-color-30);
+  --empty-svg-white-color: var(--white-color);
+  // ------ Empty theme ------
+
+  // ------ Message Bar theme ------
+  --message-bar-background-color: var(--background-color);
+  --message-bar-border-radius: var(--border-radius-xs);
+  --message-bar-box-shadow: 0px -1px 2px rgba(15, 20, 31, 0.12),
+    0px 4px 16px rgba(15, 20, 31, 0.16);
+  --message-bar-disruptive-color: var(--disruptive-color-70);
+  --message-bar-neutral-color: var(--grey-color-70);
+  --message-bar-positive-color: var(--green-color-70);
+  --message-bar-text-color: var(--text-primary-color);
+  --message-bar-warning-color: var(--orange-color-70);
+  // ------ Message Bar theme ------
+
+  // ------ Pill theme ------
+  --pill-large-size-border-radius: var(--border-radius-m);
+  --pill-medium-size-border-radius: 6px;
+  --pill-small-size-border-radius: var(--border-radius-s);
+  --pill-xsmall-size-border-radius: var(--border-radius-s);
+  // ------ Pill theme ------
+
+  // ------ Match Score theme ------
+  --match-score-background-color: var(--primary-tertiary-color);
+  --match-score-text-color: var(--primary-secondary-color);
+  // ------ Match Score theme ------
+
+  // ------ Check Box theme ------
+  --check-box-background-color: transparent;
+  --check-box-active-background-color: var(--accent-background3-color);
+  --check-box-hover-background-color: var(--accent-background1-color);
+  --check-box-checked-background-color: var(--accent-background3-color);
+  --check-box-checked-active-background-color: var(--accent-background1-color);
+  --check-box-checked-hover-background-color: var(--accent-background2-color);
+  --check-box-border-color: var(--grey-secondary-color);
+  --check-box-active-border-color: var(--primary-secondary-color);
+  --check-box-hover-border-color: var(--primary-secondary-color);
+  --check-box-checked-border-color: var(--primary-secondary-color);
+  --check-box-checked-active-border-color: var(--primary-secondary-color);
+  --check-box-checked-hover-border-color: var(--primary-secondary-color);
+  --check-box-focus-visible-border-color: var(--primary-color);
+  --check-box-border-width: 2px;
+  --check-box-border-style: solid;
+  --check-box-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-border-color);
+  --check-box-active-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-active-border-color);
+  --check-box-hover-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-hover-border-color);
+  --check-box-checked-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-border-color);
+  --check-box-checked-active-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-active-border-color);
+  --check-box-checked-hover-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-hover-border-color);
+  --check-box-focus-visible-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-focus-visible-border-color);
+  --check-box-mark-color: var(--primary-secondary-color);
+  --check-box-focus-visible-mark-color: var(--primary-color);
+  --check-box-text-color: var(--primary-secondary-color);
+
+  --check-box-pill-container-background-color: var(--grey-background1-color);
+  --check-box-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-color: var(--accent-background2-color);
+  --check-box-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-radius: var(--border-radius-xl);
+  --check-box-pill-container-border-style: solid;
+  --check-box-pill-container-border-width: 0;
+  --check-box-pill-container-text-color: var(--text-secondary-color);
+  --check-box-pill-container-active-text-color: var(--primary-color);
+  --check-box-pill-container-hover-text-color: var(--primary-color);
+  --check-box-in-pill-background-color: transparent;
+  --check-box-in-pill-active-background-color: transparent;
+  --check-box-in-pill-hover-background-color: transparent;
+  --check-box-in-pill-checked-background-color: transparent;
+  --check-box-in-pill-checked-active-background-color: transparent;
+  --check-box-in-pill-checked-hover-background-color: transparent;
+  --check-box-in-pill-border-color: var(--grey-secondary-color);
+  --check-box-in-pill-active-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-hover-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-border-width: 2px;
+  --check-box-in-pill-border-style: solid;
+  --check-box-in-pill-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style) var(--check-box-in-pill-border-color);
+  --check-box-in-pill-active-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-active-border-color);
+  --check-box-in-pill-hover-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-hover-border-color);
+  --check-box-in-pill-checked-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-border-color);
+  --check-box-in-pill-checked-active-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-active-border-color);
+  --check-box-in-pill-checked-hover-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-hover-border-color);
+  --check-box-in-pill-focus-visible-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-focus-visible-border-color);
+  --check-box-in-pill-mark-color: var(--primary-secondary-color);
+  --check-box-in-pill-focus-visible-mark-color: var(--primary-secondary-color);
+  // ------ Check Box theme ------
+
+  // ------ Toggle Switch theme ------
+  --toggle-switch-background-color: transparent;
+  --toggle-switch-active-background-color: var(--accent-background3-color);
+  --toggle-switch-hover-background-color: var(--accent-background1-color);
+  --toggle-switch-checked-background-color: var(--accent-background3-color);
+  --toggle-switch-checked-active-background-color: var(
+    --accent-background1-color
+  );
+  --toggle-switch-checked-hover-background-color: var(
+    --accent-background2-color
+  );
+  --toggle-switch-border-color: var(--grey-secondary-color);
+  --toggle-switch-active-border-color: var(--primary-secondary-color);
+  --toggle-switch-hover-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-border-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-border-color: var(--primary-color);
+  --toggle-switch-border-width: 2px;
+  --toggle-switch-border-style: solid;
+  --toggle-switch-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-border-color);
+  --toggle-switch-active-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-active-border-color);
+  --toggle-switch-hover-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-hover-border-color);
+  --toggle-switch-checked-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-checked-border-color);
+  --toggle-switch-checked-active-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style)
+    var(--toggle-switch-checked-active-border-color);
+  --toggle-switch-checked-hover-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style)
+    var(--toggle-switch-checked-hover-border-color);
+  --toggle-switch-focus-visible-border: var(--check-box-border-width)
+    var(--check-box-border-style)
+    var(--toggle-switch-focus-visible-border-color);
+  --toggle-switch-pip-color: var(--grey-secondary-color);
+  --toggle-switch-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-pip-color: var(--primary-color);
+  --toggle-switch-text-color: var(--primary-secondary-color);
+  // ------ Toggle Switch theme ------
+
+  // ------ Radio Button theme ------
+  --radio-button-background-color: transparent;
+  --radio-button-active-background-color: var(--accent-background3-color);
+  --radio-button-hover-background-color: var(--accent-background1-color);
+  --radio-button-checked-background-color: var(--accent-background3-color);
+  --radio-button-checked-active-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-checked-hover-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-border-color: var(--grey-secondary-color);
+  --radio-button-active-border-color: var(--primary-secondary-color);
+  --radio-button-hover-border-color: var(--primary-secondary-color);
+  --radio-button-checked-border-color: var(--primary-secondary-color);
+  --radio-button-checked-active-border-color: var(--primary-secondary-color);
+  --radio-button-checked-hover-border-color: var(--primary-secondary-color);
+  --radio-button-focus-visible-border-color: var(--primary-color);
+  --radio-button-border-width: 2px;
+  --radio-button-border-style: solid;
+  --radio-button-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-border-color);
+  --radio-button-active-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-active-border-color);
+  --radio-button-hover-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-hover-border-color);
+  --radio-button-checked-border: var(--radio-button-border-width)
+    var(--radio-button-border-style) var(--radio-button-checked-border-color);
+  --radio-button-checked-active-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-checked-active-border-color);
+  --radio-button-checked-hover-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-checked-hover-border-color);
+  --radio-button-focus-visible-border: var(--radio-button-border-width)
+    var(--radio-button-border-style)
+    var(--radio-button-focus-visible-border-color);
+  --radio-button-pip-color: var(--primary-secondary-color);
+  --radio-button-focus-visible-pip-color: var(--primary-color);
+  --radio-button-text-color: var(--primary-secondary-color);
+
+  --radio-button-pill-container-background-color: var(--grey-background1-color);
+  --radio-button-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-color: var(--accent-background2-color);
+  --radio-button-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --radio-button-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --radio-button-pill-container-border-radius: var(--border-radius-xl);
+  --radio-button-pill-container-border-style: solid;
+  --radio-button-pill-container-border-width: 0;
+  --radio-button-pill-container-text-color: var(--text-secondary-color);
+  --radio-button-pill-container-active-text-color: var(--primary-color);
+  --radio-button-pill-container-hover-text-color: var(--primary-color);
+  --radio-button-in-pill-background-color: transparent;
+  --radio-button-in-pill-active-background-color: transparent;
+  --radio-button-in-pill-hover-background-color: transparent;
+  --radio-button-in-pill-checked-background-color: transparent;
+  --radio-button-in-pill-checked-active-background-color: transparent;
+  --radio-button-in-pill-checked-hover-background-color: transparent;
+  --radio-button-in-pill-border-color: var(--grey-secondary-color);
+  --radio-button-in-pill-active-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-hover-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-border-color: var(--primary-secondary-color);
+  --radio-button-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --radio-button-in-pill-border-width: 2px;
+  --radio-button-in-pill-border-style: solid;
+  --radio-button-in-pill-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-border-color);
+  --radio-button-in-pill-active-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-active-border-color);
+  --radio-button-in-pill-hover-border: var(--radio-button-in-pill-border-width)
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-hover-border-color);
+  --radio-button-in-pill-checked-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-border-color);
+  --radio-button-in-pill-checked-active-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-active-border-color);
+  --radio-button-in-pill-checked-hover-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-checked-hover-border-color);
+  --radio-button-in-pill-focus-visible-border: var(
+      --radio-button-in-pill-border-width
+    )
+    var(--radio-button-in-pill-border-style)
+    var(--radio-button-in-pill-focus-visible-border-color);
+  --radio-button-in-pill-pip-color: var(--primary-secondary-color);
+  --radio-button-in-pill-focus-visible-pip-color: var(
+    --primary-secondary-color
+  );
+  // ------ Radio Button theme ------
+
+  // ------ Persistent Bar theme ------
+  --persistent-bar-background-color: var(--background-color);
+  --persistent-bar-border-color: var(--border-color);
+  --persistent-bar-border-width: 1px;
+  --persistent-bar-border-style: solid;
+  --persistent-bar-border: var(--persistent-bar-border-width)
+    var(--persistent-bar-border-style) var(--persistent-bar-border-color);
+  --persistent-bar-border-radius: var(--border-radius-s);
+  --persistent-bar-box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.12);
+  --persistent-bar-primary-text-color: var(--text-primary-color);
+  --persistent-bar-secondary-text-color: var(--text-primary-color);
+  // ------ Persistent Bar theme ------
+
+  // ------ Progress theme ------
+  --progress-border-color: var(--primary-tertiary-color);
+  --progress-complete-background-color: var(--primary-tertiary-color);
+  --progress-error-background-color: var(--error-color);
+  --progress-error-inner-background-color: var(--disruptive-background1-color);
+  --progress-error-border-color: var(--error-color);
+  --progress-error-text-color: var(--error-color);
+  --progress-pill-error-background-color: var(--error-background-color);
+  --progress-pill-error-inner-background-color: var(
+    --disruptive-background1-color
+  );
+  --progress-pill-error-inner-default-border-color: var(
+    --error-background-color
+  );
+  --progress-pill-error-inner-border-color: var(--progress-error-border-color);
+  --progress-pill-error-outer-border-color: var(--progress-error-border-color);
+  --progress-incomplete-background-color: var(--primary-background1-color);
+  --progress-pill-background-color: var(--primary-background1-color);
+  --progress-pill-outer-border-color: var(--primary-tertiary-color);
+  --progress-pill-inner-complete-background-color: var(
+    --progress-complete-background-color
+  );
+  --progress-pill-inner-incomplete-background-color: var(
+    --progress-incomplete-background-color
+  );
+  --progress-pill-inner-background-color: var(--background-color);
+  --progress-pill-inner-default-border-color: var(--primary-background1-color);
+  --progress-pill-inner-border-color: var(--progress-border-color);
+  --progress-success-background-color: var(--success-color);
+  --progress-success-inner-background-color: var(--green-background1-color);
+  --progress-success-border-color: var(--success-color);
+  --progress-success-text-color: var(--success-color);
+  --progress-pill-success-background-color: var(--success-background-color);
+  --progress-pill-success-inner-background-color: var(
+    --green-background1-color
+  );
+  --progress-pill-success-inner-default-border-color: var(
+    --success-background-color
+  );
+  --progress-pill-success-outer-border-color: var(
+    --progress-success-border-color
+  );
+  --progress-pill-success-inner-border-color: var(
+    --progress-success-border-color
+  );
+  --progress-text-color: var(--text-primary-color);
+  // ------ Progress theme ------
+
+  // ------ Skill theme ------
+  --skill-block-border-radius: 12px;
+  --skill-large-size-border-radius: var(--border-radius-m);
+  --skill-medium-size-border-radius: var(--border-radius-m);
+  --skill-small-size-border-radius: var(--border-radius-s);
+  --skill-xsmall-size-border-radius: var(--border-radius-s);
+  --skill-below-background-color: var(--red-background2-color);
+  --skill-below-icon-color: var(--red-secondary-color);
+  --skill-exceed-background-color: var(--green-background2-color);
+  --skill-exceed-icon-color: var(--green-secondary-color);
+  --skill-meet-background-color: var(--orange-background2-color);
+  --skill-meet-icon-color: var(--orange-secondary-color);
+  --skill-upskilling-background-color: var(--blueviolet-background2-color);
+  --skill-upskilling-icon-color: var(--blueviolet-secondary-color);
+  --skill-background-color: var(--white-color);
+  --skill-active-background-color: var(--grey-background2-color);
+  --skill-hover-background-color: var(--grey-background1-color);
+  --skill-border-color: var(--grey-background2-color);
+  --skill-border-width: 1px;
+  --skill-border-style: solid;
+  --skill-border: var(--skill-border-width) var(--skill-border-style)
+    var(--skill-border-color);
+  --skill-label-color: var(--grey-secondary-color);
+  --skill-active-label-color: var(--text-primary-color);
+  --skill-hover-label-color: var(--text-primary-color);
+  --skill-required-mark-color: var(--grey-secondary-color);
+  --skill-active-required-mark-color: var(--text-primary-color);
+  --skill-hover-required-mark-color: var(--text-primary-color);
+  --skill-divider-color: var(--grey-background2-color);
+  --skill-active-divider-color: var(--grey-background3-color);
+  --skill-hover-divider-color: var(--grey-background3-color);
+  --skill-button-background-color: var(--button-neutral-background-color);
+  --skill-button-active-background-color: var(
+    --button-neutral-active-background-color
+  );
+  --skill-button-hover-background-color: var(
+    --button-neutral-hover-background-color
+  );
+  --skill-button-focus-visible-background-color: var(
+    --button-neutral-focus-visible-background-color
+  );
+  --skill-button-counter-default-background-color: var(
+    --button-counter-default-background-color
+  );
+  --skill-button-counter-hover-background-color: var(
+    --button-counter-hover-background-color
+  );
+  --skill-button-counter-checked-background-color: var(
+    --button-counter-checked-background-color
+  );
+  --skill-button-counter-focus-background-color: var(
+    --button-counter-focus-background-color
+  );
+  --skill-button-counter-active-background-color: var(
+    --button-counter-active-background-color
+  );
+  --skill-button-counter-default-text-color: var(
+    --button-neutral-counter-default-text-color
+  );
+  --skill-highlight-background-color: var(--yellowgreen-background1-color);
+  --skill-highlight-active-background-color: var(
+    --yellowgreen-background3-color
+  );
+  --skill-highlight-hover-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-border-color: var(--yellowgreen-background2-color);
+  --skill-highlight-label-color: var(--yellowgreen-color);
+  --skill-highlight-active-label-color: var(--yellowgreen-color);
+  --skill-highlight-hover-label-color: var(--yellowgreen-color);
+  --skill-highlight-divider-color: var(--yellowgreen-background2-color);
+  --skill-highlight-active-divider-color: var(--yellowgreen-color-40);
+  --skill-highlight-hover-divider-color: var(--yellowgreen-background3-color);
+  --skill-highlight-button-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-active-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-hover-background-color: var(
+    --yellowgreen-background3-color
+  );
+  --skill-highlight-button-focus-visible-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-hover-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-checked-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-focus-background-color: var(
+    --yellowgreen-background2-color
+  );
+  --skill-highlight-button-counter-active-background-color: var(
+    --yellowgreen-background1-color
+  );
+  --skill-highlight-button-counter-text-color: var(--yellowgreen-color);
+  --skill-match-background-color: var(--white-color);
+  --skill-match-active-background-color: var(--green-background2-color);
+  --skill-match-hover-background-color: var(--green-background1-color);
+  --skill-match-border-color: var(--green-background2-color);
+  --skill-match-label-color: var(--green-color);
+  --skill-match-active-label-color: var(--green-color);
+  --skill-match-hover-label-color: var(--green-color);
+  --skill-match-divider-color: var(--green-background2-color);
+  --skill-match-active-divider-color: var(--green-background3-color);
+  --skill-match-hover-divider-color: var(--green-background2-color);
+  --skill-match-button-background-color: var(--green-background1-color);
+  --skill-match-button-active-background-color: var(--green-background3-color);
+  --skill-match-button-hover-background-color: var(--green-background2-color);
+  --skill-match-button-focus-visible-background-color: var(--white-color);
+  --skill-match-button-counter-background-color: var(--green-background2-color);
+  --skill-match-button-counter-hover-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-match-button-counter-checked-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-button-counter-focus-background-color: var(
+    --green-background2-color
+  );
+  --skill-match-button-counter-active-background-color: var(
+    --green-background1-color
+  );
+  --skill-match-button-counter-text-color: var(--green-color);
+  // ------ Skill theme ------
+
+  // ------ Form theme ------
+  --form-item-explain-text-color: var(--text-secondary-color);
+  --form-item-extra-text-color: var(--text-secondary-color);
+  --form-item-label-color: var(--text-primary-color);
+  --form-item-optional-text-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-color: var(--text-secondary-color);
+  --form-item-tooltip-icon-cursor: help;
+  --form-item-required-mark-color: var(--text-primary-color);
+  // ------ Form theme ------
+
+  // ------ Pagination theme ------
+  --pager-button-hover-background-color: var(--accent-background1-color);
+  --pager-button-active-foreground-color: var(--primary-secondary-color);
+  --pager-button-active-outline-color: var(--primary-tertiary-color);
+  --pager-button-active-background-color: var(--accent-background2-color);
+  --pager-dot-outline-color: var(--accent-tertiary-color);
+
+  --pager-button-hover-background-gradient: var(--primary-background1-gradient);
+  --pager-button-active-background-gradient: var(
+    --primary-background2-gradient
+  );
+  // ------ Pagination theme ------
+
+  // ------ Menu theme ------
+  --menu-background-color: var(--background-color);
+  --menu-border-color: var(--border-color);
+  --menu-footer-background-color: var(--background-color);
+  --menu-header-color: var(--text-primary-color);
+  --menu-sub-header-color: var(--grey-tertiary-color);
+  --menu-item-primary-label-color: var(--primary-color);
+  --menu-item-primary-background-color: transparent;
+  --menu-item-primary-hover-background-color: var(--accent-background1-color);
+  --menu-item-primary-active-background-color: var(--accent-background3-color);
+  --menu-item-disruptive-label-color: var(--disruptive-color);
+  --menu-item-disruptive-background-color: transparent;
+  --menu-item-disruptive-hover-background-color: var(
+    --disruptive-background1-color
+  );
+  --menu-item-disruptive-active-background-color: var(
+    --disruptive-background3-color
+  );
+  --menu-item-neutral-label-color: var(--text-primary-color);
+  --menu-item-neutral-background-color: transparent;
+  --menu-item-neutral-hover-background-color: var(--grey-background1-color);
+  --menu-item-neutral-active-background-color: var(--grey-background2-color);
+  --menu-item-sub-text-color: var(--grey-tertiary-color);
+  // ------ Menu theme ------
 }

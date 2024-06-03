@@ -1,29 +1,114 @@
 .link-style {
-    cursor: pointer;
-    font-family: $octuple-font-family;
-    font-size: $text-font-size-2;
+  cursor: pointer;
+  font-family: var(--font-stack-full);
+  font-weight: $text-font-weight-semibold;
+  font-size: $text-font-size-2;
+  width: fit-content;
 
-    &.primary {
-        color: var(--primary-color);
+  &.full-width {
+    width: unset; // Ensure width is unset to be safe accross all browsers
+  }
 
-        &:active,
-        &:hover {
-            color: var(--primary-color-90);
-        }
+  &.neutral {
+    color: var(--anchor-neutral-color);
+
+    &:active {
+      color: var(--anchor-neutral-active-color);
     }
 
-    // Hides the browser default keyboard focus-visible styles.
-    // Use the ConfigProvider instead.
-    &:focus-visible {
-        outline: none;
+    &:hover {
+      color: var(--anchor-neutral-hover-color);
     }
+
+    &:visited {
+      color: var(--anchor-neutral-visited-color);
+    }
+  }
+
+  &.primary {
+    color: var(--anchor-primary-color);
+
+    &:active {
+      color: var(--anchor-primary-active-color);
+    }
+
+    &:hover {
+      color: var(--anchor-primary-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-primary-visited-color);
+    }
+  }
+
+  &.secondary {
+    color: var(--anchor-secondary-color);
+
+    &:active {
+      color: var(--anchor-secondary-active-color);
+    }
+
+    &:hover {
+      color: var(--anchor-secondary-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-secondary-visited-color);
+    }
+  }
+
+  &.disruptive {
+    color: var(--anchor-disruptive-color);
+
+    &:active {
+      color: var(--anchor-disruptive-active-color);
+    }
+
+    &:hover {
+      color: var(--anchor-disruptive-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-disruptive-visited-color);
+    }
+  }
+
+  &.neutral,
+  &.primary,
+  &.secondary,
+  &.disruptive {
+    display: inline-block;
+    text-decoration: none;
+
+    &:active:not(.disabled),
+    &:hover:not(.disabled) {
+      text-decoration: underline;
+    }
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $disabled-alpha-value;
+    text-decoration: none;
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 :global(.focus-visible) {
-    .link-style {
-        &.focus-visible,
-        &:focus-visible {
-            box-shadow: $focus-visible-box-shadow;
-        }
+  .link-style {
+    &.focus-visible,
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
+      text-decoration: underline;
     }
+  }
 }

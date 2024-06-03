@@ -2,79 +2,79 @@
 
 // Grid system
 .row {
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 0;
+
+  &:before,
+  &:after {
     display: flex;
-    flex-flow: row wrap;
-    min-width: 0;
+  }
 
-    &:before,
-    &:after {
-        display: flex;
-    }
+  // No wrap of flex
+  &-no-wrap {
+    flex-wrap: nowrap;
+  }
 
-    // No wrap of flex
-    &-no-wrap {
-        flex-wrap: nowrap;
-    }
-
-    @include make-grid();
+  @include make-grid();
 }
 
 // x-axis origin
 .row-start {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 // Center the x-axis
 .row-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 // The opposite direction of the x-axis
 .row-end {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 // x-axis bisect
 .row-space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 // The x-axis bisects at intervals
 .row-space-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 // The x-axis is equally divided
 .row-space-evenly {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 // The x-axis is stretched
 .row-stretch {
-    justify-content: stretch;
+  justify-content: stretch;
 }
 
 // top align
 .row-top {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 // Align center
 .row-middle {
-    align-items: center;
+  align-items: center;
 }
 
 // Align bottom
 .row-bottom {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .col {
-    position: relative;
-    max-width: 100%;
+  position: relative;
+  max-width: 100%;
 
-    // Prevent columns from collapsing when empty
-    min-height: 1px;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
 }
 
 // Extra small grid
@@ -83,7 +83,7 @@
 // smartphones.
 
 @media (min-width: $xsmall-screen-size) {
-    @include make-grid(-xs);
+  @include make-grid(-xs);
 }
 
 // Small grid
@@ -92,7 +92,7 @@
 // to tablets.
 
 @media (min-width: $small-screen-size) {
-    @include make-grid(-sm);
+  @include make-grid(-sm);
 }
 
 // Medium grid
@@ -100,7 +100,7 @@
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
 @media (min-width: $medium-screen-size) {
-    @include make-grid(-md);
+  @include make-grid(-md);
 }
 
 // Large grid
@@ -108,7 +108,15 @@
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
 @media (min-width: $large-screen-size) {
-    @include make-grid(-lg);
+  @include make-grid(-lg);
+}
+
+// Extra large grid
+//
+// Columns, offsets, pushes, and pulls for the extra large desktop device range.
+
+@media (min-width: $xlarge-screen-size) {
+  @include make-grid(-xl);
 }
 
 @import './Styles/rtl';

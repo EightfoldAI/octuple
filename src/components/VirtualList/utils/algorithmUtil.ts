@@ -13,29 +13,29 @@ import type * as React from 'react';
  * [6]: 3
  */
 export function getIndexByStartLoc(
-    min: number,
-    max: number,
-    start: number,
-    index: number
+  min: number,
+  max: number,
+  start: number,
+  index: number
 ): number {
-    const beforeCount = start - min;
-    const afterCount = max - start;
-    const balanceCount = Math.min(beforeCount, afterCount) * 2;
+  const beforeCount = start - min;
+  const afterCount = max - start;
+  const balanceCount = Math.min(beforeCount, afterCount) * 2;
 
-    // Balance
-    if (index <= balanceCount) {
-        const stepIndex = Math.floor(index / 2);
-        if (index % 2) {
-            return start + stepIndex + 1;
-        }
-        return start - stepIndex;
+  // Balance
+  if (index <= balanceCount) {
+    const stepIndex = Math.floor(index / 2);
+    if (index % 2) {
+      return start + stepIndex + 1;
     }
+    return start - stepIndex;
+  }
 
-    // One is out of range
-    if (beforeCount > afterCount) {
-        return start - (index - afterCount);
-    }
-    return start + (index - beforeCount);
+  // One is out of range
+  if (beforeCount > afterCount) {
+    return start - (index - afterCount);
+  }
+  return start + (index - beforeCount);
 }
 
 /**
@@ -43,49 +43,49 @@ export function getIndexByStartLoc(
  * So we can use dichotomy algorithm to find changed one.
  */
 export function findListDiffIndex<T>(
-    originList: T[],
-    targetList: T[],
-    getKey: (item: T) => React.Key
+  originList: T[],
+  targetList: T[],
+  getKey: (item: T) => React.Key
 ): { index: number; multiple: boolean } | null {
-    const originLen = originList.length;
-    const targetLen = targetList.length;
+  const originLen = originList.length;
+  const targetLen = targetList.length;
 
-    let shortList: T[];
-    let longList: T[];
+  let shortList: T[];
+  let longList: T[];
 
-    if (originLen === 0 && targetLen === 0) {
-        return null;
+  if (originLen === 0 && targetLen === 0) {
+    return null;
+  }
+
+  if (originLen < targetLen) {
+    shortList = originList;
+    longList = targetList;
+  } else {
+    shortList = targetList;
+    longList = originList;
+  }
+
+  const notExistKey = { __EMPTY_ITEM__: true };
+  function getItemKey(item: T) {
+    if (item !== undefined) {
+      return getKey(item);
     }
+    return notExistKey;
+  }
 
-    if (originLen < targetLen) {
-        shortList = originList;
-        longList = targetList;
-    } else {
-        shortList = targetList;
-        longList = originList;
+  // Loop to find diff one
+  let diffIndex: number = null;
+  let multiple = Math.abs(originLen - targetLen) !== 1;
+  for (let i = 0; i < longList.length; i += 1) {
+    const shortKey = getItemKey(shortList[i]);
+    const longKey = getItemKey(longList[i]);
+
+    if (shortKey !== longKey) {
+      diffIndex = i;
+      multiple = multiple || shortKey !== getItemKey(longList[i + 1]);
+      break;
     }
+  }
 
-    const notExistKey = { __EMPTY_ITEM__: true };
-    function getItemKey(item: T) {
-        if (item !== undefined) {
-            return getKey(item);
-        }
-        return notExistKey;
-    }
-
-    // Loop to find diff one
-    let diffIndex: number = null;
-    let multiple = Math.abs(originLen - targetLen) !== 1;
-    for (let i = 0; i < longList.length; i += 1) {
-        const shortKey = getItemKey(shortList[i]);
-        const longKey = getItemKey(longList[i]);
-
-        if (shortKey !== longKey) {
-            diffIndex = i;
-            multiple = multiple || shortKey !== getItemKey(longList[i + 1]);
-            break;
-        }
-    }
-
-    return diffIndex === null ? null : { index: diffIndex, multiple };
+  return diffIndex === null ? null : { index: diffIndex, multiple };
 }

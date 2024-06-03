@@ -1,19 +1,35 @@
 import type { DatePartialProps } from '../DatePartial/Date.types';
 import type { SharedTimeProps } from '../TimePartial/Time.types';
 import type {
-    DatePickerShape,
-    DatePickerSize,
-    DisabledTime,
+  DatePickerShape,
+  DatePickerSize,
+  DisabledTime,
 } from '../../OcPicker.types';
 import { Shape, Size } from '../../../../ConfigProvider';
 
 export type DatetimePartialProps<DateType> = {
-    disabledTime?: DisabledTime<DateType>;
-    showTime?: boolean | SharedTimeProps<DateType>;
-    defaultValue?: DateType;
-    shape?: DatePickerShape | Shape;
-    size?: DatePickerSize | Size;
+  /**
+   * The default date value.
+   */
+  defaultValue?: DateType;
+  /**
+   * Specified time that may not be selected.
+   */
+  disabledTime?: DisabledTime<DateType>;
+  /**
+   * The DatePicker shape.
+   */
+  shape?: DatePickerShape | Shape;
+  /**
+   * Enables time selection partial.
+   */
+  showTime?: boolean | SharedTimeProps<DateType>;
+  /**
+   * The DatePicker size.
+   * @default DatePickerSize.Medium
+   */
+  size?: DatePickerSize | Size;
 } & Omit<
-    DatePartialProps<DateType>,
-    'disabledHours' | 'disabledMinutes' | 'disabledSeconds'
+  DatePartialProps<DateType>,
+  'disabledHours' | 'disabledMinutes' | 'disabledSeconds'
 >;

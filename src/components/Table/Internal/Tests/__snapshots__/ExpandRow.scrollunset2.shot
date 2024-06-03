@@ -4,18 +4,18 @@ exports[`Table.Expand does not crash if scroll is not set 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "table table-fixed-column table-scroll-horizontal table-has-fix-left",
+      "class": "table table-row-hover table-fixed-column table-scroll-horizontal table-has-fix-left",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table-container",
+          "class": "table-container table-container-horizontally-scrollable",
         },
         "children": Array [
           Node {
             "attribs": Object {
               "class": "table-content",
-              "style": "overflow: overlay; overflow-y: hidden;",
+              "style": "overflow: auto; overflow-y: hidden;",
             },
             "children": Array [
               Node {

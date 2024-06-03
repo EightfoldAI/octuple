@@ -8,78 +8,69 @@ import { DatePickerSize } from '../../OcPicker.types';
 import styles from '../../ocpicker.module.scss';
 
 function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
-    const {
-        operationRef,
-        onViewDateChange,
-        generateConfig,
-        value,
-        viewDate,
-        onPartialChange,
-        onSelect,
-        size = DatePickerSize.Medium,
-    } = props;
+  const {
+    generateConfig,
+    onPartialChange,
+    onSelect,
+    onViewDateChange,
+    operationRef,
+    size = DatePickerSize.Medium,
+    value,
+    viewDate,
+  } = props;
 
-    operationRef.current = {
-        onKeyDown: (event) =>
-            createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
-                    onSelect(
-                        generateConfig.addMonth(value || viewDate, diff),
-                        'key'
-                    );
-                },
-                onCtrlLeftRight: (diff) => {
-                    onSelect(
-                        generateConfig.addYear(value || viewDate, diff),
-                        'key'
-                    );
-                },
-                onUpDown: (diff) => {
-                    onSelect(
-                        generateConfig.addMonth(
-                            value || viewDate,
-                            diff * MONTH_COL_COUNT
-                        ),
-                        'key'
-                    );
-                },
-                onEnter: () => {
-                    onPartialChange('date', value || viewDate);
-                },
-            }),
-    };
+  operationRef.current = {
+    onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
+      createKeyDownHandler(event, {
+        onLeftRight: (diff: number): void => {
+          onSelect(generateConfig.addMonth(value || viewDate, diff), 'key');
+        },
+        onCtrlLeftRight: (diff: number): void => {
+          onSelect(generateConfig.addYear(value || viewDate, diff), 'key');
+        },
+        onUpDown: (diff: number): void => {
+          onSelect(
+            generateConfig.addMonth(value || viewDate, diff * MONTH_COL_COUNT),
+            'key'
+          );
+        },
+        onEnter: (): void => {
+          onPartialChange('date', value || viewDate);
+        },
+      }),
+  };
 
-    const onYearChange = (diff: number) => {
-        const newDate: DateType = generateConfig.addYear(viewDate, diff);
-        onViewDateChange(newDate);
-        onPartialChange(null, newDate);
-    };
+  const onYearChange = (diff: number): void => {
+    const newDate: DateType = generateConfig.addYear(viewDate, diff);
+    onViewDateChange(newDate);
+    onPartialChange(null, newDate);
+  };
 
-    return (
-        <div className={styles.pickerMonthPartial}>
-            <MonthHeader
-                {...props}
-                onPrevYear={() => {
-                    onYearChange(-1);
-                }}
-                onNextYear={() => {
-                    onYearChange(1);
-                }}
-                onYearClick={() => {
-                    onPartialChange('year', viewDate);
-                }}
-                size={size}
-            />
-            <MonthBody<DateType>
-                {...props}
-                onSelect={(date) => {
-                    onSelect(date, 'mouse');
-                    onPartialChange('date', date);
-                }}
-                size={size}
-            />
-        </div>
-    );
+  return (
+    <div className={styles.pickerMonthPartial}>
+      <MonthHeader
+        {...props}
+        onPrevYear={(): void => {
+          onYearChange(-1);
+        }}
+        onNextYear={(): void => {
+          onYearChange(1);
+        }}
+        onYearClick={(): void => {
+          onPartialChange('year', viewDate);
+        }}
+        size={size}
+      />
+      <MonthBody<DateType>
+        {...props}
+        onSelect={(date: DateType): void => {
+          onSelect(date, 'mouse');
+          onPartialChange('date', date);
+        }}
+        size={size}
+      />
+    </div>
+  );
 }
 
 export default MonthPartial;

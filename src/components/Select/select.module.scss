@@ -1,123 +1,229 @@
-$input-padding-horizontal: 8px;
+$input-padding: $space-xs;
 $multi-select-count-offset: 54px;
+$multi-select-pill-gap: $space-xs;
+$multi-select-pill-large-padding: 6px;
+$multi-select-pill-medium-padding: 5px;
+$multi-select-pill-small-padding: 4px;
 
 // Export values for typescript consumption.
 :export {
-    inputPaddingHorizontal: strip-units($input-padding-horizontal);
-    multiSelectCountOffset: strip-units($multi-select-count-offset);
+  inputPadding: strip-units($input-padding);
+  multiSelectCountOffset: strip-units($multi-select-count-offset);
 }
 
 .select-wrapper {
-    font-family: $octuple-font-family;
-    position: relative;
+  font-family: var(--font-stack-full);
+  position: relative;
+  width: 100%;
+
+  min-width: 276px;
+
+  // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
+  &-multiple {
+    min-width: 324px;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  .select-dropdown-overlay {
+    padding: 0;
+
+    .select-spinner {
+      margin: 10px auto;
+      position: relative;
+    }
+  }
+
+  .select-dropdown-main-wrapper {
     width: 100%;
+  }
 
-    // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
-    min-width: 256px;
-
-    &-disabled {
-        cursor: not-allowed;
-    }
-
-    .select-dropdown-overlay {
-        padding: 0;
-
-        .select-spinner {
-            margin: 10px auto;
-            position: relative;
-        }
-    }
-
-    .select-dropdown-main-wrapper {
-        width: 100%;
-    }
+  .select-input-wrapper {
+    border-radius: inherit;
+    padding: 0;
 
     .select-input {
-        cursor: pointer;
+      cursor: pointer;
     }
+  }
 
-    .multi-select-pills {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        left: $space-xs;
-        right: $space-xxl;
-        pointer-events: none;
-        position: absolute;
-        top: 6px;
-        z-index: 1;
+  .multi-select-pills {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $multi-select-pill-gap;
+    left: $space-xs;
+    right: $space-xxl;
+    padding: $multi-select-pill-medium-padding 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    white-space: normal;
+    z-index: 1;
+
+    &.multi-select-pills-divider {
+      border-bottom: 1px solid var(--grey-tertiary-color);
+      right: $space-xs;
     }
 
     .multi-select-pill {
-        margin-right: $space-xs;
+      max-width: 100%;
+      text-align: start;
+      display: flex;
+      justify-content: center;
+      min-width: fit-content;
+      pointer-events: all;
+    }
+
+    &-max-count {
+      flex-wrap: nowrap;
+      white-space: inherit;
+
+      .multi-select-pill {
         max-width: 144px;
+        min-width: unset;
         text-align: center;
-        display: flex;
-        justify-content: center;
-        pointer-events: all;
 
         span {
-            @include text-overflow;
-            max-width: 128px;
+          @include text-overflow;
+          max-width: 128px;
         }
+      }
     }
+  }
 
-    .multi-select-count {
-        margin-right: $space-xs;
-    }
+  .multi-select-count {
+    margin-right: $space-xs;
+    padding: 3px $space-xs;
+  }
 
-    .selected-option {
-        background-color: var(--primary-color-10);
-        color: var(--primary-color-80);
-    }
+  &.select-large {
+    .multi-select-pills {
+      padding: $multi-select-pill-large-padding 0;
 
-    &.select-large {
-        .multi-select-pills {
-            top: 7px;
-        }
-    }
+      .multi-select-pill {
+        height: auto;
+        min-height: $space-xl;
+      }
 
-    &.select-medium {
-        .multi-select-pills {
-            top: 5px;
-        }
-    }
-
-    &.select-small {
-        .multi-select-pills {
-            top: 4px;
-
-            .multi-select-count,
-            .multi-select-pill {
-                padding: 2px 12px;
-            }
-        }
-    }
-
-    &-rtl {
-        .multi-select-pills {
-            left: $space-xxl;
-            right: $space-xs;
-        }
-
+      &-max-count {
+        .multi-select-count,
         .multi-select-pill {
-            margin-left: $space-xs;
-            margin-right: 0;
+          height: $space-xl;
         }
-
-        .multi-select-count {
-            margin-left: $space-xs;
-            margin-right: 0;
-        }
+      }
     }
+
+    .select-clear-button {
+      bottom: $space-xxs;
+      height: 36px;
+      padding: $space-xxs $space-xs;
+      width: $space-xl;
+    }
+
+    .select-clear-button-start {
+      left: $space-xxs;
+      right: unset;
+    }
+
+    .select-clear-button-end {
+      left: unset;
+      right: 44px;
+    }
+  }
+
+  &.select-medium {
+    .multi-select-pills {
+      padding: $multi-select-pill-medium-padding 0;
+
+      .multi-select-pill {
+        height: auto;
+        min-height: 26px;
+      }
+
+      &-max-count {
+        .multi-select-count,
+        .multi-select-pill {
+          height: 26px;
+        }
+      }
+    }
+
+    .select-clear-button {
+      bottom: $space-xxs;
+      height: 28px;
+      padding: $space-xxs 6px;
+      width: 28px;
+    }
+
+    .select-clear-button-start {
+      left: $space-xxs;
+      right: unset;
+    }
+
+    .select-clear-button-end {
+      left: unset;
+      right: 36px;
+    }
+  }
+
+  &.select-small {
+    .multi-select-count {
+      margin-left: $space-xs;
+      margin-right: 0;
+    }
+
+    .multi-select-pills {
+      padding: $multi-select-pill-small-padding 0;
+
+      .multi-select-pill {
+        height: auto;
+        min-height: $space-ml;
+      }
+
+      &-max-count {
+        .multi-select-count,
+        .multi-select-pill {
+          height: $space-ml;
+        }
+      }
+    }
+
+    .select-clear-button {
+      bottom: $space-xxxs;
+      height: $space-l;
+      padding: $space-xxxs $space-xxs;
+      width: $space-l;
+    }
+
+    .select-clear-button-start {
+      left: $space-xxxs;
+      right: unset;
+    }
+
+    .select-clear-button-end {
+      left: unset;
+      right: 28px;
+    }
+  }
+}
+
+.selected-option {
+  background-color: var(--primary-background1-color);
+  color: var(--primary-color);
 }
 
 .select-menu-empty {
-    color: var(--grey-color-60);
-    margin: $space-m;
-    position: relative;
+  color: var(--grey-tertiary-color);
+  margin: $space-m;
+  position: relative;
 }
 
 .select-tooltip {
-    max-width: unset;
+  max-width: unset;
 }
+
+@import './Styles/rtl';

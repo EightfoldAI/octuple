@@ -1,78 +1,82 @@
 .progress {
-    &-rtl {
-        direction: rtl;
+  &-rtl {
+    direction: rtl;
 
-        .progress-success-bg {
-            border-right: unset;
-            border-bottom-left-radius: 0;
-            border-left: 4px solid var(--accent-color-10);
-            border-top-left-radius: 0;
-            left: unset;
-            right: 0;
-        }
-
-        .progress-text,
-        .extremity-label {
-            text-align: right;
-
-            &.max-label {
-                position: absolute;
-                left: 0;
-                right: unset;
-                text-align: left;
-            }
-
-            &.min-label {
-                left: unset;
-                right: 0;
-                position: absolute;
-            }
-
-            &.value-label {
-                text-align: center;
-            }
-        }
-
-        &.progress-steps {
-            .progress-steps-item {
-                margin-left: $space-xxs;
-                margin-right: unset;
-            }
-
-            .progress-text-wrapper {
-                position: relative;
-            }
-        }
-
-        &.progress-circle {
-            .progress-text,
-            .extremity-label {
-                text-align: center;
-            }
-        }
-
-        &.progress-status-active {
-            .progress-bg:before {
-                animation: progress-active-rtl 2.4s $motion-easing-easeout
-                    infinite;
-            }
-        }
+    .progress-success-bg {
+      border-right: unset;
+      border-bottom-left-radius: 0;
+      border-left: 4px solid var(--accent-background1-color);
+      border-top-left-radius: 0;
+      left: unset;
+      right: 0;
     }
+
+    .progress-text,
+    .extremity-label {
+      text-align: right;
+
+      &.max-label {
+        position: absolute;
+        left: 0;
+        right: unset;
+        text-align: left;
+      }
+
+      &.min-label {
+        left: unset;
+        right: 0;
+        position: absolute;
+      }
+
+      &.value-label {
+        text-align: center;
+      }
+    }
+
+    &.progress-steps {
+      .progress-steps-item {
+        margin-left: $space-xxs;
+        margin-right: unset;
+
+        &:last-of-type {
+          margin-left: 0;
+          margin-right: unset;
+        }
+      }
+
+      .progress-text-wrapper {
+        position: relative;
+      }
+    }
+
+    &.progress-circle {
+      .progress-text,
+      .extremity-label {
+        text-align: center;
+      }
+    }
+
+    &.progress-status-active {
+      .progress-bg:before {
+        animation: progress-active-rtl 2.4s $motion-easing-easeout infinite;
+      }
+    }
+  }
 }
 
 @keyframes progress-active-rtl {
-    0% {
-        opacity: 0.1;
-        transform: translateX(100%) scaleX(0);
-    }
+  0% {
+    opacity: 0.1;
+    transform: translateX(100%) scaleX(0);
+  }
 
-    20% {
-        opacity: 0.5;
-        transform: translateX(100%) scaleX(0);
-    }
+  20% {
+    opacity: 0.5;
+    transform: translateX(100%) scaleX(0);
+  }
 
-    100% {
-        opacity: 0;
-        transform: translateX(0) scaleX(1);
-    }
+  100% {
+    opacity: 0;
+    transform: translateX(0) scaleX(1);
+  }
 }

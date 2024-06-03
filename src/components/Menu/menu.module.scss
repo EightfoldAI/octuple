@@ -1,47 +1,49 @@
 .menu-container {
+  background: var(--menu-background-color);
+  display: flex;
+  flex-direction: column;
+
+  .menu-header-container {
+    color: var(--menu-header-color);
     display: flex;
-    flex-direction: column;
+    flex: 1;
 
-    .menu-header-container {
-        display: flex;
-        flex: 1;
-
-        &.large {
-            @include octuple-h4();
-            padding: $space-l $space-l $space-xs;
-        }
-
-        &.medium {
-            @include octuple-h5();
-            padding: $space-m $space-m $space-xs;
-        }
-
-        &.small {
-            @include octuple-h6();
-            padding: $space-m $space-m $space-xs;
-        }
-
-        .heading {
-            flex: 1;
-        }
+    &.large {
+      @include octuple-h4();
+      padding: $space-ml $space-ml $space-xs;
     }
 
-    .menu-footer-container {
-        background: var(--background-color);
-        position: sticky;
-        bottom: 0;
-        border-top: solid 1px var(--border-color);
-
-        &.large {
-            padding: $space-l;
-        }
-
-        &.medium {
-            padding: $space-m;
-        }
-
-        &.small {
-            padding: $space-s;
-        }
+    &.medium {
+      @include octuple-h5();
+      padding: $space-m $space-m $space-xs;
     }
+
+    &.small {
+      @include octuple-h6();
+      padding: $space-s $space-s $space-xs;
+    }
+
+    .heading {
+      flex: 1;
+    }
+  }
+
+  .menu-footer-container {
+    background: var(--menu-footer-background-color);
+    position: sticky;
+    bottom: 0;
+    border-top: solid 1px var(--menu-border-color);
+
+    &.large {
+      padding: $space-l;
+    }
+
+    &.medium {
+      padding: $space-m;
+    }
+
+    &.small {
+      padding: $space-s;
+    }
+  }
 }

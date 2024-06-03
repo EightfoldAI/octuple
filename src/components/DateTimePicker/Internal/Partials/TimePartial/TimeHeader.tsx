@@ -6,31 +6,31 @@ import { formatValue } from '../../Utils/dateUtil';
 import { DatePickerSize } from '../../OcPicker.types';
 
 function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
-    const { hideHeader } = useContext(PartialContext);
+  const { hideHeader } = useContext(PartialContext);
 
-    if (hideHeader) {
-        return null;
-    }
+  if (hideHeader) {
+    return null;
+  }
 
-    const {
-        generateConfig,
-        locale,
-        value,
-        format,
-        size = DatePickerSize.Medium,
-    } = props;
+  const {
+    format,
+    generateConfig,
+    locale,
+    size = DatePickerSize.Medium,
+    value,
+  } = props;
 
-    return (
-        <Header size={size}>
-            {value
-                ? formatValue(value, {
-                      locale,
-                      format,
-                      generateConfig,
-                  })
-                : '\u00A0'}
-        </Header>
-    );
+  return (
+    <Header size={size}>
+      {value
+        ? formatValue(value, {
+            locale,
+            format,
+            generateConfig,
+          })
+        : '\u00A0'}
+    </Header>
+  );
 }
 
 export default TimeHeader;

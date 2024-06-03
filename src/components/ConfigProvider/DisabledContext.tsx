@@ -5,20 +5,20 @@ export type Disabled = true | false | undefined;
 const DisabledContext = createContext<Disabled>(false);
 
 export interface DisabledContextProps {
-    disabled?: Disabled;
-    children?: React.ReactNode;
+  disabled?: Disabled;
+  children?: React.ReactNode;
 }
 
 export const DisabledContextProvider: FC<DisabledContextProps> = ({
-    children,
-    disabled,
+  children,
+  disabled,
 }) => {
-    const originDisabled = useContext(DisabledContext);
-    return (
-        <DisabledContext.Provider value={disabled || originDisabled}>
-            {children}
-        </DisabledContext.Provider>
-    );
+  const ancestorDisabled = useContext(DisabledContext);
+  return (
+    <DisabledContext.Provider value={disabled || ancestorDisabled}>
+      {children}
+    </DisabledContext.Provider>
+  );
 };
 
 export default DisabledContext;

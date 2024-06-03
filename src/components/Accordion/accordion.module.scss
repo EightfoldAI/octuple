@@ -1,134 +1,249 @@
 .accordion-container {
-    font-family: $octuple-font-family;
-    overflow: hidden;
+  font-family: var(--accordion-font-family);
+  overflow: hidden;
 
+  &.accordion-border {
+    border: var(--accordion-border);
+  }
+
+  &.pill {
+    border-radius: var(--accordion-pill-shape-border-radius);
+  }
+
+  &.rectangle {
+    border-radius: var(--accordion-rectangle-shape-border-radius);
+  }
+
+  // Animation ensures the scroll bars don't flicker during transition.
+  // https://css-tricks.com/hide-scrollbars-during-an-animation/
+  .accordion-body-container {
+    background: var(--accordion-body-background-color);
+    box-sizing: border-box;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height $motion-duration-fast $motion-easing-easeout;
+
+    &.show {
+      @keyframes hideYScroll {
+        from,
+        to {
+          overflow-y: hidden;
+        }
+      }
+
+      animation: hideYScroll $motion-duration-fast backwards;
+      max-height: 100vh;
+      overflow-y: auto;
+      transition: max-height $motion-duration-fast $motion-easing-easein;
+    }
+  }
+
+  .accordion-body {
+    color: var(--accordion-body-text-color);
+
+    &.large {
+      @include octuple-content-medium();
+      padding: $space-l 0;
+      margin: 0 $space-l;
+    }
+
+    &.medium {
+      @include octuple-content-small();
+      padding: $space-m 0;
+      margin: 0 $space-m;
+    }
+
+    &.border-top {
+      border-top: var(--accordion-border);
+    }
+  }
+
+  .accordion-summary {
+    align-items: center;
+    background: var(--accordion-summary-background-color);
+    color: var(--accordion-summary-text-color);
+    display: flex;
+    gap: $space-s;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    transition: background-color $motion-duration-fast $motion-easing-easeout;
+
+    .clickable-area {
+      bottom: 0;
+      border-radius: $border-radius-xl;
+      cursor: pointer;
+      left: 0;
+      pointer-events: all;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 0;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    // By default we ensure the header content does not obscure the clickable area.
+    .accordion-header-container {
+      pointer-events: none;
+      z-index: 1;
+
+      // If there's custom content in the header, its interactive children should be clickable or selectable.
+      a[href],
+      area,
+      audio,
+      blockquote,
+      button:not([disabled]),
+      cite,
+      details,
+      dd,
+      dt,
+      dl,
+      em,
+      embed,
+      figcaption,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      iframe,
+      input:not([disabled]),
+      label,
+      object,
+      p,
+      select:not([disabled]),
+      span,
+      strong,
+      [tabindex]:not([tabindex='-1']),
+      textarea:not([disabled]),
+      video {
+        pointer-events: auto;
+      }
+    }
+
+    &.large {
+      padding: $space-m $space-l;
+
+      .accordion-header-container {
+        gap: $space-m;
+
+        .accordion-header {
+          @include octuple-h4();
+          padding: 0;
+        }
+      }
+    }
+
+    &.medium {
+      padding: $space-s $space-m;
+
+      .accordion-header-container {
+        gap: $space-s;
+
+        .accordion-header {
+          @include octuple-h5();
+          padding: 0;
+        }
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    .accordion-header-container {
+      align-items: center;
+      display: flex;
+    }
+
+    &-full-width {
+      .accordion-header-container,
+      .accordion-header {
+        flex: 1;
+      }
+    }
+
+    &:hover {
+      background: var(--accordion-summary-background-hover-color);
+      color: var(--accordion-summary-text-hover-color);
+    }
+  }
+
+  .accordion-icon-button {
+    transition: transform $motion-duration-fast;
+    z-index: 1;
+
+    &.expanded-icon-button {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.gradient {
     &.accordion-border {
-        border: 1px solid var(--grey-color-20);
-    }
-
-    &.pill {
-        border-radius: $corner-radius-xl;
-    }
-
-    &.rectangle {
-        border-radius: $corner-radius-s;
+      border: var(--accordion-gradient-border);
     }
 
     .accordion-body-container {
-        box-sizing: border-box;
-        max-height: 0;
-        overflow-y: auto;
-        transition: all $motion-duration-fast $motion-easing-easeout;
-
-        &.show {
-            transition: all $motion-duration-fast $motion-easing-easein;
-            max-height: 100vh;
-        }
+      background: var(--accordion-body-background-gradient);
     }
 
     .accordion-body {
-        &.large {
-            @include octuple-content-medium();
-            padding: $space-l 0;
-            margin: 0 $space-l;
-        }
+      color: var(--accordion-gradient-body-text-color);
 
-        &.medium {
-            @include octuple-content-small();
-            padding: $space-m 0;
-            margin: 0 $space-m;
-        }
-
-        &.border-top {
-            border-top: 1px solid var(--grey-color-20);
-        }
+      &.border-top {
+        border-top: var(--accordion-gradient-border);
+      }
     }
 
     .accordion-summary {
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        transition: background-color $motion-duration-fast
-            $motion-easing-easeout;
+      background: var(--accordion-summary-background-gradient);
+      color: var(--accordion-gradient-summary-text-color);
 
-        &.large {
-            padding: $space-l;
+      .badge {
+        background-color: var(--primary-background2-color);
+        color: var(--primary-color);
+      }
 
-            .accordion-header-container {
-                gap: $space-m;
+      &:hover {
+        background: var(--accordion-summary-background-hover-gradient);
+        color: var(--accordion-gradient-summary-text-hover-color);
 
-                .accordion-header {
-                    @include octuple-h4();
-                    padding: 0;
-                }
-            }
+        .badge {
+          background-color: var(--primary-background1-color);
+          color: var(--primary-color);
         }
-
-        &.medium {
-            padding: $space-m;
-
-            .accordion-header-container {
-                gap: $space-s;
-
-                .accordion-header {
-                    @include octuple-h5();
-                    padding: 0;
-                }
-            }
-        }
-
-        &.disabled {
-            pointer-events: none;
-            cursor: not-allowed;
-        }
-
-        .accordion-header-container {
-            display: flex;
-            align-items: center;
-        }
-
-        &:focus,
-        &:focus-visible {
-            outline: none;
-        }
-
-        &-expanded {
-            &:focus,
-            &:focus-visible {
-                outline: none;
-            }
-        }
-
-        &:hover {
-            background-color: var(--grey-color-10);
-        }
+      }
     }
-
-    .accordion-icon {
-        transition: transform $motion-duration-fast;
-
-        &.expanded-icon {
-            transform: rotate(180deg);
-        }
-    }
+  }
 }
 
 :global(.focus-visible) {
-    .accordion-container {
-        .accordion-summary {
-            &.focus-visible,
-            &:focus-visible {
-                border: 2px solid $focus-visible-shadow-color;
-                border-radius: $corner-radius-xl;
-                padding: calc(#{$space-l} - 2px);
-
-                &-expanded {
-                    border-radius: 0;
-                    border-top-left-radius: $corner-radius-xl;
-                    border-top-right-radius: $corner-radius-xl;
-                }
-            }
+  .accordion-container {
+    .accordion-summary {
+      .clickable-area {
+        &.focus-visible,
+        &:focus-visible {
+          box-shadow: inset var(--focus-visible-box-shadow);
         }
+      }
+
+      &.accordion-summary-expanded {
+        border-radius: 0;
+        border-top-left-radius: $border-radius-xl;
+        border-top-right-radius: $border-radius-xl;
+
+        .clickable-area {
+          border-radius: 0;
+          border-top-left-radius: $border-radius-xl;
+          border-top-right-radius: $border-radius-xl;
+        }
+      }
     }
+  }
 }

@@ -1,14 +1,16 @@
+'use client';
+
 import { useState } from 'react';
 import { useConst } from './useConst';
 
 /** Updater callbacks returned by `useBoolean`. */
 export type UseBooleanCallbacks = {
-    /** Set the value to true. Always has the same identity. */
-    setTrue: () => void;
-    /** Set the value to false. Always has the same identity. */
-    setFalse: () => void;
-    /** Toggle the value. Always has the same identity. */
-    toggle: () => void;
+  /** Set the value to true. Always has the same identity. */
+  setTrue: () => void;
+  /** Set the value to false. Always has the same identity. */
+  setFalse: () => void;
+  /** Toggle the value. Always has the same identity. */
+  toggle: () => void;
 };
 
 /**
@@ -19,19 +21,19 @@ export type UseBooleanCallbacks = {
  * @returns Array with the current value and an object containing the updater callbacks.
  */
 export const useBoolean = (
-    initialState: boolean
+  initialState: boolean
 ): [boolean, UseBooleanCallbacks] => {
-    const [value, setValue] = useState<boolean>(initialState);
+  const [value, setValue] = useState<boolean>(initialState);
 
-    const setTrue = useConst(() => () => {
-        setValue(true);
-    });
-    const setFalse = useConst(() => () => {
-        setValue(false);
-    });
-    const toggle = useConst(() => () => {
-        setValue((currentValue) => !currentValue);
-    });
+  const setTrue = useConst(() => () => {
+    setValue(true);
+  });
+  const setFalse = useConst(() => () => {
+    setValue(false);
+  });
+  const toggle = useConst(() => () => {
+    setValue((currentValue) => !currentValue);
+  });
 
-    return [value, { setTrue, setFalse, toggle }];
+  return [value, { setTrue, setFalse, toggle }];
 };

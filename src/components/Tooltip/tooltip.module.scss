@@ -1,93 +1,271 @@
-$tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
+$tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
 
 .referenceWrapper {
-    display: inline-block;
-    cursor: pointer;
+  display: inline-block;
 
-    &.disabled {
-        cursor: auto;
-    }
+  // Ensure portaled tooltip triggers are above when triggerAbove.
+  &.trigger-above[aria-expanded='true'] {
+    z-index: $z-index-500;
 
-    .no-pointer-events {
-        pointer-events: none;
+    &.tooltip {
+      z-index: $z-index-400;
     }
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .tooltip {
-    --bg: var(--background-color);
-    --text-color: var(--text-primary-color);
-    display: none;
-    box-shadow: $shadow-object-xs;
-    background: var(--bg);
-    color: var(--text-color);
-    font-family: $octuple-font-family;
-    font-size: $text-font-size-1;
-    text-align: center;
-    z-index: $z-index-400;
-    padding: $space-xs;
-    border-radius: $corner-radius-s;
-    overflow-wrap: break-word;
+  --bg: var(--tooltip-background-color-light);
+  --text-color: var(--tooltip-text-color-light);
+  background: var(--bg);
+  border-radius: var(--tooltip-border-radius);
+  color: var(--text-color);
+  font-family: var(--font-stack-full);
+  font-size: $text-font-size-1;
+  overflow-wrap: break-word;
+  padding: $space-xs;
+  text-align: center;
+  z-index: $z-index-400;
 
-    &.dark {
-        --bg: var(--grey-color-80);
-        --text-color: var(--text-inverse-color);
+  &.bordered {
+    border: var(--tooltip-border-light);
+  }
+
+  &.drop-shadow {
+    box-shadow: $shadow-object-s;
+  }
+
+  // Adds a pixel buffer equal to the width of the arrow to prevent
+  // floating ui dismiss when hovering from reference to floating element.
+  // Especially helpful when trigger is hover.
+  &.visible-arrow {
+    &:after {
+      bottom: -$space-xs;
+      content: '';
+      left: -$space-xs;
+      padding: $space-xs;
+      position: absolute;
+      right: -$space-xs;
+      top: -$space-xs;
+      z-index: -2; // Place below the arrow
     }
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+
+  &.dark {
+    --bg: var(--tooltip-background-color-dark);
+    --text-color: var(--tooltip-text-color-dark);
+
+    &.bordered {
+      border: var(--tooltip-border-dark);
+    }
+  }
+
+  .arrow {
+    background: inherit;
+    height: $space-xs;
+    width: $space-xs;
+    z-index: -1;
+  }
+
+  &.bordered {
+    .arrow {
+      border-bottom: var(--tooltip-border-light);
+      border-right: var(--tooltip-border-light);
+    }
+  }
+
+  &.drop-shadow {
+    .arrow {
+      box-shadow: $tooltip-arrow-shadow;
+    }
+  }
+
+  &.bottom {
+    transform-origin: top center;
 
     .arrow {
-        width: 8px;
-        height: 8px;
-        z-index: -1;
-        background: inherit;
-        box-shadow: $tooltip-arrow-shadow;
+      transform: rotate(225deg);
     }
+  }
 
-    &.top {
-        transform-origin: bottom center;
+  &.bottom-end {
+    transform-origin: top right;
 
-        .arrow {
-            transform: rotate(45deg);
+    .arrow {
+      transform: rotate(225deg);
+    }
+  }
+
+  &.bottom-start {
+    transform-origin: top left;
+
+    .arrow {
+      transform: rotate(225deg);
+    }
+  }
+
+  &.left {
+    transform-origin: right center;
+
+    .arrow {
+      transform: rotate(315deg);
+    }
+  }
+
+  &.left-start {
+    transform-origin: right top;
+
+    .arrow {
+      transform: rotate(315deg);
+    }
+  }
+
+  &.left-end {
+    transform-origin: right bottom;
+
+    .arrow {
+      transform: rotate(315deg);
+    }
+  }
+
+  &.right {
+    transform-origin: left center;
+
+    .arrow {
+      transform: rotate(135deg);
+    }
+  }
+
+  &.right-start {
+    transform-origin: left top;
+
+    .arrow {
+      transform: rotate(135deg);
+    }
+  }
+
+  &.right-end {
+    transform-origin: left bottom;
+
+    .arrow {
+      transform: rotate(135deg);
+    }
+  }
+
+  &.top {
+    transform-origin: bottom center;
+
+    .arrow {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.top-start {
+    transform-origin: bottom left;
+
+    .arrow {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.top-end {
+    transform-origin: bottom right;
+
+    .arrow {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.visible {
+    display: block;
+
+    &.animate {
+      animation: scaleTooltipIn $motion-duration-extra-fast
+        $motion-easing-easeinout 0s forwards;
+    }
+  }
+
+  &.hiding {
+    pointer-events: none;
+
+    &.animate {
+      animation: scaleTooltipOut $motion-duration-extra-fast
+        $motion-easing-easeinout 0s forwards;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &.small {
+    max-width: 140px;
+  }
+
+  &.medium {
+    max-width: 240px;
+  }
+
+  &.large {
+    max-width: 360px;
+  }
+}
+
+:global(.focus-visible) {
+  .tooltip {
+    // Currently, the design for default tooltips do not include them in a
+    // persisted focus loop, leave 'as-is' for now to prevent UI regressions.
+    &.popup {
+      &.focus-visible,
+      &:focus-visible {
+        &:after {
+          bottom: 0;
+          border-radius: inherit;
+          content: '';
+          box-shadow: var(--focus-visible-box-shadow);
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
         }
+      }
     }
+  }
+}
 
-    &.left {
-        transform-origin: right center;
+@keyframes scaleTooltipIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-        .arrow {
-            transform: rotate(315deg);
-        }
-    }
-
-    &.right {
-        transform-origin: left center;
-
-        .arrow {
-            transform: rotate(135deg);
-        }
-    }
-
-    &.bottom {
-        transform-origin: top center;
-
-        .arrow {
-            transform: rotate(225deg);
-        }
-    }
-
-    &.visible {
-        display: block;
-        animation: scaleTooltip $motion-duration-extra-fast
-            $motion-easing-easeinout 0s;
-    }
-
-    &.small {
-        max-width: 140px;
-    }
-
-    &.medium {
-        max-width: 240px;
-    }
-
-    &.large {
-        max-width: 360px;
-    }
+@keyframes scaleTooltipOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 }

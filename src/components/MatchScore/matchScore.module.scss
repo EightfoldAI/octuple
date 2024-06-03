@@ -1,66 +1,68 @@
-$indicator-size: 12px;
+$indicator-size: $space-s;
 
 .match-score-container {
+  display: flex;
+  align-items: center;
+
+  .label {
+    color: var(--match-score-text-color);
+    font-family: var(--font-stack-full);
+    font-size: $text-font-size-3;
+    line-height: $indicator-size;
+    margin: 0;
+    margin-left: $space-xxs;
+  }
+
+  .match-score-circle {
     display: flex;
     align-items: center;
+    justify-content: center;
+    border: 1px solid var(--match-score-background-color);
+    box-sizing: border-box;
+    height: $indicator-size;
+    width: $indicator-size;
+    border-radius: 50%;
+    margin-top: $space-xxxs;
+    margin-right: $space-xxs;
 
+    &.full {
+      background: var(--match-score-background-color);
+    }
+
+    &.half {
+      background: var(--match-score-background-color);
+      background: linear-gradient(
+        to right,
+        var(--match-score-background-color) 50%,
+        transparent 50%
+      );
+
+      &:after {
+        content: '';
+        height: $indicator-size;
+        width: 1px;
+        background: var(--match-score-background-color);
+      }
+    }
+  }
+
+  &-rtl {
     .label {
-        color: var(--primary-color-70);
-        font-family: $octuple-font-family;
-        font-size: $text-font-size-3;
-        margin: 0;
-        margin-left: $space-xxs;
+      margin-left: 0;
+      margin-right: $space-xxs;
     }
 
     .match-score-circle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--primary-color-60);
-        box-sizing: border-box;
-        height: $indicator-size;
-        width: $indicator-size;
-        border-radius: 50%;
-        margin-right: $space-xxs;
+      margin-left: $space-xxs;
+      margin-right: unset;
 
-        &.full {
-            background: var(--accent-color-30);
-        }
-
-        &.half {
-            background: var(--accent-color-30);
-            background: linear-gradient(
-                to right,
-                var(--accent-color-30) 50%,
-                transparent 50%
-            );
-
-            &:after {
-                content: '';
-                height: $indicator-size;
-                width: 1px;
-                background: var(--primary-color-60);
-            }
-        }
+      &.half {
+        background: linear-gradient(
+          to left,
+          var(--match-score-background-color) 50%,
+          transparent 50%
+        );
+      }
     }
-
-    &-rtl {
-        .label {
-            margin-left: 0;
-            margin-right: $space-xxs;
-        }
-
-        .match-score-circle {
-            margin-left: $space-xxs;
-            margin-right: unset;
-
-            &.half {
-                background: linear-gradient(
-                    to left,
-                    var(--accent-color-30) 50%,
-                    transparent 50%
-                );
-            }
-        }
-    }
+  }
 }

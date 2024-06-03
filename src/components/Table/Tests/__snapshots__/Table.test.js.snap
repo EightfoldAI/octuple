@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table table-medium table-alternate",
+          "class": "table table-alternate table-row-hover table table-medium table-row-hover",
         },
         "children": Array [
           Node {

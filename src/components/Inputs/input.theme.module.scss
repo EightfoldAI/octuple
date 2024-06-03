@@ -1,0 +1,166 @@
+.theme {
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  --primary-background1-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-10) 0%,
+    var(--primary-gradient-middle-color-10) 49%,
+    var(--primary-gradient-end-color-10) 100%
+  ); // Surface 1
+  --primary-background2-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-20) 0%,
+    var(--primary-gradient-middle-color-20) 49%,
+    var(--primary-gradient-end-color-20) 100%
+  ); // Surface 2
+  --primary-background3-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-30) 0%,
+    var(--primary-gradient-middle-color-30) 49%,
+    var(--primary-gradient-end-color-30) 100%
+  ); // Surface 3
+  --primary-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-60) 0%,
+    var(--primary-gradient-middle-color-60) 49%,
+    var(--primary-gradient-end-color-60) 100%
+  ); // Graphics
+  --primary-secondary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-70) 0%,
+    var(--primary-gradient-middle-color-70) 49%,
+    var(--primary-gradient-end-color-70) 100%
+  ); // Text
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-80) 0%,
+    var(--primary-gradient-middle-color-80) 49%,
+    var(--primary-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --accent-background1-color: var(--accent-color-10); // Surface 1
+  --accent-background2-color: var(--accent-color-20); // Surface 2
+  --accent-background3-color: var(--accent-color-30); // Surface 3
+  --accent-tertiary-color: var(--accent-color-60); // Graphics
+  --accent-secondary-color: var(--accent-color-70); // Text
+  --accent-color: var(--accent-color-80); // Extra high contrast
+
+  --accent-background1-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-10) 0%,
+    var(--accent-gradient-middle-color-10) 49%,
+    var(--accent-gradient-end-color-10) 100%
+  ); // Surface 1
+  --accent-background2-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-20) 0%,
+    var(--accent-gradient-middle-color-20) 49%,
+    var(--accent-gradient-end-color-20) 100%
+  ); // Surface 2
+  --accent-background3-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-30) 0%,
+    var(--accent-gradient-middle-color-30) 49%,
+    var(--accent-gradient-end-color-30) 100%
+  ); // Surface 3
+  --accent-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-60) 0%,
+    var(--accent-gradient-middle-color-60) 49%,
+    var(--accent-gradient-end-color-60) 100%
+  ); // Graphics
+  --accent-secondary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-70) 0%,
+    var(--accent-gradient-middle-color-70) 49%,
+    var(--accent-gradient-end-color-70) 100%
+  ); // Text
+  --accent-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-80) 0%,
+    var(--accent-gradient-middle-color-80) 49%,
+    var(--accent-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  --disruptive-background1-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-10) 0%,
+    var(--disruptive-gradient-middle-color-10) 49%,
+    var(--disruptive-gradient-end-color-10) 100%
+  ); // Surface 1
+  --disruptive-background2-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-20) 0%,
+    var(--disruptive-gradient-middle-color-20) 49%,
+    var(--disruptive-gradient-end-color-20) 100%
+  ); // Surface 2
+  --disruptive-background3-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-30) 0%,
+    var(--disruptive-gradient-middle-color-30) 49%,
+    var(--disruptive-gradient-end-color-30) 100%
+  ); // Surface 3
+  --disruptive-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-60) 0%,
+    var(--disruptive-gradient-middle-color-60) 49%,
+    var(--disruptive-gradient-end-color-60) 100%
+  ); // Graphics
+  --disruptive-secondary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-70) 0%,
+    var(--disruptive-gradient-middle-color-70) 49%,
+    var(--disruptive-gradient-end-color-70) 100%
+  ); // Text
+  --disruptive-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-80) 0%,
+    var(--disruptive-gradient-middle-color-80) 49%,
+    var(--disruptive-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // ------ Input theme ------
+  --input-border-color: var(--grey-tertiary-color);
+  --input-border-color-active: var(--grey-color);
+  --input-border-color-hover: var(--input-border-color-active);
+  --input-border-color-underline-active: var(--primary-secondary-color);
+  --input-border-color-underline-hover: var(--input-border-color-active);
+  --input-background-color: var(--background-color);
+  --input-border-color: var(--grey-tertiary-color);
+  --input-border-color-active: var(--grey-color);
+  --input-text-color: var(--text-primary-color);
+  --input-placeholder-text-color: var(--text-secondary-color);
+  --input-readonly-background-color: var(--grey-background1-color);
+  --input-readonly-border-color: var(--grey-tertiary-color);
+  --input-readonly-text-color: var(--input-text-color);
+  --input-success-text-color: var(--input-text-color);
+  --input-success-background-color: var(--success-background-color);
+  --input-success-border-color: var(--success-color);
+  --input-success-placeholder-color: var(--input-placeholder-text-color);
+  --input-warning-text-color: var(--input-text-color);
+  --input-warning-background-color: var(--warning-background-color);
+  --input-warning-border-color: var(--warning-color);
+  --input-warning-placeholder-color: var(--input-placeholder-text-color);
+  --input-error-text-color: var(--input-text-color);
+  --input-error-background-color: var(--error-background-color);
+  --input-error-border-color: var(--error-color);
+  --input-error-placeholder-color: var(--input-placeholder-text-color);
+  --input-disabled-placeholder-text-color: var(--text-tertiary-color);
+  --input-highlight-text-color: var(--input-text-color);
+  --input-highlight-background-color: var(--primary-background1-color);
+  --input-highlight-border-color: var(--primary-tertiary-color);
+  --input-highlight-placeholder-color: var(--input-placeholder-text-color);
+  // ------ Input theme ------
+}

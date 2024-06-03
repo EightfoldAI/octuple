@@ -1,53 +1,49 @@
 import { noteOnce, resetWarned, warning } from './warning';
 
 describe('warning', () => {
-    beforeEach(() => {
-        resetWarned();
-    });
+  beforeEach(() => {
+    resetWarned();
+  });
 
-    test('warning', () => {
-        const warnSpy = jest
-            .spyOn(console, 'warn')
-            .mockImplementation(() => {});
-        warning(false, '[oc Component] test hello world');
-        expect(warnSpy).toHaveBeenCalledWith(
-            'Warning: [oc Component] test hello world'
-        );
+  test('warning', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    warning(false, '[oc Component] test hello world');
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [oc Component] test hello world'
+    );
 
-        warning(false, '[oc Component] test hello world');
-        expect(warnSpy).toHaveBeenCalledTimes(2);
+    warning(false, '[oc Component] test hello world');
+    expect(warnSpy).toHaveBeenCalledTimes(2);
 
-        resetWarned();
+    resetWarned();
 
-        warning(false, '[oc Component] test hello world');
-        expect(warnSpy).toHaveBeenCalledTimes(3);
+    warning(false, '[oc Component] test hello world');
+    expect(warnSpy).toHaveBeenCalledTimes(3);
 
-        warning(true, '[oc Component] test1');
-        expect(warnSpy).not.toHaveBeenCalledWith('[oc Component] test1');
+    warning(true, '[oc Component] test1');
+    expect(warnSpy).not.toHaveBeenCalledWith('[oc Component] test1');
 
-        warnSpy.mockRestore();
-    });
+    warnSpy.mockRestore();
+  });
 
-    test('note', () => {
-        const warnSpy = jest
-            .spyOn(console, 'info')
-            .mockImplementation(() => {});
-        noteOnce(false, '[oc Component] test hello world');
-        expect(warnSpy).toHaveBeenCalledWith(
-            'Note: [oc Component] test hello world'
-        );
+  test('note', () => {
+    const warnSpy = jest.spyOn(console, 'info').mockImplementation(() => {});
+    noteOnce(false, '[oc Component] test hello world');
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Note: [oc Component] test hello world'
+    );
 
-        noteOnce(false, '[oc Component] test hello world');
-        expect(warnSpy).toHaveBeenCalledTimes(1);
+    noteOnce(false, '[oc Component] test hello world');
+    expect(warnSpy).toHaveBeenCalledTimes(1);
 
-        resetWarned();
+    resetWarned();
 
-        noteOnce(false, '[oc Component] test hello world');
-        expect(warnSpy).toHaveBeenCalledTimes(2);
+    noteOnce(false, '[oc Component] test hello world');
+    expect(warnSpy).toHaveBeenCalledTimes(2);
 
-        noteOnce(true, '[oc Component] test1');
-        expect(warnSpy).not.toHaveBeenCalledWith('[oc Component] test1');
+    noteOnce(true, '[oc Component] test1');
+    expect(warnSpy).not.toHaveBeenCalledWith('[oc Component] test1');
 
-        warnSpy.mockRestore();
-    });
+    warnSpy.mockRestore();
+  });
 });

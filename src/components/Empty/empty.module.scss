@@ -1,54 +1,71 @@
 .empty {
-    margin: 0 8px;
-    font-family: $octuple-font-family;
-    font-size: $text-font-size-2;
-    line-height: $text-line-height-3;
+  margin: 0 $space-xs;
+  font-family: var(--font-stack-full);
+  font-size: $text-font-size-2;
+  line-height: $text-line-height-3;
+  text-align: center;
+
+  .empty-image {
+    height: 120px;
+    margin-bottom: $space-l;
+
+    img {
+      border-style: none;
+      height: 100%;
+    }
+
+    svg {
+      height: 100%;
+      margin: auto;
+
+      .accent-color-20 {
+        color: var(--empty-svg-accent-20-color);
+      }
+      .primary-color-10 {
+        color: var(--empty-svg-primary-10-color);
+      }
+      .primary-color-30 {
+        color: var(--empty-svg-primary-30-color);
+      }
+      .white-color {
+        color: var(--empty-svg-white-color);
+      }
+      .white-color-fill-primary-color-30-stroke {
+        fill: var(--empty-svg-white-color);
+        stroke: var(--empty-svg-primary-30-color);
+      }
+    }
+  }
+
+  .empty-title {
+    color: var(--text-tertiary-color);
+    font-size: $text-font-size-4;
+    font-weight: $text-font-weight-semibold;
+    line-height: $text-line-height-5;
     text-align: center;
+    margin-bottom: $space-xs;
+  }
+
+  .empty-description {
+    color: var(--text-tertiary-color);
+    font-size: $text-font-size-2;
+    line-height: $text-line-height-2;
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+  }
+
+  .empty-footer {
+    margin-top: $space-m;
+  }
+
+  &-default {
+    margin: $space-xl 0;
 
     .empty-image {
-        height: 120px;
-        margin-bottom: 24px;
-
-        img {
-            border-style: none;
-            height: 100%;
-        }
-
-        svg {
-            height: 100%;
-            margin: auto;
-        }
+      height: 200px;
     }
-
-    .empty-title {
-        color: var(--text-tertiary-color);
-        font-size: $text-font-size-4;
-        font-weight: $text-font-weight-semibold;
-        line-height: $text-line-height-5;
-        text-align: center;
-        margin-bottom: 8px;
-    }
-
-    .empty-description {
-        color: var(--text-tertiary-color);
-        font-size: $text-font-size-2;
-        line-height: $text-line-height-2;
-        margin: 0 auto;
-        text-align: center;
-        width: 200px;
-    }
-
-    .empty-footer {
-        margin-top: 16px;
-    }
-
-    &-default {
-        margin: 32px 0;
-
-        .empty-image {
-            height: 200px;
-        }
-    }
+  }
 }
 
 @import './rtl';

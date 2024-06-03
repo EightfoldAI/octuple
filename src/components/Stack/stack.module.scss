@@ -1,186 +1,68 @@
 .stack {
-    display: flex;
-    width: fit-content;
+  display: flex;
+  width: fit-content;
 
-    &.inline {
-        display: inline-flex;
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  $gap-space-map: (
+    xxxs: $space-xxxs,
+    xxs: $space-xxs,
+    xs: $space-xs,
+    s: $space-s,
+    m: $space-m,
+    ml: $space-ml,
+    l: $space-l,
+    xl: $space-xl,
+    xxl: $space-xxl,
+    xxxl: $space-xxxl,
+  );
+
+  @each $gap-name, $size-value in $gap-space-map {
+    &.gap-#{$gap-name} {
+      gap: $size-value;
     }
+  }
 
-    &.full-width {
-        width: 100%;
+  &.vertical {
+    flex-direction: column;
+
+    @each $gap-name, $size-value in $gap-space-map {
+      &.#{$gap-name} {
+        > * + * {
+          margin-top: $size-value;
+        }
+      }
     }
+  }
 
-    &.vertical {
-        flex-direction: column;
-        &.xxxl {
-            > * + * {
-                margin-top: $space-xxxl;
-            }
+  &.horizontal {
+    flex-direction: row;
+
+    @each $gap-name, $size-value in $gap-space-map {
+      &.#{$gap-name} {
+        > * + * {
+          margin-left: $size-value;
         }
-        &.xxl {
-            > * + * {
-                margin-top: $space-xxl;
-            }
-        }
-        &.xl {
-            > * + * {
-                margin-top: $space-xl;
-            }
-        }
-        &.l {
-            > * + * {
-                margin-top: $space-l;
-            }
-        }
-        &.ml {
-            > * + * {
-                margin-top: $space-ml;
-            }
-        }
-        &.m {
-            > * + * {
-                margin-top: $space-m;
-            }
-        }
-        &.s {
-            > * + * {
-                margin-top: $space-s;
-            }
-        }
-        &.xs {
-            > * + * {
-                margin-top: $space-xs;
-            }
-        }
-        &.xxs {
-            > * + * {
-                margin-top: $space-xxs;
-            }
-        }
-        &.xxxs {
-            > * + * {
-                margin-top: $space-xxxs;
-            }
-        }
+      }
     }
+  }
 
+  &-rtl {
     &.horizontal {
-        flex-direction: row;
-
-        &.xxxl {
-            > * + * {
-                margin-left: $space-xxxl;
-            }
+      @each $gap-name, $size-value in $gap-space-map {
+        &.#{$gap-name} {
+          > * + * {
+            margin-left: unset;
+            margin-right: $size-value;
+          }
         }
-        &.xxl {
-            > * + * {
-                margin-left: $space-xxl;
-            }
-        }
-        &.xl {
-            > * + * {
-                margin-left: $space-xl;
-            }
-        }
-        &.l {
-            > * + * {
-                margin-left: $space-l;
-            }
-        }
-        &.m {
-            > * + * {
-                margin-left: $space-m;
-            }
-        }
-        &.ml {
-            > * + * {
-                margin-left: $space-ml;
-            }
-        }
-        &.s {
-            > * + * {
-                margin-left: $space-s;
-            }
-        }
-        &.xs {
-            > * + * {
-                margin-left: $space-xs;
-            }
-        }
-        &.xxs {
-            > * + * {
-                margin-left: $space-xxs;
-            }
-        }
-        &.xxxs {
-            > * + * {
-                margin-left: $space-xxxs;
-            }
-        }
+      }
     }
-
-    &-rtl {
-        &.horizontal {
-            &.xxxl {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-xxxl;
-                }
-            }
-            &.xxl {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-xxl;
-                }
-            }
-            &.xl {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-xl;
-                }
-            }
-            &.l {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-l;
-                }
-            }
-            &.m {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-m;
-                }
-            }
-            &.ml {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-ml;
-                }
-            }
-            &.s {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-s;
-                }
-            }
-            &.xs {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-xs;
-                }
-            }
-            &.xxs {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-xxs;
-                }
-            }
-            &.xxxs {
-                > * + * {
-                    margin-left: unset;
-                    margin-right: $space-xxxs;
-                }
-            }
-        }
-    }
+  }
 }

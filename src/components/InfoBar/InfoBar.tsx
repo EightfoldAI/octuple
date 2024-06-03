@@ -1,118 +1,181 @@
-import React, { FC, Ref, useEffect, useState } from 'react';
+'use client';
+
+import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import { InfoBarLocale, InfoBarsProps, InfoBarType } from './InfoBar.types';
 import { Icon, IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
-import { SystemUIButton } from '../Button';
+import { Button, ButtonShape, ButtonWidth, ButtonVariant } from '../Button';
 import LocaleReceiver, {
-    useLocaleReceiver,
+  useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
 import enUS from './Locale/en_US';
 
 import styles from './infoBar.module.scss';
+import themedComponentStyles from './infoBar.theme.module.scss';
 
 export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
-    (props: InfoBarsProps, ref: Ref<HTMLDivElement>) => {
-        const {
-            actionButtonProps,
-            classNames,
-            closable,
-            closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
-            closeButtonProps,
-            closeIcon = IconName.mdiClose,
-            content,
-            icon,
-            locale = enUS,
-            onClose,
-            role = 'presentation',
-            style,
-            type = InfoBarType.neutral,
-            ...rest
-        } = props;
+  (props: InfoBarsProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      actionButtonClassNames,
+      actionButtonProps,
+      bordered = false,
+      classNames,
+      closable,
+      closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
+      closeButtonProps,
+      closeIcon = IconName.mdiClose,
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
+      content,
+      contentClassNames,
+      contentWrapperClassNames,
+      gradient = false,
+      icon,
+      iconClassNames,
+      locale = enUS,
+      onClose,
+      role = 'alert',
+      style,
+      theme,
+      themeContainerId,
+      type = InfoBarType.neutral,
+      ...rest
+    } = props;
 
-        // ============================ Strings ===========================
-        const [infoBarLocale] = useLocaleReceiver('InfoBar');
-        let mergedLocale: InfoBarLocale;
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
 
-        if (props.locale) {
-            mergedLocale = props.locale;
-        } else {
-            mergedLocale = infoBarLocale || props.locale;
-        }
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
-        const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
-            useState<string>(defaultCloseButtonAriaLabelText);
+    // ============================ Strings ===========================
+    const [infoBarLocale] = useLocaleReceiver('InfoBar');
+    let mergedLocale: InfoBarLocale;
 
-        // Locs: if the prop isn't provided use the loc defaults.
-        // If the mergedLocale is changed, update.
-        useEffect(() => {
-            setCloseButtonAriaLabelText(
-                props.closeButtonAriaLabelText
-                    ? props.closeButtonAriaLabelText
-                    : mergedLocale.lang!.closeButtonAriaLabelText
-            );
-        }, [mergedLocale]);
-
-        const infoBarClasses: string = mergeClasses([
-            styles.infoBar,
-            classNames,
-            { [styles.neutral]: type === InfoBarType.neutral },
-            { [styles.positive]: type === InfoBarType.positive },
-            { [styles.warning]: type === InfoBarType.warning },
-            { [styles.disruptive]: type === InfoBarType.disruptive },
-        ]);
-
-        const messageClasses: string = mergeClasses([styles.message, 'body2']);
-
-        const getIconName = (): IconName => {
-            if (icon) {
-                return icon;
-            }
-            switch (type) {
-                case InfoBarType.disruptive:
-                case InfoBarType.neutral:
-                    return IconName.mdiInformation;
-                case InfoBarType.positive:
-                    return IconName.mdiCheckCircle;
-                case InfoBarType.warning:
-                    return IconName.mdiAlert;
-            }
-        };
-
-        return (
-            <LocaleReceiver componentName={'InfoBar'} defaultLocale={enUS}>
-                {(_contextLocale: InfoBarLocale) => {
-                    return (
-                        <div
-                            {...rest}
-                            className={infoBarClasses}
-                            ref={ref}
-                            style={style}
-                            role={role}
-                        >
-                            <Icon
-                                path={getIconName()}
-                                classNames={styles.icon}
-                            />
-                            <div className={messageClasses}>{content}</div>
-                            {actionButtonProps && (
-                                <SystemUIButton
-                                    {...actionButtonProps}
-                                    disruptive={type === InfoBarType.disruptive}
-                                />
-                            )}
-                            {closable && (
-                                <SystemUIButton
-                                    iconProps={{ path: closeIcon }}
-                                    ariaLabel={closeButtonAriaLabelText}
-                                    onClick={onClose}
-                                    {...closeButtonProps}
-                                    disruptive={type === InfoBarType.disruptive}
-                                />
-                            )}
-                        </div>
-                    );
-                }}
-            </LocaleReceiver>
-        );
+    if (props.locale) {
+      mergedLocale = props.locale;
+    } else {
+      mergedLocale = infoBarLocale || props.locale;
     }
+
+    const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
+      useState<string>(defaultCloseButtonAriaLabelText);
+
+    // Locs: if the prop isn't provided use the loc defaults.
+    // If the mergedLocale is changed, update.
+    useEffect(() => {
+      setCloseButtonAriaLabelText(
+        props.closeButtonAriaLabelText
+          ? props.closeButtonAriaLabelText
+          : mergedLocale.lang!.closeButtonAriaLabelText
+      );
+    }, [mergedLocale]);
+
+    const infoBarClassNames: string = mergeClasses([
+      styles.infoBar,
+      { [styles.bordered]: !!bordered },
+      classNames,
+      { [styles.neutral]: type === InfoBarType.neutral },
+      { [styles.positive]: type === InfoBarType.positive },
+      { [styles.warning]: type === InfoBarType.warning },
+      { [styles.disruptive]: type === InfoBarType.disruptive },
+      { [themedComponentStyles.theme]: mergedTheme },
+      { [styles.gradient]: mergedGradient },
+    ]);
+
+    const messageClasses: string = mergeClasses([
+      styles.message,
+      'body2',
+      contentClassNames,
+    ]);
+
+    const getIconName = (): IconName => {
+      if (icon) {
+        return icon;
+      }
+      switch (type) {
+        case InfoBarType.disruptive:
+        case InfoBarType.neutral:
+          return IconName.mdiInformation;
+        case InfoBarType.positive:
+          return IconName.mdiCheckCircle;
+        case InfoBarType.warning:
+          return IconName.mdiAlert;
+      }
+    };
+
+    return (
+      <LocaleReceiver componentName={'InfoBar'} defaultLocale={enUS}>
+        {(_contextLocale: InfoBarLocale) => {
+          return (
+            <ThemeContextProvider
+              containerId={themeContainerId}
+              componentClassName={themedComponentStyles.theme}
+              theme={mergedTheme}
+            >
+              <div
+                {...rest}
+                className={infoBarClassNames}
+                ref={ref}
+                style={style}
+                role={role}
+              >
+                <Icon
+                  path={getIconName()}
+                  classNames={mergeClasses([styles.icon, iconClassNames])}
+                />
+                <div
+                  className={mergeClasses([
+                    styles.contentWrapper,
+                    contentWrapperClassNames,
+                  ])}
+                >
+                  <div className={messageClasses}>{content}</div>
+                  {actionButtonProps && (
+                    <Button
+                      buttonWidth={ButtonWidth.fitContent}
+                      transparent
+                      {...actionButtonProps}
+                      classNames={mergeClasses([
+                        styles.actionButton,
+                        actionButtonClassNames,
+                        actionButtonProps.classNames,
+                      ])}
+                      variant={ButtonVariant.SystemUI}
+                    />
+                  )}
+                </div>
+                {closable && (
+                  <Button
+                    ariaLabel={closeButtonAriaLabelText}
+                    iconProps={{ path: closeIcon }}
+                    onClick={onClose}
+                    shape={ButtonShape.Round}
+                    transparent
+                    {...closeButtonProps}
+                    classNames={mergeClasses([
+                      styles.closeButton,
+                      closeButtonProps?.classNames,
+                    ])}
+                    variant={ButtonVariant.SystemUI}
+                  />
+                )}
+              </div>
+            </ThemeContextProvider>
+          );
+        }}
+      </LocaleReceiver>
+    );
+  }
 );

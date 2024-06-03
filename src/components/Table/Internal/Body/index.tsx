@@ -1,10 +1,10 @@
 import React, {
-    memo,
-    useCallback,
-    useContext,
-    useMemo,
-    useRef,
-    useState,
+  memo,
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
 } from 'react';
 import TableContext from '../Context/TableContext';
 import ExpandedRow from './ExpandedRow';
@@ -22,132 +22,134 @@ import { BodyProps } from './Body.types';
 import styles from '../octable.module.scss';
 
 function Body<RecordType>({
-    data,
-    getRowKey,
-    measureColumnWidth,
-    expandedKeys,
-    onRow,
-    rowExpandable,
-    emptyNode,
-    childrenColumnName,
-    onRowHover,
+  data,
+  getRowKey,
+  measureColumnWidth,
+  expandedKeys,
+  onRow,
+  rowExpandable,
+  rowExpandDisabled,
+  emptyNode,
+  childrenColumnName,
+  onRowHoverEnter,
+  onRowHoverLeave,
 }: BodyProps<RecordType>) {
-    const { onColumnResize } = useContext(ResizeContext);
-    const { getComponent } = useContext(TableContext);
-    const { flattenColumns } = useContext(BodyContext);
+  const { onColumnResize } = useContext(ResizeContext);
+  const { getComponent } = useContext(TableContext);
+  const { flattenColumns } = useContext(BodyContext);
 
-    const flattenData: { record: RecordType; indent: number; index: number }[] =
-        useFlattenRecords<RecordType>(
-            data,
-            childrenColumnName,
-            expandedKeys,
-            getRowKey
-        );
-
-    // =================== Performance ====================
-    const perfRef = useRef<PerfRecord>({
-        renderWithProps: false,
-    });
-
-    // ====================== Hover =======================
-    const [startRow, setStartRow] = useState(-1);
-    const [endRow, setEndRow] = useState(-1);
-
-    const onHover = useCallback((start: number, end: number) => {
-        setStartRow(start);
-        setEndRow(end);
-    }, []);
-
-    const hoverContext = useMemo(
-        () => ({ startRow, endRow, onHover }),
-        [onHover, startRow, endRow]
+  const flattenData: { record: RecordType; indent: number; index: number }[] =
+    useFlattenRecords<RecordType>(
+      data,
+      childrenColumnName,
+      expandedKeys,
+      getRowKey
     );
 
-    // ====================== Render ======================
-    const bodyNode = useMemo(() => {
-        const WrapperComponent = getComponent(['body', 'wrapper'], 'tbody');
-        const trComponent = getComponent(['body', 'row'], 'tr');
-        const tdComponent = getComponent(['body', 'cell'], 'td');
+  // =================== Performance ====================
+  const perfRef = useRef<PerfRecord>({
+    renderWithProps: false,
+  });
 
-        let rows: React.ReactNode;
-        if (data.length) {
-            rows = flattenData.map((item, idx) => {
-                const { record, indent, index: renderIndex } = item;
+  // ====================== Hover =======================
+  const [startRow, setStartRow] = useState(-1);
+  const [endRow, setEndRow] = useState(-1);
 
-                const key = getRowKey(record, idx);
+  const onHover = useCallback((start: number, end: number) => {
+    setStartRow(start);
+    setEndRow(end);
+  }, []);
 
-                return (
-                    <BodyRow
-                        key={key}
-                        rowKey={key}
-                        record={record}
-                        recordKey={key}
-                        index={idx}
-                        renderIndex={renderIndex}
-                        rowComponent={trComponent}
-                        cellComponent={tdComponent}
-                        expandedKeys={expandedKeys}
-                        onRow={onRow}
-                        getRowKey={getRowKey}
-                        rowExpandable={rowExpandable}
-                        childrenColumnName={childrenColumnName}
-                        indent={indent}
-                        onRowHover={onRowHover}
-                    />
-                );
-            });
-        } else {
-            rows = (
-                <ExpandedRow
-                    expanded
-                    classNames={styles.tablePlaceholder}
-                    component={trComponent}
-                    cellComponent={tdComponent}
-                    colSpan={flattenColumns.length}
-                    isEmpty
-                >
-                    {emptyNode}
-                </ExpandedRow>
-            );
-        }
+  const hoverContext = useMemo(
+    () => ({ startRow, endRow, onHover }),
+    [onHover, startRow, endRow]
+  );
 
-        const columnsKey = getColumnsKey(flattenColumns);
+  // ====================== Render ======================
+  const bodyNode = useMemo(() => {
+    const WrapperComponent = getComponent(['body', 'wrapper'], 'tbody');
+    const trComponent = getComponent(['body', 'row'], 'tr');
+    const tdComponent = getComponent(['body', 'cell'], 'td');
+
+    let rows: React.ReactNode;
+    if (data.length) {
+      rows = flattenData.map((item, idx) => {
+        const { record, indent, index: renderIndex } = item;
+
+        const key = getRowKey(record, idx);
 
         return (
-            <WrapperComponent className={'table-tbody'}>
-                {/* Measure body column width with additional hidden col */}
-                {measureColumnWidth && (
-                    <MeasureRow
-                        columnsKey={columnsKey}
-                        onColumnResize={onColumnResize}
-                    />
-                )}
-
-                {rows}
-            </WrapperComponent>
+          <BodyRow
+            key={key}
+            rowKey={key}
+            record={record}
+            recordKey={key}
+            index={idx}
+            renderIndex={renderIndex}
+            rowComponent={trComponent}
+            cellComponent={tdComponent}
+            expandedKeys={expandedKeys}
+            onRow={onRow}
+            getRowKey={getRowKey}
+            rowExpandable={rowExpandable}
+            rowExpandDisabled={rowExpandDisabled}
+            childrenColumnName={childrenColumnName}
+            indent={indent}
+            onRowHoverEnter={onRowHoverEnter}
+            onRowHoverLeave={onRowHoverLeave}
+          />
         );
-    }, [
-        data,
-        onRow,
-        measureColumnWidth,
-        expandedKeys,
-        getRowKey,
-        getComponent,
-        emptyNode,
-        flattenColumns,
-        childrenColumnName,
-        onColumnResize,
-        rowExpandable,
-        flattenData,
-    ]);
+      });
+    } else {
+      rows = (
+        <ExpandedRow
+          expanded
+          classNames={styles.tablePlaceholder}
+          component={trComponent}
+          cellComponent={tdComponent}
+          colSpan={flattenColumns.length}
+          isEmpty
+        >
+          {emptyNode}
+        </ExpandedRow>
+      );
+    }
+
+    const columnsKey = getColumnsKey(flattenColumns);
 
     return (
-        <PerfContext.Provider value={perfRef.current}>
-            <HoverContext.Provider value={hoverContext}>
-                {bodyNode}
-            </HoverContext.Provider>
-        </PerfContext.Provider>
+      <WrapperComponent className={'table-tbody'}>
+        {/* Measure body column width with additional hidden col */}
+        {measureColumnWidth && (
+          <MeasureRow columnsKey={columnsKey} onColumnResize={onColumnResize} />
+        )}
+
+        {rows}
+      </WrapperComponent>
     );
+  }, [
+    data,
+    onRow,
+    measureColumnWidth,
+    expandedKeys,
+    getRowKey,
+    getComponent,
+    emptyNode,
+    flattenColumns,
+    childrenColumnName,
+    onColumnResize,
+    rowExpandable,
+    rowExpandDisabled,
+    flattenData,
+  ]);
+
+  return (
+    <PerfContext.Provider value={perfRef.current}>
+      <HoverContext.Provider value={hoverContext}>
+        {bodyNode}
+      </HoverContext.Provider>
+    </PerfContext.Provider>
+  );
 }
 
 const MemoBody = memo(Body);

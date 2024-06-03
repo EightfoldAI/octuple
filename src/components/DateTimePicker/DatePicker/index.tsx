@@ -1,9 +1,11 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from '../Internal/Generate/dayjs';
 import type {
-    OcPickerDateProps,
-    OcPickerProps,
-    OcRangePickerProps as BaseRangePickerProps,
+  OcPickerDateProps,
+  OcPickerProps,
+  OcRangePickerProps as BaseRangePickerProps,
 } from '../Internal/OcPicker.types';
 import generatePicker from './Generate/Generate';
 

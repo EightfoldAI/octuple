@@ -1,49 +1,49 @@
 @mixin reset-form() {
-    legend {
-        display: block;
-        width: 100%;
-        margin-bottom: $space-ml;
-        padding: 0;
-        color: var(--text-secondary-color);
-        font-size: $text-font-size-2;
-        line-height: inherit;
-        border: 0;
-        border-bottom: 1px solid var(--text-secondary-color);
-    }
+  legend {
+    display: block;
+    width: 100%;
+    margin-bottom: $space-ml;
+    padding: 0;
+    color: var(--text-secondary-color);
+    font-size: $text-font-size-2;
+    line-height: inherit;
+    border: 0;
+    border-bottom: 1px solid var(--text-secondary-color);
+  }
 
-    label {
-        font-size: $text-font-size-2;
-    }
+  label {
+    font-size: $text-font-size-2;
+  }
 
-    input[type='search'] {
-        box-sizing: border-box;
-    }
+  input[type='search'] {
+    box-sizing: border-box;
+  }
 
-    input[type='radio'],
-    input[type='checkbox'] {
-        line-height: normal;
-    }
+  input[type='radio'],
+  input[type='checkbox'] {
+    line-height: normal;
+  }
 
-    input[type='file'] {
-        display: block;
-    }
+  input[type='file'] {
+    display: block;
+  }
 
-    input[type='range'] {
-        display: block;
-        width: 100%;
-    }
+  input[type='range'] {
+    display: block;
+    width: 100%;
+  }
 
-    select[multiple],
-    select[size] {
-        height: auto;
-    }
+  select[multiple],
+  select[size] {
+    height: auto;
+  }
 
-    // Adjust output element
-    output {
-        display: block;
-        padding-top: $space-m;
-        color: var(--text-primary-color);
-        font-size: $text-font-size-2;
-        line-height: $text-line-height-3;
-    }
+  // Adjust output element
+  output {
+    display: block;
+    padding-top: $space-m;
+    color: var(--text-primary-color);
+    font-size: $text-font-size-2;
+    line-height: $text-line-height-3;
+  }
 }

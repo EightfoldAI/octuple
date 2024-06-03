@@ -9,18 +9,18 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table-fixed-column table-scroll-horizontal table-has-fix-left table table-medium table-alternate table-empty",
+          "class": "table table-alternate table-row-hover table-fixed-column table-scroll-horizontal table-has-fix-left table table-medium table-row-hover table-empty",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "table-container",
+              "class": "table-container table-container-horizontally-scrollable",
             },
             "children": Array [
               Node {
                 "attribs": Object {
                   "class": "table-content",
-                  "style": "overflow:overlay;overflow-y:hidden",
+                  "style": "overflow:auto;overflow-y:hidden",
                 },
                 "children": Array [
                   Node {

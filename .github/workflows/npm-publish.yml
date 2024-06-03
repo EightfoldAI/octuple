@@ -64,58 +64,6 @@ jobs:
           prerelease: ${{ steps.prerelease_check.outputs.prerelease == 'true' }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Slack Markdown Converter
-        id: slack_md_converter
-        uses: LoveToKnow/slackify-markdown-action@v1.0.0
-        with:
-          text: ${{ steps.changelog_reader.outputs.changes }}
-      - name: Prepare slack message
-        id: slack_prepare
-        run: |
-          CHANGE_LOG="${{ steps.slack_md_converter.outputs.text }}"
-          CHANGE_LOG="$(echo "$CHANGE_LOG" | sed -z 's/\n/\\n/g')"
-          echo "::set-output name=changelog::${CHANGE_LOG}"
-      - name: Post to Slack channel
-        uses: slackapi/slack-github-action@v1.19.0
-        with:
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "📦 Release ${{ steps.changelog_reader.outputs.version }}"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "${{ steps.slack_prepare.outputs.changelog }}"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": " "
-                  },
-                  "accessory": {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "📦 Go to Release",
-                        "emoji": true
-                    },
-                    "url": "https://github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}"
-                  }
-                }
-              ]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
       - run: yarn build-storybook
         if: steps.prerelease_check.outputs.prerelease != 'true'
       - name: Pushes to another repository
@@ -127,6 +75,6 @@ jobs:
           source-directory: 'storybook-static'
           destination-github-username: 'EightfoldAI'
           destination-repository-name: 'octuple.github.io'
-          user-email: ychhabra@eightfold.ai
+          user-email: eightfold@users.noreply.github.com
           target-branch: main
 

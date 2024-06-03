@@ -8,50 +8,50 @@ import { Size } from '../../../../ConfigProvider';
 import { DatePickerSize } from '../../OcPicker.types';
 
 function MonthHeader<DateType>(props: MonthHeaderProps<DateType>) {
-    const {
-        generateConfig,
-        locale,
-        viewDate,
-        onNextYear,
-        onPrevYear,
-        onYearClick,
-        size = DatePickerSize.Medium,
-    } = props;
-    const { hideHeader } = React.useContext(PartialContext);
+  const {
+    generateConfig,
+    locale,
+    onNextYear,
+    onPrevYear,
+    onYearClick,
+    size = DatePickerSize.Medium,
+    viewDate,
+  } = props;
+  const { hideHeader } = React.useContext(PartialContext);
 
-    const datePickerSizeToButtonSizeMap = new Map<
-        DatePickerSize | Size,
-        ButtonSize | Size
-    >([
-        [DatePickerSize.Flex, ButtonSize.Flex],
-        [DatePickerSize.Large, ButtonSize.Large],
-        [DatePickerSize.Medium, ButtonSize.Medium],
-        [DatePickerSize.Small, ButtonSize.Small],
-    ]);
+  const datePickerSizeToButtonSizeMap: Map<
+    DatePickerSize | Size,
+    Size | ButtonSize
+  > = new Map<DatePickerSize | Size, ButtonSize | Size>([
+    [DatePickerSize.Flex, ButtonSize.Flex],
+    [DatePickerSize.Large, ButtonSize.Large],
+    [DatePickerSize.Medium, ButtonSize.Medium],
+    [DatePickerSize.Small, ButtonSize.Small],
+  ]);
 
-    if (hideHeader) {
-        return null;
-    }
+  if (hideHeader) {
+    return null;
+  }
 
-    return (
-        <Header
-            {...props}
-            onSuperPrev={onPrevYear}
-            onSuperNext={onNextYear}
-            size={size}
-        >
-            <SystemUIButton
-                classNames={'picker-year-btn'}
-                onClick={onYearClick}
-                size={datePickerSizeToButtonSizeMap.get(size)}
-                text={formatValue(viewDate, {
-                    locale,
-                    format: locale.yearFormat,
-                    generateConfig,
-                })}
-            />
-        </Header>
-    );
+  return (
+    <Header
+      {...props}
+      onSuperPrev={onPrevYear}
+      onSuperNext={onNextYear}
+      size={size}
+    >
+      <SystemUIButton
+        classNames={'picker-year-btn'}
+        onClick={onYearClick}
+        size={datePickerSizeToButtonSizeMap.get(size)}
+        text={formatValue(viewDate, {
+          locale,
+          format: locale.yearFormat,
+          generateConfig,
+        })}
+      />
+    </Header>
+  );
 }
 
 export default MonthHeader;

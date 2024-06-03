@@ -1,573 +1,525 @@
-@mixin scrollBars() {
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-        background-color: transparent;
-        height: 16px;
-        width: 16px;
-    }
-
-    &::-webkit-scrollbar-corner {
-        background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-track {
-        -webkit-box-shadow: none;
-        background-color: transparent;
-    }
-
-    @supports (overflow: overlay) {
-        overflow: overlay;
-
-        &:focus-within,
-        &:focus-visible,
-        &:hover,
-        &:hover:focus {
-            &::-webkit-scrollbar {
-                display: block;
-                height: 16px;
-                width: 16px;
-            }
-
-            &::-webkit-scrollbar-button {
-                display: none;
-            }
-
-            &::-webkit-scrollbar-corner {
-                background-color: transparent;
-            }
-
-            &::-webkit-scrollbar-track {
-                background-color: transparent;
-            }
-
-            &::-webkit-scrollbar-track-piece {
-                background-color: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: transparent;
-                border: 5px solid transparent;
-                border-radius: 24px;
-                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-            }
-        }
-    }
-
-    @supports not (overflow: overlay) {
-        overflow: auto;
-
-        &:focus-within,
-        &:focus-visible,
-        &:hover,
-        &:hover:focus {
-            -ms-overflow-style: none;
-            scrollbar-width: thin;
-
-            &::-webkit-scrollbar {
-                background-color: $table-background-color;
-                height: 16px;
-                width: 16px;
-            }
-
-            &::-webkit-scrollbar-corner {
-                background-color: $table-background-color;
-                border: 1px solid $table-background-color;
-                border-bottom-right-radius: $table-border-radius;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: transparent;
-                border: 5px solid transparent;
-                border-radius: 24px;
-                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-            }
-
-            &::-webkit-scrollbar-track {
-                -webkit-box-shadow: none;
-                background-color: $table-background-color;
-            }
-        }
-    }
-}
-
 .table {
+  position: relative;
+  box-sizing: border-box;
+  color: var(--table-foreground-color);
+  font-size: $table-font-size;
+  line-height: $table-line-height;
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-radius: $table-border-radius;
+  }
+
+  th {
+    line-height: $text-line-height-1;
+    @include text-overflow();
+  }
+
+  th,
+  td {
     position: relative;
     box-sizing: border-box;
-    color: $table-foreground-color;
-    font-size: $table-font-size;
-    line-height: $table-line-height;
+    padding: $table-cell-padding;
+    white-space: normal;
+    border-top: 0;
+    border-left: 0;
+    transition: box-shadow $motion-duration-extra-fast;
+  }
 
-    table {
-        width: 100%;
-        border-spacing: 0;
-        border-radius: $table-border-radius;
+  &-cell {
+    background-color: var(--table-background-color);
+
+    &-fix-left,
+    &-fix-right {
+      z-index: 1;
     }
 
-    th {
-        line-height: $text-line-height-1;
-        @include text-overflow();
+    &-fix-right:last-child:not(&-fix-sticky) {
+      border-right-color: transparent;
     }
 
-    th,
-    td {
-        position: relative;
-        box-sizing: border-box;
-        padding: $table-cell-padding;
-        white-space: normal;
-        border-top: 0;
-        border-left: 0;
-        transition: box-shadow 0.3s;
+    &-fix-left-first:after,
+    &-fix-left-last:after {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      bottom: -1px;
+      width: 20px;
+      transform: translateX(100%);
+      transition: box-shadow $motion-duration-extra-fast;
+      content: '';
+      pointer-events: none;
     }
 
-    &-cell {
-        background-color: $table-background-color;
+    &-fix-right-first,
+    &-fix-right-last {
+      &:after {
+        position: absolute;
+        top: 0;
+        bottom: -1px;
+        left: -1px;
+        width: 20px;
+        transform: translateX(-100%);
+        transition: box-shadow $motion-duration-extra-fast;
+        content: '';
+        pointer-events: none;
+      }
+    }
 
-        &-fix-left,
-        &-fix-right {
-            z-index: 1;
+    &.table-cell-with-append {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &.table-cell-ellipsis {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      div:first-of-type {
+        display: block;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: keep-all;
+      }
+
+      &.table-cell-fix-left-first,
+      &.table-cell-fix-left-last,
+      &.table-cell-fix-right-first &.table-cell-fix-right-last {
+        overflow: visible;
+
+        .table-cell-content {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
+      }
+    }
 
-        &-fix-right:last-child:not(&-fix-sticky) {
-            border-right-color: transparent;
-        }
+    &:last-of-type {
+      border-right: none;
+    }
+  }
 
-        &-fix-left-first:after,
-        &-fix-left-last:after {
-            position: absolute;
-            top: 0;
-            right: -1px;
-            bottom: -1px;
-            width: 20px;
-            transform: translateX(100%);
-            transition: box-shadow 0.3s;
-            content: '';
-            pointer-events: none;
-        }
+  &-row-hover {
+    .table-cell {
+      &-row-hover {
+        background-color: var(--table-row-hover-background-color);
 
-        &-fix-right-first,
-        &-fix-right-last {
-            &:after {
-                position: absolute;
-                top: 0;
-                bottom: -1px;
-                left: -1px;
-                width: 20px;
-                transform: translateX(-100%);
-                transition: box-shadow 0.3s;
-                content: '';
-                pointer-events: none;
-            }
-        }
-
-        &.table-cell-ellipsis {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-
-            div:first-of-type {
-                display: block;
-                overflow-x: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                word-break: keep-all;
-            }
-
-            &.table-cell-fix-left-first,
-            &.table-cell-fix-left-last,
-            &.table-cell-fix-right-first &.table-cell-fix-right-last {
-                overflow: visible;
-
-                .table-cell-content {
-                    display: block;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-            }
+        &:first-of-type {
+          &:before {
+            border-left: var(--table-border-active);
+          }
         }
 
         &:last-of-type {
-            border-right: none;
+          &:before {
+            border-right: var(--table-border-active);
+            width: 100%;
+          }
         }
 
-        &-row-hover {
-            background-color: $table-row-hover-background-color;
-
-            &:first-of-type {
-                &:before {
-                    border-left: 2px solid $table-border-active-color;
-                }
-            }
-
-            &:last-of-type {
-                &:before {
-                    border-right: 2px solid $table-border-active-color;
-                    width: 100%;
-                }
-            }
-
-            &:before {
-                border-bottom: 2px solid $table-border-active-color;
-                border-top: 2px solid $table-border-active-color;
-                content: '';
-                height: 100%;
-                left: 0;
-                pointer-events: none;
-                position: absolute;
-                top: 0;
-                width: calc(100% + 2px);
-                z-index: 2;
-            }
+        &:before {
+          border-bottom: var(--table-border-active);
+          border-top: var(--table-border-active);
+          content: '';
+          height: 100%;
+          left: 0;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          width: calc(100% + 2px);
+          z-index: 2;
         }
+      }
+    }
+  }
+
+  &-ping-left {
+    .table-cell-fix-left-first:after,
+    .table-cell-fix-left-last:after {
+      box-shadow: var(--table-fixed-left-box-shadow);
+    }
+  }
+
+  &-ping-right {
+    .table-cell-fix-right-first:after,
+    .table-cell-fix-right-last:after {
+      box-shadow: var(--table-fixed-right-box-shadow);
+    }
+  }
+
+  &-bordered {
+    &.table-ping-right {
+      .table-cell-fix-right-first,
+      .table-cell-fix-right-last {
+        border-left: var(--table-border);
+        padding-left: calc($table-padding-horizontal-md - 1px);
+      }
+    }
+  }
+
+  &-expand-icon-col {
+    width: 84px;
+  }
+
+  &-row-expand-icon-cell {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  thead {
+    td,
+    th {
+      font-weight: $text-font-weight-semibold;
+      font-size: $text-font-size-2;
+      line-height: $text-line-height-1;
+      color: var(--table-header-foreground-color);
+      text-align: left;
     }
 
-    &-ping-left {
+    tr:first-of-type {
+      th {
+        font-size: $table-header-font-size;
+      }
+
+      th:first-of-type {
+        border-top-left-radius: $table-border-radius;
+      }
+
+      th:last-of-type {
+        border-top-right-radius: $table-border-radius;
+        border-right: none;
+      }
+
+      th.table-cell-scrollbar {
+        background-color: var(--table-background-color);
+        border-right: 1px solid var(--table-background-color);
+        border-left: 1px solid var(--table-background-color);
+        border-top-right-radius: $table-border-radius;
+
+        &:after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -1px;
+          width: 1px;
+          content: '';
+        }
+      }
+    }
+  }
+
+  &-header {
+    border-top-left-radius: $table-border-radius;
+    border-top-right-radius: $table-border-radius;
+    color: var(--table-header-foreground-color);
+  }
+
+  tbody {
+    tr {
+      &:last-of-type {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  &-alternate {
+    tbody {
+      tr.table-row {
+        &:nth-child(odd) {
+          td {
+            background-color: var(--table-background-alternate-color);
+          }
+
+          &:hover {
+            td {
+              background-color: var(--table-row-hover-background-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-placeholder {
+    text-align: center;
+  }
+
+  &-container {
+    color: var(--table-foreground-color);
+
+    &.table-container-horizontally-scrollable {
+      tbody tr:last-of-type {
+        td {
+          &:first-of-type {
+            border-bottom-left-radius: 0;
+          }
+          &:last-of-type {
+            border-bottom-right-radius: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &-content {
+    @include scroll-bars;
+
+    color: var(--table-foreground-color);
+  }
+
+  &-body {
+    @include scroll-bars;
+
+    border-bottom-left-radius: $table-border-radius;
+    border-bottom-right-radius: $table-border-radius;
+  }
+
+  &-fixed-column &-body:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    content: '';
+  }
+
+  &-expanded-row {
+    .table-cell {
+      box-shadow: inset 0 15px 17px -7px var(--table-background-alternate-color);
+    }
+
+    &-fixed {
+      box-sizing: border-box;
+      margin: $table-cell-margin;
+      margin-right: -$table-padding-horizontal - 2;
+      padding: $table-cell-padding;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 1px;
+        bottom: 0;
+        width: 0;
+        content: '';
+      }
+    }
+  }
+
+  &-row-expand-icon {
+    display: inline-block;
+    width: $space-m;
+    height: $text-line-height-1;
+    color: #aaa;
+    line-height: $text-line-height-1;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid currentColor;
+    cursor: pointer;
+
+    &.table-row-expanded:after {
+      content: '-';
+    }
+
+    &.table-row-collapsed:after {
+      content: '+';
+    }
+
+    &.table-row-spaced {
+      visibility: hidden;
+    }
+  }
+
+  &-title {
+    background: var(--table-header-background-color);
+    color: var(--table-header-foreground-color);
+    font-size: $table-header-font-size;
+    line-height: $table-header-line-height;
+    padding: $table-cell-padding;
+    border-bottom: var(--table-border);
+    border-top-left-radius: $table-border-radius;
+    border-top-right-radius: $table-border-radius;
+  }
+
+  &-footer {
+    background: var(--table-footer-background-color);
+    color: var(--table-footer-foreground-color);
+    font-size: $table-footer-font-size;
+    line-height: $table-footer-line-height;
+    padding: $table-cell-padding;
+    border-top: var(--table-border);
+    border-bottom-left-radius: $table-border-radius;
+    border-bottom-right-radius: $table-border-radius;
+  }
+
+  tfoot {
+    td {
+      background-color: var(--table-background-color);
+    }
+  }
+
+  &-summary {
+    box-shadow: 0 -1px var(--table-border-color);
+    position: relative;
+    z-index: 2;
+  }
+
+  // TODO: Determine if the internal sticky scroller component is needed anymore.
+  &-sticky {
+    &-holder {
+      position: sticky;
+      z-index: 3;
+    }
+    &-scroll {
+      position: sticky;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      border-top: none;
+      opacity: 0;
+      &-bar {
+        height: 4px;
+        background-color: $table-sticky-scroll-bar-background-color;
+        border-radius: $table-sticky-scroll-bar-radius;
+        &:hover {
+          background-color: $table-sticky-scroll-bar-active-background-color;
+        }
+        &-active {
+          background-color: $table-sticky-scroll-bar-active-background-color;
+        }
+      }
+    }
+  }
+
+  &-rtl {
+    direction: rtl;
+
+    .table-cell {
+      &-fix-right:last-child {
+        border-right-color: var(--table-border-color);
+      }
+      &-fix-left:last-child {
+        border-left-color: transparent;
+      }
+
+      &-fix-right-first,
+      &-fix-right-last {
+        box-shadow: none;
+
+        &:after {
+          left: -1px;
+        }
+      }
+
+      &:last-of-type {
+        border-left: none;
+      }
+
+      &-row-hover {
+        &:first-of-type {
+          &:before {
+            border-left: none;
+            border-right: var(--table-border-active);
+          }
+        }
+
+        &:last-of-type {
+          &:before {
+            border-left: var(--table-border-active);
+            border-right: none;
+          }
+        }
+
+        &:before {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+
+    .table-ping-left {
+      .table-cell-fix-left-first:after,
+      .table-cell-fix-left-last:after {
+        box-shadow: var(--table-fixed-right-box-shadow);
+      }
+    }
+
+    .table-ping-right {
+      .table-cell-fix-right-first:after,
+      .table-cell-fix-right-last:after {
+        box-shadow: var(--table-fixed-left-box-shadow);
+      }
+    }
+
+    // TODO: handle internal ping styles for other border props e.g. header-border
+    &.table-bordered {
+      &.table-ping-left {
         .table-cell-fix-left-first:after,
         .table-cell-fix-left-last:after {
-            box-shadow: $table-fixed-left-box-shadow;
+          border-left: var(--table-border);
+          right: 0;
         }
-    }
-
-    &-ping-right {
-        .table-cell-fix-right-first:after,
-        .table-cell-fix-right-last:after {
-            box-shadow: $table-fixed-right-box-shadow;
-        }
-    }
-
-    &-expand-icon-col {
-        width: 84px;
-    }
-
-    &-row-expand-icon-cell {
-        align-items: center;
-        display: flex;
-        justify-content: center;
+      }
     }
 
     thead {
-        td,
-        th {
-            font-weight: $text-font-weight-semibold;
-            font-size: $text-font-size-2;
-            line-height: $text-line-height-1;
-            color: $table-header-color;
-            text-align: left;
+      td,
+      th {
+        text-align: right;
+      }
+
+      tr:first-of-type {
+        th:first-of-type {
+          border-top-left-radius: 0;
+          border-top-right-radius: $table-border-radius;
         }
 
-        tr:first-of-type {
-            th {
-                font-size: $table-header-font-size;
-            }
-
-            th:first-of-type {
-                border-top-left-radius: $table-border-radius;
-            }
-
-            th:last-of-type {
-                border-top-right-radius: $table-border-radius;
-                border-right: none;
-            }
-
-            th.table-cell-scrollbar {
-                background-color: $table-background-color;
-                border-right: 1px solid $table-background-color;
-                border-left: 1px solid $table-background-color;
-                border-top-right-radius: $table-border-radius;
-
-                &:after {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: -1px;
-                    width: 1px;
-                    content: '';
-                }
-            }
+        th:last-of-type {
+          border-top-left-radius: $table-border-radius;
+          border-top-right-radius: 0;
         }
+
+        th.table-cell-scrollbar {
+          border-top-left-radius: $table-border-radius;
+
+          &:after {
+            left: unset;
+            right: -1px;
+          }
+        }
+      }
     }
 
-    &-header {
-        border-top-left-radius: $table-border-radius;
-        border-top-right-radius: $table-border-radius;
-        color: $table-header-foreground-color;
+    .table-fixed-column .table-body:after {
+      left: 0;
+      right: unset;
     }
 
-    &-placeholder {
-        &:nth-child(odd) td {
-            background-color: $table-background-color !important;
-        }
+    .table-expanded-row {
+      &-fixed {
+        margin-left: -$table-padding-horizontal - 2;
+        margin-right: $table-cell-margin;
 
-        text-align: center;
+        &:after {
+          left: 1px;
+          right: unset;
+        }
+      }
     }
+  }
 
-    tbody {
-        tr {
-            &:last-of-type {
-                td {
-                    border-bottom: none;
-                }
-            }
-        }
-    }
-
-    &-alternate {
-        tbody {
-            tr {
-                &:nth-child(odd) {
-                    td {
-                        background-color: $table-background-alternate-color;
-                    }
-                }
-            }
-        }
-    }
-
-    &-container {
-        color: $table-foreground-color;
-    }
-
-    &-content {
-        @include scrollBars();
-
-        color: $table-foreground-color;
-    }
-
-    &-body {
-        @include scrollBars();
-
-        border-bottom-left-radius: $table-border-radius;
-        border-bottom-right-radius: $table-border-radius;
-    }
-
-    &-fixed-column &-body:after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 1;
-        content: '';
-    }
-
-    &-expanded-row {
-        .table-cell {
-            box-shadow: inset 0 15px 17px -7px $table-background-alternate-color;
-        }
-
-        &-fixed {
-            box-sizing: border-box;
-            margin: $table-cell-margin;
-            margin-right: -$table-padding-horizontal - 2;
-            padding: $table-cell-padding;
-
-            &:after {
-                position: absolute;
-                top: 0;
-                right: 1px;
-                bottom: 0;
-                width: 0;
-                content: '';
-            }
-        }
-    }
-
-    &-row-expand-icon {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        color: #aaa;
-        line-height: 16px;
-        text-align: center;
-        vertical-align: middle;
-        border: 1px solid currentColor;
-        cursor: pointer;
-
-        &.table-row-expanded:after {
-            content: '-';
-        }
-
-        &.table-row-collapsed:after {
-            content: '+';
-        }
-
-        &.table-row-spaced {
-            visibility: hidden;
-        }
-    }
-
-    &-title {
-        background: $table-header-background-color;
-        color: $table-header-foreground-color;
-        font-size: $table-header-font-size;
-        line-height: $table-header-line-height;
-        padding: $table-cell-padding;
-        border-bottom: $table-border;
-        border-top-left-radius: $table-border-radius;
-        border-top-right-radius: $table-border-radius;
-    }
-
-    &-footer {
-        background: $table-footer-background-color;
-        color: $table-footer-foreground-color;
-        font-size: $table-footer-font-size;
-        line-height: $table-footer-line-height;
-        padding: $table-cell-padding;
-        border-top: $table-border;
-        border-bottom-left-radius: $table-border-radius;
-        border-bottom-right-radius: $table-border-radius;
-    }
-
-    tfoot {
-        td {
-            background-color: $table-background-color;
-        }
-    }
-
-    &-summary {
-        box-shadow: 0 -1px $table-border-color;
-        position: relative;
-        z-index: 2;
-    }
-
-    // TODO: Determine if the internal sticky scroller component is needed anymore.
-    &-sticky {
-        &-holder {
-            position: sticky;
-            z-index: 3;
-        }
-        &-scroll {
-            position: sticky;
-            bottom: 0;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            border-top: none;
-            opacity: 0;
-            &-bar {
-                height: 4px;
-                background-color: $table-sticky-scroll-bar-background-color;
-                border-radius: $table-sticky-scroll-bar-radius;
-                &:hover {
-                    background-color: $table-sticky-scroll-bar-active-background-color;
-                }
-                &-active {
-                    background-color: $table-sticky-scroll-bar-active-background-color;
-                }
-            }
-        }
-    }
-
-    &-rtl {
-        direction: rtl;
-
-        .table-cell {
-            &-fix-right:last-child {
-                border-right-color: $table-border-color;
-            }
-            &-fix-left:last-child {
-                border-left-color: transparent;
-            }
-
-            &-fix-left-first {
-                box-shadow: 1px 0 0 $table-border-color;
-            }
-
-            &-fix-right-first,
-            &-fix-right-last {
-                box-shadow: none;
-
-                &:after {
-                    left: -1px;
-                }
-            }
-
-            &:last-of-type {
-                border-left: none;
-            }
-
-            &-row-hover {
-                &:first-of-type {
-                    &:before {
-                        border-left: none;
-                        border-right: 2px solid $table-border-active-color;
-                    }
-                }
-
-                &:last-of-type {
-                    &:before {
-                        border-left: 2px solid $table-border-active-color;
-                        border-right: none;
-                    }
-                }
-
-                &:before {
-                    left: unset;
-                    right: 0;
-                }
-            }
-        }
-
-        .table-ping-left {
-            .table-cell-fix-left-first:after,
-            .table-cell-fix-left-last:after {
-                box-shadow: $table-fixed-right-box-shadow;
-            }
-        }
-
-        .table-ping-right {
-            .table-cell-fix-right-first:after,
-            .table-cell-fix-right-last:after {
-                box-shadow: $table-fixed-left-box-shadow;
-            }
-        }
-
-        thead {
-            td,
-            th {
-                text-align: right;
-            }
-
-            tr:first-of-type {
-                th:first-of-type {
-                    border-top-left-radius: 0;
-                    border-top-right-radius: $table-border-radius;
-                }
-
-                th:last-of-type {
-                    border-top-left-radius: $table-border-radius;
-                    border-top-right-radius: 0;
-                }
-
-                th.table-cell-scrollbar {
-                    border-top-left-radius: $table-border-radius;
-
-                    &:after {
-                        left: unset;
-                        right: -1px;
-                    }
-                }
-            }
-        }
-
-        .table-fixed-column .table-body:after {
-            left: 0;
-            right: unset;
-        }
-
-        .table-expanded-row {
-            &-fixed {
-                margin-left: -$table-padding-horizontal - 2;
-                margin-right: $table-cell-margin;
-
-                &:after {
-                    left: 1px;
-                    right: unset;
-                }
-            }
-        }
-    }
+  .scroller-button {
+    max-width: 36px;
+    min-width: 36px;
+    position: absolute;
+    z-index: 5;
+  }
 }

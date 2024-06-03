@@ -1,5 +1,594 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Select Renders empty options in multiple mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-wrapper-multiple select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select multiple test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders empty options in single mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select single test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders null options in multiple mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-wrapper-multiple select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select multiple test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders null options in single mode without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select single test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders with default value 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value="Option 2"
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders with default values when multiple 1`] = `
+<div>
+  <div
+    class="select-wrapper select-wrapper-multiple select-medium"
+  >
+    <div
+      class="multi-select-pills multi-select-pills-max-count"
+    >
+      <div
+        class="tag-pills multi-select-pill blue-green medium"
+        id="selectPillOption 2-1"
+        style="visibility: hidden;"
+        tabindex="0"
+      >
+        <span
+          class="label medium"
+        >
+          Option 2
+        </span>
+        <button
+          aria-disabled="false"
+          class="close-button button button-default button-small pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="tag-pills multi-select-pill blue-green medium"
+        id="selectPillOption 3-2"
+        style="visibility: hidden;"
+        tabindex="0"
+      >
+        <span
+          class="label medium"
+        >
+          Option 3
+        </span>
+        <button
+          aria-disabled="false"
+          class="close-button button button-default button-small pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder=""
+                readonly=""
+                role="combobox"
+                style="padding-right: 56px;"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="reference-wrapper select-input-wrapper"
+        id="dropdown-reference"
+      >
+        <div
+          class="input-wrapper input-medium input-stretch right-icon"
+        >
+          <div
+            class="expandable-wrapper"
+          >
+            <div
+              class="select-input-group input-group right-icon"
+            >
+              <input
+                aria-controls="dropdown-"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+                id="input-"
+                placeholder="Select test"
+                readonly=""
+                role="combobox"
+                tabindex="0"
+                type="text"
+                value=""
+              />
+              <div
+                class="action-wrapper"
+              >
+                <div
+                  class="overlay"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Toggle dropdown"
+                  class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="false"
+                    class="icon icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style="width: 20px; height: 20px;"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        style="fill: currentColor;"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Select Select is large 1`] = `
 <div
   class="select-wrapper select-large"
@@ -8,56 +597,62 @@ exports[`Select Select is large 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      class="input-wrapper input-large input-stretch right-icon"
+      class="reference-wrapper select-input-wrapper"
+      id="dropdown-reference"
     >
       <div
-        class="expandable-wrapper"
+        class="input-wrapper input-large input-stretch right-icon"
       >
         <div
-          class="input-group right-icon"
+          class="expandable-wrapper"
         >
-          <input
-            aria-controls="dropdown-"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-            id="input-"
-            placeholder="Select"
-            readonly=""
-            role="textbox"
-            tabindex="0"
-            type="text"
-            value=""
-          />
           <div
-            class="action-wrapper"
+            class="select-input-group input-group right-icon"
           >
-            <div
-              class="overlay"
-            />
-            <button
+            <input
+              aria-controls="dropdown-"
               aria-disabled="false"
-              class="icon-button right-icon button button-system-ui transparent button-large icon-left"
-              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="combobox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
             >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                aria-label="Toggle dropdown"
+                class="icon-button right-icon button button-system-ui transparent button-large icon-left"
+                type="button"
               >
-                <svg
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
                   role="presentation"
-                  style="width: 24px; height: 24px;"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    role="presentation"
+                    style="width: 24px; height: 24px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -74,56 +669,62 @@ exports[`Select Select is medium 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      class="input-wrapper input-medium input-stretch right-icon"
+      class="reference-wrapper select-input-wrapper"
+      id="dropdown-reference"
     >
       <div
-        class="expandable-wrapper"
+        class="input-wrapper input-medium input-stretch right-icon"
       >
         <div
-          class="input-group right-icon"
+          class="expandable-wrapper"
         >
-          <input
-            aria-controls="dropdown-"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-            id="input-"
-            placeholder="Select"
-            readonly=""
-            role="textbox"
-            tabindex="0"
-            type="text"
-            value=""
-          />
           <div
-            class="action-wrapper"
+            class="select-input-group input-group right-icon"
           >
-            <div
-              class="overlay"
-            />
-            <button
+            <input
+              aria-controls="dropdown-"
               aria-disabled="false"
-              class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
-              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="combobox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
             >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                aria-label="Toggle dropdown"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                type="button"
               >
-                <svg
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
                   role="presentation"
-                  style="width: 20px; height: 20px;"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -140,56 +741,62 @@ exports[`Select Select is pill shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      class="input-wrapper input-medium input-stretch right-icon"
+      class="reference-wrapper select-input-wrapper"
+      id="dropdown-reference"
     >
       <div
-        class="expandable-wrapper"
+        class="input-wrapper input-medium input-stretch right-icon"
       >
         <div
-          class="input-group right-icon"
+          class="expandable-wrapper"
         >
-          <input
-            aria-controls="dropdown-"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-            id="input-"
-            placeholder="Select"
-            readonly=""
-            role="textbox"
-            tabindex="0"
-            type="text"
-            value=""
-          />
           <div
-            class="action-wrapper"
+            class="select-input-group input-group right-icon"
           >
-            <div
-              class="overlay"
-            />
-            <button
+            <input
+              aria-controls="dropdown-"
               aria-disabled="false"
-              class="icon-button right-icon button button-system-ui transparent button-medium round-shape icon-left"
-              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="combobox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
             >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                aria-label="Toggle dropdown"
+                class="icon-button right-icon button button-system-ui transparent button-medium round-shape icon-left"
+                type="button"
               >
-                <svg
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
                   role="presentation"
-                  style="width: 20px; height: 20px;"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -206,56 +813,62 @@ exports[`Select Select is rectangle shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      class="input-wrapper input-medium input-stretch right-icon"
+      class="reference-wrapper select-input-wrapper"
+      id="dropdown-reference"
     >
       <div
-        class="expandable-wrapper"
+        class="input-wrapper input-medium input-stretch right-icon"
       >
         <div
-          class="input-group right-icon"
+          class="expandable-wrapper"
         >
-          <input
-            aria-controls="dropdown-"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-            id="input-"
-            placeholder="Select"
-            readonly=""
-            role="textbox"
-            tabindex="0"
-            type="text"
-            value=""
-          />
           <div
-            class="action-wrapper"
+            class="select-input-group input-group right-icon"
           >
-            <div
-              class="overlay"
-            />
-            <button
+            <input
+              aria-controls="dropdown-"
               aria-disabled="false"
-              class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
-              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="combobox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
             >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                aria-label="Toggle dropdown"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                type="button"
               >
-                <svg
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
                   role="presentation"
-                  style="width: 20px; height: 20px;"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -272,56 +885,62 @@ exports[`Select Select is small 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      class="input-wrapper input-small input-stretch right-icon"
+      class="reference-wrapper select-input-wrapper"
+      id="dropdown-reference"
     >
       <div
-        class="expandable-wrapper"
+        class="input-wrapper input-small input-stretch right-icon"
       >
         <div
-          class="input-group right-icon"
+          class="expandable-wrapper"
         >
-          <input
-            aria-controls="dropdown-"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-            id="input-"
-            placeholder="Select"
-            readonly=""
-            role="textbox"
-            tabindex="0"
-            type="text"
-            value=""
-          />
           <div
-            class="action-wrapper"
+            class="select-input-group input-group right-icon"
           >
-            <div
-              class="overlay"
-            />
-            <button
+            <input
+              aria-controls="dropdown-"
               aria-disabled="false"
-              class="icon-button right-icon button button-system-ui transparent button-small icon-left"
-              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="combobox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
             >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                aria-label="Toggle dropdown"
+                class="icon-button right-icon button button-system-ui transparent button-small icon-left"
+                type="button"
               >
-                <svg
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
                   role="presentation"
-                  style="width: 16px; height: 16px;"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    role="presentation"
+                    style="width: 16px; height: 16px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -338,56 +957,62 @@ exports[`Select Select is underline shaped 1`] = `
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
-      class="input-wrapper underline input-medium input-stretch right-icon"
+      class="reference-wrapper select-input-wrapper"
+      id="dropdown-reference"
     >
       <div
-        class="expandable-wrapper"
+        class="input-wrapper underline input-medium input-stretch right-icon"
       >
         <div
-          class="input-group right-icon"
+          class="expandable-wrapper"
         >
-          <input
-            aria-controls="dropdown-"
-            aria-disabled="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
-            id="input-"
-            placeholder="Select"
-            readonly=""
-            role="textbox"
-            tabindex="0"
-            type="text"
-            value=""
-          />
           <div
-            class="action-wrapper"
+            class="select-input-group input-group right-icon"
           >
-            <div
-              class="overlay"
-            />
-            <button
+            <input
+              aria-controls="dropdown-"
               aria-disabled="false"
-              class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
-              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="combobox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
             >
-              <span
-                aria-hidden="false"
-                class="icon icon-wrapper"
-                role="presentation"
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                aria-label="Toggle dropdown"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                type="button"
               >
-                <svg
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
                   role="presentation"
-                  style="width: 20px; height: 20px;"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                    style="fill: currentColor;"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

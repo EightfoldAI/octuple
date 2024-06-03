@@ -1,23 +1,33 @@
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/el_GR';
+import Breadcrumb from '../Breadcrumb/Locale/el_GR';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/el_GR';
 import Dialog from '../Dialog/BaseDialog/Locale/el_GR';
+import Drawer from '../Drawer/Locale/el_GR';
 import InfoBar from '../InfoBar/Locale/el_GR';
 import Pagination from '../Pagination/Locale/el_GR';
 import Panel from '../Panel/Locale/el_GR';
+import PersistentBar from '../PersistentBar/Locale/el_GR';
+import Stepper from '../Stepper/Locale/el_GR';
 import Table from '../Table/Locale/el_GR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/el_GR';
 import Upload from '../Upload/Locale/el_GR';
 
 const localeValues: Locale = {
-    locale: 'el',
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'el',
+  Accordion,
+  Breadcrumb,
+  DatePicker,
+  Dialog,
+  Drawer,
+  InfoBar,
+  Pagination,
+  Panel,
+  PersistentBar,
+  Stepper,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;

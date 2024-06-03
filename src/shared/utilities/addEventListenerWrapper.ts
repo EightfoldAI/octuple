@@ -9,24 +9,24 @@ import ReactDOM from 'react-dom';
  * @returns A self-removing event listener
  */
 export const addEventListenerWrapper = (
-    target: any,
-    type: string,
-    listener: (a: any) => any | EventListenerOrEventListenerObject,
-    options?: boolean | EventListenerOrEventListenerObject
+  target: any,
+  type: string,
+  listener: (a: any) => any | EventListenerOrEventListenerObject,
+  options?: boolean | EventListenerOrEventListenerObject
 ) => {
-    const internalCallback = ReactDOM.unstable_batchedUpdates
-        ? function run(e: any) {
-              ReactDOM.unstable_batchedUpdates(listener, e);
-          }
-        : listener;
-    if (target.addEventListener) {
-        target.addEventListener(type, internalCallback, options);
-    }
-    return {
-        remove: () => {
-            if (target.removeEventListener) {
-                target.removeEventListener(type, internalCallback, options);
-            }
-        },
-    };
+  const internalCallback = ReactDOM.unstable_batchedUpdates
+    ? function run(e: any) {
+        ReactDOM.unstable_batchedUpdates(listener, e);
+      }
+    : listener;
+  if (target?.addEventListener) {
+    target.addEventListener(type, internalCallback, options);
+  }
+  return {
+    remove: () => {
+      if (target?.removeEventListener) {
+        target.removeEventListener(type, internalCallback, options);
+      }
+    },
+  };
 };

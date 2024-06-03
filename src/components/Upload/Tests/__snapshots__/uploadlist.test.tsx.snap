@@ -70,7 +70,9 @@ exports[`Upload List itemRender 1`] = `
 `;
 
 exports[`Upload List should be uploading when upload a file 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -149,8 +151,9 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -163,7 +166,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -179,7 +182,9 @@ exports[`Upload List should be uploading when upload a file 1`] = `
 `;
 
 exports[`Upload List should non-image format file preview 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -231,7 +236,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
+                    d="M23.5 17L18.5 22L15 18.5L16.5 17L18.5 19L22 15.5L23.5 17M13.09 20H6V4H13V9H18V13.09C18.33 13.04 18.66 13 19 13S19.67 13.04 20 13.09V8L14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H13.81C13.46 21.39 13.21 20.72 13.09 20Z"
                     style="fill: currentColor;"
                   />
                 </svg>
@@ -251,8 +256,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -265,7 +271,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -314,8 +320,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -328,7 +335,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -368,7 +375,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
+                    d="M23.5 17L18.5 22L15 18.5L16.5 17L18.5 19L22 15.5L23.5 17M13.09 20H6V4H13V9H18V13.09C18.33 13.04 18.66 13 19 13S19.67 13.04 20 13.09V8L14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H13.81C13.46 21.39 13.21 20.72 13.09 20Z"
                     style="fill: currentColor;"
                   />
                 </svg>
@@ -388,8 +395,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -402,7 +410,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -442,7 +450,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
+                    d="M23.5 17L18.5 22L15 18.5L16.5 17L18.5 19L22 15.5L23.5 17M13.09 20H6V4H13V9H18V13.09C18.33 13.04 18.66 13 19 13S19.67 13.04 20 13.09V8L14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H13.81C13.46 21.39 13.21 20.72 13.09 20Z"
                     style="fill: currentColor;"
                   />
                 </svg>
@@ -462,8 +470,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -476,7 +485,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -525,8 +534,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -539,7 +549,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -588,8 +598,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -602,7 +613,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -651,8 +662,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -665,7 +677,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -714,8 +726,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -728,7 +741,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -777,8 +790,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -791,7 +805,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -840,8 +854,9 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -854,7 +869,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
                       style="fill: currentColor;"
                     />
                   </svg>
@@ -870,7 +885,9 @@ exports[`Upload List should non-image format file preview 1`] = `
 `;
 
 exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -951,8 +968,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -1016,6 +1034,7 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
                 aria-disabled="false"
                 aria-label="Download file"
                 class="icon-download button button-default button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -1036,8 +1055,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
               </button>
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -1066,7 +1086,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
 `;
 
 exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
@@ -1147,8 +1169,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
             >
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -1212,6 +1235,7 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
                 aria-disabled="false"
                 aria-label="Download file"
                 class="icon-download button button-default button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -1232,8 +1256,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
               </button>
               <button
                 aria-disabled="false"
-                aria-label="Remove file"
-                class="icon-delete button button-default button-medium round-shape icon-left"
+                aria-label="Delete"
+                class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
+                type="button"
               >
                 <span
                   aria-hidden="false"
@@ -1262,7 +1287,9 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
 `;
 
 exports[`Upload List should support showRemoveIconButton, showReplaceButton, and showPreviewIconButton 1`] = `
-<span>
+<span
+  class=""
+>
   <div
     class="upload upload-select"
   >
