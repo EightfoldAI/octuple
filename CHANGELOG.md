@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.3](https://github.com/EightfoldAI/octuple/compare/v2.51.2...v2.51.3) (2024-05-30)
+
+### Bug Fixes
+
+- inlinesvg: adds cross fetch dep to avoid fetch api reference errors ([#842](https://github.com/EightfoldAI/octuple/issues/842)) ([4f01bea](https://github.com/EightfoldAI/octuple/commits/4f01bea951ca6aeb0075607c5eb2a3c6f9cf9198))
+
 ### [2.51.2](https://github.com/EightfoldAI/octuple/compare/v2.51.1...v2.51.2) (2024-05-22)
 
 ### Features
