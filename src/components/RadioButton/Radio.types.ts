@@ -33,6 +33,10 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
    */
   ariaLabel?: string;
   /**
+   * Aria element ID which describes the checkbox.
+   */
+  ariaDescribedBy?: string;
+  /**
    * The input icon button checked value.
    * @default false
    */
@@ -115,6 +119,10 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
    * The group aria label text.
    */
   ariaLabel?: string;
+  /**
+   * Aria element ID which describes the checkbox.
+   */
+  ariaDescribedBy?: string;
   /**
    * Configure how contextual props are consumed
    */
