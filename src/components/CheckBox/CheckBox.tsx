@@ -55,7 +55,6 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       value,
       variant = SelectorVariant.Default,
       'data-test-id': dataTestId,
-      ...rest
     },
     ref: Ref<HTMLInputElement>
   ) => {
