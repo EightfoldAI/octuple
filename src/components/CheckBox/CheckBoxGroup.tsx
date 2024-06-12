@@ -25,6 +25,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       classNames,
       configContextProps = {
         noDisabledContext: false,
@@ -116,6 +117,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
           <CheckBox
             allowDisabledFocus={allowDisabledFocus}
             configContextProps={configContextProps}
+            ariaDescribedBy={ariaDescribedBy}
             disabled={mergedDisabled}
             labelPosition={labelPosition}
             labelAlign={labelAlign}

@@ -190,6 +190,7 @@ export const __namedExportsOrder = [
 const checkBoxArgs: Object = {
   allowDisabledFocus: false,
   ariaLabel: 'Label',
+  ariaDescribedBy: 'id-description',
   checked: true,
   classNames: 'my-checkbox-class',
   configContextProps: {
