@@ -350,6 +350,7 @@ export const __namedExportsOrder = [
 const radioButtonArgs: Object = {
   allowDisabledFocus: false,
   ariaLabel: 'Label',
+  ariaDescribedBy: 'id-description',
   checked: false,
   classNames: 'my-radiobutton-class',
   configContextProps: {

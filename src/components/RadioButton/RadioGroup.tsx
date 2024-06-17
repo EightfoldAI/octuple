@@ -24,6 +24,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       classNames,
       configContextProps = {
         noDisabledContext: false,
@@ -113,6 +114,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
           {items.map((item: RadioButtonProps) => (
             <RadioButton
               key={item.value}
+              aria-describedby={ariaDescribedBy}
               allowDisabledFocus={allowDisabledFocus}
               configContextProps={configContextProps}
               disabled={mergedDisabled}

@@ -28,6 +28,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       checked = false,
       classNames,
       configContextProps = {
@@ -183,6 +184,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             ref={ref}
             aria-disabled={mergedDisabled}
             aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
             checked={
               radioGroupContext ? isActive : selectedValue === value && checked
             }

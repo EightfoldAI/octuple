@@ -42,6 +42,10 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
    */
   ariaLabel?: string;
   /**
+   * Aria element ID which describes the checkbox.
+   */
+  ariaDescribedBy?: string;
+  /**
    * The input checkbox checked value.
    */
   checked?: boolean;
@@ -137,6 +141,10 @@ export interface CheckboxGroupProps
    * Aria label for the checkbox group.
    */
   ariaLabel?: string;
+  /**
+   * Aria element ID which describes the checkbox group.
+   */
+  ariaDescribedBy?: string;
   /**
    * Configure how contextual props are consumed
    */
