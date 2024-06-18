@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.51.2",
+  "version": "2.51.3",
   "license": "MIT",
   "sideEffects": [
     "**/*.css"
@@ -82,6 +82,7 @@
     "@types/shallowequal": "1.1.1",
     "async-validator": "4.1.0",
     "bodymovin": "4.13.0",
+    "cross-fetch": "4.0.0",
     "date-fns": "2.28.0",
     "dayjs": "1.11.3",
     "dom-align": "1.12.3",
@@ -215,7 +216,7 @@
     "rollup-plugin-visualizer": "5.12.0",
     "sass": "1.47.0",
     "sass-loader": "12.3.0",
-    "semver": "7.5.2",
+    "semver": "7.5.3",
     "sinon": "14.0.1",
     "source-map-loader": "3.0.0",
     "standard-version": "9.5.0",
@@ -236,7 +237,7 @@
     "webpack": "5.76.0",
     "webpack-bundle-analyzer": "4.5.0",
     "webpack-cli": "4.9.2",
-    "webpack-dev-middleware": "4.1.0",
+    "webpack-dev-middleware": "5.3.4",
     "webpack-dev-server": "4.9.3",
     "webpack-manifest-plugin": "4.0.2",
     "webpack-virtual-modules": "0.4.2",

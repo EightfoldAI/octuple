@@ -28,6 +28,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       checked = false,
       classNames,
       configContextProps = {
@@ -197,6 +198,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             ref={mergedRef}
             aria-disabled={mergedDisabled}
             aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
             checked={isChecked}
             disabled={!allowDisabledFocus && mergedDisabled}
             id={checkBoxId.current}
