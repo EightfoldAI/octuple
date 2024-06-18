@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
@@ -16,7 +17,7 @@ const SHARED_OUTPUT_OPTIONS = {
   dir: 'lib',
   preserveModules: true,
   preserveModulesRoot: 'src',
-  sourcemap: false,
+  sourcemap: true,
 };
 
 export default defineConfig({
@@ -48,12 +49,10 @@ export default defineConfig({
     peerDepsExternal(), // ensures peer deps like "react" and "react-dom" are not bundled
     resolve(),
     commonjs(),
+    json(),
     preserveDirectives(), // preserve "use client" directives
     typescript({
       tsconfig: './tsconfig.json',
-      compilerOptions: {
-        sourceMap: false,
-      },
       exclude: [
         '.storybook',
         'storybook-static',
