@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.52.0-rollup-rc.0](https://github.com/EightfoldAI/octuple/compare/v2.51.3...v2.52.0-rollup-rc.0) (2024-06-24)
+
+### Features
+
+- support tree shaking ([#829](https://github.com/EightfoldAI/octuple/issues/829)) ([bf33d45](https://github.com/EightfoldAI/octuple/commits/bf33d453038f50b2b192b7d63a6c021b713fe1e5))
+
+### Bug Fixes
+
+- selectors: add aria attributes ([#848](https://github.com/EightfoldAI/octuple/issues/848)) ([b476471](https://github.com/EightfoldAI/octuple/commits/b47647162ec0a6d465220733352ca535e2073c6c))
+- svg: updates empty profile lock illustration colors to match design specification ([#845](https://github.com/EightfoldAI/octuple/issues/845)) ([cbeef9c](https://github.com/EightfoldAI/octuple/commits/cbeef9cf7bdf4be96d24a8578268832c3ea2f87c))
+
 ### [2.51.3](https://github.com/EightfoldAI/octuple/compare/v2.51.2...v2.51.3) (2024-05-30)
 
 ### Bug Fixes
