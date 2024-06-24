@@ -11,7 +11,7 @@ on:
       - main-next
 
 env:
-  NODE_VERSION: 16.14.2
+  NODE_VERSION: 20.13.0
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -46,4 +46,3 @@ jobs:
           key: node_modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
       - run: yarn lint
-

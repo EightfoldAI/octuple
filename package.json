@@ -2,8 +2,31 @@
   "name": "@eightfold.ai/octuple",
   "version": "2.51.3",
   "license": "MIT",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/octuple.d.ts",
+      "import": "./lib/octuple.mjs",
+      "require": "./lib/octuple.js"
+    },
+    "./lib/locale": {
+      "types": "./lib/locale.d.ts",
+      "import": "./lib/locale.mjs",
+      "require": "./lib/locale.js"
+    },
+    "./lib/octuple.css": {
+      "import": "./lib/octuple.css",
+      "require": "./lib/octuple.css"
+    }
+  },
   "main": "lib/octuple.js",
+  "module": "lib/octuple.mjs",
   "types": "lib/octuple.d.ts",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/EightfoldAI/octuple"
@@ -11,7 +34,8 @@
   "scripts": {
     "storybook": "start-storybook -p 2022",
     "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
-    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
+    "build": "rm -rf lib && yarn lint && rollup -c",
+    "build:webpack": "rm -rf lib && yarn lint && webpack --config webpack.prod.js --mode production",
     "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
     "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
     "prepublish": "yarn build",
@@ -83,6 +107,11 @@
     "@commitlint/config-conventional": "16.2.1",
     "@ctrl/tinycolor": "3.4.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
+    "@rollup/plugin-commonjs": "25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "11.1.6",
     "@storybook/addon-a11y": "6.5.13",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-docs": "6.5.13",
@@ -180,6 +209,12 @@
     "regenerator-runtime": "0.13.7",
     "resolve": "1.20.0",
     "resolve-url-loader": "4.0.0",
+    "rollup": "4.17.2",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-postcss": "4.0.2",
+    "rollup-plugin-preserve-directives": "0.4.0",
+    "rollup-plugin-progress": "1.1.2",
+    "rollup-plugin-visualizer": "5.12.0",
     "sass": "1.47.0",
     "sass-loader": "12.3.0",
     "semver": "7.5.3",
@@ -282,8 +317,7 @@
     ]
   },
   "engines": {
-    "node": ">=16.13.0 < 17",
-    "npm": ">=8.5.0 < 9"
+    "node": ">=16"
   },
   "packageManager": "yarn@1.22.19"
 }

@@ -3,7 +3,7 @@ name: 'Chromatic'
 on: push
 
 env:
-  NODE_VERSION: 16.14.2
+  NODE_VERSION: 20.13.0
 jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest

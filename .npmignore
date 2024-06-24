@@ -23,6 +23,7 @@ yarn.lock
 yarn-debug.log*
 yarn-error.log*
 commitlint.config.js
+rollup.config.js
 
 .eslintignore
 .eslintrc.js
