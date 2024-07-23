@@ -78,6 +78,7 @@
       position: absolute;
       right: 0;
       top: 0;
+      z-index: 0;
 
       &:focus,
       &:focus-visible {
@@ -88,6 +89,7 @@
     // By default we ensure the header content does not obscure the clickable area.
     .accordion-header-container {
       pointer-events: none;
+      z-index: 1;
 
       // If there's custom content in the header, its interactive children should be clickable or selectable.
       a[href],
@@ -175,6 +177,7 @@
 
   .accordion-icon-button {
     transition: transform $motion-duration-fast;
+    z-index: 1;
 
     &.expanded-icon-button {
       transform: rotate(180deg);
