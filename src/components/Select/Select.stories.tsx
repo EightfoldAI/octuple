@@ -457,9 +457,14 @@ const Shared_State_Story: ComponentStory<typeof Select> = (args) => {
             setMyLocation('');
             setFilteredRoleList(sampleRoleList);
           }}
-          onOptionsChange={(options: SelectOption[]) =>
-            onLocationSelectChange(options)
-          }
+          onChange={(options: SelectOption[]) => {
+            console.info('onChange', options);
+            return onLocationSelectChange(options);
+          }}
+          onOptionsChange={(options: SelectOption[]) => {
+            console.info('onOptionsChange', options);
+            // do nothing here. logic is handled in onChange instead.
+          }}
           options={locationOptions}
           ref={locationSelectOneRef}
           shape={SelectShape.Pill}

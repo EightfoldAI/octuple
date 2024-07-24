@@ -187,12 +187,67 @@ describe('Select', () => {
     );
   });
 
-  test('Selects multiple options', async () => {
-    const handleChange = jest.fn();
+  test('Calls onOptionsChange on initial load, calls onChange after first change', async () => {
+    const handleOnChange = jest.fn();
+    const handleOnOptionsChange = jest.fn();
     const { getByPlaceholderText, getByText } = render(
       <Select
         options={options}
-        onOptionsChange={handleChange}
+        onOptionsChange={handleOnOptionsChange}
+        onChange={handleOnChange}
+        placeholder="Select test"
+      />
+    );
+
+    expect(handleOnChange).not.toHaveBeenCalled();
+    expect(handleOnOptionsChange).toHaveBeenCalledTimes(1);
+
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    const option = await waitFor(() => getByText('Option 1'));
+    fireEvent.click(option);
+    expect(handleOnChange).toHaveBeenCalledTimes(1);
+    expect(handleOnOptionsChange).toHaveBeenCalledTimes(2);
+    expect(handleOnOptionsChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          'data-testid': 'option1-test-id',
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          role: 'option',
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
+    expect(handleOnChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          'data-testid': 'option1-test-id',
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          role: 'option',
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
+  });
+
+  test('Selects multiple options', async () => {
+    const handleOnOptionsChange = jest.fn();
+    const handleOnChange = jest.fn();
+    const { getByPlaceholderText, getByText } = render(
+      <Select
+        options={options}
+        onOptionsChange={handleOnOptionsChange}
+        onChange={handleOnChange}
         multiple
         placeholder="Select test"
       />
@@ -203,7 +258,32 @@ describe('Select', () => {
     fireEvent.click(option1);
     const option2 = await waitFor(() => getByText('Option 2'));
     fireEvent.click(option2);
-    expect(handleChange).toHaveBeenCalledWith(
+    expect(handleOnOptionsChange).toHaveBeenCalledWith(
+      ['option1', 'option2'],
+      [
+        {
+          'data-testid': 'option1-test-id',
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          role: 'option',
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          'data-testid': 'option2-test-id',
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          role: 'option',
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleOnChange).toHaveBeenCalledWith(
       ['option1', 'option2'],
       [
         {
@@ -253,12 +333,12 @@ describe('Select', () => {
 
   test('Updates the selected value', async () => {
     const defaultValue = 'option2';
-    const handleChange = jest.fn();
+    const handleOnChange = jest.fn();
     const { getByPlaceholderText, getByText } = render(
       <Select
         options={options}
         defaultValue={defaultValue}
-        onOptionsChange={handleChange}
+        onChange={handleOnChange}
         placeholder="Select test"
       />
     );
@@ -266,7 +346,7 @@ describe('Select', () => {
     fireEvent.click(select);
     const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith(
+    expect(handleOnChange).toHaveBeenCalledWith(
       ['option2'],
       [
         {
@@ -281,7 +361,7 @@ describe('Select', () => {
         },
       ]
     );
-    expect(handleChange).toHaveBeenCalledWith(
+    expect(handleOnChange).toHaveBeenCalledWith(
       ['option1'],
       [
         {
@@ -313,20 +393,20 @@ describe('Select', () => {
 
   test('Updates the selected values when multiple', async () => {
     const defaultValue = ['option2', 'option3'];
-    const handleChange = jest.fn();
+    const handleOnChange = jest.fn();
     const { container, getByText } = render(
       <Select
         options={options}
         defaultValue={defaultValue}
         multiple
-        onOptionsChange={handleChange}
+        onChange={handleOnChange}
       />
     );
     const select = container.querySelector('.select-input');
     fireEvent.click(select);
     const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith(
+    expect(handleOnChange).toHaveBeenCalledWith(
       ['option1', 'option2', 'option3'],
       [
         {
@@ -478,11 +558,11 @@ describe('Select', () => {
   });
 
   test('Does not open the dropdown when clicked and disabled', async () => {
-    const handleChange = jest.fn();
+    const handleOnChange = jest.fn();
     const { container, getByPlaceholderText } = render(
       <Select
         options={options}
-        onChange={handleChange}
+        onChange={handleOnChange}
         disabled
         placeholder="Select test"
       />
@@ -490,7 +570,7 @@ describe('Select', () => {
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     expect(container.querySelector('.dropdown')).toBeFalsy();
-    expect(handleChange).not.toHaveBeenCalled();
+    expect(handleOnChange).not.toHaveBeenCalled();
   });
 
   test('Renders with all options initially visible', async () => {
@@ -900,9 +980,9 @@ describe('Select', () => {
   });
 
   test('selects first filtered option when Enter is pressed', () => {
-    const onInputChange = jest.fn();
+    const handleOnChange = jest.fn();
     const { container } = render(
-      <Select filterable onOptionsChange={onInputChange} options={options} />
+      <Select filterable onChange={handleOnChange} options={options} />
     );
     const input = container.querySelector('.select-input');
     fireEvent.change(input, { target: { value: 'option1' } });
@@ -910,7 +990,7 @@ describe('Select', () => {
 
     // Wait for the click event to be fired
     setTimeout(() => {
-      expect(onInputChange).toHaveBeenCalledWith(
+      expect(handleOnChange).toHaveBeenCalledWith(
         expect.objectContaining({
           target: expect.objectContaining({
             value: 'option1',

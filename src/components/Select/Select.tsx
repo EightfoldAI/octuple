@@ -92,6 +92,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       menuProps = {},
       multiple = false,
       onBlur,
+      onChange,
       onClear,
       onFocus,
       onKeyDown,
@@ -239,6 +240,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const updateOptions = () => {
       onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
 
+      if (!firstRender.current) {
+        onChange?.(getSelectedOptionValues(), getSelectedOptions());
+      }
+
       if (multiple) {
         if (prevDropdownVisible) {
           setTimeout(() => {
@@ -311,10 +316,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
     };
 
     useEffect(() => {
+      updateOptions();
       if (firstRender.current) {
         firstRender.current = false;
-      } else {
-        updateOptions();
       }
     }, [firstRender, getSelectedOptionValues().join('')]);
 

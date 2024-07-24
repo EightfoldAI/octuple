@@ -151,6 +151,10 @@ export interface SelectProps
    */
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   /**
+   * Callback when the selected options change.
+   */
+  onChange?: (values: SelectOption[], options?: SelectOption[]) => void;
+  /**
    * Callback called when the clear button is clicked.
    */
   onClear?: () => void;
@@ -164,8 +168,13 @@ export interface SelectProps
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   /**
    * Callback called when options are selected/unselected.
+   * Problems with this implementation are:
+   *  - It is called on initial load of the component regardless of the selected options.
+   *  - It is poorly named. It returns on selection change, not options change.
+   * It is also called on initial load of the component.
    * @param values {SelectOption['value'].value[]}
    * @param options {SelectOption['value'][]}
+   * @deprecated Use onChange instead. This will be removed in the next major version.
    */
   onOptionsChange?: (values: SelectOption[], options?: SelectOption[]) => void;
   /**
