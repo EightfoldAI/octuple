@@ -132,11 +132,6 @@ export interface SelectProps
    */
   loadOptions?: (inputValue: string) => void;
   /**
-   * Auto collapse to pill with responsive behavior.
-   * @default true
-   */
-  maxPillCount?: boolean;
-  /**
    * The Dropdown Menu props.
    * @default {}
    */
@@ -227,15 +222,4 @@ export interface SelectProps
    * The Select toggle dropdown chevron button aria label.
    */
   toggleButtonAriaLabel?: string;
-  /**
-   * Selected options may be toggled.
-   * Use when multiple is false as this is mutually exclusive.
-   * @default true
-   */
-  toggleOptions?: boolean;
-  /**
-   * The select value.
-   * @default undefined
-   */
-  value?: string | string[];
 }
