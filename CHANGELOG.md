@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.4](https://github.com/EightfoldAI/octuple/compare/v2.51.3...v2.51.4) (2024-07-24)
+
+### Bug Fixes
+
+- hotfix: reset accordion z-index ([#857](https://github.com/EightfoldAI/octuple/issues/857)) ([724dfe7](https://github.com/EightfoldAI/octuple/commits/724dfe7307e1e9f7d0a09a79b2caf3c786165ad6))
+
 ### [2.51.3](https://github.com/EightfoldAI/octuple/compare/v2.51.2...v2.51.3) (2024-05-30)
 
 ### Bug Fixes
