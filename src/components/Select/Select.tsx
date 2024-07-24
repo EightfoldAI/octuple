@@ -8,8 +8,6 @@ import React, {
   useRef,
   useState,
   Ref,
-  useCallback,
-  useMemo,
 } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import {
@@ -42,7 +40,7 @@ import {
 } from './Select.types';
 import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
-import { ANIMATION_DURATION, Tooltip, TooltipTheme } from '../Tooltip';
+import { Tooltip, TooltipTheme } from '../Tooltip';
 import { FormItemInputContext } from '../Form/Context';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -58,7 +56,7 @@ import {
 import styles from './select.module.scss';
 import themedComponentStyles from './select.theme.module.scss';
 
-const inputPadding: number = +styles.inputPadding;
+const inputPaddingHorizontal: number = +styles.inputPaddingHorizontal;
 const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
 
 export const Select: FC<SelectProps> = React.forwardRef(
@@ -88,7 +86,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       inputWidth = TextInputWidth.fill,
       isLoading,
       loadOptions,
-      maxPillCount = true,
       menuProps = {},
       multiple = false,
       onBlur,
@@ -111,10 +108,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       theme,
       themeContainerId,
       toggleButtonAriaLabel,
-      toggleOptions = true,
-      value,
       'data-test-id': dataTestId,
-      'data-testid': dataTestIdv2,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -133,7 +127,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const dropdownRef: React.MutableRefObject<DropdownRef> =
       useRef<DropdownRef>(null);
     const pillRefs = useRef<HTMLElement[]>([]);
-    const pillWrapperRef = useRef<HTMLDivElement>(null);
     const currentlySelectedOption: React.MutableRefObject<SelectOption> =
       useRef<SelectOption>(null);
     const selectMenuId: React.MutableRefObject<string> = useRef<string>(
@@ -160,7 +153,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [selectedOptionText, setSelectedOptionText] = useState<string>('');
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
-    const [selectedOrder, setSelectedOrder] = useState<SelectOption[]>([]);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -189,15 +181,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const prevDropdownVisible: boolean = usePreviousState(dropdownVisible);
 
-    const getSelectedOptionValues = useCallback((): SelectOption['value'][] => {
+    const getSelectedOptionValues = (): SelectOption['value'][] => {
       return (options || [])
         .filter((option: SelectOption) => option.selected)
         .map((option: SelectOption) => option.value);
-    }, [options]);
+    };
 
-    const getSelectedOptions = useCallback((): SelectOption['value'][] => {
+    const getSelectedOptions = (): SelectOption['value'][] => {
       return (options || []).filter((option: SelectOption) => option.selected);
-    }, [options]);
+    };
 
     const { count, filled, width } = useMaxVisibleSections(
       inputRef,
@@ -208,16 +200,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       getSelectedOptionValues().length
     );
 
-    const setOptionsWithSelection = (
-      selectedOptions: SelectOption[],
-      defaultValue: string | string[] = null
-    ) => {
+    // Populate options on component render
+    useEffect(() => {
+      const selected: SelectOption[] = (options || []).filter(
+        (opt: SelectOption) => opt.selected
+      );
       setOptions(
         (_options || []).map((option: SelectOption, index: number) => ({
-          selected:
-            !!selectedOptions.find(
-              (opt: SelectOption) => opt.value === option.value
-            ) || option.value === defaultValue,
+          selected: !!selected.find((opt) => opt.value === option.value),
           hideOption: false,
           id: option.text + '-' + index,
           object: option.object,
@@ -226,65 +216,71 @@ export const Select: FC<SelectProps> = React.forwardRef(
           ...option,
         }))
       );
-    };
+    }, [_options]);
 
-    // Populate options on component render and isLoading change
+    // Populate options on isLoading change
     useEffect(() => {
       const selected: SelectOption[] = (options || []).filter(
         (opt: SelectOption) => opt.selected
       );
-      setOptionsWithSelection(selected, defaultValue);
-    }, [_options, isLoading]);
+      setOptions(
+        (_options || []).map((option: SelectOption, index: number) => ({
+          selected:
+            !!selected.find((opt) => opt.value === option.value) ||
+            option.value === defaultValue,
+          hideOption: false,
+          id: option.text + '-' + index,
+          object: option.object,
+          role: 'option',
+          'aria-selected': option.selected,
+          ...option,
+        }))
+      );
+    }, [isLoading]);
 
-    const updateOptions = () => {
+    // Update options on change
+    useEffect(() => {
       onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
 
-      if (multiple) {
-        if (prevDropdownVisible) {
-          setTimeout(() => {
-            const currentOption: HTMLElement = document.getElementById(
-              currentlySelectedOption.current?.id
-            );
-            if (currentOption) {
-              dropdownRef.current?.focusOnElement(currentOption);
-            }
-          }, NO_ANIMATION_DURATION);
-        }
+      // Determine first render to help verify the Select interaction is intentional
+      if (firstRender.current) {
+        firstRender.current = false;
+        return;
+      }
+      if (multiple && prevDropdownVisible) {
+        setTimeout(() => {
+          const currentOption: HTMLElement = document.getElementById(
+            currentlySelectedOption.current?.id
+          );
+          if (currentOption) {
+            dropdownRef.current?.focusOnElement(currentOption);
+          }
+        }, NO_ANIMATION_DURATION);
       } else {
         getSelectedOptionText();
+        if (filterable && prevDropdownVisible) {
+          inputRef.current?.focus();
+        }
       }
-
-      if (filterable && prevDropdownVisible) {
-        inputRef.current?.focus();
-      }
-
       if (filterable && multiple) {
         setClearInput(false);
       }
-    };
+    }, [getSelectedOptionValues().join('')]);
 
-    const resetSelectOnDropdownHide = (): void => {
-      setSearchQuery('');
-
-      const updatedOptions = (options || []).map((opt: SelectOption) => ({
+    useEffect(() => {
+      const updatedOptions = (options || []).map((opt) => ({
         ...opt,
-        hideOption: false,
+        selected:
+          (defaultValue !== undefined &&
+            (multiple
+              ? defaultValue.includes(opt.value)
+              : opt.value === defaultValue)) ||
+          opt.selected,
       }));
-
       setOptions(updatedOptions);
-    };
+    }, [defaultValue]);
 
-    const resetSingleSelectOnDropdownToggle = (): void => {
-      const isSelected = (options || []).some(
-        (opt: SelectOption) => opt.selected
-      );
-
-      if (isSelected && inputRef.current?.value !== selectedOptionText) {
-        setResetTextInput(true);
-      }
-    };
-
-    const resetSelect = () => {
+    useEffect(() => {
       // When filterable and not multiple if the input value does not match
       // the selected value, ensure it's restored.
       if (filterable && !multiple) {
@@ -308,18 +304,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (clear) {
         onInputClear();
       }
-    };
-
-    useEffect(() => {
-      if (firstRender.current) {
-        firstRender.current = false;
-      } else {
-        updateOptions();
-      }
-    }, [firstRender, getSelectedOptionValues().join('')]);
-
-    useEffect(() => {
-      resetSelect();
     }, [clear, dropdownVisible, filterable]);
 
     useEffect(() => {
@@ -329,52 +313,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (!dropdownVisible && prevDropdownVisible) {
         inputRef.current?.focus();
       }
-    }, [dropdownVisible, readonly, prevDropdownVisible]);
+    }, [readonly, dropdownVisible, prevDropdownVisible]);
 
     useEffect(() => {
-      const updatedOptions = (options || []).map((opt: SelectOption) => {
-        let selected = false;
-
-        if (value !== undefined) {
-          selected = multiple ? value.includes(opt.value) : opt.value === value;
-        } else if (defaultValue !== undefined) {
-          selected = multiple
-            ? defaultValue.includes(opt.value)
-            : opt.value === defaultValue;
-        }
-
-        return {
-          ...opt,
-          selected,
-        };
-      });
-
-      setOptions(updatedOptions);
-      if (multiple) {
-        setSelectedOrder(
-          updatedOptions.filter((opt: SelectOption) => opt.selected)
-        );
-      }
-    }, [defaultValue, multiple, value]);
-
-    const setInitialFocusValue = (
-      filterable: boolean,
-      initialFocus: boolean
-    ) => {
       if (!filterable && !initialFocus) {
         setInitialFocus(true);
-      } else if (!filterable && initialFocus) {
+      } else if (!filterable && initialFocus !== null) {
         setInitialFocus(initialFocus);
       }
       if (filterable && !initialFocus) {
         setInitialFocus(false);
-      } else if (filterable && initialFocus) {
+      } else if (filterable && initialFocus !== null) {
         setInitialFocus(initialFocus);
       }
-    };
-
-    useEffect(() => {
-      setInitialFocusValue(filterable, initialFocus);
     }, [filterable, initialFocus]);
 
     const toggleOption = (option: SelectOption): void => {
@@ -393,25 +344,30 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
       });
 
+      // Update the state with the updated options
       setOptions(updatedOptions);
-
-      if (multiple) {
-        setSelectedOrder((prevSelectedOrder) => {
-          const alreadySelected = prevSelectedOrder.some(
-            (opt: SelectOption) => opt.value === option.value
-          );
-          if (alreadySelected) {
-            return prevSelectedOrder.filter(
-              (opt: SelectOption) => opt.value !== option.value
-            );
-          } else {
-            return [...prevSelectedOrder, option];
-          }
-        });
-      }
 
       if (filterable && multiple && inputRef.current?.value !== '') {
         setClearInput(true);
+      }
+    };
+
+    const resetSelectOnDropdownHide = (): void => {
+      setSearchQuery('');
+      setOptions(
+        (options || []).map((opt: SelectOption) => ({
+          ...opt,
+          hideOption: false,
+        }))
+      );
+    };
+
+    const resetSingleSelectOnDropdownToggle = (): void => {
+      const selected: SelectOption[] = (options || []).filter(
+        (opt: SelectOption) => opt.selected
+      );
+      if (selected.length && inputRef.current?.value !== selectedOptionText) {
+        setResetTextInput(true);
       }
     };
 
@@ -440,9 +396,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
           }))
         );
       }
-      if (!multiple) {
-        setSelectedOptionText('');
-      }
       onClear?.();
       inputRef.current?.focus();
     };
@@ -450,12 +403,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const onInputChange = (
       event: React.ChangeEvent<HTMLInputElement>
     ): void => {
-      const { target } = event;
-      const value: string = target?.value || '';
-      const valueLowerCase: string = value?.toLowerCase();
-
-      setSearchQuery(value);
-
       // When single mode filterable, the input value changes, the dropdown is not previously or
       // currently visible and there's no currently selected option, ensure the dropdown is visible
       // to enable filtering when backspace or clear button is used to deselect the previously
@@ -471,37 +418,41 @@ export const Select: FC<SelectProps> = React.forwardRef(
         inputRef.current?.click();
       }
 
+      const { target } = event;
+      const value: string = target?.value || '';
+      const valueLowerCase: string = value?.toLowerCase();
+      setSearchQuery(value);
       if (loadOptions) {
         return loadOptions(value);
       }
-
-      const updatedOptions = (options || []).map((opt: SelectOption) => {
-        let hideOption = false;
-        let selected = opt.selected;
-
-        if (value) {
-          hideOption = filterOption
-            ? !filterOption(opt, value)
-            : !opt.text.toLowerCase().includes(valueLowerCase);
-        } else {
-          selected = multiple ? opt.selected : false;
+      if (value) {
+        setOptions(
+          (options || []).map((opt: SelectOption) => ({
+            ...opt,
+            hideOption: filterOption
+              ? !filterOption(opt, value)
+              : !opt.text.toLowerCase().includes(valueLowerCase),
+          }))
+        );
+      } else {
+        setSearchQuery('');
+        // When not in multiple mode and the value is empty
+        // deselect and execute onClear.
+        setOptions(
+          (options || []).map((opt: SelectOption) => {
+            const selected: boolean = multiple ? opt.selected : false;
+            return {
+              ...opt,
+              hideOption: false,
+              selected: selected,
+            };
+          })
+        );
+        if (!multiple) {
+          onClear?.();
         }
-
-        return {
-          ...opt,
-          hideOption,
-          selected,
-        };
-      });
-
-      setOptions(updatedOptions);
-
-      // When not in multiple mode and the value is empty
-      // deselect and execute onClear.
-      if (!value && !multiple) {
-        onClear?.();
       }
-
+      // Update dropdown position on options change
       dropdownRef.current?.update();
     };
 
@@ -529,12 +480,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const dropdownMenuOverlayClassNames: string = mergeClasses([
       dropdownProps.dropdownClassNames,
       styles.selectDropdownOverlay,
-    ]);
-
-    const multiSelectPillsClassNames: string = mergeClasses([
-      styles.multiSelectPills,
-      { [styles.multiSelectPillsMaxCount]: !!maxPillCount },
-      { [styles.multiSelectPillsDivider]: filterable && !maxPillCount },
     ]);
 
     const pillClassNames: string = mergeClasses([
@@ -579,7 +524,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
     ]);
 
     const showPills = (): boolean => {
-      const selectedCount: number = selectedOrder.length;
+      const selected: SelectOption[] = (options || []).filter(
+        (opt: SelectOption) => opt.selected
+      );
+      const selectedCount: number = selected.length;
       return selectedCount !== 0 && multiple;
     };
 
@@ -604,21 +552,22 @@ export const Select: FC<SelectProps> = React.forwardRef(
       [SelectSize.Small, PillSize.Small],
     ]);
 
-    const isPillEllipsisActive = (element: HTMLElement): boolean => {
+    const isPillEllipsisActive = (element: HTMLElement) => {
       const labelElement: HTMLSpanElement =
         element?.firstElementChild as HTMLSpanElement;
-      return (
-        labelElement && labelElement.offsetWidth < labelElement.scrollWidth
-      );
+      return labelElement?.offsetWidth < labelElement?.scrollWidth;
     };
 
     const getPills = (): JSX.Element => {
-      const selected: SelectOption[] = selectedOrder;
+      const selected: SelectOption[] = (options || []).filter(
+        (opt: SelectOption) => opt.selected
+      );
 
       const selectedCount: number = selected.length;
       const pills: React.ReactElement[] = [];
       let moreOptionsCount: number = selectedCount;
 
+      // TODO: Mutate Array based on order of selection.
       selected.forEach((opt: SelectOption, index: number) => {
         const pill = (): JSX.Element => (
           <Pill
@@ -629,16 +578,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
             key={`select-pill-${index}`}
             label={opt.text}
             onClose={() => toggleOption(opt)}
-            size={selectSizeToPillSizeMap.get(mergedSize)}
+            size={selectSizeToPillSizeMap.get(size)}
             tabIndex={0}
             theme={'blueGreen'}
             type={readonly ? PillType.default : PillType.closable}
             style={{
-              visibility: maxPillCount
-                ? index < count
-                  ? 'visible'
-                  : 'hidden'
-                : 'visible',
+              visibility: index < count ? 'visible' : 'hidden',
             }}
             {...pillProps}
           />
@@ -652,6 +597,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               classNames={styles.selectTooltip}
               content={opt.text}
               id={`selectTooltip${index}`}
+              key={`select-tooltip-${index}`}
               placement={'top'}
               portal
               theme={TooltipTheme.dark}
@@ -662,7 +608,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         } else {
           pills.push(pill());
         }
-        if (maxPillCount && pills.length === count && filled) {
+        if (pills?.length === count && filled) {
           pills.push(
             <Pill
               classNames={countPillClassNames}
@@ -679,11 +625,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }
       });
 
-      return (
-        <div className={multiSelectPillsClassNames} ref={pillWrapperRef}>
-          {pills}
-        </div>
-      );
+      return <div className={styles.multiSelectPills}>{pills}</div>;
     };
 
     const getSelectedOptionText = (): void => {
@@ -691,12 +633,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setSelectedOptionText(searchQuery);
         return;
       }
-
-      const selectedOption: SelectOption = (options || []).find(
-        (opt: SelectOption) => opt.selected
-      );
-
-      setSelectedOptionText(selectedOption ? selectedOption.text : '');
+      const selectedOption = (options || [])
+        .filter((opt: SelectOption) => opt.selected)
+        .map((opt: SelectOption) => opt.text)
+        .join(', ')
+        .toLocaleString();
+      setSelectedOptionText(selectedOption);
     };
 
     const OptionMenu = ({
@@ -704,127 +646,60 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }: {
       options: SelectOption[];
     }): JSX.Element => {
-      const updatedItems: SelectOption[] = (options || [])
-        .filter((opt: SelectOption) => !opt.hideOption)
-        .map(({ hideOption, ...opt }) => ({
+      const filteredOptions = (options || []).filter(
+        (opt: SelectOption) => !opt.hideOption
+      );
+      const updatedItems: SelectOption[] = filteredOptions.map(
+        ({ hideOption, ...opt }) => ({
           ...opt,
           classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
           role: 'option',
           'aria-selected': opt.selected,
-        }));
-
-      if (updatedItems.length === 0) {
+        })
+      );
+      if (filteredOptions.length > 0) {
+        return (
+          <Menu
+            aria-multiselectable={multiple ? 'true' : undefined}
+            id={selectMenuId?.current}
+            {...menuProps}
+            items={updatedItems}
+            onChange={(value) => {
+              const option = updatedItems.find(
+                (opt: SelectOption) => opt.value === value
+              );
+              currentlySelectedOption.current = option;
+              toggleOption(option);
+            }}
+            role="listbox"
+          />
+        );
+      } else {
         return <div className={styles.selectMenuEmpty}>{emptyText}</div>;
       }
-
-      return (
-        <Menu
-          aria-multiselectable={multiple ? 'true' : undefined}
-          id={selectMenuId?.current}
-          {...menuProps}
-          items={updatedItems}
-          onChange={(value) => {
-            const option = updatedItems.find(
-              (opt: SelectOption) => opt.value === value
-            );
-            if (multiple || toggleOptions) {
-              toggleOption(option);
-              currentlySelectedOption.current = option;
-            } else {
-              if (
-                !currentlySelectedOption.current ||
-                currentlySelectedOption.current?.value !== option.value
-              ) {
-                toggleOption(option);
-                currentlySelectedOption.current = option;
-              }
-            }
-          }}
-          role="listbox"
-        />
-      );
     };
-
-    const getPillWrapperOffset = (): number[] => {
-      let offset: number[];
-      if (largeScreenActive) {
-        offset = [28, 48];
-      } else if (mediumScreenActive) {
-        offset = [36, 56];
-      } else if (smallScreenActive) {
-        offset = [36, 56];
-      } else if (xSmallScreenActive) {
-        offset = [44, 72];
-      }
-      return offset;
-    };
-
-    const selectSizeToPillWrapperOffsetMap = new Map<
-      SelectSize | Size,
-      number[]
-    >([
-      [SelectSize.Flex, getPillWrapperOffset()],
-      [SelectSize.Large, [44, 72]],
-      [SelectSize.Medium, [36, 56]],
-      [SelectSize.Small, [28, 48]],
-    ]);
 
     const getStyle = (): React.CSSProperties => {
-      if (!multiple) {
-        return {};
-      }
-
-      const pillWrapperOffsetHeight: number =
-        pillWrapperRef.current?.offsetHeight || 0;
-      const pillWrapperOffset: number[] =
-        selectSizeToPillWrapperOffsetMap.get(mergedSize);
-
-      if (!maxPillCount && showPills() && pillWrapperRef.current) {
-        const pillOffsetStyles = {
-          height: `${Math.floor(
-            pillWrapperOffsetHeight + pillWrapperOffset[0]
-          )}px`,
-          padding: '4px 8px',
-          paddingTop: `${Math.floor(pillWrapperOffsetHeight)}px`,
-        };
-
-        if (filterable) {
-          return {
-            ...pillOffsetStyles,
-            [htmlDir === 'rtl' ? 'paddingLeft' : 'paddingRight']:
-              pillWrapperOffset[1],
-          };
-        } else {
-          return { height: `${Math.floor(pillWrapperOffsetHeight)}px` };
-        }
-      } else if (maxPillCount && showPills() && pillWrapperRef.current) {
+      if (filterable && multiple && dropdownVisible && showPills()) {
         const paddingValue: number =
           width > 0
             ? filled
               ? width + multiSelectCountOffset
-              : width + inputPadding
-            : inputPadding;
-        return {
-          [htmlDir === 'rtl'
-            ? 'paddingRight'
-            : 'paddingLeft']: `${paddingValue}px`,
-          [htmlDir === 'rtl' ? 'paddingLeft' : 'paddingRight']:
-            pillWrapperOffset[1],
-        };
+              : width + inputPaddingHorizontal
+            : inputPaddingHorizontal;
+        if (htmlDir === 'rtl') {
+          return {
+            paddingRight: paddingValue,
+          };
+        } else {
+          return {
+            paddingLeft: paddingValue,
+          };
+        }
+      } else {
+        return undefined;
       }
-      return {};
     };
-
-    const [textInputStyle, setTextInputStyle] = useState<React.CSSProperties>(
-      getStyle()
-    );
-
-    useEffect(() => {
-      if (!multiple) {
-        return;
-      }
-      setTextInputStyle(getStyle());
-    }, [maxPillCount, mergedSize, multiple, options, selectWidth]);
 
     const restoreCloseOnReferenceClickAsync = async (): Promise<void> => {
       if (filterable && !multiple) {
@@ -873,65 +748,43 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ) {
         dropdownRef.current?.focusFirstElement?.();
       }
-      if (
-        filterable &&
-        event?.key === eventKeys.ENTER &&
-        document.activeElement === event.target
-      ) {
-        dropdownRef.current?.focusFirstElement?.();
-        setTimeout(() => {
-          (document.activeElement as HTMLElement)?.click();
-        }, ANIMATION_DURATION);
-      }
     };
 
     const clearButtonClassNames: string = mergeClasses([
       styles.selectClearButton,
-      { [styles.selectClearButtonEnd]: multiple && filterable },
+      { [styles.selectClearButtonEnd]: multiple && filterable && showPills() },
       { [styles.selectClearButtonStart]: !multiple },
       {
         [styles.selectClearButtonEndRtl]:
-          htmlDir === 'rtl' && multiple && filterable,
+          htmlDir === 'rtl' && multiple && filterable && showPills(),
       },
       { [styles.selectClearButtonStartRtl]: htmlDir === 'rtl' && !multiple },
     ]);
 
-    const selectInputProps: TextInputProps = useMemo(
-      () => ({
-        placeholder: showPills() && !!options ? '' : placeholder,
-        alignIcon: TextInputIconAlign.Right,
-        clearable: clearable && !readonly,
-        clearButtonClassNames: clearButtonClassNames,
-        inputWidth: inputWidth,
-        iconButtonProps: readonly
-          ? null
-          : {
-              ariaLabel: toggleButtonAriaLabel || 'Toggle dropdown',
-              htmlType: 'button',
-              iconProps: {
-                path: dropdownVisible
-                  ? IconName.mdiChevronUp
-                  : IconName.mdiChevronDown,
-              },
-              onClick: handleToggleButtonClick,
+    const selectInputProps: TextInputProps = {
+      placeholder: showPills() && !!options ? '' : placeholder,
+      alignIcon: TextInputIconAlign.Right,
+      clearable: clearable && !readonly,
+      clearButtonClassNames: clearButtonClassNames,
+      inputWidth: inputWidth,
+      iconButtonProps: !readonly
+        ? {
+            ariaLabel: toggleButtonAriaLabel
+              ? toggleButtonAriaLabel
+              : 'Toggle dropdown',
+            htmlType: 'button',
+            iconProps: {
+              path: dropdownVisible
+                ? IconName.mdiChevronUp
+                : IconName.mdiChevronDown,
             },
-        onClear: onInputClear,
-        ...textInputProps,
-        style: { ...textInputProps.style, ...textInputStyle },
-      }),
-      [
-        placeholder,
-        clearable,
-        textInputStyle,
-        readonly,
-        clearButtonClassNames,
-        inputWidth,
-        toggleButtonAriaLabel,
-        dropdownVisible,
-        onInputClear,
-        textInputProps,
-      ]
-    );
+            onClick: handleToggleButtonClick,
+          }
+        : null,
+      style: getStyle(),
+      onClear: onInputClear,
+      ...textInputProps,
+    };
 
     const selectShapeToTextInputShapeMap = new Map<
       SelectShape | Shape,
@@ -960,14 +813,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return;
       }
 
-      const inputWidth: number = inputRef.current.offsetWidth;
-      const dropdownUpdatedWidth: number = Math.max(
-        inputWidth > dropdownDefaultWidth ? inputWidth : dropdownDefaultWidth
-      );
+      const inputWidth: number = inputRef.current?.offsetWidth;
+      let dropdownUpdatedWidth: number =
+        inputRef.current?.offsetWidth > dropdownDefaultWidth
+          ? inputRef.current?.offsetWidth
+          : dropdownDefaultWidth;
 
       setSelectWidth(inputWidth);
       setDropdownWidth(dropdownUpdatedWidth);
-      dropdownRef.current?.update();
     };
 
     useLayoutEffect(() => {
@@ -985,8 +838,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ref={ref}
             aria-owns={dropdownVisible ? selectMenuId?.current : undefined}
             className={componentClassNames}
-            data-test-id={dataTestId} // TODO: Remove in v3.0.0
-            data-testid={dataTestIdv2}
+            data-test-id={dataTestId}
             id={id}
             style={style}
           >
