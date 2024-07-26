@@ -13,7 +13,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "outDir": "lib",
-    "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "target": "es2015",
