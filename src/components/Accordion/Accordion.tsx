@@ -89,13 +89,17 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         aria-controls={`${id}-content`}
         aria-label={expanded ? expandAriaLabelText : collapseAriaLabelText}
         aria-expanded={expanded}
+        aria-describedby={`${id}-header-content`}
         className={styles.clickableArea}
         onClick={onClick}
         onKeyDown={handleKeyDown}
         role="button"
         tabIndex={0}
       ></div>
-      <div className={styles.accordionHeaderContainer}>
+      <div
+        id={`${id}-header-content`}
+        className={styles.accordionHeaderContainer}
+      >
         {iconProps && <Icon {...iconProps} />}
         <div className={styles.accordionHeader}>
           {typeof children === 'string' ? <span>{children}</span> : children}
@@ -103,9 +107,9 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
+        role="presenation"
+        tabIndex={-1}
         aria-controls={`${id}-content`}
-        ariaLabel={expanded ? expandAriaLabelText : collapseAriaLabelText}
-        aria-expanded={expanded}
         disabled={disabled}
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
