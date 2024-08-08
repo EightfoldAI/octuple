@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.5](https://github.com/EightfoldAI/octuple/compare/v2.51.4...v2.51.5) (2024-08-08)
+
+### Bug Fixes
+
+- stop screenreaders from reading duplicate accordion toggle btns ([#867](https://github.com/EightfoldAI/octuple/issues/867)) ([b97edea](https://github.com/EightfoldAI/octuple/commits/b97edea612d8c3e964a749960a816a6b828b6313))
+
 ### [2.51.4](https://github.com/EightfoldAI/octuple/compare/v2.51.3...v2.51.4) (2024-07-24)
 
 ### Bug Fixes
