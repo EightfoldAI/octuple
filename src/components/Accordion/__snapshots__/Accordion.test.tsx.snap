@@ -12,6 +12,7 @@ exports[`Accordion Accordion is large 1`] = `
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="false"
         aria-label="Accordion"
         class="clickable-area"
@@ -20,6 +21,7 @@ exports[`Accordion Accordion is large 1`] = `
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -53,9 +55,9 @@ exports[`Accordion Accordion is large 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
@@ -107,6 +109,7 @@ exports[`Accordion Accordion is medium 1`] = `
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="false"
         aria-label="Accordion"
         class="clickable-area"
@@ -115,6 +118,7 @@ exports[`Accordion Accordion is medium 1`] = `
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -148,9 +152,9 @@ exports[`Accordion Accordion is medium 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
@@ -202,6 +206,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="false"
         aria-label="Accordion"
         class="clickable-area"
@@ -210,6 +215,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -243,9 +249,9 @@ exports[`Accordion Accordion is not bordered 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
@@ -297,6 +303,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="false"
         aria-label="Accordion"
         class="clickable-area"
@@ -305,6 +312,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -338,9 +346,9 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
@@ -392,6 +400,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="false"
         aria-label="Accordion"
         class="clickable-area"
@@ -400,6 +409,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -433,9 +443,9 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
@@ -488,6 +498,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="true"
         aria-label="Accordion"
         class="clickable-area"
@@ -496,6 +507,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -623,9 +635,9 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="true"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
@@ -677,6 +689,7 @@ exports[`Accordion Renders without crashing 1`] = `
     >
       <div
         aria-controls="myAccordionId-content"
+        aria-describedby="myAccordionId-header-content"
         aria-expanded="false"
         aria-label="Accordion"
         class="clickable-area"
@@ -685,6 +698,7 @@ exports[`Accordion Renders without crashing 1`] = `
       />
       <div
         class="accordion-header-container"
+        id="myAccordionId-header-content"
       >
         <span
           aria-hidden="false"
@@ -718,9 +732,9 @@ exports[`Accordion Renders without crashing 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Accordion"
         class="button button-neutral button-medium round-shape icon-left"
+        role="presenation"
+        tabindex="-1"
       >
         <span
           aria-hidden="false"
