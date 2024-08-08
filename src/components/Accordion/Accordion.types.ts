@@ -62,6 +62,15 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    */
   expanded?: boolean;
   /**
+   * Allows for setting (or unsetting if so desired) and alternative
+   * describedBy for the expand button. Otherwise it will default to the
+   * header content of the accordion. In cases where the header content
+   * is overly verbose and/or including buttons, it's recommended to
+   * set this to point to a more appropriate description or unset it so
+   * it the toggle button simple reads "According, button, expanded/collapsed."
+   */
+  expandButtonDescribedBy?: string;
+  /**
    * Expand button props
    */
   expandButtonProps?: ButtonProps;
