@@ -3698,6 +3698,7 @@ LoadedCheerio {
                         "attribs": Object {
                           "aria-current": "true",
                           "aria-disabled": "false",
+                          "aria-label": "page 1",
                           "class": "pagination-button active button button-neutral button-medium",
                         },
                         "children": Array [
@@ -3737,11 +3738,13 @@ LoadedCheerio {
                         "x-attribsNamespace": Object {
                           "aria-current": undefined,
                           "aria-disabled": undefined,
+                          "aria-label": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "aria-current": undefined,
                           "aria-disabled": undefined,
+                          "aria-label": undefined,
                           "class": undefined,
                         },
                       },
@@ -3787,6 +3790,7 @@ LoadedCheerio {
                       "attribs": Object {
                         "aria-current": "true",
                         "aria-disabled": "false",
+                        "aria-label": "page 1",
                         "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
@@ -3826,11 +3830,13 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "aria-current": undefined,
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "aria-current": undefined,
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                       },
                     },
@@ -3918,6 +3924,7 @@ LoadedCheerio {
                       "attribs": Object {
                         "aria-current": "true",
                         "aria-disabled": "false",
+                        "aria-label": "page 1",
                         "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
@@ -3957,11 +3964,13 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "aria-current": undefined,
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "aria-current": undefined,
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                       },
                     },
@@ -4007,6 +4016,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-current": "true",
                       "aria-disabled": "false",
+                      "aria-label": "page 1",
                       "class": "pagination-button active button button-neutral button-medium",
                     },
                     "children": Array [
@@ -4046,11 +4056,13 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "aria-current": undefined,
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-current": undefined,
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                     },
                   },
