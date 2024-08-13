@@ -299,7 +299,7 @@ export interface SharedSkillProps extends OcBaseProps<HTMLDivElement> {
   title?: string;
 }
 
-export interface SkillBlockProps extends SharedSkillProps {
+export interface SkillBlockProps extends Omit<SharedSkillProps, 'content'> {
   /**
    * The Skill animates expand and collapse.
    * @default true
