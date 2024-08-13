@@ -88,6 +88,7 @@ exports[`PersistentBar PersistentBar is topBarPagination 1`] = `
           <button
             aria-current="true"
             aria-disabled="false"
+            aria-label="page 1"
             class="pagination-button active button button-neutral button-medium"
           >
             <span
