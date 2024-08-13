@@ -54,7 +54,8 @@
     "prerelease:patch": "standard-version --release-as patch --prerelease",
     "prerelease:major": "standard-version --release-as major --prerelease",
     "prepublishOnly": "clean-package",
-    "postpublish": "clean-package restore"
+    "postpublish": "clean-package restore",
+    "typecheck": "tsc --noEmit --skipLibCheck"
   },
   "eslintConfig": {
     "extends": [
