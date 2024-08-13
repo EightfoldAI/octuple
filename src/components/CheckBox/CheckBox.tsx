@@ -205,6 +205,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             type={'checkbox'}
             value={value}
             readOnly
+            role={toggle ? 'switch' : 'checkbox'}
           />
           <label htmlFor={checkBoxId.current} className={labelClassNames}>
             {labelPosition == LabelPosition.Start && (
