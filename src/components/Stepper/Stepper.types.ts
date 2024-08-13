@@ -77,7 +77,7 @@ export type StepperLocale = {
   lang: Locale;
 };
 
-export interface Step extends OcBaseProps<HTMLDivElement> {
+export interface Step extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
   /**
    * Whether the Step is complete.
    * Use when the Stepper isn't readonly.

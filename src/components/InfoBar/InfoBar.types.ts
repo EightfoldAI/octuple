@@ -28,7 +28,8 @@ export type InfoBarLocale = {
   lang: Locale;
 };
 
-export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
+export interface InfoBarsProps
+  extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
   /**
    * Custom classes for the action button.
    * May be implemnted without the need for a button.
