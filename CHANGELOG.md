@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.7](https://github.com/EightfoldAI/octuple/compare/v2.51.4...v2.51.7) (2024-08-14)
+
+### Bug Fixes
+
+- hotfix: checkbox with toggle true: Added role switch for checkbox with t… ([#868](https://github.com/EightfoldAI/octuple/issues/868)) ([ce0812a](https://github.com/EightfoldAI/octuple/commits/ce0812a05bbf3d9c066434930466d567fec59839))
+- hotfix: pagination: Added aria label to pager according to guideline ([#869](https://github.com/EightfoldAI/octuple/issues/869)) ([535f246](https://github.com/EightfoldAI/octuple/commits/535f246823d88c75d6505fe6cb9492a8520c96e1))
+- hotfix: stop screenreaders from reading duplicate accordion toggle btns ([#867](https://github.com/EightfoldAI/octuple/issues/867)) ([881f1da](https://github.com/EightfoldAI/octuple/commits/881f1da374a32aa076c422a5eaabd82f7b46fbf4))
+
 ### [2.51.4](https://github.com/EightfoldAI/octuple/compare/v2.51.3...v2.51.4) (2024-07-24)
 
 ### Bug Fixes
