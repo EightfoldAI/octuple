@@ -105,6 +105,7 @@ export interface FormItemInputMiscProps {
   marginBottom?: number | null;
   onErrorVisibleChanged?: (visible: boolean) => void;
   warnings: React.ReactNode[];
+  errorMessageId?: string;
 }
 
 export interface FormItemInputProps {

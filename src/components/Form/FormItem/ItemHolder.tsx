@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useMemo } from 'react';
 import { ItemHolderProps } from '../Form.types';
 import type { ValidateStatus } from '../Form.types';
-import { mergeClasses, omit } from '../../../shared/utilities';
+import { mergeClasses, omit, uniqueId } from '../../../shared/utilities';
 import { Row } from '../../Grid';
 import FormItemLabel from '../FormItemLabel';
 import FormItemInput from '../FormItemInput';
@@ -68,6 +68,8 @@ export default function ItemHolder(props: ItemHolderProps) {
   const hasError = hasHelp || errors.length || warnings.length;
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
 
+  const errorMessageId = `${uniqueId('input-')}-error`;
+
   useLayoutEffect(() => {
     if (hasError && itemRef.current) {
       const itemStyle = getComputedStyle(itemRef.current);
@@ -116,8 +118,9 @@ export default function ItemHolder(props: ItemHolderProps) {
       hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
+      errorMessageId,
     };
-  }, [mergedValidateStatus, hasFeedback]);
+  }, [mergedValidateStatus, hasFeedback, errorMessageId]);
 
   const itemClassNames: string = mergeClasses([
     styles.formItem,
@@ -182,6 +185,7 @@ export default function ItemHolder(props: ItemHolderProps) {
           {...props}
           {...meta}
           errors={debounceErrors}
+          errorMessageId={errorMessageId}
           warnings={debounceWarnings}
           status={mergedValidateStatus}
           help={help}
