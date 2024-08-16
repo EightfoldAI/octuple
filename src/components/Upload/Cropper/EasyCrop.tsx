@@ -54,6 +54,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const [cropSize, setCropSize] = useState<Size>({ width: 0, height: 0 });
   const [zoomVal, setZoomVal] = useState<number>(INIT_ZOOM);
   const [rotateVal, setRotateVal] = useState<number>(INIT_ROTATE);
+  const [buttonType, setButtonType] = useState<string>('');
   const cropPixelsRef: React.MutableRefObject<Area> = useRef<Area>({
     width: 0,
     height: 0,
@@ -136,7 +137,10 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               iconProps={{
                 path: IconName.mdiMinus,
               }}
-              onClick={() => setZoomVal(zoomVal - ZOOM_STEP)}
+              onClick={() => {
+                setButtonType('out');
+                setZoomVal(zoomVal - ZOOM_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
               theme={mergedTheme}
@@ -148,7 +152,12 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               containerClassNames={styles.cropperSlider}
               max={maxZoom}
               min={minZoom}
-              onChange={(value: number | number[]) => setZoomVal(Number(value))}
+              onChange={(value: number | number[]) => {
+                zoomVal < Number(value)
+                  ? setButtonType('in')
+                  : setButtonType('out');
+                setZoomVal(Number(value));
+              }}
               hideMax
               hideMin
               step={ZOOM_STEP}
@@ -165,7 +174,10 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               iconProps={{
                 path: IconName.mdiPlus,
               }}
-              onClick={() => setZoomVal(zoomVal + ZOOM_STEP)}
+              onClick={() => {
+                setButtonType('in');
+                setZoomVal(zoomVal + ZOOM_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
               theme={mergedTheme}
@@ -173,6 +185,17 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               variant={ButtonVariant.SystemUI}
             />
           </Stack>
+          <div
+            className={styles.visuallyhidden}
+            aria-live="assertive"
+            role="status"
+          >
+            {buttonType === 'in'
+              ? `${zoomInButtonAriaLabelText} ${parseFloat(zoomVal.toFixed(2))}`
+              : `${zoomOutButtonAriaLabelText} ${parseFloat(
+                  zoomVal.toFixed(2)
+                )}`}
+          </div>
         </section>
       )}
       {rotate && (
@@ -187,7 +210,10 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               iconProps={{
                 path: IconName.mdiRotateLeft,
               }}
-              onClick={() => setRotateVal(rotateVal - ROTATE_STEP)}
+              onClick={() => {
+                setButtonType('left');
+                setRotateVal(rotateVal - ROTATE_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
               theme={mergedTheme}
@@ -199,9 +225,12 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               containerClassNames={styles.cropperSlider}
               max={MAX_ROTATE}
               min={MIN_ROTATE}
-              onChange={(value: number | number[]) =>
-                setRotateVal(Number(value))
-              }
+              onChange={(value: number | number[]) => {
+                rotateVal < Number(value)
+                  ? setButtonType('right')
+                  : setButtonType('left');
+                setRotateVal(Number(value));
+              }}
               hideMax
               hideMin
               step={ROTATE_STEP}
@@ -218,7 +247,10 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               iconProps={{
                 path: IconName.mdiRotateRight,
               }}
-              onClick={() => setRotateVal(rotateVal + ROTATE_STEP)}
+              onClick={() => {
+                setButtonType('right');
+                setRotateVal(rotateVal + ROTATE_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
               theme={mergedTheme}
@@ -226,6 +258,15 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               variant={ButtonVariant.SystemUI}
             />
           </Stack>
+          <div
+            className={styles.visuallyhidden}
+            aria-live="assertive"
+            role="status"
+          >
+            {buttonType === 'right'
+              ? `${rotateRightButtonAriaLabelText} ${rotateVal}`
+              : `${rotateLeftButtonAriaLabelText} ${rotateVal}`}
+          </div>
         </section>
       )}
     </>
