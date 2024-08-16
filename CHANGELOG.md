@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.8](https://github.com/EightfoldAI/octuple/compare/v2.51.7...v2.51.8) (2024-08-16)
+
+### Features
+
+- textInput: adds aria-invalid and aria-describedby for a11y error announcement ([#872](https://github.com/EightfoldAI/octuple/issues/872)) ([8afab61](https://github.com/EightfoldAI/octuple/commits/8afab612c5bb7060f6ed00391d69bacf7ef2354a))
+
 ### [2.51.7](https://github.com/EightfoldAI/octuple/compare/v2.51.4...v2.51.7) (2024-08-14)
 
 ### Bug Fixes
