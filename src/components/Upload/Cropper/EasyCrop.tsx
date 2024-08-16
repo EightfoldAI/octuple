@@ -54,8 +54,11 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const [cropSize, setCropSize] = useState<Size>({ width: 0, height: 0 });
   const [zoomVal, setZoomVal] = useState<number>(INIT_ZOOM);
   const [rotateVal, setRotateVal] = useState<number>(INIT_ROTATE);
-  const [buttonType, setButtonType] = useState<
-    'in' | 'out' | 'left' | 'right' | ''
+  const [zoomButtonDirection, setZoomButtonDirection] = useState<
+    'in' | 'out' | ''
+  >('');
+  const [rotateButtonDirection, setRotateButtonDirection] = useState<
+    'right' | 'left' | ''
   >('');
   const cropPixelsRef: React.MutableRefObject<Area> = useRef<Area>({
     width: 0,
@@ -140,7 +143,8 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
                 path: IconName.mdiMinus,
               }}
               onClick={() => {
-                setButtonType('out');
+                setRotateButtonDirection('');
+                setZoomButtonDirection('out');
                 setZoomVal(zoomVal - ZOOM_STEP);
               }}
               shape={ButtonShape.Round}
@@ -155,9 +159,10 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               max={maxZoom}
               min={minZoom}
               onChange={(value: number | number[]) => {
+                setRotateButtonDirection('');
                 zoomVal < Number(value)
-                  ? setButtonType('in')
-                  : setButtonType('out');
+                  ? setZoomButtonDirection('in')
+                  : setZoomButtonDirection('out');
                 setZoomVal(Number(value));
               }}
               hideMax
@@ -177,7 +182,8 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
                 path: IconName.mdiPlus,
               }}
               onClick={() => {
-                setButtonType('in');
+                setRotateButtonDirection('');
+                setZoomButtonDirection('in');
                 setZoomVal(zoomVal + ZOOM_STEP);
               }}
               shape={ButtonShape.Round}
@@ -192,7 +198,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
             aria-live="assertive"
             role="status"
           >
-            {buttonType === 'in'
+            {zoomButtonDirection === 'in'
               ? `${zoomInButtonAriaLabelText} ${parseFloat(zoomVal.toFixed(2))}`
               : `${zoomOutButtonAriaLabelText} ${parseFloat(
                   zoomVal.toFixed(2)
@@ -213,7 +219,8 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
                 path: IconName.mdiRotateLeft,
               }}
               onClick={() => {
-                setButtonType('left');
+                setZoomButtonDirection('');
+                setRotateButtonDirection('left');
                 setRotateVal(rotateVal - ROTATE_STEP);
               }}
               shape={ButtonShape.Round}
@@ -228,9 +235,10 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               max={MAX_ROTATE}
               min={MIN_ROTATE}
               onChange={(value: number | number[]) => {
+                setZoomButtonDirection('');
                 rotateVal < Number(value)
-                  ? setButtonType('right')
-                  : setButtonType('left');
+                  ? setRotateButtonDirection('right')
+                  : setRotateButtonDirection('left');
                 setRotateVal(Number(value));
               }}
               hideMax
@@ -250,7 +258,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
                 path: IconName.mdiRotateRight,
               }}
               onClick={() => {
-                setButtonType('right');
+                setRotateButtonDirection('right');
                 setRotateVal(rotateVal + ROTATE_STEP);
               }}
               shape={ButtonShape.Round}
@@ -265,7 +273,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
             aria-live="assertive"
             role="status"
           >
-            {buttonType === 'right'
+            {rotateButtonDirection === 'right'
               ? `${rotateRightButtonAriaLabelText} ${rotateVal}`
               : `${rotateLeftButtonAriaLabelText} ${rotateVal}`}
           </div>
