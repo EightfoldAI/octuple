@@ -54,7 +54,9 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const [cropSize, setCropSize] = useState<Size>({ width: 0, height: 0 });
   const [zoomVal, setZoomVal] = useState<number>(INIT_ZOOM);
   const [rotateVal, setRotateVal] = useState<number>(INIT_ROTATE);
-  const [buttonType, setButtonType] = useState<string>('');
+  const [buttonType, setButtonType] = useState<
+    'in' | 'out' | 'left' | 'right' | ''
+  >('');
   const cropPixelsRef: React.MutableRefObject<Area> = useRef<Area>({
     width: 0,
     height: 0,
