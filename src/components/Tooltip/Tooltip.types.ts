@@ -39,7 +39,8 @@ export enum TooltipTouchInteraction {
   TapAndHold = 'TapAndHold',
 }
 
-export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
+export interface TooltipProps
+  extends Omit<OcBaseProps<HTMLDivElement>, 'ref' | 'content'> {
   /**
    * Should animate the Tooltip transitions.
    * @default true
