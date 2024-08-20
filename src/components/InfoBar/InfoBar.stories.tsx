@@ -58,6 +58,7 @@ export const Neutral = InfoBar_Story.bind({});
 export const Positive = InfoBar_Story.bind({});
 export const Warning = InfoBar_Story.bind({});
 export const Disruptive = InfoBar_Story.bind({});
+export const Basic = InfoBar_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -67,6 +68,7 @@ export const __namedExportsOrder = [
   'Positive',
   'Warning',
   'Disruptive',
+  'Basic',
 ];
 
 const infoBarArgs: Object = {
@@ -121,4 +123,14 @@ Disruptive.args = {
   ...infoBarArgs,
   icon: IconName.mdiInformation,
   type: InfoBarType.disruptive,
+};
+
+Basic.args = {
+  ...infoBarArgs,
+  icon: IconName.mdiInformation,
+  type: InfoBarType.neutral,
+  closeButtonProps: null,
+  closeIcon: null,
+  closable: false,
+  actionButtonProps: null,
 };
