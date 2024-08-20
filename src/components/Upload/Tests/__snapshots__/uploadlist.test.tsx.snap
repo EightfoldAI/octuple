@@ -78,7 +78,6 @@ exports[`Upload List should be uploading when upload a file 1`] = `
   >
     <span
       class=""
-      role="button"
     >
       <input
         accept=""
@@ -190,7 +189,6 @@ exports[`Upload List should non-image format file preview 1`] = `
   >
     <span
       class=""
-      role="button"
     >
       <input
         accept=""
@@ -893,7 +891,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
   >
     <span
       class=""
-      role="button"
     >
       <input
         accept=""
@@ -1094,7 +1091,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
   >
     <span
       class=""
-      role="button"
     >
       <input
         accept=""
@@ -1295,7 +1291,6 @@ exports[`Upload List should support showRemoveIconButton, showReplaceButton, and
   >
     <span
       class=""
-      role="button"
     >
       <input
         accept=""
