@@ -98,6 +98,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       themeContainerId,
       value,
       waitInterval = 10,
+      'aria-invalid': ariaInvalidProp = false,
+      'aria-describedby': ariaDescribedByProp,
       ...rest
     },
     ref: Ref<HTMLInputElement>
@@ -125,8 +127,14 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       status: contextStatus,
       isFormItemInput,
       hasFeedback,
+      errorMessageId,
     } = useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, status);
+    const ariaInvalid = ariaInvalidProp || mergedStatus === 'error';
+    const ariaDescribedBy =
+      mergedStatus === 'error'
+        ? ariaDescribedByProp || errorMessageId
+        : undefined;
 
     // Needed for form error scroll-into-view by id
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -524,6 +532,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 tabIndex={0}
                 type={numbersOnly ? 'number' : htmlType}
                 value={inputValue}
+                aria-invalid={ariaInvalid}
+                aria-describedby={ariaDescribedBy}
               />
               {expandable && iconButtonProps && (
                 <Button

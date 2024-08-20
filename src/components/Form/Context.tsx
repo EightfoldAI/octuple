@@ -55,6 +55,7 @@ export interface FormItemStatusContextProps {
   status?: ValidateStatus;
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
+  errorMessageId?: string;
 }
 
 export const FormItemInputContext =
