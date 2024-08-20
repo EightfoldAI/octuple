@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.9](https://github.com/EightfoldAI/octuple/compare/v2.51.8...v2.51.9) (2024-08-20)
+
+### Bug Fixes
+
+- improve basic snackbar and infobar layouts ([#874](https://github.com/EightfoldAI/octuple/issues/874)) ([647794f](https://github.com/EightfoldAI/octuple/commits/647794f48d30bd660cadef13f93b9d9fdaa9bb9d))
+
 ### [2.51.8](https://github.com/EightfoldAI/octuple/compare/v2.51.7...v2.51.8) (2024-08-16)
 
 ### Features
