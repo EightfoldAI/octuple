@@ -16,7 +16,9 @@ import { ConfigProvider } from '../../ConfigProvider';
 import zhCN from '../../Locale/zh_CN';
 import { sleep } from '../../../tests/Utilities';
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import 'jest-specific-snapshot';
+import '@testing-library/jest-dom';
 
 const { RangePicker } = DatePicker;
 
@@ -1307,5 +1309,111 @@ describe('Form', () => {
     expect(
       container.querySelector('.form-item-margin-offset').style.marginBottom
     ).toBe('-32px');
+  });
+
+  test('should have aria-invalid and aria-describedby when field is empty and form is submitted', async () => {
+    const Demo = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item
+            htmlFor="title-input"
+            name="required"
+            rules={[{ required: true, message: 'title is required' }]}
+          >
+            <TextInput id="title-input" />
+          </Form.Item>
+          <PrimaryButton
+            onClick={() => form.submit()}
+            classNames={'submit-button'}
+            text={'Submit'}
+          />
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('false');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toBe(null);
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).not.toBeInTheDocument();
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(200);
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('true');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).not.toBe(null);
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toBeDefined();
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toEqual(container.querySelector('.form-item-explain-error').id);
+    expect(
+      container.querySelector('.form-item-explain-error').textContent
+    ).toEqual('title is required');
+  });
+
+  test('should reset aria-invalid and aria-describedby when input value is changed', async () => {
+    const Demo = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item
+            htmlFor="title-input"
+            name="required"
+            rules={[{ required: true, message: 'title is required' }]}
+          >
+            <TextInput id="title-input" />
+          </Form.Item>
+          <PrimaryButton
+            onClick={() => form.submit()}
+            classNames={'submit-button'}
+            text={'Submit'}
+          />
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(200);
+
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('true');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toEqual(container.querySelector('.form-item-explain-error').id);
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).toBeInTheDocument();
+
+    userEvent.type(container.querySelector('#title-input'), 'test');
+    await sleep(800);
+
+    expect(container.querySelector('#title-input')).toHaveValue('test');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('false');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toBe(null);
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).not.toBeInTheDocument();
   });
 });

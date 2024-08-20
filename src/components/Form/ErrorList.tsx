@@ -61,6 +61,10 @@ export interface ErrorListProps {
    * Callback executed on visibility chnage event
    */
   onVisibleChanged?: (visible: boolean) => void;
+  /**
+   * Unique id for the error message
+   */
+  errorMessageId?: string;
 }
 
 export default function ErrorList({
@@ -70,10 +74,13 @@ export default function ErrorList({
   warnings = EMPTY_LIST,
   classNames: rootClassNames,
   onVisibleChanged,
+  errorMessageId,
 }: ErrorListProps) {
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
+
+  const errorMessageProps = errorMessageId ? { id: errorMessageId } : {};
 
   const fullKeyList = React.useMemo(() => {
     if (help !== undefined && help !== null) {
@@ -133,6 +140,7 @@ export default function ErrorList({
                         errorStatus,
                     })}
                     style={itemStyle}
+                    {...errorMessageProps}
                   >
                     {error}
                   </div>
