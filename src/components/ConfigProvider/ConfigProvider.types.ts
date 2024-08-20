@@ -1,17 +1,19 @@
 import React from 'react';
-import {
-  IRegisterFont,
-  IRegisterTheme,
-  FontOptions,
-  ThemeOptions,
-} from './Theming';
-import type { Locale } from '../LocaleProvider';
+
+import { RequiredMark } from '../Form/Form.types';
+import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { FocusVisibleOptions } from './A11y';
+import { FeatureFlags } from './FeatureFlagProvider';
 import { Shape } from './ShapeContext';
 import { Size } from './SizeContext';
-import { ValidateMessages } from '../Form/Internal/OcForm.types';
-import { RequiredMark } from '../Form/Form.types';
+import {
+  FontOptions,
+  IRegisterFont,
+  IRegisterTheme,
+  ThemeOptions,
+} from './Theming';
 
+import type { Locale } from '../LocaleProvider';
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
 export interface ConfigContextProps {
@@ -76,6 +78,10 @@ export interface ConfigProviderProps {
    * Used by the disabled context provider to disable components.
    */
   disabled?: boolean;
+  /**
+   * Options for Octuple features that can be conditionally enabled.
+   */
+  featureFlags?: FeatureFlags;
   /**
    * Options for font
    * @default { fontFamily: 'Source Sans Pro', fontSize: '16px', fontStack: '-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif' }

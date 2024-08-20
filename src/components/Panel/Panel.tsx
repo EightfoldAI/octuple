@@ -28,6 +28,7 @@ import enUS from './Locale/en_US';
 
 import styles from './panel.module.scss';
 import themedComponentStyles from './panel.theme.module.scss';
+import { useFeatureFlags } from '../ConfigProvider/FeatureFlagProvider';
 
 const PanelContext = React.createContext<PanelRef | null>(null);
 
@@ -119,6 +120,9 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
     } else {
       mergedLocale = panelLocale || props.locale;
     }
+
+    const { lazyLoadPanelContent } = useFeatureFlags();
+    const renderContent = lazyLoadPanelContent ? visible : renderContentAlways;
 
     const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
       useState<string>(defaultCloseButtonAriaLabelText);
@@ -360,7 +364,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         onClick={stopPropagation}
                         style={getPanelStyle()}
                       >
-                        {renderContentAlways && (
+                        {renderContent && (
                           <>
                             {getHeader()}
                             {getBody()}
