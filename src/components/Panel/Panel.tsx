@@ -121,8 +121,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       mergedLocale = panelLocale || props.locale;
     }
 
-    const { lazyLoadPanelContent } = useFeatureFlags();
-    const renderContent = lazyLoadPanelContent ? visible : renderContentAlways;
+    const { panelLazyLoadContent } = useFeatureFlags();
+    const renderContent = panelLazyLoadContent ? visible : renderContentAlways;
 
     const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
       useState<string>(defaultCloseButtonAriaLabelText);

@@ -166,10 +166,10 @@ describe('Panel', () => {
     expect(queryByText('Content is not always rendered')).toBeNull();
   });
 
-  test('Should not lazy load content when lazyLoadPanelContent is false', () => {
+  test('Should not lazy load content when panelLazyLoadContent is false', () => {
     const { queryByText } = render(
       <FeatureFlagContextProvider
-        featureFlags={{ lazyLoadPanelContent: false }}
+        featureFlags={{ panelLazyLoadContent: false }}
       >
         <Panel>
           <div>Content is not always rendered</div>
@@ -179,9 +179,9 @@ describe('Panel', () => {
     expect(queryByText('Content is not always rendered')).toBeTruthy();
   });
 
-  test('Should not render content when lazyLoadPanelContent is true and panel is hidden', () => {
+  test('Should not render content when panelLazyLoadContent is true and panel is hidden', () => {
     const { queryByText } = render(
-      <FeatureFlagContextProvider featureFlags={{ lazyLoadPanelContent: true }}>
+      <FeatureFlagContextProvider featureFlags={{ panelLazyLoadContent: true }}>
         <Panel visible={false}>
           <div>Content is not always rendered</div>
         </Panel>
@@ -190,9 +190,9 @@ describe('Panel', () => {
     expect(queryByText('Content is not always rendered')).toBeNull();
   });
 
-  test('Should render content when lazyLoadPanelContent is true and panel is visible', () => {
+  test('Should render content when panelLazyLoadContent is true and panel is visible', () => {
     const { queryByText } = render(
-      <FeatureFlagContextProvider featureFlags={{ lazyLoadPanelContent: true }}>
+      <FeatureFlagContextProvider featureFlags={{ panelLazyLoadContent: true }}>
         <Panel visible>
           <div>Content is not always rendered</div>
         </Panel>
@@ -201,10 +201,10 @@ describe('Panel', () => {
     expect(queryByText('Content is not always rendered')).toBeTruthy();
   });
 
-  test('Should respect render content always when lazyLoadPanelContent is false', () => {
+  test('Should respect render content always when panelLazyLoadContent is false', () => {
     const { queryByText } = render(
       <FeatureFlagContextProvider
-        featureFlags={{ lazyLoadPanelContent: false }}
+        featureFlags={{ panelLazyLoadContent: false }}
       >
         <Panel renderContentAlways>
           <div>Content is not always rendered</div>

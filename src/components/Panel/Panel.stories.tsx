@@ -120,7 +120,7 @@ export default {
       options: ['top', 'right', 'bottom', 'left'],
       control: { type: 'radio' },
     },
-    lazyLoadPanelContent: {
+    panelLazyLoadContent: {
       control: { type: 'boolean' },
       defaultValue: false,
     },
@@ -129,7 +129,7 @@ export default {
     (Story, context) => (
       <ConfigProvider
         featureFlags={{
-          lazyLoadPanelContent: context.args.lazyLoadPanelContent,
+          panelLazyLoadContent: context.args.panelLazyLoadContent,
         }}
       >
         <Story />

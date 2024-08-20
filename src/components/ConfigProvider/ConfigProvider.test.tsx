@@ -277,18 +277,18 @@ describe('ConfigProvider', () => {
   test('Provides feature flag values if provided as a prop', () => {
     const { result } = renderHook(() => useFeatureFlags(), {
       wrapper: ({ children }) => (
-        <ConfigProvider featureFlags={{ lazyLoadPanelContent: true }}>
+        <ConfigProvider featureFlags={{ panelLazyLoadContent: true }}>
           {children}
         </ConfigProvider>
       ),
     });
-    expect(result.current.lazyLoadPanelContent).toBeTruthy();
+    expect(result.current.panelLazyLoadContent).toBeTruthy();
   });
 
   test('Provides default feature flag values if not provided as a prop', () => {
     const { result } = renderHook(() => useFeatureFlags(), {
       wrapper: ConfigProvider,
     });
-    expect(result.current.lazyLoadPanelContent).toBeFalsy();
+    expect(result.current.panelLazyLoadContent).toBeFalsy();
   });
 });

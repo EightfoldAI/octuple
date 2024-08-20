@@ -3,7 +3,7 @@
 import React, { createContext, FC, useContext, useMemo } from 'react';
 
 export interface FeatureFlags {
-  lazyLoadPanelContent?: boolean;
+  panelLazyLoadContent?: boolean;
 }
 
 export interface FeatureFlagContextProps {
@@ -14,7 +14,7 @@ export interface FeatureFlagContextProps {
 const FeatureFlagContext = createContext<FeatureFlags>(undefined);
 
 const defaultFeatureFlagValues: FeatureFlags = {
-  lazyLoadPanelContent: false,
+  panelLazyLoadContent: false,
 };
 
 export const FeatureFlagContextProvider: FC<FeatureFlagContextProps> = ({
