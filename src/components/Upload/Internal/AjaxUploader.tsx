@@ -313,7 +313,7 @@ class AjaxUploader extends Component<OcUploadProps> {
           onDragOver: this.onFileDrop,
         };
     return (
-      <Tag {...events} className={uploadClasses} role="button" style={style}>
+      <Tag {...events} className={uploadClasses} style={style}>
         <input
           {...pickAttrs(rest, { aria: true, data: true })}
           id={id}
