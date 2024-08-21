@@ -17,6 +17,7 @@ import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { Portal } from '../Portal';
 import { FocusTrap } from '../../shared/FocusTrap';
+import { useFeatureFlags } from '../ConfigProvider/FeatureFlagProvider';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useScrollLock } from '../../hooks/useScrollLock';
@@ -28,7 +29,6 @@ import enUS from './Locale/en_US';
 
 import styles from './panel.module.scss';
 import themedComponentStyles from './panel.theme.module.scss';
-import { useFeatureFlags } from '../ConfigProvider/FeatureFlagProvider';
 
 const PanelContext = React.createContext<PanelRef | null>(null);
 

@@ -14,6 +14,11 @@ export interface FeatureFlagContextProps {
 const FeatureFlagContext = createContext<FeatureFlags>(undefined);
 
 const defaultFeatureFlagValues: FeatureFlags = {
+  /**
+   * This feature flag configures panels to only render their content if they are currently visible. This feature deprecates the
+   * `renderContentAlways` option and completely overrides its value when it is enabled.
+   * it overrides the behvavior of `renderContentAlways`
+   */
   panelLazyLoadContent: false,
 };
 
@@ -25,9 +30,9 @@ export const FeatureFlagContextProvider: FC<FeatureFlagContextProps> = ({
 
   const currentContext = useMemo(
     () => ({
-      ...(defaultFeatureFlagValues || {}),
-      ...(ancestorFeatureFlags || {}),
-      ...(featureFlags || {}),
+      ...defaultFeatureFlagValues,
+      ...ancestorFeatureFlags,
+      ...featureFlags,
     }),
     [featureFlags, ancestorFeatureFlags]
   );
