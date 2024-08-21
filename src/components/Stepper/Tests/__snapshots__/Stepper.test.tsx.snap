@@ -11,6 +11,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "steps-container",
+          "tabindex": "0",
         },
         "children": Array [
           Node {
@@ -25196,9 +25197,11 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
       },
     ],
@@ -25322,6 +25325,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "steps-container",
+          "tabindex": "0",
         },
         "children": Array [
           Node {
@@ -37007,9 +37011,11 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
       },
     ],
@@ -37133,6 +37139,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "steps-container",
+          "tabindex": "0",
         },
         "children": Array [
           Node {
@@ -43571,9 +43578,11 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
       },
     ],
@@ -43697,6 +43706,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "steps-container",
+          "tabindex": "0",
         },
         "children": Array [
           Node {
@@ -58082,9 +58092,11 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
       },
     ],
