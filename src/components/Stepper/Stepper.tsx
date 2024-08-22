@@ -522,7 +522,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                   className={styles.stepsContainer}
                   onScroll={handleScroll}
                   ref={stepsContainerRef}
-                  tabIndex={0}
+                  tabIndex={mergedScrollable ? 0 : null}
                 >
                   <ul className={styles.steps} ref={stepsRef}>
                     {steps.map((step: Step, index: number) => {
