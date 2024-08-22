@@ -17,6 +17,7 @@ import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { Portal } from '../Portal';
 import { FocusTrap } from '../../shared/FocusTrap';
+import { useFeatureFlags } from '../ConfigProvider/FeatureFlagProvider';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useScrollLock } from '../../hooks/useScrollLock';
@@ -119,6 +120,9 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
     } else {
       mergedLocale = panelLocale || props.locale;
     }
+
+    const { panelLazyLoadContent } = useFeatureFlags();
+    const renderContent = panelLazyLoadContent ? visible : renderContentAlways;
 
     const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
       useState<string>(defaultCloseButtonAriaLabelText);
@@ -360,7 +364,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         onClick={stopPropagation}
                         style={getPanelStyle()}
                       >
-                        {renderContentAlways && (
+                        {renderContent && (
                           <>
                             {getHeader()}
                             {getBody()}

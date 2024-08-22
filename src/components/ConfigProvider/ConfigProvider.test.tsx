@@ -13,6 +13,7 @@ import esES from '../Locale/es_ES';
 import iconSet from '../Icon/selection.json';
 import { render } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
+import { useFeatureFlags } from './FeatureFlagProvider';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -271,5 +272,23 @@ describe('ConfigProvider', () => {
       wrapper: ConfigProvider,
     });
     expect(result.current.form).toEqual(undefined);
+  });
+
+  test('Provides feature flag values if provided as a prop', () => {
+    const { result } = renderHook(() => useFeatureFlags(), {
+      wrapper: ({ children }) => (
+        <ConfigProvider featureFlags={{ panelLazyLoadContent: true }}>
+          {children}
+        </ConfigProvider>
+      ),
+    });
+    expect(result.current.panelLazyLoadContent).toBeTruthy();
+  });
+
+  test('Provides default feature flag values if not provided as a prop', () => {
+    const { result } = renderHook(() => useFeatureFlags(), {
+      wrapper: ConfigProvider,
+    });
+    expect(result.current.panelLazyLoadContent).toBeFalsy();
   });
 });
