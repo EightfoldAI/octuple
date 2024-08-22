@@ -1,5 +1,3 @@
-'use client';
-
 import React, {
   createContext,
   FC,
@@ -7,26 +5,30 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
-import LocaleProvider from '../LocaleProvider';
-import { registerFont, registerTheme } from './Theming/styleGenerator';
-import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
-import {
-  IRegisterFont,
-  IRegisterTheme,
-  FontOptions,
-  ThemeOptions,
-} from './Theming';
+
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
-import { ParentComponentsContextProvider } from './ParentComponentsContext';
+import { canUseDocElement } from '../../shared/utilities';
+import { OcFormProvider } from '../Form/Internal';
+import { ValidateMessages } from '../Form/Internal/OcForm.types';
+import defaultLocale from '../Locale/Default';
+import LocaleProvider from '../LocaleProvider';
+import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
+import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { DisabledContextProvider } from './DisabledContext';
+import { FeatureFlagContextProvider } from './FeatureFlagProvider';
 import { GradientContextProvider } from './GradientContext';
+import { ParentComponentsContextProvider } from './ParentComponentsContext';
 import { ShapeContextProvider } from './ShapeContext';
 import { SizeContextProvider } from './SizeContext';
-import { ValidateMessages } from '../Form/Internal/OcForm.types';
-import { OcFormProvider } from '../Form/Internal';
-import defaultLocale from '../Locale/Default';
-import { canUseDocElement } from '../../shared/utilities';
+import {
+  FontOptions,
+  IRegisterFont,
+  IRegisterTheme,
+  ThemeOptions,
+} from './Theming';
+import { registerFont, registerTheme } from './Theming/styleGenerator';
+
+('use client');
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
   Partial<IConfigContext>
@@ -54,6 +56,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
   locale,
   shape,
   size,
+  featureFlags,
   themeOptions: defaultThemeOptions,
 }) => {
   const [fontOptions, setFontOptions] =
@@ -159,6 +162,12 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
       </ParentComponentsContextProvider>
     );
   }
+
+  childNode = (
+    <FeatureFlagContextProvider featureFlags={featureFlags}>
+      {childNode}
+    </FeatureFlagContextProvider>
+  );
 
   return (
     <LocaleReceiver>

@@ -201,6 +201,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
   push?: boolean;
   /**
    * Whether to render Panel content when Panel `visible` is `false`.
+   * @deprecated Use the feature flag panelLazyLoadContent instead.
    * @default true
    */
   renderContentAlways?: boolean;
