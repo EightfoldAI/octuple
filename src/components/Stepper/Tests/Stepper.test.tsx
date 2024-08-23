@@ -163,4 +163,16 @@ describe('Stepper', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  test('Stepper is scrollable', () => {
+    const wrapper = mount(
+      <Stepper
+        {...stepperArgs}
+        size={StepperSize.Small}
+        steps={defaultWorkflow}
+        scrollable
+      />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
