@@ -29,6 +29,12 @@ const defaultOptions: SelectOption[] = [
     wrap: true,
   },
   {
+    iconProps: { path: IconName.mdiFlagVariant },
+    text: 'SupercalifragilisticexpialidociouswithnonaturalbreakSupercalifragilisticexpialidocious',
+    value: 'extralarge',
+    wrap: true,
+  },
+  {
     iconProps: { path: IconName.mdiAccount },
     text: 'Account',
     value: 'account',
