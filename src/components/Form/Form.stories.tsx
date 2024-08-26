@@ -59,125 +59,6 @@ export default {
   },
 } as ComponentMeta<typeof Form>;
 
-const Form_Select_Multiple_Story: ComponentStory<typeof Form> = (args) => {
-  const [form] = Form.useForm();
-  const [selected, setSelected] = useState<string>();
-  const layout = {
-    labelCol: { span: 1 },
-    wrapperCol: { span: 11 },
-  };
-  const actionsLayout = {
-    wrapperCol: { offset: 1, span: 11 },
-  };
-  const defaultOptions: SelectOption[] = [
-    {
-      text: 'Foo',
-      value: 'foo',
-    },
-    {
-      text: 'Bar',
-      value: 'bar',
-    },
-    {
-      text: 'Other',
-      value: 'other',
-    },
-  ];
-
-  const onSelectChange = (options: SelectOption[]) => {
-    if (!options) {
-      return onReset();
-    }
-    switch (options[0]) {
-      case 'foo' as unknown as SelectOption:
-        form.setFieldListValues({
-          note: 'Hello, Foo!',
-          selectValue: 'foo',
-        });
-        setSelected('foo');
-        return;
-      case 'bar' as unknown as SelectOption:
-        form.setFieldListValues({
-          note: 'Hello, Bar!',
-          selectValue: 'bar',
-        });
-        setSelected('bar');
-        return;
-      case 'other' as unknown as SelectOption:
-        form.setFieldListValues({
-          note: 'Hello, Other!',
-          selectValue: 'other',
-        });
-        setSelected('other');
-        return;
-    }
-  };
-
-  const onFinish = (values: any) => {
-    console.log(values);
-  };
-
-  const onReset = () => {
-    form.resetFields();
-    setSelected('');
-  };
-
-  return (
-    <ConfigProvider
-      themeOptions={{ name: 'blue' }}
-      locale={enUS}
-      children={
-        <Stack fullWidth>
-          <Form
-            {...args}
-            {...layout}
-            form={form}
-            name={'control-hooks'}
-            onFinish={onFinish}
-            style={{
-              width: '100%',
-            }}
-          >
-            <Form.Item
-              name={'selectValue'}
-              label={'Select'}
-              rules={[{ required: true }]}
-            >
-              <Select
-                clearable
-                multiple
-                onClear={onReset}
-                onOptionsChange={onSelectChange}
-                options={defaultOptions}
-                placeholder={'Select an option to change the input text.'}
-                textInputProps={{
-                  inputWidth: TextInputWidth.fill,
-                }}
-                filterable
-              />
-            </Form.Item>
-            <Form.Item {...actionsLayout}>
-              <Stack direction={'horizontal'} flexGap={'m'} fullWidth>
-                <Button
-                  htmlType={'submit'}
-                  text={'Submit'}
-                  variant={ButtonVariant.Primary}
-                />
-                <Button
-                  htmlType={'button'}
-                  onClick={onReset}
-                  text={'Reset'}
-                  variant={ButtonVariant.Secondary}
-                />
-              </Stack>
-            </Form.Item>
-          </Form>
-        </Stack>
-      }
-    />
-  );
-};
-
 const Basic_Story: ComponentStory<typeof Form> = (args) => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
@@ -2245,6 +2126,123 @@ const Dynamic_Rules_Story: ComponentStory<typeof Form> = (args) => {
             />
           </Form.Item>
         </Form>
+      }
+    />
+  );
+};
+
+const Form_Select_Multiple_Story: ComponentStory<typeof Form> = (args) => {
+  const [form] = Form.useForm();
+  const [selected, setSelected] = useState<string>();
+  const layout = {
+    labelCol: { span: 1 },
+    wrapperCol: { span: 11 },
+  };
+  const actionsLayout = {
+    wrapperCol: { offset: 1, span: 11 },
+  };
+  const defaultOptions: SelectOption[] = [
+    {
+      text: 'Foo',
+      value: 'foo',
+    },
+    {
+      text: 'Bar',
+      value: 'bar',
+    },
+    {
+      text: 'Other',
+      value: 'other',
+    },
+  ];
+
+  const onSelectChange = (options: SelectOption[]) => {
+    if (!options) {
+      return onReset();
+    }
+    switch (options[0]) {
+      case 'foo' as unknown as SelectOption:
+        form.setFieldListValues({
+          note: 'Hello, Foo!',
+          selectValue: 'foo',
+        });
+        setSelected('foo');
+        return;
+      case 'bar' as unknown as SelectOption:
+        form.setFieldListValues({
+          note: 'Hello, Bar!',
+          selectValue: 'bar',
+        });
+        setSelected('bar');
+        return;
+      case 'other' as unknown as SelectOption:
+        form.setFieldListValues({
+          note: 'Hello, Other!',
+          selectValue: 'other',
+        });
+        setSelected('other');
+        return;
+    }
+  };
+
+  const onFinish = () => {};
+
+  const onReset = () => {
+    form.resetFields();
+    setSelected('');
+  };
+
+  return (
+    <ConfigProvider
+      themeOptions={{ name: 'blue' }}
+      locale={enUS}
+      children={
+        <Stack fullWidth>
+          <Form
+            {...args}
+            {...layout}
+            form={form}
+            name={'control-hooks'}
+            onFinish={onFinish}
+            style={{
+              width: '100%',
+            }}
+          >
+            <Form.Item
+              name={'selectValue'}
+              label={'Select'}
+              rules={[{ required: true }]}
+            >
+              <Select
+                clearable
+                multiple
+                onClear={onReset}
+                onOptionsChange={onSelectChange}
+                options={defaultOptions}
+                placeholder={'Select an option to change the input text.'}
+                textInputProps={{
+                  inputWidth: TextInputWidth.fill,
+                }}
+                filterable
+              />
+            </Form.Item>
+            <Form.Item {...actionsLayout}>
+              <Stack direction={'horizontal'} flexGap={'m'} fullWidth>
+                <Button
+                  htmlType={'submit'}
+                  text={'Submit'}
+                  variant={ButtonVariant.Primary}
+                />
+                <Button
+                  htmlType={'button'}
+                  onClick={onReset}
+                  text={'Reset'}
+                  variant={ButtonVariant.Secondary}
+                />
+              </Stack>
+            </Form.Item>
+          </Form>
+        </Stack>
       }
     />
   );
