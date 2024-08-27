@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.10](https://github.com/EightfoldAI/octuple/compare/v2.51.9...v2.51.10) (2024-08-27)
+
+### Features
+
+- feature flags: Add feature flag config for Octuple ([#875](https://github.com/EightfoldAI/octuple/issues/875)) ([2e2580f](https://github.com/EightfoldAI/octuple/commits/2e2580f92c601f67a92db7737c87ff363f3c71dc))
+
+### Bug Fixes
+
+- accordion: typo in button role ([#882](https://github.com/EightfoldAI/octuple/issues/882)) ([5ee126e](https://github.com/EightfoldAI/octuple/commits/5ee126ef40d2ee7d580e144c83fcac71985ba3b7))
+- make stepper region focusable if scrollable ([#876](https://github.com/EightfoldAI/octuple/issues/876)) ([da5e5c3](https://github.com/EightfoldAI/octuple/commits/da5e5c3529a36acae715c44b4e82a31b8ec67416))
+- menuItem: Add wrap for long text in menu items ([#879](https://github.com/EightfoldAI/octuple/issues/879)) ([9652629](https://github.com/EightfoldAI/octuple/commits/9652629817ba192fc5b5b0435803da2765685d69))
+- select: address selected items getting unselected when expanded. ([#881](https://github.com/EightfoldAI/octuple/issues/881)) ([a76d32e](https://github.com/EightfoldAI/octuple/commits/a76d32e558f62cc2a59537eb230df92ec0161f8c))
+- select: remove toggle button from tab order ([#883](https://github.com/EightfoldAI/octuple/issues/883)) ([cb0ba93](https://github.com/EightfoldAI/octuple/commits/cb0ba93b7be55412f9044f091b898a6f2cfdec7b))
+
 ### [2.51.9](https://github.com/EightfoldAI/octuple/compare/v2.51.8...v2.51.9) (2024-08-20)
 
 ### Bug Fixes
