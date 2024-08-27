@@ -1416,4 +1416,84 @@ describe('Form', () => {
       container.querySelector('.form-item-explain-error')
     ).not.toBeInTheDocument();
   });
+
+  test('should not clear selected item when keboard enter key is pressed on dropdown', async () => {
+    const options = [
+      { text: 'Option 1', value: 'option1', 'data-testid': 'option1-test-id' },
+      { text: 'Option 2', value: 'option2', 'data-testid': 'option2-test-id' },
+      { text: 'Option 3', value: 'option3', 'data-testid': 'option3-test-id' },
+    ];
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const layout = {
+        labelCol: { span: 1 },
+        wrapperCol: { span: 11 },
+      };
+      const actionsLayout = {
+        wrapperCol: { offset: 1, span: 11 },
+      };
+
+      return (
+        <Form
+          {...layout}
+          form={form}
+          name={'control-hooks'}
+          onFinish={() => {}}
+          style={{
+            width: '100%',
+          }}
+        >
+          <Form.Item
+            name={'selectValue'}
+            label={'Select'}
+            rules={[{ required: true }]}
+          >
+            <Select
+              clearable
+              multiple
+              onClear={() => {}}
+              onOptionsChange={() => {}}
+              options={options}
+              placeholder={'Select test'}
+              filterable
+            />
+          </Form.Item>
+          <Form.Item {...actionsLayout}>
+            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <PrimaryButton
+              htmlType={'button'}
+              onClick={() => {}}
+              text={'Reset'}
+            />
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const { container, getAllByRole, getByText } = render(<Demo />);
+    const select = container.querySelector('.select-input');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    const option1 = await waitFor(() => getByText('Option 1'));
+    fireEvent.click(option1);
+    const option2 = await waitFor(() => getByText('Option 2'));
+    fireEvent.click(option2);
+    let pills = container.querySelectorAll('.multi-select-pill');
+    expect(pills.length).toEqual(2);
+    select.focus();
+    fireEvent.keyDown(container.querySelector('.select-input'), {
+      key: 'Escape',
+    });
+    await sleep(200);
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(select).toHaveFocus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    await sleep(200);
+    expect(select).toHaveFocus();
+    pills = container.querySelectorAll('.multi-select-pill');
+    expect(pills.length).toEqual(2);
+  });
 });
