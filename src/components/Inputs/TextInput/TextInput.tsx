@@ -482,8 +482,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             ? iconButtonProps.onClick
             : null
         }
+        role={iconButtonProps.role}
         shape={inputShapeToButtonShapeMap.get(shape)}
         size={inputSizeToButtonSizeMap.get(mergedSize)}
+        tabIndex={iconButtonProps.tabIndex}
         transparent
         variant={ButtonVariant.SystemUI}
       />
@@ -548,8 +550,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     path: iconButtonProps.iconProps.path,
                   }}
                   id={iconButtonProps.id}
+                  role={iconButtonProps.role}
                   shape={inputShapeToButtonShapeMap.get(shape)}
                   size={inputSizeToButtonSizeMap.get(mergedSize)}
+                  tabIndex={iconButtonProps.tabIndex}
                   variant={ButtonVariant.SystemUI}
                 />
               )}
