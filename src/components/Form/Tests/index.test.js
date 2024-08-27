@@ -1417,7 +1417,7 @@ describe('Form', () => {
     ).not.toBeInTheDocument();
   });
 
-  test('should not clear selected item when keboard enter key is pressed on dropdown', async () => {
+  test('should not clear selected item when keyboard enter key is pressed on dropdown', async () => {
     const options = [
       { text: 'Option 1', value: 'option1', 'data-testid': 'option1-test-id' },
       { text: 'Option 2', value: 'option2', 'data-testid': 'option2-test-id' },
@@ -1475,6 +1475,9 @@ describe('Form', () => {
     const select = container.querySelector('.select-input');
     select.focus();
     fireEvent.keyDown(select, { key: 'Enter' });
+    await waitFor(() =>
+      expect(container.querySelector('.dropdown-wrapper')).toBeTruthy()
+    );
     const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
     const option1 = await waitFor(() => getByText('Option 1'));
