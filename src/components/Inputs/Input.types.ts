@@ -91,6 +91,15 @@ export interface InputIconButtonProps {
    * The input icon button onClick event handler.
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * The input icon button role.
+   */
+  role?: string;
+  /**
+   * The tabIndex for the icon button. Default is unset (0 since its a button).
+   * Leverage this to programatically disable the focus for the button as needed.
+   */
+  tabIndex?: number;
 }
 
 export interface ReadOnlyProps {
