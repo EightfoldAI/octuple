@@ -778,6 +778,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
               ? toggleButtonAriaLabel
               : 'Toggle dropdown',
             htmlType: 'button',
+            // The button does not need to be the tab order as
+            // the input itself provides the focus and action.
+            tabIndex: -1,
+            role: 'presentation',
             iconProps: {
               path: dropdownVisible
                 ? IconName.mdiChevronUp
