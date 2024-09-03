@@ -56,7 +56,6 @@ exports[`Accordion Accordion is large 1`] = `
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
@@ -153,7 +152,6 @@ exports[`Accordion Accordion is medium 1`] = `
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
@@ -250,7 +248,6 @@ exports[`Accordion Accordion is not bordered 1`] = `
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
@@ -347,7 +344,6 @@ exports[`Accordion Accordion is pill shaped 1`] = `
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
@@ -444,7 +440,6 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
@@ -636,7 +631,6 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
@@ -733,7 +727,6 @@ exports[`Accordion Renders without crashing 1`] = `
         aria-controls="myAccordionId-content"
         aria-disabled="false"
         class="button button-neutral button-medium round-shape icon-left"
-        role="presentation"
         tabindex="-1"
       >
         <span
