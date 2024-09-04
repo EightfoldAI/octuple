@@ -203,7 +203,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
       },
       disabled,
       expandAriaLabelText: defaultExpandAriaLabelText,
-      expandButtonProps,
+      expandButtonProps: defaultExpandButtonProps,
       expanded = false,
       expandIconProps = { path: IconName.mdiChevronDown },
       gradient = false,
@@ -252,6 +252,11 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
     const [expandAriaLabelText, setExpandAriaLabelText] = useState<string>(
       defaultExpandAriaLabelText
     );
+
+    const expandButtonProps = { ...defaultExpandButtonProps };
+    if (!expandButtonProps['ariaLabel']) {
+      expandButtonProps['ariaLabel'] = 'Toggle accordion';
+    }
 
     // Locs: if the prop isn't provided use the loc defaults.
     // If the mergedLocale is changed, update.

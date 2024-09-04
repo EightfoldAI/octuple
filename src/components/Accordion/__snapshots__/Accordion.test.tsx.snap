@@ -55,6 +55,7 @@ exports[`Accordion Accordion is large 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
@@ -151,6 +152,7 @@ exports[`Accordion Accordion is medium 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
@@ -247,6 +249,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
@@ -343,6 +346,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
@@ -439,6 +443,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
@@ -630,6 +635,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
@@ -726,6 +732,7 @@ exports[`Accordion Renders without crashing 1`] = `
       <button
         aria-controls="myAccordionId-content"
         aria-disabled="false"
+        aria-label="Toggle accordion"
         class="button button-neutral button-medium round-shape icon-left"
         tabindex="-1"
       >
