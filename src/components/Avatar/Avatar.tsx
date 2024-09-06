@@ -368,7 +368,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       theme,
       tooltipProps = undefined,
       type = 'square',
-      tabIndex = 0 , 
+      tabIndex = 0,
     },
     ref: Ref<HTMLDivElement>
   ) => {
