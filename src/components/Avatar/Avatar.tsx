@@ -335,7 +335,7 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         style={style}
-       tabIndex={tabIndex}
+        tabIndex={tabIndex}
       >
         <Icon size={fontSize} {...iconProps} />
         {children}
