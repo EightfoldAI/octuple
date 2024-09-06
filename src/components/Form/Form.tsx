@@ -97,7 +97,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
 
     let defaultScrollToFirstError: Options = { block: 'nearest' };
 
-    if (scrollToFirstError && errorInfo.errorFields.length) {
+    if (scrollToFirstError || errorInfo.errorFields.length) {
       if (typeof scrollToFirstError === 'object') {
         defaultScrollToFirstError = scrollToFirstError;
       }

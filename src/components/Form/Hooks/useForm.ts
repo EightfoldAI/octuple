@@ -65,6 +65,11 @@ export default function useForm<Values = any>(
               block: 'nearest',
               ...options,
             });
+            if (node.tagName !== 'INPUT') {
+              const focusableElement = node.querySelector('input');
+              focusableElement?.focus();
+            }
+            node?.focus();
           }
         },
         getFieldInstance: (name: OcNamePath) => {
