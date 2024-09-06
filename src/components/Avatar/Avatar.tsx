@@ -256,7 +256,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
       randomiseTheme,
       style,
       theme,
-      tabIndex = 0 , 
+      tabIndex = 0,
     },
     ref: Ref<HTMLDivElement>
   ) => {
