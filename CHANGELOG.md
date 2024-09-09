@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.11](https://github.com/EightfoldAI/octuple/compare/v2.51.10...v2.51.11) (2024-09-09)
+
+### Bug Fixes
+
+- accordion: remove role presentation and add default aria-label on expand toggle button for a11y ([#887](https://github.com/EightfoldAI/octuple/issues/887)) ([d30dd08](https://github.com/EightfoldAI/octuple/commits/d30dd080c5df528e4e6bbdccb1d85e3d729fc1bc))
+- formError: fixed focus not moving to 1st required input on error ([#889](https://github.com/EightfoldAI/octuple/issues/889)) ([2a60c4d](https://github.com/EightfoldAI/octuple/commits/2a60c4d998a721eedf045b6a1cbc4fb071d5e9be))
+
 ### [2.51.10](https://github.com/EightfoldAI/octuple/compare/v2.51.9...v2.51.10) (2024-08-27)
 
 ### Features
