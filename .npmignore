@@ -18,6 +18,7 @@ stats.json
 tsconfig.json
 webpack.common.js
 webpack.dev.js
+webpack.analyze.js
 webpack.prod.js
 yarn.lock
 yarn-debug.log*
