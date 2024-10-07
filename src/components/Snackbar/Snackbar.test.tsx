@@ -51,30 +51,40 @@ describe('Snackbar', () => {
     expect(wrapper.queryByText(content)).toBe(null);
   });
 
-  test('snack.serve generates an ID when props.id is missing', () => {
-    let id;
+  test('snack.serve generates a close function when props.id is missing', () => {
+    let closeFunction: VoidFunction;
 
     act(() => {
-      id = snack.serve({
+      closeFunction = snack.serve({
         content,
       });
     });
 
-    expect(id).toBeDefined();
-    expect(typeof id).toBe('string');
+    expect(closeFunction).toBeDefined();
+    expect(typeof closeFunction).toBe('function');
   });
 
   test('snack.serve uses provided props.id', () => {
-    const customId = 'custom-id';
-    let id;
-
+    let closeFunction: VoidFunction;
+    expect(wrapper.queryByText(content)).toBe(null);
     act(() => {
-      id = snack.serve({
+      closeFunction = snack.serve({
         content,
-        id: customId,
+        closable: true,
       });
     });
-    expect(id).toBe(customId);
+    jest.runAllTimers();
+
+    // Snack should be visible as it is closable
+    expect(wrapper.queryByText(content)).not.toBe(null);
+
+    // Close the snack
+    act(() => {
+      closeFunction();
+    });
+
+    // Snack should be hidden
+    expect(wrapper.queryByText(content)).toBe(null);
   });
 
   test('test snack.serveNeutral', () => {

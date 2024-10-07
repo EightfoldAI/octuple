@@ -95,18 +95,22 @@ const Basic_Story: ComponentStory<typeof Snackbar> = (args) => (
 );
 
 const Closable_Story: ComponentStory<typeof Snackbar> = (args) => {
-  const [snackId, setSnackId] = useState<string[]>([]);
+  type closeSnack = () => void;
+  const [closeFunctions, setCloseFunctions] = useState<closeSnack[]>([]);
 
   const serveSnack = () => {
-    const count = snackId.length;
-    const id = snack.serve({ ...args, content: `${args.content} [${count}]` });
-    setSnackId([...snackId, id]);
+    const count = closeFunctions.length;
+    const close = snack.serve({
+      ...args,
+      content: `${args.content} [${count}]`,
+    });
+    setCloseFunctions([...closeFunctions, close]);
   };
 
   const closeLastSnack = () => {
-    if (snackId) {
-      snack.eat(snackId[snackId.length - 1]);
-      setSnackId(snackId.slice(0, -1));
+    if (closeFunctions.length > 0) {
+      closeFunctions[closeFunctions.length - 1]();
+      setCloseFunctions(closeFunctions.slice(0, -1));
     }
   };
 
@@ -124,7 +128,7 @@ const Closable_Story: ComponentStory<typeof Snackbar> = (args) => {
         onClick={closeLastSnack}
         size={ButtonSize.Small}
         variant={ButtonVariant.Neutral}
-        disabled={snackId.length === 0}
+        disabled={closeFunctions.length === 0}
       />
       <SnackbarContainer />
     </>
