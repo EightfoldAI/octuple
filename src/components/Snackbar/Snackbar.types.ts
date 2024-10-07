@@ -44,21 +44,27 @@ export interface ISnack {
   /**
    * Serves a snack.
    */
-  serve: (props: SnackbarProps) => void;
+  serve: (props: SnackbarProps) => string;
   /**
    * Serves a neutral snack.
    */
-  serveNeutral: (props: SnackbarProps) => void;
+  serveNeutral: (props: SnackbarProps) => string;
   /**
    * Serves a positive snack.
    */
-  servePositive: (props: SnackbarProps) => void;
+  servePositive: (props: SnackbarProps) => string;
   /**
    * Serves a warning snack.
    */
-  serveWarning: (props: SnackbarProps) => void;
+  serveWarning: (props: SnackbarProps) => string;
   /**
    * Serves a disruptive snack.
    */
-  serveDisruptive: (props: SnackbarProps) => void;
+  serveDisruptive: (props: SnackbarProps) => string;
+  /**
+   * Eat a snack.
+   * @param snackId - The id of the snack to eat.
+   * @returns void
+   */
+  eat: (snackId: string) => void;
 }

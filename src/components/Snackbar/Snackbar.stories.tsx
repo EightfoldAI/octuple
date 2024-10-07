@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { snack, Snackbar, SnackbarContainer } from './';
-import { Button, ButtonSize } from '../Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { InfoBarType } from '../InfoBar';
 import { IconName } from '../Icon';
 
@@ -94,16 +94,42 @@ const Basic_Story: ComponentStory<typeof Snackbar> = (args) => (
   </>
 );
 
-const Closable_Story: ComponentStory<typeof Snackbar> = (args) => (
-  <>
-    <Button
-      text="Serve closable snack"
-      onClick={() => snack.serve({ ...args })}
-      size={ButtonSize.Small}
-    />
-    <SnackbarContainer />
-  </>
-);
+const Closable_Story: ComponentStory<typeof Snackbar> = (args) => {
+  const [snackId, setSnackId] = useState<string[]>([]);
+
+  const serveSnack = () => {
+    const count = snackId.length;
+    const id = snack.serve({ ...args, content: `${args.content} [${count}]` });
+    setSnackId([...snackId, id]);
+  };
+
+  const closeLastSnack = () => {
+    if (snackId) {
+      snack.eat(snackId[snackId.length - 1]);
+      setSnackId(snackId.slice(0, -1));
+    }
+  };
+
+  return (
+    <>
+      <Button
+        text="Serve closable snack"
+        onClick={serveSnack}
+        size={ButtonSize.Small}
+      />
+      <br />
+      <br />
+      <Button
+        text="Close last snack"
+        onClick={closeLastSnack}
+        size={ButtonSize.Small}
+        variant={ButtonVariant.Neutral}
+        disabled={snackId.length === 0}
+      />
+      <SnackbarContainer />
+    </>
+  );
+};
 
 const With_Action_Story: ComponentStory<typeof Snackbar> = (args) => (
   <>
@@ -164,6 +190,7 @@ Basic.args = {
 
 Closable.args = {
   ...snackArgs,
+  id: undefined,
   closable: true,
   closeButtonProps: {
     ariaLabel: 'Close',

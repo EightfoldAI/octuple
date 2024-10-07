@@ -11,8 +11,8 @@ export const SNACK_EVENTS: Record<string, string> = {
   EAT: 'eatSnack',
 };
 
-export const serve = (props: SnackbarProps): void => {
-  const id = generateId();
+export const serve = (props: SnackbarProps): string => {
+  const id = props.id ?? generateId();
   const serveSnackEvent = new CustomEvent<SnackbarProps>(SNACK_EVENTS.SERVE, {
     bubbles: true,
     cancelable: false,
@@ -30,6 +30,7 @@ export const serve = (props: SnackbarProps): void => {
       eat(id);
     }, props.duration || 3000);
   }
+  return id;
 };
 
 export const eat = (snackId: string): void => {
@@ -73,4 +74,5 @@ export const snack: ISnack = {
   servePositive,
   serveWarning,
   serveDisruptive,
+  eat,
 };

@@ -51,6 +51,32 @@ describe('Snackbar', () => {
     expect(wrapper.queryByText(content)).toBe(null);
   });
 
+  test('snack.serve generates an ID when props.id is missing', () => {
+    let id;
+
+    act(() => {
+      id = snack.serve({
+        content,
+      });
+    });
+
+    expect(id).toBeDefined();
+    expect(typeof id).toBe('string');
+  });
+
+  test('snack.serve uses provided props.id', () => {
+    const customId = 'custom-id';
+    let id;
+
+    act(() => {
+      id = snack.serve({
+        content,
+        id: customId,
+      });
+    });
+    expect(id).toBe(customId);
+  });
+
   test('test snack.serveNeutral', () => {
     expect(wrapper.queryByText(content)).toBe(null);
     act(() => {
