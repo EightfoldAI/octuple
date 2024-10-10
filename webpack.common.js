@@ -3,6 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
+// Source maps are resource heavy and can cause out of memory issue for large source files.
+/**
+ * Usage GENERATE_SOURCEMAPS=1 <command>
+ */
+const shouldUseSourceMaps = !!process.env.GENERATE_SOURCEMAPS || false;
+
 module.exports = (_, { mode }) => ({
   entry: {
     octuple: [path.resolve(__dirname, 'src/octuple.ts')],
@@ -21,7 +27,9 @@ module.exports = (_, { mode }) => ({
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src'),
         use: [
-          mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+          mode === 'production' || shouldUseSourceMaps
+            ? MiniCssExtractPlugin.loader
+            : 'style-loader',
           '@teamsupercell/typings-for-css-modules-loader',
           {
             loader: 'css-loader',
@@ -30,10 +38,21 @@ module.exports = (_, { mode }) => ({
                 localIdentName: '[local]_[hash:base64:7]',
                 exportLocalsConvention: 'camelCase',
               },
+              sourceMap: shouldUseSourceMaps,
             },
           },
-          'resolve-url-loader',
-          'sass-loader',
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: shouldUseSourceMaps,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: shouldUseSourceMaps,
+            },
+          },
           {
             loader: 'style-resources-loader',
             options: {

@@ -10,6 +10,7 @@ tsconfig.json
 yarn.lock
 webpack.common.js
 webpack.dev.js
+webpack.analyze.js
 webpack.prod.js
 MANIFEST.txt
 npm-debug.log*
