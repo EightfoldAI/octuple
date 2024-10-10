@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.51.12](https://github.com/EightfoldAI/octuple/compare/v2.51.11...v2.51.12) (2024-10-10)
+
+### Bug Fixes
+
+- pills: Remove pointer-events: none from readonly pill ([#895](https://github.com/EightfoldAI/octuple/issues/895)) ([dc4c703](https://github.com/EightfoldAI/octuple/commits/dc4c703b6f1820a3f8fda87921ef6308e171f877))
+- snack: Use ID from SnackBarProps and return a close callback fn ([#894](https://github.com/EightfoldAI/octuple/issues/894)) ([2619371](https://github.com/EightfoldAI/octuple/commits/261937143043a8310dc7e7d6b1349a9d7ecd2406))
+
 ### [2.51.11](https://github.com/EightfoldAI/octuple/compare/v2.51.10...v2.51.11) (2024-09-09)
 
 ### Bug Fixes
