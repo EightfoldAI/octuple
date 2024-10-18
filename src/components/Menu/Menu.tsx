@@ -30,6 +30,7 @@ export const Menu: FC<MenuProps> = ({
   style,
   subHeader, // TODO: Remove in v3.0.0
   variant = MenuVariant.neutral,
+  listAriaLabel,
   ...rest
 }) => {
   const htmlDir: string = useCanvasDirection();
@@ -130,6 +131,7 @@ export const Menu: FC<MenuProps> = ({
       listType={listType}
       role={role}
       style={style}
+      listAriaLabel={listAriaLabel}
     />
   );
 };

@@ -34,6 +34,7 @@ export const List = <T extends any>({
   role,
   itemProps,
   getItem,
+  listAriaLabel,
   ...rest
 }: ListProps<T>) => {
   const htmlDir: string = useCanvasDirection();
@@ -252,13 +253,23 @@ export const List = <T extends any>({
     <div {...rest} className={classNames} style={style}>
       {getHeader()}
       {listType === 'ul' && (
-        <ul role={role} className={containerClasses} style={{ ...listStyle }}>
+        <ul
+          role={role}
+          aria-label={listAriaLabel}
+          className={containerClasses}
+          style={{ ...listStyle }}
+        >
           {getItems()}
           {!!renderAdditionalItem && getAdditionalItem()}
         </ul>
       )}
       {listType === 'ol' && (
-        <ol role={role} className={containerClasses} style={{ ...listStyle }}>
+        <ol
+          role={role}
+          aria-label={listAriaLabel}
+          className={containerClasses}
+          style={{ ...listStyle }}
+        >
           {getItems()}
           {!!renderAdditionalItem && getAdditionalItem()}
         </ol>

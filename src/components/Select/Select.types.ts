@@ -222,4 +222,12 @@ export interface SelectProps
    * The Select toggle dropdown chevron button aria label.
    */
   toggleButtonAriaLabel?: string;
+  /**
+   * Role of the dropdown div.
+   */
+  dropDownRole?: string;
+  /**
+   * aria-label of the list inside Dropdown menu.
+   */
+  listAriaLabel?: string;
 }
