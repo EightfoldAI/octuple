@@ -109,6 +109,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
       theme,
       themeContainerId,
       toggleButtonAriaLabel,
+      dropDownRole,
+      listAriaLabel,
       'data-test-id': dataTestId,
     },
     ref: Ref<HTMLDivElement>
@@ -677,6 +679,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               toggleOption(option);
             }}
             role="listbox"
+            listAriaLabel={listAriaLabel}
           />
         );
       } else {
@@ -873,6 +876,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   options?.length > 0)
               }
               ref={dropdownRef}
+              role={dropDownRole ? dropDownRole : 'listbox'}
             >
               <div className={styles.selectInputWrapper}>
                 {/* When Dropdown is visible, place Pills in the reference element */}
@@ -881,6 +885,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   ref={inputRef}
                   aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
+                  aria-expanded={dropdownVisible}
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}

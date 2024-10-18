@@ -74,6 +74,10 @@ export interface MenuProps
    * @default MenuVariant.neutral
    */
   variant?: MenuVariant;
+  /**
+   * aria-label for List (ul/ol) inside Menu
+   */
+  listAriaLabel?: string;
 }
 
 export interface DropdownMenuProps extends MenuProps {

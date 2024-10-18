@@ -86,4 +86,8 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    * @param item
    */
   rowKey?: (item: T) => Key | keyof T;
+  /**
+   * aria-label to be applied to list ul/ol.
+   */
+  listAriaLabel?: string;
 }
