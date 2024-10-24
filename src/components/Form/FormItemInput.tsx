@@ -21,6 +21,7 @@ const FormItemInput: FC<FormItemInputProps & FormItemInputMiscProps> = (
     help,
     marginBottom,
     onErrorVisibleChanged,
+    errorMessageId,
   } = props;
   const formContext = useContext(FormContext);
 
@@ -48,6 +49,7 @@ const FormItemInput: FC<FormItemInputProps & FormItemInputMiscProps> = (
         <FormItemStatusContext.Provider value={formItemContext}>
           <ErrorList
             errors={errors}
+            errorMessageId={errorMessageId}
             warnings={warnings}
             help={help}
             helpStatus={status}

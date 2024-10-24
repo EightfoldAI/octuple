@@ -108,9 +108,9 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
-        role="presenation"
         tabIndex={-1}
         aria-controls={`${id}-content`}
+        ariaLabel={expanded ? expandAriaLabelText : collapseAriaLabelText}
         disabled={disabled}
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}

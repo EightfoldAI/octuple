@@ -20,6 +20,7 @@
 
   &.wrap {
     white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   $text-font-size-map: (

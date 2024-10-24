@@ -50,6 +50,7 @@ LoadedCheerio {
                                       Node {
                                         "attribs": Object {
                                           "aria-disabled": "false",
+                                          "aria-invalid": "false",
                                           "class": "input-medium left-icon clear-not-visible in-form-item",
                                           "id": "lola",
                                           "role": "textbox",
@@ -102,6 +103,7 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "aria-disabled": undefined,
+                                          "aria-invalid": undefined,
                                           "class": undefined,
                                           "id": undefined,
                                           "role": undefined,
@@ -111,6 +113,7 @@ LoadedCheerio {
                                         },
                                         "x-attribsPrefix": Object {
                                           "aria-disabled": undefined,
+                                          "aria-invalid": undefined,
                                           "class": undefined,
                                           "id": undefined,
                                           "role": undefined,
@@ -150,6 +153,7 @@ LoadedCheerio {
                                         "prev": Node {
                                           "attribs": Object {
                                             "aria-disabled": "false",
+                                            "aria-invalid": "false",
                                             "class": "input-medium left-icon clear-not-visible in-form-item",
                                             "id": "lola",
                                             "role": "textbox",
@@ -166,6 +170,7 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "id": undefined,
                                             "role": undefined,
@@ -175,6 +180,7 @@ LoadedCheerio {
                                           },
                                           "x-attribsPrefix": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "id": undefined,
                                             "role": undefined,

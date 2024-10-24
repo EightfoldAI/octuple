@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React, { useState } from 'react';
+
+import { Button, ButtonVariant } from '../Button';
+import { ConfigProvider } from '../ConfigProvider';
+import { FeatureFlagContextProvider } from '../ConfigProvider/FeatureFlagProvider';
+import { IconName } from '../Icon';
 import { Panel, PanelSize } from './';
 import { PanelHeader } from './PanelHeader';
-import { Button, ButtonVariant } from '../Button';
-import { IconName } from '../Icon';
 
 export default {
   title: 'Panel',
@@ -117,8 +120,33 @@ export default {
       options: ['top', 'right', 'bottom', 'left'],
       control: { type: 'radio' },
     },
+    panelLazyLoadContent: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
   },
+  decorators: [
+    (Story, context) => (
+      <ConfigProvider
+        featureFlags={{
+          panelLazyLoadContent: context.args.panelLazyLoadContent,
+        }}
+      >
+        <Story />
+      </ConfigProvider>
+    ),
+  ],
 } as ComponentMeta<typeof Panel>;
+
+const FeatureFlag_Story: ComponentStory<typeof FeatureFlagContextProvider> = (
+  args
+) => {
+  return (
+    <ConfigProvider featureFlags={args.featureFlags}>
+      {args.children}
+    </ConfigProvider>
+  );
+};
 
 const Panel_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -405,6 +433,7 @@ const panelArgs: Object = {
   footerClassNames: 'my-panel-footer-class',
   autoFocus: true,
   focusTrap: true,
+  featureFlags: undefined,
 };
 
 Small.args = {

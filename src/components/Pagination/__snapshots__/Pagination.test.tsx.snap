@@ -37,6 +37,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
         <button
           aria-current="true"
           aria-disabled="false"
+          aria-label="page 1"
           class="pagination-button active button button-neutral button-medium"
         >
           <span
@@ -50,6 +51,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 2"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -63,6 +65,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 3"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -76,6 +79,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 4"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -89,6 +93,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 5"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -235,6 +240,7 @@ exports[`Pagination Pagination should render normally 1`] = `
         <button
           aria-current="true"
           aria-disabled="false"
+          aria-label="page 1"
           class="pagination-button active button button-neutral button-medium"
         >
           <span
@@ -248,6 +254,7 @@ exports[`Pagination Pagination should render normally 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 2"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -261,6 +268,7 @@ exports[`Pagination Pagination should render normally 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 3"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -274,6 +282,7 @@ exports[`Pagination Pagination should render normally 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 4"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -287,6 +296,7 @@ exports[`Pagination Pagination should render normally 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 5"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -406,6 +416,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 1"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -419,6 +430,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 2"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -432,6 +444,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 3"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -445,6 +458,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
         <button
           aria-current="true"
           aria-disabled="false"
+          aria-label="page 4"
           class="pagination-button active button button-neutral button-medium"
         >
           <span
@@ -493,6 +507,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
           >
             <input
               aria-disabled="false"
+              aria-invalid="false"
               class="editor input-medium pill-shape left-icon clear-not-visible"
               id="input-"
               max="4"
@@ -553,6 +568,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 1"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -566,6 +582,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 2"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -579,6 +596,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 3"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -592,6 +610,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 4"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -605,6 +624,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="true"
           aria-disabled="false"
+          aria-label="page 5"
           class="pagination-button active button button-neutral button-medium"
         >
           <span
@@ -618,6 +638,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 6"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -631,6 +652,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 7"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -644,6 +666,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 8"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -657,6 +680,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 9"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -670,6 +694,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         <button
           aria-current="false"
           aria-disabled="false"
+          aria-label="page 10"
           class="pagination-button button button-neutral button-medium"
         >
           <span
@@ -717,6 +742,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
           >
             <input
               aria-disabled="false"
+              aria-invalid="false"
               class="editor input-medium pill-shape left-icon clear-not-visible"
               id="input-"
               max="10"

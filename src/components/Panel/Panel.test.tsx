@@ -6,6 +6,8 @@ import { Panel } from './';
 import { Button, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { render } from '@testing-library/react';
+import { ConfigProvider } from '../ConfigProvider';
+import { FeatureFlagContextProvider } from '../ConfigProvider/FeatureFlagProvider';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -162,5 +164,53 @@ describe('Panel', () => {
       </Panel>
     );
     expect(queryByText('Content is not always rendered')).toBeNull();
+  });
+
+  test('Should not lazy load content when panelLazyLoadContent is false', () => {
+    const { queryByText } = render(
+      <FeatureFlagContextProvider
+        featureFlags={{ panelLazyLoadContent: false }}
+      >
+        <Panel>
+          <div>Content is not always rendered</div>
+        </Panel>
+      </FeatureFlagContextProvider>
+    );
+    expect(queryByText('Content is not always rendered')).toBeTruthy();
+  });
+
+  test('Should not render content when panelLazyLoadContent is true and panel is hidden', () => {
+    const { queryByText } = render(
+      <FeatureFlagContextProvider featureFlags={{ panelLazyLoadContent: true }}>
+        <Panel visible={false}>
+          <div>Content is not always rendered</div>
+        </Panel>
+      </FeatureFlagContextProvider>
+    );
+    expect(queryByText('Content is not always rendered')).toBeNull();
+  });
+
+  test('Should render content when panelLazyLoadContent is true and panel is visible', () => {
+    const { queryByText } = render(
+      <FeatureFlagContextProvider featureFlags={{ panelLazyLoadContent: true }}>
+        <Panel visible>
+          <div>Content is not always rendered</div>
+        </Panel>
+      </FeatureFlagContextProvider>
+    );
+    expect(queryByText('Content is not always rendered')).toBeTruthy();
+  });
+
+  test('Should respect render content always when panelLazyLoadContent is false', () => {
+    const { queryByText } = render(
+      <FeatureFlagContextProvider
+        featureFlags={{ panelLazyLoadContent: false }}
+      >
+        <Panel renderContentAlways>
+          <div>Content is not always rendered</div>
+        </Panel>
+      </FeatureFlagContextProvider>
+    );
+    expect(queryByText('Content is not always rendered')).toBeTruthy();
   });
 });

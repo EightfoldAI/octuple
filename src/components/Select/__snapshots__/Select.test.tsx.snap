@@ -26,6 +26,7 @@ exports[`Select Renders empty options in multiple mode without crashing 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select multiple test"
@@ -45,6 +46,8 @@ exports[`Select Renders empty options in multiple mode without crashing 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -100,6 +103,7 @@ exports[`Select Renders empty options in single mode without crashing 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select single test"
@@ -119,6 +123,8 @@ exports[`Select Renders empty options in single mode without crashing 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -174,6 +180,7 @@ exports[`Select Renders null options in multiple mode without crashing 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select multiple test"
@@ -193,6 +200,8 @@ exports[`Select Renders null options in multiple mode without crashing 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -248,6 +257,7 @@ exports[`Select Renders null options in single mode without crashing 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select single test"
@@ -267,6 +277,8 @@ exports[`Select Renders null options in single mode without crashing 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -322,6 +334,7 @@ exports[`Select Renders with default value 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select"
@@ -341,6 +354,8 @@ exports[`Select Renders with default value 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -466,6 +481,7 @@ exports[`Select Renders with default values when multiple 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder=""
@@ -485,6 +501,8 @@ exports[`Select Renders with default values when multiple 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -540,6 +558,7 @@ exports[`Select Renders without crashing 1`] = `
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
+                aria-invalid="false"
                 class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
                 id="input-"
                 placeholder="Select test"
@@ -559,6 +578,8 @@ exports[`Select Renders without crashing 1`] = `
                   aria-disabled="false"
                   aria-label="Toggle dropdown"
                   class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                  role="presentation"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -613,6 +634,7 @@ exports[`Select Select is large 1`] = `
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-invalid="false"
               class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -632,6 +654,8 @@ exports[`Select Select is large 1`] = `
                 aria-disabled="false"
                 aria-label="Toggle dropdown"
                 class="icon-button right-icon button button-system-ui transparent button-large icon-left"
+                role="presentation"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -685,6 +709,7 @@ exports[`Select Select is medium 1`] = `
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-invalid="false"
               class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -704,6 +729,8 @@ exports[`Select Select is medium 1`] = `
                 aria-disabled="false"
                 aria-label="Toggle dropdown"
                 class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                role="presentation"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -757,6 +784,7 @@ exports[`Select Select is pill shaped 1`] = `
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-invalid="false"
               class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -776,6 +804,8 @@ exports[`Select Select is pill shaped 1`] = `
                 aria-disabled="false"
                 aria-label="Toggle dropdown"
                 class="icon-button right-icon button button-system-ui transparent button-medium round-shape icon-left"
+                role="presentation"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -829,6 +859,7 @@ exports[`Select Select is rectangle shaped 1`] = `
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-invalid="false"
               class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -848,6 +879,8 @@ exports[`Select Select is rectangle shaped 1`] = `
                 aria-disabled="false"
                 aria-label="Toggle dropdown"
                 class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                role="presentation"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -901,6 +934,7 @@ exports[`Select Select is small 1`] = `
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-invalid="false"
               class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -920,6 +954,8 @@ exports[`Select Select is small 1`] = `
                 aria-disabled="false"
                 aria-label="Toggle dropdown"
                 class="icon-button right-icon button button-system-ui transparent button-small icon-left"
+                role="presentation"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -973,6 +1009,7 @@ exports[`Select Select is underline shaped 1`] = `
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-invalid="false"
               class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
               id="input-"
               placeholder="Select"
@@ -992,6 +1029,8 @@ exports[`Select Select is underline shaped 1`] = `
                 aria-disabled="false"
                 aria-label="Toggle dropdown"
                 class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                role="presentation"
+                tabindex="-1"
                 type="button"
               >
                 <span

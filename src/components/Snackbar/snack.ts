@@ -1,6 +1,11 @@
 'use client';
 
-import { ISnack, SnackbarPosition, SnackbarProps } from './Snackbar.types';
+import {
+  ISnack,
+  SnackbarPosition,
+  SnackbarProps,
+  VoidFunction,
+} from './Snackbar.types';
 import { canUseDocElement, generateId } from '../../shared/utilities';
 import { InfoBarType } from '../InfoBar';
 
@@ -11,8 +16,8 @@ export const SNACK_EVENTS: Record<string, string> = {
   EAT: 'eatSnack',
 };
 
-export const serve = (props: SnackbarProps): void => {
-  const id = generateId();
+export const serve = (props: SnackbarProps): VoidFunction => {
+  const id = props.id ?? generateId();
   const serveSnackEvent = new CustomEvent<SnackbarProps>(SNACK_EVENTS.SERVE, {
     bubbles: true,
     cancelable: false,
@@ -30,6 +35,8 @@ export const serve = (props: SnackbarProps): void => {
       eat(id);
     }, props.duration || 3000);
   }
+  const closeSnack = () => eat(id);
+  return closeSnack;
 };
 
 export const eat = (snackId: string): void => {

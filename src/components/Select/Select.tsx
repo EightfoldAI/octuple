@@ -48,6 +48,7 @@ import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
 import { usePreviousState } from '../../hooks/usePreviousState';
 import {
   canUseDocElement,
+  contains,
   eventKeys,
   mergeClasses,
   uniqueId,
@@ -577,7 +578,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
             disabled={mergedDisabled}
             key={`select-pill-${index}`}
             label={opt.text}
-            onClose={() => toggleOption(opt)}
+            onClose={(event) => {
+              if (contains(document.activeElement, event.target as Node)) {
+                toggleOption(opt);
+              }
+            }}
             size={selectSizeToPillSizeMap.get(size)}
             tabIndex={0}
             theme={'blueGreen'}
@@ -773,6 +778,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
               ? toggleButtonAriaLabel
               : 'Toggle dropdown',
             htmlType: 'button',
+            // The button does not need to be the tab order as
+            // the input itself provides the focus and action.
+            tabIndex: -1,
+            role: 'presentation',
             iconProps: {
               path: dropdownVisible
                 ? IconName.mdiChevronUp
