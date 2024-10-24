@@ -287,12 +287,16 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           toggle(false)(event);
         }
         if (event?.key === eventKeys.TAB) {
+          event.preventDefault();
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (!refs.floating.current.matches(':focus-within')) {
               toggle(false)(event);
             }
           }, NO_ANIMATION_DURATION);
+          const menuButtonEvent: HTMLButtonElement =
+            document.activeElement as HTMLButtonElement;
+          menuButtonEvent.click();
         }
         if (event?.key === eventKeys.TAB && event.shiftKey) {
           timeout && clearTimeout(timeout);
@@ -420,7 +424,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           {getReference()}
           <ConditionalWrapper
             condition={portal}
-            wrapper={(children) => <FloatingPortal>{children}</FloatingPortal>}
+            wrapper={(children) => (
+              <FloatingPortal preserveTabOrder>{children}</FloatingPortal>
+            )}
           >
             {getDropdown()}
           </ConditionalWrapper>
