@@ -308,3 +308,11 @@ export function elementsContains(
 ) {
   return elements.some((ele) => ele && ele.contains(target));
 }
+
+export const handlePickerKeyDown = (callback: () => void) => {
+  return (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Enter') {
+      callback();
+    }
+  };
+};

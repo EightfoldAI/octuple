@@ -585,6 +585,11 @@ export type OcPickerRefConfig = {
 
 export type OcPickerSharedProps<DateType> = {
   /**
+   * add focustrap on date picker.
+   * @default false
+   */
+  trapFocus?: boolean;
+  /**
    * Show the clear button.
    * @default true
    */

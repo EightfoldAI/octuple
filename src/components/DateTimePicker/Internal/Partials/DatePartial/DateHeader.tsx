@@ -48,6 +48,7 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     <SystemUIButton
       classNames={'picker-year-btn'}
       key="year"
+      ariaLabel="year"
       onClick={onYearClick}
       size={datePickerSizeToButtonSizeMap.get(size)}
       text={formatValue(viewDate, {
@@ -61,6 +62,7 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     <SystemUIButton
       classNames={'picker-month-btn'}
       key="month"
+      ariaLabel="month"
       onClick={onMonthClick}
       size={datePickerSizeToButtonSizeMap.get(size)}
       text={

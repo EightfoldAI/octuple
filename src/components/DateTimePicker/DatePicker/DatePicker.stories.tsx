@@ -7,6 +7,7 @@ import DatePicker, { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
 import { ButtonVariant } from '../../Button';
 import { Stack } from '../../Stack';
+import { ConfigProvider } from '../../ConfigProvider';
 
 export default {
   title: 'Date Picker',
@@ -95,13 +96,15 @@ const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
   };
 
   return (
-    <Stack direction="vertical" flexGap="m">
-      <DatePicker {...args} onChange={onChange} />
-      <DatePicker {...args} onChange={onChange} picker="week" />
-      <DatePicker {...args} onChange={onChange} picker="month" />
-      <DatePicker {...args} onChange={onChange} picker="quarter" />
-      <DatePicker {...args} onChange={onChange} picker="year" />
-    </Stack>
+    <ConfigProvider themeOptions={{ name: 'blue' }}>
+      <Stack direction="vertical" flexGap="m">
+        <DatePicker {...args} onChange={onChange} />
+        <DatePicker {...args} onChange={onChange} picker="week" />
+        <DatePicker {...args} onChange={onChange} picker="month" />
+        <DatePicker {...args} onChange={onChange} picker="quarter" />
+        <DatePicker {...args} onChange={onChange} picker="year" />
+      </Stack>
+    </ConfigProvider>
   );
 };
 
@@ -613,6 +616,7 @@ const pickerArgs: Object = {
 
 Single_Picker.args = {
   ...pickerArgs,
+  trapFocus: false,
 };
 
 Single_Picker_Readonly.args = {

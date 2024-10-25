@@ -1,5 +1,5 @@
 import React from 'react';
-import { PartialBodyProps } from './Partial.types';
+import { PartialBodyProps, PickerCellProps } from './Partial.types';
 import { mergeClasses } from '../../../../shared/utilities';
 import PartialContext from '../PartialContext';
 import { getLastDay } from '../Utils/timeUtil';
@@ -25,6 +25,7 @@ export default function PartialBody<DateType>({
   rowNum,
   size = DatePickerSize.Medium,
   titleCell,
+  getCellProps,
 }: PartialBodyProps<DateType>) {
   const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
   const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -56,48 +57,21 @@ export default function PartialBody<DateType>({
       const title: string = titleCell && titleCell(currentDate);
 
       row.push(
-        <td
+        <PickerCell
           key={j}
           title={title}
-          className={mergeClasses([
-            styles.pickerCell,
-            { [styles.pickerCellDisabled]: disabled },
-            {
-              ['picker-cell-start']:
-                getCellText(currentDate) === 1 ||
-                (picker === 'year' && Number(title) % 10 === 0),
-            },
-            {
-              ['picker-cell-end']:
-                title === getLastDay(generateConfig, currentDate) ||
-                (picker === 'year' && Number(title) % 10 === 9),
-            },
-            { ...getCellClassNames?.(currentDate) },
-          ])}
-          onClick={() => {
-            if (!disabled) {
-              onSelect(currentDate);
-            }
-          }}
-          onMouseEnter={() => {
-            if (!disabled && onDateMouseEnter) {
-              onDateMouseEnter(currentDate);
-            }
-          }}
-          onMouseLeave={() => {
-            if (!disabled && onDateMouseLeave) {
-              onDateMouseLeave(currentDate);
-            }
-          }}
-        >
-          {getCellNode ? (
-            getCellNode(currentDate)
-          ) : (
-            <div className={styles.pickerCellInner}>
-              {getCellText(currentDate)}
-            </div>
-          )}
-        </td>
+          disabled={disabled}
+          getCellText={getCellText}
+          currentDate={currentDate}
+          picker={picker}
+          getCellClassNames={getCellClassNames}
+          onSelect={onSelect}
+          generateConfig={generateConfig}
+          onDateMouseEnter={onDateMouseEnter}
+          onDateMouseLeave={onDateMouseLeave}
+          getCellNode={getCellNode}
+          getCellProps={getCellProps}
+        />
       );
     }
 
@@ -138,5 +112,87 @@ export default function PartialBody<DateType>({
         <tbody>{rows}</tbody>
       </table>
     </div>
+  );
+}
+
+function PickerCell<DateType>({
+  title,
+  disabled,
+  getCellText,
+  currentDate,
+  picker,
+  getCellClassNames,
+  onSelect,
+  generateConfig,
+  onDateMouseEnter,
+  onDateMouseLeave,
+  getCellNode,
+  getCellProps,
+}: PickerCellProps<DateType>) {
+  const buttonRef = React.useRef<HTMLDivElement>(null);
+  const { isCellFocused, buttonProps = {} } = getCellProps?.(currentDate) ?? {};
+
+  React.useEffect(() => {
+    if (buttonRef.current && isCellFocused) {
+      buttonRef.current.focus();
+    }
+  }, [isCellFocused]);
+
+  function onKeyDown(event: React.KeyboardEvent<HTMLTableCellElement>) {
+    const isValidKey = [' ', 'Enter'].includes(event.key);
+    if (disabled || !isValidKey) {
+      return;
+    }
+    onSelect(currentDate);
+  }
+
+  return (
+    <td
+      title={title}
+      className={mergeClasses([
+        styles.pickerCell,
+        { [styles.pickerCellDisabled]: disabled },
+        {
+          ['picker-cell-start']:
+            getCellText(currentDate) === 1 ||
+            (picker === 'year' && Number(title) % 10 === 0),
+        },
+        {
+          ['picker-cell-end']:
+            title === getLastDay(generateConfig, currentDate) ||
+            (picker === 'year' && Number(title) % 10 === 9),
+        },
+        { ...getCellClassNames?.(currentDate) },
+      ])}
+      onClick={() => {
+        if (!disabled) {
+          onSelect(currentDate);
+        }
+      }}
+      onKeyDown={onKeyDown}
+      onMouseEnter={() => {
+        if (!disabled && onDateMouseEnter) {
+          onDateMouseEnter(currentDate);
+        }
+      }}
+      onMouseLeave={() => {
+        if (!disabled && onDateMouseLeave) {
+          onDateMouseLeave(currentDate);
+        }
+      }}
+    >
+      {getCellNode ? (
+        getCellNode(currentDate)
+      ) : (
+        <div
+          ref={buttonRef}
+          role="button"
+          className={styles.pickerCellInner}
+          {...buttonProps}
+        >
+          {getCellText(currentDate)}
+        </div>
+      )}
+    </td>
   );
 }
