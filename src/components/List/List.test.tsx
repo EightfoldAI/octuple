@@ -66,6 +66,16 @@ describe('List', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Renders ol without crashing', () => {
+    const { container, getByTestId } = render(
+      <List {...listProps} listType="ol" />
+    );
+    const list = getByTestId('test-list');
+    expect(() => container).not.toThrowError();
+    expect(list).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
   test('List is horizontal', () => {
     const { container } = render(<List {...listProps} layout="horizontal" />);
     expect(container.querySelector('.vertical')).toBeFalsy();
