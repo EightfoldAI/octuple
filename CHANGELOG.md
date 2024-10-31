@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.13](https://github.com/EightfoldAI/octuple/compare/v2.51.12...v2.52.13) (2024-10-31)
+
+### Features
+
+- [Select] make dropdown role=group and pass correct id to options list for a11y ([#897](https://github.com/EightfoldAI/octuple/issues/897)) ([c52cc75](https://github.com/EightfoldAI/octuple/commits/c52cc757e961603e71766a57b6c2da8efd6be6a7))
+
+### Bug Fixes
+
+- floating-dropdrow: a11y fix for accessibility ([#899](https://github.com/EightfoldAI/octuple/issues/899)) ([1aa214d](https://github.com/EightfoldAI/octuple/commits/1aa214d3a1dc632404ffcee7b49e2b97af814a5d))
+
 ### [2.51.12](https://github.com/EightfoldAI/octuple/compare/v2.51.11...v2.51.12) (2024-10-10)
 
 ### Bug Fixes
