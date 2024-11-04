@@ -21,6 +21,10 @@ export const Header = ({
   onPrev,
   onSuperNext,
   onSuperPrev,
+  prevAriaLabel,
+  nextAriaLabel,
+  superPrevAriaLabel,
+  superNextAriaLabel,
   prevIcon = IconName.mdiChevronLeft,
   size = DatePickerSize.Medium,
   superNextIcon = IconName.mdiChevronDoubleRight,
@@ -44,8 +48,8 @@ export const Header = ({
     <div className={styles.pickerHeader}>
       {onSuperPrev && (
         <SystemUIButton
-          data-testid="picker-header-super-prev-btn"
-          ariaLabel="Previous year"
+          data-testid={'picker-header-super-prev-btn'}
+          ariaLabel={superPrevAriaLabel}
           classNames={'picker-header-super-prev-btn'}
           iconProps={{
             path: superPrevIcon,
@@ -61,7 +65,7 @@ export const Header = ({
       {onPrev && (
         <SystemUIButton
           data-testid={'picker-header-prev-btn'}
-          ariaLabel="Previous month"
+          ariaLabel={prevAriaLabel}
           classNames={'picker-header-prev-btn'}
           iconProps={{
             path: prevIcon,
@@ -78,7 +82,7 @@ export const Header = ({
       {onNext && (
         <SystemUIButton
           data-testid={'picker-header-next-btn'}
-          ariaLabel="Next month"
+          ariaLabel={nextAriaLabel}
           classNames={'picker-header-next-btn'}
           iconProps={{
             path: nextIcon,
@@ -94,7 +98,7 @@ export const Header = ({
       {onSuperNext && (
         <SystemUIButton
           data-testid="picker-header-super-next-btn"
-          ariaLabel="Next year"
+          ariaLabel={superNextAriaLabel}
           classNames={'picker-header-super-next-btn'}
           iconProps={{
             path: superNextIcon,

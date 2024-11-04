@@ -63,6 +63,7 @@ $picker-time-partial-cell-height: 28px;
   &-in-view.picker-cell-range-start,
   &-in-view.picker-cell-range-end {
     background: var(--picker-cell-background-color-active);
+    border: 1px solid var(--picker-cell-border-color-active);
     color: var(--picker-cell-foreground-color-active);
   }
 

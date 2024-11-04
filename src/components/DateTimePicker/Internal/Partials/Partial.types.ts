@@ -65,6 +65,22 @@ export type HeaderProps = {
    * @default IconName.mdiChevronDoubleRight
    */
   superNextIcon?: IconName;
+  /**
+   * The prev aria label.
+   */
+  prevAriaLabel?: string;
+  /**
+   * The next aria label.
+   */
+  nextAriaLabel?: string;
+  /**
+   * The super prev aria label.
+   */
+  superPrevAriaLabel?: string;
+  /**
+   * The super next aria label.
+   */
+  superNextAriaLabel?: string;
 
   superPrevAriaProps?: React.AriaAttributes;
 };

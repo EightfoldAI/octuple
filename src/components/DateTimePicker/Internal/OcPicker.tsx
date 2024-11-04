@@ -103,7 +103,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     todayText,
     use12Hours,
     value,
-    trapFocus = false,
+    trapFocus,
   } = props as MergedOcPickerProps<DateType>;
 
   const inputRef: React.MutableRefObject<HTMLInputElement> =

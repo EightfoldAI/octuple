@@ -96,6 +96,10 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
   return (
     <Header
       {...props}
+      superPrevAriaLabel={locale.previousYear}
+      prevAriaLabel={locale.previousMonth}
+      nextAriaLabel={locale.nextMonth}
+      superNextAriaLabel={locale.nextYear}
       onSuperPrev={onPrevYear}
       onPrev={onPrevMonth}
       onNext={onNextMonth}
