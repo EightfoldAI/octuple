@@ -50,6 +50,12 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
       key="year"
       ariaLabel="year"
       onClick={onYearClick}
+      onKeyDown={(e) => {
+        const isEventKey = [' ', 'Enter'].includes(e.key);
+        if (isEventKey) {
+          onYearClick();
+        }
+      }}
       size={datePickerSizeToButtonSizeMap.get(size)}
       text={formatValue(viewDate, {
         locale,
@@ -64,6 +70,12 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
       key="month"
       ariaLabel="month"
       onClick={onMonthClick}
+      onKeyDown={(e) => {
+        const isEventKey = [' ', 'Enter'].includes(e.key);
+        if (isEventKey) {
+          onMonthClick();
+        }
+      }}
       size={datePickerSizeToButtonSizeMap.get(size)}
       text={
         locale.monthFormat
