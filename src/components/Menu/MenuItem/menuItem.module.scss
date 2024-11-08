@@ -12,12 +12,6 @@
   margin: $space-xxs 0;
   white-space: nowrap;
 
-  &:focus-within {
-    box-shadow: var(--focus-visible-box-shadow);
-    color: var(--primary-color);
-    border-radius: var(--border-radius-xl);
-  }
-
   &.wrap {
     white-space: normal;
     overflow-wrap: anywhere;
