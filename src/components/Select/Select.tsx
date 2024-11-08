@@ -217,6 +217,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           ...option,
         }))
       );
+      getSelectedOptionText();
     }, [_options]);
 
     // Populate options on isLoading change
