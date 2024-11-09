@@ -383,6 +383,35 @@ describe('Picker.Keyboard', () => {
       wrapper.keyDown(eventKeys.TAB);
       expect(wrapper.find('.picker-time-partial-active').length).toBeTruthy();
 
+      // Close should focus
+      wrapper.closePicker();
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
+      expect(wrapper.find('.picker-time-partial-active').length).toBeTruthy();
+
+      jest.useRealTimers();
+    });
+
+    it('Picker without focus trap', () => {
+      jest.useFakeTimers();
+
+      const wrapper = mount(<DayjsPicker showTime trapFocus={false} />);
+      wrapper.openPicker();
+
+      // Focus Partial
+      wrapper.keyDown(eventKeys.TAB);
+      expect(wrapper.find('.picker-partial-focused').length).toBeTruthy();
+
+      // Focus Date Partial
+      wrapper.keyDown(eventKeys.TAB);
+      expect(wrapper.find('.picker-date-partial-active').length).toBeTruthy();
+
+      // Focus Time Partial
+      wrapper.keyDown(eventKeys.TAB);
+      expect(wrapper.find('.picker-time-partial-active').length).toBeTruthy();
+
       // Close should not focus
       wrapper.closePicker();
       act(() => {

@@ -117,11 +117,11 @@ const Single_Picker_TrapFocus_Story: ComponentStory<typeof DatePicker> = (
 
   return (
     <Stack direction="vertical" flexGap="m">
-      <DatePicker {...args} onChange={onChange} trapFocus />
-      <DatePicker {...args} onChange={onChange} picker="week" trapFocus />
-      <DatePicker {...args} onChange={onChange} picker="month" trapFocus />
-      <DatePicker {...args} onChange={onChange} picker="quarter" trapFocus />
-      <DatePicker {...args} onChange={onChange} picker="year" trapFocus />
+      <DatePicker {...args} onChange={onChange} />
+      <DatePicker {...args} onChange={onChange} picker="week" />
+      <DatePicker {...args} onChange={onChange} picker="month" />
+      <DatePicker {...args} onChange={onChange} picker="quarter" />
+      <DatePicker {...args} onChange={onChange} picker="year" />
     </Stack>
   );
 };
@@ -641,7 +641,6 @@ Single_Picker.args = {
 
 Single_Picker_TrapFocus.args = {
   ...pickerArgs,
-  trapFocus: true,
 };
 
 Single_Picker_Readonly.args = {

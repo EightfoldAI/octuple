@@ -705,7 +705,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-modal": "true",
                 "class": "picker-partial-container",
+                "data-testid": "picker-dialog",
+                "id": "dp-dialog-1",
+                "role": "dialog",
               },
               "children": Array [
                 Node {
@@ -736,10 +740,18 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-modal": undefined,
                 "class": undefined,
+                "data-testid": undefined,
+                "id": undefined,
+                "role": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-modal": undefined,
                 "class": undefined,
+                "data-testid": undefined,
+                "id": undefined,
+                "role": undefined,
               },
             },
           ],
@@ -792,7 +804,11 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-modal": "true",
                     "class": "picker-partial-container",
+                    "data-testid": "picker-dialog",
+                    "id": "dp-dialog-1",
+                    "role": "dialog",
                   },
                   "children": Array [
                     Node {
@@ -823,10 +839,18 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-modal": undefined,
                     "class": undefined,
+                    "data-testid": undefined,
+                    "id": undefined,
+                    "role": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-modal": undefined,
                     "class": undefined,
+                    "data-testid": undefined,
+                    "id": undefined,
+                    "role": undefined,
                   },
                 },
               ],
@@ -882,7 +906,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-modal": "true",
               "class": "picker-partial-container",
+              "data-testid": "picker-dialog",
+              "id": "dp-dialog-1",
+              "role": "dialog",
             },
             "children": Array [
               Node {
@@ -913,10 +941,18 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-modal": undefined,
               "class": undefined,
+              "data-testid": undefined,
+              "id": undefined,
+              "role": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-modal": undefined,
               "class": undefined,
+              "data-testid": undefined,
+              "id": undefined,
+              "role": undefined,
             },
           },
         ],
