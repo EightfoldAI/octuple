@@ -29,6 +29,10 @@ const locale: Locale = {
   year: 'Tahun',
   yearFormat: 'YYYY',
   yearSelect: 'Pilih tahun',
+  prevAriaLabel: 'Tahun lepas',
+  nextAriaLabel: 'Tahun depan',
+  superPrevAriaLabel: 'Tahun lepas',
+  superNextAriaLabel: 'Tahun depan',
 };
 
 export default locale;

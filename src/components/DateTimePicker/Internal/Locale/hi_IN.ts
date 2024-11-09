@@ -27,6 +27,10 @@ const locale: Locale = {
   year: 'साल',
   yearFormat: 'YYYY',
   yearSelect: 'एक वर्ष चुनें',
+  prevAriaLabel: 'पिछला साल',
+  nextAriaLabel: 'अगला साल',
+  superPrevAriaLabel: 'पिछला साल',
+  superNextAriaLabel: 'अगला साल',
 };
 
 export default locale;

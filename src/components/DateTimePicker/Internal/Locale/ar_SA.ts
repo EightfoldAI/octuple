@@ -28,6 +28,10 @@ const locale: Locale = {
   year: 'السنة',
   yearFormat: 'YYYY',
   yearSelect: 'اختر السنة',
+  prevAriaLabel: 'السنة السابقة',
+  nextAriaLabel: 'السنة القادمة',
+  superPrevAriaLabel: 'السنة السابقة',
+  superNextAriaLabel: 'السنة القادمة',
 };
 
 export default locale;

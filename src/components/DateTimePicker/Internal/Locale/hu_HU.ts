@@ -29,6 +29,10 @@ const locale: Locale = {
   year: 'Év', // 'Year',
   yearFormat: 'YYYY',
   yearSelect: 'Év kiválasztása', // 'Choose a year',
+  prevAriaLabel: 'Előző év',
+  nextAriaLabel: 'Következő év',
+  superPrevAriaLabel: 'Előző év',
+  superNextAriaLabel: 'Következő év',
 };
 
 export default locale;

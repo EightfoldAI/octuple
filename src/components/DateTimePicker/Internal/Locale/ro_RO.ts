@@ -28,6 +28,10 @@ const locale: Locale = {
   year: 'An',
   yearFormat: 'YYYY',
   yearSelect: 'Alegeți un an',
+  prevAriaLabel: 'Anul precedent',
+  nextAriaLabel: 'Anul următor',
+  superPrevAriaLabel: 'Anul precedent',
+  superNextAriaLabel: 'Anul următor',
 };
 
 export default locale;
