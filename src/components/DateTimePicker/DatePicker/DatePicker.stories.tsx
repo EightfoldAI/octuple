@@ -7,6 +7,7 @@ import DatePicker, { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
 import { ButtonVariant } from '../../Button';
 import { Stack } from '../../Stack';
+import { ConfigProvider } from '../../ConfigProvider';
 
 export default {
   title: 'Date Picker',
@@ -90,6 +91,26 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
+  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
+  return (
+    <ConfigProvider themeOptions={{ name: 'blue' }}>
+      <Stack direction="vertical" flexGap="m">
+        <DatePicker {...args} onChange={onChange} />
+        <DatePicker {...args} onChange={onChange} picker="week" />
+        <DatePicker {...args} onChange={onChange} picker="month" />
+        <DatePicker {...args} onChange={onChange} picker="quarter" />
+        <DatePicker {...args} onChange={onChange} picker="year" />
+      </Stack>
+    </ConfigProvider>
+  );
+};
+
+const Single_Picker_TrapFocus_Story: ComponentStory<typeof DatePicker> = (
+  args
+) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -537,6 +558,7 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
 };
 
 export const Single_Picker = Single_Picker_Story.bind({});
+export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});
 export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
 export const Single_Picker_Disabled = Single_Picker_Disabled_Story.bind({});
 export const Single_Picker_Disabled_Date_and_Time =
@@ -572,6 +594,7 @@ export const Range_Status = Range_Status_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Single_Picker',
+  'Single_Picker_TrapFocus',
   'Single_Picker_Readonly',
   'Single_Picker_Disabled',
   'Single_Picker_Disabled_Date_and_Time',
@@ -612,6 +635,11 @@ const pickerArgs: Object = {
 };
 
 Single_Picker.args = {
+  ...pickerArgs,
+  trapFocus: false,
+};
+
+Single_Picker_TrapFocus.args = {
   ...pickerArgs,
 };
 

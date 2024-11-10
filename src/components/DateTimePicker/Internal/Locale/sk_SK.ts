@@ -28,6 +28,10 @@ const locale: Locale = {
   year: 'Rok',
   yearFormat: 'YYYY',
   yearSelect: 'Vyberte rok',
+  prevAriaLabel: 'Predchádzajúci rok',
+  nextAriaLabel: 'Nasledujúci rok',
+  superPrevAriaLabel: 'Predchádzajúci rok',
+  superNextAriaLabel: 'Nasledujúci rok',
 };
 
 export default locale;

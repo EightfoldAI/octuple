@@ -30,6 +30,10 @@ const locale: Locale = {
   year: 'Ane',
   yearFormat: 'YYYY',
   yearSelect: 'Chwazi yon ane',
+  prevAriaLabel: 'Ane pase',
+  nextAriaLabel: 'Ane pwochèn',
+  superPrevAriaLabel: 'Ane pase',
+  superNextAriaLabel: 'Ane pwochèn',
 };
 
 export default locale;

@@ -19,6 +19,7 @@ export type PartialContextProps = {
   hideRanges?: boolean;
   open?: boolean;
   mode?: PartialMode;
+  trapFocus?: boolean;
 };
 
 const PartialContext = React.createContext<PartialContextProps>({});

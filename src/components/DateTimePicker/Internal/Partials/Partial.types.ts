@@ -7,6 +7,14 @@ import type {
 import { IconName } from '../../../Icon';
 import { Shape, Size } from '../../../ConfigProvider';
 
+type CellProps = {
+  buttonProps: {
+    tabIndex: number;
+    'aria-label': string;
+  };
+  isCellFocused: boolean;
+};
+
 export type HeaderProps = {
   /**
    * The renderer.
@@ -57,6 +65,24 @@ export type HeaderProps = {
    * @default IconName.mdiChevronDoubleRight
    */
   superNextIcon?: IconName;
+  /**
+   * The prev aria label.
+   */
+  prevAriaLabel?: string;
+  /**
+   * The next aria label.
+   */
+  nextAriaLabel?: string;
+  /**
+   * The super prev aria label.
+   */
+  superPrevAriaLabel?: string;
+  /**
+   * The super next aria label.
+   */
+  superNextAriaLabel?: string;
+
+  superPrevAriaProps?: React.AriaAttributes;
 };
 
 export type PartialBodyProps<DateType> = {
@@ -125,4 +151,23 @@ export type PartialBodyProps<DateType> = {
    * The title cell text content.
    */
   titleCell?: (date: DateType) => string;
+  /**
+   *
+   */
+  getCellProps?: (currentDate: DateType) => CellProps;
+};
+
+export type PickerCellProps<DateType> = {
+  title: string;
+  disabled: boolean;
+  getCellText: (date: DateType) => React.ReactNode;
+  currentDate: DateType;
+  picker?: PartialMode;
+  getCellClassNames: (date: DateType) => Record<string, boolean | undefined>;
+  onSelect: (value: DateType) => void;
+  generateConfig: GenerateConfig<DateType>;
+  onDateMouseEnter: (date: any) => void;
+  onDateMouseLeave: (date: any) => void;
+  getCellNode?: (date: DateType) => React.ReactNode;
+  getCellProps?: (currentDate: DateType) => CellProps;
 };

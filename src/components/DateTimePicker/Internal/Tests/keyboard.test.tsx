@@ -15,6 +15,7 @@ import {
 } from './util/commonUtil';
 import dayjs from 'dayjs';
 import '@testing-library/jest-dom';
+import { screen, render, waitFor, fireEvent } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -140,6 +141,113 @@ describe('Picker.Keyboard', () => {
     MockDate.reset();
   });
 
+  describe('datepicker trapFocus set to true', () => {
+    it('should focus to the first focusable element when Tab is pressed', async () => {
+      const onChange = jest.fn();
+      const onSelect = jest.fn();
+      const { container } = render(
+        <DayjsPicker
+          onSelect={onSelect}
+          onChange={onChange}
+          trapFocus
+          showToday
+        />
+      );
+      const input = container.getElementsByTagName('input')[0];
+      input.focus();
+      expect(input).toHaveFocus();
+      fireEvent.keyDown(input, { key: eventKeys.ENTER });
+      expect(screen.getByTestId('picker-dialog')).toBeInTheDocument();
+      fireEvent.keyDown(input, { key: eventKeys.TAB });
+      await waitFor(() =>
+        expect(
+          screen.getByTestId('picker-header-super-prev-btn').matches(':focus')
+        ).toBe(true)
+      );
+    });
+
+    it('focus should move to the last focusable element in picker dialog when Shift + Tab is pressed', async () => {
+      const onChange = jest.fn();
+      const onSelect = jest.fn();
+      const { container } = render(
+        <DayjsPicker
+          onSelect={onSelect}
+          onChange={onChange}
+          trapFocus
+          showToday
+        />
+      );
+      const input = container.getElementsByTagName('input')[0];
+      input.focus();
+      expect(input).toHaveFocus();
+      fireEvent.keyDown(input, { key: eventKeys.ENTER });
+      expect(screen.getByTestId('picker-dialog')).toBeInTheDocument();
+      fireEvent.keyDown(input, { key: eventKeys.TAB });
+      screen.getByTestId('picker-dialog').focus();
+      fireEvent.keyDown(screen.getByTestId('picker-dialog'), {
+        key: eventKeys.TAB,
+      });
+      await waitFor(() =>
+        expect(
+          screen.getByTestId('picker-header-super-prev-btn').matches(':focus')
+        ).toBe(true)
+      );
+      fireEvent.keyDown(screen.getByTestId('picker-header-super-prev-btn'), {
+        key: eventKeys.TAB,
+        shiftKey: true,
+      });
+      await waitFor(() =>
+        expect(screen.getByTestId('picker-today-btn').matches(':focus')).toBe(
+          true
+        )
+      );
+    });
+
+    it('should have aria-label and tabIndex set when date selection', () => {
+      const onChange = jest.fn();
+      const onSelect = jest.fn();
+      const { container } = render(
+        <DayjsPicker
+          onSelect={onSelect}
+          onChange={onChange}
+          trapFocus
+          showToday
+        />
+      );
+      const input = container.getElementsByTagName('input')[0];
+      input.focus();
+      expect(input).toHaveFocus();
+      fireEvent.keyDown(input, { key: eventKeys.ENTER });
+      expect(screen.getByTestId('picker-dialog')).toBeInTheDocument();
+      fireEvent.keyDown(input, { key: eventKeys.TAB });
+      fireEvent.keyDown(screen.getByTestId('picker-dialog').firstChild, {
+        key: eventKeys.ARROWDOWN,
+      });
+
+      expect(isSame(onSelect.mock.calls[0][0], '1990-09-10')).toBeTruthy();
+      expect(screen.getByLabelText('Monday 10 September 1990')).toHaveFocus();
+      expect(screen.getByLabelText('Monday 10 September 1990')).toHaveAttribute(
+        'tabIndex',
+        '0'
+      );
+
+      onSelect.mockReset();
+      fireEvent.keyDown(screen.getByTestId('picker-dialog').firstChild, {
+        key: eventKeys.ARROWUP,
+      });
+      expect(isSame(onSelect.mock.calls[0][0], '1990-09-03')).toBeTruthy();
+      expect(screen.getByLabelText('Monday 3 September 1990')).toHaveFocus();
+      expect(screen.getByLabelText('Monday 10 September 1990')).toHaveAttribute(
+        'tabIndex',
+        '-1'
+      );
+      expect(screen.getByLabelText('Monday 3 September 1990')).toHaveAttribute(
+        'tabIndex',
+        '0'
+      );
+    });
+  });
+
   it('open to select', () => {
     const onChange = jest.fn();
     const onSelect = jest.fn();
@@ -261,6 +369,35 @@ describe('Picker.Keyboard', () => {
       jest.useFakeTimers();
 
       const wrapper = mount(<DayjsPicker showTime />);
+      wrapper.openPicker();
+
+      // Focus Partial
+      wrapper.keyDown(eventKeys.TAB);
+      expect(wrapper.find('.picker-partial-focused').length).toBeTruthy();
+
+      // Focus Date Partial
+      wrapper.keyDown(eventKeys.TAB);
+      expect(wrapper.find('.picker-date-partial-active').length).toBeTruthy();
+
+      // Focus Time Partial
+      wrapper.keyDown(eventKeys.TAB);
+      expect(wrapper.find('.picker-time-partial-active').length).toBeTruthy();
+
+      // Close should focus
+      wrapper.closePicker();
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
+      expect(wrapper.find('.picker-time-partial-active').length).toBeTruthy();
+
+      jest.useRealTimers();
+    });
+
+    it('Picker without focus trap', () => {
+      jest.useFakeTimers();
+
+      const wrapper = mount(<DayjsPicker showTime trapFocus={false} />);
       wrapper.openPicker();
 
       // Focus Partial

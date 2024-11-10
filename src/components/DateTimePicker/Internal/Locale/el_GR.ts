@@ -29,6 +29,10 @@ const locale: Locale = {
   year: 'Έτος',
   yearFormat: 'YYYY',
   yearSelect: 'Επιλογή έτους',
+  prevAriaLabel: 'Προηγούμενος αιώνας',
+  nextAriaLabel: 'Επόμενος αιώνας',
+  superPrevAriaLabel: 'Προηγούμενος αιώνας',
+  superNextAriaLabel: 'Επόμενος αιώνας',
 };
 
 export default locale;
