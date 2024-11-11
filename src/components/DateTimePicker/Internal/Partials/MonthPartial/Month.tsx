@@ -36,6 +36,7 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
         },
         onEnter: (): void => {
           onPartialChange('date', value || viewDate);
+          onSelect(value || viewDate, 'mouse');
         },
       }),
   };
