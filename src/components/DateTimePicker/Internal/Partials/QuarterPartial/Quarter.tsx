@@ -31,6 +31,10 @@ function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
         onUpDown: (diff: number): void => {
           onSelect(generateConfig.addYear(value || viewDate, diff), 'key');
         },
+        onEnter: (): void => {
+          onPartialChange('quarter', value || viewDate);
+          onSelect(value || viewDate, 'mouse');
+        },
       }),
   };
 
