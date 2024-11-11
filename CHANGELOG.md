@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.15-1](https://github.com/EightfoldAI/octuple/compare/v2.52.14...v2.52.15-1) (2024-11-11)
+
+### Features
+
+- change version in package.json ([#905](https://github.com/EightfoldAI/octuple/issues/905)) ([0e1730e](https://github.com/EightfoldAI/octuple/commits/0e1730eaf9b6fe076110644ee8a158a04ba20867))
+- remove focus visible ([#906](https://github.com/EightfoldAI/octuple/issues/906)) ([dd6eb34](https://github.com/EightfoldAI/octuple/commits/dd6eb3493afc703d555787ff193cc74a883ff598))
+
 ### [2.52.15-0](https://github.com/EightfoldAI/octuple/compare/v2.52.14...v2.52.15-0) (2024-11-11)
 
 ### Features
