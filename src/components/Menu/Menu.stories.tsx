@@ -15,6 +15,7 @@ import { IconName } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { SelectorSize } from '../CheckBox';
 import { CascadingMenu } from './CascadingMenu';
+import { ConfigProvider } from '../ConfigProvider';
 
 export default {
   title: 'Menu',
@@ -58,61 +59,63 @@ export default {
 } as ComponentMeta<typeof Menu>;
 
 const BasicOverlay = (args: any) => (
-  <Menu
-    {...args}
-    items={[
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
-        },
-        text: 'Date',
-        value: 'menu 1',
-        counter: '8',
-        secondaryButtonProps: {
+  <ConfigProvider themeOptions={{ name: 'blue' }}>
+    <Menu
+      {...args}
+      items={[
+        {
           iconProps: {
-            path: IconName.mdiTrashCan,
+            path: IconName.mdiCalendar,
           },
-          onClick: () => {
-            console.log('Delete clicked');
+          text: 'Date',
+          value: 'menu 1',
+          counter: '8',
+          secondaryButtonProps: {
+            iconProps: {
+              path: IconName.mdiTrashCan,
+            },
+            onClick: () => {
+              console.log('Delete clicked');
+            },
           },
         },
-      },
-      {
-        text: 'Disabled button',
-        value: 'menu 2',
-        disabled: true,
-        subText: 'This is a sub text',
-      },
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+        {
+          text: 'Disabled button',
+          value: 'menu 2',
+          disabled: true,
+          subText: 'This is a sub text',
         },
-        text: 'Date',
-        value: 'menu 3',
-        counter: '8',
-      },
-      {
-        text: 'Button',
-        value: 'menu 4',
-      },
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'menu 3',
+          counter: '8',
         },
-        text: 'Date',
-        value: 'menu 5',
-        counter: '8',
-      },
-      {
-        text: 'Button',
-        value: 'menu 6',
-      },
-    ]}
-    onChange={(item) => {
-      args.onChange(item);
-      console.log(item);
-    }}
-  />
+        {
+          text: 'Button',
+          value: 'menu 4',
+        },
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'menu 5',
+          counter: '8',
+        },
+        {
+          text: 'Button',
+          value: 'menu 6',
+        },
+      ]}
+      onChange={(item) => {
+        args.onChange(item);
+        console.log(item);
+      }}
+    />
+  </ConfigProvider>
 );
 
 const LinkOverlay = (args: any) => (
