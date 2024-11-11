@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.16](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.16) (2024-11-11)
+
+### Bug Fixes
+
+- auto close date picker after selection ([#907](https://github.com/EightfoldAI/octuple/issues/907)) ([5c8c0ce](https://github.com/EightfoldAI/octuple/commits/5c8c0cefe989e9cc6c78ff8f8cf5a59ae7092843))
+
 ### [2.52.15](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.15) (2024-11-11)
 
 ### [2.52.15-1](https://github.com/EightfoldAI/octuple/compare/v2.52.14...v2.52.15-1) (2024-11-11)
