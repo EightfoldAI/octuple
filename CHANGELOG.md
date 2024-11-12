@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.17](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.17) (2024-11-12)
+
+### Bug Fixes
+
+- auto close date picker after selection ([#907](https://github.com/EightfoldAI/octuple/issues/907)) ([5c8c0ce](https://github.com/EightfoldAI/octuple/commits/5c8c0cefe989e9cc6c78ff8f8cf5a59ae7092843))
+- dropdown auto click the element when TAB operation is invoked ([#909](https://github.com/EightfoldAI/octuple/issues/909)) ([a86ce4d](https://github.com/EightfoldAI/octuple/commits/a86ce4dd8c8341af7588ff862294c2ec3f741261))
+
 ### [2.52.16](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.16) (2024-11-11)
 
 ### Bug Fixes
