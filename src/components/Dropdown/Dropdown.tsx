@@ -296,7 +296,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           }, NO_ANIMATION_DURATION);
           const menuButtonEvent: HTMLButtonElement =
             document.activeElement as HTMLButtonElement;
-          menuButtonEvent.click();
+          menuButtonEvent?.focus?.();
         }
         if (event?.key === eventKeys.TAB && event.shiftKey) {
           timeout && clearTimeout(timeout);
