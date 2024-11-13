@@ -282,21 +282,16 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       };
 
       const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
-        event.stopPropagation();
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
         if (event?.key === eventKeys.TAB) {
-          event.preventDefault();
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (!refs.floating.current.matches(':focus-within')) {
               toggle(false)(event);
             }
           }, NO_ANIMATION_DURATION);
-          const menuButtonEvent: HTMLButtonElement =
-            document.activeElement as HTMLButtonElement;
-          menuButtonEvent?.focus?.();
         }
         if (event?.key === eventKeys.TAB && event.shiftKey) {
           timeout && clearTimeout(timeout);
