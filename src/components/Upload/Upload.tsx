@@ -668,7 +668,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             <div className={styles.uploadDropContainer}>
               {!children && (
                 <>
-                  {!maxCount && renderDropzone()}
+                  {(!maxCount || maxCount > 1) && renderDropzone()}
                   {maxCount === 1 && (
                     <>
                       {mergedFileList.length === 0 && renderDropzone()}
@@ -681,7 +681,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             </div>
           </OcUpload>
         </div>
-        {!maxCount && renderUploadList()}
+        {(!maxCount || maxCount > 1) && renderUploadList()}
       </ThemeContextProvider>
     );
   }
