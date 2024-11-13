@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.18](https://github.com/EightfoldAI/octuple/compare/v2.52.17...v2.52.18) (2024-11-13)
+
+### Bug Fixes
+
+- dropdown items are not moving to the next tab index due to stopProgation ([#911](https://github.com/EightfoldAI/octuple/issues/911)) ([d571817](https://github.com/EightfoldAI/octuple/commits/d571817c0b10e409ecdc18fd0913150cfc63c663))
+
 ### [2.52.17](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.17) (2024-11-12)
 
 ### Bug Fixes
