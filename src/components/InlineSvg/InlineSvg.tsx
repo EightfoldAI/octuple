@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useMemo, useState, useRef, FC, Ref } from 'react';
-import fetch from 'cross-fetch';
 import { InlineSvgProps } from './InlineSvg.types';
 import { Icon, IconName } from '../Icon';
 import { Skeleton, SkeletonVariant } from '../Skeleton';
