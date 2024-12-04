@@ -392,7 +392,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               ref={refs.setFloating}
               style={dropdownStyles}
               className={dropdownClasses}
-              tabIndex={0}
               onClick={
                 closeOnDropdownClick ? toggle(false, showDropdown) : null
               }
