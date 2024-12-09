@@ -30,6 +30,10 @@ const locale: Locale = {
   year: 'שנה',
   yearFormat: 'YYYY',
   yearSelect: 'בחר שנה',
+  prevAriaLabel: 'שנה קודמת',
+  nextAriaLabel: 'שנה הבאה',
+  superPrevAriaLabel: 'שנה קודמת',
+  superNextAriaLabel: 'שנה הבאה',
 };
 
 export default locale;

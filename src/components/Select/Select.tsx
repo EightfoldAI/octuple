@@ -873,6 +873,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   options?.length > 0)
               }
               ref={dropdownRef}
+              role={'group'}
             >
               <div className={styles.selectInputWrapper}>
                 {/* When Dropdown is visible, place Pills in the reference element */}

@@ -92,6 +92,7 @@ export default function generatePicker<DateType>(
         todayButtonProps,
         todayActive = true,
         todayText: defaultTodayText,
+        trapFocus = true,
         ...rest
       } = props;
       const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -263,6 +264,7 @@ export default function generatePicker<DateType>(
                 superPrevIcon={IconName.mdiChevronDoubleLeft}
                 superNextIcon={IconName.mdiChevronDoubleRight}
                 allowClear
+                trapFocus={trapFocus}
                 {...rest}
                 {...additionalOverrideProps}
                 locale={locale!.lang}

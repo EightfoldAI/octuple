@@ -28,6 +28,10 @@ const locale: Locale = {
   year: 'Năm',
   yearFormat: 'YYYY',
   yearSelect: 'Chọn một năm',
+  prevAriaLabel: 'Năm trước',
+  nextAriaLabel: 'Năm sau',
+  superPrevAriaLabel: 'Năm trước',
+  superNextAriaLabel: 'Năm sau',
 };
 
 export default locale;

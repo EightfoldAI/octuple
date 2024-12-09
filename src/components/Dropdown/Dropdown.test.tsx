@@ -543,4 +543,34 @@ describe('Dropdown', () => {
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
     expect(referenceElement).toHaveFocus();
   });
+
+  test('Allows tabbing into submenu after click', async () => {
+    const mockEventKeys = {
+      TAB: 'Tab',
+    };
+    const { getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+
+    // Click to open dropdown
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+
+    // Wait for menu to be visible
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    // Verify first menu item is focused
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+
+    // Tab to second menu item
+    act(() => {
+      userEvent.type(referenceElement, mockEventKeys.TAB);
+    });
+
+    // Verify dropdown remains open
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(screen.getByText('User profile 1')).toBeVisible();
+  });
 });

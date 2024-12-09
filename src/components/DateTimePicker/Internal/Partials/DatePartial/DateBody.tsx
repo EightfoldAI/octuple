@@ -9,8 +9,10 @@ import {
 } from '../../Utils/dateUtil';
 import RangeContext from '../../RangeContext';
 import useCellClassNames from '../../Hooks/useCellClassNames';
+import useCellProps from '../../Hooks/useCellProps';
 import PartialBody from '../PartialBody';
 import { DatePickerSize } from '../../OcPicker.types';
+import PartialContext from '../../PartialContext';
 
 function DateBody<DateType>(props: DateBodyProps<DateType>) {
   const {
@@ -25,6 +27,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
   } = props;
 
   const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
+  const { trapFocus } = React.useContext(PartialContext);
 
   const baseDate: DateType = getWeekStartDate(
     locale.locale,
@@ -66,6 +69,16 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
     ? (date: DateType): React.ReactNode => dateRender(date, today)
     : undefined;
 
+  const getCellProps = useCellProps({
+    generateConfig,
+    today,
+    value,
+    isSameCell: (current, target) =>
+      isSameDate(generateConfig, current, target) && trapFocus,
+    locale,
+    rangedValue: rangedValue,
+  });
+
   return (
     <PartialBody
       {...props}
@@ -85,6 +98,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
       }
       headerCells={headerCells}
       size={size}
+      getCellProps={getCellProps}
     />
   );
 }
