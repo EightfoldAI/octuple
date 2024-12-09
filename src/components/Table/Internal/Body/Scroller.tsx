@@ -53,7 +53,9 @@ export const Scroller = React.forwardRef(
         columns.reduce(
           (acc, column: ColumnType<RecordType>) => {
             if (!column.fixed) {
-              acc.widths += column.width as number;
+              acc.widths += (column.width ||
+                (window.innerWidth && window.innerWidth / 2) ||
+                100) as number;
               acc.columns.push(acc.widths);
             }
             return acc;
@@ -162,7 +164,7 @@ export const Scroller = React.forwardRef(
         }
       }
       scrollBodyRef.current.scrollTo({
-        left: scrollLeft,
+        left: scrollLeft || 50,
         behavior: 'smooth',
       });
     };
