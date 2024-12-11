@@ -273,7 +273,7 @@ export const Scroller = React.forwardRef(
                   BUTTON_PADDING
                 : 'unset',
             opacity: endButtonVisible && visible ? 1 : 0,
-            visibility: startButtonVisible && visible ? 'visible' : 'hidden',
+            visibility: endButtonVisible && visible ? 'visible' : 'hidden',
             right:
               direction === 'rtl'
                 ? 'unset'
