@@ -68,7 +68,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       readonly = false,
       readOnlyProps,
       reset = false,
-      role,
+      role = "combobox" ,
       searchButtonAriaLabel,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,
