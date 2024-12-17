@@ -24,6 +24,7 @@ export const PanelHeader: FC<PanelHeaderProps> = React.forwardRef(
       actionButtonOneProps,
       actionButtonTwoProps,
       actionDefaultButtonProps,
+      closeButtonProps,
       closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
       closeIcon = IconName.mdiClose,
       configContextProps = {
@@ -137,6 +138,7 @@ export const PanelHeader: FC<PanelHeaderProps> = React.forwardRef(
                       themeContainerId={themeContainerId}
                       transparent
                       variant={ButtonVariant.SystemUI}
+                      {...closeButtonProps}
                     />
                   )}
                 </div>
