@@ -6,11 +6,11 @@ import { MenuItemType } from './MenuItem/MenuItem.types';
 import { MenuSize, MenuVariant } from './Menu.types';
 import { Menu } from './Menu';
 import { Dropdown } from '../Dropdown';
-import { DefaultButton } from '../Button';
+import { Button } from '../Button';
 import { IconName } from '../Icon';
 import { RadioGroup } from '../RadioButton';
 import { SelectorSize } from '../CheckBox';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -46,14 +46,15 @@ const MenuOverlay = (args: any) => {
         },
         {
           type: MenuItemType.link,
-          text: 'Twitter link',
-          href: 'https://twitter.com',
+          text: 'X link',
+          href: 'https://x.com',
           target: '_blank',
         },
         {
           type: MenuItemType.custom,
-          render: ({ onChange }) => (
+          render: ({ onChange, ...rest }) => (
             <RadioGroup
+              {...rest}
               {...{
                 ariaLabel: 'Radio Group',
                 value: 'Radio1',
@@ -92,7 +93,7 @@ const menuProps: object = {
 const MenuComponent = (): JSX.Element => {
   return (
     <Dropdown overlay={MenuOverlay(menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -105,7 +106,7 @@ const LargeMenuComponent = (): JSX.Element => {
 
   return (
     <Dropdown overlay={MenuOverlay(_menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -118,7 +119,7 @@ const MediumMenuComponent = (): JSX.Element => {
 
   return (
     <Dropdown overlay={MenuOverlay(_menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -131,7 +132,7 @@ const SmallMenuComponent = (): JSX.Element => {
 
   return (
     <Dropdown overlay={MenuOverlay(_menuProps)}>
-      <DefaultButton text={'Menu dropdown'} />
+      <Button text={'Menu dropdown'} />
     </Dropdown>
   );
 };
@@ -160,7 +161,7 @@ describe('Menu', () => {
     await waitFor(() => screen.getByText('Date'));
     const menuitem1 = screen.getByText('Date');
     const menuitem2 = screen.getByText('Disabled button');
-    const menuitem3 = screen.getByText('Twitter link');
+    const menuitem3 = screen.getByText('X link');
     const menuitem4 = screen.getByText('Radio1');
     const menuitem5 = screen.getByText('Radio2');
     const menuitem6 = screen.getByText('Radio3');
@@ -225,5 +226,66 @@ describe('Menu', () => {
       'small'
     );
     expect(container).toMatchSnapshot();
+  });
+
+  test('Menu onChange event is triggered when item is clicked', () => {
+    const handleChange = jest.fn();
+
+    const { getByText } = render(
+      <Menu
+        onChange={handleChange}
+        items={[
+          {
+            iconProps: {
+              path: IconName.mdiCalendar,
+            },
+            text: 'Date',
+            value: 'menu 0',
+            counter: '8',
+            secondaryButtonProps: {
+              iconProps: {
+                path: IconName.mdiTrashCan,
+              },
+              onClick: () => {
+                console.log('Delete clicked');
+              },
+            },
+          },
+        ]}
+      />
+    );
+
+    fireEvent.click(getByText('Date'));
+
+    expect(handleChange).toHaveBeenCalled();
+  });
+
+  test('secondaryButtonProps onClick event is triggered when secondary button is clicked', () => {
+    const handleClick = jest.fn();
+
+    const { getByRole } = render(
+      <Menu
+        items={[
+          {
+            iconProps: {
+              path: IconName.mdiCalendar,
+            },
+            text: 'Date',
+            value: 'menu 0',
+            counter: '8',
+            secondaryButtonProps: {
+              iconProps: {
+                path: IconName.mdiTrashCan,
+              },
+              onClick: handleClick,
+            },
+          },
+        ]}
+      />
+    );
+
+    fireEvent.click(getByRole('button'));
+
+    expect(handleClick).toHaveBeenCalled();
   });
 });

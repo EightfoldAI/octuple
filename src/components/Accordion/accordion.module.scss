@@ -17,6 +17,7 @@
   // Animation ensures the scroll bars don't flicker during transition.
   // https://css-tricks.com/hide-scrollbars-during-an-animation/
   .accordion-body-container {
+    background: var(--accordion-body-background-color);
     box-sizing: border-box;
     max-height: 0;
     overflow-y: hidden;
@@ -38,7 +39,6 @@
   }
 
   .accordion-body {
-    background-color: var(--accordion-body-background-color);
     color: var(--accordion-body-text-color);
 
     &.large {
@@ -59,16 +59,76 @@
   }
 
   .accordion-summary {
-    background-color: var(--accordion-summary-background-color);
+    align-items: center;
+    background: var(--accordion-summary-background-color);
     color: var(--accordion-summary-text-color);
-    cursor: pointer;
     display: flex;
+    gap: $space-s;
     justify-content: space-between;
+    position: relative;
     width: 100%;
     transition: background-color $motion-duration-fast $motion-easing-easeout;
+    z-index: 0;
+
+    .clickable-area {
+      bottom: 0;
+      border-radius: $border-radius-xl;
+      cursor: pointer;
+      left: 0;
+      pointer-events: all;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 0;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    // By default we ensure the header content does not obscure the clickable area.
+    .accordion-header-container {
+      pointer-events: none;
+      z-index: 1;
+
+      // If there's custom content in the header, its interactive children should be clickable or selectable.
+      a[href],
+      area,
+      audio,
+      blockquote,
+      button:not([disabled]),
+      cite,
+      details,
+      dd,
+      dt,
+      dl,
+      em,
+      embed,
+      figcaption,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      iframe,
+      input:not([disabled]),
+      label,
+      object,
+      p,
+      select:not([disabled]),
+      span,
+      strong,
+      [tabindex]:not([tabindex='-1']),
+      textarea:not([disabled]),
+      video {
+        pointer-events: auto;
+      }
+    }
 
     &.large {
-      padding: $space-l;
+      padding: $space-m $space-l;
 
       .accordion-header-container {
         gap: $space-m;
@@ -81,7 +141,7 @@
     }
 
     &.medium {
-      padding: $space-m;
+      padding: $space-s $space-m;
 
       .accordion-header-container {
         gap: $space-s;
@@ -99,33 +159,67 @@
     }
 
     .accordion-header-container {
-      display: flex;
       align-items: center;
+      display: flex;
     }
 
-    &:focus,
-    &:focus-visible {
-      outline: none;
-    }
-
-    &-expanded {
-      &:focus,
-      &:focus-visible {
-        outline: none;
+    &-full-width {
+      .accordion-header-container,
+      .accordion-header {
+        flex: 1;
       }
     }
 
     &:hover {
-      background-color: var(--accordion-summary-background-hover-color);
+      background: var(--accordion-summary-background-hover-color);
       color: var(--accordion-summary-text-hover-color);
     }
   }
 
-  .accordion-icon {
+  .accordion-icon-button {
     transition: transform $motion-duration-fast;
+    z-index: 1;
 
-    &.expanded-icon {
+    &.expanded-icon-button {
       transform: rotate(180deg);
+    }
+  }
+
+  &.gradient {
+    &.accordion-border {
+      border: var(--accordion-gradient-border);
+    }
+
+    .accordion-body-container {
+      background: var(--accordion-body-background-gradient);
+    }
+
+    .accordion-body {
+      color: var(--accordion-gradient-body-text-color);
+
+      &.border-top {
+        border-top: var(--accordion-gradient-border);
+      }
+    }
+
+    .accordion-summary {
+      background: var(--accordion-summary-background-gradient);
+      color: var(--accordion-gradient-summary-text-color);
+
+      .badge {
+        background-color: var(--primary-background2-color);
+        color: var(--primary-color);
+      }
+
+      &:hover {
+        background: var(--accordion-summary-background-hover-gradient);
+        color: var(--accordion-gradient-summary-text-hover-color);
+
+        .badge {
+          background-color: var(--primary-background1-color);
+          color: var(--primary-color);
+        }
+      }
     }
   }
 }
@@ -133,13 +227,19 @@
 :global(.focus-visible) {
   .accordion-container {
     .accordion-summary {
-      &.focus-visible,
-      &:focus-visible {
-        border: 2px solid var(--focus-visible-shadow-color);
-        border-radius: $border-radius-xl;
-        padding: calc(#{$space-l} - 2px);
+      .clickable-area {
+        &.focus-visible,
+        &:focus-visible {
+          box-shadow: inset var(--focus-visible-box-shadow);
+        }
+      }
 
-        &-expanded {
+      &.accordion-summary-expanded {
+        border-radius: 0;
+        border-top-left-radius: $border-radius-xl;
+        border-top-right-radius: $border-radius-xl;
+
+        .clickable-area {
           border-radius: 0;
           border-top-left-radius: $border-radius-xl;
           border-top-right-radius: $border-radius-xl;

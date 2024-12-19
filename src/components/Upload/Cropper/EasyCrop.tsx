@@ -1,11 +1,14 @@
 import React, {
-  useState,
-  useCallback,
-  useRef,
-  useImperativeHandle,
   forwardRef,
   memo,
+  useCallback,
+  useContext,
+  useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
+import { OcThemeName } from '../../ConfigProvider';
+import ThemeContext from '../../ConfigProvider/ThemeContext';
 import { default as EasyCropper } from 'react-easy-crop';
 import type { Area, Point, Size } from 'react-easy-crop/types';
 import {
@@ -28,8 +31,10 @@ import styles from './cropper.module.scss';
 const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const {
     aspect,
+    configContextProps,
     cropperProps,
     cropperRef,
+    gradient,
     grid,
     image,
     maxZoom,
@@ -38,6 +43,8 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
     rotateLeftButtonAriaLabelText,
     rotateRightButtonAriaLabelText,
     shape,
+    theme,
+    themeContainerId,
     zoom,
     zoomInButtonAriaLabelText,
     zoomOutButtonAriaLabelText,
@@ -47,12 +54,23 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const [cropSize, setCropSize] = useState<Size>({ width: 0, height: 0 });
   const [zoomVal, setZoomVal] = useState<number>(INIT_ZOOM);
   const [rotateVal, setRotateVal] = useState<number>(INIT_ROTATE);
+  const [zoomButtonDirection, setZoomButtonDirection] = useState<
+    'in' | 'out' | ''
+  >('');
+  const [rotateButtonDirection, setRotateButtonDirection] = useState<
+    'right' | 'left' | ''
+  >('');
   const cropPixelsRef: React.MutableRefObject<Area> = useRef<Area>({
     width: 0,
     height: 0,
     x: 0,
     y: 0,
   });
+
+  const contextualTheme: OcThemeName = useContext(ThemeContext);
+  const mergedTheme: OcThemeName = configContextProps.noThemeContext
+    ? theme
+    : contextualTheme || theme;
 
   const onMediaLoaded = useCallback(
     (mediaSize): void => {
@@ -114,84 +132,151 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
       />
       {zoom && (
         <section className={styles.cropperZoomControl}>
-          <Stack direction={'horizontal'} fullWidth gap={'s'}>
+          <Stack direction={'horizontal'} fullWidth flexGap={'s'}>
             <Button
               ariaLabel={zoomOutButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={zoomVal - ZOOM_STEP < minZoom}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiMinus,
               }}
-              onClick={() => setZoomVal(zoomVal - ZOOM_STEP)}
+              onClick={() => {
+                setRotateButtonDirection('');
+                setZoomButtonDirection('out');
+                setZoomVal(zoomVal - ZOOM_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
             <Slider
+              configContextProps={configContextProps}
               containerClassNames={styles.cropperSlider}
               max={maxZoom}
               min={minZoom}
-              onChange={(value: number | number[]) => setZoomVal(Number(value))}
+              onChange={(value: number | number[]) => {
+                setRotateButtonDirection('');
+                zoomVal < Number(value)
+                  ? setZoomButtonDirection('in')
+                  : setZoomButtonDirection('out');
+                setZoomVal(Number(value));
+              }}
               hideMax
               hideMin
               step={ZOOM_STEP}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               value={zoomVal}
             />
             <Button
               ariaLabel={zoomInButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={zoomVal + ZOOM_STEP > maxZoom}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiPlus,
               }}
-              onClick={() => setZoomVal(zoomVal + ZOOM_STEP)}
+              onClick={() => {
+                setRotateButtonDirection('');
+                setZoomButtonDirection('in');
+                setZoomVal(zoomVal + ZOOM_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
           </Stack>
+          <div
+            className={styles.visuallyhidden}
+            aria-live="assertive"
+            role="status"
+          >
+            {zoomButtonDirection === 'in'
+              ? `${zoomInButtonAriaLabelText} ${parseFloat(zoomVal.toFixed(2))}`
+              : `${zoomOutButtonAriaLabelText} ${parseFloat(
+                  zoomVal.toFixed(2)
+                )}`}
+          </div>
         </section>
       )}
       {rotate && (
         <section className={styles.cropperRotateControl}>
-          <Stack direction={'horizontal'} fullWidth gap={'s'}>
+          <Stack direction={'horizontal'} fullWidth flexGap={'s'}>
             <Button
               ariaLabel={rotateLeftButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={rotateVal === MIN_ROTATE}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiRotateLeft,
               }}
-              onClick={() => setRotateVal(rotateVal - ROTATE_STEP)}
+              onClick={() => {
+                setZoomButtonDirection('');
+                setRotateButtonDirection('left');
+                setRotateVal(rotateVal - ROTATE_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
             <Slider
+              configContextProps={configContextProps}
               containerClassNames={styles.cropperSlider}
               max={MAX_ROTATE}
               min={MIN_ROTATE}
-              onChange={(value: number | number[]) =>
-                setRotateVal(Number(value))
-              }
+              onChange={(value: number | number[]) => {
+                setZoomButtonDirection('');
+                rotateVal < Number(value)
+                  ? setRotateButtonDirection('right')
+                  : setRotateButtonDirection('left');
+                setRotateVal(Number(value));
+              }}
               hideMax
               hideMin
               step={ROTATE_STEP}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               value={rotateVal}
             />
             <Button
               ariaLabel={rotateRightButtonAriaLabelText}
               classNames={styles.cropperIconButton}
+              configContextProps={configContextProps}
               disabled={rotateVal === MAX_ROTATE}
+              gradient={gradient}
               iconProps={{
                 path: IconName.mdiRotateRight,
               }}
-              onClick={() => setRotateVal(rotateVal + ROTATE_STEP)}
+              onClick={() => {
+                setRotateButtonDirection('right');
+                setRotateVal(rotateVal + ROTATE_STEP);
+              }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={ButtonVariant.SystemUI}
             />
           </Stack>
+          <div
+            className={styles.visuallyhidden}
+            aria-live="assertive"
+            role="status"
+          >
+            {rotateButtonDirection === 'right'
+              ? `${rotateRightButtonAriaLabelText} ${rotateVal}`
+              : `${rotateLeftButtonAriaLabelText} ${rotateVal}`}
+          </div>
         </section>
       )}
     </>

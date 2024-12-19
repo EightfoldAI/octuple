@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
-import memoizeOne from 'memoize-one';
+import type { AccordionLocale } from '../Accordion/Accordion.types';
 import type { BreadcrumbLocale } from '../Breadcrumb/Breadcrumb.types';
 import type { DialogLocale } from '../Dialog/BaseDialog/BaseDialog.types';
+import type { DrawerLocale } from '../Drawer/Drawer.types';
 import type { PaginationLocale } from '../Pagination';
 import type { PanelLocale } from '../Panel';
 import type { PersistentBarLocale } from '../PersistentBar/PersistentBar.types';
@@ -16,9 +19,11 @@ import LocaleContext from './Context';
 export interface Locale {
   locale: string;
   global?: Record<string, any>;
+  Accordion?: AccordionLocale;
   Breadcrumb?: BreadcrumbLocale;
   DatePicker?: DatePickerLocale;
   Dialog?: DialogLocale;
+  Drawer?: DrawerLocale;
   Form?: {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
@@ -46,16 +51,30 @@ export default class LocaleProvider extends React.Component<
     locale: {},
   };
 
+  lastLocale: Locale | null = null;
+  lastContextValue: (Locale & { exist?: boolean }) | null = null;
+
   constructor(props: LocaleProviderProps) {
     super(props);
   }
 
-  getMemoizedContextValue = memoizeOne(
-    (localeValue: Locale): Locale & { exist?: boolean } => ({
+  getMemoizedContextValue = (
+    localeValue: Locale
+  ): Locale & { exist?: boolean } => {
+    // If the input hasn't changed, return the memoized result
+    if (this.lastLocale && this.lastLocale === localeValue) {
+      return this.lastContextValue!;
+    }
+
+    // Otherwise, compute the result and store it for future use
+    const contextValue = {
       ...localeValue,
       exist: true,
-    })
-  );
+    };
+    this.lastLocale = localeValue;
+    this.lastContextValue = contextValue;
+    return contextValue;
+  };
 
   render() {
     const { locale, children } = this.props;

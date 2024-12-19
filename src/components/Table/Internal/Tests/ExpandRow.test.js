@@ -573,15 +573,11 @@ describe('Table.Expand', () => {
     wrapper.find('.custom-expand-icon').first().simulate('click');
     expect(onExpand).toHaveBeenCalledWith(true, data[0]);
     expect(onExpand).toHaveBeenCalledTimes(1);
-    expect(
-      wrapper.find('.table-expanded-row').first().getDOMNode().style.display
-    ).toBe('');
+    expect(wrapper.find('.table-expanded-row').length).toBe(1);
     wrapper.find('.custom-expand-icon').first().simulate('click');
     expect(onExpand).toHaveBeenCalledWith(false, data[0]);
     expect(onExpand).toHaveBeenCalledTimes(2);
-    expect(
-      wrapper.find('.table-expanded-row').first().getDOMNode().style.display
-    ).toBe('none');
+    expect(wrapper.find('.table-expanded-row').length).toBe(0);
   });
 
   it('should be collapsible when `expandRowByClick` without custom `expandIcon`', () => {

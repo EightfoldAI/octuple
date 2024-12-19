@@ -1,9 +1,13 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useState, useRef } from 'react';
 import { CarouselContext, CarouselSlideProps } from '../Carousel.types';
 import { useForkedRef } from '../../../hooks/useForkedRef';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../carousel.module.scss';
+
+export const SLIDE_TRANSITION_DURATION: number = 200;
 
 export const Slide: FC<CarouselSlideProps> = React.forwardRef(
   (props: CarouselSlideProps, ref: Ref<HTMLDivElement>) => {
@@ -48,7 +52,7 @@ export const Slide: FC<CarouselSlideProps> = React.forwardRef(
               ]
             );
           }
-        }, 0);
+        }, SLIDE_TRANSITION_DURATION);
       }
 
       prevActive.current = active;

@@ -31,7 +31,13 @@ export type VarTheme = Record<string, Value>;
 
 export interface OcBaseTheme {
   primaryColor?: Value;
+  primaryGradientEndColor?: Value;
+  primaryGradientMiddleColor?: Value;
+  primaryGradientStartColor?: Value;
   accentColor?: Value;
+  accentGradientEndColor?: Value;
+  accentGradientMiddleColor?: Value;
+  accentGradientStartColor?: Value;
   disruptiveColor?: Value;
   textColor?: Value;
   textColorSecondary?: Value;
@@ -55,7 +61,19 @@ export interface OcTheme extends OcBaseTheme {
    */
   accentName?: ThemeName;
   /**
-   * Predefined color palette
+   * Predefined gradient end color palette.
+   */
+  gradientEndPalette?: Value[];
+  /**
+   * Predefined gradient middle color palette.
+   */
+  gradientMiddlePalette?: Value[];
+  /**
+   * Predefined gradient start color palette.
+   */
+  gradientStartPalette?: Value[];
+  /**
+   * Predefined color palette.
    */
   palette: Value[];
 }

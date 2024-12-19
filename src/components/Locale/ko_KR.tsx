@@ -1,8 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/ko_KR';
 import Breadcrumb from '../Breadcrumb/Locale/ko_KR';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ko_KR';
 import Dialog from '../Dialog/BaseDialog/Locale/ko_KR';
+import Drawer from '../Drawer/Locale/ko_KR';
 import InfoBar from '../InfoBar/Locale/ko_KR';
 import Pagination from '../Pagination/Locale/ko_KR';
 import Panel from '../Panel/Locale/ko_KR';
@@ -16,9 +18,11 @@ const typeTemplate = '${label} 유효하지 않은 ${type}';
 
 const localeValues: Locale = {
   locale: 'ko',
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     defaultValidateMessages: {
       default: '필드 유효성 검사 오류 ${label}',

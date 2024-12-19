@@ -1,8 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/pl_PL';
 import Breadcrumb from '../Breadcrumb/Locale/pl_PL';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/pl_PL';
 import Dialog from '../Dialog/BaseDialog/Locale/pl_PL';
+import Drawer from '../Drawer/Locale/pl_PL';
 import InfoBar from '../InfoBar/Locale/pl_PL';
 import Pagination from '../Pagination/Locale/pl_PL';
 import Panel from '../Panel/Locale/pl_PL';
@@ -19,9 +21,11 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Wybierz',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(opcjonalne)',
     defaultValidateMessages: {

@@ -44,6 +44,7 @@ describe('InlineSvg', () => {
     global.fetch = jest.fn(() =>
       Promise.resolve({ text: () => '<svg>Mock SVG</svg>' })
     ) as jest.Mock;
+
     const { rerender } = render(<InlineSvg url="mock-url" />);
     rerender(<InlineSvg url="mock-url" />);
     rerender(<InlineSvg url="mock-url" />);
@@ -57,6 +58,7 @@ describe('InlineSvg', () => {
     global.fetch = jest.fn(() =>
       Promise.resolve({ text: () => '<svg>Mock SVG</svg>' })
     ) as jest.Mock;
+
     const { rerender } = render(<InlineSvg url="mock-url" />);
     rerender(<InlineSvg url="mock-url" />);
     rerender(<InlineSvg url="mock-url-diff" />);

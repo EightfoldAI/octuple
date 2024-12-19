@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Ref } from 'react';
 import { ColProps, ColSize, FlexType } from './Grid.types';
 import { mergeClasses } from '../../shared/utilities';
@@ -18,7 +20,7 @@ const parseFlex = (flex: FlexType): string => {
   return flex;
 };
 
-const sizes = ['xs', 'sm', 'md', 'lg'] as const;
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 
 export const Col = React.forwardRef<HTMLDivElement, ColProps>(
   (props, ref: Ref<HTMLDivElement>) => {

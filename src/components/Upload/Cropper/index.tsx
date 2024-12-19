@@ -1,3 +1,5 @@
+'use client';
+
 import { default as InternalCropper } from './Cropper';
 import { CropperProps } from './Cropper.types';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';

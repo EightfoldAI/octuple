@@ -1,8 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/zh_CN';
 import Breadcrumb from '../Breadcrumb/Locale/zh_CN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/zh_CN';
 import Dialog from '../Dialog/BaseDialog/Locale/zh_CN';
+import Drawer from '../Drawer/Locale/zh_CN';
 import InfoBar from '../InfoBar/Locale/zh_CN';
 import Pagination from '../Pagination/Locale/zh_CN';
 import Panel from '../Panel/Locale/zh_CN';
@@ -19,9 +21,11 @@ const localeValues: Locale = {
   global: {
     placeholder: '请选择',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '（可选）',
     defaultValidateMessages: {

@@ -9,12 +9,13 @@ import {
   MenuVariant,
 } from './';
 import { Dropdown } from '../Dropdown';
-import { DefaultButton } from '../Button';
+import { Button } from '../Button';
 import { RadioGroup } from '../RadioButton';
 import { IconName } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { SelectorSize } from '../CheckBox';
 import { CascadingMenu } from './CascadingMenu';
+import { ConfigProvider } from '../ConfigProvider';
 
 export default {
   title: 'Menu',
@@ -58,61 +59,63 @@ export default {
 } as ComponentMeta<typeof Menu>;
 
 const BasicOverlay = (args: any) => (
-  <Menu
-    {...args}
-    items={[
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
-        },
-        text: 'Date',
-        value: 'menu 1',
-        counter: '8',
-        secondaryButtonProps: {
+  <ConfigProvider themeOptions={{ name: 'blue' }}>
+    <Menu
+      {...args}
+      items={[
+        {
           iconProps: {
-            path: IconName.mdiTrashCan,
+            path: IconName.mdiCalendar,
           },
-          onClick: () => {
-            console.log('Delete clicked');
+          text: 'Date',
+          value: 'menu 1',
+          counter: '8',
+          secondaryButtonProps: {
+            iconProps: {
+              path: IconName.mdiTrashCan,
+            },
+            onClick: () => {
+              console.log('Delete clicked');
+            },
           },
         },
-      },
-      {
-        text: 'Disabled button',
-        value: 'menu 2',
-        disabled: true,
-        subText: 'This is a sub text',
-      },
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+        {
+          text: 'Disabled button',
+          value: 'menu 2',
+          disabled: true,
+          subText: 'This is a sub text',
         },
-        text: 'Date',
-        value: 'menu 3',
-        counter: '8',
-      },
-      {
-        text: 'Button',
-        value: 'menu 4',
-      },
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'menu 3',
+          counter: '8',
         },
-        text: 'Date',
-        value: 'menu 5',
-        counter: '8',
-      },
-      {
-        text: 'Button',
-        value: 'menu 6',
-      },
-    ]}
-    onChange={(item) => {
-      args.onChange(item);
-      console.log(item);
-    }}
-  />
+        {
+          text: 'Button',
+          value: 'menu 4',
+        },
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'menu 5',
+          counter: '8',
+        },
+        {
+          text: 'Button',
+          value: 'menu 6',
+        },
+      ]}
+      onChange={(item) => {
+        args.onChange(item);
+        console.log(item);
+      }}
+    />
+  </ConfigProvider>
 );
 
 const LinkOverlay = (args: any) => (
@@ -121,8 +124,8 @@ const LinkOverlay = (args: any) => (
     items={[
       {
         type: MenuItemType.link,
-        text: 'Twitter link',
-        href: 'https://twitter.com',
+        text: 'X link',
+        href: 'https://x.com',
         target: '_blank',
       },
       {
@@ -188,8 +191,8 @@ const SubHeaderOverlay = (args: any) => {
         },
         {
           type: MenuItemType.link,
-          text: 'Twitter link',
-          href: 'https://twitter.com',
+          text: 'X link',
+          href: 'https://x.com',
           target: '_blank',
         },
         {
@@ -204,8 +207,9 @@ const SubHeaderOverlay = (args: any) => {
         },
         {
           type: MenuItemType.custom,
-          render: ({ onChange }) => (
+          render: ({ onChange, ...rest }) => (
             <RadioGroup
+              {...rest}
               {...{
                 ariaLabel: 'Radio Group',
                 value: 'Radio1',
@@ -244,26 +248,31 @@ const SubHeaderOverlay = (args: any) => {
 };
 
 const Basic_Menu_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown overlay={BasicOverlay(args)}>
-    <DefaultButton text={'Menu dropdown'} />
+  <Dropdown initialFocus overlay={BasicOverlay(args)}>
+    <Button text={'Menu dropdown'} />
   </Dropdown>
 );
 
 const Menu_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown overlay={LinkOverlay(args)}>
-    <DefaultButton text={'Menu dropdown'} />
+  <Dropdown initialFocus overlay={LinkOverlay(args)}>
+    <Button text={'Menu dropdown'} />
   </Dropdown>
 );
 
 const Menu_Header_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown overlay={BasicOverlay(args)}>
-    <DefaultButton text={'Menu dropdown'} />
+  <Dropdown initialFocus overlay={BasicOverlay(args)}>
+    <Button text={'Menu dropdown'} />
   </Dropdown>
 );
 
 const Menu_Sub_Header_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown overlay={SubHeaderOverlay(args)}>
-    <DefaultButton text={'Menu dropdown'} />
+  // When hosting selectors, do not close dropdown on click :)
+  <Dropdown
+    closeOnDropdownClick={false}
+    initialFocus
+    overlay={SubHeaderOverlay(args)}
+  >
+    <Button text={'Menu dropdown'} />
   </Dropdown>
 );
 
@@ -340,8 +349,9 @@ const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
                 },
                 {
                   type: MenuItemType.custom,
-                  render: ({ onChange }) => (
+                  render: ({ onChange, ...rest }) => (
                     <RadioGroup
+                      {...rest}
                       {...{
                         ariaLabel: 'Radio Group',
                         value: 'Radio1',
@@ -398,8 +408,8 @@ const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
         },
         {
           type: MenuItemType.link,
-          text: 'Twitter link',
-          href: 'https://twitter.com',
+          text: 'X link',
+          href: 'https://x.com',
           target: '_blank',
         },
         {
@@ -414,7 +424,7 @@ const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
         console.log(item);
       }}
     >
-      <DefaultButton text={'Cascading menu'} />
+      <Button text={'Cascading menu'} />
     </CascadingMenu>
   );
 };
@@ -446,6 +456,8 @@ const menuArgs: object = {
   itemClassNames: 'my-menu-item-class',
   itemStyle: {},
   listType: 'ul',
+  role: 'list',
+  itemProps: { role: 'listitem' },
 };
 
 Basic_Menu.args = {

@@ -6,15 +6,27 @@ import {
   TabValue,
   TabVariant,
   SelectTabEvent,
+  TabIconAlign,
 } from './Tabs.types';
 
 const TabsContext = createContext<Partial<ITabsContext>>({});
 
 const TabsProvider = ({
+  alignIcon = TabIconAlign.Start,
   children,
+  colorInvert = false,
+  configContextProps = {
+    noThemeContext: false,
+  },
+  direction = 'horizontal',
+  fullWidth = false,
+  lineClamp,
+  maxWidth,
   onChange,
   readOnly,
   size = TabSize.Medium,
+  theme,
+  themeContainerId,
   statgrouptheme,
   value,
   variant = TabVariant.default,
@@ -32,11 +44,20 @@ const TabsProvider = ({
   return (
     <TabsContext.Provider
       value={{
+        alignIcon,
+        colorInvert,
+        configContextProps,
         currentActiveTab,
+        direction,
+        fullWidth,
+        lineClamp,
+        maxWidth,
         onTabClick,
         readOnly,
         size,
         statgrouptheme,
+        theme,
+        themeContainerId,
         variant,
       }}
     >

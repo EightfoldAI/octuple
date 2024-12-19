@@ -1,6 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import { ConfigContextProps, Size } from '../ConfigProvider';
+import { ConfigContextProps, OcThemeName, Size } from '../ConfigProvider';
 import { TooltipProps } from '../Tooltip';
 
 import styles from './slider.module.scss';
@@ -338,6 +338,17 @@ export interface SliderInputProps
    * @default 1
    */
   step?: number;
+  /**
+   * Theme of the Slider.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Slider.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * The Slider thumb tooltip content.
    */

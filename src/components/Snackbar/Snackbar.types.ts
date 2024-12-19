@@ -40,25 +40,26 @@ export interface SnackbarContainerProps {
   parent?: HTMLElement;
 }
 
+export type VoidFunction = () => void;
 export interface ISnack {
   /**
    * Serves a snack.
    */
-  serve: (props: SnackbarProps) => void;
+  serve: (props: SnackbarProps) => VoidFunction;
   /**
    * Serves a neutral snack.
    */
-  serveNeutral: (props: SnackbarProps) => void;
+  serveNeutral: (props: SnackbarProps) => VoidFunction;
   /**
    * Serves a positive snack.
    */
-  servePositive: (props: SnackbarProps) => void;
+  servePositive: (props: SnackbarProps) => VoidFunction;
   /**
    * Serves a warning snack.
    */
-  serveWarning: (props: SnackbarProps) => void;
+  serveWarning: (props: SnackbarProps) => VoidFunction;
   /**
    * Serves a disruptive snack.
    */
-  serveDisruptive: (props: SnackbarProps) => void;
+  serveDisruptive: (props: SnackbarProps) => VoidFunction;
 }

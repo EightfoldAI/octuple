@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   CheckInfo,
@@ -6,7 +8,12 @@ import {
   OcTreeProps,
   OcTreeState,
 } from './OcTree.types';
-import { eventKeys, mergeClasses, pickAttrs } from '../../../shared/utilities';
+import {
+  canUseDom,
+  eventKeys,
+  mergeClasses,
+  pickAttrs,
+} from '../../../shared/utilities';
 import {
   TreeContext,
   NodeMouseEventHandler,
@@ -153,7 +160,9 @@ class Tree<
   }
 
   componentWillUnmount() {
-    window.removeEventListener('dragend', () => this.onWindowDragEnd);
+    if (canUseDom()) {
+      window.removeEventListener('dragend', () => this.onWindowDragEnd);
+    }
     this.destroyed = true;
   }
 
@@ -313,7 +322,9 @@ class Tree<
 
     this.setExpandedKeys(newExpandedKeys);
 
-    window.addEventListener('dragend', () => this.onWindowDragEnd);
+    if (canUseDom()) {
+      window.addEventListener('dragend', () => this.onWindowDragEnd);
+    }
 
     onDragStart?.({
       event,
@@ -398,26 +409,28 @@ class Tree<
       // it will be blocked by abstract dragover node check
       //   => if you dragenter from top, you mouse will still be consider as in the top node
       event.persist();
-      this.delayedDragEnterLogic[pos] = window.setTimeout(() => {
-        if (this.state.draggingNodeKey === null) return;
+      if (canUseDom()) {
+        this.delayedDragEnterLogic[pos] = window.setTimeout(() => {
+          if (this.state.draggingNodeKey === null) return;
 
-        let newExpandedKeys = [...expandedKeys];
-        const entity = keyEntities[node.props.eventKey];
+          let newExpandedKeys = [...expandedKeys];
+          const entity = keyEntities[node.props.eventKey];
 
-        if (entity && (entity.children || []).length) {
-          newExpandedKeys = arrAdd(expandedKeys, node.props.eventKey);
-        }
+          if (entity && (entity.children || []).length) {
+            newExpandedKeys = arrAdd(expandedKeys, node.props.eventKey);
+          }
 
-        if (!('expandedKeys' in this.props)) {
-          this.setExpandedKeys(newExpandedKeys);
-        }
+          if (!('expandedKeys' in this.props)) {
+            this.setExpandedKeys(newExpandedKeys);
+          }
 
-        onExpand?.(newExpandedKeys, {
-          node: convertNodePropsToEventData(node.props),
-          expanded: true,
-          nativeEvent: event.nativeEvent,
-        });
-      }, 800);
+          onExpand?.(newExpandedKeys, {
+            node: convertNodePropsToEventData(node.props),
+            expanded: true,
+            nativeEvent: event.nativeEvent,
+          });
+        }, 800);
+      }
     }
 
     // Skip if drag node is self
@@ -553,7 +566,9 @@ class Tree<
   // if onWindowDrag is called, whice means state is keeped, drag state should be cleared
   onWindowDragEnd = (event: React.DragEvent<HTMLDivElement>) => {
     this.onNodeDragEnd(event, null, true);
-    window.removeEventListener('dragend', () => this.onWindowDragEnd);
+    if (canUseDom()) {
+      window.removeEventListener('dragend', () => this.onWindowDragEnd);
+    }
   };
 
   // if onNodeDragEnd is called, onWindowDragEnd won't be called since stopPropagation() is called

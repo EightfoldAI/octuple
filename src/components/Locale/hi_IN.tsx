@@ -1,8 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/hi_IN';
 import Breadcrumb from '../Breadcrumb/Locale/hi_IN';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/hi_IN';
 import Dialog from '../Dialog/BaseDialog/Locale/hi_IN';
+import Drawer from '../Drawer/Locale/hi_IN';
 import InfoBar from '../InfoBar/Locale/hi_IN';
 import Pagination from '../Pagination/Locale/hi_IN';
 import Panel from '../Panel/Locale/hi_IN';
@@ -19,9 +21,11 @@ const localeValues: Locale = {
   global: {
     placeholder: 'चुनना',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(वैकल्पिक)',
     defaultValidateMessages: {

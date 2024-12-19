@@ -45,7 +45,25 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof Upload>;
 
 const snackArgs: Object = {
@@ -56,10 +74,11 @@ const snackArgs: Object = {
   id: 'mySnackId',
 };
 
-const Basic_Story: ComponentStory<typeof Upload> = () => {
+const Basic_Story: ComponentStory<typeof Upload> = (args) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     headers: {
       authorization: 'authorization-text',
     },
@@ -86,6 +105,8 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
     <>
       <Upload {...props}>
         <Button
+          configContextProps={args.configContextProps}
+          gradient={args.gradient}
           htmlType={'button'}
           onKeyDown={(event) => {
             if (
@@ -96,6 +117,8 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
             }
           }}
           text={'Select file'}
+          theme={args.theme}
+          themeContainerId={args.themeContainerId}
           variant={ButtonVariant.Primary}
         />
       </Upload>
@@ -104,10 +127,11 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
+const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = (args) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     headers: {
       authorization: 'authorization-text',
     },
@@ -138,6 +162,8 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
     <>
       <Upload {...props}>
         <Button
+          configContextProps={args.configContextProps}
+          gradient={args.gradient}
           htmlType={'button'}
           onKeyDown={(event) => {
             if (
@@ -148,6 +174,8 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
             }
           }}
           text={'Select file'}
+          theme={args.theme}
+          themeContainerId={args.themeContainerId}
           variant={ButtonVariant.Primary}
         />
       </Upload>
@@ -163,7 +191,7 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     maxCount: 1,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
@@ -187,7 +215,9 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
     },
     size: UploadSize.Small,
     showUploadList: {
+      removeIconButtonType: 'button',
       replaceButtonType: 'button',
+      showRemoveIconButton: true,
       showReplaceButton: true,
     },
   };
@@ -206,7 +236,7 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     multiple: true,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
@@ -249,7 +279,7 @@ const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     maxCount: 1,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -288,7 +318,7 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
     ...args,
     name: 'file',
     multiple: true,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -324,11 +354,14 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
+const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     maxCount: 1,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -361,13 +394,14 @@ const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
-const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
-  typeof Upload
-> = () => {
+const Drag_and_Drop_Multiple_Large_Story: ComponentStory<typeof Upload> = (
+  args
+) => {
   const props: UploadProps = {
+    ...args,
     name: 'file',
     multiple: true,
-    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -404,7 +438,7 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
   );
 };
 
-const Image_List_Story: ComponentStory<typeof Upload> = () => {
+const Image_List_Story: ComponentStory<typeof Upload> = (args) => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
   const [previewTitle, setPreviewTitle] = useState<string>('');
@@ -473,7 +507,8 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
   return (
     <>
       <Upload
-        action="http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd"
+        {...args}
+        action="https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61"
         listType="picture-card"
         fileList={fileList}
         onPreview={handlePreview}
@@ -482,6 +517,8 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
         {fileList.length >= 8 ? null : (
           <Button
             ariaLabel={'Select file'}
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
             onKeyDown={(event) => {
@@ -495,23 +532,29 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             variant={ButtonVariant.Primary}
           />
         )}
       </Upload>
       <Modal
-        visible={previewOpen}
-        header={previewTitle}
         body={
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         }
+        configContextProps={args.configContextProps}
+        gradient={args.gradient}
+        header={previewTitle}
         onClose={() => setPreviewOpen(false)}
+        theme={args.theme}
+        themeContainerId={args.themeContainerId}
+        visible={previewOpen}
       />
     </>
   );
 };
 
-const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
+const Image_Editor_Story: ComponentStory<typeof Upload> = (args) => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',
@@ -541,9 +584,16 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   };
 
   return (
-    <Cropper rotate>
+    <Cropper
+      configContextProps={args.configContextProps}
+      gradient={args.gradient}
+      rotate
+      theme={args.theme}
+      themeContainerId={args.themeContainerId}
+    >
       <Upload
-        action={'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd'}
+        {...args}
+        action={'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61'}
         fileList={fileList}
         listType={'picture-card'}
         onChange={onChange}
@@ -552,6 +602,8 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
         {fileList.length < 5 && (
           <Button
             ariaLabel={'Select file'}
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             htmlType={'button'}
             iconProps={{ path: IconName.mdiPlus }}
             onKeyDown={(event) => {
@@ -565,6 +617,8 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
             shape={ButtonShape.Round}
             size={ButtonSize.Large}
             style={{ top: '50%', transform: 'translateY(-50%)' }}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             variant={ButtonVariant.Primary}
           />
         )}
@@ -580,6 +634,18 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
   const onChange: UploadProps['onChange'] = async (info: any) => {
+    if (info.file.status === 'removed') {
+      await resetThumbAsync().then(() => {
+        setData({
+          ...info.file,
+          name: info.file.name,
+          percent: 0,
+          status: 'removed',
+          thumbUrl: '',
+        });
+      });
+      return;
+    }
     await generateThumbAsync(info.file).then(() => {
       setData({
         ...info.file,
@@ -604,6 +670,10 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
       file.preview = await getBase64(file.originFileObj as OcFile);
     }
     setThumbUrl(file.url || (file.preview as string));
+  };
+
+  const resetThumbAsync = async (): Promise<void> => {
+    setThumbUrl('');
   };
 
   const props: UploadProps = {
@@ -634,6 +704,12 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
         ...snackArgs,
         content: `${data.name} file uploaded successfully`,
       });
+    } else if (data.status === 'removed') {
+      const resetData = async () => {
+        setFileList([]);
+        setData({});
+      };
+      resetData().catch(console.error);
     }
   }, [data]);
 
@@ -682,7 +758,17 @@ export const __namedExportsOrder = [
   'Basic_Deferred_API',
 ];
 
-const uploadArgs: Object = {};
+const uploadArgs: Object = {
+  disabled: false,
+  configContextProps: {
+    noDisabledContext: false,
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-upload-theme-container',
+  gradient: false,
+};
 
 Basic.args = {
   ...uploadArgs,

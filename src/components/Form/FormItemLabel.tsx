@@ -112,22 +112,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
             </>
           );
         }
-
-        // Add required mark if optional
-        if (requiredMark === 'optional' && !required) {
-          labelChildren = (
-            <>
-              {labelChildren}
-              <span className={styles.formItemOptional} title="">
-                {formLocale?.optional || defaultLocale.Form?.optional}
-              </span>
-            </>
-          );
-        }
-
         const labelClassNames: string = mergeClasses({
-          [styles.formItemRequired]: required && requiredMark !== false,
-          [styles.formItemRequiredMarkOptional]: requiredMark === 'optional',
           [styles.formItemNoColon]: !computedColon,
         });
 
@@ -138,7 +123,33 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
               className={labelClassNames}
               title={typeof label === 'string' ? label : ''}
             >
-              {labelChildren}
+              {!requiredMark && !required && labelChildren}
+              {(requiredMark === 'optional' || required) && (
+                <span>
+                  <span className={styles.inlineEnforce}>{labelChildren}</span>
+                  <span
+                    className={mergeClasses([
+                      styles.formItemOptional,
+                      {
+                        [styles.formItemRequired]:
+                          required && requiredMark !== false,
+                      },
+                      {
+                        [styles.formHideRequiredMark]: requiredMark === false,
+                      },
+                      {
+                        [styles.formItemRequiredMarkOptional]:
+                          requiredMark === 'optional',
+                      },
+                    ])}
+                    title=""
+                  >
+                    {requiredMark === 'optional' &&
+                      !required &&
+                      (formLocale?.optional || defaultLocale.Form?.optional)}
+                  </span>
+                </span>
+              )}
             </label>
           </Col>
         );

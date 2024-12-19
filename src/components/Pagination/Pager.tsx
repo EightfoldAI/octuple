@@ -4,7 +4,7 @@ import {
   PagerSizeOptions,
   PaginationVisiblePagerCountSizeOptions,
 } from './Pagination.types';
-import { ButtonShape, ButtonSize, NeutralButton } from '../Button';
+import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
 
@@ -25,7 +25,9 @@ const PAGER_SIZE_COUNT = {
 export const Pager: FC<PagerProps> = React.forwardRef(
   (
     {
+      configContextProps,
       currentPage = 1,
+      gradient,
       locale,
       onCurrentChange,
       pageCount,
@@ -33,6 +35,8 @@ export const Pager: FC<PagerProps> = React.forwardRef(
       quickPreviousIconButtonAriaLabel,
       simplified = false,
       showLast = true,
+      theme,
+      themeContainerId,
       pagerSize,
       visiblePagerCountSize = PaginationVisiblePagerCountSizeOptions.Large,
       ...rest
@@ -158,16 +162,24 @@ export const Pager: FC<PagerProps> = React.forwardRef(
         {pageCount > 0 && (
           <li>
             {!simplified ? (
-              <NeutralButton
+              <Button
                 aria-current={currentPage === 1}
                 classNames={mergeClasses([
                   styles.paginationButton,
                   { [styles.active]: currentPage === 1 },
                 ])}
+                configContextProps={configContextProps}
+                gradient={gradient}
                 shape={ButtonShape.Rectangle}
                 onClick={() => onCurrentChange(1)}
                 size={ButtonSize.Medium}
                 text={'1'.toLocaleString()}
+                theme={theme}
+                themeContainerId={themeContainerId}
+                variant={ButtonVariant.Neutral}
+                ariaLabel={
+                  locale.lang.pageSizeText + ' ' + '1'.toLocaleString()
+                }
               />
             ) : (
               <>
@@ -182,12 +194,14 @@ export const Pager: FC<PagerProps> = React.forwardRef(
           currentPage > edgeBufferThreshold &&
           pageCount > shortListThreshold && (
             <li>
-              <NeutralButton
+              <Button
                 ariaLabel={quickPreviousIconButtonAriaLabel}
                 classNames={mergeClasses([
                   styles.paginationButton,
                   'quickprevious',
                 ])}
+                configContextProps={configContextProps}
+                gradient={gradient}
                 shape={ButtonShape.Rectangle}
                 iconProps={{
                   role: 'presentation',
@@ -203,6 +217,9 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                   onCurrentChange(currentPage - edgeBufferThreshold)
                 }
                 size={ButtonSize.Medium}
+                theme={theme}
+                themeContainerId={themeContainerId}
+                variant={ButtonVariant.Neutral}
               />
             </li>
           )}
@@ -210,7 +227,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
           _pagers?.map((pager, idx) => {
             return (
               <li key={idx}>
-                <NeutralButton
+                <Button
                   aria-current={currentPage === pager}
                   classNames={mergeClasses([
                     styles.paginationButton,
@@ -218,10 +235,18 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                       [styles.active]: currentPage === pager,
                     },
                   ])}
+                  configContextProps={configContextProps}
+                  gradient={gradient}
                   onClick={() => onCurrentChange(pager)}
                   shape={ButtonShape.Rectangle}
                   size={ButtonSize.Medium}
                   text={pager.toLocaleString()}
+                  theme={theme}
+                  themeContainerId={themeContainerId}
+                  variant={ButtonVariant.Neutral}
+                  ariaLabel={
+                    locale.lang.pageSizeText + ' ' + pager.toLocaleString()
+                  }
                 />
               </li>
             );
@@ -230,12 +255,14 @@ export const Pager: FC<PagerProps> = React.forwardRef(
           currentPage < pageCount - edgeBufferThreshold &&
           pageCount > shortListThreshold && (
             <li>
-              <NeutralButton
+              <Button
                 ariaLabel={quickNextIconButtonAriaLabel}
                 classNames={mergeClasses([
                   styles.paginationButton,
                   'quicknext',
                 ])}
+                configContextProps={configContextProps}
+                gradient={gradient}
                 shape={ButtonShape.Rectangle}
                 iconProps={{
                   role: 'presentation',
@@ -251,12 +278,15 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                   onCurrentChange(currentPage + edgeBufferThreshold)
                 }
                 size={ButtonSize.Medium}
+                theme={theme}
+                themeContainerId={themeContainerId}
+                variant={ButtonVariant.Neutral}
               />
             </li>
           )}
         {!simplified && pageCount > 1 && showLast && (
           <li>
-            <NeutralButton
+            <Button
               aria-current={currentPage === pageCount}
               classNames={mergeClasses([
                 styles.paginationButton,
@@ -264,10 +294,18 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                   [styles.active]: currentPage === pageCount,
                 },
               ])}
+              configContextProps={configContextProps}
+              gradient={gradient}
               onClick={() => onCurrentChange(pageCount)}
               shape={ButtonShape.Rectangle}
               size={ButtonSize.Medium}
               text={pageCount.toLocaleString()}
+              theme={theme}
+              themeContainerId={themeContainerId}
+              variant={ButtonVariant.Neutral}
+              ariaLabel={
+                locale.lang.pageSizeText + ' ' + pageCount.toLocaleString()
+              }
             />
           </li>
         )}

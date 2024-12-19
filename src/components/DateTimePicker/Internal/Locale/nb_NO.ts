@@ -32,6 +32,10 @@ const locale: Locale = {
   year: 'År',
   yearFormat: 'YYYY',
   yearSelect: 'Velg år',
+  prevAriaLabel: 'Forrige år',
+  nextAriaLabel: 'Neste år',
+  superPrevAriaLabel: 'Forrige år',
+  superNextAriaLabel: 'Neste år',
 };
 
 export default locale;

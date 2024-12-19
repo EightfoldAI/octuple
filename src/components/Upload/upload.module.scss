@@ -689,7 +689,7 @@ $upload-picture-card-size: 104px;
 
       .upload-drop-container {
         margin: unset;
-        padding: $space-s;
+        padding: $space-ml;
         width: 100%;
       }
 
@@ -698,21 +698,25 @@ $upload-picture-card-size: 104px;
       }
 
       .upload-drop-text {
-        font-size: $text-font-size-5;
-        line-height: $text-line-height-5;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
       }
 
       .upload-drop-hint-text {
-        font-size: $text-font-size-4;
-        line-height: $text-line-height-4;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+      }
+
+      .upload-list {
+        width: 356px;
       }
 
       .upload-list-item-single {
         font-size: $text-font-size-3;
-        height: 62px;
+        height: 48px;
         line-height: $text-line-height-3;
         margin-top: 0;
-        width: 376px;
+        width: 356px;
 
         .upload-list-item-card-actions {
           margin-left: 0;
@@ -721,6 +725,7 @@ $upload-picture-card-size: 104px;
         .upload-list-item-name {
           display: inline-block;
           overflow: hidden;
+          padding: 0 $space-xs;
           text-align: left;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -731,7 +736,7 @@ $upload-picture-card-size: 104px;
           border-radius: 0;
           height: 100%;
           min-width: unset;
-          padding: 0 $space-s;
+          padding: 0;
           width: 100%;
 
           > span {
@@ -748,6 +753,7 @@ $upload-picture-card-size: 104px;
 
         .upload-list-item-progress {
           bottom: -$space-s;
+          padding: 0 $space-s;
         }
 
         &:hover .upload-list-item-info {
@@ -798,6 +804,16 @@ $upload-picture-card-size: 104px;
       height: auto;
       min-width: 400px;
       width: fit-content;
+
+      .upload-drop-text {
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+      }
+
+      .upload-drop-hint-text {
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+      }
 
       .upload-list-item-single {
         font-size: $text-font-size-3;
@@ -903,6 +919,16 @@ $upload-picture-card-size: 104px;
         text-align: center;
       }
 
+      .upload-drop-text {
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+      }
+
+      .upload-drop-hint-text {
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+      }
+
       .upload-list {
         min-width: 272px;
         width: 100%;
@@ -926,7 +952,7 @@ $upload-picture-card-size: 104px;
 
         .upload-list-item-name {
           display: block;
-          margin-bottom: $space-m;
+          margin-bottom: $space-s;
           overflow: hidden;
           text-align: center;
           text-overflow: ellipsis;
@@ -972,7 +998,7 @@ $upload-picture-card-size: 104px;
           display: block;
           height: 48px;
           line-height: 48px;
-          margin: 0 auto $space-m auto;
+          margin: 0 auto $space-s auto;
           text-align: unset;
           width: 48px;
         }
@@ -980,7 +1006,7 @@ $upload-picture-card-size: 104px;
         .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
           display: block;
           height: 80px;
-          margin: 0 auto $space-m auto;
+          margin: 0 auto $space-s auto;
           opacity: 1;
           position: relative;
           width: auto;
@@ -1010,6 +1036,38 @@ $upload-picture-card-size: 104px;
           .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
             height: 160px;
           }
+        }
+      }
+    }
+  }
+
+  &.gradient {
+    .upload-list-picture-card {
+      .upload-list-item-actions {
+        a {
+          --bg: var(--primary-background1-gradient);
+          background-color: var(--bg);
+
+          &:hover:not([disabled]) {
+            --bg: var(--background-color);
+          }
+
+          &:active:not([disabled]) {
+            --bg: var(--primary-background2-gradient);
+          }
+        }
+      }
+
+      .upload-list-item-info:focus-within + .upload-list-item-actions,
+      .upload-list-item-info:hover + .upload-list-item-actions,
+      .upload-list-item-actions:focus-within,
+      .upload-list-item-actions:hover {
+        background: transparent;
+      }
+
+      .upload-list-item-uploading {
+        &.upload-list-item {
+          background-color: var(--background-color);
         }
       }
     }

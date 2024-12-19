@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (_, { mode }) => ({
   entry: {
@@ -44,7 +45,14 @@ module.exports = (_, { mode }) => ({
     ],
   },
   optimization: {
-    minimizer: [`...`, new CssMinimizerPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          keep_fnames: true,
+        },
+      }),
+      new CssMinimizerPlugin(),
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -60,5 +68,6 @@ module.exports = (_, { mode }) => ({
     library: 'Octuple',
     filename: '[name].js',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
 });

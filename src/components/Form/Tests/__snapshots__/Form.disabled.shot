@@ -83,6 +83,7 @@ LoadedCheerio {
                                     "disabled": "",
                                     "id": "disableCheckBox",
                                     "readonly": "",
+                                    "role": "checkbox",
                                     "type": "checkbox",
                                     "value": "",
                                   },
@@ -205,6 +206,7 @@ LoadedCheerio {
                                     "disabled": undefined,
                                     "id": undefined,
                                     "readonly": undefined,
+                                    "role": undefined,
                                     "type": undefined,
                                     "value": undefined,
                                   },
@@ -213,6 +215,7 @@ LoadedCheerio {
                                     "disabled": undefined,
                                     "id": undefined,
                                     "readonly": undefined,
+                                    "role": undefined,
                                     "type": undefined,
                                     "value": undefined,
                                   },
@@ -320,6 +323,7 @@ LoadedCheerio {
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "readonly": "",
+                                      "role": "checkbox",
                                       "type": "checkbox",
                                       "value": "",
                                     },
@@ -335,6 +339,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -343,6 +348,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -449,6 +455,7 @@ LoadedCheerio {
                                   "disabled": "",
                                   "id": "disableCheckBox",
                                   "readonly": "",
+                                  "role": "checkbox",
                                   "type": "checkbox",
                                   "value": "",
                                 },
@@ -571,6 +578,7 @@ LoadedCheerio {
                                   "disabled": undefined,
                                   "id": undefined,
                                   "readonly": undefined,
+                                  "role": undefined,
                                   "type": undefined,
                                   "value": undefined,
                                 },
@@ -579,6 +587,7 @@ LoadedCheerio {
                                   "disabled": undefined,
                                   "id": undefined,
                                   "readonly": undefined,
+                                  "role": undefined,
                                   "type": undefined,
                                   "value": undefined,
                                 },
@@ -686,6 +695,7 @@ LoadedCheerio {
                                     "disabled": "",
                                     "id": "disableCheckBox",
                                     "readonly": "",
+                                    "role": "checkbox",
                                     "type": "checkbox",
                                     "value": "",
                                   },
@@ -701,6 +711,7 @@ LoadedCheerio {
                                     "disabled": undefined,
                                     "id": undefined,
                                     "readonly": undefined,
+                                    "role": undefined,
                                     "type": undefined,
                                     "value": undefined,
                                   },
@@ -709,6 +720,7 @@ LoadedCheerio {
                                     "disabled": undefined,
                                     "id": undefined,
                                     "readonly": undefined,
+                                    "role": undefined,
                                     "type": undefined,
                                     "value": undefined,
                                   },
@@ -926,6 +938,7 @@ LoadedCheerio {
                                           Node {
                                             "attribs": Object {
                                               "aria-disabled": "true",
+                                              "aria-invalid": "false",
                                               "class": "input-medium left-icon clear-not-visible in-form-item",
                                               "disabled": "",
                                               "role": "textbox",
@@ -978,6 +991,7 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -987,6 +1001,7 @@ LoadedCheerio {
                                             },
                                             "x-attribsPrefix": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -1026,6 +1041,7 @@ LoadedCheerio {
                                             "prev": Node {
                                               "attribs": Object {
                                                 "aria-disabled": "true",
+                                                "aria-invalid": "false",
                                                 "class": "input-medium left-icon clear-not-visible in-form-item",
                                                 "disabled": "",
                                                 "role": "textbox",
@@ -1042,6 +1058,7 @@ LoadedCheerio {
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "aria-disabled": undefined,
+                                                "aria-invalid": undefined,
                                                 "class": undefined,
                                                 "disabled": undefined,
                                                 "role": undefined,
@@ -1051,6 +1068,7 @@ LoadedCheerio {
                                               },
                                               "x-attribsPrefix": Object {
                                                 "aria-disabled": undefined,
+                                                "aria-invalid": undefined,
                                                 "class": undefined,
                                                 "disabled": undefined,
                                                 "role": undefined,
@@ -1194,6 +1212,7 @@ LoadedCheerio {
                                         Node {
                                           "attribs": Object {
                                             "aria-disabled": "true",
+                                            "aria-invalid": "false",
                                             "class": "input-medium left-icon clear-not-visible in-form-item",
                                             "disabled": "",
                                             "role": "textbox",
@@ -1246,6 +1265,7 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -1255,6 +1275,7 @@ LoadedCheerio {
                                           },
                                           "x-attribsPrefix": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -1294,6 +1315,7 @@ LoadedCheerio {
                                           "prev": Node {
                                             "attribs": Object {
                                               "aria-disabled": "true",
+                                              "aria-invalid": "false",
                                               "class": "input-medium left-icon clear-not-visible in-form-item",
                                               "disabled": "",
                                               "role": "textbox",
@@ -1310,6 +1332,7 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -1319,6 +1342,7 @@ LoadedCheerio {
                                             },
                                             "x-attribsPrefix": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -1931,6 +1955,7 @@ LoadedCheerio {
                                         Node {
                                           "attribs": Object {
                                             "aria-disabled": "true",
+                                            "aria-invalid": "false",
                                             "class": "input-medium left-icon clear-not-visible in-form-item",
                                             "disabled": "",
                                             "role": "textbox",
@@ -1983,6 +2008,7 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -1992,6 +2018,7 @@ LoadedCheerio {
                                           },
                                           "x-attribsPrefix": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -2031,6 +2058,7 @@ LoadedCheerio {
                                           "prev": Node {
                                             "attribs": Object {
                                               "aria-disabled": "true",
+                                              "aria-invalid": "false",
                                               "class": "input-medium left-icon clear-not-visible in-form-item",
                                               "disabled": "",
                                               "role": "textbox",
@@ -2047,6 +2075,7 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -2056,6 +2085,7 @@ LoadedCheerio {
                                             },
                                             "x-attribsPrefix": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -2199,6 +2229,7 @@ LoadedCheerio {
                                       Node {
                                         "attribs": Object {
                                           "aria-disabled": "true",
+                                          "aria-invalid": "false",
                                           "class": "input-medium left-icon clear-not-visible in-form-item",
                                           "disabled": "",
                                           "role": "textbox",
@@ -2251,6 +2282,7 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "aria-disabled": undefined,
+                                          "aria-invalid": undefined,
                                           "class": undefined,
                                           "disabled": undefined,
                                           "role": undefined,
@@ -2260,6 +2292,7 @@ LoadedCheerio {
                                         },
                                         "x-attribsPrefix": Object {
                                           "aria-disabled": undefined,
+                                          "aria-invalid": undefined,
                                           "class": undefined,
                                           "disabled": undefined,
                                           "role": undefined,
@@ -2299,6 +2332,7 @@ LoadedCheerio {
                                         "prev": Node {
                                           "attribs": Object {
                                             "aria-disabled": "true",
+                                            "aria-invalid": "false",
                                             "class": "input-medium left-icon clear-not-visible in-form-item",
                                             "disabled": "",
                                             "role": "textbox",
@@ -2315,6 +2349,7 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -2324,6 +2359,7 @@ LoadedCheerio {
                                           },
                                           "x-attribsPrefix": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -2913,6 +2949,7 @@ LoadedCheerio {
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "readonly": "",
+                                      "role": "checkbox",
                                       "type": "checkbox",
                                       "value": "",
                                     },
@@ -3035,6 +3072,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -3043,6 +3081,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -3150,6 +3189,7 @@ LoadedCheerio {
                                         "disabled": "",
                                         "id": "disableCheckBox",
                                         "readonly": "",
+                                        "role": "checkbox",
                                         "type": "checkbox",
                                         "value": "",
                                       },
@@ -3165,6 +3205,7 @@ LoadedCheerio {
                                         "disabled": undefined,
                                         "id": undefined,
                                         "readonly": undefined,
+                                        "role": undefined,
                                         "type": undefined,
                                         "value": undefined,
                                       },
@@ -3173,6 +3214,7 @@ LoadedCheerio {
                                         "disabled": undefined,
                                         "id": undefined,
                                         "readonly": undefined,
+                                        "role": undefined,
                                         "type": undefined,
                                         "value": undefined,
                                       },
@@ -3279,6 +3321,7 @@ LoadedCheerio {
                                     "disabled": "",
                                     "id": "disableCheckBox",
                                     "readonly": "",
+                                    "role": "checkbox",
                                     "type": "checkbox",
                                     "value": "",
                                   },
@@ -3401,6 +3444,7 @@ LoadedCheerio {
                                     "disabled": undefined,
                                     "id": undefined,
                                     "readonly": undefined,
+                                    "role": undefined,
                                     "type": undefined,
                                     "value": undefined,
                                   },
@@ -3409,6 +3453,7 @@ LoadedCheerio {
                                     "disabled": undefined,
                                     "id": undefined,
                                     "readonly": undefined,
+                                    "role": undefined,
                                     "type": undefined,
                                     "value": undefined,
                                   },
@@ -3516,6 +3561,7 @@ LoadedCheerio {
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "readonly": "",
+                                      "role": "checkbox",
                                       "type": "checkbox",
                                       "value": "",
                                     },
@@ -3531,6 +3577,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -3539,6 +3586,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -4114,6 +4162,7 @@ LoadedCheerio {
                                           Node {
                                             "attribs": Object {
                                               "aria-disabled": "true",
+                                              "aria-invalid": "false",
                                               "class": "input-medium left-icon clear-not-visible in-form-item",
                                               "disabled": "",
                                               "role": "textbox",
@@ -4166,6 +4215,7 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -4175,6 +4225,7 @@ LoadedCheerio {
                                             },
                                             "x-attribsPrefix": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -4214,6 +4265,7 @@ LoadedCheerio {
                                             "prev": Node {
                                               "attribs": Object {
                                                 "aria-disabled": "true",
+                                                "aria-invalid": "false",
                                                 "class": "input-medium left-icon clear-not-visible in-form-item",
                                                 "disabled": "",
                                                 "role": "textbox",
@@ -4230,6 +4282,7 @@ LoadedCheerio {
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "aria-disabled": undefined,
+                                                "aria-invalid": undefined,
                                                 "class": undefined,
                                                 "disabled": undefined,
                                                 "role": undefined,
@@ -4239,6 +4292,7 @@ LoadedCheerio {
                                               },
                                               "x-attribsPrefix": Object {
                                                 "aria-disabled": undefined,
+                                                "aria-invalid": undefined,
                                                 "class": undefined,
                                                 "disabled": undefined,
                                                 "role": undefined,
@@ -4382,6 +4436,7 @@ LoadedCheerio {
                                         Node {
                                           "attribs": Object {
                                             "aria-disabled": "true",
+                                            "aria-invalid": "false",
                                             "class": "input-medium left-icon clear-not-visible in-form-item",
                                             "disabled": "",
                                             "role": "textbox",
@@ -4434,6 +4489,7 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -4443,6 +4499,7 @@ LoadedCheerio {
                                           },
                                           "x-attribsPrefix": Object {
                                             "aria-disabled": undefined,
+                                            "aria-invalid": undefined,
                                             "class": undefined,
                                             "disabled": undefined,
                                             "role": undefined,
@@ -4482,6 +4539,7 @@ LoadedCheerio {
                                           "prev": Node {
                                             "attribs": Object {
                                               "aria-disabled": "true",
+                                              "aria-invalid": "false",
                                               "class": "input-medium left-icon clear-not-visible in-form-item",
                                               "disabled": "",
                                               "role": "textbox",
@@ -4498,6 +4556,7 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -4507,6 +4566,7 @@ LoadedCheerio {
                                             },
                                             "x-attribsPrefix": Object {
                                               "aria-disabled": undefined,
+                                              "aria-invalid": undefined,
                                               "class": undefined,
                                               "disabled": undefined,
                                               "role": undefined,
@@ -4749,6 +4809,7 @@ LoadedCheerio {
                                         "disabled": "",
                                         "id": "disableCheckBox",
                                         "readonly": "",
+                                        "role": "checkbox",
                                         "type": "checkbox",
                                         "value": "",
                                       },
@@ -4871,6 +4932,7 @@ LoadedCheerio {
                                         "disabled": undefined,
                                         "id": undefined,
                                         "readonly": undefined,
+                                        "role": undefined,
                                         "type": undefined,
                                         "value": undefined,
                                       },
@@ -4879,6 +4941,7 @@ LoadedCheerio {
                                         "disabled": undefined,
                                         "id": undefined,
                                         "readonly": undefined,
+                                        "role": undefined,
                                         "type": undefined,
                                         "value": undefined,
                                       },
@@ -4986,6 +5049,7 @@ LoadedCheerio {
                                           "disabled": "",
                                           "id": "disableCheckBox",
                                           "readonly": "",
+                                          "role": "checkbox",
                                           "type": "checkbox",
                                           "value": "",
                                         },
@@ -5001,6 +5065,7 @@ LoadedCheerio {
                                           "disabled": undefined,
                                           "id": undefined,
                                           "readonly": undefined,
+                                          "role": undefined,
                                           "type": undefined,
                                           "value": undefined,
                                         },
@@ -5009,6 +5074,7 @@ LoadedCheerio {
                                           "disabled": undefined,
                                           "id": undefined,
                                           "readonly": undefined,
+                                          "role": undefined,
                                           "type": undefined,
                                           "value": undefined,
                                         },
@@ -5115,6 +5181,7 @@ LoadedCheerio {
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "readonly": "",
+                                      "role": "checkbox",
                                       "type": "checkbox",
                                       "value": "",
                                     },
@@ -5237,6 +5304,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -5245,6 +5313,7 @@ LoadedCheerio {
                                       "disabled": undefined,
                                       "id": undefined,
                                       "readonly": undefined,
+                                      "role": undefined,
                                       "type": undefined,
                                       "value": undefined,
                                     },
@@ -5352,6 +5421,7 @@ LoadedCheerio {
                                         "disabled": "",
                                         "id": "disableCheckBox",
                                         "readonly": "",
+                                        "role": "checkbox",
                                         "type": "checkbox",
                                         "value": "",
                                       },
@@ -5367,6 +5437,7 @@ LoadedCheerio {
                                         "disabled": undefined,
                                         "id": undefined,
                                         "readonly": undefined,
+                                        "role": undefined,
                                         "type": undefined,
                                         "value": undefined,
                                       },
@@ -5375,6 +5446,7 @@ LoadedCheerio {
                                         "disabled": undefined,
                                         "id": undefined,
                                         "readonly": undefined,
+                                        "role": undefined,
                                         "type": undefined,
                                         "value": undefined,
                                       },

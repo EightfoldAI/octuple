@@ -48,7 +48,14 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     <SystemUIButton
       classNames={'picker-year-btn'}
       key="year"
+      ariaLabel="year"
       onClick={onYearClick}
+      onKeyDown={(e) => {
+        const isEventKey = [' ', 'Enter'].includes(e.key);
+        if (isEventKey) {
+          onYearClick();
+        }
+      }}
       size={datePickerSizeToButtonSizeMap.get(size)}
       text={formatValue(viewDate, {
         locale,
@@ -61,7 +68,14 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     <SystemUIButton
       classNames={'picker-month-btn'}
       key="month"
+      ariaLabel="month"
       onClick={onMonthClick}
+      onKeyDown={(e) => {
+        const isEventKey = [' ', 'Enter'].includes(e.key);
+        if (isEventKey) {
+          onMonthClick();
+        }
+      }}
       size={datePickerSizeToButtonSizeMap.get(size)}
       text={
         locale.monthFormat
@@ -82,6 +96,10 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
   return (
     <Header
       {...props}
+      superPrevAriaLabel={locale.previousYear}
+      prevAriaLabel={locale.previousMonth}
+      nextAriaLabel={locale.nextMonth}
+      superNextAriaLabel={locale.nextYear}
       onSuperPrev={onPrevYear}
       onPrev={onPrevMonth}
       onNext={onNextMonth}

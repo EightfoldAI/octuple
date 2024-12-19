@@ -1,12 +1,20 @@
 import React, {
   forwardRef,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
 import { default as EasyCropper } from 'react-easy-crop';
+import GradientContext, {
+  Gradient,
+} from '../../ConfigProvider/GradientContext';
+import { OcThemeName } from '../../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../../ConfigProvider/ThemeContext';
 import type { CropperProps } from './Cropper.types';
 import { EasyCropHandle, INIT_ZOOM, INIT_ROTATE } from './Cropper.types';
 import EasyCrop from './EasyCrop';
@@ -18,18 +26,24 @@ import { Modal, ModalSize } from '../../Modal';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../../LocaleProvider/LocaleReceiver';
-import { mergeClasses } from '../../../shared/utilities';
+import { canUseDocElement, mergeClasses } from '../../../shared/utilities';
 import enUS from '../Locale/en_US';
 
 import styles from './cropper.module.scss';
+import themedComponentStyles from './cropper.theme.module.scss';
 
 const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const {
     aspect = 1,
     beforeCrop,
     children,
+    configContextProps = {
+      noGradientContext: false,
+      noThemeContext: false,
+    },
     cropperProps,
     fillColor = 'white',
+    gradient = false,
     grid = false,
     locale = enUS,
     maxZoom = 3,
@@ -49,6 +63,8 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
     rotateLeftButtonAriaLabelText: defaultRotateLeftButtonAriaLabelText,
     rotateRightButtonAriaLabelText: defaultRotateRightButtonAriaLabelText,
     shape = 'rect',
+    theme,
+    themeContainerId,
     zoom = true,
     zoomInButtonAriaLabelText: defaultZoomInButtonAriaLabelText,
     zoomOutButtonAriaLabelText: defaultZoomOutButtonAriaLabelText,
@@ -56,7 +72,12 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const cb = useRef<
     Pick<
       CropperProps,
-      'onModalOk' | 'onModalCancel' | 'beforeCrop' | 'onUploadFail'
+      | 'configContextProps'
+      | 'onModalOk'
+      | 'onModalCancel'
+      | 'beforeCrop'
+      | 'onUploadFail'
+      | 'themeContainerId'
     >
   >({});
   cb.current.onModalOk = onModalOk;
@@ -69,6 +90,16 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const beforeUploadRef = useRef<UploadProps['beforeUpload']>();
   const resolveRef = useRef<CropperProps['onModalOk']>();
   const rejectRef = useRef<(err: Error) => void>();
+
+  const contextualGradient: Gradient = useContext(GradientContext);
+  const mergedGradient: boolean = configContextProps.noGradientContext
+    ? gradient
+    : contextualGradient || gradient;
+
+  const contextualTheme: OcThemeName = useContext(ThemeContext);
+  const mergedTheme: OcThemeName = configContextProps.noThemeContext
+    ? theme
+    : contextualTheme || theme;
 
   // ============================ Strings ===========================
   const [uploadLocale] = useLocaleReceiver('Upload');
@@ -143,7 +174,16 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
 
   const uploadComponent = useMemo(() => {
     const upload = Array.isArray(children) ? children[0] : children;
-    const { beforeUpload, accept, ...restUploadProps } = upload.props;
+    const {
+      accept,
+      beforeUpload,
+      classNames,
+      configContextProps,
+      gradient,
+      theme,
+      themeContainerId,
+      ...restUploadProps
+    } = upload.props;
     beforeUploadRef.current = beforeUpload;
 
     return {
@@ -182,6 +222,11 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
             reader.readAsDataURL(file);
           });
         },
+        classNames: mergedTheme && themedComponentStyles.theme,
+        configContextProps: cb.current.configContextProps,
+        gradient: mergedGradient,
+        theme: mergedTheme,
+        themeContainerId: cb.current.themeContainerId,
       },
     };
   }, [children]);
@@ -216,144 +261,166 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
   const onOk = useCallback(async (): Promise<void> => {
     onClose();
 
-    const canvas: HTMLCanvasElement = document.createElement('canvas');
-    const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+    if (canUseDocElement()) {
+      const canvas: HTMLCanvasElement = document.createElement('canvas');
+      const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
-    const imgSource = document.querySelector(
-      '.cropper-media'
-    ) as CanvasImageSource & {
-      naturalWidth: number;
-      naturalHeight: number;
-    };
-    const {
-      width: cropWidth,
-      height: cropHeight,
-      x: cropX,
-      y: cropY,
-    } = easyCropRef.current.cropPixelsRef?.current;
+      const imgSource = document.querySelector(
+        '.cropper-media'
+      ) as CanvasImageSource & {
+        naturalWidth: number;
+        naturalHeight: number;
+      };
+      const {
+        width: cropWidth,
+        height: cropHeight,
+        x: cropX,
+        y: cropY,
+      } = easyCropRef.current.cropPixelsRef?.current;
 
-    if (rotate && easyCropRef.current.rotateVal !== INIT_ROTATE) {
-      const { naturalWidth: imgWidth, naturalHeight: imgHeight } = imgSource;
-      const angle: number = easyCropRef.current.rotateVal * (Math.PI / 180);
+      if (rotate && easyCropRef.current.rotateVal !== INIT_ROTATE) {
+        const { naturalWidth: imgWidth, naturalHeight: imgHeight } = imgSource;
+        const angle: number = easyCropRef.current.rotateVal * (Math.PI / 180);
 
-      // Get container for rotated image
-      const sine: number = Math.abs(Math.sin(angle));
-      const cosine: number = Math.abs(Math.cos(angle));
-      const squareWidth: number = imgWidth * cosine + imgHeight * sine;
-      const squareHeight: number = imgHeight * cosine + imgWidth * sine;
+        // Get container for rotated image
+        const sine: number = Math.abs(Math.sin(angle));
+        const cosine: number = Math.abs(Math.cos(angle));
+        const squareWidth: number = imgWidth * cosine + imgHeight * sine;
+        const squareHeight: number = imgHeight * cosine + imgWidth * sine;
 
-      canvas.width = squareWidth;
-      canvas.height = squareHeight;
-      ctx.fillStyle = fillColor;
-      ctx.fillRect(0, 0, squareWidth, squareHeight);
+        canvas.width = squareWidth;
+        canvas.height = squareHeight;
+        ctx.fillStyle = fillColor;
+        ctx.fillRect(0, 0, squareWidth, squareHeight);
 
-      // Rotate container
-      const squareHalfWidth: number = squareWidth / 2;
-      const squareHalfHeight: number = squareHeight / 2;
-      ctx.translate(squareHalfWidth, squareHalfHeight);
-      ctx.rotate(angle);
-      ctx.translate(-squareHalfWidth, -squareHalfHeight);
+        // Rotate container
+        const squareHalfWidth: number = squareWidth / 2;
+        const squareHalfHeight: number = squareHeight / 2;
+        ctx.translate(squareHalfWidth, squareHalfHeight);
+        ctx.rotate(angle);
+        ctx.translate(-squareHalfWidth, -squareHalfHeight);
 
-      // Draw rotated image
-      const imgX: number = (squareWidth - imgWidth) / 2;
-      const imgY: number = (squareHeight - imgHeight) / 2;
-      ctx.drawImage(
-        imgSource,
-        0,
-        0,
-        imgWidth,
-        imgHeight,
-        imgX,
-        imgY,
-        imgWidth,
-        imgHeight
-      );
+        // Draw rotated image
+        const imgX: number = (squareWidth - imgWidth) / 2;
+        const imgY: number = (squareHeight - imgHeight) / 2;
+        ctx.drawImage(
+          imgSource,
+          0,
+          0,
+          imgWidth,
+          imgHeight,
+          imgX,
+          imgY,
+          imgWidth,
+          imgHeight
+        );
 
-      // Crop rotated image
-      const imgData: ImageData = ctx.getImageData(
-        0,
-        0,
-        squareWidth,
-        squareHeight
-      );
-      canvas.width = cropWidth;
-      canvas.height = cropHeight;
-      ctx.putImageData(imgData, -cropX, -cropY);
-    } else {
-      canvas.width = cropWidth;
-      canvas.height = cropHeight;
-      ctx.fillStyle = fillColor;
-      ctx.fillRect(0, 0, cropWidth, cropHeight);
+        // Crop rotated image
+        const imgData: ImageData = ctx.getImageData(
+          0,
+          0,
+          squareWidth,
+          squareHeight
+        );
+        canvas.width = cropWidth;
+        canvas.height = cropHeight;
+        ctx.putImageData(imgData, -cropX, -cropY);
+      } else {
+        canvas.width = cropWidth;
+        canvas.height = cropHeight;
+        ctx.fillStyle = fillColor;
+        ctx.fillRect(0, 0, cropWidth, cropHeight);
 
-      ctx.drawImage(
-        imgSource,
-        cropX,
-        cropY,
-        cropWidth,
-        cropHeight,
-        0,
-        0,
-        cropWidth,
-        cropHeight
+        ctx.drawImage(
+          imgSource,
+          cropX,
+          cropY,
+          cropWidth,
+          cropHeight,
+          0,
+          0,
+          cropWidth,
+          cropHeight
+        );
+      }
+
+      // Get the new image
+      const { type, name, uid } = fileRef.current;
+      canvas.toBlob(
+        async (blob: Blob | null) => {
+          const newFile = Object.assign(new File([blob], name, { type }), {
+            uid,
+          }) as OcFile;
+
+          if (!beforeUploadRef.current) {
+            return resolveRef.current(newFile);
+          }
+
+          const result = await beforeUploadRef.current(newFile, [newFile]);
+
+          if (result === true) {
+            return resolveRef.current(newFile);
+          }
+
+          if (result === false) {
+            return rejectRef.current(new Error('beforeUpload returned false'));
+          }
+
+          delete (newFile as any)[Upload.LIST_IGNORE];
+          if (result === Upload.LIST_IGNORE) {
+            Object.defineProperty(newFile, Upload.LIST_IGNORE, {
+              value: true,
+              configurable: true,
+            });
+            return rejectRef.current(
+              new Error('beforeUpload returned LIST_IGNORE')
+            );
+          }
+
+          if (typeof result === 'object' && result !== null) {
+            return resolveRef.current(result);
+          }
+        },
+        type,
+        quality
       );
     }
-
-    // Get the new image
-    const { type, name, uid } = fileRef.current;
-    canvas.toBlob(
-      async (blob: Blob | null) => {
-        const newFile = Object.assign(new File([blob], name, { type }), {
-          uid,
-        }) as OcFile;
-
-        if (!beforeUploadRef.current) {
-          return resolveRef.current(newFile);
-        }
-
-        const result = await beforeUploadRef.current(newFile, [newFile]);
-
-        if (result === true) {
-          return resolveRef.current(newFile);
-        }
-
-        if (result === false) {
-          return rejectRef.current(new Error('beforeUpload returned false'));
-        }
-
-        delete (newFile as any)[Upload.LIST_IGNORE];
-        if (result === Upload.LIST_IGNORE) {
-          Object.defineProperty(newFile, Upload.LIST_IGNORE, {
-            value: true,
-            configurable: true,
-          });
-          return rejectRef.current(
-            new Error('beforeUpload returned LIST_IGNORE')
-          );
-        }
-
-        if (typeof result === 'object' && result !== null) {
-          return resolveRef.current(result);
-        }
-      },
-      type,
-      quality
-    );
   }, [fillColor, quality, rotate]);
 
   return (
     <LocaleReceiver componentName={'Upload'} defaultLocale={enUS}>
       {(_contextLocale: UploadLocale) => {
         return (
-          <>
+          <ThemeContextProvider
+            componentClassName={themedComponentStyles.theme}
+            containerId={themeContainerId}
+            theme={mergedTheme}
+          >
             {uploadComponent}
             {image && (
               <Modal
                 actions={
                   <>
-                    <Button text={modalCancelText} onClick={onCancel} />
                     <Button
-                      text={modalOkText}
+                      configContextProps={configContextProps}
+                      gradient={mergedGradient}
+                      onClick={onCancel}
+                      text={modalCancelText}
+                      theme={mergedTheme}
+                      themeContainerId={themeContainerId}
+                      variant={
+                        mergedGradient
+                          ? ButtonVariant.Secondary
+                          : ButtonVariant.Default
+                      }
+                    />
+                    <Button
+                      configContextProps={configContextProps}
+                      gradient={mergedGradient}
                       onClick={onOk}
+                      text={modalOkText}
+                      theme={mergedTheme}
+                      themeContainerId={themeContainerId}
                       variant={ButtonVariant.Primary}
                     />
                   </>
@@ -362,8 +429,10 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
                   <EasyCrop
                     ref={easyCropRef}
                     aspect={aspect}
+                    configContextProps={configContextProps}
                     cropperProps={cropperProps}
                     cropperRef={ref}
+                    gradient={mergedGradient}
                     grid={grid}
                     image={image}
                     maxZoom={maxZoom}
@@ -376,24 +445,31 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
                       rotateRightButtonAriaLabelText
                     }
                     shape={shape}
+                    theme={mergedTheme}
+                    themeContainerId={themeContainerId}
                     zoom={zoom}
                     zoomInButtonAriaLabelText={zoomInButtonAriaLabelText}
                     zoomOutButtonAriaLabelText={zoomOutButtonAriaLabelText}
                   />
                 }
+                configContextProps={configContextProps}
+                gradient={mergedGradient}
                 maskClosable={false}
                 modalClassNames={styles.cropperModal}
                 modalWrapperClassNames={mergeClasses([
                   styles.cropperModal,
+                  { [themedComponentStyles.theme]: mergedTheme },
                   modalWrapperClassNames,
                 ])}
                 onClose={onCancel}
                 size={ModalSize.medium}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
                 visible={true}
                 {...modalProps}
               />
             )}
-          </>
+          </ThemeContextProvider>
         );
       }}
     </LocaleReceiver>

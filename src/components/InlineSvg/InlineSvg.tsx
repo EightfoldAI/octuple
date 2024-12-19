@@ -1,8 +1,11 @@
+'use client';
+
 import React, { useEffect, useMemo, useState, useRef, FC, Ref } from 'react';
 import { InlineSvgProps } from './InlineSvg.types';
 import { Icon, IconName } from '../Icon';
 import { Skeleton, SkeletonVariant } from '../Skeleton';
 import { usePreviousState } from '../../hooks/usePreviousState';
+import { canUseDocElement, canUseDom } from '../../shared/utilities';
 
 export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
   (
@@ -38,8 +41,20 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
       }
 
       const fetchSvg = async (): Promise<void> => {
+        if (!canUseDom() || !canUseDocElement()) {
+          return;
+        }
         try {
           const response: Response = await fetch(_url);
+
+          // If the response is not ok (404, 500 ...), set the error state and return
+          if (!response.ok) {
+            console.error(response.status);
+            setHasError(true);
+            setIsLoading(false);
+            return;
+          }
+
           const text: string = await response.text();
 
           const parser: DOMParser = new DOMParser();
@@ -53,6 +68,7 @@ export const InlineSvg: FC<InlineSvgProps> = React.forwardRef(
           svgRef.current.innerHTML = text;
           setIsLoading(false);
         } catch (error) {
+          // Set the error state upon network error rejection of the try block
           console.error(error);
           setHasError(true);
           setIsLoading(false);

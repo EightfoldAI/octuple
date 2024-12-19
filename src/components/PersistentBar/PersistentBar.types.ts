@@ -1,6 +1,7 @@
-import { IconName } from '../Icon';
-import { ButtonProps } from '../Button';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { OcBaseProps } from '../OcBase';
+import { ButtonProps } from '../Button';
+import { IconName } from '../Icon';
 import { PaginationProps } from '../Pagination';
 
 type Locale = {
@@ -73,9 +74,18 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   closeButtonProps?: CloseButtonProps;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * String content of the persistent bar.
    */
   content?: string;
+  /**
+   * The persistent bar gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Custom icon for the persistent bar.
    * @default PersistentBarType.mdiArrowLeft
@@ -112,6 +122,17 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
    * Role of the persistent bar.
    */
   role?: string;
+  /**
+   * Theme of the persistent bar.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the persistent bar.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Title for the persistent bar.
    */

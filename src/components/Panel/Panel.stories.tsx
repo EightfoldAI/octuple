@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React, { useState } from 'react';
+
+import { Button, ButtonVariant } from '../Button';
+import { ConfigProvider } from '../ConfigProvider';
+import { FeatureFlagContextProvider } from '../ConfigProvider/FeatureFlagProvider';
+import { IconName } from '../Icon';
 import { Panel, PanelSize } from './';
 import { PanelHeader } from './PanelHeader';
-import { Button, ButtonVariant } from '../Button';
-import { IconName } from '../Icon';
 
 export default {
   title: 'Panel',
@@ -96,12 +99,54 @@ export default {
       options: [PanelSize.large, PanelSize.medium, PanelSize.small],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     placement: {
       options: ['top', 'right', 'bottom', 'left'],
       control: { type: 'radio' },
     },
+    panelLazyLoadContent: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
   },
+  decorators: [
+    (Story, context) => (
+      <ConfigProvider
+        featureFlags={{
+          panelLazyLoadContent: context.args.panelLazyLoadContent,
+        }}
+      >
+        <Story />
+      </ConfigProvider>
+    ),
+  ],
 } as ComponentMeta<typeof Panel>;
+
+const FeatureFlag_Story: ComponentStory<typeof FeatureFlagContextProvider> = (
+  args
+) => {
+  return (
+    <ConfigProvider featureFlags={args.featureFlags}>
+      {args.children}
+    </ConfigProvider>
+  );
+};
 
 const Panel_Story: ComponentStory<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -117,8 +162,12 @@ const Panel_Story: ComponentStory<typeof Panel> = (args) => {
         footer={
           <div>
             <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
               onClick={() => setVisible(false)}
               text={'Close'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
               variant={ButtonVariant.Primary}
             />
           </div>
@@ -145,6 +194,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
       />
       <Panel {...args} visible={visible.simple} onClose={() => setVisible({})}>
         <Button
+          configContextProps={args.configContextProps}
+          gradient={args.gradient}
           onClick={() =>
             setVisible({
               ...visible,
@@ -152,6 +203,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
             })
           }
           text={'Open second panel'}
+          theme={args.theme}
+          themeContainerId={args.themeContainerId}
           variant={ButtonVariant.Primary}
         />
         <Panel
@@ -166,6 +219,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
           }
         >
           <Button
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             onClick={() =>
               setVisible({
                 ...visible,
@@ -173,6 +228,8 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
               })
             }
             text={'Open third panel'}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             variant={ButtonVariant.Primary}
           />
           <Panel
@@ -206,8 +263,12 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
         footer={
           <div>
             <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
               onClick={() => setVisible(false)}
               text={'Close'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
               variant={ButtonVariant.Primary}
             />
           </div>
@@ -240,7 +301,11 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
               transparent: true,
               onClick: () => setVisible(false),
             }}
+            configContextProps={args.configContextProps}
+            gradient={args.gradient}
             onClose={() => setVisible(false)}
+            theme={args.theme}
+            themeContainerId={args.themeContainerId}
             title={'Header'}
           />
         }
@@ -275,6 +340,13 @@ export const __namedExportsOrder = [
 ];
 
 const panelArgs: Object = {
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  gradient: false,
+  theme: '',
+  themeContainerId: 'my-panel-theme',
   size: PanelSize.small,
   visible: false,
   closable: true,
@@ -361,6 +433,7 @@ const panelArgs: Object = {
   footerClassNames: 'my-panel-footer-class',
   autoFocus: true,
   focusTrap: true,
+  featureFlags: undefined,
 };
 
 Small.args = {

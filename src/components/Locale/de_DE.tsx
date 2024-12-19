@@ -1,8 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/de_DE';
 import Breadcrumb from '../Breadcrumb/Locale/de_DE';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/de_DE';
 import Dialog from '../Dialog/BaseDialog/Locale/de_DE';
+import Drawer from '../Drawer/Locale/de_DE';
 import InfoBar from '../InfoBar/Locale/de_DE';
 import Pagination from '../Pagination/Locale/de_DE';
 import Panel from '../Panel/Locale/de_DE';
@@ -19,9 +21,11 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Bitte auswählen',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     defaultValidateMessages: {
       default: 'Feld-Validierungsfehler: ${label}',

@@ -1,7 +1,9 @@
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/fi_FI';
 import Breadcrumb from '../Breadcrumb/Locale/fi_FI';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/fi_FI';
 import Dialog from '../Dialog/BaseDialog/Locale/fi_FI';
+import Drawer from '../Drawer/Locale/fi_FI';
 import InfoBar from '../InfoBar/Locale/fi_FI';
 import Pagination from '../Pagination/Locale/fi_FI';
 import Panel from '../Panel/Locale/fi_FI';
@@ -13,9 +15,11 @@ import Upload from '../Upload/Locale/fi_FI';
 
 const localeValues: Locale = {
   locale: 'fi',
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   InfoBar,
   Pagination,
   Panel,

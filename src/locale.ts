@@ -1,6 +1,9 @@
 import type { Locale } from './components/LocaleProvider';
+import { useLocaleReceiver } from './components/LocaleProvider/LocaleReceiver';
 
 // Supported locales
+import arSA from './components/Locale/ar_SA'; // العربية
+import bgBG from './components/Locale/bg_BG'; // Български
 import csCZ from './components/Locale/cs_CZ'; // čeština
 import daDK from './components/Locale/da_DK'; // Dansk
 import deDE from './components/Locale/de_DE'; // Deutsch
@@ -29,16 +32,23 @@ import nlNL from './components/Locale/nl_NL'; // Nederlands
 import plPL from './components/Locale/pl_PL'; // Polski
 import ptBR from './components/Locale/pt_BR'; // Português (Brazil)
 import ptPT from './components/Locale/pt_PT'; // Português
+import roRO from './components/Locale/ro_RO'; // Română
 import ruRU from './components/Locale/ru_RU'; // Pусский
+import skSK from './components/Locale/sk_SK'; // Slovenčina
+import srRS from './components/Locale/sr_RS'; // Srpski
 import svSE from './components/Locale/sv_SE'; // Svenska
+import teIN from './components/Locale/te_IN'; // తెలుగు
 import thTH from './components/Locale/th_TH'; // ภาษาไทย
 import trTR from './components/Locale/tr_TR'; // Türkçe
 import ukUA from './components/Locale/uk_UA'; // Yкраїнська
+import viVN from './components/Locale/vi_VN'; // Tiếng Việt
 import zhCN from './components/Locale/zh_CN'; // 中文 (简体)
 import zhTW from './components/Locale/zh_TW'; // 中文 (繁體)
 
 export {
   Locale,
+  arSA,
+  bgBG,
   csCZ,
   daDK,
   deDE,
@@ -67,11 +77,17 @@ export {
   plPL,
   ptBR,
   ptPT,
+  roRO,
   ruRU,
+  skSK,
+  srRS,
   svSE,
+  teIN,
   thTH,
   trTR,
   ukUA,
+  useLocaleReceiver,
+  viVN,
   zhCN,
   zhTW,
 };

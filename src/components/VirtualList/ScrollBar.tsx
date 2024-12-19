@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   MIN_SCROLL_BAR_SIZE,
@@ -5,6 +7,7 @@ import {
   ScrollBarState,
 } from './VirtualList.types';
 import {
+  canUseDom,
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../shared/utilities';
@@ -68,16 +71,20 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
 
   // ======================= Clean =======================
   patchEvents = () => {
-    window.addEventListener('mousemove', this.onMouseMove);
-    window.addEventListener('mouseup', this.onMouseUp);
+    if (canUseDom()) {
+      window.addEventListener('mousemove', this.onMouseMove);
+      window.addEventListener('mouseup', this.onMouseUp);
+    }
 
-    this.thumbRef.current.addEventListener('touchmove', this.onMouseMove);
-    this.thumbRef.current.addEventListener('touchend', this.onMouseUp);
+    this.thumbRef.current?.addEventListener('touchmove', this.onMouseMove);
+    this.thumbRef.current?.addEventListener('touchend', this.onMouseUp);
   };
 
   removeEvents = () => {
-    window.removeEventListener('mousemove', this.onMouseMove);
-    window.removeEventListener('mouseup', this.onMouseUp);
+    if (canUseDom()) {
+      window.removeEventListener('mousemove', this.onMouseMove);
+      window.removeEventListener('mouseup', this.onMouseUp);
+    }
 
     this.scrollbarRef.current?.removeEventListener(
       'touchstart',

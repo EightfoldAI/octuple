@@ -92,6 +92,7 @@ export default function generatePicker<DateType>(
         todayButtonProps,
         todayActive = true,
         todayText: defaultTodayText,
+        trapFocus = true,
         ...rest
       } = props;
       const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -204,16 +205,6 @@ export default function generatePicker<DateType>(
         [DatePickerSize.Small, IconSize.Small],
       ]);
 
-      const iconColor = (): string => {
-        let color: string = 'var(--grey-tertiary-color)';
-        if (mergedStatus === 'error') {
-          color = 'var(--error-color)';
-        } else if (mergedStatus === 'warning') {
-          color = 'var(--warning-color)';
-        }
-        return color;
-      };
-
       return (
         <LocaleReceiver componentName={'DatePicker'} defaultLocale={enUS}>
           {(contextLocale: PickerLocale) => {
@@ -229,7 +220,7 @@ export default function generatePicker<DateType>(
                 suffixIcon={
                   mergedPicker === 'time' ? (
                     <Icon
-                      color={iconColor()}
+                      color="var(--grey-tertiary-color)"
                       path={
                         readonly ? IconName.mdiLock : IconName.mdiClockOutline
                       }
@@ -237,7 +228,7 @@ export default function generatePicker<DateType>(
                     />
                   ) : (
                     <Icon
-                      color={iconColor()}
+                      color="var(--grey-tertiary-color)"
                       path={
                         readonly
                           ? IconName.mdiLock
@@ -273,6 +264,7 @@ export default function generatePicker<DateType>(
                 superPrevIcon={IconName.mdiChevronDoubleLeft}
                 superNextIcon={IconName.mdiChevronDoubleRight}
                 allowClear
+                trapFocus={trapFocus}
                 {...rest}
                 {...additionalOverrideProps}
                 locale={locale!.lang}
@@ -318,6 +310,10 @@ export default function generatePicker<DateType>(
                   },
                   {
                     [styles.pickerStatusSuccess]: mergedStatus === 'success',
+                  },
+                  {
+                    [styles.pickerStatusHighlight]:
+                      mergedStatus === 'highlight',
                   },
                   { [styles.pickerRtl]: htmlDir === 'rtl' },
                   { ['in-form-item']: mergedFormItemInput },

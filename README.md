@@ -8,8 +8,9 @@
 
 [![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/EightfoldAI/octuple/branch/main/graph/badge.svg?token=XSAVLS0SVP)](https://codecov.io/gh/EightfoldAI/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![bundlesize-js-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.js?label=octuple.js&compression=gzip)
-![bundlesize-css-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.css?label=octuple.css&compression=gzip)
+![npm package minimized gzipped size](https://img.shields.io/badge/octuple.js-337.4k-blueviolet?link=https://bundlephobia.com/package/@eightfold.ai/octuple)
+![bundlesize-css-image](<https://img.shields.io/badge/@eightfold.ai/octuple/lib/octuple.css-163.5k_(gzipped)-blue?link=https://facia.dev/tools/compress-decompress/gzip-compress/>)
+![bundlesize-locale-image](<https://img.shields.io/badge/@eightfold.ai/octuple/lib/locale.js-67.2k_(gzipped)-blue?link=https://facia.dev/tools/compress-decompress/gzip-compress/>)
 
 </div>
 
@@ -49,7 +50,7 @@ npm install @eightfold.ai/octuple
 ## Usage
 
 ```tsx
-import { PrimaryButton } from '@eightfold.ai/octuple';
+import { Button } from '@eightfold.ai/octuple';
 
 export const App = () => (
   <>
@@ -84,4 +85,4 @@ Review the guidance for pull requests and the contribution workflow in our [cont
 
 ## License
 
-MIT (c) 2023 Eightfold
+MIT (c) 2024 Eightfold

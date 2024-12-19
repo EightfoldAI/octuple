@@ -7,7 +7,7 @@ import type {
   UploadRequestMethod,
 } from './Internal/OcUpload.types';
 import type { ProgressProps } from '../Progress';
-import { ConfigContextProps } from '../ConfigProvider';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { IconName } from '../Icon';
 
@@ -395,6 +395,11 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
    */
   fullWidth?: boolean;
   /**
+   * The Upload gradient state.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
    * Set request headers.
    * Warning：Not supported in IE9 and below.
    */
@@ -544,6 +549,17 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
    */
   supportServerRender?: boolean;
   /**
+   * Theme of Upload.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of Upload.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The Upload type.
    * @default 'select'
    */
@@ -587,6 +603,10 @@ export interface UploadListProps<T = any> {
    */
   appendActionVisible?: boolean;
   /**
+   * Configure how contextual props are consumed.
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * The download file string.
    * @default 'Download file'
    */
@@ -605,6 +625,11 @@ export interface UploadListProps<T = any> {
    * @default false
    */
   fullWidth?: boolean;
+  /**
+   * The Upload list gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * The custom icon.
    */
@@ -725,6 +750,17 @@ export interface UploadListProps<T = any> {
    */
   size?: UploadSize;
   /**
+   * Theme of Upload list.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of Upload list.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The file upload failed string.
    * @default  'File upload failed'
    */
@@ -766,6 +802,11 @@ export interface ListItemProps {
    * The Upload list item file.
    */
   file: UploadFile;
+  /**
+   * The Upload list item gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * The custom icon.
    */
@@ -873,6 +914,11 @@ export interface ListItemProps {
    * Use when maxCount is 1
    */
   showReplaceButton?: boolean;
+  /**
+   * The Upload size.
+   * @default UploadSize.Medium
+   */
+  size?: UploadSize;
   /**
    * The Upload list item component custom styles.
    */

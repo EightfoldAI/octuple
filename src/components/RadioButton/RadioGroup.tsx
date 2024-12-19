@@ -1,6 +1,9 @@
+'use client';
+
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size } from '../ConfigProvider';
+import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import ThemeContext from '../ConfigProvider/ThemeContext';
 import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
 import {
   LabelAlign,
@@ -21,10 +24,12 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       classNames,
       configContextProps = {
         noDisabledContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
       formItemInput = false,
@@ -37,6 +42,8 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
       selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
+      theme,
+      themeContainerId,
       value,
       variant = SelectorVariant.Default,
       ...rest
@@ -60,6 +67,11 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const radioGroupClasses: string = mergeClasses([
       styles.radioGroup,
@@ -102,13 +114,17 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
           {items.map((item: RadioButtonProps) => (
             <RadioButton
               key={item.value}
+              aria-describedby={ariaDescribedBy}
               allowDisabledFocus={allowDisabledFocus}
+              configContextProps={configContextProps}
               disabled={mergedDisabled}
               {...item}
               labelPosition={labelPosition}
               labelAlign={labelAlign}
               selectorWidth={selectorWidth}
               size={mergedSize}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               variant={variant}
             />
           ))}

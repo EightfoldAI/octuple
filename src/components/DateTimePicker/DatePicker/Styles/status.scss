@@ -1,30 +1,91 @@
 @import './mixins';
 
 .picker {
-  &-status-error {
+  &-status-success {
     input {
-      @include placeholder(var(--disruptive-color));
+      @include placeholder(var(--input-success-placeholder-color));
     }
 
-    border-color: var(--disruptive-color);
-    color: var(--disruptive-color);
+    color: var(--input-success-text-color);
+    background: var(--input-success-background-color);
+    border-color: var(--input-success-border-color);
+
+    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-success-border-color));
+    }
+
+    &.picker-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-success-border-color));
+    }
+
+    span:last-of-type {
+      background: var(--input-success-background-color);
+    }
   }
 
   &-status-warning {
     input {
-      @include placeholder(var(--warning-color));
+      @include placeholder(var(--input-warning-placeholder-color));
     }
 
-    border-color: var(--warning-color);
-    color: var(--warning-color);
+    color: var(--input-warning-text-color);
+    background: var(--input-warning-background-color);
+    border-color: var(--input-warning-border-color);
+
+    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-warning-border-color));
+    }
+
+    &.picker-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-warning-border-color));
+    }
+
+    span:last-of-type {
+      background: var(--input-warning-background-color);
+    }
   }
 
-  &-status-success {
+  &-status-error {
     input {
-      @include placeholder(var(--picker-input-foreground-color));
+      @include placeholder(var(--input-error-placeholder-color));
     }
 
-    border-color: var(--border-color);
-    color: var(--text-primary-color);
+    color: var(--input-error-text-color);
+    background: var(--input-error-background-color);
+    border-color: var(--input-error-border-color);
+
+    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-error-border-color));
+    }
+
+    &.picker-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-error-border-color));
+    }
+
+    span:last-of-type {
+      background: var(--input-error-background-color);
+    }
+  }
+
+  &-status-highlight {
+    input {
+      @include placeholder(var(--input-highlight-placeholder-color));
+    }
+
+    background: var(--input-highlight-background-color);
+    color: var(--input-highlight-text-color);
+    border-color: var(--input-highlight-border-color);
+
+    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-highlight-border-color));
+    }
+
+    &.picker-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+      @include hover(var(--input-highlight-border-color));
+    }
+
+    span:last-of-type {
+      background: var(--input-highlight-background-color);
+    }
   }
 }

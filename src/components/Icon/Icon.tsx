@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import IcomoonReact from 'icomoon-react';
 
@@ -69,3 +71,5 @@ export const Icon: FC<IconProps> = ({
     </span>
   );
 };
+
+Icon.displayName = 'Icon';

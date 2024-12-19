@@ -1,0 +1,184 @@
+$drawer-body-top-shadow: inset 0 11px 8px -10px var(--grey-background2-color);
+$drawer-body-bottom-shadow: inset 0 -11px 8px -10px
+  var(--grey-background2-color);
+$handle_height: 40px;
+
+.drawer-backdrop {
+  &:not(.modeless),
+  &.modeless {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: $z-index-500;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:not(.modeless) {
+    pointer-events: none;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+    &.visible {
+      background-color: $all-backdrops;
+      pointer-events: auto;
+    }
+  }
+
+  &.modeless {
+    background: none;
+    pointer-events: none;
+
+    &-mask {
+      &.expand {
+        &.visible {
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+
+  .drawer {
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    box-shadow: rgb(0 0 0 / 10%) 0 -8px 14px 0;
+    will-change: transform;
+    box-sizing: border-box;
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+    background: var(--background-color);
+    font-family: var(--font-stack-full);
+    pointer-events: all;
+
+    &.expand-content {
+      height: calc(100vh + 200px);
+      background: var(--background-color);
+    }
+
+    .content {
+      background: var(--background-color);
+      display: flex;
+      flex-direction: column;
+      height: calc(100% - #{$handle_height});
+    }
+
+    .dragger {
+      cursor: grab;
+      background: var(--background-color);
+      border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+      height: $handle_height;
+      box-sizing: border-box;
+      width: 100%;
+      padding-top: $space-xs;
+
+      .handle {
+        background: var(--grey-background3-color);
+        border-radius: var(--border-radius-s);
+        width: 40px;
+        height: 4px;
+        margin: 0 auto;
+      }
+
+      // Hides the browser default keyboard focus-visible styles.
+      // Use the ConfigProvider instead.
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: $space-s;
+      justify-content: space-between;
+      padding: $space-m $space-l;
+
+      &-title {
+        @include octuple-h4();
+        margin: 0;
+        padding: 0;
+      }
+
+      &-sub-title {
+        @include octuple-content-large();
+        color: var(--text-tertiary-color);
+        margin: 0;
+        padding: 0;
+      }
+
+      &-buttons {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        gap: $space-xs;
+        height: fit-content;
+        white-space: nowrap;
+      }
+    }
+
+    .body {
+      @include scroll-bars;
+
+      align-items: stretch;
+      flex: 1;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: $space-m $space-l;
+
+      &.body-top-shadow {
+        box-shadow: $drawer-body-top-shadow;
+      }
+
+      &.body-bottom-shadow {
+        box-shadow: $drawer-body-bottom-shadow;
+      }
+
+      &.body-top-bottom-shadow {
+        box-shadow: $drawer-body-top-shadow, $drawer-body-bottom-shadow;
+      }
+    }
+
+    .footer {
+      flex: none;
+      padding: $space-m $space-l;
+      width: 100%;
+    }
+
+    &.no-body-padding {
+      .body {
+        padding: 0;
+      }
+    }
+
+    &.no-header-padding {
+      .header {
+        padding: 0;
+      }
+    }
+
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+
+      &.modeless {
+        pointer-events: none;
+
+        .panel {
+          pointer-events: all;
+        }
+      }
+    }
+  }
+}
+
+:global(.focus-visible) {
+  .dragger {
+    &.focus-visible,
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow) inset;
+    }
+  }
+}

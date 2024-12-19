@@ -1,7 +1,14 @@
-import React, { FC, Ref, useEffect, useState } from 'react';
+'use client';
+
+import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import { DialogProps, DialogSize } from './Dialog.types';
 import { mergeClasses } from '../../shared/utilities';
-import { NeutralButton, PrimaryButton } from '../Button';
+import { Button, ButtonVariant } from '../Button';
 import { BaseDialog } from './BaseDialog/BaseDialog';
 import { DialogLocale } from './BaseDialog/BaseDialog.types';
 import LocaleReceiver, {
@@ -10,6 +17,7 @@ import LocaleReceiver, {
 import enUS from './BaseDialog/Locale/en_US';
 
 import styles from './dialog.module.scss';
+import themedComponentStyles from './dialog.theme.module.scss';
 
 export const Dialog: FC<DialogProps> = React.forwardRef(
   (props: DialogProps, ref: Ref<HTMLDivElement>) => {
@@ -25,7 +33,12 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
       closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
       closeButtonProps,
       closeIcon,
+      configContextProps = {
+        noGradientContext: false,
+        noThemeContext: false,
+      },
       dialogClassNames,
+      gradient = false,
       headerButtonProps,
       headerClassNames,
       headerIcon,
@@ -36,11 +49,23 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
       onOk,
       onCancel,
       overlay,
-      parent = document.body,
+      parent = typeof document !== 'undefined' ? document.body : null,
       size = DialogSize.medium,
+      theme,
+      themeContainerId,
       width,
       ...rest
     } = props;
+
+    const contextualGradient: Gradient = useContext(GradientContext);
+    const mergedGradient: boolean = configContextProps.noGradientContext
+      ? gradient
+      : contextualGradient || gradient;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     // ============================ Strings ===========================
     const [dialogLocale] = useLocaleReceiver('Dialog');
@@ -99,46 +124,70 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
           const locale = { ...contextLocale, ...mergedLocale };
 
           return (
-            <BaseDialog
-              {...rest}
-              ref={ref}
-              actionButtonOneProps={actionButtonOneProps}
-              actionButtonTwoProps={actionButtonTwoProps}
-              actionButtonThreeProps={actionButtonThreeProps}
-              actions={
-                <>
-                  {cancelButtonProps && (
-                    <NeutralButton
-                      text={cancelText}
-                      {...cancelButtonProps}
-                      onClick={onCancel}
-                    />
-                  )}
-                  {okButtonProps && (
-                    <PrimaryButton
-                      text={okText}
-                      {...okButtonProps}
-                      onClick={onOk}
-                    />
-                  )}
-                </>
-              }
-              actionsClassNames={actionClasses}
-              bodyClassNames={bodyClasses}
-              bodyPadding={bodyPadding}
-              closeButtonAriaLabelText={closeButtonAriaLabelText}
-              closeButtonProps={closeButtonProps}
-              closeIcon={closeIcon}
-              dialogClassNames={dialogClasses}
-              headerButtonProps={headerButtonProps}
-              headerClassNames={headerClasses}
-              headerIcon={headerIcon}
-              height={height}
-              locale={locale}
-              okText={okText}
-              overlay={overlay}
-              width={width}
-            />
+            <ThemeContextProvider
+              componentClassName={themedComponentStyles.theme}
+              containerId={themeContainerId}
+              theme={mergedTheme}
+            >
+              <BaseDialog
+                {...rest}
+                ref={ref}
+                actionButtonOneProps={actionButtonOneProps}
+                actionButtonTwoProps={actionButtonTwoProps}
+                actionButtonThreeProps={actionButtonThreeProps}
+                actions={
+                  <>
+                    {cancelButtonProps && (
+                      <Button
+                        configContextProps={configContextProps}
+                        gradient={mergedGradient}
+                        text={cancelText}
+                        theme={mergedTheme}
+                        themeContainerId={themeContainerId}
+                        variant={
+                          mergedGradient
+                            ? ButtonVariant.Secondary
+                            : ButtonVariant.Neutral
+                        }
+                        {...cancelButtonProps}
+                        onClick={onCancel}
+                      />
+                    )}
+                    {okButtonProps && (
+                      <Button
+                        configContextProps={configContextProps}
+                        gradient={mergedGradient}
+                        text={okText}
+                        theme={mergedTheme}
+                        themeContainerId={themeContainerId}
+                        variant={ButtonVariant.Primary}
+                        {...okButtonProps}
+                        onClick={onOk}
+                      />
+                    )}
+                  </>
+                }
+                actionsClassNames={actionClasses}
+                bodyClassNames={bodyClasses}
+                bodyPadding={bodyPadding}
+                closeButtonAriaLabelText={closeButtonAriaLabelText}
+                closeButtonProps={closeButtonProps}
+                closeIcon={closeIcon}
+                configContextProps={configContextProps}
+                dialogClassNames={dialogClasses}
+                gradient={mergedGradient}
+                headerButtonProps={headerButtonProps}
+                headerClassNames={headerClasses}
+                headerIcon={headerIcon}
+                height={height}
+                locale={locale}
+                okText={okText}
+                overlay={overlay}
+                theme={mergedTheme}
+                themeContainerId={themeContainerId}
+                width={width}
+              />
+            </ThemeContextProvider>
           );
         }}
       </LocaleReceiver>

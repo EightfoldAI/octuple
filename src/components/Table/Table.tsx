@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   forwardRef,
   ReactNode,
@@ -625,10 +627,9 @@ function InternalTable<RecordType extends object = any>(
 
   // ========================== Expandable ==========================
 
-  mergedExpandableConfig.expandIcon = renderExpandIcon(
-    collapseText,
-    expandText
-  );
+  mergedExpandableConfig.expandIcon =
+    mergedExpandableConfig?.expandIcon ||
+    renderExpandIcon(collapseText, expandText);
 
   // Indent size
   if (typeof mergedExpandableConfig.indentSize !== 'number') {
@@ -759,6 +760,7 @@ function InternalTable<RecordType extends object = any>(
           <div ref={ref} className={wrapperClassNames} style={style}>
             {topPaginationNode}
             <OcTable<RecordType>
+              alternateRowColor={alternateRowColor}
               {...tableProps}
               columns={mergedColumns as OcTableProps<RecordType>['columns']}
               direction={htmlDir}
@@ -775,7 +777,6 @@ function InternalTable<RecordType extends object = any>(
                 {
                   [styles.tableSmall]: mergedSize === TableSize.Small,
                 },
-                { [styles.tableAlternate]: alternateRowColor },
                 { [styles.tableBordered]: bordered },
                 {
                   [styles.tableCellBordered]:
@@ -857,6 +858,7 @@ type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
   defaultProps?: Partial<TableProps<any>>;
+  displayName?: string;
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof OcTable.EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
@@ -881,5 +883,7 @@ Table.SELECTION_NONE = SELECTION_NONE;
 Table.Column = Column;
 Table.ColumnGroup = ColumnGroup;
 Table.Summary = Summary;
+
+Table.displayName = 'Table';
 
 export default Table;

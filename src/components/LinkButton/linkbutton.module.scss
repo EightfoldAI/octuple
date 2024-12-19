@@ -1,5 +1,5 @@
-.link-button {
-  background-color: inherit;
+a.link-button {
+  background: inherit;
   border-radius: var(--button-border-radius);
   cursor: pointer;
   display: inline-block;
@@ -115,7 +115,7 @@
   }
 
   .counter {
-    background-color: var(--button-counter-default-background-color);
+    background: var(--button-counter-default-background-color);
     color: var(--button-counter-default-text-color);
     display: inline-block;
     text-align: center;
@@ -362,13 +362,13 @@
 
   &:hover:not([disabled]) {
     .counter {
-      background-color: var(--button-counter-hover-background-color);
+      background: var(--button-counter-hover-background-color);
     }
   }
 
   &:active:not([disabled]) {
     .counter {
-      background-color: var(--button-counter-active-background-color);
+      background: var(--button-counter-active-background-color);
     }
   }
 
@@ -433,7 +433,7 @@
   }
 }
 
-.link-button-primary {
+a.link-button-primary {
   --button-counter-default-background-color: var(--accent-background1-color);
   --button-counter-hover-background-color: var(--accent-background2-color);
   --button-counter-checked-background-color: var(--accent-background1-color);
@@ -475,9 +475,65 @@
     border-style: var(--button-primary-active-border-style);
     border-color: var(--button-primary-active-border-color);
   }
+
+  &.gradient {
+    --button-counter-default-background-color: var(--primary-background1-color);
+    --button-counter-hover-background-color: var(--primary-background2-color);
+    --button-counter-checked-background-color: var(--primary-background1-color);
+    --button-counter-focus-background-color: var(--primary-background1-color);
+    --button-counter-active-background-color: var(--primary-background1-color);
+
+    background: var(--primary-background2-color);
+    background-image: var(--button-primary-background-gradient);
+    z-index: 1;
+
+    &:hover:not([disabled]) {
+      background: var(--primary-background1-color);
+    }
+
+    &:active:not([disabled]) {
+      background: var(--primary-background3-color);
+    }
+
+    &:not([disabled]) {
+      &:after,
+      &:before {
+        border-radius: inherit;
+        bottom: 0;
+        content: '';
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: var(--button-transition-opacity);
+        z-index: -1;
+      }
+
+      &:after {
+        background-image: var(--button-primary-active-background-gradient);
+      }
+
+      &:before {
+        background-image: var(--button-primary-hover-background-gradient);
+      }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
-.link-button-secondary {
+a.link-button-secondary {
   --button-counter-default-background-color: var(--primary-background2-color);
   --button-counter-hover-background-color: var(--primary-background2-color);
   --button-counter-checked-background-color: var(--primary-background1-color);
@@ -504,6 +560,65 @@
     border-width: var(--button-secondary-active-border-width);
     border-style: var(--button-secondary-active-border-style);
     border-color: var(--button-secondary-active-border-color);
+  }
+
+  &.gradient {
+    --button-counter-default-background-color: var(--primary-background2-color);
+    --button-counter-hover-background-color: var(--primary-background2-color);
+    --button-counter-checked-background-color: var(--primary-background1-color);
+    --button-counter-focus-background-color: var(--primary-background2-color);
+    --button-counter-active-background-color: var(--primary-background1-color);
+
+    background-image: var(--button-secondary-background-color);
+    border-color: var(--button-secondary-gradient-border-color);
+    color: var(--button-secondary-gradient-text-color);
+    z-index: 1;
+
+    &:hover:not([disabled]) {
+      border-color: var(--button-secondary-gradient-hover-border-color);
+      color: var(--button-secondary-gradient-hover-text-color);
+    }
+
+    &:active:not([disabled]) {
+      border-color: var(--button-secondary-gradient-active-border-color);
+      color: var(--button-secondary-gradient-active-text-color);
+    }
+
+    &:not([disabled]) {
+      &:after,
+      &:before {
+        border-radius: inherit;
+        bottom: 0;
+        content: '';
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: var(--button-transition-opacity);
+        z-index: -1;
+      }
+
+      &:after {
+        background-image: var(--button-secondary-active-background-gradient);
+      }
+
+      &:before {
+        background-image: var(--button-secondary-hover-background-gradient);
+      }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &.link-button-conic {
@@ -555,7 +670,7 @@
   }
 }
 
-.link-button-primary-disruptive {
+a.link-button-primary-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background1-color
   );
@@ -588,9 +703,54 @@
     border-style: var(--button-primary-disruptive-active-border-style);
     border-color: var(--button-primary-disruptive-active-border-color);
   }
+
+  &.gradient {
+    background-image: var(--button-primary-disruptive-background-gradient);
+    z-index: 1;
+
+    &:not([disabled]) {
+      &:after,
+      &:before {
+        border-radius: inherit;
+        bottom: 0;
+        content: '';
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: var(--button-transition-opacity);
+        z-index: -1;
+      }
+
+      &:after {
+        background-image: var(
+          --button-primary-disruptive-active-background-gradient
+        );
+      }
+
+      &:before {
+        background-image: var(
+          --button-primary-disruptive-hover-background-gradient
+        );
+      }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
-.link-button-secondary-disruptive {
+a.link-button-secondary-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background2-color
   );
@@ -623,9 +783,60 @@
     border-style: var(--button-secondary-disruptive-active-border-style);
     border-color: var(--button-secondary-disruptive-active-border-color);
   }
+
+  &.gradient {
+    --button-counter-default-background-color: var(
+      --disruptive-background2-color
+    );
+    --button-counter-hover-background-color: var(
+      --disruptive-background2-color
+    );
+    --button-counter-checked-background-color: var(
+      --disruptive-background1-color
+    );
+    --button-counter-focus-background-color: var(
+      --disruptive-background2-color
+    );
+    --button-counter-active-background-color: var(
+      --disruptive-background1-color
+    );
+    --button-counter-default-text-color: var(--disruptive-color);
+
+    background-image: var(--button-secondary-disruptive-background-color);
+    border-color: var(--button-secondary-disruptive-gradient-border-color);
+    color: var(--button-secondary-disruptive-gradient-text-color);
+
+    &:hover:not([disabled]) {
+      border-color: var(
+        --button-secondary-disruptive-gradient-hover-border-color
+      );
+      color: var(--button-secondary-disruptive-gradient-hover-text-color);
+    }
+
+    &:active:not([disabled]) {
+      border-color: var(
+        --button-secondary-disruptive-gradient-active-border-color
+      );
+      color: var(--button-secondary-disruptive-gradient-active-text-color);
+    }
+
+    &:not([disabled]) {
+      &:after {
+        background-image: var(
+          --button-secondary-disruptive-active-background-gradient
+        );
+      }
+
+      &:before {
+        background-image: var(
+          --button-secondary-disruptive-hover-background-gradient
+        );
+      }
+    }
+  }
 }
 
-.link-button-default {
+a.link-button-default {
   --button-counter-default-background-color: var(--primary-background2-color);
   --button-counter-hover-background-color: var(--primary-background2-color);
   --button-counter-checked-background-color: var(--primary-background1-color);
@@ -669,7 +880,7 @@
   }
 }
 
-.link-button-disruptive {
+a.link-button-disruptive {
   --button-counter-default-background-color: var(
     --disruptive-background2-color
   );
@@ -704,7 +915,7 @@
   }
 }
 
-.link-button-neutral {
+a.link-button-neutral {
   --button-counter-default-text-color: var(
     --button-neutral-counter-default-text-color
   );
@@ -725,7 +936,7 @@
   }
 }
 
-.link-button-system-ui {
+a.link-button-system-ui {
   --button-counter-default-text-color: var(
     --button-system-ui-counter-default-text-color
   );
@@ -773,7 +984,7 @@
   }
 }
 
-.link-button-rtl {
+a.link-button-rtl {
   .icon + .link-button-text-large:not(:empty) {
     margin-left: 0;
     margin-right: $button-spacer-large;
@@ -925,7 +1136,7 @@
 }
 
 :global(.focus-visible) {
-  .link-button {
+  a.link-button {
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
@@ -935,7 +1146,7 @@
       }
 
       .counter {
-        background-color: var(--button-counter-focus-background-color);
+        background: var(--button-counter-focus-background-color);
       }
     }
 
@@ -956,7 +1167,7 @@
     &.link-button-disruptive {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(--disruptive-background1-color);
+        background: var(--disruptive-background1-color);
         color: var(--disruptive-color);
       }
     }

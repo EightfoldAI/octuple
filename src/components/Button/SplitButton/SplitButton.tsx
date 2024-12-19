@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref, useContext, useRef } from 'react';
 import DisabledContext, {
   Disabled,
@@ -35,6 +37,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       disabled = false,
       disruptive = false,
       dropShadow = false,
+      gradient,
       iconProps,
       id,
       nudgeProps,
@@ -77,6 +80,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       classNames,
       styles.splitButton,
       { [styles.splitRight]: split },
+      { [styles.gradient]: gradient },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
@@ -163,7 +167,6 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       <button
         {...rest}
         ref={mergedRef}
-        aria-checked={split ? !!checked : undefined}
         aria-disabled={mergedDisabled}
         aria-label={ariaLabel}
         aria-pressed={split ? !!checked : undefined}

@@ -14,6 +14,7 @@
 
   &.wrap {
     white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   $text-font-size-map: (
@@ -71,7 +72,7 @@
 
   .item-sub-text {
     text-align: left;
-    color: var(--grey-tertiary-color);
+    color: var(--menu-item-sub-text-color);
     @each $size-name, $size-value in $text-font-size-map {
       &.#{$size-name} {
         font-size: $size-value;
@@ -119,42 +120,44 @@
   }
 
   &.primary {
-    --label: var(--primary-secondary-color);
+    --background: var(--menu-item-primary-background-color);
+    --label: var(--menu-item-primary-label-color);
 
     &:hover {
-      --background: var(--accent-background1-color);
+      --background: var(--menu-item-primary-hover-background-color);
     }
 
     &.active,
     &:active {
-      --background: var(--accent-background2-color);
+      --background: var(--menu-item-primary-active-background-color);
     }
   }
 
   &.disruptive {
-    --label: var(--disruptive-color);
+    --background: var(--menu-item-disruptive-background-color);
+    --label: var(--menu-item-disruptive-label-color);
 
     &:hover {
-      --background: var(--disruptive-background1-color);
+      --background: var(--menu-item-disruptive-hover-background-color);
     }
 
     &.active,
     &:active {
-      --background: var(--disruptive-background2-color);
+      --background: var(--menu-item-disruptive-active-background-color);
     }
   }
 
   &.neutral {
-    --active-background: var(--grey-background1-color);
-    --label: var(--grey-color-90);
+    --background: var(--menu-item-neutral-background-color);
+    --label: var(--menu-item-neutral-label-color);
 
     &:hover {
-      --background: var(--grey-background1-color);
+      --background: var(--menu-item-neutral-hover-background-color);
     }
 
     &.active,
     &:active {
-      --background: var(--grey-background2-color);
+      --background: var(--menu-item-neutral-active-background-color);
     }
   }
 
@@ -214,9 +217,9 @@
 }
 
 .menu-item-sub-header {
-  color: var(--grey-tertiary-color);
+  color: var(--menu-sub-header-color);
   padding: $space-s $space-xxs $space-s;
-  border-bottom: solid 1px var(--border-color);
+  border-bottom: solid 1px var(--menu-border-color);
   margin: 0 $space-m $space-m;
   font-weight: $text-font-weight-semibold;
   white-space: nowrap;

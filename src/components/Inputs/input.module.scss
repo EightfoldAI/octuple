@@ -13,7 +13,7 @@
 
   input {
     @include text-overflow;
-    background-color: var(--input-background-color);
+    background: var(--input-background-color);
     border: 1px solid var(--input-border-color);
     border-radius: $border-radius-m;
     box-sizing: border-box;
@@ -137,7 +137,7 @@
     }
 
     &:hover ~ .icon-button {
-      background-color: transparent;
+      background: transparent;
       border-color: transparent;
 
       svg {
@@ -146,7 +146,7 @@
     }
 
     &:active ~ .icon-button {
-      background-color: transparent;
+      background: transparent;
       border-color: transparent;
 
       svg {
@@ -160,13 +160,13 @@
     }
 
     &.read-only {
-      background-color: var(--input-readonly-background-color);
+      background: var(--input-readonly-background-color);
       border-color: var(--input-readonly-border-color);
       color: var(--input-readonly-text-color);
     }
 
     &:focus ~ .icon-button {
-      background-color: transparent;
+      background: transparent;
       border-color: transparent;
 
       svg {
@@ -175,7 +175,7 @@
     }
 
     &:disabled ~ .icon-button {
-      background-color: transparent;
+      background: transparent;
       border-color: transparent;
 
       svg {
@@ -312,11 +312,17 @@
 
     &.status-success {
       color: var(--input-success-text-color);
+      background: var(--input-success-background-color);
       border-color: var(--input-success-border-color);
+
+      &::placeholder {
+        color: var(--input-success-placeholder-color);
+      }
     }
 
     &.status-warning {
       color: var(--input-warning-text-color);
+      background: var(--input-warning-background-color);
       border-color: var(--input-warning-border-color);
 
       &::placeholder {
@@ -326,6 +332,7 @@
 
     &.status-error {
       color: var(--input-error-text-color);
+      background: var(--input-error-background-color);
       border-color: var(--input-error-border-color);
 
       &::placeholder {
@@ -341,6 +348,16 @@
     // TODO: work with UXDs on feedback state
     &.has-feedback {
       border-color: var(--input-border-color);
+    }
+
+    &.status-highlight {
+      background: var(--input-highlight-background-color);
+      color: var(--input-highlight-text-color);
+      border-color: var(--input-highlight-border-color);
+
+      &::placeholder {
+        color: var(--input-highlight-placeholder-color);
+      }
     }
 
     &.underline {
@@ -962,7 +979,7 @@
 
     &:active,
     &:focus {
-      background-color: transparent;
+      background: transparent;
 
       svg {
         color: var(--grey-tertiary-color);
@@ -970,7 +987,7 @@
     }
 
     &:hover {
-      background-color: transparent;
+      background: transparent;
       outline-color: transparent;
 
       svg {
@@ -998,7 +1015,7 @@
 
     &:active,
     &:hover {
-      background-color: transparent;
+      background: transparent;
       color: var(--grey-color);
       outline-color: transparent;
 
@@ -1012,7 +1029,8 @@
     }
   }
 
-  .icon-wrapper:not(:empty) + .icon-button {
+  .icon-wrapper:not(:empty) + .icon-button,
+  .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
     &.left-icon {
       left: $space-xl;
     }
@@ -1023,7 +1041,7 @@
   }
 
   .text-area {
-    background-color: var(--input-background-color);
+    background: var(--input-background-color);
     border: 1px solid var(--input-border-color);
     border-radius: $border-radius-m;
     box-sizing: border-box;
@@ -1060,7 +1078,7 @@
     }
 
     &.read-only {
-      background-color: var(--input-readonly-background-color);
+      background: var(--input-readonly-background-color);
       color: var(--input-readonly-text-color);
     }
 
@@ -1070,24 +1088,31 @@
 
     &.status-success {
       color: var(--input-success-text-color);
+      background: var(--input-success-background-color);
       border-color: var(--input-success-border-color);
+
+      &::placeholder {
+        color: var(--input-success-placeholder-color);
+      }
     }
 
     &.status-warning {
       color: var(--input-warning-text-color);
+      background: var(--input-warning-background-color);
       border-color: var(--input-warning-border-color);
 
       &::placeholder {
-        color: var(--input-warning-text-color);
+        color: var(--input-warning-placeholder-color);
       }
     }
 
     &.status-error {
       color: var(--input-error-text-color);
+      background: var(--input-error-background-color);
       border-color: var(--input-error-border-color);
 
       &::placeholder {
-        color: var(--input-error-text-color);
+        color: var(--input-error-placeholder-color);
       }
     }
 
@@ -1099,6 +1124,16 @@
     // TODO: work with UXDs on feedback state
     &.has-feedback {
       border-color: var(--input-border-color);
+    }
+
+    &.status-highlight {
+      color: var(--input-highlight-text-color);
+      background: var(--input-highlight-background-color);
+      border-color: var(--input-highlight-border-color);
+
+      &::placeholder {
+        color: var(--input-highlight-placeholder-color);
+      }
     }
 
     &.underline {
@@ -1372,7 +1407,8 @@
       width: 36px;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
+    .icon-wrapper:not(:empty) + .icon-button,
+    .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
       &.left-icon {
         left: calc($space-xxl + $space-xxs);
       }
@@ -1435,7 +1471,8 @@
       width: 28px;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
+    .icon-wrapper:not(:empty) + .icon-button,
+    .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
       &.left-icon {
         left: $space-xl;
       }
@@ -1499,7 +1536,8 @@
       width: $space-l;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
+    .icon-wrapper:not(:empty) + .icon-button,
+    .icon-wrapper:not(:empty) + button.clear-icon-button + button.icon-button {
       &.left-icon {
         left: 28px;
       }
@@ -1674,7 +1712,7 @@
     .icon-button {
       &.focus-visible,
       &:focus-visible {
-        background-color: transparent;
+        background: transparent;
 
         svg {
           color: var(--grey-tertiary-color);
@@ -1685,7 +1723,7 @@
     .clear-icon-button {
       &.focus-visible,
       &:focus-visible {
-        background-color: transparent;
+        background: transparent;
         box-shadow: var(--focus-visible-box-shadow);
 
         svg {

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, FC } from 'react';
 
 export enum Shape {
@@ -18,8 +20,8 @@ export const ShapeContextProvider: FC<ShapeContextProps> = ({
   shape,
 }) => (
   <ShapeContext.Consumer>
-    {(originShape) => (
-      <ShapeContext.Provider value={shape || originShape}>
+    {(ancestorShape) => (
+      <ShapeContext.Provider value={shape || ancestorShape}>
         {children}
       </ShapeContext.Provider>
     )}

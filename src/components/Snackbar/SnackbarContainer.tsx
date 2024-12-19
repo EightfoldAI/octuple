@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, useEffect, useState } from 'react';
 import {
   SnackbarContainerProps,
@@ -7,12 +9,12 @@ import {
 import { Portal } from '../Portal';
 import { Snackbar } from './Snackbar';
 import { eat, SNACK_EVENTS } from './snack';
-import { mergeClasses } from '../../shared/utilities';
+import { canUseDocElement, mergeClasses } from '../../shared/utilities';
 
 import styles from './snackbar.module.scss';
 
 export const SnackbarContainer: FC<SnackbarContainerProps> = ({
-  parent = document.body,
+  parent = typeof document !== 'undefined' ? document.body : null,
 }) => {
   const [snacks, setSnacks] = useState<SnackbarProps[]>([]);
 
@@ -23,11 +25,15 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
     setSnacks((s) => s.filter((snack) => snack.id !== e.detail));
 
   useEffect(() => {
-    document.addEventListener(SNACK_EVENTS.SERVE, addSnack);
-    document.addEventListener(SNACK_EVENTS.EAT, removeSnack);
+    if (canUseDocElement()) {
+      document.addEventListener(SNACK_EVENTS.SERVE, addSnack);
+      document.addEventListener(SNACK_EVENTS.EAT, removeSnack);
+    }
     return () => {
-      document.removeEventListener(SNACK_EVENTS.SERVE, addSnack);
-      document.removeEventListener(SNACK_EVENTS.EAT, removeSnack);
+      if (canUseDocElement()) {
+        document.removeEventListener(SNACK_EVENTS.SERVE, addSnack);
+        document.removeEventListener(SNACK_EVENTS.EAT, removeSnack);
+      }
     };
   }, []);
 

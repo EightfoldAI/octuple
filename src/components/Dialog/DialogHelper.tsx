@@ -1,12 +1,17 @@
+'use client';
+
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { DialogProps, DialogSize } from './Dialog.types';
 import { Dialog } from './Dialog';
-import { generateId } from '../../shared/utilities';
+import { canUseDocElement, generateId } from '../../shared/utilities';
 
 const uniqueId: string = generateId();
 
 function createWrapperAndAppendToBody(wrapperId: string): HTMLDivElement {
+  if (!canUseDocElement()) {
+    return null;
+  }
   const existingElement = document.getElementById(wrapperId) as HTMLDivElement;
   if (document.getElementById(wrapperId)) {
     return existingElement;
@@ -54,5 +59,7 @@ export const DialogHelper = {
       containerId
     ),
   close: (containerId: string = uniqueId) =>
-    unmountComponentAtNode(document.getElementById(containerId)),
+    canUseDocElement()
+      ? unmountComponentAtNode(document.getElementById(containerId))
+      : null,
 };

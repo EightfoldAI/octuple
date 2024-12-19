@@ -161,7 +161,7 @@
     &-pagination {
       display: flex;
       flex-wrap: wrap;
-      margin: 16px 0;
+      margin: $space-m 0;
       row-gap: $space-xs;
 
       * {
@@ -267,6 +267,7 @@
     }
 
     &-filter-column {
+      align-items: center;
       display: flex;
       justify-content: space-between;
     }
@@ -352,7 +353,7 @@
 
     .selection-checkbox,
     .selection-radiobutton {
-      margin: 0 16px;
+      margin: 0 auto;
       label {
         span {
           margin-left: 0;
@@ -361,18 +362,6 @@
           &:last-child {
             visibility: hidden;
             width: 0;
-          }
-        }
-      }
-    }
-
-    &-alternate {
-      tbody {
-        tr {
-          &:nth-child(odd) {
-            td {
-              background-color: var(--table-background-alternate-color);
-            }
           }
         }
       }
@@ -439,89 +428,18 @@
     }
 
     &-row-expand-icon {
-      @include operation-unit();
-
       position: relative;
       display: inline-flex;
       float: left;
-      box-sizing: border-box;
-      width: 18px;
-      height: 18px;
-      padding: 0;
-      margin: 2px $space-m 0 $space-m;
-      color: inherit;
-      line-height: 18px;
-      background: var(--table-expand-icon-background-color);
-      border: 2px var(--table-border-style) var(--grey-secondary-color);
-      border-radius: $border-radius-s;
-      outline: none;
-      transform: scale(unit(22) / unit(18));
-      transition: all $motion-duration-extra-fast;
-      user-select: none;
+      margin: 0 $space-m;
 
-      &:focus:not(:disabled),
-      &:hover:not(:disabled),
-      &:active:not(:disabled) {
-        border-color: var(--table-header-icon-color);
-      }
-
-      &:before,
-      &:after {
-        position: absolute;
-        background: currentcolor;
-        transition: transform $motion-duration-extra-fast ease-out;
-        content: '';
-      }
-
-      &:before {
-        top: 6px;
-        right: 3px;
-        left: 3px;
-        height: 2px;
-      }
-
-      &:after {
-        top: 3px;
-        bottom: 3px;
-        left: 6px;
-        width: 2px;
-        transform: rotate(90deg);
-      }
-
-      &-collapsed:before {
-        transform: rotate(-180deg);
-      }
-
-      &-collapsed:after {
-        transform: rotate(0deg);
-      }
-
-      &-spaced {
-        &:before,
-        &:after {
-          display: none;
-          content: none;
-        }
-        background: transparent;
-        border: 0;
+      &-visually-hidden {
+        opacity: 0;
         visibility: hidden;
       }
 
       .table-row-indent + & {
-        margin-top: calc((14 * 20 - 2 * 3) / 2) -
-          ceil(calc((14 * 1.4 - 2 * 3) / 2));
         margin-right: $space-s;
-      }
-
-      // Hides the browser default keyboard focus-visible styles.
-      // Use the ConfigProvider instead.
-      &:focus-visible {
-        outline: none;
-      }
-
-      &-disabled {
-        cursor: not-allowed;
-        opacity: $disabled-alpha-value;
       }
     }
 
@@ -712,20 +630,6 @@
           }
         }
       }
-
-      &.table-alternate {
-        tbody {
-          tr {
-            &:nth-child(odd) {
-              &:hover {
-                td {
-                  background-color: var(--table-row-hover-background-color);
-                }
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -793,19 +697,6 @@
     overflow: hidden;
     background-color: var(--table-header-filter-buttons-background-color);
     border-top: var(--table-border);
-  }
-}
-
-:global(.focus-visible) {
-  .table-wrapper {
-    .table {
-      &-row-expand-icon {
-        &.focus-visible,
-        &:focus-visible {
-          box-shadow: var(--focus-visible-box-shadow);
-        }
-      }
-    }
   }
 }
 

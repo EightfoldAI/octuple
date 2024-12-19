@@ -446,6 +446,11 @@ export interface ScrollerProps<RecordType> {
   flattenColumns: readonly ColumnType<RecordType>[];
   scrollBodyRef: RefObject<HTMLDivElement>;
   stickyOffsets: StickyOffsets;
+  /**
+   * The Table canvas direction.
+   * options: 'ltr', 'rtl'
+   */
+  direction?: string;
   scrollHeaderRef?: RefObject<HTMLDivElement>;
   /**
    * The Table scroller left button aria label.
@@ -480,6 +485,11 @@ export type ScrollerRef = {
 };
 
 export interface OcTableProps<RecordType = unknown> {
+  /**
+   * The Table Row background colors alternate.
+   * @default true
+   */
+  alternateRowColor?: boolean;
   /**
    * Show all Table borders.
    */

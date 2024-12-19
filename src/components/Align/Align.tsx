@@ -1,11 +1,14 @@
+'use client';
+
 import React from 'react';
 import {
   addEventListenerWrapper,
+  canUseDocElement,
+  canUseDom,
   composeRef,
   isVisible,
 } from '../../shared/utilities';
 import { alignElement, alignPoint } from 'dom-align';
-import { isEqual } from '@ngard/tiny-isequal';
 import { isSamePoint, restoreFocus, onViewportResize } from './util';
 import type {
   AlignType,
@@ -14,6 +17,7 @@ import type {
   TargetPoint,
 } from './Align.types';
 import useBuffer from './Hooks/useBuffer';
+import { isEqual } from '../../shared/utilities';
 
 type OnAlign = (source: HTMLElement, result: AlignResult) => void;
 
@@ -25,6 +29,10 @@ export interface AlignProps {
   viewportResize?: boolean;
   disabled?: boolean;
   children: React.ReactElement;
+}
+
+export interface ChildNode extends React.ReactElement {
+  ref: React.Ref<any>;
 }
 
 interface ViewportRef {
@@ -99,7 +107,10 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
 
       // IE lose focus after element realign
       // We should record activeElement and restore later
-      const { activeElement } = document;
+      let activeElement: Element;
+      if (canUseDocElement()) {
+        activeElement = document.activeElement;
+      }
 
       // We only align when element is visible
       if (element && isVisible(element)) {
@@ -108,7 +119,9 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
         result = alignPoint(source, point, latestAlign);
       }
 
-      restoreFocus(activeElement, source);
+      if (activeElement) {
+        restoreFocus(activeElement, source);
+      }
 
       if (latestOnAlign && result) {
         latestOnAlign(source, result);
@@ -169,7 +182,7 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
   // Listen for window resize
   const winResizeRef = React.useRef<{ remove: Function }>(null);
   React.useEffect(() => {
-    if (viewportResize) {
+    if (canUseDom() && viewportResize) {
       if (!winResizeRef.current) {
         winResizeRef.current = addEventListenerWrapper(
           window,
@@ -203,7 +216,7 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
   if (React.isValidElement(childNode)) {
     childNode = React.cloneElement(childNode, {
       ref: composeRef((childNode as any).ref, nodeRef),
-    });
+    } as React.Attributes & { ref?: React.Ref<unknown> });
   }
 
   return childNode;

@@ -1,3 +1,5 @@
+'use client';
+
 import Dropzone from './Dropzone';
 import type { UploadProps } from './Upload';
 import InternalUpload, { LIST_IGNORE } from './Upload';

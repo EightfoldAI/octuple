@@ -6,12 +6,14 @@ import React, {
   useState,
 } from 'react';
 import { StickyScrollBarProps } from './OcTable.types';
+import { useLayoutState } from './Hooks/useFrame';
 import {
+  canUseDocElement,
+  canUseDom,
   getOffset,
   getScrollBarSize,
   mergeClasses,
 } from '../../../shared/utilities';
-import { useLayoutState } from './Hooks/useFrame';
 
 import styles from './octable.module.scss';
 
@@ -54,7 +56,7 @@ const StickyScrollBar: React.ForwardRefRenderFunction<
   };
 
   const onMouseMove = (_event: MouseEvent): void => {
-    const { buttons } = _event || (window?.event as any);
+    const { buttons } = _event || (canUseDom() ? window.event : ({} as any));
     if (!isActive || buttons === 0) {
       // If out body mouse up, we can set isActive false when mouse move
       if (isActive) {
@@ -87,14 +89,17 @@ const StickyScrollBar: React.ForwardRefRenderFunction<
     if (!scrollBodyRef.current) {
       return;
     }
-    const tableOffsetTop = getOffset(scrollBodyRef.current).top;
-    const tableBottomOffset =
+    const tableOffsetTop: number = getOffset(scrollBodyRef.current).top;
+    const tableBottomOffset: number =
       tableOffsetTop + scrollBodyRef.current.offsetHeight;
-    const currentClientOffset =
-      container === window
-        ? document.documentElement.scrollTop + window.innerHeight
-        : getOffset(container as HTMLElement).top +
-          (container as HTMLElement).clientHeight;
+    let currentClientOffset: number = 0;
+    if (canUseDom() && canUseDocElement()) {
+      currentClientOffset =
+        container === window
+          ? document.documentElement.scrollTop + window.innerHeight
+          : getOffset(container as HTMLElement).top +
+            (container as HTMLElement).clientHeight;
+    }
 
     if (
       tableBottomOffset - getScrollBarSize() <= currentClientOffset ||
@@ -126,22 +131,29 @@ const StickyScrollBar: React.ForwardRefRenderFunction<
   }));
 
   useEffect(() => {
-    document?.body.addEventListener('mouseup', onMouseUp);
-    document?.body.addEventListener('mousemove', onMouseMove);
+    if (canUseDocElement()) {
+      document?.body.addEventListener('mouseup', onMouseUp);
+      document?.body.addEventListener('mousemove', onMouseMove);
+    }
     onContainerScroll();
     return () => {
-      document?.body.removeEventListener('mouseup', onMouseUp);
-      document?.body.removeEventListener('mousemove', onMouseMove);
+      if (canUseDocElement()) {
+        document?.body.removeEventListener('mouseup', onMouseUp);
+        document?.body.removeEventListener('mousemove', onMouseMove);
+      }
     };
   }, [scrollBarWidth, isActive]);
 
   useEffect(() => {
     container?.addEventListener('scroll', onContainerScroll);
-    window?.addEventListener('resize', onContainerScroll);
-
+    if (canUseDom()) {
+      window?.addEventListener('resize', onContainerScroll);
+    }
     return () => {
       container?.removeEventListener('scroll', onContainerScroll);
-      window?.removeEventListener('resize', onContainerScroll);
+      if (canUseDom()) {
+        window?.removeEventListener('resize', onContainerScroll);
+      }
     };
   }, [container]);
 

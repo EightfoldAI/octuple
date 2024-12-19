@@ -1,8 +1,11 @@
+'use client';
+
 import React, {
   cloneElement,
   FC,
   forwardRef,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import {
@@ -26,17 +29,23 @@ import {
   useFloatingTree,
   useHover,
   useInteractions,
+  useListNavigation,
   useMergeRefs,
   useRole,
 } from '@floating-ui/react';
 import { DropdownMenuProps, MenuItemTypes, MenuSize } from './Menu.types';
 import { MenuItemType } from './MenuItem/MenuItem.types';
 import { MenuItem } from './MenuItem/MenuItem';
-import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { List } from '../List';
 import { Stack } from '../Stack';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { mergeClasses } from '../../shared/utilities';
+import {
+  canUseDom,
+  eventKeys,
+  mergeClasses,
+  RenderProps,
+} from '../../shared/utilities';
 
 import dropdownStyles from '../Dropdown/dropdown.module.scss';
 import menuStyles from './menu.module.scss';
@@ -71,6 +80,16 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
     whileElementsMounted: autoUpdate,
   });
 
+  const listRef: React.MutableRefObject<any[]> = useRef([]);
+
+  const listNavigation: ElementProps = useListNavigation(context, {
+    listRef,
+    activeIndex: activeIndex,
+    nested: isNested,
+    onNavigate: setActiveIndex,
+    scrollItemIntoView: true,
+  });
+
   const hover: ElementProps = useHover<ReferenceType>(context, {
     enabled: isNested && allowHover,
     delay: { open: 75 },
@@ -92,13 +111,12 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
 
   const dismiss: ElementProps = useDismiss<ReferenceType>(context);
 
-  // TODO: ENG-46500 Implement `listNavigation` and `typeahead` in `useInteractions` via
-  // `useListNavigation` and `useTypeahead` floating-ui helpers.
-  // Need to figure out how to `useRef` `MenuItemType` to get each ref `HTMLElement`.
-  // See floatging-ui API reference implementation at:
+  // TODO: ENG-46500 Implement `typeahead` in `useInteractions` via
+  // `useTypeahead` floating-ui helper.
+  // See floating-ui API reference implementation at:
   // https://codesandbox.io/s/bold-panna-9tf226?file=/src/DropdownMenu.tsx
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
-    [hover, click, role, dismiss]
+    [hover, click, role, dismiss, listNavigation]
   );
 
   // Event emitter allows you to communicate across tree components.
@@ -149,42 +167,102 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
       setAllowHover(false);
     };
 
-    window.addEventListener('pointermove', onPointerMove, {
-      once: true,
-      capture: true,
-    });
-
-    window.addEventListener('keydown', onKeyDown, true);
-
-    return () => {
-      window.removeEventListener('pointermove', onPointerMove, {
+    if (canUseDom()) {
+      window.addEventListener('pointermove', onPointerMove, {
+        once: true,
         capture: true,
       });
-      window.removeEventListener('keydown', onKeyDown, true);
+
+      window.addEventListener('keydown', onKeyDown, true);
+    }
+
+    return () => {
+      if (canUseDom()) {
+        window.removeEventListener('pointermove', onPointerMove, {
+          capture: true,
+        });
+        window.removeEventListener('keydown', onKeyDown, true);
+      }
     };
   }, [allowHover]);
 
   const reference: (instance: ReferenceType) => void =
     useMergeRefs<ReferenceType>([refs.setReference, ref]);
 
-  const getReference = (): React.ReactElement => {
-    const child = React.Children.only(children) as React.ReactElement<any>;
-    const referenceClassNames: string = mergeClasses([
-      // Add any classnames added to the reference element
-      { [child.props.className]: child.props.className },
-    ]);
+  const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
+    event?.stopPropagation();
+    if (props.disabled) {
+      return;
+    }
+    if (!isNested) {
+      props.referenceOnKeydown?.(event);
+    }
+    if (
+      event?.key === eventKeys.ARROWDOWN &&
+      document.activeElement === event.target &&
+      !isNested &&
+      !isOpen
+    ) {
+      event?.preventDefault();
+      setIsOpen(true);
+    }
+    if (
+      event?.key === eventKeys.ARROWUP &&
+      document.activeElement === event.target &&
+      !isNested &&
+      isOpen
+    ) {
+      event?.preventDefault();
+      setIsOpen(false);
+    }
+    if (
+      event?.key === eventKeys.ESCAPE ||
+      (event?.key === eventKeys.TAB &&
+        event.shiftKey &&
+        !(event.target as HTMLElement).matches(':focus-within'))
+    ) {
+      setIsOpen(false);
+    }
+  };
 
-    return cloneElement(child, {
-      ref: reference,
-      role: 'button',
-      'data-open': isOpen ? '' : undefined,
-      ...getReferenceProps({
-        className: referenceClassNames,
-        onClick(event) {
-          event.stopPropagation();
-        },
-      }),
-    });
+  const getReference = (): JSX.Element | React.ReactNode => {
+    if (React.isValidElement(children)) {
+      const child = React.Children.only(children) as React.ReactElement<any>;
+      const referenceClassNames: string = mergeClasses([
+        // Add any classnames added to the reference element
+        { [child.props.className]: !!child.props.className },
+        { [child.props.classNames]: !!child.props.classNames },
+      ]);
+
+      const clonedElementProps: RenderProps = {
+        ref: reference,
+        role: 'button',
+        'data-open': isOpen ? '' : undefined,
+        ...getReferenceProps({
+          className: referenceClassNames,
+          onClick(event) {
+            event.stopPropagation();
+            if (!isNested) {
+              props.referenceOnClick?.(event);
+            }
+          },
+          onKeyDown: handleReferenceKeyDown,
+          ...(isNested && {
+            role: 'menuitem',
+          }),
+        }),
+      };
+
+      // Compares for octuple react prop vs native react html classes.
+      if (child.props?.className) {
+        clonedElementProps['className'] = referenceClassNames;
+      } else if (child.props.classNames) {
+        clonedElementProps['classNames'] = referenceClassNames;
+      }
+
+      return cloneElement(child, clonedElementProps);
+    }
+    return children;
   };
 
   const footerClassNames: string = mergeClasses([
@@ -240,6 +318,9 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
           setActiveIndex(index);
         }
       }}
+      ref={(item: HTMLElement) => {
+        listRef.current[index] = item;
+      }}
       size={props.size}
       tabIndex={activeIndex === index && 0}
       type={item.type ?? MenuItemType.button}
@@ -265,14 +346,16 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
         classNames={footerClassNames}
       >
         {props.cancelButtonProps && (
-          <NeutralButton
+          <Button
+            variant={ButtonVariant.Neutral}
             {...props.cancelButtonProps}
             size={menuSizeToButtonSizeMap.get(props.size)}
             onClick={props.onCancel}
           />
         )}
         {props.okButtonProps && (
-          <PrimaryButton
+          <Button
+            variant={ButtonVariant.Primary}
             {...props.okButtonProps}
             size={menuSizeToButtonSizeMap.get(props.size)}
             onClick={props.onOk}
@@ -290,8 +373,7 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
             context={context}
             // Prevent outside content interference.
             modal={false}
-            // Only initially focus the root floating menu.
-            initialFocus={isNested ? -1 : 0}
+            initialFocus={0}
             // Only return focus to the root menu's reference when menus close.
             returnFocus={!isNested}
           >

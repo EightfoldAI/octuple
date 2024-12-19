@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { OcFormInstance } from '../Internal';
 import { useForm as useOcForm } from '../Internal';
@@ -54,7 +56,7 @@ export default function useForm<Values = any>(
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
           const node: any | null = fieldId
-            ? document.getElementById(fieldId)
+            ? document?.getElementById(fieldId)
             : null;
 
           if (node) {
@@ -63,6 +65,12 @@ export default function useForm<Values = any>(
               block: 'nearest',
               ...options,
             });
+            if (node.tagName === 'INPUT') {
+              node.focus();
+            } else {
+              const focusableElement = node.querySelector('input');
+              focusableElement?.focus();
+            }
           }
         },
         getFieldInstance: (name: OcNamePath) => {

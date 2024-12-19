@@ -8,7 +8,6 @@ exports[`Link Link is default 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    title="undefined"
   >
     Test default
   </a>
@@ -23,7 +22,6 @@ exports[`Link Link is disabled 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    title="undefined"
   >
     Test
   </a>
@@ -38,7 +36,6 @@ exports[`Link Link is neutral 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    title="undefined"
   >
     Test neutral
   </a>
@@ -53,7 +50,6 @@ exports[`Link Link is primary 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    title="undefined"
   />
 </div>
 `;
@@ -66,7 +62,6 @@ exports[`Link Link is secondary 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    title="undefined"
   >
     Test secondary
   </a>
@@ -81,7 +76,6 @@ exports[`Link Link is underline when variant is primary 1`] = `
     href="https://eightfold.ai"
     role="link"
     target="_self"
-    title="undefined"
   >
     Test underline
   </a>

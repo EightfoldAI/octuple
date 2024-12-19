@@ -5,7 +5,7 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import '@testing-library/jest-dom/extend-expect';
 import useGestures, { Gestures } from './useGestures';
 import { fireEvent } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -115,17 +115,31 @@ describe('useGestures Hook', () => {
   });
 
   test('onMouseMove sets the Gesture to null', () => {
+    jest.useFakeTimers();
     const { result } = renderHook(() => useGestures(swipeTarget));
-
-    fireEvent.touchStart(swipeTarget, {
-      touches: [{ screenX: 100, screenY: 100 }],
-    });
-    jest.advanceTimersByTime(50);
-    fireEvent.touchEnd(swipeTarget, {
-      touches: [{ screenX: 100, screenY: 100 }],
+    act(() => {
+      fireEvent.touchStart(swipeTarget, {
+        touches: [{ screenX: 100, screenY: 100 }],
+      });
+      jest.advanceTimersByTime(50);
+      fireEvent.touchEnd(swipeTarget, {
+        touches: [{ screenX: 100, screenY: 100 }],
+      });
     });
     expect(result.current).toBe(Gestures.Tap);
-    fireEvent.mouseMove(swipeTarget);
+    act(() => {
+      fireEvent.touchStart(swipeTarget, {
+        changedTouches: [{ screenX: 0, screenY: 0 }],
+      });
+    });
+    act(() => {
+      fireEvent.mouseMove(swipeTarget, { clientX: 100, clientY: 100 });
+      jest.advanceTimersByTime(50);
+    });
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
     expect(result.current).toBe(null);
+    jest.useRealTimers();
   });
 });

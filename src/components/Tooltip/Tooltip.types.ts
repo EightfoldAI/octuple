@@ -39,7 +39,8 @@ export enum TooltipTouchInteraction {
   TapAndHold = 'TapAndHold',
 }
 
-export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
+export interface TooltipProps
+  extends Omit<OcBaseProps<HTMLDivElement>, 'ref' | 'content'> {
   /**
    * Should animate the Tooltip transitions.
    * @default true
@@ -128,6 +129,11 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   placement?: Placement;
   /**
+   * Whether to prevent the default behavior of touchmove.
+   * @default true
+   */
+  preventTouchMoveDefault?: boolean;
+  /**
    * Whether the Tooltip is portaled.
    * @default false
    */
@@ -207,7 +213,7 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   /**
    * Determines the interaction that triggers
    * the equivalent of hover on touch interfaces.
-   * @default TooltipTouchInteraction.Tap
+   * @default TooltipTouchInteraction.TapAndHold
    */
   touchInteraction?: TooltipTouchInteraction;
   /**

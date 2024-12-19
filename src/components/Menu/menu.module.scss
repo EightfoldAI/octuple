@@ -1,8 +1,10 @@
 .menu-container {
+  background: var(--menu-background-color);
   display: flex;
   flex-direction: column;
 
   .menu-header-container {
+    color: var(--menu-header-color);
     display: flex;
     flex: 1;
 
@@ -27,10 +29,10 @@
   }
 
   .menu-footer-container {
-    background: var(--background-color);
+    background: var(--menu-footer-background-color);
     position: sticky;
     bottom: 0;
-    border-top: solid 1px var(--border-color);
+    border-top: solid 1px var(--menu-border-color);
 
     &.large {
       padding: $space-l;

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { SpinnerProps, SpinnerSize } from './Spinner.types';
 import { Icon, IconName } from '../Icon';

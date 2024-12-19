@@ -1,9 +1,9 @@
+'use client';
+
 // Based on https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
 import { useRef, useEffect } from 'react';
 import { eventKeys } from '../../utilities/eventKeys';
-
-const SELECTORS =
-  'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
+import { canUseDocElement, focusable, SELECTORS } from '../../utilities';
 
 const FOCUS_DELAY_INTERVAL: number = 100;
 
@@ -20,8 +20,7 @@ export function useFocusTrap(
 
   const getFocusableElements = (): HTMLElement[] => {
     return [...elRef.current.querySelectorAll(SELECTORS)].filter(
-      (el: HTMLElement) =>
-        !el?.hasAttribute('disabled') && !el?.getAttribute('aria-hidden')
+      (el: HTMLElement) => focusable(el)
     );
   };
 
@@ -47,23 +46,25 @@ export function useFocusTrap(
           : focusableEls.length - 1
       ];
 
-    if (isShiftPressed) {
-      if (document.activeElement === firstFocusableEl) {
-        /* shift + tab */
-        lastFocusableEl?.focus();
-        e?.preventDefault();
-      }
-    } else {
-      /* tab */
-      if (document.activeElement === lastFocusableEl) {
-        firstFocusableEl?.focus();
-        e?.preventDefault();
+    if (canUseDocElement()) {
+      if (isShiftPressed) {
+        if (document.activeElement === firstFocusableEl) {
+          /* shift + tab */
+          lastFocusableEl?.focus();
+          e?.preventDefault();
+        }
+      } else {
+        /* tab */
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl?.focus();
+          e?.preventDefault();
+        }
       }
     }
   };
 
   const setUpFocus = (): void => {
-    if (!elRef.current) {
+    if (!elRef.current || !canUseDocElement()) {
       return;
     }
     restoreFocusRef.current = document.activeElement;

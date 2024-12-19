@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { Tooltip, TooltipTheme, TooltipTouchInteraction } from './';
+import { Label, LabelSize } from '../Label';
+import { Stack } from '../Stack';
+import { Truncate } from '../Truncate';
 
 export default {
   title: 'Tooltip',
@@ -125,9 +128,67 @@ const Tooltip_Story: ComponentStory<typeof Tooltip> = (args) => (
   <Tooltip {...args} />
 );
 
-export const Tooltips = Tooltip_Story.bind({});
+const Truncation_Detection_Story: ComponentStory<typeof Tooltip> = (args) => {
+  const [truncationStatus, setTruncationStatus] = useState<
+    Record<string, boolean>
+  >({});
+  const handleTruncationChange = (id: string, isTruncated: boolean) => {
+    setTruncationStatus((prev: Record<string, boolean>) => ({
+      ...prev,
+      [id]: isTruncated,
+    }));
+  };
+  return (
+    <Stack direction="vertical" flexGap="xl">
+      <Stack direction="vertical" flexGap="xs">
+        <Label
+          size={LabelSize.Large}
+          text="With no truncation the Tooltip disables itself using enableTruncationDetection"
+        />
+        <Tooltip
+          {...args}
+          content="Short content"
+          disabled={!truncationStatus['truncate1']}
+        >
+          <Truncate
+            id="truncate1"
+            onTruncateChange={handleTruncationChange}
+            text="Short content"
+          />
+        </Tooltip>
+      </Stack>
+      <Stack direction="vertical" flexGap="xs">
+        <Label
+          size={LabelSize.Large}
+          text="With truncation the Tooltip enables itself"
+        />
+        <Tooltip
+          {...args}
+          content="Very long content that will definitely be truncated using enableTruncationDetection and another very long content that will definitely be truncated using enableTruncationDetection"
+          disabled={!truncationStatus['truncate2']}
+          maxWidth={300}
+          width={300}
+        >
+          <Truncate
+            id="truncate2"
+            onTruncateChange={handleTruncationChange}
+            text="Very long content that will definitely be truncated using enableTruncationDetection and another very long content that will definitely be truncated using enableTruncationDetection"
+          />
+        </Tooltip>
+      </Stack>
+    </Stack>
+  );
+};
 
-Tooltips.args = {
+export const Basic = Tooltip_Story.bind({});
+export const Truncation_Detection = Truncation_Detection_Story.bind({});
+
+// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
+// this line ensures they are exported in the desired order.
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Basic', 'Truncation_Detection'];
+
+Basic.args = {
   offset: 8,
   theme: TooltipTheme.light,
   content: 'This is a Tooltip.',
@@ -141,10 +202,11 @@ Tooltips.args = {
   animate: true,
   bordered: false,
   dropShadow: true,
+  id: 'myTooltipId',
   classNames: 'my-tooltip-class',
   openDelay: 0,
   hideAfter: 200,
-  tabIndex: 0,
+  tabIndex: -1,
   trigger: 'hover',
   triggerAbove: false,
   touchInteraction: TooltipTouchInteraction.TapAndHold,
@@ -154,7 +216,6 @@ Tooltips.args = {
   portalRoot: null,
   children: (
     <Button
-      ariaLabel="Show Tooltip"
       onClick={() => {
         console.log('clicked');
       }}
@@ -163,5 +224,32 @@ Tooltips.args = {
       variant={ButtonVariant.Primary}
     />
   ),
+  height: null,
+};
+
+Truncation_Detection.args = {
+  offset: 8,
+  theme: TooltipTheme.light,
+  closeOnOutsideClick: true,
+  closeOnReferenceClick: true,
+  closeOnTooltipClick: false,
+  placement: 'bottom',
+  disableContextMenu: false,
+  disabled: false,
+  visibleArrow: true,
+  animate: true,
+  bordered: false,
+  dropShadow: true,
+  id: 'myTooltipId',
+  classNames: 'my-tooltip-class',
+  openDelay: 0,
+  hideAfter: 200,
+  tabIndex: -1,
+  trigger: 'hover',
+  triggerAbove: false,
+  touchInteraction: TooltipTouchInteraction.TapAndHold,
+  portal: false,
+  portalId: 'my-portal-id',
+  portalRoot: null,
   height: null,
 };

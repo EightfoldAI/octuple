@@ -1,25 +1,43 @@
-import React, { FC, Ref } from 'react';
-import styles from './matchScore.module.scss';
-import { mergeClasses } from '../../shared/utilities';
-import { FillType, MatchScoreProps } from './MatchScore.types';
+'use client';
+
+import React, { FC, Ref, useContext } from 'react';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import { Atom } from '../Atom';
+import { FillType, MatchScoreProps } from './MatchScore.types';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { mergeClasses } from '../../shared/utilities';
+
+import styles from './matchScore.module.scss';
+import themedComponentStyles from './matchScore.theme.module.scss';
 
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
   (
     {
       ariaLabel = 'score',
       classNames,
+      configContextProps = {
+        noThemeContext: false,
+      },
       hideLabel = false,
       hideValues = false,
       label,
       score = 0,
+      theme,
+      themeContainerId,
       total = 5,
       ...rest
     },
     ref: Ref<HTMLDivElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const absTotal: number = Math.abs(total);
     const absScore: number = Math.round(score);
@@ -31,36 +49,43 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     const matchScoreLabelClasses: string = mergeClasses(styles.label);
 
     return (
-      <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-        of="div"
-        {...rest}
-        ref={ref}
-        classes={[
-          classNames,
-          styles.matchScoreContainer,
-          { [styles.matchScoreContainerRtl]: htmlDir === 'rtl' },
-        ]}
-        aria-label={ariaLabel}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
       >
-        {/* Full */}
-        {getArrayOfSize(fullCircles).map((_val, index) => (
-          <MatchScoreCircle fill="full" key={index} />
-        ))}
+        <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+          of="div"
+          {...rest}
+          ref={ref}
+          classes={[
+            classNames,
+            styles.matchScoreContainer,
+            { [themedComponentStyles.theme]: mergedTheme },
+            { [styles.matchScoreContainerRtl]: htmlDir === 'rtl' },
+          ]}
+          aria-label={ariaLabel}
+        >
+          {/* Full */}
+          {getArrayOfSize(fullCircles).map((_val, index) => (
+            <MatchScoreCircle fill="full" key={index} />
+          ))}
 
-        {/* Half */}
-        {!!halfCircle && <MatchScoreCircle fill="half" />}
+          {/* Half */}
+          {!!halfCircle && <MatchScoreCircle fill="half" />}
 
-        {/* Remaining empty circles */}
-        {getArrayOfSize(emptyCircles).map((_val, index) => (
-          <MatchScoreCircle key={index} />
-        ))}
+          {/* Remaining empty circles */}
+          {getArrayOfSize(emptyCircles).map((_val, index) => (
+            <MatchScoreCircle key={index} />
+          ))}
 
-        {!hideLabel && (
-          <p className={matchScoreLabelClasses}>
-            {label} {!hideValues && absScore + '/' + absTotal}
-          </p>
-        )}
-      </Atom>
+          {!hideLabel && (
+            <p className={matchScoreLabelClasses}>
+              {label} {!hideValues && absScore + '/' + absTotal}
+            </p>
+          )}
+        </Atom>
+      </ThemeContextProvider>
     );
   }
 );

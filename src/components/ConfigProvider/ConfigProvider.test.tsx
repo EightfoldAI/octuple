@@ -3,7 +3,9 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { ConfigProvider, useConfig } from './ConfigProvider';
+import { useParentComponents } from './ParentComponentsContext';
 import DisabledContext from './DisabledContext';
+import GradientContext from './GradientContext';
 import { IConfigContext } from './ConfigProvider.types';
 import ShapeContext, { Shape } from './ShapeContext';
 import SizeContext, { Size } from './SizeContext';
@@ -11,6 +13,7 @@ import esES from '../Locale/es_ES';
 import iconSet from '../Icon/selection.json';
 import { render } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
+import { useFeatureFlags } from './FeatureFlagProvider';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -72,6 +75,26 @@ describe('ConfigProvider', () => {
     expect(result.current.fontOptions.customFont).toEqual(fontOptions);
   });
 
+  test('Provides the parent component names if provided as a prop', () => {
+    const { result } = renderHook(() => useParentComponents(), {
+      wrapper: ({ children }) => (
+        <ConfigProvider componentName="Parent1">
+          <ConfigProvider componentName="Parent2">{children}</ConfigProvider>
+        </ConfigProvider>
+      ),
+    });
+    expect(result.current.length).toEqual(2);
+    expect(result.current[0]).toEqual('Parent1');
+    expect(result.current[1]).toEqual('Parent2');
+  });
+
+  test('Provides no parent component names if not provided as a prop', () => {
+    const { result } = renderHook(() => useParentComponents(), {
+      wrapper: ConfigProvider,
+    });
+    expect(result.current.length).toEqual(0);
+  });
+
   test('Provides disabled config if provided as prop', () => {
     const { getByTestId } = render(
       <ConfigProvider disabled>
@@ -96,6 +119,32 @@ describe('ConfigProvider', () => {
       </ConfigProvider>
     );
     expect(getByTestId('disabled').textContent).toBe('false');
+  });
+
+  test('Provides gradient config if provided as prop', () => {
+    const { getByTestId } = render(
+      <ConfigProvider gradient>
+        <GradientContext.Consumer>
+          {(gradient): JSX.Element => (
+            <div data-testid="gradient">{gradient.toString()}</div>
+          )}
+        </GradientContext.Consumer>
+      </ConfigProvider>
+    );
+    expect(getByTestId('gradient').textContent).toBe('true');
+  });
+
+  test('Provides default gradient config if not provided as prop', () => {
+    const { getByTestId } = render(
+      <ConfigProvider gradient={null}>
+        <GradientContext.Consumer>
+          {(gradient): JSX.Element => (
+            <div data-testid="gradient">{gradient.toString()}</div>
+          )}
+        </GradientContext.Consumer>
+      </ConfigProvider>
+    );
+    expect(getByTestId('gradient').textContent).toBe('false');
   });
 
   test('Provides focusVisibleOptions if props are provided', () => {
@@ -223,5 +272,23 @@ describe('ConfigProvider', () => {
       wrapper: ConfigProvider,
     });
     expect(result.current.form).toEqual(undefined);
+  });
+
+  test('Provides feature flag values if provided as a prop', () => {
+    const { result } = renderHook(() => useFeatureFlags(), {
+      wrapper: ({ children }) => (
+        <ConfigProvider featureFlags={{ panelLazyLoadContent: true }}>
+          {children}
+        </ConfigProvider>
+      ),
+    });
+    expect(result.current.panelLazyLoadContent).toBeTruthy();
+  });
+
+  test('Provides default feature flag values if not provided as a prop', () => {
+    const { result } = renderHook(() => useFeatureFlags(), {
+      wrapper: ConfigProvider,
+    });
+    expect(result.current.panelLazyLoadContent).toBeFalsy();
   });
 });

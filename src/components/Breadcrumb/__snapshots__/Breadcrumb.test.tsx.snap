@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
+exports[`Breadcrumb Crumb should support string \`0\` 1`] = `
 <div
   aria-label="Breadcrumbs"
   class="breadcrumb my-breadcrumb-root-class"
@@ -16,48 +16,11 @@ exports[`Breadcrumb Crumb should support string \`0\` and number \`0\` 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
-          id="tooltip-"
+          class="reference-wrapper"
+          id="tooltip--wrapper"
         >
           <a
-            aria-disabled="false"
-            class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
-            data-reference-id="tooltip--reference"
-            id="tooltip--reference"
-            role="link"
-            target="_self"
-            title="0"
-          >
-            0
-          </a>
-        </div>
-        <span
-          aria-hidden="false"
-          class="icon-wrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style="width: 16px; height: 16px;"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              style="fill: currentColor;"
-            />
-          </svg>
-        </span>
-      </div>
-    </li>
-    <li>
-      <div
-        class="stack horizontal undefined gap-xxxs"
-      >
-        <div
-          class="reference-wrapper disabled"
-          id="tooltip-"
-        >
-          <a
+            aria-describedby="tooltip-"
             aria-disabled="false"
             class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-reference-id="tooltip--reference"
@@ -92,10 +55,11 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width secondary"
               data-reference-id="tooltip--reference"
@@ -103,7 +67,6 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
               id="tooltip--reference"
               role="link"
               target="_self"
-              title="undefined"
             >
               Custom home
             </a>
@@ -132,9 +95,10 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
         >
           <div
             class="reference-wrapper"
-            id="tooltip-"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width disruptive"
               data-reference-id="tooltip--reference"
@@ -142,7 +106,6 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
               id="tooltip--reference"
               role="link"
               target="_self"
-              title="undefined"
             >
               Custom Page 1
             </a>
@@ -170,11 +133,12 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <span
               aria-current="location"
+              aria-describedby="tooltip-"
               class="breadcrumb-link my-breadcrumb-links-class breadcrumb-link-read-only tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
@@ -206,10 +170,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -245,10 +210,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -284,10 +250,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -323,10 +290,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -362,10 +330,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -401,10 +370,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -440,10 +410,11 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           class="stack horizontal undefined gap-xxxs"
         >
           <div
-            class="reference-wrapper disabled"
-            id="tooltip-"
+            class="reference-wrapper"
+            id="tooltip--wrapper"
           >
             <a
+              aria-describedby="tooltip-"
               aria-disabled="false"
               class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
               data-reference-id="tooltip--reference"
@@ -494,10 +465,11 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
-          id="tooltip-"
+          class="reference-wrapper"
+          id="tooltip--wrapper"
         >
           <a
+            aria-describedby="tooltip-"
             aria-disabled="false"
             class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-custom="custom-item"
@@ -533,10 +505,11 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         class="stack horizontal undefined gap-xxxs"
       >
         <div
-          class="reference-wrapper disabled"
-          id="tooltip-"
+          class="reference-wrapper"
+          id="tooltip--wrapper"
         >
           <a
+            aria-describedby="tooltip-"
             aria-disabled="false"
             class="link-style full-width primary breadcrumb-link my-breadcrumb-links-class tooltip-reference"
             data-reference-id="tooltip--reference"

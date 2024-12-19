@@ -80,7 +80,7 @@ describe('Upload.typescript', () => {
           showRemoveIconButton: true,
           showReplaceButton: true,
           showDownloadIconButton: true,
-          removeIcon: IconName.mdiDelete,
+          removeIcon: IconName.mdiTrashCanOutline,
           replaceIcon: IconName.mdiRepeat,
           downloadIcon: IconName.mdiArrowDown,
         }}

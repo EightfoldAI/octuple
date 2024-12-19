@@ -1,5 +1,180 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SkillTag Skill is a below and upskilling assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="below-upskilling-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 39 22"
+            width="39"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-below-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-below-icon-color"
+              d="M10.2982 4.97949H11.7019V13.535L15.6455 9.62489L16.6481 10.6275L11.0001 16.2755L5.35205 10.6275L6.35465 9.62489L10.2982 13.535V4.97949Z"
+              fill="currentColor"
+            />
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+              x="17"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M23.0205 14.9771L30.5735 7.42415H25.8612V6.02051H32.9797V13.139H31.5761V8.42676L24.0231 15.9797L23.0205 14.9771Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a below and upskilling assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a below assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="below-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 22 22"
+            width="22"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-below-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-below-icon-color"
+              d="M10.2982 4.97961H11.7019V13.5352L15.6455 9.62501L16.6481 10.6276L11.0001 16.2756L5.35205 10.6276L6.35465 9.62501L10.2982 13.5352V4.97961Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a below assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`SkillTag Skill is a clickable tag 1`] = `
 <div>
   <div
@@ -162,6 +337,136 @@ exports[`SkillTag Skill is a default tag with custom iconProps 1`] = `
 </div>
 `;
 
+exports[`SkillTag Skill is a default tag with custom inlineSvgProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg"
+          style="width: 18px; height: 18px;"
+        >
+          <div
+            class="skeleton wave rounded"
+            style="width: 18px; height: 18px;"
+            tabindex="-1"
+          />
+          <div />
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag with custom suffixIconProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="block-end"
+      >
+        <span
+          aria-hidden="false"
+          class="suffix-icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a default tag with custom suffixInlineSvgProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div
+        class="block-end"
+      >
+        <div
+          class="suffix-svg"
+          style="width: 18px; height: 18px;"
+        >
+          <div
+            class="skeleton wave rounded"
+            style="width: 18px; height: 18px;"
+            tabindex="-1"
+          />
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`SkillTag Skill is a default tag with customButtonProps 1`] = `
 <div>
   <div
@@ -254,7 +559,6 @@ exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
         >
           <li>
             <button
-              aria-checked="true"
               aria-disabled="false"
               aria-label="Endorsements"
               aria-pressed="true"
@@ -287,6 +591,181 @@ exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
             </button>
           </li>
         </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a exceed and upskilling assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="exceed-upskilling-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 39 22"
+            width="39"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-exceed-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-exceed-icon-color"
+              d="M11.7019 16.4093H10.2982V7.85373L6.35465 11.7639L5.35205 10.7613L11.0001 5.11328L16.6481 10.7613L15.6455 11.7639L11.7019 7.85373V16.4093Z"
+              fill="currentColor"
+            />
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+              x="17"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M23.0205 14.9771L30.5735 7.42415H25.8612V6.02051H32.9797V13.139H31.5761V8.42676L24.0231 15.9797L23.0205 14.9771Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a exceed and upskilling assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a exceed assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="exceed-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 22 22"
+            width="22"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-exceed-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-exceed-icon-color"
+              d="M11.7019 16.4093H10.2982V7.85373L6.35465 11.7639L5.35205 10.7613L11.0001 5.11328L16.6481 10.7613L15.6455 11.7639L11.7019 7.85373V16.4093Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a exceed assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
       </div>
     </div>
   </div>
@@ -409,6 +888,273 @@ exports[`SkillTag Skill is a match tag 1`] = `
 </div>
 `;
 
+exports[`SkillTag Skill is a meet and upskilling assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="meet-upskilling-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 39 22"
+            width="39"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-meet-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-meet-icon-color"
+              d="M16.691 9.35765H5.30908V7.75348H16.691V9.35765ZM16.691 14.2465H5.30908V12.6424H16.691V14.2465Z"
+              fill="currentColor"
+            />
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+              x="17"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M23.0205 14.977L30.5735 7.42405H25.8612V6.0204H32.9797V13.1389H31.5761V8.42665L24.0231 15.9796L23.0205 14.977Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a meet and upskilling assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a meet assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="meet-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 22 22"
+            width="22"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-meet-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-meet-icon-color"
+              d="M16.691 9.35765H5.30908V7.75348H16.691V9.35765ZM16.691 14.2465H5.30908V12.6424H16.691V14.2465Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a meet assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a required tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label required medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a required tag with lineClamp and long text 1`] = `
+<div>
+  <div
+    class="stack vertical undefined gap-l"
+    style="width: 216px;"
+  >
+    <div
+      aria-disabled="false"
+      class="skill tag bordered white medium"
+      id="testSkill"
+      tabindex="0"
+    >
+      <div
+        class="background"
+      />
+      <div
+        class="content"
+      >
+        <div
+          class="block-start"
+        >
+          <span
+            class="label medium line-clamp"
+          >
+            test skill with some really long text relative to its container
+          </span>
+          <span
+            class="required"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a required tag with the required mark hidden 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`SkillTag Skill is a small tag 1`] = `
 <div>
   <div
@@ -437,11 +1183,92 @@ exports[`SkillTag Skill is a small tag 1`] = `
 </div>
 `;
 
+exports[`SkillTag Skill is a upskilling assessment tag 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="upskilling-medium-image"
+            fill="none"
+            height="22"
+            viewBox="0 0 22 22"
+            width="22"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="22"
+              rx="11"
+              width="22"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M6.02051 14.977L13.5735 7.42403H8.86122V6.02039H15.9797V13.1389H14.5761V8.42664L7.02311 15.9796L6.02051 14.977Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill is a upskilling assessment tag and the icon is disabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`SkillTag Skill is a xsmall tag 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag bordered white xsmall"
+    class="skill tag white xsmall"
     id="testSkill"
     tabindex="0"
   >
@@ -524,7 +1351,7 @@ exports[`SkillTag Skill tag has a popup 1`] = `
 <div>
   <div
     class="reference-wrapper"
-    id="popup-"
+    id="popup--wrapper"
   >
     <div
       aria-controls="popup-"
@@ -581,9 +1408,10 @@ exports[`SkillTag Skill tag has a tooltip 1`] = `
 <div>
   <div
     class="reference-wrapper"
-    id="tooltip-"
+    id="tooltip--wrapper"
   >
     <div
+      aria-describedby="tooltip-"
       aria-disabled="false"
       class="skill tag bordered clickable white medium tooltip-reference"
       data-reference-id="tooltip--reference"
@@ -607,6 +1435,62 @@ exports[`SkillTag Skill tag has a tooltip 1`] = `
             test skill
           </span>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag has no border 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillTag Skill tag is bordered 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill tag bordered white medium"
+    id="testSkill"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
       </div>
     </div>
   </div>
@@ -759,7 +1643,7 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="skill tag bordered clickable test-skill highlight medium"
+    class="skill tag bordered clickable full-width test-skill highlight medium"
     data-testid="skill-tag-5"
     id="testSkill"
     role="button"
@@ -775,7 +1659,8 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
       class="content"
     >
       <div
-        class="block-start"
+        class="block-start test-block-start-class"
+        style="margin-top: 20px;"
       >
         <span
           aria-hidden="false"
@@ -800,6 +1685,38 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
         >
           test skill
         </span>
+      </div>
+      <div
+        class="block-end test-block-end-class"
+        style="margin-top: 20px;"
+      >
+        <ul
+          class="button-list"
+        >
+          <li>
+            <button
+              aria-disabled="false"
+              class="button button button-neutral button-small round-shape icon-left"
+            >
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 16px; height: 16px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

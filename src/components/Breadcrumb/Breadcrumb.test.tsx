@@ -124,14 +124,11 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  test('Crumb should support string `0` and number `0`', () => {
+  test('Crumb should support string `0`', () => {
     const { container } = render(
       <Breadcrumb
         {...breadcrumbArgs}
         links={[
-          {
-            title: 0,
-          },
           {
             title: '0',
           },
@@ -139,9 +136,6 @@ describe('Breadcrumb', () => {
       />
     );
     expect(container.querySelectorAll('.breadcrumb-link')[0].textContent).toBe(
-      '0'
-    );
-    expect(container.querySelectorAll('.breadcrumb-link')[1].textContent).toBe(
       '0'
     );
     expect(container.firstChild).toMatchSnapshot();

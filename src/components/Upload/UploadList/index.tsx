@@ -9,12 +9,12 @@ import {
 import { isImageUrl, previewImage } from '../Utils';
 import CSSMotion, { CSSMotionList } from '../../Motion';
 import type { CSSMotionListProps } from '../../Motion';
-import { ButtonShape, Button } from '../../Button';
-import { ButtonProps } from '../../Button';
+import { Button, ButtonProps, ButtonShape } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useForceUpdate } from '../../../hooks/useForceUpdate';
 import {
+  canUseDom,
   cloneElement,
   collapseMotion,
   mergeClasses,
@@ -37,10 +37,12 @@ const InternalUploadList: React.ForwardRefRenderFunction<
   const {
     appendAction,
     appendActionVisible = true,
+    configContextProps,
     downloadFileText,
     downloadIcon,
     downloadIconButtonType = 'button',
     fullWidth = false,
+    gradient,
     iconRender,
     isImageUrl: isImgUrl = isImageUrl,
     itemRender,
@@ -63,9 +65,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     replaceIcon,
     showDownloadIconButton: showDownloadIconButton = false,
     showPreviewIconButton: showPreviewIconButton = true,
-    showRemoveIconButton: showRemoveIconButton = true,
+    showRemoveIconButton: showRemoveIconButton = !maxCount,
     showReplaceButton: showReplaceButton = true,
     size,
+    theme,
+    themeContainerId,
     uploadErrorText,
     uploadingText,
   } = props;
@@ -126,7 +130,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     if (typeof onDownload === 'function') {
       onDownload(file);
     } else if (file.url) {
-      window.open(file.url);
+      if (canUseDom()) {
+        window.open(file.url);
+      }
     }
   };
 
@@ -200,11 +206,15 @@ const InternalUploadList: React.ForwardRefRenderFunction<
         styles.uploadListItemCardActionsButton,
         styles.iconDownload,
       ]),
+      configContextProps: configContextProps,
+      gradient: gradient,
       htmlType: downloadIconButtonType,
       iconProps: {
-        path: IconName.mdiArrowDownThin,
+        path: IconName.mdiDownload,
       },
       shape: ButtonShape.Round,
+      theme: theme,
+      themeContainerId: themeContainerId,
       onClick: (_event: React.MouseEvent<HTMLElement>) => {
         callback();
       },
@@ -265,6 +275,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             downloadIcon={downloadIcon}
             downloadIconButtonType={downloadIconButtonType}
             file={file}
+            gradient={gradient}
             iconRender={internalIconRender}
             isImgUrl={isImgUrl}
             itemRender={itemRender}
@@ -289,6 +300,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             showPreviewIconButton={showPreviewIconButton}
             showRemoveIconButton={showRemoveIconButton}
             showReplaceButton={showReplaceButton}
+            size={size}
             style={motionStyle}
             uploadErrorText={uploadErrorText}
           />

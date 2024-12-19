@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import { Stories } from '@storybook/addon-docs';
-import { ButtonVariant } from '../../Button';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import DatePicker from './';
-import { DatePickerShape, DatePickerSize } from './';
+import DatePicker, { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
+import { ButtonVariant } from '../../Button';
 import { Stack } from '../../Stack';
+import { ConfigProvider } from '../../ConfigProvider';
 
 export default {
   title: 'Date Picker',
@@ -80,8 +80,8 @@ export default {
       control: { type: 'radio' },
     },
     status: {
-      options: ['error', 'warning'],
-      control: { type: 'radio' },
+      options: ['success', 'warning', 'error', 'validating', 'highlight', ''],
+      control: 'select',
     },
     popupPlacement: {
       options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
@@ -91,6 +91,26 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
+  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
+  return (
+    <ConfigProvider themeOptions={{ name: 'blue' }}>
+      <Stack direction="vertical" flexGap="m">
+        <DatePicker {...args} onChange={onChange} />
+        <DatePicker {...args} onChange={onChange} picker="week" />
+        <DatePicker {...args} onChange={onChange} picker="month" />
+        <DatePicker {...args} onChange={onChange} picker="quarter" />
+        <DatePicker {...args} onChange={onChange} picker="year" />
+      </Stack>
+    </ConfigProvider>
+  );
+};
+
+const Single_Picker_TrapFocus_Story: ComponentStory<typeof DatePicker> = (
+  args
+) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -518,8 +538,10 @@ const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
 const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <DatePicker {...args} status="error" />
+      <DatePicker {...args} status="success" />
       <DatePicker {...args} status="warning" />
+      <DatePicker {...args} status="error" />
+      <DatePicker {...args} status="highlight" />
     </Stack>
   );
 };
@@ -527,13 +549,16 @@ const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
 const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <RangePicker {...args} status="error" />
+      <RangePicker {...args} status="success" />
       <RangePicker {...args} status="warning" />
+      <RangePicker {...args} status="error" />
+      <RangePicker {...args} status="highlight" />
     </Stack>
   );
 };
 
 export const Single_Picker = Single_Picker_Story.bind({});
+export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});
 export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
 export const Single_Picker_Disabled = Single_Picker_Disabled_Story.bind({});
 export const Single_Picker_Disabled_Date_and_Time =
@@ -569,6 +594,7 @@ export const Range_Status = Range_Status_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Single_Picker',
+  'Single_Picker_TrapFocus',
   'Single_Picker_Readonly',
   'Single_Picker_Disabled',
   'Single_Picker_Disabled_Date_and_Time',
@@ -609,6 +635,11 @@ const pickerArgs: Object = {
 };
 
 Single_Picker.args = {
+  ...pickerArgs,
+  trapFocus: false,
+};
+
+Single_Picker_TrapFocus.args = {
   ...pickerArgs,
 };
 

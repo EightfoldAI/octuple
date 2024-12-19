@@ -2,13 +2,8 @@
   legend {
     display: block;
     width: 100%;
-    margin-bottom: $space-ml;
+    margin: 0;
     padding: 0;
-    color: var(--text-secondary-color);
-    font-size: $text-font-size-2;
-    line-height: inherit;
-    border: 0;
-    border-bottom: 1px solid var(--text-secondary-color);
   }
 
   label {

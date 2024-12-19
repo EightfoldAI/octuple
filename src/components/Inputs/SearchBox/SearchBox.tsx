@@ -1,8 +1,17 @@
+'use client';
+
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
+import {
+  OcThemeName,
+  ShapeContext,
+  Shape,
+  SizeContext,
+  Size,
+} from '../../ConfigProvider';
+import ThemeContext from '../../ConfigProvider/ThemeContext';
 import { IconName } from '../../Icon';
 import {
   SearchBoxProps,
@@ -31,6 +40,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
         noDisabledContext: false,
         noShapeContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
       formItemInput = false,
@@ -58,10 +68,14 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       readonly = false,
       readOnlyProps,
       reset = false,
+      role,
+      searchButtonAriaLabel,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,
       status,
       style,
+      theme,
+      themeContainerId,
       value,
       waitInterval = 500,
       ...rest
@@ -88,6 +102,11 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
+
     return (
       <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
         <TextInput
@@ -102,11 +121,13 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           autoFocus={autoFocus}
           classNames={classNames}
           clearButtonAriaLabel={clearButtonAriaLabel}
+          configContextProps={configContextProps}
           disabled={mergedDisabled}
           formItemInput={mergedFormItemInput}
           htmlType="search"
           iconProps={iconProps}
           iconButtonProps={{
+            ariaLabel: searchButtonAriaLabel ? searchButtonAriaLabel : 'Search',
             htmlType: 'button',
             iconProps: {
               path: IconName.mdiMagnify,
@@ -131,10 +152,13 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           readonly={readonly}
           readOnlyProps={readOnlyProps}
           reset={reset}
+          role={role}
           shape={mergedShape}
           size={mergedSize}
           status={mergedStatus}
           style={style}
+          theme={mergedTheme}
+          themeContainerId={themeContainerId}
           value={value}
           waitInterval={waitInterval}
         />

@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 env:
-  NODE_VERSION: 16.14.2
+  NODE_VERSION: 20.13.0
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -77,4 +77,3 @@ jobs:
           destination-repository-name: 'octuple.github.io'
           user-email: eightfold@users.noreply.github.com
           target-branch: main
-

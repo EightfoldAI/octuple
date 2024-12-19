@@ -1,0 +1,285 @@
+.theme {
+  --primary-background1-color: var(--primary-color-10); // Surface 1
+  --primary-background2-color: var(--primary-color-20); // Surface 2
+  --primary-background3-color: var(--primary-color-30); // Surface 3
+  --primary-tertiary-color: var(--primary-color-60); // Graphics
+  --primary-secondary-color: var(--primary-color-70); // Text
+  --primary-color: var(--primary-color-80); // Extra high contrast
+
+  --primary-background1-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-10) 0%,
+    var(--primary-gradient-middle-color-10) 49%,
+    var(--primary-gradient-end-color-10) 100%
+  ); // Surface 1
+  --primary-background2-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-20) 0%,
+    var(--primary-gradient-middle-color-20) 49%,
+    var(--primary-gradient-end-color-20) 100%
+  ); // Surface 2
+  --primary-background3-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-30) 0%,
+    var(--primary-gradient-middle-color-30) 49%,
+    var(--primary-gradient-end-color-30) 100%
+  ); // Surface 3
+  --primary-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-60) 0%,
+    var(--primary-gradient-middle-color-60) 49%,
+    var(--primary-gradient-end-color-60) 100%
+  ); // Graphics
+  --primary-secondary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-70) 0%,
+    var(--primary-gradient-middle-color-70) 49%,
+    var(--primary-gradient-end-color-70) 100%
+  ); // Text
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--primary-gradient-start-color-80) 0%,
+    var(--primary-gradient-middle-color-80) 49%,
+    var(--primary-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --accent-background1-color: var(--accent-color-10); // Surface 1
+  --accent-background2-color: var(--accent-color-20); // Surface 2
+  --accent-background3-color: var(--accent-color-30); // Surface 3
+  --accent-tertiary-color: var(--accent-color-60); // Graphics
+  --accent-secondary-color: var(--accent-color-70); // Text
+  --accent-color: var(--accent-color-80); // Extra high contrast
+
+  --accent-background1-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-10) 0%,
+    var(--accent-gradient-middle-color-10) 49%,
+    var(--accent-gradient-end-color-10) 100%
+  ); // Surface 1
+  --accent-background2-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-20) 0%,
+    var(--accent-gradient-middle-color-20) 49%,
+    var(--accent-gradient-end-color-20) 100%
+  ); // Surface 2
+  --accent-background3-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-30) 0%,
+    var(--accent-gradient-middle-color-30) 49%,
+    var(--accent-gradient-end-color-30) 100%
+  ); // Surface 3
+  --accent-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-60) 0%,
+    var(--accent-gradient-middle-color-60) 49%,
+    var(--accent-gradient-end-color-60) 100%
+  ); // Graphics
+  --accent-secondary-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-70) 0%,
+    var(--accent-gradient-middle-color-70) 49%,
+    var(--accent-gradient-end-color-70) 100%
+  ); // Text
+  --accent-gradient: linear-gradient(
+    90deg,
+    var(--accent-gradient-start-color-80) 0%,
+    var(--accent-gradient-middle-color-80) 49%,
+    var(--accent-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  --disruptive-background1-color: var(--disruptive-color-10); // Surface 1
+  --disruptive-background2-color: var(--disruptive-color-20); // Surface 2
+  --disruptive-background3-color: var(--disruptive-color-30); // Surface 3
+  --disruptive-tertiary-color: var(--disruptive-color-60); // Graphics
+  --disruptive-secondary-color: var(--disruptive-color-70); // Text
+  --disruptive-color: var(--disruptive-color-80); // Extra high contrast
+
+  --disruptive-background1-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-10) 0%,
+    var(--disruptive-gradient-middle-color-10) 49%,
+    var(--disruptive-gradient-end-color-10) 100%
+  ); // Surface 1
+  --disruptive-background2-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-20) 0%,
+    var(--disruptive-gradient-middle-color-20) 49%,
+    var(--disruptive-gradient-end-color-20) 100%
+  ); // Surface 2
+  --disruptive-background3-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-30) 0%,
+    var(--disruptive-gradient-middle-color-30) 49%,
+    var(--disruptive-gradient-end-color-30) 100%
+  ); // Surface 3
+  --disruptive-tertiary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-60) 0%,
+    var(--disruptive-gradient-middle-color-60) 49%,
+    var(--disruptive-gradient-end-color-60) 100%
+  ); // Graphics
+  --disruptive-secondary-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-70) 0%,
+    var(--disruptive-gradient-middle-color-70) 49%,
+    var(--disruptive-gradient-end-color-70) 100%
+  ); // Text
+  --disruptive-gradient: linear-gradient(
+    90deg,
+    var(--disruptive-gradient-start-color-80) 0%,
+    var(--disruptive-gradient-middle-color-80) 49%,
+    var(--disruptive-gradient-end-color-80) 100%
+  ); // Extra high contrast
+
+  // ------ Check Box theme ------
+  --check-box-background-color: transparent;
+  --check-box-active-background-color: var(--accent-background3-color);
+  --check-box-hover-background-color: var(--accent-background1-color);
+  --check-box-checked-background-color: var(--accent-background3-color);
+  --check-box-checked-active-background-color: var(--accent-background1-color);
+  --check-box-checked-hover-background-color: var(--accent-background2-color);
+  --check-box-border-color: var(--grey-secondary-color);
+  --check-box-active-border-color: var(--primary-secondary-color);
+  --check-box-hover-border-color: var(--primary-secondary-color);
+  --check-box-checked-border-color: var(--primary-secondary-color);
+  --check-box-checked-active-border-color: var(--primary-secondary-color);
+  --check-box-checked-hover-border-color: var(--primary-secondary-color);
+  --check-box-focus-visible-border-color: var(--primary-color);
+  --check-box-border-width: 2px;
+  --check-box-border-style: solid;
+  --check-box-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-border-color);
+  --check-box-active-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-active-border-color);
+  --check-box-hover-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-hover-border-color);
+  --check-box-checked-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-border-color);
+  --check-box-checked-active-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-active-border-color);
+  --check-box-checked-hover-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-checked-hover-border-color);
+  --check-box-focus-visible-border: var(--check-box-border-width)
+    var(--check-box-border-style) var(--check-box-focus-visible-border-color);
+  --check-box-mark-color: var(--primary-secondary-color);
+  --check-box-focus-visible-mark-color: var(--primary-color);
+  --check-box-text-color: var(--primary-secondary-color);
+
+  --check-box-pill-container-background-color: var(--grey-background1-color);
+  --check-box-pill-container-active-background-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-background-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-color: var(--accent-background2-color);
+  --check-box-pill-container-active-border-color: var(
+    --accent-background2-color
+  );
+  --check-box-pill-container-hover-border-color: var(
+    --accent-background1-color
+  );
+  --check-box-pill-container-border-radius: var(--border-radius-xl);
+  --check-box-pill-container-border-style: solid;
+  --check-box-pill-container-border-width: 0;
+  --check-box-pill-container-text-color: var(--text-secondary-color);
+  --check-box-pill-container-active-text-color: var(--primary-color);
+  --check-box-pill-container-hover-text-color: var(--primary-color);
+  --check-box-in-pill-background-color: transparent;
+  --check-box-in-pill-active-background-color: transparent;
+  --check-box-in-pill-hover-background-color: transparent;
+  --check-box-in-pill-checked-background-color: transparent;
+  --check-box-in-pill-checked-active-background-color: transparent;
+  --check-box-in-pill-checked-hover-background-color: transparent;
+  --check-box-in-pill-border-color: var(--grey-secondary-color);
+  --check-box-in-pill-active-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-hover-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-border-color: var(--primary-secondary-color);
+  --check-box-in-pill-checked-active-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-checked-hover-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-focus-visible-border-color: var(
+    --primary-secondary-color
+  );
+  --check-box-in-pill-border-width: 2px;
+  --check-box-in-pill-border-style: solid;
+  --check-box-in-pill-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style) var(--check-box-in-pill-border-color);
+  --check-box-in-pill-active-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-active-border-color);
+  --check-box-in-pill-hover-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-hover-border-color);
+  --check-box-in-pill-checked-border: var(--check-box-in-pill-border-width)
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-border-color);
+  --check-box-in-pill-checked-active-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-active-border-color);
+  --check-box-in-pill-checked-hover-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-checked-hover-border-color);
+  --check-box-in-pill-focus-visible-border: var(
+      --check-box-in-pill-border-width
+    )
+    var(--check-box-in-pill-border-style)
+    var(--check-box-in-pill-focus-visible-border-color);
+  --check-box-in-pill-mark-color: var(--primary-secondary-color);
+  --check-box-in-pill-focus-visible-mark-color: var(--primary-secondary-color);
+  // ------ Check Box theme ------
+
+  // ------ Toggle Switch theme ------
+  --toggle-switch-background-color: transparent;
+  --toggle-switch-active-background-color: var(--accent-background3-color);
+  --toggle-switch-hover-background-color: var(--accent-background1-color);
+  --toggle-switch-checked-background-color: var(--accent-background3-color);
+  --toggle-switch-checked-active-background-color: var(
+    --accent-background1-color
+  );
+  --toggle-switch-checked-hover-background-color: var(
+    --accent-background2-color
+  );
+  --toggle-switch-border-color: var(--grey-secondary-color);
+  --toggle-switch-active-border-color: var(--primary-secondary-color);
+  --toggle-switch-hover-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-border-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-border-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-border-color: var(--primary-color);
+  --toggle-switch-border-width: 2px;
+  --toggle-switch-border-style: solid;
+  --toggle-switch-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-border-color);
+  --toggle-switch-active-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-active-border-color);
+  --toggle-switch-hover-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-hover-border-color);
+  --toggle-switch-checked-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style) var(--toggle-switch-checked-border-color);
+  --toggle-switch-checked-active-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style)
+    var(--toggle-switch-checked-active-border-color);
+  --toggle-switch-checked-hover-border: var(--toggle-switch-border-width)
+    var(--toggle-switch-border-style)
+    var(--toggle-switch-checked-hover-border-color);
+  --toggle-switch-focus-visible-border: var(--check-box-border-width)
+    var(--check-box-border-style)
+    var(--toggle-switch-focus-visible-border-color);
+  --toggle-switch-pip-color: var(--grey-secondary-color);
+  --toggle-switch-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-active-pip-color: var(--primary-secondary-color);
+  --toggle-switch-checked-hover-pip-color: var(--primary-secondary-color);
+  --toggle-switch-focus-visible-pip-color: var(--primary-color);
+  --toggle-switch-text-color: var(--primary-secondary-color);
+  // ------ Toggle Switch theme ------
+}

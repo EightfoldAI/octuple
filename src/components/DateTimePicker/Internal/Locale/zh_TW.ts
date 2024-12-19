@@ -29,6 +29,10 @@ const locale: Locale = {
   year: '年',
   yearFormat: 'YYYY年',
   yearSelect: '選擇年份',
+  prevAriaLabel: '上一年',
+  nextAriaLabel: '下一年',
+  superPrevAriaLabel: '上一年',
+  superNextAriaLabel: '下一年',
 };
 
 export default locale;

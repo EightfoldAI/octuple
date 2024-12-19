@@ -1459,7 +1459,7 @@
     }
 
     &-column {
-      @include scroll-bars();
+      @include scroll-bars;
 
       background: var(--picker-column-background-color);
       flex: none;
@@ -1772,9 +1772,27 @@
     }
   }
 
+  &-status-success &-input {
+    input {
+      color: var(--input-success-text-color);
+    }
+  }
+
+  &-status-warning &-input {
+    input {
+      color: var(--input-warning-text-color);
+    }
+  }
+
   &-status-error &-input {
     input {
-      color: var(--disruptive-color);
+      color: var(--input-error-text-color);
+    }
+  }
+
+  &-status-highlight &-input {
+    input {
+      color: var(--input-highlight-text-color);
     }
   }
 

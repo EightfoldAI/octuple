@@ -1,10 +1,15 @@
-import React, { FC, Ref } from 'react';
-import { mergeClasses } from '../../../shared/utilities';
-import { TabsProps, TabSize, TabVariant } from '../Tabs.types';
-import { useTabs } from '../Tabs.context';
+import React, { FC, Ref, useContext } from 'react';
 import { Flipper } from 'react-flip-toolkit';
+import { OcThemeName } from '../../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../../ConfigProvider/ThemeContext';
+import { useTabs } from '../Tabs.context';
+import { TabsProps, TabSize, TabVariant } from '../Tabs.types';
+import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../tabs.module.scss';
+import themedComponentStyles from '../tabs.theme.module.scss';
 
 export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
   (
@@ -12,6 +17,8 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       bordered = true,
       children,
       classNames,
+      direction = 'horizontal',
+      fullWidth = false,
       onChange,
       scrollable,
       divider = true,
@@ -23,8 +30,20 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
     },
     ref: Ref<HTMLDivElement>
   ) => {
-    const { currentActiveTab } = useTabs();
-    const tabClassName: string = mergeClasses([
+    const {
+      colorInvert,
+      configContextProps,
+      currentActiveTab,
+      theme,
+      themeContainerId,
+    } = useTabs();
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
+
+    const tabClassNames: string = mergeClasses([
       styles.tabWrap,
       {
         [styles.underlined]:
@@ -33,25 +52,38 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
           variant !== TabVariant.stat,
         [styles.large]: size === TabSize.Large,
         [styles.small]: variant === TabVariant.small || size === TabSize.Small,
+        [styles.xsmall]: variant === TabVariant.stat && size === TabSize.XSmall,
         [styles.pill]: variant === TabVariant.pill,
         [styles.stat]: variant === TabVariant.stat,
         [styles.bordered]: variant === TabVariant.stat && bordered,
         [styles.divider]: variant === TabVariant.stat && divider,
+        [styles.vertical]:
+          direction === 'vertical' && variant === TabVariant.stat,
+        [styles.fullWidth]:
+          fullWidth && direction === 'vertical' && variant === TabVariant.stat,
+        [themedComponentStyles.theme]: mergedTheme,
+        [styles.inverse]: colorInvert,
         [styles.scrollable]: scrollable,
       },
       classNames,
     ]);
     return (
       <Flipper flipKey={currentActiveTab}>
-        <div
-          {...rest}
-          ref={ref}
-          role="tablist"
-          className={tabClassName}
-          style={style}
+        <ThemeContextProvider
+          containerId={themeContainerId}
+          componentClassName={themedComponentStyles.theme}
+          theme={mergedTheme}
         >
-          {children}
-        </div>
+          <div
+            {...rest}
+            ref={ref}
+            role="tablist"
+            className={tabClassNames}
+            style={style}
+          >
+            {children}
+          </div>
+        </ThemeContextProvider>
       </Flipper>
     );
   }

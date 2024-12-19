@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { toArray } from '../utilities';
 import { SingleObserver } from './SingleObserver/SingleObserver';
@@ -39,5 +41,7 @@ export const ResizeObserver = (props: ResizeObserverProps) => {
     );
   }) as any as React.ReactElement;
 };
+
+ResizeObserver.displayName = 'ResizeObserver';
 
 ResizeObserver.Collection = Collection;

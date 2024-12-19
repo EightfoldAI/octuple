@@ -1,5 +1,6 @@
 import React from 'react';
-import { OcThemeName } from '../ConfigProvider';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
+import { ButtonProps } from '../Button';
 import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
@@ -12,10 +13,18 @@ export type SelectTabEvent<E = HTMLElement> =
 
 export type OnChangeHandler = (value: TabValue, event: SelectTabEvent) => void;
 
+export type TabsDirection = 'vertical' | 'horizontal';
+
+export enum TabIconAlign {
+  Start = 'start',
+  End = 'end',
+}
+
 export enum TabSize {
   Large = 'large',
   Medium = 'medium',
   Small = 'small',
+  XSmall = 'xsmall',
 }
 
 export type TabValue = string;
@@ -38,9 +47,48 @@ export type StatValidationStatus = InputStatus;
 
 export interface TabsContextProps {
   /**
+   * The tab icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
+  /**
    * List of Tab element.
    */
   children: React.ReactNode;
+  /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
+   * Direction type - horizontal or vertical
+   * Use when variant is `stat`
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical` and variant is `stat`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tabs' label can have.
+   * Use when variant is `stat`.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tabs a max width.
+   * Use when the variant is `stat`.
+   */
+  maxWidth?: number;
   /**
    * The onChange event handler.
    */
@@ -60,6 +108,17 @@ export interface TabsContextProps {
    */
   statgrouptheme?: StatThemeName;
   /**
+   * Theme of the Tabs.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Tabs.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * The value of the selected tab.
    */
   value?: TabValue;
@@ -72,9 +131,48 @@ export interface TabsContextProps {
 
 export interface ITabsContext {
   /**
+   * The tab icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
+  /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * The currently active tab value.
    */
   currentActiveTab: TabValue;
+  /**
+   * Direction type - horizontal or vertical
+   * Use when variant is `stat`
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical` and variant is `stat`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tab label can have.
+   * Use when variant is `stat`.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tabs a max width.
+   * Use when the variant is `stat`.
+   */
+  maxWidth?: number;
   /**
    * The onClick handler of the tab.
    */
@@ -94,6 +192,17 @@ export interface ITabsContext {
    */
   statgrouptheme?: StatThemeName;
   /**
+   * Theme of the Tabs.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Tabs.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
+  /**
    * Variant of the Tabs.
    * @default default
    */
@@ -102,6 +211,12 @@ export interface ITabsContext {
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   /**
+   * The tab icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
+  /**
    * The aria-label of the tab.
    */
   ariaLabel?: string;
@@ -109,6 +224,12 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
    * Content of the badge.
    */
   badgeContent?: React.ReactNode;
+  /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
   /**
    * The tab is disabled.
    */
@@ -138,6 +259,42 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
   /**
+   * The optional button props.
+   * The button will not display unless this prop is provided.
+   * The button size is automatically mapped by default to the stat tab size.
+   * All other props are to be passed to the button.
+   */
+  buttonProps?: ButtonProps;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
+   * Direction type - horizontal or vertical
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * The stat gradient state.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
+   * Maximum number of lines the tab label can have.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tab a max width.
+   */
+  maxWidth?: number;
+  /**
    * The stat tab 'a' ratio value, e.g. [1]/2.
    */
   ratioA?: string | number;
@@ -157,6 +314,12 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
   /**
+   * The tabs icon alignment.
+   * Use when variant is `default` or `pill`.
+   * @default TabIconAlign.Start
+   */
+  alignIcon?: TabIconAlign;
+  /**
    * Use when variant is `stat`.
    * If the stat tabs are bordered or not.
    * @default true
@@ -167,11 +330,44 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    */
   children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
   /**
+   * The tabs inverted color scheme.
+   * Use when variant is `pill`.
+   * @default false
+   */
+  colorInvert?: boolean;
+  /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
+   * Direction type - horizontal or vertical
+   * Use when variant is `stat`
+   * @default TabsDirection.horizontal
+   */
+  direction?: TabsDirection;
+  /**
    * Use when variant is `stat`.
    * If the stat tabs are separated by a dashed line or not.
    * @default true
    */
   divider?: boolean;
+  /**
+   * Assigns Tabs 100% width.
+   * Use when direction is `vertical` and variant is `stat`.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Maximum number of lines the tab label can have.
+   * Use when variant is `stat`.
+   * `0` or `null` means no limit.
+   */
+  lineClamp?: number;
+  /**
+   * Assigns Tabs a max width.
+   * Use when the variant is `stat`.
+   */
+  maxWidth?: number;
   /**
    * Callback called on click of a tab.
    * @param value {TabValue}
@@ -201,6 +397,17 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    * Theme of the Stat Tab group.
    */
   statgrouptheme?: StatThemeName;
+  /**
+   * Theme of the Tabs.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the Tabs.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * If the tabs should have an underline/penline beneath them.
    * NOTE: won't be applied if pill variant is used.

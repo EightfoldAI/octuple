@@ -1,5 +1,7 @@
+'use client';
+
 import React, { FC, useContext } from 'react';
-import { ButtonSize, ButtonShape, DefaultButton } from '../Button';
+import { Button, ButtonSize, ButtonShape } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
 import { IconName } from '../Icon/index';
 import { LabelIconButtonProps, LabelProps, LabelSize } from './index';
@@ -98,7 +100,7 @@ export const Label: FC<LabelProps> = ({
             theme={labelIconButtonProps?.toolTipTheme}
             {...labelIconButtonProps.tooltipProps}
           >
-            <DefaultButton
+            <Button
               classNames={styles.labelIconButton}
               htmlType={'button'}
               shape={ButtonShape.Round}

@@ -5,13 +5,7 @@ import Form from './';
 import type { FormInstance } from './';
 import { CheckBox } from '../CheckBox';
 import { TextArea, TextInput, TextInputWidth } from '../Inputs';
-import {
-  ButtonShape,
-  DefaultButton,
-  NeutralButton,
-  PrimaryButton,
-  SecondaryButton,
-} from '../Button';
+import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { RadioButtonValue, RadioGroup } from '../RadioButton';
 import { Select, SelectOption } from '../Select';
 import DatePicker from '../DateTimePicker/DatePicker';
@@ -117,7 +111,11 @@ const Basic_Story: ComponentStory<typeof Form> = (args) => {
             <CheckBox label={'Remember me'} />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 1, span: 11 }}>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -213,7 +211,11 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
               <CheckBox toggle />
             </Form.Item>
             <Form.Item label={'Button'}>
-              <PrimaryButton htmlType={'submit'} text={'Submit'} />
+              <Button
+                htmlType={'submit'}
+                text={'Submit'}
+                variant={ButtonVariant.Primary}
+              />
             </Form.Item>
           </Form>
         </Stack>
@@ -354,13 +356,18 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
             </Form.Item>
             <Form.Item {...actionsLayout}>
               <Stack direction={'horizontal'} flexGap={'m'} fullWidth>
-                <PrimaryButton htmlType={'submit'} text={'Submit'} />
-                <SecondaryButton
+                <Button
+                  htmlType={'submit'}
+                  text={'Submit'}
+                  variant={ButtonVariant.Primary}
+                />
+                <Button
                   htmlType={'button'}
                   onClick={onReset}
                   text={'Reset'}
+                  variant={ButtonVariant.Secondary}
                 />
-                <DefaultButton onClick={onFill} text={'Fill form'} />
+                <Button onClick={onFill} text={'Fill form'} />
               </Stack>
             </Form.Item>
           </Form>
@@ -444,7 +451,11 @@ const Form_Story: ComponentStory<typeof Form> = (args) => {
               <CheckBox toggle />
             </Form.Item>
             <Form.Item label={'Button'}>
-              <PrimaryButton htmlType={'submit'} text={'Submit'} />
+              <Button
+                htmlType={'submit'}
+                text={'Submit'}
+                variant={ButtonVariant.Primary}
+              />
             </Form.Item>
           </Form>
         </Stack>
@@ -467,7 +478,7 @@ const Layout_Story: ComponentStory<typeof Form> = (args) => {
             <TextInput placeholder={'Placeholder B'} />
           </Form.Item>
           <Form.Item>
-            <PrimaryButton text={'Submit'} />
+            <Button text={'Submit'} variant={ButtonVariant.Primary} />
           </Form.Item>
         </Form>
       }
@@ -482,11 +493,11 @@ const Label_Wrap_Story: ComponentStory<typeof Form> = (args) => {
       locale={enUS}
       children={
         <Form {...args} labelCol={{ flex: '120px' }} wrapperCol={{ flex: 1 }}>
-          <Form.Item label={'Supercalifragilisticexpialidocious'}>
+          <Form.Item label={'Supercalifragilisticexpialidocious'} required>
             <TextInput placeholder={'Placeholder'} />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 1 }}>
-            <PrimaryButton text={'Submit'} />
+            <Button text={'Submit'} variant={ButtonVariant.Primary} />
           </Form.Item>
         </Form>
       }
@@ -543,11 +554,16 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
             </Form.Item>
             <Form.Item>
               <Stack direction={'horizontal'} flexGap={'m'}>
-                <PrimaryButton htmlType={'submit'} text={'Submit'} />
-                <SecondaryButton
+                <Button
+                  htmlType={'submit'}
+                  text={'Submit'}
+                  variant={ButtonVariant.Primary}
+                />
+                <Button
                   htmlType={'button'}
                   onClick={onFill}
                   text={'Fill'}
+                  variant={ButtonVariant.Secondary}
                 />
               </Stack>
             </Form.Item>
@@ -662,7 +678,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                         <TextInput placeholder="profile name" />
                       </Form.Item>
                       {fields.length > 1 ? (
-                        <PrimaryButton
+                        <Button
                           iconProps={{
                             path: IconName.mdiMinusCircleOutline,
                           }}
@@ -674,13 +690,14 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                             margin: '0 8px',
                             verticalAlign: 'bottom',
                           }}
+                          variant={ButtonVariant.Primary}
                         />
                       ) : null}
                     </Stack>
                   </Form.Item>
                 ))}
                 <Form.Item>
-                  <PrimaryButton
+                  <Button
                     iconProps={{
                       path: IconName.mdiPlusCircleOutline,
                     }}
@@ -688,8 +705,9 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                     style={{ display: 'block' }}
                     text={'Add field'}
                     htmlType={'button'}
+                    variant={ButtonVariant.Primary}
                   />
-                  <PrimaryButton
+                  <Button
                     iconProps={{
                       path: IconName.mdiPlusCircleOutline,
                     }}
@@ -702,6 +720,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                     }}
                     text={'Add field at head'}
                     htmlType={'button'}
+                    variant={ButtonVariant.Primary}
                   />
                   <Form.ErrorList errors={errors} />
                 </Form.Item>
@@ -709,7 +728,11 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
             )}
           </Form.List>
           <Form.Item>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -768,31 +791,37 @@ const Dynamic_Form_Nest_Items_Story: ComponentStory<typeof Form> = (args) => {
                     >
                       <TextInput placeholder={'Last Name'} />
                     </Form.Item>
-                    <PrimaryButton
+                    <Button
                       iconProps={{
                         path: IconName.mdiMinusCircleOutline,
                       }}
                       onClick={() => remove(name)}
                       shape={ButtonShape.Round}
                       htmlType={'button'}
+                      variant={ButtonVariant.Primary}
                     />
                   </Stack>
                 ))}
                 <Form.Item>
-                  <PrimaryButton
+                  <Button
                     iconProps={{
                       path: IconName.mdiPlusCircleOutline,
                     }}
                     onClick={() => add()}
                     text={'Add field'}
                     htmlType={'button'}
+                    variant={ButtonVariant.Primary}
                   />
                 </Form.Item>
               </>
             )}
           </Form.List>
           <Form.Item>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -948,31 +977,37 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
                     >
                       <TextInput />
                     </Form.Item>
-                    <PrimaryButton
+                    <Button
                       iconProps={{
                         path: IconName.mdiMinusCircleOutline,
                       }}
                       onClick={() => remove(field.name)}
                       shape={ButtonShape.Round}
+                      variant={ButtonVariant.Primary}
                     />
                   </Stack>
                 ))}
 
                 <Form.Item>
-                  <PrimaryButton
+                  <Button
                     iconProps={{
                       path: IconName.mdiPlusCircleOutline,
                     }}
                     onClick={() => add()}
                     text={'Add sights'}
                     htmlType={'button'}
+                    variant={ButtonVariant.Primary}
                   />
                 </Form.Item>
               </>
             )}
           </Form.List>
           <Form.Item>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -1044,7 +1079,11 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
             <TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -1162,7 +1201,11 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
             </Stack>
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 4 }} colon={false}>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -1278,7 +1321,11 @@ const Custom_Form_Controls_Story: ComponentStory<typeof Form> = (args) => {
             <PriceInput />
           </Form.Item>
           <Form.Item>
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -1402,8 +1449,12 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
       onClose={onCancel}
       actions={
         <>
-          <NeutralButton text={'Cancel'} onClick={onCancel} />
-          <PrimaryButton text={'ok'} onClick={onOk} />
+          <Button
+            text={'Cancel'}
+            onClick={onCancel}
+            variant={ButtonVariant.Neutral}
+          />
+          <Button text={'ok'} onClick={onOk} variant={ButtonVariant.Primary} />
         </>
       }
       body={
@@ -1516,8 +1567,12 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
               }}
             </Form.Item>
             <Form.Item {...tailLayout}>
-              <PrimaryButton htmlType={'submit'} text={'Submit'} />
-              <DefaultButton
+              <Button
+                htmlType={'submit'}
+                text={'Submit'}
+                variant={ButtonVariant.Primary}
+              />
+              <Button
                 htmlType={'button'}
                 style={{ margin: '0 8px' }}
                 onClick={showUserModal}
@@ -1581,8 +1636,17 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
       height={selectedReason === 'Radio4' ? 528 : 336}
       actions={
         <>
-          <NeutralButton text={'Cancel'} onClick={onCancel} />
-          <PrimaryButton text={'Decline'} disruptive onClick={onClickDecline} />
+          <Button
+            text={'Cancel'}
+            onClick={onCancel}
+            variant={ButtonVariant.Neutral}
+          />
+          <Button
+            text={'Decline'}
+            disruptive
+            onClick={onClickDecline}
+            variant={ButtonVariant.Primary}
+          />
         </>
       }
       body={
@@ -1662,12 +1726,13 @@ const Form_In_Modal_Story: ComponentStory<typeof Form> = () => {
       locale={enUS}
       children={
         <>
-          <SecondaryButton
+          <Button
             disruptive
             onClick={() => {
               setVisible(true);
             }}
             text={'Decline'}
+            variant={ButtonVariant.Secondary}
           />
           <CollectionCreateForm
             visible={visible}
@@ -1780,7 +1845,11 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
               sm: { span: 10, offset: 2 },
             }}
           >
-            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <Button
+              htmlType={'submit'}
+              text={'Submit'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
       }
@@ -2050,9 +2119,130 @@ const Dynamic_Rules_Story: ComponentStory<typeof Form> = (args) => {
             />
           </Form.Item>
           <Form.Item {...formTailLayout}>
-            <PrimaryButton onClick={onCheck} text={'Check'} />
+            <Button
+              onClick={onCheck}
+              text={'Check'}
+              variant={ButtonVariant.Primary}
+            />
           </Form.Item>
         </Form>
+      }
+    />
+  );
+};
+
+const Form_Select_Multiple_Story: ComponentStory<typeof Form> = (args) => {
+  const [form] = Form.useForm();
+  const [selected, setSelected] = useState<string>();
+  const layout = {
+    labelCol: { span: 1 },
+    wrapperCol: { span: 11 },
+  };
+  const actionsLayout = {
+    wrapperCol: { offset: 1, span: 11 },
+  };
+  const defaultOptions: SelectOption[] = [
+    {
+      text: 'Foo',
+      value: 'foo',
+    },
+    {
+      text: 'Bar',
+      value: 'bar',
+    },
+    {
+      text: 'Other',
+      value: 'other',
+    },
+  ];
+
+  const onSelectChange = (options: SelectOption[]) => {
+    if (!options) {
+      return onReset();
+    }
+    switch (options[0]) {
+      case 'foo' as unknown as SelectOption:
+        form.setFieldListValues({
+          note: 'Hello, Foo!',
+          selectValue: 'foo',
+        });
+        setSelected('foo');
+        return;
+      case 'bar' as unknown as SelectOption:
+        form.setFieldListValues({
+          note: 'Hello, Bar!',
+          selectValue: 'bar',
+        });
+        setSelected('bar');
+        return;
+      case 'other' as unknown as SelectOption:
+        form.setFieldListValues({
+          note: 'Hello, Other!',
+          selectValue: 'other',
+        });
+        setSelected('other');
+        return;
+    }
+  };
+
+  const onFinish = () => {};
+
+  const onReset = () => {
+    form.resetFields();
+    setSelected('');
+  };
+
+  return (
+    <ConfigProvider
+      themeOptions={{ name: 'blue' }}
+      locale={enUS}
+      children={
+        <Stack fullWidth>
+          <Form
+            {...args}
+            {...layout}
+            form={form}
+            name={'control-hooks'}
+            onFinish={onFinish}
+            style={{
+              width: '100%',
+            }}
+          >
+            <Form.Item
+              name={'selectValue'}
+              label={'Select'}
+              rules={[{ required: true }]}
+            >
+              <Select
+                clearable
+                multiple
+                onClear={onReset}
+                onOptionsChange={onSelectChange}
+                options={defaultOptions}
+                placeholder={'Select an option to change the input text.'}
+                textInputProps={{
+                  inputWidth: TextInputWidth.fill,
+                }}
+                filterable
+              />
+            </Form.Item>
+            <Form.Item {...actionsLayout}>
+              <Stack direction={'horizontal'} flexGap={'m'} fullWidth>
+                <Button
+                  htmlType={'submit'}
+                  text={'Submit'}
+                  variant={ButtonVariant.Primary}
+                />
+                <Button
+                  htmlType={'button'}
+                  onClick={onReset}
+                  text={'Reset'}
+                  variant={ButtonVariant.Secondary}
+                />
+              </Stack>
+            </Form.Item>
+          </Form>
+        </Stack>
       }
     />
   );
@@ -2092,6 +2282,7 @@ export const Dates_and_Times = Dates_and_Times_Story.bind({});
 export const Manual_Form_Data = Manual_Form_Data_Story.bind({});
 export const Custom_Validation = Custom_Validation_Story.bind({});
 export const Dynamic_Rules = Dynamic_Rules_Story.bind({});
+export const Form_Select_Multiple = Form_Select_Multiple_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -2129,6 +2320,7 @@ export const __namedExportsOrder = [
   'Manual_Form_Data',
   'Custom_Validation',
   'Dynamic_Rules',
+  'Form_Select_Multiple',
 ];
 
 const formArgs: Object = {

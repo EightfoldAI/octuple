@@ -1,10 +1,12 @@
+'use client';
+
 import React, { FC } from 'react';
 import { MenuItemTypes, MenuProps, MenuSize, MenuVariant } from './Menu.types';
 import { List } from '../List';
 import { MenuItem } from './MenuItem/MenuItem';
 import { MenuItemType } from './MenuItem/MenuItem.types';
 import { Stack } from '../Stack';
-import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses } from '../../shared/utilities';
 
@@ -26,7 +28,7 @@ export const Menu: FC<MenuProps> = ({
   role = 'menu',
   size = MenuSize.medium,
   style,
-  subHeader,
+  subHeader, // TODO: Remove in v3.0.0
   variant = MenuVariant.neutral,
   ...rest
 }) => {
@@ -99,14 +101,16 @@ export const Menu: FC<MenuProps> = ({
         classNames={footerClassNames}
       >
         {cancelButtonProps && (
-          <NeutralButton
+          <Button
+            variant={ButtonVariant.Neutral}
             {...cancelButtonProps}
             size={menuSizeToButtonSizeMap.get(size)}
             onClick={onCancel}
           />
         )}
         {okButtonProps && (
-          <PrimaryButton
+          <Button
+            variant={ButtonVariant.Primary}
             {...okButtonProps}
             size={menuSizeToButtonSizeMap.get(size)}
             onClick={onOk}

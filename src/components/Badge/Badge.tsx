@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, Ref } from 'react';
 import { BadgeProps, BadgeSize } from './Badge.types';
 import { mergeClasses } from '../../shared/utilities';

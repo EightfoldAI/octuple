@@ -16,7 +16,9 @@ import { ConfigProvider } from '../../ConfigProvider';
 import zhCN from '../../Locale/zh_CN';
 import { sleep } from '../../../tests/Utilities';
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import 'jest-specific-snapshot';
+import '@testing-library/jest-dom';
 
 const { RangePicker } = DatePicker;
 
@@ -1307,5 +1309,194 @@ describe('Form', () => {
     expect(
       container.querySelector('.form-item-margin-offset').style.marginBottom
     ).toBe('-32px');
+  });
+
+  test('should have aria-invalid and aria-describedby when field is empty and form is submitted', async () => {
+    const Demo = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item
+            htmlFor="title-input"
+            name="required"
+            rules={[{ required: true, message: 'title is required' }]}
+          >
+            <TextInput id="title-input" />
+          </Form.Item>
+          <PrimaryButton
+            onClick={() => form.submit()}
+            classNames={'submit-button'}
+            text={'Submit'}
+          />
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('false');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toBe(null);
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).not.toBeInTheDocument();
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(200);
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('true');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).not.toBe(null);
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toBeDefined();
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toEqual(container.querySelector('.form-item-explain-error').id);
+    expect(
+      container.querySelector('.form-item-explain-error').textContent
+    ).toEqual('title is required');
+  });
+
+  test('should reset aria-invalid and aria-describedby when input value is changed', async () => {
+    const Demo = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item
+            htmlFor="title-input"
+            name="required"
+            rules={[{ required: true, message: 'title is required' }]}
+          >
+            <TextInput id="title-input" />
+          </Form.Item>
+          <PrimaryButton
+            onClick={() => form.submit()}
+            classNames={'submit-button'}
+            text={'Submit'}
+          />
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(200);
+
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('true');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toEqual(container.querySelector('.form-item-explain-error').id);
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).toBeInTheDocument();
+
+    userEvent.type(container.querySelector('#title-input'), 'test');
+    await sleep(800);
+
+    expect(container.querySelector('#title-input')).toHaveValue('test');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-invalid')
+    ).toBe('false');
+    expect(
+      container.querySelector('#title-input').getAttribute('aria-describedby')
+    ).toBe(null);
+    expect(
+      container.querySelector('.form-item-explain-error')
+    ).not.toBeInTheDocument();
+  });
+
+  test('should not clear selected item when keyboard enter key is pressed on dropdown', async () => {
+    const options = [
+      { text: 'Option 1', value: 'option1', 'data-testid': 'option1-test-id' },
+      { text: 'Option 2', value: 'option2', 'data-testid': 'option2-test-id' },
+      { text: 'Option 3', value: 'option3', 'data-testid': 'option3-test-id' },
+    ];
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const layout = {
+        labelCol: { span: 1 },
+        wrapperCol: { span: 11 },
+      };
+      const actionsLayout = {
+        wrapperCol: { offset: 1, span: 11 },
+      };
+
+      return (
+        <Form
+          {...layout}
+          form={form}
+          name={'control-hooks'}
+          onFinish={() => {}}
+          style={{
+            width: '100%',
+          }}
+        >
+          <Form.Item
+            name={'selectValue'}
+            label={'Select'}
+            rules={[{ required: true }]}
+          >
+            <Select
+              clearable
+              multiple
+              onClear={() => {}}
+              onOptionsChange={() => {}}
+              options={options}
+              placeholder={'Select test'}
+              filterable
+            />
+          </Form.Item>
+          <Form.Item {...actionsLayout}>
+            <PrimaryButton htmlType={'submit'} text={'Submit'} />
+            <PrimaryButton
+              htmlType={'button'}
+              onClick={() => {}}
+              text={'Reset'}
+            />
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const { container, getAllByRole, getByText } = render(<Demo />);
+    const select = container.querySelector('.select-input');
+    select.focus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    await waitFor(() =>
+      expect(container.querySelector('.dropdown-wrapper')).toBeTruthy()
+    );
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
+    const option1 = await waitFor(() => getByText('Option 1'));
+    fireEvent.click(option1);
+    const option2 = await waitFor(() => getByText('Option 2'));
+    fireEvent.click(option2);
+    let pills = container.querySelectorAll('.multi-select-pill');
+    expect(pills.length).toEqual(2);
+    select.focus();
+    fireEvent.keyDown(container.querySelector('.select-input'), {
+      key: 'Escape',
+    });
+    await sleep(200);
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(select).toHaveFocus();
+    fireEvent.keyDown(select, { key: 'Enter' });
+    await sleep(200);
+    expect(select).toHaveFocus();
+    pills = container.querySelectorAll('.multi-select-pill');
+    expect(pills.length).toEqual(2);
   });
 });

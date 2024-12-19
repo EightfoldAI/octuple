@@ -1,8 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Accordion from '../Accordion/Locale/sv_SE';
 import Breadcrumb from '../Breadcrumb/Locale/sv_SE';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/sv_SE';
 import Dialog from '../Dialog/BaseDialog/Locale/sv_SE';
+import Drawer from '../Drawer/Locale/sv_SE';
 import InfoBar from '../InfoBar/Locale/sv_SE';
 import Pagination from '../Pagination/Locale/sv_SE';
 import Panel from '../Panel/Locale/sv_SE';
@@ -19,9 +21,11 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vänligen välj',
   },
+  Accordion,
   Breadcrumb,
   DatePicker,
   Dialog,
+  Drawer,
   Form: {
     optional: '(valfritt)',
     defaultValidateMessages: {

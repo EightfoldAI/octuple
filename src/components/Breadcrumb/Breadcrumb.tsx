@@ -1,4 +1,10 @@
-import React, { FC, Ref, useEffect, useRef, useState } from 'react';
+'use client';
+
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import {
   BreadcrumbLinkProps,
   BreadcrumbLocale,
@@ -26,12 +32,16 @@ import { mergeClasses } from '../../shared/utilities';
 import enUS from './Locale/en_US';
 
 import styles from './Styles/breadcrumb.module.scss';
+import themedComponentStyles from './Styles/breadcrumb.theme.module.scss';
 
 export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
   (props: BreadcrumbProps, ref: Ref<HTMLDivElement>) => {
     const {
       ariaLabel: defaultAriaLabel,
       classNames,
+      configContextProps = {
+        noThemeContext: false,
+      },
       displayCurrent = true,
       divider = {
         path: IconName.mdiSlashForward,
@@ -43,6 +53,8 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
       maxDisplayedLinks: defaultMaxDisplayedLinks,
       overflowAriaLabel: defaultOverflowAriaLabel,
       style,
+      theme,
+      themeContainerId,
       'data-testid': dataTestId,
       ...rest
     } = props;
@@ -72,6 +84,11 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
         setMaxDisplayedLinks(maxSections.count);
       }
     }, [maxSections.count]);
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     // ============================ Strings ===========================
     const [breadcrumbLocale] = useLocaleReceiver('Breadcrumb');
@@ -103,12 +120,14 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
 
     const breadCrumbClassNames: string = mergeClasses([
       styles.breadcrumb,
+      { [themedComponentStyles.theme]: mergedTheme },
       classNames,
       { [styles.breadcrumbRtl]: htmlDir === 'rtl' },
     ]);
 
     const linkClasses: string = mergeClasses([
       styles.breadcrumbLink,
+      { [themedComponentStyles.theme]: mergedTheme },
       linkClassNames,
     ]);
 
@@ -129,7 +148,6 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                 key: idx,
                 render: () => item.dropdownChildren,
                 text: `${item.title}`,
-                title: `${item.title}`,
                 type: MenuItemType.custom,
                 value: item,
               }
@@ -137,7 +155,6 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                 href: item.url,
                 key: idx,
                 text: `${item.title}`,
-                title: `${item.title}`,
                 type: MenuItemType.link,
                 value: item,
               }
@@ -272,18 +289,24 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
       <LocaleReceiver componentName={'Breadcrumb'} defaultLocale={enUS}>
         {(_contextLocale: BreadcrumbLocale) => {
           return (
-            <div
-              {...rest}
-              aria-label={ariaLabel}
-              className={breadCrumbClassNames}
-              data-testId={dataTestId}
-              id={id}
-              ref={mergedRef}
-              role="navigation"
-              style={style}
+            <ThemeContextProvider
+              componentClassName={themedComponentStyles.theme}
+              containerId={themeContainerId}
+              theme={mergedTheme}
             >
-              <ol className={styles.breadcrumbList}>{getCrumbs()}</ol>
-            </div>
+              <div
+                {...rest}
+                aria-label={ariaLabel}
+                className={breadCrumbClassNames}
+                data-testId={dataTestId}
+                id={id}
+                ref={mergedRef}
+                role="navigation"
+                style={style}
+              >
+                <ol className={styles.breadcrumbList}>{getCrumbs()}</ol>
+              </div>
+            </ThemeContextProvider>
           );
         }}
       </LocaleReceiver>

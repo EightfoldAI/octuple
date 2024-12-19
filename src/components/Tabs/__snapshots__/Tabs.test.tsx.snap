@@ -16,7 +16,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -61,7 +61,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -100,7 +100,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -140,7 +140,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -190,7 +190,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -235,7 +235,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -274,7 +274,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -314,7 +314,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -364,7 +364,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -409,7 +409,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -448,7 +448,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -488,7 +488,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -538,7 +538,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -583,7 +583,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -622,7 +622,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -662,7 +662,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -696,10 +696,12 @@ exports[`Tabs pill tabs small snapshot 1`] = `
 </div>
 `;
 
-exports[`Tabs stat tabs medium snapshot 1`] = `
+exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
 <div>
   <div
     className="tab-wrap"
+    lineClamp={2}
+    maxWidth={240}
     role="tablist"
     value="tab1"
   >
@@ -709,12 +711,17 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       className="tab undefined active"
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": 240,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -757,7 +764,12 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           }
         >
           <span
-            className="label"
+            className="label line-clamp"
+            style={
+              Object {
+                "WebkitLineClamp": 2,
+              }
+            }
           >
             Tab 1
           </span>
@@ -775,12 +787,17 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       className="tab undefined"
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": 240,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -823,7 +840,12 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           }
         >
           <span
-            className="label"
+            className="label line-clamp"
+            style={
+              Object {
+                "WebkitLineClamp": 2,
+              }
+            }
           >
             Tab 2
           </span>
@@ -841,12 +863,17 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       className="tab undefined"
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": 240,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -889,7 +916,12 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           }
         >
           <span
-            className="label"
+            className="label line-clamp"
+            style={
+              Object {
+                "WebkitLineClamp": 2,
+              }
+            }
           >
             Tab 3
           </span>
@@ -908,12 +940,104 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       disabled={true}
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": 240,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label line-clamp"
+            style={
+              Object {
+                "WebkitLineClamp": 2,
+              }
+            }
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs stat tabs medium snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -957,6 +1081,824 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
         >
           <span
             className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs stat tabs medium vertical snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
           >
             Tab 4
           </span>
@@ -985,12 +1927,17 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       className="tab undefined active"
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -1034,6 +1981,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
         >
           <span
             className="label"
+            style={null}
           >
             Tab 1
           </span>
@@ -1051,12 +1999,17 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       className="tab undefined"
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -1100,6 +2053,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
         >
           <span
             className="label"
+            style={null}
           >
             Tab 2
           </span>
@@ -1117,12 +2071,17 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       className="tab undefined"
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -1166,6 +2125,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
         >
           <span
             className="label"
+            style={null}
           >
             Tab 3
           </span>
@@ -1184,12 +2144,17 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       disabled={true}
       onClick={[Function]}
       role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
     >
       <div
-        className="stack full-width horizontal m"
+        className="stack full-width horizontal undefined gap-m"
         style={
           Object {
-            "alignItems": undefined,
+            "alignItems": "center",
             "flexWrap": undefined,
             "justifyContent": "center",
           }
@@ -1233,6 +2198,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
         >
           <span
             className="label"
+            style={null}
           >
             Tab 4
           </span>
@@ -1248,10 +2214,1526 @@ exports[`Tabs stat tabs small snapshot 1`] = `
 </div>
 `;
 
-exports[`Tabs tabs snapshot 1`] = `
+exports[`Tabs stat tabs small vertical snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap small"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs stat tabs with buttons snapshot 1`] = `
 <div>
   <div
     className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+        <button
+          aria-disabled={false}
+          aria-label="Send reminder"
+          className="button button-neutral button-large round-shape icon-left"
+          defaultChecked={false}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+            style={null}
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2S14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19M17 11C17 8.2 14.8 6 12 6S7 8.2 7 11V18H17V11Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+        <button
+          aria-disabled={false}
+          aria-label="Send reminder"
+          className="button button-neutral button-large round-shape icon-left"
+          defaultChecked={false}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+            style={null}
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2S14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19M17 11C17 8.2 14.8 6 12 6S7 8.2 7 11V18H17V11Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+        <button
+          aria-disabled={false}
+          aria-label="Send reminder"
+          className="button button-neutral button-large round-shape icon-left"
+          defaultChecked={false}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+            style={null}
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2S14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19M17 11C17 8.2 14.8 6 12 6S7 8.2 7 11V18H17V11Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+        <button
+          aria-disabled={false}
+          aria-label="Send reminder"
+          className="button button-neutral button-large round-shape icon-left"
+          defaultChecked={false}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+            style={null}
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2S14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19M17 11C17 8.2 14.8 6 12 6S7 8.2 7 11V18H17V11Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs stat tabs xsmall snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab undefined active"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 1
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 2
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab undefined"
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 3
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab undefined"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+      style={
+        Object {
+          "maxWidth": undefined,
+        }
+      }
+    >
+      <div
+        className="stack full-width horizontal undefined gap-m"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexWrap": undefined,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+          style={null}
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "40px",
+                "width": "40px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="stack full-width vertical undefined"
+          style={
+            Object {
+              "alignItems": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+            }
+          }
+        >
+          <span
+            className="label"
+            style={null}
+          >
+            Tab 4
+          </span>
+          <span
+            className="label"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs tabs alignIcon end 1`] = `
+<div>
+  <div
+    alignIcon="end"
+    className="tab-wrap pill"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab active"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 1
+      </span>
+      <div
+        className="tab-indicator"
+        data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+        data-flip-id="tabIndicator"
+        data-portal-key="portal"
+      />
+      <span
+        aria-hidden={false}
+        className="icon end icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 2
+      </span>
+      <span
+        aria-hidden={false}
+        className="icon end icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 3
+      </span>
+      <span
+        aria-hidden={false}
+        className="icon end icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 4
+      </span>
+      <span
+        aria-hidden={false}
+        className="icon end icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs tabs alignIcon start 1`] = `
+<div>
+  <div
+    alignIcon="start"
+    className="tab-wrap pill"
     role="tablist"
     value="tab1"
   >
@@ -1264,7 +3746,7 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -1309,7 +3791,7 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -1348,7 +3830,7 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >
@@ -1388,7 +3870,376 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon icon-wrapper"
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 4
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs tabs badgeContent 1`] = `
+<div>
+  <div
+    alignIcon="start"
+    className="tab-wrap pill"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab active"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 1
+      </span>
+      <div
+        className="tab-indicator"
+        data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+        data-flip-id="tabIndicator"
+        data-portal-key="portal"
+      />
+      <span
+        className="badge badge-medium badge active"
+      >
+        1
+      </span>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 2
+      </span>
+      <span
+        className="badge badge-medium badge"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 3
+      </span>
+      <span
+        className="badge badge-medium badge"
+      >
+        3
+      </span>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 4
+      </span>
+      <span
+        className="badge badge-medium badge"
+      >
+        4
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs tabs snapshot 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab active"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 1
+      </span>
+      <div
+        className="tab-indicator"
+        data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+        data-flip-id="tabIndicator"
+        data-portal-key="portal"
+      />
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 2
+      </span>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
+        role="presentation"
+        style={null}
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 3
+      </span>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon start icon-wrapper"
         role="presentation"
         style={null}
       >

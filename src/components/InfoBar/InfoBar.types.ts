@@ -1,3 +1,4 @@
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
@@ -27,7 +28,13 @@ export type InfoBarLocale = {
   lang: Locale;
 };
 
-export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
+export interface InfoBarsProps
+  extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
+  /**
+   * Custom classes for the action button.
+   * May be implemnted without the need for a button.
+   */
+  actionButtonClassNames?: string;
   /**
    * Props for the action button
    */
@@ -38,7 +45,7 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   bordered?: boolean;
   /**
-   * If the InfoBar is closable or not
+   * If the InfoBar is closable or not.
    */
   closable?: boolean;
   /**
@@ -56,14 +63,35 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    */
   closeIcon?: IconName;
   /**
+   * Configure how contextual props are consumed
+   */
+  configContextProps?: ConfigContextProps;
+  /**
    * Content of the InfoBar
    */
   content: React.ReactNode;
+  /**
+   * Custom classes of the content.
+   */
+  contentClassNames?: string;
+  /**
+   * Custom classes of the content wrapper.
+   */
+  contentWrapperClassNames?: string;
+  /**
+   * The InfoBar gradient state.
+   * @default false
+   */
+  gradient?: boolean;
   /**
    * Custom icon for the InfoBar
    * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
    */
   icon?: IconName;
+  /**
+   * Custom classes of the icon.
+   */
+  iconClassNames?: string;
   /**
    * The InfoBar locale.
    * @default 'enUS'
@@ -77,6 +105,17 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
    * Role of the InfoBar
    */
   role?: string;
+  /**
+   * Theme of the InfoBar.
+   * Use with configContextProps.noThemeContext to override theme.
+   * @default blue
+   */
+  theme?: OcThemeName;
+  /**
+   * Theme container of the InfoBar.
+   * Use with `theme` to generate a unique container or a common one.
+   */
+  themeContainerId?: string;
   /**
    * Type of the InfoBar
    * @default InfoBarType.neutral

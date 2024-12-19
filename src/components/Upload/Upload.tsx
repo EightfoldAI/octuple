@@ -1,5 +1,13 @@
+'use client';
+
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
+import { OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import type { OcUploadProps } from './Internal';
 import OcUpload from './Internal';
 import {
@@ -16,7 +24,6 @@ import { Icon, IconName } from '../Icon';
 import { Button, ButtonVariant } from '../Button';
 import { Stack } from '../Stack';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './Utils';
-import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
@@ -26,6 +33,7 @@ import { eventKeys, mergeClasses, warning } from '../../shared/utilities';
 import enUS from './Locale/en_US';
 
 import styles from './upload.module.scss';
+import themedComponentStyles from './upload.theme.module.scss';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -43,6 +51,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     classNames,
     configContextProps = {
       noDisabledContext: false,
+      noGradientContext: false,
+      noThemeContext: false,
     },
     data = {},
     defaultFileList,
@@ -52,6 +62,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     dragAndDropMultipleFilesText: defaultDragAndDropMultipleFilesText,
     fileList,
     fullWidth = false,
+    gradient = false,
     iconRender,
     isImageUrl,
     itemRender,
@@ -76,6 +87,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     size = UploadSize.Medium,
     style,
     supportServerRender = true,
+    theme,
+    themeContainerId,
     type = 'select',
     uploadErrorText: defaultUploadErrorText,
     uploadingText: defaultUploadingText,
@@ -85,6 +98,16 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
   const mergedDisabled: boolean = configContextProps.noDisabledContext
     ? disabled
     : contextuallyDisabled || disabled;
+
+  const contextualGradient: Gradient = useContext(GradientContext);
+  const mergedGradient: boolean = configContextProps.noGradientContext
+    ? gradient
+    : contextualGradient || gradient;
+
+  const contextualTheme: OcThemeName = useContext(ThemeContext);
+  const mergedTheme: OcThemeName = configContextProps.noThemeContext
+    ? theme
+    : contextualTheme || theme;
 
   const htmlDir: string = useCanvasDirection();
 
@@ -446,7 +469,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     upload: upload.current,
   }));
 
-  const ocUploadProps = {
+  let ocUploadProps = {
     onBatchStart,
     onError,
     onProgress,
@@ -460,14 +483,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     multiple,
     onChange: undefined,
     supportServerRender,
-  } as OcUploadProps;
-
-  delete ocUploadProps.classNames;
-  delete ocUploadProps.style;
+  } as Omit<OcUploadProps, 'classNames' | 'style'>;
 
   // Remove id to avoid open by label when trigger is hidden
   if (!children || mergedDisabled) {
-    delete ocUploadProps.id;
+    ocUploadProps = { ...ocUploadProps, id: undefined };
   }
 
   const renderUploadList = (
@@ -496,9 +516,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             <UploadList
               appendAction={button}
               appendActionVisible={buttonVisible}
+              configContextProps={configContextProps}
               downloadFileText={downloadFileText}
               downloadIcon={downloadIcon}
               downloadIconButtonType={downloadIconButtonType}
+              gradient={mergedGradient}
               iconRender={iconRender}
               isImageUrl={isImageUrl}
               itemRender={itemRender}
@@ -525,6 +547,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               showRemoveIconButton={!mergedDisabled && showRemoveIconButton}
               showReplaceButton={!mergedDisabled && showReplaceButton}
               size={size}
+              theme={mergedTheme}
+              themeContainerId={themeContainerId}
               uploadErrorText={uploadErrorText}
               uploadingText={uploadingText}
             />
@@ -554,8 +578,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     const renderButton = (): JSX.Element => (
       <Button
         classNames={styles.uploadDropButton}
+        configContextProps={configContextProps}
         disabled={mergedDisabled}
+        gradient={mergedGradient}
         htmlType="button"
+        iconProps={{ path: IconName.mdiUpload }}
         onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => {
           if (
             event?.key !== eventKeys.TAB ||
@@ -565,6 +592,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
           }
         }}
         text={maxCount === 1 ? selectFileText : selectMultipleFilesText}
+        theme={mergedTheme}
+        themeContainerId={themeContainerId}
         variant={ButtonVariant.Primary}
       />
     );
@@ -579,7 +608,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             </Stack>
           )}
           {size === UploadSize.Medium && (
-            <Stack direction="vertical" flexGap="m">
+            <Stack direction="vertical" flexGap="xs">
               <Stack direction="horizontal" flexGap="xs">
                 {renderIcon()}
                 {renderText()}
@@ -589,7 +618,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
           )}
           {size === UploadSize.Small && (
             <Stack direction="horizontal" fullWidth justify="space-between">
-              <Stack direction="horizontal" flexGap="s">
+              <Stack direction="horizontal" flexGap="xs">
                 {renderIcon()}
                 {renderText()}
               </Stack>
@@ -612,12 +641,18 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         ),
       },
       { [styles.uploadDropHover]: dropState === 'dragover' },
+      { [themedComponentStyles.theme]: mergedTheme },
+      { [styles.gradient]: mergedGradient },
       { [styles.uploadDisabled]: mergedDisabled },
       { [styles.uploadRtl]: htmlDir === 'rtl' },
       classNames,
     ]);
     return (
-      <>
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
+      >
         <div
           className={dropClassNames}
           onDrop={onFileDrop}
@@ -647,7 +682,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
           </OcUpload>
         </div>
         {!maxCount && renderUploadList()}
-      </>
+      </ThemeContextProvider>
     );
   }
 
@@ -656,6 +691,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     { [styles.uploadSelect]: true },
     { [styles.uploadSelectPictureCard]: listType === 'picture-card' },
     { [styles.uploadDisabled]: mergedDisabled },
+    { [themedComponentStyles.theme]: mergedTheme },
+    { [styles.gradient]: mergedGradient },
     { [styles.uploadRtl]: htmlDir === 'rtl' },
   ]);
 
@@ -673,19 +710,42 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
 
   if (listType === 'picture-card') {
     return (
-      <span
-        className={mergeClasses(styles.uploadPictureCardWrapper, classNames)}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
       >
-        {renderUploadList(uploadButton, !!children)}
-      </span>
+        <span
+          className={mergeClasses([
+            styles.uploadPictureCardWrapper,
+            { [themedComponentStyles.theme]: mergedTheme },
+            { [styles.gradient]: mergedGradient },
+            classNames,
+          ])}
+        >
+          {renderUploadList(uploadButton, !!children)}
+        </span>
+      </ThemeContextProvider>
     );
   }
 
   return (
-    <span className={classNames}>
-      {uploadButton}
-      {renderUploadList()}
-    </span>
+    <ThemeContextProvider
+      componentClassName={themedComponentStyles.theme}
+      containerId={themeContainerId}
+      theme={mergedTheme}
+    >
+      <span
+        className={mergeClasses([
+          { [themedComponentStyles.theme]: mergedTheme },
+          { [styles.gradient]: mergedGradient },
+          classNames,
+        ])}
+      >
+        {uploadButton}
+        {renderUploadList()}
+      </span>
+    </ThemeContextProvider>
   );
 };
 

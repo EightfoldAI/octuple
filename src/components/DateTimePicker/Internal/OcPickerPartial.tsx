@@ -460,8 +460,15 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     const disabled: boolean = disabledDate && disabledDate(now);
     todayNode = (
       <Button
+        data-testid="picker-today-btn"
         text={todayText}
         variant={ButtonVariant.SystemUI}
+        onKeyDown={(e) => {
+          const isEventKey = [' ', 'Enter'].includes(e.key);
+          if (isEventKey && !disabled) {
+            triggerSelect(now, 'mouse', true);
+          }
+        }}
         {...todayButtonProps}
         aria-disabled={disabled}
         classNames={mergeClasses([

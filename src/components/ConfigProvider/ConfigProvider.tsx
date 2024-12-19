@@ -5,23 +5,30 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
-import LocaleProvider from '../LocaleProvider';
-import { registerFont, registerTheme } from './Theming/styleGenerator';
-import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
-import {
-  IRegisterFont,
-  IRegisterTheme,
-  FontOptions,
-  ThemeOptions,
-} from './Theming';
+
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
+import { canUseDocElement } from '../../shared/utilities';
+import { OcFormProvider } from '../Form/Internal';
+import { ValidateMessages } from '../Form/Internal/OcForm.types';
+import defaultLocale from '../Locale/Default';
+import LocaleProvider from '../LocaleProvider';
+import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
+import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { DisabledContextProvider } from './DisabledContext';
+import { FeatureFlagContextProvider } from './FeatureFlagProvider';
+import { GradientContextProvider } from './GradientContext';
+import { ParentComponentsContextProvider } from './ParentComponentsContext';
 import { ShapeContextProvider } from './ShapeContext';
 import { SizeContextProvider } from './SizeContext';
-import { ValidateMessages } from '../Form/Internal/OcForm.types';
-import { OcFormProvider } from '../Form/Internal';
-import defaultLocale from '../Locale/Default';
+import {
+  FontOptions,
+  IRegisterFont,
+  IRegisterTheme,
+  ThemeOptions,
+} from './Theming';
+import { registerFont, registerTheme } from './Theming/styleGenerator';
+
+('use client');
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
   Partial<IConfigContext>
@@ -30,10 +37,13 @@ const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
 const DEFAULT_THEME: string = 'blue';
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
-const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
+const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = canUseDocElement()
+  ? document.documentElement
+  : null;
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
   children,
+  componentName,
   disabled = false,
   focusVisibleOptions = {
     focusVisible: DEFAULT_FOCUS_VISIBLE,
@@ -41,10 +51,12 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
   },
   fontOptions: defaultFontOptions,
   form,
+  gradient = false,
   icomoonIconSet = {},
   locale,
   shape,
   size,
+  featureFlags,
   themeOptions: defaultThemeOptions,
 }) => {
   const [fontOptions, setFontOptions] =
@@ -99,7 +111,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
       {};
   }
 
-  if (form && form.validateMessages) {
+  if (form?.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
   }
 
@@ -127,6 +139,14 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
     );
   }
 
+  if (gradient !== undefined) {
+    childNode = (
+      <GradientContextProvider gradient={gradient}>
+        {childNode}
+      </GradientContextProvider>
+    );
+  }
+
   if (disabled !== undefined) {
     childNode = (
       <DisabledContextProvider disabled={disabled}>
@@ -134,6 +154,20 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
       </DisabledContextProvider>
     );
   }
+
+  if (componentName !== undefined) {
+    childNode = (
+      <ParentComponentsContextProvider componentName={componentName}>
+        {childNode}
+      </ParentComponentsContextProvider>
+    );
+  }
+
+  childNode = (
+    <FeatureFlagContextProvider featureFlags={featureFlags}>
+      {childNode}
+    </FeatureFlagContextProvider>
+  );
 
   return (
     <LocaleReceiver>

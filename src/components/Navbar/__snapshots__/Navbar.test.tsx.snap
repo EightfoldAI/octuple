@@ -17,7 +17,6 @@ exports[`Navbar Navbar matches custom theme 1`] = `
         role="link"
         style="background-color: transparent; padding: 8px 20px;"
         target="_blank"
-        title="undefined"
       >
         Eightfold
       </a>
@@ -93,7 +92,6 @@ exports[`Navbar Renders without crashing 1`] = `
           role="link"
           style="padding: 8px 20px;"
           target="_blank"
-          title="undefined"
         >
           Eightfold
         </a>

@@ -1,10 +1,7 @@
 import { canUseDom } from './canUseDom';
-import { isStyleSupport } from './styleChecker';
 
 export const canUseDocElement = () =>
   canUseDom() && window.document.documentElement;
-
-export { isStyleSupport };
 
 let flexGapSupported: boolean | undefined;
 

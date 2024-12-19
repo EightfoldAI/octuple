@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
+  Button,
   ButtonIconAlign,
   ButtonTextAlign,
   ButtonWidth,
-  DefaultButton,
+  ButtonVariant,
   TwoStateButton,
 } from '../Button';
 import { CheckBox } from '../CheckBox';
@@ -113,24 +114,68 @@ const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
   icon: IconName.mdiAccount,
 }));
 
+const sampleAdditionalItem: User = {
+  name: 'Additional user profile',
+  icon: IconName.mdiAccount,
+};
+
 const Overlay = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <DefaultButton
-        text={item.name}
+      <Button
         alignText={ButtonTextAlign.Left}
         buttonWidth={ButtonWidth.fill}
         iconProps={{
           path: item.icon,
         }}
-        role="menuitem"
+        role="listitem"
         style={{
           margin: '4px 0',
         }}
+        text={item.name}
+        variant={ButtonVariant.Default}
       />
     )}
-    role="menu"
+    role="list"
+  />
+);
+
+const OverlayWithAdditionalListItem = () => (
+  <List<User>
+    additionalItem={sampleAdditionalItem}
+    items={sampleList}
+    renderItem={(item) => (
+      <Button
+        alignText={ButtonTextAlign.Left}
+        buttonWidth={ButtonWidth.fill}
+        iconProps={{
+          path: item.icon,
+        }}
+        role="listitem"
+        style={{
+          margin: '4px 0',
+        }}
+        text={item.name}
+        variant={ButtonVariant.Default}
+      />
+    )}
+    renderAdditionalItem={(item) => (
+      <Button
+        alignText={ButtonTextAlign.Left}
+        buttonWidth={ButtonWidth.fill}
+        iconProps={{
+          path: item.icon,
+        }}
+        role="listitem"
+        style={{
+          margin: '4px 0',
+        }}
+        text={item.name}
+        variant={ButtonVariant.Secondary}
+      />
+    )}
+    role="list"
   />
 );
 
@@ -141,14 +186,15 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
       {...args}
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
     >
-      <DefaultButton
+      <Button
         alignIcon={ButtonIconAlign.Right}
-        text={'Click button start'}
         iconProps={{
           path: IconName.mdiChevronDown,
           rotate: visible ? 180 : 0,
         }}
         id="octuple-dropdown-button-id"
+        text={'Click button start'}
+        variant={ButtonVariant.Default}
       />
     </Dropdown>
   );
@@ -161,7 +207,7 @@ const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
       {...args}
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
     >
-      <DefaultButton
+      <Button
         iconProps={{
           path: IconName.mdiAccount,
         }}
@@ -169,6 +215,7 @@ const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
           path: IconName.mdiChevronDown,
           rotate: visible ? 180 : 0,
         }}
+        variant={ButtonVariant.Default}
       />
     </Dropdown>
   );
@@ -193,25 +240,27 @@ const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
     <Stack direction="horizontal" flexGap="xxl">
-      <DefaultButton
+      <Button
         alignIcon={ButtonIconAlign.Right}
         checked={visible}
         onClick={() => setVisibility(!visible)}
         text={'External Control'}
         toggle
+        variant={ButtonVariant.Default}
       />
       <Dropdown
         {...args}
         visible={visible}
         onVisibleChange={(isVisible) => setVisibility(isVisible)}
       >
-        <DefaultButton
+        <Button
           alignIcon={ButtonIconAlign.Right}
           text={'Click button start'}
           iconProps={{
             path: IconName.mdiChevronDown,
             rotate: visible ? 180 : 0,
           }}
+          variant={ButtonVariant.Default}
         />
       </Dropdown>
     </Stack>
@@ -277,6 +326,7 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
   const Overlay = () => (
     <List
       items={sampleList}
+      itemProps={{ role: 'listitem' }}
       itemStyle={{
         margin: '4px 0',
       }}
@@ -285,9 +335,11 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
           checked={(checkedItems as any)?.[item.name]}
           label={item.name}
           onChange={handleChange}
+          role="listitem"
           value={item.name}
         />
       )}
+      role="list"
     />
   );
 
@@ -380,6 +432,7 @@ export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
 export const Dropdown_Div = Dropdown_Div_Story.bind({});
 export const Dropdown_External = Dropdown_External_Story.bind({});
 export const Dropdown_Advanced_Visible_State = Dropdown_Advanced_Story.bind({});
+export const Dropdown_Additional_Item = Dropdown_Button_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -390,6 +443,7 @@ export const __namedExportsOrder = [
   'Dropdown_Div',
   'Dropdown_External',
   'Dropdown_Advanced_Visible_State',
+  'Dropdown_Additional_Item',
 ];
 
 const dropdownArgs: Object = {
@@ -398,6 +452,7 @@ const dropdownArgs: Object = {
   style: {},
   dropdownClassNames: 'my-dropdown-class',
   dropdownStyle: {},
+  initialFocus: true,
   placement: 'bottom-start',
   overlay: Overlay(),
   offset: 0,
@@ -425,4 +480,9 @@ Dropdown_External.args = {
 
 Dropdown_Advanced_Visible_State.args = {
   ...dropdownArgs,
+};
+
+Dropdown_Additional_Item.args = {
+  ...dropdownArgs,
+  overlay: OverlayWithAdditionalListItem(),
 };

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   DEFAULT_TREE_NODE_TITLE,

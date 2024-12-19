@@ -110,6 +110,23 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     variant: {
       options: [
         LinkButtonVariant.Default,
@@ -162,6 +179,15 @@ const linkButtonArgs: Object = {
   floatingLinkButtonProps: {
     enabled: false,
   },
+  configContextProps: {
+    noDisabledContext: false,
+    noGradientContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-linkbutton-theme-container',
+  gradient: false,
   href: 'https://eightfold.ai',
   iconProps: {
     path: IconName.mdiCardsHeart,

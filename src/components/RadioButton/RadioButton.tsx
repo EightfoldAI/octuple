@@ -1,6 +1,11 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size } from '../ConfigProvider';
+import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import { RadioButtonProps, RadioButtonValue } from './';
 import {
   LabelAlign,
@@ -16,17 +21,20 @@ import { FormItemInputContext } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './radio.module.scss';
+import themedComponentStyles from './radio.theme.module.scss';
 
 export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
   (
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       checked = false,
       classNames,
       configContextProps = {
         noDisabledContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
       formItemInput = false,
@@ -39,6 +47,8 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
       selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
+      theme,
+      themeContainerId,
       value = '',
       variant = SelectorVariant.Default,
       'data-test-id': dataTestId,
@@ -52,7 +62,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
     const htmlDir: string = useCanvasDirection();
 
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const radioButtonId = useRef<string>(id || generateId());
+
     const radioGroupContext = useRadioGroup();
     const [isActive, setIsActive] = useState<boolean>(
       radioGroupContext?.value === value || checked
@@ -71,6 +85,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const radioButtonClassNames: string = mergeClasses([styles.radioButton]);
 
@@ -110,6 +129,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
       { [styles.selectorSmall]: mergedSize === SelectorSize.Small },
       classNames,
       { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.selectorRtl]: htmlDir === 'rtl' },
       { ['in-form-item']: mergedFormItemInput },
     ]);
@@ -150,39 +170,46 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     };
 
     return (
-      <div
-        className={selectorClassNames}
-        data-test-id={dataTestId}
-        style={style}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
       >
-        <input
-          ref={ref}
-          aria-disabled={mergedDisabled}
-          aria-label={ariaLabel}
-          checked={
-            radioGroupContext ? isActive : selectedValue === value && checked
-          }
-          disabled={!allowDisabledFocus && mergedDisabled}
-          id={radioButtonId.current}
-          name={name}
-          type={'radio'}
-          value={value}
-          onChange={!allowDisabledFocus ? toggleChecked : null}
-          readOnly
-        />
-        <label htmlFor={radioButtonId.current} className={labelClassNames}>
-          {labelPosition == LabelPosition.Start && (
-            <span className={selectorLabelClassNames}>{label}</span>
-          )}
-          <span
-            id={`${radioButtonId.current}-custom-radio`}
-            className={radioButtonClassNames}
+        <div
+          className={selectorClassNames}
+          data-test-id={dataTestId}
+          style={style}
+        >
+          <input
+            ref={ref}
+            aria-disabled={mergedDisabled}
+            aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
+            checked={
+              radioGroupContext ? isActive : selectedValue === value && checked
+            }
+            disabled={!allowDisabledFocus && mergedDisabled}
+            id={radioButtonId.current}
+            name={name}
+            type={'radio'}
+            value={value}
+            onChange={!allowDisabledFocus ? toggleChecked : null}
+            readOnly
           />
-          {labelPosition == LabelPosition.End && (
-            <span className={selectorLabelClassNames}>{label}</span>
-          )}
-        </label>
-      </div>
+          <label htmlFor={radioButtonId.current} className={labelClassNames}>
+            {labelPosition == LabelPosition.Start && (
+              <span className={selectorLabelClassNames}>{label}</span>
+            )}
+            <span
+              id={`${radioButtonId.current}-custom-radio`}
+              className={radioButtonClassNames}
+            />
+            {labelPosition == LabelPosition.End && (
+              <span className={selectorLabelClassNames}>{label}</span>
+            )}
+          </label>
+        </div>
+      </ThemeContextProvider>
     );
   }
 );

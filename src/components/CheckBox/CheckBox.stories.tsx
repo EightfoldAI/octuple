@@ -102,6 +102,23 @@ export default {
       ],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     variant: {
       options: [SelectorVariant.Default, SelectorVariant.Pill],
       control: { type: 'inline-radio' },
@@ -173,8 +190,16 @@ export const __namedExportsOrder = [
 const checkBoxArgs: Object = {
   allowDisabledFocus: false,
   ariaLabel: 'Label',
+  ariaDescribedBy: 'id-description',
   checked: true,
   classNames: 'my-checkbox-class',
+  configContextProps: {
+    noDisabledContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-checkbox-theme-container',
   disabled: false,
   indeterminate: false,
   name: 'myCheckBoxName',
@@ -209,6 +234,13 @@ Check_Box_Group.args = {
   allowDisabledFocus: false,
   value: ['First'],
   defaultChecked: ['First'],
+  configContextProps: {
+    noDisabledContext: false,
+    noSizeContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-checkbox-group-theme-container',
   disabled: false,
   items: [
     {

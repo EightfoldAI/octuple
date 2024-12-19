@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tabs, Tab, TabSize, TabVariant } from './';
+import { Tabs, Tab, TabIconAlign, TabSize, TabVariant } from './';
 import { IconName } from '../Icon';
 
 export default {
@@ -36,12 +36,33 @@ export default {
     },
   },
   argTypes: {
-    variant: {
-      options: [TabVariant.default, TabVariant.small, TabVariant.pill],
+    alignIcon: {
+      options: [TabIconAlign.Start, TabIconAlign.End],
       control: { type: 'inline-radio' },
     },
     size: {
       options: [TabSize.Large, TabSize.Medium, TabSize.Small],
+      control: { type: 'radio' },
+    },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+    variant: {
+      options: [TabVariant.default, TabVariant.pill],
       control: { type: 'inline-radio' },
     },
   },
@@ -87,11 +108,22 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
 const Tabs_Story: ComponentStory<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
-    <Tabs
-      {...args}
-      onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
-      value={activeTabs.defaultTab}
-    />
+    <div
+      style={{
+        background: args.colorInvert
+          ? 'var(--blueviolet-gradient)'
+          : 'transparent',
+        height: 90,
+        padding: args.colorInvert ? 20 : 0,
+        width: args.colorInvert ? 'calc(100% - 40px)' : '100%',
+      }}
+    >
+      <Tabs
+        {...args}
+        onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
+        value={activeTabs.defaultTab}
+      />
+    </div>
   );
 };
 
@@ -127,6 +159,12 @@ export const __namedExportsOrder = [
 ];
 
 const tabsArgs: Object = {
+  alignIcon: TabIconAlign.Start,
+  configContextProps: {
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-tabs-theme-container',
   scrollable: false,
   variant: TabVariant.default,
   size: TabSize.Medium,
@@ -182,23 +220,27 @@ Scrollable.args = {
 
 Pill_Default.args = {
   ...tabsArgs,
+  colorInvert: false,
   variant: TabVariant.pill,
 };
 
 Pill_With_Badge.args = {
   ...tabsArgs,
+  colorInvert: false,
   variant: TabVariant.pill,
   children: badgeTabs.map((tab) => <Tab key={tab.value} {...tab} />),
 };
 
 Pill_Icon.args = {
   ...tabsArgs,
+  colorInvert: false,
   variant: TabVariant.pill,
   children: iconTabs.map((tab) => <Tab key={tab.value} {...tab} />),
 };
 
 Pill_Icon_Label.args = {
   ...tabsArgs,
+  colorInvert: false,
   variant: TabVariant.pill,
   children: iconLabelTabs.map((tab) => <Tab key={tab.value} {...tab} />),
 };

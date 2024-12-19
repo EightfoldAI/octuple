@@ -1,6 +1,11 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size } from '../ConfigProvider';
+import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import { generateId, mergeClasses } from '../../shared/utilities';
 import {
   CheckboxProps,
@@ -16,17 +21,20 @@ import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 
 import styles from './checkbox.module.scss';
+import themedComponentStyles from './checkbox.theme.module.scss';
 
 export const CheckBox: FC<CheckboxProps> = React.forwardRef(
   (
     {
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedBy,
       checked = false,
       classNames,
       configContextProps = {
         noDisabledContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       defaultChecked,
       disabled = false,
@@ -41,6 +49,8 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       selectorWidth = SelectorWidth.fitContent,
       size = SelectorSize.Medium,
       style,
+      theme,
+      themeContainerId,
       toggle = false,
       value,
       variant = SelectorVariant.Default,
@@ -63,7 +73,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       ref
     );
 
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const checkBoxId = useRef<string>(id || generateId());
+
     const [isChecked, setIsChecked] = useState<boolean>(
       defaultChecked || checked
     );
@@ -82,6 +96,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     useEffect((): void => {
       setIsChecked(checked);
@@ -133,6 +152,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       { [styles.selectorSmall]: mergedSize === SelectorSize.Small },
       classNames,
       { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+      { [themedComponentStyles.theme]: mergedTheme },
       { [styles.selectorRtl]: htmlDir === 'rtl' },
       { ['in-form-item']: mergedFormItemInput },
     ]);
@@ -164,34 +184,42 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     };
 
     return (
-      <div
-        className={checkboxWrapperClassNames}
-        style={style}
-        data-test-id={dataTestId}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
       >
-        <input
-          ref={mergedRef}
-          aria-disabled={mergedDisabled}
-          aria-label={ariaLabel}
-          checked={isChecked}
-          disabled={!allowDisabledFocus && mergedDisabled}
-          id={checkBoxId.current}
-          onChange={!allowDisabledFocus ? toggleChecked : null}
-          name={name}
-          type={'checkbox'}
-          value={value}
-          readOnly
-        />
-        <label htmlFor={checkBoxId.current} className={labelClassNames}>
-          {labelPosition == LabelPosition.Start && (
-            <span className={selectorLabelClassNames}>{label}</span>
-          )}
-          <span className={checkBoxCheckClassNames} />
-          {labelPosition == LabelPosition.End && (
-            <span className={selectorLabelClassNames}>{label}</span>
-          )}
-        </label>
-      </div>
+        <div
+          className={checkboxWrapperClassNames}
+          style={style}
+          data-test-id={dataTestId}
+        >
+          <input
+            ref={mergedRef}
+            aria-disabled={mergedDisabled}
+            aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
+            checked={isChecked}
+            disabled={!allowDisabledFocus && mergedDisabled}
+            id={checkBoxId.current}
+            onChange={!allowDisabledFocus ? toggleChecked : null}
+            name={name}
+            type={'checkbox'}
+            value={value}
+            readOnly
+            role={toggle ? 'switch' : 'checkbox'}
+          />
+          <label htmlFor={checkBoxId.current} className={labelClassNames}>
+            {labelPosition == LabelPosition.Start && (
+              <span className={selectorLabelClassNames}>{label}</span>
+            )}
+            <span className={checkBoxCheckClassNames} />
+            {labelPosition == LabelPosition.End && (
+              <span className={selectorLabelClassNames}>{label}</span>
+            )}
+          </label>
+        </div>
+      </ThemeContextProvider>
     );
   }
 );

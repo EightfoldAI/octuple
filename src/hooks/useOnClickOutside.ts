@@ -1,4 +1,7 @@
+'use client';
+
 import { RefObject, useCallback, useEffect } from 'react';
+import { canUseDocElement } from '../shared/utilities';
 
 /**
  * Helper hook for detecting clicks outside the ref element
@@ -22,13 +25,17 @@ export const useOnClickOutside = (
   );
 
   const removeEventListeners = (): void => {
-    document.removeEventListener('mousedown', listener);
-    document.removeEventListener('touchstart', listener);
+    if (canUseDocElement()) {
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    }
   };
 
   const addEventListeners = (): void => {
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
+    if (canUseDocElement()) {
+      document.addEventListener('mousedown', listener);
+      document.addEventListener('touchstart', listener);
+    }
   };
 
   useEffect(() => {

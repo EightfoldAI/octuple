@@ -1,9 +1,20 @@
+'use client';
+
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
-import { ButtonShape, ButtonSize, SystemUIButton } from '../../Button';
+import {
+  OcThemeName,
+  ShapeContext,
+  Shape,
+  SizeContext,
+  Size,
+} from '../../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../../ConfigProvider/ThemeContext';
+import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
@@ -17,6 +28,7 @@ import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
 import {
+  canUseDocElement,
   eventKeys,
   getMergedStatus,
   mergeClasses,
@@ -27,6 +39,7 @@ import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../input.module.scss';
+import themedComponentStyles from '../input.theme.module.scss';
 
 export const TextInput: FC<TextInputProps> = React.forwardRef(
   (
@@ -45,6 +58,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         noDisabledContext: false,
         noShapeContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       disabled = false,
       expandable = false,
@@ -80,8 +94,12 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       size = TextInputSize.Medium,
       status,
       style,
+      theme,
+      themeContainerId,
       value,
       waitInterval = 10,
+      'aria-invalid': ariaInvalidProp = false,
+      'aria-describedby': ariaDescribedByProp,
       ...rest
     },
     ref: Ref<HTMLInputElement>
@@ -96,6 +114,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     const [inputValue, setInputValue] = useState(value);
 
     const [clearButtonShown, _setClearButtonShown] = useState<boolean>(false);
+
+    // TODO: Upgrade to React 18 and use the new `useId` hook.
+    // This way the id will match on the server and client.
+    // For now, pass an id via props if using SSR.
     const inputId: string = !!id ? id : uniqueId('input-');
 
     const clearButtonRef: React.MutableRefObject<HTMLButtonElement> =
@@ -105,15 +127,22 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       status: contextStatus,
       isFormItemInput,
       hasFeedback,
+      errorMessageId,
     } = useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, status);
+    const ariaInvalid = ariaInvalidProp || mergedStatus === 'error';
+    const ariaDescribedBy =
+      mergedStatus === 'error'
+        ? ariaDescribedByProp || errorMessageId
+        : undefined;
 
     // Needed for form error scroll-into-view by id
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
-    const inputField: HTMLElement = document.getElementById(
-      mergedFormItemInput ? id : inputId
-    );
+    let inputField: HTMLElement | null = null;
+    if (canUseDocElement()) {
+      inputField = document.getElementById(mergedFormItemInput ? id : inputId);
+    }
 
     const contextuallyDisabled: Disabled = useContext(DisabledContext);
     const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -130,6 +159,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
+
     const getStatusClassNames = (
       status?: ValidateStatus,
       hasFeedback?: boolean
@@ -139,6 +173,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         [styles.statusWarning]: status === 'warning',
         [styles.statusError]: status === 'error',
         [styles.statusValidating]: status === 'validating',
+        [styles.statusHighlight]: status === 'highlight',
         [styles.hasFeedback]: hasFeedback,
       });
     };
@@ -289,6 +324,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       },
       { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
       { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+      { [themedComponentStyles.theme]: mergedTheme },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
       },
@@ -331,6 +367,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
     const handleOnKeydownClear = (_event: React.KeyboardEvent) => {
       if (
+        canUseDocElement() &&
         document.activeElement !== clearButtonRef?.current &&
         _event.key === eventKeys.ENTER
       ) {
@@ -429,7 +466,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     ]);
 
     const getIconButton = (): JSX.Element => (
-      <SystemUIButton
+      <Button
         allowDisabledFocus={iconButtonProps.allowDisabledFocus}
         ariaLabel={iconButtonProps.ariaLabel}
         checked={iconButtonProps.checked}
@@ -445,130 +482,146 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             ? iconButtonProps.onClick
             : null
         }
+        role={iconButtonProps.role}
         shape={inputShapeToButtonShapeMap.get(shape)}
         size={inputSizeToButtonSizeMap.get(mergedSize)}
+        tabIndex={iconButtonProps.tabIndex}
         transparent
+        variant={ButtonVariant.SystemUI}
       />
     );
 
     return (
-      <div className={textInputWrapperClassNames}>
-        {labelProps && (
-          <Label
-            inline={inline}
-            size={inputSizeToLabelSizeMap.get(mergedSize)}
-            {...labelProps}
-          />
-        )}
-        <div className={styles.expandableWrapper}>
-          <div className={textInputGroupClassNames}>
-            <input
-              {...rest}
-              ref={ref}
-              aria-disabled={mergedDisabled}
-              aria-label={ariaLabel}
-              autoComplete={autocomplete}
-              autoFocus={autoFocus}
-              className={textInputClassNames}
-              disabled={!allowDisabledFocus && mergedDisabled}
-              id={mergedFormItemInput ? id : inputId}
-              maxLength={maxlength}
-              minLength={minlength}
-              max={max}
-              min={min}
-              name={name}
-              onChange={!allowDisabledFocus ? handleChange : null}
-              onBlur={!allowDisabledFocus ? onBlur : null}
-              onFocus={!allowDisabledFocus ? onFocus : null}
-              onKeyDown={!allowDisabledFocus ? onKeyDown : null}
-              placeholder={placeholder}
-              readOnly={readonly}
-              required={required}
-              role={role}
-              style={style}
-              tabIndex={0}
-              type={numbersOnly ? 'number' : htmlType}
-              value={inputValue}
+      <ThemeContextProvider
+        componentClassName={themedComponentStyles.theme}
+        containerId={themeContainerId}
+        theme={mergedTheme}
+      >
+        <div className={textInputWrapperClassNames}>
+          {labelProps && (
+            <Label
+              inline={inline}
+              size={inputSizeToLabelSizeMap.get(mergedSize)}
+              {...labelProps}
             />
-            {expandable && iconButtonProps && (
-              <SystemUIButton
-                classNames={styles.expandableThumb}
-                transparent
-                allowDisabledFocus={iconButtonProps.allowDisabledFocus}
-                ariaLabel={iconButtonProps.ariaLabel}
-                checked={iconButtonProps.checked}
-                disabled={iconButtonProps.disabled || mergedDisabled}
-                iconProps={{
-                  path: iconButtonProps.iconProps.path,
-                }}
-                id={iconButtonProps.id}
-                shape={inputShapeToButtonShapeMap.get(shape)}
-                size={inputSizeToButtonSizeMap.get(mergedSize)}
-                htmlType={iconButtonProps.htmlType}
+          )}
+          <div className={styles.expandableWrapper}>
+            <div className={textInputGroupClassNames}>
+              <input
+                {...rest}
+                ref={ref}
+                aria-disabled={mergedDisabled}
+                aria-label={ariaLabel}
+                autoComplete={autocomplete}
+                autoFocus={autoFocus}
+                className={textInputClassNames}
+                disabled={!allowDisabledFocus && mergedDisabled}
+                id={mergedFormItemInput ? id : inputId}
+                maxLength={maxlength}
+                minLength={minlength}
+                max={max}
+                min={min}
+                name={name}
+                onChange={!allowDisabledFocus ? handleChange : null}
+                onBlur={!allowDisabledFocus ? onBlur : null}
+                onFocus={!allowDisabledFocus ? onFocus : null}
+                onKeyDown={!allowDisabledFocus ? onKeyDown : null}
+                placeholder={placeholder}
+                readOnly={readonly}
+                required={required}
+                role={role}
+                style={style}
+                tabIndex={0}
+                type={numbersOnly ? 'number' : htmlType}
+                value={inputValue}
+                aria-invalid={ariaInvalid}
+                aria-describedby={ariaDescribedBy}
               />
-            )}
-            <div className={styles.actionWrapper}>
-              <div className={styles.overlay}></div>
-              {iconProps && (
-                <div className={iconClassNames}>
-                  {iconProps.path && !iconProps.imageSrc && (
+              {expandable && iconButtonProps && (
+                <Button
+                  classNames={styles.expandableThumb}
+                  transparent
+                  allowDisabledFocus={iconButtonProps.allowDisabledFocus}
+                  ariaLabel={iconButtonProps.ariaLabel}
+                  checked={iconButtonProps.checked}
+                  disabled={iconButtonProps.disabled || mergedDisabled}
+                  htmlType={iconButtonProps.htmlType}
+                  iconProps={{
+                    path: iconButtonProps.iconProps.path,
+                  }}
+                  id={iconButtonProps.id}
+                  role={iconButtonProps.role}
+                  shape={inputShapeToButtonShapeMap.get(shape)}
+                  size={inputSizeToButtonSizeMap.get(mergedSize)}
+                  tabIndex={iconButtonProps.tabIndex}
+                  variant={ButtonVariant.SystemUI}
+                />
+              )}
+              <div className={styles.actionWrapper}>
+                <div className={styles.overlay}></div>
+                {iconProps && (
+                  <div className={iconClassNames}>
+                    {iconProps.path && !iconProps.imageSrc && (
+                      <Icon
+                        {...iconProps}
+                        path={iconProps.path}
+                        size={inputSizeToIconSizeMap.get(mergedSize)}
+                      />
+                    )}
+                    {iconProps.imageSrc && !iconProps.path && (
+                      <img
+                        aria-hidden={iconProps.ariaHidden}
+                        alt={iconProps.alt}
+                        id={iconProps.id}
+                        src={iconProps.imageSrc}
+                      />
+                    )}
+                  </div>
+                )}
+                {iconButtonProps &&
+                  alignIcon === TextInputIconAlign.Left &&
+                  getIconButton()}
+                {clearable &&
+                  clearButtonShown &&
+                  !numbersOnly &&
+                  htmlType !== 'number' &&
+                  (!readonly || (readonly && readOnlyProps?.clearable)) && (
+                    <Button
+                      ref={clearButtonRef}
+                      allowDisabledFocus={allowDisabledFocus}
+                      ariaLabel={clearButtonAriaLabel}
+                      classNames={clearIconButtonClassNames}
+                      configContextProps={{ noSizeContext: true }}
+                      disabled={mergedDisabled}
+                      htmlType={'button'}
+                      iconProps={{ path: IconName.mdiClose }}
+                      onClick={!allowDisabledFocus ? handleOnClear : null}
+                      onKeyDown={
+                        !allowDisabledFocus ? handleOnKeydownClear : null
+                      }
+                      shape={inputShapeToButtonShapeMap.get(shape)}
+                      size={ButtonSize.Small}
+                      transparent
+                      variant={ButtonVariant.SystemUI}
+                    />
+                  )}
+                {iconButtonProps &&
+                  alignIcon === TextInputIconAlign.Right &&
+                  getIconButton()}
+                {readonly && !readOnlyProps?.noStyleChange && (
+                  <div className={readOnlyIconClassNames}>
                     <Icon
-                      {...iconProps}
-                      path={iconProps.path}
+                      path={IconName.mdiLock}
+                      {...readOnlyProps?.iconProps}
                       size={inputSizeToIconSizeMap.get(mergedSize)}
                     />
-                  )}
-                  {iconProps.imageSrc && !iconProps.path && (
-                    <img
-                      aria-hidden={iconProps.ariaHidden}
-                      alt={iconProps.alt}
-                      id={iconProps.id}
-                      src={iconProps.imageSrc}
-                    />
-                  )}
-                </div>
-              )}
-              {iconButtonProps &&
-                alignIcon === TextInputIconAlign.Left &&
-                getIconButton()}
-              {clearable &&
-                clearButtonShown &&
-                !numbersOnly &&
-                htmlType !== 'number' &&
-                (!readonly || (readonly && readOnlyProps?.clearable)) && (
-                  <SystemUIButton
-                    ref={clearButtonRef}
-                    allowDisabledFocus={allowDisabledFocus}
-                    ariaLabel={clearButtonAriaLabel}
-                    classNames={clearIconButtonClassNames}
-                    disabled={mergedDisabled}
-                    htmlType={'button'}
-                    iconProps={{ path: IconName.mdiClose }}
-                    onClick={!allowDisabledFocus ? handleOnClear : null}
-                    onKeyDown={
-                      !allowDisabledFocus ? handleOnKeydownClear : null
-                    }
-                    shape={inputShapeToButtonShapeMap.get(shape)}
-                    size={ButtonSize.Small}
-                    transparent
-                  />
+                  </div>
                 )}
-              {iconButtonProps &&
-                alignIcon === TextInputIconAlign.Right &&
-                getIconButton()}
-              {readonly && !readOnlyProps?.noStyleChange && (
-                <div className={readOnlyIconClassNames}>
-                  <Icon
-                    path={IconName.mdiLock}
-                    {...readOnlyProps?.iconProps}
-                    size={inputSizeToIconSizeMap.get(mergedSize)}
-                  />
-                </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </ThemeContextProvider>
     );
   }
 );

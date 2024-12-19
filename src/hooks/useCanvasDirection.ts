@@ -1,4 +1,7 @@
+'use client';
+
 import { useCallback, useEffect, useState } from 'react';
+import { canUseDocElement, canUseDom } from '../shared/utilities';
 
 /**
  * Indicates the directionality of an element's text.
@@ -33,7 +36,7 @@ export const useCanvasDirection = (lang?: string): string => {
 
   const getDirection = useCallback(
     (lang: string) => {
-      if (document?.documentElement?.dir === 'rtl') {
+      if (canUseDocElement() && document?.documentElement?.dir === 'rtl') {
         setDir(document.documentElement.dir);
       } else {
         // only check first two chars of string to ensure no false positives (e.g. es-AR)
@@ -51,7 +54,9 @@ export const useCanvasDirection = (lang?: string): string => {
     getDirection(
       isValidLangFormat(lang)
         ? lang
-        : window?.navigator?.userLanguage || window?.navigator?.language
+        : canUseDom()
+        ? window?.navigator?.userLanguage || window?.navigator?.language
+        : undefined
     );
   }, []);
 

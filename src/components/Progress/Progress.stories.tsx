@@ -34,6 +34,23 @@ export default {
       options: [ProgressSize.Large, ProgressSize.Medium, ProgressSize.Small],
       control: { type: 'radio' },
     },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
     variant: {
       options: [ProgressVariant.Default, ProgressVariant.Pill],
       control: { type: 'inline-radio' },
@@ -208,7 +225,7 @@ const Success_Segment_Story: ComponentStory<typeof Progress> = (args) => {
     <Stack direction={'vertical'} flexGap={'l'} fullWidth>
       <Tooltip
         content={'3 done / 3 in progress / 4 to do'}
-        offset={-24}
+        offset={8}
         theme={TooltipTheme.dark}
       >
         <Progress
@@ -332,6 +349,11 @@ export const __namedExportsOrder = [
 const progressArgs: Object = {
   bordered: true,
   classNames: 'my-progress',
+  configContextProps: {
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-progress-theme-container',
   gapDegree: null,
   gapPosition: null,
   hideMax: false,

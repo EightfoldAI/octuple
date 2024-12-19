@@ -23,6 +23,11 @@ export interface DropdownProps {
    */
   ariaRef?: React.MutableRefObject<HTMLElement>;
   /**
+   * The child renderer.
+   * @deprecated Wrap your element instead, e.g. `<Dropdown><MyElement /></Dropdown>`.
+   */
+  children?: React.ReactNode;
+  /**
    * Class names of the main wrapper
    */
   classNames?: string;
@@ -57,6 +62,13 @@ export interface DropdownProps {
    * Manually control the height of the dropdown
    */
   height?: number;
+  /**
+   * Optionally place focus on the first focusable
+   * selector when the Dropdown is first visible.
+   * When false, visibility will remain on the Dropdown.
+   * @default true
+   */
+  initialFocus?: boolean;
   /**
    * The offset from the reference element
    * @default 0
@@ -97,6 +109,12 @@ export interface DropdownProps {
    * @returns (event: React.MouseEvent) => void
    */
   referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * Callback executed on reference element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  referenceOnKeydown?: (event: React.KeyboardEvent) => void;
   /**
    * Custom reference wrapper class names
    */
@@ -141,6 +159,14 @@ export interface DropdownProps {
 }
 
 export type DropdownRef = {
+  /**
+   * Helper to manually place focus on the first focusable selector of the Dropdwon.
+   */
+  focusFirstElement: () => void;
+  /**
+   * Helper to manually place focus on a selector of the Dropdwon.
+   */
+  focusOnElement: (elementToFocus: HTMLElement) => void;
   /**
    * Helper method to manually update the position
    * of the dropdown

@@ -29,6 +29,25 @@ export default {
       ),
     },
   },
+  argTypes: {
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof InfoBar>;
 
 const InfoBar_Story: ComponentStory<typeof InfoBar> = (args) => (
@@ -39,6 +58,7 @@ export const Neutral = InfoBar_Story.bind({});
 export const Positive = InfoBar_Story.bind({});
 export const Warning = InfoBar_Story.bind({});
 export const Disruptive = InfoBar_Story.bind({});
+export const Basic = InfoBar_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -48,6 +68,7 @@ export const __namedExportsOrder = [
   'Positive',
   'Warning',
   'Disruptive',
+  'Basic',
 ];
 
 const infoBarArgs: Object = {
@@ -70,6 +91,13 @@ const infoBarArgs: Object = {
     id: 'myCloseButton',
   },
   closeIcon: IconName.mdiClose,
+  configContextProps: {
+    noGradientContext: false,
+    noThemeContext: false,
+  },
+  theme: '',
+  themeContainerId: 'my-infobar-theme-container',
+  gradient: false,
   icon: IconName.mdiCheckCircle,
   role: 'alert',
   type: InfoBarType.positive,
@@ -95,4 +123,14 @@ Disruptive.args = {
   ...infoBarArgs,
   icon: IconName.mdiInformation,
   type: InfoBarType.disruptive,
+};
+
+Basic.args = {
+  ...infoBarArgs,
+  icon: IconName.mdiInformation,
+  type: InfoBarType.neutral,
+  closeButtonProps: null,
+  closeIcon: null,
+  closable: false,
+  actionButtonProps: null,
 };

@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   createRef,
   FC,
@@ -12,8 +14,16 @@ import React, {
 } from 'react';
 import shallowEqual from 'shallowequal';
 import { FormItemInputContext } from '../Form/Context';
-import { DirectionType, SizeContext, Size } from '../ConfigProvider';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import {
+  DirectionType,
+  SizeContext,
+  Size,
+  OcThemeName,
+} from '../ConfigProvider';
+import ThemeContext, {
+  ThemeContextProvider,
+} from '../ConfigProvider/ThemeContext';
 import SliderContext, { SliderContextProps } from './Context';
 import Marks from './Marks';
 import Steps from './Steps';
@@ -42,6 +52,7 @@ import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses } from '../../shared/utilities';
 
 import styles from './slider.module.scss';
+import themedComponentStyles from './slider.theme.module.scss';
 
 /**
  * For use with Array.sort to sort numbers in ascending order.
@@ -81,6 +92,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       configContextProps = {
         noDisabledContext: false,
         noSizeContext: false,
+        noThemeContext: false,
       },
       containerClassNames,
       disabled = false,
@@ -112,6 +124,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       showMarkers = false,
       size = SliderSize.Medium,
       step = 1,
+      theme,
+      themeContainerId,
       tooltipContent,
       tooltipProps,
       trackBorder = true,
@@ -193,15 +207,20 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
+    const contextuallyDisabled: Disabled = useContext(DisabledContext);
+    const mergedDisabled: boolean = configContextProps.noDisabledContext
+      ? disabled
+      : contextuallyDisabled || disabled;
+
     const contextuallySized: Size = useContext(SizeContext);
     const mergedSize: SliderSize | Size = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
 
-    const contextuallyDisabled: Disabled = useContext(DisabledContext);
-    const mergedDisabled: boolean = configContextProps.noDisabledContext
-      ? disabled
-      : contextuallyDisabled || disabled;
+    const contextualTheme: OcThemeName = useContext(ThemeContext);
+    const mergedTheme: OcThemeName = configContextProps.noThemeContext
+      ? theme
+      : contextualTheme || theme;
 
     const getIdentifier = (baseString: string, index: number): string => {
       if (!baseString) {
@@ -722,280 +741,305 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     return (
       <SliderContext.Provider value={context}>
         <ResizeObserver onResize={updateLayout}>
-          <div
-            {...rest}
-            className={mergeClasses(
-              styles.sliderContainer,
-              {
-                [styles.sliderSmall]:
-                  mergedSize === SliderSize.Flex && largeScreenActive,
-              },
-              {
-                [styles.sliderMedium]:
-                  mergedSize === SliderSize.Flex && mediumScreenActive,
-              },
-              {
-                [styles.sliderMedium]:
-                  mergedSize === SliderSize.Flex && smallScreenActive,
-              },
-              {
-                [styles.sliderLarge]:
-                  mergedSize === SliderSize.Flex && xSmallScreenActive,
-              },
-              { [styles.sliderLarge]: mergedSize === SliderSize.Large },
-              { [styles.sliderMedium]: mergedSize === SliderSize.Medium },
-              { [styles.sliderSmall]: mergedSize === SliderSize.Small },
-              {
-                [styles.sliderDisabled]: allowDisabledFocus || mergedDisabled,
-                [styles.sliderReadonly]: !!readOnly,
-                [styles.sliderContainerInline]: labelPosition === 'inline',
-                [styles.sliderContainerRtl]: htmlDir === 'rtl',
-                [styles.showMarkers]: !!showMarkers,
-                ['in-form-item']: mergedFormItemInput,
-              },
-              containerClassNames
-            )}
+          <ThemeContextProvider
+            componentClassName={themedComponentStyles.theme}
+            containerId={themeContainerId}
+            theme={mergedTheme}
           >
             <div
-              ref={minLabelRef}
-              className={mergeClasses(styles.extremityLabel, styles.minLabel, {
-                [styles.minLabelTextOnly]: hideMin && !!minLabel,
-                [styles.extremityRangeLabel]: isRange,
-                [styles.extremityLabelInline]: labelPosition === 'inline',
-                [styles.labelVisible]: showLabels,
-              })}
-              style={minLabelStyle}
-            >
-              {!!minLabel && minLabel} {!hideMin && mergedMin}
-            </div>
-            <div
-              ref={sliderRef}
-              className={mergeClasses(styles.slider, classNames)}
-            >
-              <div
-                className={styles.sliderHitTarget}
-                onClick={
-                  !allowDisabledFocus && !readOnly
-                    ? onSliderHitTargetClick
-                    : null
-                }
-              />
-              <div
-                ref={railRef}
-                className={mergeClasses([
-                  styles.sliderRail,
-                  {
-                    [styles.railBorderHidden]: !railBorder,
-                  },
-                  {
-                    [styles.data]: type === 'data',
-                  },
-                  {
-                    [styles.sliderRailOpacity]: !!hideRail || !!showMarkers,
-                  },
-                ])}
-                onMouseDown={
-                  !allowDisabledFocus && !readOnly ? onSliderMouseDown : null
-                }
-              />
-              <div
-                ref={trackRef}
-                className={mergeClasses([
-                  styles.sliderTrack,
-                  {
-                    [styles.trackBorderHidden]: !trackBorder,
-                  },
-                  {
-                    [styles.success]:
-                      !!trackStatus &&
-                      trackStatus === SliderTrackStatus.Success,
-                  },
-                  {
-                    [styles.warning]:
-                      !!trackStatus &&
-                      trackStatus === SliderTrackStatus.Warning,
-                  },
-                  {
-                    [styles.error]:
-                      !!trackStatus && trackStatus === SliderTrackStatus.Error,
-                  },
-                  {
-                    [styles.sliderTrackOpacity]:
-                      !!hideTrack || !!showMarkers || !included,
-                  },
-                ])}
-                onMouseDown={
-                  !allowDisabledFocus && !readOnly ? onSliderMouseDown : null
-                }
-              />
-              {!!showMarkers && (
-                <div className={styles.railMarkerSegments}>
-                  {markers
-                    .filter((marker: SliderMarker) =>
-                      Number.isInteger(marker.value)
-                    )
-                    .map((mark: SliderMarker, index: number) => {
-                      let railMarkerSegment: JSX.Element;
-                      if (index <= visibleSegments.length - 1) {
-                        railMarkerSegment = (
-                          <div
-                            className={mergeClasses(styles.railMarkerSegment, {
-                              [styles.railMarkerSegmentBorderHidden]:
-                                (!trackBorder &&
-                                  isMarkerSegmentActive(mark.value)) ||
-                                (!railBorder &&
-                                  !isMarkerSegmentActive(mark.value)),
-                              [styles.data]: type === 'data',
-                              [styles.active]:
-                                !hideTrack && isMarkerSegmentActive(mark.value),
-                              [styles.success]:
-                                isMarkerSegmentActive(mark.value) &&
-                                !!trackStatus &&
-                                trackStatus === SliderTrackStatus.Success,
-                              [styles.warning]:
-                                isMarkerSegmentActive(mark.value) &&
-                                !!trackStatus &&
-                                trackStatus === SliderTrackStatus.Warning,
-                              [styles.error]:
-                                isMarkerSegmentActive(mark.value) &&
-                                !!trackStatus &&
-                                trackStatus === SliderTrackStatus.Error,
-                              [styles.railMarkerSegmentOpacity]:
-                                (!!hideRail &&
-                                  !!hideTrack &&
-                                  isMarkerSegmentActive(mark.value)) ||
-                                (!!hideRail &&
-                                  !isMarkerSegmentActive(mark.value)),
-                            })}
-                            key={index}
-                            onMouseDown={
-                              !allowDisabledFocus && !readOnly
-                                ? onSliderMouseDown
-                                : null
-                            }
-                            ref={markerSegmentRefs.current[index]}
-                          />
-                        );
-                      }
-                      return railMarkerSegment;
-                    })}
-                </div>
-              )}
-              <Steps
-                activeStyle={activeDotStyle}
-                dots={dots}
-                classNames={dotClassNames}
-                marks={markList}
-                style={dotStyle}
-                trackStatus={trackStatus}
-                type={type}
-                visibleDots={visibleDots}
-              />
-              <Marks
-                marks={markList}
-                onClick={(value: number) => {
-                  if (!allowDisabledFocus && !readOnly) {
-                    changeToCloseValue(formatValue(value));
-                  }
-                }}
-              />
-              {values.map((val: number, index: number) => (
-                <Tooltip
-                  classNames={mergeClasses([
-                    styles.sliderTooltip,
-                    tooltipProps?.classNames,
-                  ])}
-                  wrapperClassNames={
-                    mergedDisabled ? styles.hideSliderTooltip : ''
-                  }
-                  closeOnReferenceClick={false}
-                  content={getTooltipContentByValue(val)}
-                  key={`value-tooltip-${index}`}
-                  offset={thumbGeometry().diameter + THUMB_TOOLTIP_Y_OFFSET}
-                  placement={'top'}
-                  portal
-                  portalRoot={sliderRef.current}
-                  theme={TooltipTheme.dark}
-                  {...tooltipProps}
-                  tooltipStyle={getTooltipStyles(
-                    htmlDir,
-                    tooltipProps?.style,
-                    val
-                  )}
-                >
-                  <input
-                    ref={ref}
-                    aria-disabled={mergedDisabled}
-                    aria-label={ariaLabel}
-                    autoFocus={autoFocus && index === 0}
-                    className={mergeClasses([
-                      styles.thumb,
-                      {
-                        [styles.thumbHidden]: hideThumb,
-                      },
-                    ])}
-                    id={getIdentifier(id, index)}
-                    key={index}
-                    disabled={!allowDisabledFocus && mergedDisabled}
-                    onChange={
-                      !allowDisabledFocus && !readOnly
-                        ? (event: React.ChangeEvent<HTMLInputElement>) =>
-                            handleChange(+event.target.value, index)
-                        : null
-                    }
-                    min={mergedMin}
-                    max={mergedMax}
-                    name={getIdentifier(name, index)}
-                    type="range"
-                    readOnly={readOnly}
-                    step={mergedStep}
-                    value={val}
-                  />
-                </Tooltip>
-              ))}
-            </div>
-            <div
-              ref={maxLabelRef}
-              className={mergeClasses(styles.extremityLabel, styles.maxLabel, {
-                [styles.maxLabelTextOnly]: hideMax && !!maxLabel,
-                [styles.extremityRangeLabel]: isRange,
-                [styles.extremityLabelInline]: labelPosition === 'inline',
-                [styles.labelVisible]: showLabels,
-              })}
-              style={maxLabelStyle}
-            >
-              {!!maxLabel && maxLabel} {!hideMax && mergedMax}
-            </div>
-            <div
-              ref={sliderLabelsRef}
+              {...rest}
               className={mergeClasses(
-                styles.sliderLabels,
-                { [styles.sliderRangeLabels]: isRange },
-                { [styles.labelVisible]: showLabels }
+                styles.sliderContainer,
+                {
+                  [styles.sliderSmall]:
+                    mergedSize === SliderSize.Flex && largeScreenActive,
+                },
+                {
+                  [styles.sliderMedium]:
+                    mergedSize === SliderSize.Flex && mediumScreenActive,
+                },
+                {
+                  [styles.sliderMedium]:
+                    mergedSize === SliderSize.Flex && smallScreenActive,
+                },
+                {
+                  [styles.sliderLarge]:
+                    mergedSize === SliderSize.Flex && xSmallScreenActive,
+                },
+                { [styles.sliderLarge]: mergedSize === SliderSize.Large },
+                { [styles.sliderMedium]: mergedSize === SliderSize.Medium },
+                { [styles.sliderSmall]: mergedSize === SliderSize.Small },
+                {
+                  [styles.sliderDisabled]: allowDisabledFocus || mergedDisabled,
+                  [themedComponentStyles.theme]: mergedTheme,
+                  [styles.sliderReadonly]: !!readOnly,
+                  [styles.sliderContainerInline]: labelPosition === 'inline',
+                  [styles.sliderContainerRtl]: htmlDir === 'rtl',
+                  [styles.showMarkers]: !!showMarkers,
+                  ['in-form-item']: mergedFormItemInput,
+                },
+                containerClassNames
               )}
             >
-              <div className={styles.sliderValue} ref={lowerLabelRef}>
-                {!hideValue && htmlDir === 'rtl' && <span>{values[0]}</span>}{' '}
-                {!!valueLabel && (
-                  <span>{isRange ? valueLabel[0] : valueLabel}</span>
-                )}{' '}
-                {!hideValue && htmlDir !== 'rtl' && <span>{values[0]}</span>}
+              <div
+                ref={minLabelRef}
+                className={mergeClasses(
+                  styles.extremityLabel,
+                  styles.minLabel,
+                  {
+                    [styles.minLabelTextOnly]: hideMin && !!minLabel,
+                    [styles.extremityRangeLabel]: isRange,
+                    [styles.extremityLabelInline]: labelPosition === 'inline',
+                    [styles.labelVisible]: showLabels,
+                  }
+                )}
+                style={minLabelStyle}
+              >
+                {!!minLabel && minLabel} {!hideMin && mergedMin}
               </div>
-              {isRange && (
-                <div className={styles.sliderValue} ref={upperLabelRef}>
-                  {!hideValue && (
-                    <span className={styles.sliderLabelSpacer}>-</span>
-                  )}
-                  {hideValue && !!valueLabel[1] && (
-                    <span className={styles.sliderLabelSpacer}>-</span>
-                  )}
-                  {!hideValue && htmlDir === 'rtl' && <span>{values[1]}</span>}{' '}
-                  {!!valueLabel && <span>{valueLabel[1]}</span>}{' '}
-                  {!hideValue && htmlDir !== 'rtl' && <span>{values[1]}</span>}
+              <div
+                ref={sliderRef}
+                className={mergeClasses(styles.slider, classNames)}
+              >
+                <div
+                  className={styles.sliderHitTarget}
+                  onClick={
+                    !allowDisabledFocus && !readOnly
+                      ? onSliderHitTargetClick
+                      : null
+                  }
+                />
+                <div
+                  ref={railRef}
+                  className={mergeClasses([
+                    styles.sliderRail,
+                    {
+                      [styles.railBorderHidden]: !railBorder,
+                    },
+                    {
+                      [styles.data]: type === 'data',
+                    },
+                    {
+                      [styles.sliderRailOpacity]: !!hideRail || !!showMarkers,
+                    },
+                  ])}
+                  onMouseDown={
+                    !allowDisabledFocus && !readOnly ? onSliderMouseDown : null
+                  }
+                />
+                <div
+                  ref={trackRef}
+                  className={mergeClasses([
+                    styles.sliderTrack,
+                    {
+                      [styles.trackBorderHidden]: !trackBorder,
+                    },
+                    {
+                      [styles.success]:
+                        !!trackStatus &&
+                        trackStatus === SliderTrackStatus.Success,
+                    },
+                    {
+                      [styles.warning]:
+                        !!trackStatus &&
+                        trackStatus === SliderTrackStatus.Warning,
+                    },
+                    {
+                      [styles.error]:
+                        !!trackStatus &&
+                        trackStatus === SliderTrackStatus.Error,
+                    },
+                    {
+                      [styles.sliderTrackOpacity]:
+                        !!hideTrack || !!showMarkers || !included,
+                    },
+                  ])}
+                  onMouseDown={
+                    !allowDisabledFocus && !readOnly ? onSliderMouseDown : null
+                  }
+                />
+                {!!showMarkers && (
+                  <div className={styles.railMarkerSegments}>
+                    {markers
+                      .filter((marker: SliderMarker) =>
+                        Number.isInteger(marker.value)
+                      )
+                      .map((mark: SliderMarker, index: number) => {
+                        let railMarkerSegment: JSX.Element;
+                        if (index <= visibleSegments.length - 1) {
+                          railMarkerSegment = (
+                            <div
+                              className={mergeClasses(
+                                styles.railMarkerSegment,
+                                {
+                                  [styles.railMarkerSegmentBorderHidden]:
+                                    (!trackBorder &&
+                                      isMarkerSegmentActive(mark.value)) ||
+                                    (!railBorder &&
+                                      !isMarkerSegmentActive(mark.value)),
+                                  [styles.data]: type === 'data',
+                                  [styles.active]:
+                                    !hideTrack &&
+                                    isMarkerSegmentActive(mark.value),
+                                  [styles.success]:
+                                    isMarkerSegmentActive(mark.value) &&
+                                    !!trackStatus &&
+                                    trackStatus === SliderTrackStatus.Success,
+                                  [styles.warning]:
+                                    isMarkerSegmentActive(mark.value) &&
+                                    !!trackStatus &&
+                                    trackStatus === SliderTrackStatus.Warning,
+                                  [styles.error]:
+                                    isMarkerSegmentActive(mark.value) &&
+                                    !!trackStatus &&
+                                    trackStatus === SliderTrackStatus.Error,
+                                  [styles.railMarkerSegmentOpacity]:
+                                    (!!hideRail &&
+                                      !!hideTrack &&
+                                      isMarkerSegmentActive(mark.value)) ||
+                                    (!!hideRail &&
+                                      !isMarkerSegmentActive(mark.value)),
+                                }
+                              )}
+                              key={index}
+                              onMouseDown={
+                                !allowDisabledFocus && !readOnly
+                                  ? onSliderMouseDown
+                                  : null
+                              }
+                              ref={markerSegmentRefs.current[index]}
+                            />
+                          );
+                        }
+                        return railMarkerSegment;
+                      })}
+                  </div>
+                )}
+                <Steps
+                  activeStyle={activeDotStyle}
+                  dots={dots}
+                  classNames={dotClassNames}
+                  marks={markList}
+                  style={dotStyle}
+                  trackStatus={trackStatus}
+                  type={type}
+                  visibleDots={visibleDots}
+                />
+                <Marks
+                  marks={markList}
+                  onClick={(value: number) => {
+                    if (!allowDisabledFocus && !readOnly) {
+                      changeToCloseValue(formatValue(value));
+                    }
+                  }}
+                />
+                {values.map((val: number, index: number) => (
+                  <Tooltip
+                    classNames={mergeClasses([
+                      styles.sliderTooltip,
+                      tooltipProps?.classNames,
+                    ])}
+                    wrapperClassNames={
+                      mergedDisabled ? styles.hideSliderTooltip : ''
+                    }
+                    closeOnReferenceClick={false}
+                    content={getTooltipContentByValue(val)}
+                    key={`value-tooltip-${index}`}
+                    offset={thumbGeometry().diameter + THUMB_TOOLTIP_Y_OFFSET}
+                    placement={'top'}
+                    portal
+                    portalRoot={sliderRef.current}
+                    preventTouchMoveDefault={false}
+                    theme={TooltipTheme.dark}
+                    {...tooltipProps}
+                    tooltipStyle={getTooltipStyles(
+                      htmlDir,
+                      tooltipProps?.style,
+                      val
+                    )}
+                  >
+                    <input
+                      ref={ref}
+                      aria-disabled={mergedDisabled}
+                      aria-label={ariaLabel}
+                      autoFocus={autoFocus && index === 0}
+                      className={mergeClasses([
+                        styles.thumb,
+                        {
+                          [styles.thumbHidden]: hideThumb,
+                        },
+                      ])}
+                      id={getIdentifier(id, index)}
+                      key={index}
+                      disabled={!allowDisabledFocus && mergedDisabled}
+                      onChange={
+                        !allowDisabledFocus && !readOnly
+                          ? (event: React.ChangeEvent<HTMLInputElement>) =>
+                              handleChange(+event.target.value, index)
+                          : null
+                      }
+                      min={mergedMin}
+                      max={mergedMax}
+                      name={getIdentifier(name, index)}
+                      type="range"
+                      readOnly={readOnly}
+                      step={mergedStep}
+                      value={val}
+                    />
+                  </Tooltip>
+                ))}
+              </div>
+              <div
+                ref={maxLabelRef}
+                className={mergeClasses(
+                  styles.extremityLabel,
+                  styles.maxLabel,
+                  {
+                    [styles.maxLabelTextOnly]: hideMax && !!maxLabel,
+                    [styles.extremityRangeLabel]: isRange,
+                    [styles.extremityLabelInline]: labelPosition === 'inline',
+                    [styles.labelVisible]: showLabels,
+                  }
+                )}
+                style={maxLabelStyle}
+              >
+                {!!maxLabel && maxLabel} {!hideMax && mergedMax}
+              </div>
+              <div
+                ref={sliderLabelsRef}
+                className={mergeClasses(
+                  styles.sliderLabels,
+                  { [styles.sliderRangeLabels]: isRange },
+                  { [styles.labelVisible]: showLabels }
+                )}
+              >
+                <div className={styles.sliderValue} ref={lowerLabelRef}>
+                  {!hideValue && htmlDir === 'rtl' && <span>{values[0]}</span>}{' '}
+                  {!!valueLabel && (
+                    <span>{isRange ? valueLabel[0] : valueLabel}</span>
+                  )}{' '}
+                  {!hideValue && htmlDir !== 'rtl' && <span>{values[0]}</span>}
                 </div>
-              )}
+                {isRange && (
+                  <div className={styles.sliderValue} ref={upperLabelRef}>
+                    {!hideValue && (
+                      <span className={styles.sliderLabelSpacer}>-</span>
+                    )}
+                    {hideValue && !!valueLabel[1] && (
+                      <span className={styles.sliderLabelSpacer}>-</span>
+                    )}
+                    {!hideValue && htmlDir === 'rtl' && (
+                      <span>{values[1]}</span>
+                    )}{' '}
+                    {!!valueLabel && <span>{valueLabel[1]}</span>}{' '}
+                    {!hideValue && htmlDir !== 'rtl' && (
+                      <span>{values[1]}</span>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </ThemeContextProvider>
         </ResizeObserver>
       </SliderContext.Provider>
     );

@@ -2,16 +2,17 @@ import React, { FC, useState, useRef, useCallback } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
+import { CompactPicker } from 'react-color';
+import { tinycolor } from '@ctrl/tinycolor';
 import {
+  Button,
+  ButtonShape,
   ButtonSize,
-  DefaultButton,
-  PrimaryButton,
-  SecondaryButton,
+  ButtonVariant,
   TwoStateButton,
 } from '../Button';
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { Icon, IconName } from '../Icon';
-import { CompactPicker } from 'react-color';
 import {
   ConfigProvider,
   CustomFont,
@@ -47,6 +48,8 @@ import dayjs, { Dayjs } from 'dayjs';
 
 // locales
 import type { Locale as OcLocale } from '../LocaleProvider'; // Need to alias because story name declaration conflicts with the type
+import arSA from '../Locale/ar_SA'; // العربية
+import bgBG from '../Locale/bg_BG'; // български
 import csCZ from '../Locale/cs_CZ'; // čeština
 import daDK from '../Locale/da_DK'; // Dansk
 import deDE from '../Locale/de_DE'; // Deutsch
@@ -75,15 +78,22 @@ import nlNL from '../Locale/nl_NL'; // Nederlands
 import plPL from '../Locale/pl_PL'; // Polski
 import ptBR from '../Locale/pt_BR'; // Português (Brazil)
 import ptPT from '../Locale/pt_PT'; // Português
+import roRO from '../Locale/ro_RO'; // Română
 import ruRU from '../Locale/ru_RU'; // Pусский
+import skSK from '../Locale/sk_SK'; // Slovenčina
+import srRS from '../Locale/sr_RS'; // Srpski
 import svSE from '../Locale/sv_SE'; // Svenska
+import teIN from '../Locale/te_IN'; // తెలుగు
 import thTH from '../Locale/th_TH'; // ภาษาไทย
 import trTR from '../Locale/tr_TR'; // Türkçe
 import ukUA from '../Locale/uk_UA'; // Yкраїнська
+import viVN from '../Locale/vi_VN'; // Tiếng Việt
 import zhCN from '../Locale/zh_CN'; // 中文 (简体)
 import zhTW from '../Locale/zh_TW'; // 中文 (繁體)
 
 // Dayjs locales
+import 'dayjs/locale/ar';
+import 'dayjs/locale/bg';
 import 'dayjs/locale/cs';
 import 'dayjs/locale/da';
 import 'dayjs/locale/de';
@@ -111,11 +121,16 @@ import 'dayjs/locale/nl';
 import 'dayjs/locale/pl';
 import 'dayjs/locale/pt';
 import 'dayjs/locale/pt-br';
+import 'dayjs/locale/ro';
 import 'dayjs/locale/ru';
+import 'dayjs/locale/sk';
+import 'dayjs/locale/sr';
 import 'dayjs/locale/sv';
+import 'dayjs/locale/te';
 import 'dayjs/locale/th';
 import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
+import 'dayjs/locale/vi';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-tw';
 
@@ -374,6 +389,8 @@ const ThemedComponents: FC = () => {
                     customTheme: {
                       primaryColor: color.hex,
                       accentColor: customAccentColor,
+                      accentGradientEndColor: customAccentColor,
+                      accentGradientStartColor: customAccentColor,
                     },
                   });
                   setCustomPrimaryColor(color.hex);
@@ -385,11 +402,14 @@ const ThemedComponents: FC = () => {
               <CompactPicker
                 color={customAccentColor}
                 onChange={async (color) => {
+                  const colors = tinycolor(color.hex).splitcomplement();
                   updateThemeOptions({
                     name: 'custom',
                     customTheme: {
                       primaryColor: customPrimaryColor,
-                      accentColor: color.hex,
+                      accentColor: colors.at(0).toHexString(),
+                      accentGradientEndColor: colors.at(1).toHexString(),
+                      accentGradientStartColor: colors.at(2).toHexString(),
                     },
                   });
                   setCustomAccentColor(color.hex);
@@ -417,9 +437,13 @@ const ThemedComponents: FC = () => {
       </Stack>
 
       <div>
-        <PrimaryButton
+        <Button
           text="Edit varTheme"
           onClick={() => setShowVarThemeModal(true)}
+          variant={ButtonVariant.Primary}
+          configContextProps={{ noThemeContext: true }}
+          gradient
+          theme="blueViolet"
         />
         {showVarThemeModal && (
           <Dialog
@@ -482,53 +506,62 @@ const ThemedComponents: FC = () => {
       </div>
 
       <Stack direction="horizontal" flexGap="m">
-        <PrimaryButton
+        <Button
           ariaLabel="Primary Button"
           size={ButtonSize.Small}
           text="Primary Button"
+          variant={ButtonVariant.Primary}
         />
-        <PrimaryButton
+        <Button
           ariaLabel="Primary Button"
+          shape={ButtonShape.Round}
           size={ButtonSize.Small}
           iconProps={{ path: IconName.mdiCardsHeart }}
+          variant={ButtonVariant.Primary}
         />
-        <PrimaryButton
+        <Button
           ariaLabel="Primary Button"
           size={ButtonSize.Small}
           iconProps={{ path: IconName.mdiCardsHeart }}
           text="Primary Button"
+          variant={ButtonVariant.Primary}
         />
       </Stack>
       <Stack direction="horizontal" flexGap="m">
-        <SecondaryButton
+        <Button
           ariaLabel="Secondary Button"
           size={ButtonSize.Small}
           text="Secondary Button"
+          variant={ButtonVariant.Secondary}
         />
-        <SecondaryButton
+        <Button
           ariaLabel="Secondary Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
+          shape={ButtonShape.Round}
           size={ButtonSize.Small}
+          variant={ButtonVariant.Secondary}
         />
-        <SecondaryButton
+        <Button
           ariaLabel="Secondary Button"
           size={ButtonSize.Small}
           text="Secondary Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
+          variant={ButtonVariant.Secondary}
         />
       </Stack>
       <Stack direction="horizontal" flexGap="m">
-        <DefaultButton
+        <Button
           ariaLabel="Default Button"
           size={ButtonSize.Small}
           text="Default Button"
         />
-        <DefaultButton
+        <Button
           ariaLabel="Default Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
+          shape={ButtonShape.Round}
           size={ButtonSize.Small}
         />
-        <DefaultButton
+        <Button
           ariaLabel="Default Button"
           iconProps={{ path: IconName.mdiCardsHeart }}
           size={ButtonSize.Small}
@@ -625,12 +658,12 @@ const ThemedComponents: FC = () => {
         </NavbarContent>
         <NavbarContent>
           <Link
-            href="https://www.twitter.com"
+            href="https://www.x.com"
             target="_self"
             variant="default"
             style={{ padding: '8px', color: 'inherit' }}
           >
-            <Icon path={IconName.mdiTwitter} />
+            <Icon path={IconName.mdiX} />
           </Link>
           <Link
             href="https://www.facebook.com"
@@ -692,7 +725,7 @@ const ThemedComponents: FC = () => {
         }}
       />
       <Dropdown overlay={Overlay()} placement="top">
-        <DefaultButton text={'Menu dropdown'} />
+        <Button text={'Menu dropdown'} />
       </Dropdown>
     </Stack>
   );
@@ -747,6 +780,8 @@ const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
 };
 
 const localeValues: string[] = [
+  'ar_SA',
+  'bg_BG',
   'cs_CZ',
   'da_DK',
   'de_DE',
@@ -775,11 +810,16 @@ const localeValues: string[] = [
   'pl_PL',
   'pt_BR',
   'pt_PT',
+  'ro_RO',
   'ru_RU',
+  'sk_SK',
+  'sr_RS',
   'sv_SE',
+  'te_IN',
   'th_TH',
   'tr_TR',
   'uk_UA',
+  'vi_VN',
   'zh_CN',
   'zh_TW',
 ];
@@ -811,6 +851,8 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
   const [localeValue, setLocaleValue] = useState<string>('en_US');
 
   const locales: Record<string, OcLocale> = {
+    ar_SA: arSA,
+    bg_BG: bgBG,
     cs_CZ: csCZ,
     da_DK: daDK,
     de_DE: deDE,
@@ -839,17 +881,24 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
     pl_PL: plPL,
     pt_BR: ptBR,
     pt_PT: ptPT,
+    ro_RO: roRO,
     ru_RU: ruRU,
+    sk_SK: skSK,
+    sr_RS: srRS,
     sv_SE: svSE,
+    te_IN: teIN,
     th_TH: thTH,
     tr_TR: trTR,
     uk_UA: ukUA,
+    vi_VN: viVN,
     zh_CN: zhCN,
     zh_TW: zhTW,
   };
 
   const localeToDayJsLocale = (locale: string): string => {
     const localeMap: { [key: string]: string } = {
+      ar_SA: 'ar',
+      bg_BG: 'bg',
       cs_CZ: 'cs',
       da_DK: 'da',
       de_DE: 'de',
@@ -878,11 +927,16 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
       pl_PL: 'pl',
       pt_BR: 'pt-br',
       pt_PT: 'pt',
+      ro_RO: 'ro',
       ru_RU: 'ru',
+      sk_SK: 'sk',
+      sr_RS: 'sr',
       sv_SE: 'sv',
+      te_IN: 'te',
       th_TH: 'th',
       tr_TR: 'tr',
       uk_UA: 'uk',
+      vi_VN: 'vi',
       zh_CN: 'zh-cn',
       zh_TW: 'zh-tw',
     };
@@ -1016,6 +1070,7 @@ const providerArgs = {
     fontStack: '--font-stack',
     fontSize: '--font-size',
   } as FontOptions,
+  gradient: false,
   // TODO: should get this from the ConfigProvider in order to restore any
   // customizations the storybook user has applied so far.
   themeOptions: {

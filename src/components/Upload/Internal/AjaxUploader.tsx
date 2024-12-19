@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint react/no-is-mounted:0,react/sort-comp:0,react/prop-types:0 */
 import React, { Component } from 'react';
 import type { ReactElement } from 'react';
@@ -311,7 +313,7 @@ class AjaxUploader extends Component<OcUploadProps> {
           onDragOver: this.onFileDrop,
         };
     return (
-      <Tag {...events} className={uploadClasses} role="button" style={style}>
+      <Tag {...events} className={uploadClasses} style={style}>
         <input
           {...pickAttrs(rest, { aria: true, data: true })}
           id={id}

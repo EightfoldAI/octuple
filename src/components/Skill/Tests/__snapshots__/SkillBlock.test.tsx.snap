@@ -1,5 +1,235 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SkillBlock Skill block has no border 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill block is bordered 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`SkillBlock Skill block is disabled 1`] = `
 <div>
   <div
@@ -73,9 +303,10 @@ exports[`SkillBlock Skill block is disabled 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -187,9 +418,10 @@ exports[`SkillBlock Skill block is readonly 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -301,9 +533,10 @@ exports[`SkillBlock Skill block renders 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -362,7 +595,8 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
       class="content"
     >
       <div
-        class="block-start"
+        class="block-start test-block-start-class"
+        style="margin-top: 20px;"
       >
         <span
           aria-hidden="false"
@@ -440,9 +674,10 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -474,6 +709,41 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="block-end test-block-end-class"
+        style="margin-top: 20px;"
+      >
+        <ul
+          class="button-list"
+        >
+          <li>
+            <button
+              aria-disabled="false"
+              aria-label="Highlight"
+              aria-pressed="true"
+              class="button button button-neutral button-small round-shape icon-left"
+              data-testid="highlight-button-test"
+            >
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 16px; height: 16px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
     <div
@@ -520,6 +790,529 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
             data-testid="test-expandable-content"
           >
             Expandable content.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a below and upskilling assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="below-upskilling-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 32 18"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-below-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-below-icon-color"
+              d="M8.42578 4.07422H9.57422V11.0742L12.8008 7.875L13.6211 8.69531L9 13.3164L4.37891 8.69531L5.19922 7.875L8.42578 11.0742V4.07422Z"
+              fill="currentColor"
+            />
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+              x="14"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M18.9258 12.2539L25.1055 6.07422H21.25V4.92578H27.0742V10.75H25.9258V6.89453L19.7461 13.0742L18.9258 12.2539Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a below and upskilling assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a below assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="below-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-below-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-below-icon-color"
+              d="M8.42578 4.07422H9.57422V11.0742L12.8008 7.875L13.6211 8.69531L9 13.3164L4.37891 8.69531L5.19922 7.875L8.42578 11.0742V4.07422Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a below assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -604,9 +1397,10 @@ exports[`SkillBlock Skill is a clickable block 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -718,9 +1512,10 @@ exports[`SkillBlock Skill is a default block 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -848,9 +1643,136 @@ exports[`SkillBlock Skill is a default block with custom iconProps 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a default block with custom inlineSvgProps 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg"
+          style="width: 18px; height: 18px;"
+        >
+          <div
+            class="skeleton wave rounded"
+            style="width: 18px; height: 18px;"
+            tabindex="-1"
+          />
+          <div />
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -962,9 +1884,10 @@ exports[`SkillBlock Skill is a default block with customButtonProps 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1109,9 +2032,10 @@ exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1152,7 +2076,6 @@ exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
         >
           <li>
             <button
-              aria-checked="false"
               aria-disabled="false"
               aria-label="Endorsements"
               aria-pressed="false"
@@ -1265,9 +2188,10 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1308,7 +2232,6 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
         >
           <li>
             <button
-              aria-checked="false"
               aria-disabled="false"
               aria-label="Highlight"
               aria-pressed="false"
@@ -1334,6 +2257,529 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
             </button>
           </li>
         </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a exceed and upskilling assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="exceed-upskilling-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 32 18"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-exceed-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-exceed-icon-color"
+              d="M9.57422 13.4258H8.42578V6.42578L5.19922 9.625L4.37891 8.80469L9 4.18359L13.6211 8.80469L12.8008 9.625L9.57422 6.42578V13.4258Z"
+              fill="currentColor"
+            />
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+              x="14"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M18.9258 12.2539L25.1055 6.07422H21.25V4.92578H27.0742V10.75H25.9258V6.89453L19.7461 13.0742L18.9258 12.2539Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a exceed and upskilling assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a exceed assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="exceed-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-exceed-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-exceed-icon-color"
+              d="M9.57422 13.4258H8.42578V6.42578L5.19922 9.625L4.37891 8.80469L9 4.18359L13.6211 8.80469L12.8008 9.625L9.57422 6.42578V13.4258Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a exceed assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1430,9 +2876,10 @@ exports[`SkillBlock Skill is a highlight block 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1560,9 +3007,1141 @@ exports[`SkillBlock Skill is a match block 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="meet-upskilling-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 32 18"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-meet-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-meet-icon-color"
+              d="M13.6562 7.65625H4.34375V6.34375H13.6562V7.65625ZM13.6562 11.6562H4.34375V10.3438H13.6562V11.6562Z"
+              fill="currentColor"
+            />
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+              x="14"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M18.9258 12.2539L25.1055 6.07422H21.25V4.92578H27.0742V10.75H25.9258V6.89453L19.7461 13.0742L18.9258 12.2539Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a meet assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="meet-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-meet-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-meet-icon-color"
+              d="M13.6562 7.65625H4.34375V6.34375H13.6562V7.65625ZM13.6562 11.6562H4.34375V10.3438H13.6562V11.6562Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a meet assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a required block 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label required medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a required block with lineClamp and long text 1`] = `
+<div>
+  <div
+    class="stack vertical undefined gap-l"
+    style="width: 216px;"
+  >
+    <div
+      aria-disabled="false"
+      class="skill block bordered animate white"
+      id="testSkill"
+      style="min-width: fit-content;"
+      tabindex="0"
+    >
+      <div
+        class="background"
+      />
+      <div
+        class="content"
+      >
+        <div
+          class="block-start"
+        >
+          <span
+            class="label medium line-clamp"
+          >
+            test skill with some really long text relative to its container
+          </span>
+          <span
+            class="required"
+          />
+        </div>
+        <div>
+          <div
+            style="height: auto; padding: 4px 0px; width: 320px;"
+          >
+            <div
+              class="slider-container slider-medium show-markers"
+            >
+              <div
+                class="extremity-label min-label min-label-text-only label-visible"
+                style="opacity: 1;"
+              >
+                Assess skill level
+                 
+              </div>
+              <div
+                class="slider"
+              >
+                <div
+                  class="slider-hit-target"
+                />
+                <div
+                  class="slider-rail slider-rail-opacity"
+                />
+                <div
+                  class="slider-track slider-track-opacity"
+                />
+                <div
+                  class="rail-marker-segments"
+                >
+                  <div
+                    class="rail-marker-segment"
+                  />
+                  <div
+                    class="rail-marker-segment"
+                  />
+                  <div
+                    class="rail-marker-segment"
+                  />
+                  <div
+                    class="rail-marker-segment"
+                  />
+                  <div
+                    class="rail-marker-segment"
+                  />
+                </div>
+                <div
+                  class="slider-step"
+                />
+                <div
+                  class="reference-wrapper"
+                  id="tooltip--wrapper"
+                >
+                  <input
+                    aria-describedby="tooltip-"
+                    aria-disabled="false"
+                    class="thumb tooltip-reference"
+                    data-reference-id="tooltip--reference"
+                    id="tooltip--reference"
+                    max="5"
+                    min="0"
+                    name=""
+                    step="0.1"
+                    type="range"
+                    value="0"
+                  />
+                </div>
+              </div>
+              <div
+                class="extremity-label max-label label-visible"
+                style="opacity: 1;"
+              >
+                 
+              </div>
+              <div
+                class="slider-labels label-visible"
+              >
+                <div
+                  class="slider-value"
+                >
+                   
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a required block with the required mark hidden 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a upskilling assessment block and the icon is enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <div
+          class="svg svg-assessment"
+        >
+          <svg
+            class="upskilling-small-image"
+            fill="none"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              class="skill-upskilling-background-color"
+              fill="currentColor"
+              height="18"
+              rx="9"
+              width="18"
+            />
+            <path
+              class="skill-upskilling-icon-color"
+              d="M4.92578 12.2539L11.1055 6.07422H7.25V4.92578H13.0742V10.75H11.9258V6.89453L5.74609 13.0742L4.92578 12.2539Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
+                  aria-disabled="false"
+                  class="thumb tooltip-reference"
+                  data-reference-id="tooltip--reference"
+                  id="tooltip--reference"
+                  max="5"
+                  min="0"
+                  name=""
+                  step="0.1"
+                  type="range"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div
+              class="extremity-label max-label label-visible"
+              style="opacity: 1;"
+            >
+               
+            </div>
+            <div
+              class="slider-labels label-visible"
+            >
+              <div
+                class="slider-value"
+              >
+                 
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkillBlock Skill is a upskilling assessment block and the icon is not enabled 1`] = `
+<div>
+  <div
+    aria-disabled="false"
+    class="skill block bordered animate white"
+    id="testSkill"
+    style="min-width: fit-content;"
+    tabindex="0"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="content"
+    >
+      <div
+        class="block-start"
+      >
+        <span
+          class="label medium"
+        >
+          test skill
+        </span>
+      </div>
+      <div>
+        <div
+          style="height: auto; padding: 4px 0px; width: 320px;"
+        >
+          <div
+            class="slider-container slider-medium show-markers"
+          >
+            <div
+              class="extremity-label min-label min-label-text-only label-visible"
+              style="opacity: 1;"
+            >
+              Assess skill level
+               
+            </div>
+            <div
+              class="slider"
+            >
+              <div
+                class="slider-hit-target"
+              />
+              <div
+                class="slider-rail slider-rail-opacity"
+              />
+              <div
+                class="slider-track slider-track-opacity"
+              />
+              <div
+                class="rail-marker-segments"
+              >
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+                <div
+                  class="rail-marker-segment"
+                />
+              </div>
+              <div
+                class="slider-step"
+              />
+              <div
+                class="reference-wrapper"
+                id="tooltip--wrapper"
+              >
+                <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1676,9 +4255,10 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
               />
               <div
                 class="reference-wrapper"
-                id="tooltip-"
+                id="tooltip--wrapper"
               >
                 <input
+                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1757,7 +4337,7 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
                 tabindex="0"
               />
               <span
-                aria-owns="floating-ui-17"
+                aria-owns="floating-ui-37"
                 style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
               />
               <span

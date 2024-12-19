@@ -30,6 +30,10 @@
     width: 100%;
   }
 
+  &-auto-scroll-inner-wrapper {
+    margin: 0;
+  }
+
   &-next,
   &-previous {
     align-items: center;
@@ -38,6 +42,7 @@
     height: 44px;
     justify-content: center;
     margin: -22px $space-l 0 $space-l;
+    min-width: 44px;
     padding: 0;
     position: absolute;
     text-align: center;
@@ -76,6 +81,63 @@
     position: absolute;
     right: 0;
     z-index: 4;
+  }
+
+  &-large {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0 68px;
+    }
+    .carousel-next,
+    .carousel-previous {
+      height: 44px;
+      margin: -22px $space-l 0 $space-l;
+      min-width: 44px;
+      width: 44px;
+
+      &-mask {
+        width: 68px;
+      }
+    }
+  }
+
+  &-medium {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0 52px;
+    }
+    .carousel-next,
+    .carousel-previous {
+      height: 36px;
+      margin: -18px $space-m 0 $space-m;
+      min-width: 36px;
+      width: 36px;
+
+      &-mask {
+        width: 52px;
+      }
+    }
+  }
+
+  &-small {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0 40px;
+    }
+    .carousel-next,
+    .carousel-previous {
+      height: 28px;
+      margin: -14px $space-s 0 $space-s;
+      min-width: 28px;
+      width: 28px;
+
+      &-mask {
+        width: 40px;
+      }
+    }
+  }
+
+  &-overlay-controls {
+    .carousel-auto-scroll-inner-wrapper {
+      margin: 0;
+    }
   }
 
   &-slider {
@@ -138,6 +200,13 @@
 
     .carousel-previous {
       left: 0;
+    }
+  }
+
+  &.gradient {
+    .carousel-next,
+    .carousel-previous {
+      z-index: 3;
     }
   }
 
