@@ -230,7 +230,7 @@ export default function generateRangePicker<DateType>(
               clearIconAriaLabelText={clearIconAriaLabelText}
               id={id}
               separator={
-                <span role="text" aria-label="to" className={styles.pickerSeparator}>
+                <span aria-label="to" className={styles.pickerSeparator} aria-hidden="true">
                   <Icon
                     color="var(--grey-tertiary-color)"
                     path={IconName.mdiArrowRightThin}
