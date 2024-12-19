@@ -34,6 +34,8 @@ const locale: Locale = {
   nextAriaLabel: 'Sljedeća godina',
   superPrevAriaLabel: 'Prethodna godina',
   superNextAriaLabel: 'Sljedeća godina',
+  startDate: 'Datum početka',
+  endDate: 'Datum završetka',
 };
 
 export default locale;

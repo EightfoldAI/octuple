@@ -149,6 +149,14 @@ export type Locale = {
    * The super next aria label.
    */
   superNextAriaLabel?: string;
+  /**
+   * The start date string.
+   */
+  startDate: string;
+  /**
+   * The end date string.
+   */
+  endDate: string;
 };
 
 export type PartialMode =

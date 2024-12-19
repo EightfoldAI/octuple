@@ -32,6 +32,8 @@ const locale: Locale = {
   nextAriaLabel: 'السنة القادمة',
   superPrevAriaLabel: 'السنة السابقة',
   superNextAriaLabel: 'السنة القادمة',
+  startDate: 'تاريخ البدء',
+  endDate: 'تاريخ الانتهاء',
 };
 
 export default locale;

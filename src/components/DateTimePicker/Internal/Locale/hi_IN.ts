@@ -31,6 +31,8 @@ const locale: Locale = {
   nextAriaLabel: 'अगला साल',
   superPrevAriaLabel: 'पिछला साल',
   superNextAriaLabel: 'अगला साल',
+  startDate: 'आरंभ तिथि',
+  endDate: 'समाप्ति तिथि',
 };
 
 export default locale;

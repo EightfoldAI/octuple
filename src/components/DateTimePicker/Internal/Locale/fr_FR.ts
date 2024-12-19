@@ -35,6 +35,8 @@ const locale: Locale = {
   nextAriaLabel: 'Année suivante',
   superPrevAriaLabel: 'Année précédente',
   superNextAriaLabel: 'Année suivante',
+  startDate: 'Date de début',
+  endDate: 'Date de fin',
 };
 
 export default locale;

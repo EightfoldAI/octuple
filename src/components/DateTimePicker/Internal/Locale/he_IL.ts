@@ -34,6 +34,8 @@ const locale: Locale = {
   nextAriaLabel: 'שנה הבאה',
   superPrevAriaLabel: 'שנה קודמת',
   superNextAriaLabel: 'שנה הבאה',
+  startDate: 'תאריך התחלה',
+  endDate: 'תאריך סיום',
 };
 
 export default locale;

@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: 'Tahun depan',
   superPrevAriaLabel: 'Tahun lepas',
   superNextAriaLabel: 'Tahun depan',
+  startDate: 'Tarikh Mula',
+  endDate: 'Tarikh Tamat',
 };
 
 export default locale;
