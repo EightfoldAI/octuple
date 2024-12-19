@@ -111,6 +111,8 @@ type OmitType<DateType> = Omit<OcRangePickerBaseProps<DateType>, 'picker'> &
 
 type MergedOcRangePickerProps<DateType> = {
   picker?: OcPickerMode;
+  startInputAriaLabel?: string;
+  endInputAriaLabel?: string;
 } & OmitType<DateType>;
 
 function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
@@ -186,6 +188,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     todayActive,
     todayText,
     value,
+    startInputAriaLabel = 'Start date',
+    endInputAriaLabel = 'End date',
   } = props as MergedOcRangePickerProps<DateType>;
 
   const needConfirmButton: boolean =
@@ -1290,7 +1294,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                   : null
               }
               disabled={mergedDisabled[0]}
-              id={id}
+              id={`${id}-start`}
               readOnly={
                 mergedReadonly[0] ||
                 (!mergedReadonly && inputReadOnly) ||
@@ -1307,6 +1311,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               {...startInputProps}
               {...inputSharedProps}
               autoComplete={autoComplete}
+              aria-label={startInputAriaLabel}
+              role="textbox"
+              aria-haspopup="dialog"
+              aria-expanded={startOpen}
+              aria-disabled={mergedDisabled[0]}
+              aria-readonly={mergedReadonly[0]}
             />
           </div>
           {mergedReadonly[0] && !(mergedReadonly[0] && mergedReadonly[1]) && (
@@ -1349,6 +1359,13 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               {...endInputProps}
               {...inputSharedProps}
               autoComplete={autoComplete}
+              id={`${id}-end`}
+              aria-label={endInputAriaLabel}
+              role="textbox"
+              aria-haspopup="dialog"
+              aria-expanded={endOpen}
+              aria-disabled={mergedDisabled[1]}
+              aria-readonly={mergedReadonly[1]}
             />
           </div>
           <div

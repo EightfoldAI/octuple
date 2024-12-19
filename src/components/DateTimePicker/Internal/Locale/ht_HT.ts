@@ -34,6 +34,8 @@ const locale: Locale = {
   nextAriaLabel: 'Ane pwochèn',
   superPrevAriaLabel: 'Ane pase',
   superNextAriaLabel: 'Ane pwochèn',
+  startDate: 'Dat kòmanse',
+  endDate: 'Dat fini',
 };
 
 export default locale;

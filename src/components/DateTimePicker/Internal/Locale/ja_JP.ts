@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: '来年',
   superPrevAriaLabel: '前年',
   superNextAriaLabel: '来年',
+  startDate: '開始日',
+  endDate: '終了日',
 };
 
 export default locale;

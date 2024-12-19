@@ -31,6 +31,8 @@ const locale: Locale = {
   nextAriaLabel: 'Next year',
   superPrevAriaLabel: 'Previous year',
   superNextAriaLabel: 'Next year',
+  startDate: 'Start Date',
+  endDate: 'End Date',
 };
 
 export default locale;

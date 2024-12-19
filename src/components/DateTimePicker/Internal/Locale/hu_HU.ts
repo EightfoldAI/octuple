@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: 'Következő év',
   superPrevAriaLabel: 'Előző év',
   superNextAriaLabel: 'Következő év',
+  startDate: 'Kezdő dátum',
+  endDate: 'Befejezés dátuma',
 };
 
 export default locale;

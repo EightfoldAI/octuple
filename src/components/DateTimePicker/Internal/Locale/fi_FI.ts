@@ -36,6 +36,8 @@ const locale: Locale = {
   nextAriaLabel: 'Seuraava vuosi',
   superPrevAriaLabel: 'Edellinen vuosi',
   superNextAriaLabel: 'Seuraava vuosi',
+  startDate: 'Alkamispäivä',
+  endDate: 'Päättymispäivä',
 };
 
 export default locale;

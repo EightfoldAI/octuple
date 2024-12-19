@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: 'Επόμενος αιώνας',
   superPrevAriaLabel: 'Προηγούμενος αιώνας',
   superNextAriaLabel: 'Επόμενος αιώνας',
+  startDate: 'Ημερομηνία έναρξης',
+  endDate: 'Ημερομηνία λήξης',
 };
 
 export default locale;
