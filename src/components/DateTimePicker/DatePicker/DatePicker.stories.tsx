@@ -224,11 +224,35 @@ const { RangePicker } = DatePicker;
 const Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <RangePicker {...args} />
-      <RangePicker {...args} picker="week" />
-      <RangePicker {...args} picker="month" />
-      <RangePicker {...args} picker="quarter" />
-      <RangePicker {...args} picker="year" />
+      <RangePicker
+        {...args}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        picker="week"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        picker="month"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        picker="quarter"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        picker="year"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
     </Stack>
   );
 };
@@ -244,17 +268,14 @@ const Range_Picker_Choose_Time_Story: ComponentStory<typeof RangePicker> = (
     console.log('Formatted Selected Time: ', dateString);
   };
 
-  const onOk = (value: RangePickerProps['value']) => {
-    console.log('onOk: ', value);
-  };
-
   return (
     <RangePicker
       {...args}
       showTime={{ format: 'HH:mm' }}
       format="YYYY-MM-DD HH:mm"
       onChange={onChange}
-      onOk={onOk}
+      startDateInputAriaLabel={args.startDateInputAriaLabel}
+      endDateInputAriaLabel={args.endDateInputAriaLabel}
     />
   );
 };
@@ -276,6 +297,8 @@ const Range_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
       showTime={{ format: 'HH:mm' }}
       format="YYYY-MM-DD HH:mm"
       onChange={onChange}
+      startDateInputAriaLabel={args.startDateInputAriaLabel}
+      endDateInputAriaLabel={args.endDateInputAriaLabel}
     />
   );
 };
@@ -291,6 +314,8 @@ const Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
           dayjs('2023-10-23', dateFormat),
           dayjs('2023-10-27', dateFormat),
         ]}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
       />
     </Stack>
   );
@@ -301,13 +326,19 @@ const Range_Picker_Disabled_Story: ComponentStory<typeof RangePicker> = (
 ) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <RangePicker {...args} />
+      <RangePicker
+        {...args}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
       <RangePicker
         {...args}
         defaultValue={[
           dayjs('2015-06-06', dateFormat),
           dayjs('2015-06-06', dateFormat),
         ]}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
       />
     </Stack>
   );
@@ -347,7 +378,12 @@ const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
 
   return (
     <Stack direction="vertical" flexGap="m">
-      <RangePicker {...args} disabledDate={disabledDate} />
+      <RangePicker
+        {...args}
+        disabledDate={disabledDate}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
       <RangePicker
         {...args}
         disabledDate={disabledDate}
@@ -360,6 +396,8 @@ const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
           ],
         }}
         format="YYYY-MM-DD HH:mm:ss"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
       />
     </Stack>
   );
@@ -384,6 +422,8 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
           'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
         }}
         onChange={onChange}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
       />
       <RangePicker
         {...args}
@@ -394,6 +434,8 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
         showTime
         format="YYYY/MM/DD HH:mm:ss"
         onChange={onChange}
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
       />
     </Stack>
   );
@@ -434,6 +476,8 @@ const Select_Range_By_Day_Limit_Story: ComponentStory<typeof RangePicker> = (
       onCalendarChange={(val) => setDates(val)}
       onChange={(val) => setValue(val)}
       onOpenChange={onOpenChange}
+      startDateInputAriaLabel={args.startDateInputAriaLabel}
+      endDateInputAriaLabel={args.endDateInputAriaLabel}
     />
   );
 };
@@ -494,6 +538,8 @@ const Date_Format_Range_Story: ComponentStory<typeof RangePicker> = (args) => (
       dayjs('2023/01/01', dateFormat),
     ]}
     format={dateFormat}
+    startDateInputAriaLabel={args.startDateInputAriaLabel}
+    endDateInputAriaLabel={args.endDateInputAriaLabel}
   />
 );
 
@@ -524,6 +570,8 @@ const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (
         </div>
       );
     }}
+    startDateInputAriaLabel={args.startDateInputAriaLabel}
+    endDateInputAriaLabel={args.endDateInputAriaLabel}
   />
 );
 
@@ -549,13 +597,68 @@ const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
 const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
-      <RangePicker {...args} status="success" />
-      <RangePicker {...args} status="warning" />
-      <RangePicker {...args} status="error" />
-      <RangePicker {...args} status="highlight" />
+      <RangePicker
+        {...args}
+        status="success"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        status="warning"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        status="error"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
+      <RangePicker
+        {...args}
+        status="highlight"
+        startDateInputAriaLabel={args.startDateInputAriaLabel}
+        endDateInputAriaLabel={args.endDateInputAriaLabel}
+      />
     </Stack>
   );
 };
+
+const Range_Picker_With_Aria_Labels_Story: ComponentStory<
+  typeof RangePicker
+> = (args) => (
+  <DatePicker.RangePicker
+    {...args}
+    startDateInputAriaLabel={args.startDateInputAriaLabel}
+    endDateInputAriaLabel={args.endDateInputAriaLabel}
+  />
+);
+
+const Range_Picker_Sizes_With_Aria_Labels_Story: ComponentStory<
+  typeof RangePicker
+> = (args) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <DatePicker.RangePicker
+      {...args}
+      size={DatePickerSize.Small}
+      startDateInputAriaLabel={args.startDateInputAriaLabel}
+      endDateInputAriaLabel={args.endDateInputAriaLabel}
+    />
+    <DatePicker.RangePicker
+      {...args}
+      size={DatePickerSize.Medium}
+      startDateInputAriaLabel={args.startDateInputAriaLabel}
+      endDateInputAriaLabel={args.endDateInputAriaLabel}
+    />
+    <DatePicker.RangePicker
+      {...args}
+      size={DatePickerSize.Large}
+      startDateInputAriaLabel={args.startDateInputAriaLabel}
+      endDateInputAriaLabel={args.endDateInputAriaLabel}
+    />
+  </div>
+);
 
 export const Single_Picker = Single_Picker_Story.bind({});
 export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});
@@ -588,6 +691,10 @@ export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
+export const Range_Picker_With_Aria_Labels =
+  Range_Picker_With_Aria_Labels_Story.bind({});
+export const Range_Picker_Sizes_With_Aria_Labels =
+  Range_Picker_Sizes_With_Aria_Labels_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -616,6 +723,8 @@ export const __namedExportsOrder = [
   'Range_Borderless',
   'Single_Status',
   'Range_Status',
+  'Range_Picker_With_Aria_Labels',
+  'Range_Picker_Sizes_With_Aria_Labels',
 ];
 
 const pickerArgs: Object = {
@@ -669,7 +778,7 @@ Single_Picker_Choose_Time_Hide_Buttons.args = {
 
 Range_Picker.args = {
   ...pickerArgs,
-  showToday: false, // The range picker default is false, this is for Storybook args only.
+  showToday: false,
 };
 
 Range_Picker_Readonly.args = {
@@ -748,3 +857,40 @@ Range_Status.args = {
   ...pickerArgs,
   showToday: false,
 };
+
+Range_Picker_With_Aria_Labels.args = {
+  ...pickerArgs,
+  showToday: false,
+};
+
+Range_Picker_Sizes_With_Aria_Labels.args = {
+  ...pickerArgs,
+  showToday: false,
+};
+
+// Add argTypes specifically for RangePicker stories
+Range_Picker.argTypes = {
+  startDateInputAriaLabel: {
+    control: { type: 'text' },
+    description: 'Aria label for the start date input',
+    defaultValue: 'Start date',
+  },
+  endDateInputAriaLabel: {
+    control: { type: 'text' },
+    description: 'Aria label for the end date input',
+    defaultValue: 'End date',
+  },
+};
+
+// Copy the same argTypes to other range picker stories
+Range_Picker_Choose_Time.argTypes = Range_Picker.argTypes;
+Range_Picker_Choose_Time_Hide_Buttons.argTypes = Range_Picker.argTypes;
+Range_Picker_Readonly.argTypes = Range_Picker.argTypes;
+Range_Picker_Disabled.argTypes = Range_Picker.argTypes;
+Range_Picker_Disabled_Date_and_Time.argTypes = Range_Picker.argTypes;
+Preset_Ranges.argTypes = Range_Picker.argTypes;
+Select_Range_By_Day_Limit.argTypes = Range_Picker.argTypes;
+Date_Format_Range.argTypes = Range_Picker.argTypes;
+Customized_Date_Styling.argTypes = Range_Picker.argTypes;
+Range_Borderless.argTypes = Range_Picker.argTypes;
+Range_Status.argTypes = Range_Picker.argTypes;
