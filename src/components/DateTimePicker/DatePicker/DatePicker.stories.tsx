@@ -244,12 +244,17 @@ const Range_Picker_Choose_Time_Story: ComponentStory<typeof RangePicker> = (
     console.log('Formatted Selected Time: ', dateString);
   };
 
+  const onOk = (value: RangePickerProps['value']) => {
+    console.log('onOk: ', value);
+  };
+
   return (
     <RangePicker
       {...args}
       showTime={{ format: 'HH:mm' }}
       format="YYYY-MM-DD HH:mm"
       onChange={onChange}
+      onOk={onOk}
     />
   );
 };
