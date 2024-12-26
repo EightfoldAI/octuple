@@ -561,16 +561,6 @@ const Range_Picker_With_Aria_Labels_Story: ComponentStory<
   typeof RangePicker
 > = (args) => <DatePicker.RangePicker {...args} />;
 
-const Range_Picker_Sizes_With_Aria_Labels_Story: ComponentStory<
-  typeof RangePicker
-> = (args) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-    <DatePicker.RangePicker {...args} size={DatePickerSize.Small} />
-    <DatePicker.RangePicker {...args} size={DatePickerSize.Medium} />
-    <DatePicker.RangePicker {...args} size={DatePickerSize.Large} />
-  </div>
-);
-
 export const Single_Picker = Single_Picker_Story.bind({});
 export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});
 export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
@@ -604,8 +594,6 @@ export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
 export const Range_Picker_With_Aria_Labels =
   Range_Picker_With_Aria_Labels_Story.bind({});
-export const Range_Picker_Sizes_With_Aria_Labels =
-  Range_Picker_Sizes_With_Aria_Labels_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -635,7 +623,6 @@ export const __namedExportsOrder = [
   'Single_Status',
   'Range_Status',
   'Range_Picker_With_Aria_Labels',
-  'Range_Picker_Sizes_With_Aria_Labels',
 ];
 
 const pickerArgs: Object = {
@@ -784,4 +771,3 @@ Range_Picker.argTypes = {
 };
 
 Range_Picker_With_Aria_Labels.argTypes = Range_Picker.argTypes;
-Range_Picker_Sizes_With_Aria_Labels.argTypes = Range_Picker.argTypes;

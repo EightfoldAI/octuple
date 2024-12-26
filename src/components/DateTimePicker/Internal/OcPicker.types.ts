@@ -889,7 +889,7 @@ export type OcPickerTimeProps<DateType> = {
    */
   picker: 'time';
 } & OcPickerSharedProps<DateType> &
-  SharedTimeProps<DateType>;
+  Omit<OmitPartialProps<OcPickerPartialTimeProps<DateType>>, 'format'>;
 
 export type OcPickerProps<DateType> =
   | OcPickerBaseProps<DateType>
@@ -1133,16 +1133,6 @@ export type OcRangePickerSharedProps<DateType> = {
    * Do not use in prod
    */
   activePickerIndex?: 0 | 1;
-
-  /**
-   * Aria label for the start date input field
-   */
-  startDateInputAriaLabel?: string;
-
-  /**
-   * Aria label for the end date input field
-   */
-  endDateInputAriaLabel?: string;
 };
 
 export type OcRangePickerBaseProps<DateType> =
