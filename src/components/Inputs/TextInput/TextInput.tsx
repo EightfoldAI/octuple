@@ -488,6 +488,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         tabIndex={iconButtonProps.tabIndex}
         transparent
         variant={ButtonVariant.SystemUI}
+        aria-hidden={iconButtonProps.ariaHidden || false}
       />
     );
 
