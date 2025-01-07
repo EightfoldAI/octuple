@@ -24,6 +24,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = forwardRef(
       text,
       variant = MenuVariant.neutral,
       wrap = false,
+      containerRole,
       ...rest
     },
     ref: React.ForwardedRef<HTMLAnchorElement>
@@ -68,7 +69,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = forwardRef(
     );
 
     return (
-      <li className={menuItemClassNames}>
+      <li className={menuItemClassNames} role={containerRole}>
         <Link
           classNames={styles.menuLink}
           disabled={disabled}

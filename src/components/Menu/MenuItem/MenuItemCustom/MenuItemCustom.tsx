@@ -7,7 +7,14 @@ import styles from '../menuItem.module.scss';
 
 export const MenuItemCustom: FC<MenuItemCustomProps> = forwardRef(
   (
-    { classNames, index, onChange, size = MenuSize.medium, ...item },
+    {
+      classNames,
+      index,
+      onChange,
+      size = MenuSize.medium,
+      containerRole,
+      ...item
+    },
     ref: React.ForwardedRef<any>
   ) => {
     const menuItemClassNames: string = mergeClasses([
@@ -21,7 +28,7 @@ export const MenuItemCustom: FC<MenuItemCustomProps> = forwardRef(
     ]);
 
     return (
-      <li className={menuItemClassNames}>
+      <li className={menuItemClassNames} role={containerRole}>
         {item.render({ index, value: item, onChange, ref: ref })}
       </li>
     );

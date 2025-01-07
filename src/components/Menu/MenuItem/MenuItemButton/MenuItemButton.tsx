@@ -37,6 +37,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       value,
       variant = MenuVariant.neutral,
       wrap = false,
+      containerRole,
       ...rest
     },
     ref: React.ForwardedRef<HTMLButtonElement>
@@ -170,6 +171,10 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       return dropdownMenuItems ? dropdownMenuButton() : menuButton();
     };
 
-    return <li className={menuItemClassNames}>{renderedItem()}</li>;
+    return (
+      <li className={menuItemClassNames} role={containerRole}>
+        {renderedItem()}
+      </li>
+    );
   }
 );
