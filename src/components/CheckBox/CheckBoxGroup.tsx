@@ -107,7 +107,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
       <div
         className={checkboxGroupClassNames}
         style={style}
-        role="group"
+        role={items?.length > 1 ? 'group' : undefined}
         aria-label={ariaLabel}
         id={id}
         ref={ref}
