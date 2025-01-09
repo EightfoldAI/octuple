@@ -28,7 +28,6 @@ import { Button, ButtonShape, ButtonSize, ButtonVariant } from '../../Button';
 import { IconName } from '../../Icon';
 
 import styles from './cropper.module.scss';
-import { useResizeObserver } from '../../../hooks/useResizeObserver';
 
 const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const {
@@ -73,17 +72,6 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const mergedTheme: OcThemeName = configContextProps.noThemeContext
     ? theme
     : contextualTheme || theme;
-
-  const componentRef = useRef<HTMLDivElement>(null);
-
-  // Add ResizeObserver to adjust crop area on resize
-  useResizeObserver(componentRef, (entry) => {
-    const { width, height } = entry.contentRect;
-    const newAspect = width / height;
-    if (newAspect !== aspect) {
-      setCropSize({ width, height: width / aspect });
-    }
-  });
 
   const onMediaLoaded = useCallback(
     (mediaSize): void => {
