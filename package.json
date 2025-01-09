@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.52.19",
+  "version": "2.52.20",
   "license": "MIT",
   "sideEffects": [
     "**/*.css"
