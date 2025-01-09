@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
   useRef,
   useState,
-  useEffect,
+  useLayoutEffect,
 } from 'react';
 import { OcThemeName } from '../../ConfigProvider';
 import ThemeContext from '../../ConfigProvider/ThemeContext';
@@ -137,7 +137,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   );
 
   // Add event listener for keyboard events
-  useEffect(() => {
+  useLayoutEffect(() => {
     const cropperElement = document.getElementsByClassName(
       'reactEasyCrop_Container'
     )?.[0];
