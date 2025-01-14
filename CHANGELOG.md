@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.20](https://github.com/EightfoldAI/octuple/compare/v2.52.19...v2.52.20) (2025-01-09)
+
+### [2.52.19](https://github.com/EightfoldAI/octuple/compare/v2.52.18...v2.52.19) (2025-01-09)
+
+### Bug Fixes
+
+- added aria-label to the date range picker ([#927](https://github.com/EightfoldAI/octuple/issues/927)) ([64519fb](https://github.com/EightfoldAI/octuple/commits/64519fb8c65ea1035c6003822c88f3b44492ed2c))
+- added keyboard accesibility to the easy cropper component ([#932](https://github.com/EightfoldAI/octuple/issues/932)) ([0a8b1ff](https://github.com/EightfoldAI/octuple/commits/0a8b1ffc761e28dbfac8f143a70ecc409269f845))
+- dropdown: fixed dropdown container focus issue ([#914](https://github.com/EightfoldAI/octuple/issues/914)) ([92a9407](https://github.com/EightfoldAI/octuple/commits/92a940763e9293a6e9b13059f5e7eed7e4638f25))
+- panelHeader: Added prop to the close button ([#917](https://github.com/EightfoldAI/octuple/issues/917)) ([906ee0a](https://github.com/EightfoldAI/octuple/commits/906ee0a5dd2491f760d495bc477767a73b70f9a7))
+- scroller is interrupting with the mouse events even when it is not visible ([#920](https://github.com/EightfoldAI/octuple/issues/920)) ([35efd65](https://github.com/EightfoldAI/octuple/commits/35efd656095e824014acbbde61e15cb127d4288f))
+- tabs: added inset box shadow on focus visible ([#916](https://github.com/EightfoldAI/octuple/issues/916)) ([41039f5](https://github.com/EightfoldAI/octuple/commits/41039f5fefcff744d467bc648fe350661bad8eec))
+- two state button loader background color ([#921](https://github.com/EightfoldAI/octuple/issues/921)) ([f0b09c2](https://github.com/EightfoldAI/octuple/commits/f0b09c2c6f0ec694923767775d13a99e2c226dea))
+
 ### [2.52.18](https://github.com/EightfoldAI/octuple/compare/v2.52.17...v2.52.18) (2024-11-13)
 
 ### Bug Fixes

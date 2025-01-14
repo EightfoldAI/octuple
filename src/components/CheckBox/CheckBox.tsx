@@ -55,6 +55,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       value,
       variant = SelectorVariant.Default,
       'data-test-id': dataTestId,
+      ...rest
     },
     ref: Ref<HTMLInputElement>
   ) => {
@@ -208,6 +209,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             value={value}
             readOnly
             role={toggle ? 'switch' : 'checkbox'}
+            {...rest}
           />
           <label htmlFor={checkBoxId.current} className={labelClassNames}>
             {labelPosition == LabelPosition.Start && (
