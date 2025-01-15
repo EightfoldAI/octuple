@@ -92,7 +92,7 @@ export interface DropdownProps {
    * The tabindex of the overlay wrapper
    * @default 0
    */
-  overlayWrapperTabIndex?: number;
+  overlayTabIndex?: number;
   /**
    * Placement of the menu
    * @default bottom-start
