@@ -175,12 +175,12 @@ function injectSorter<RecordType>(
         ]),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
           const renderSortTitle = (
-            <div 
+            <div
               className={mergeClasses([
                 styles.tableColumnSorters,
                 styles.tableColumnHasSorters,
               ])}
-              onClick={(event: React.MouseEvent<HTMLElement>) => {
+              onClick={() => {
                 triggerSorter({
                   column,
                   key: columnKey,
@@ -245,7 +245,7 @@ function injectSorter<RecordType>(
             className: mergeClasses([
               cell.className,
               styles.tableColumnHasSorters,
-            ])
+            ]),
           };
         },
       };
