@@ -785,6 +785,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             // the input itself provides the focus and action.
             tabIndex: -1,
             role: 'presentation',
+            ariaHidden: true,
             iconProps: {
               path: dropdownVisible
                 ? IconName.mdiChevronUp
