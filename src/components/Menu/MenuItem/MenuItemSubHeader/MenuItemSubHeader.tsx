@@ -7,7 +7,7 @@ import styles from '../menuItem.module.scss';
 
 export const MenuItemSubHeader: FC<MenuItemSubHeaderProps> = forwardRef(
   (
-    { classNames, direction, size, text, wrap, ...rest },
+    { classNames, direction, size, text, wrap, containerRole, ...rest },
     ref: React.ForwardedRef<HTMLSpanElement>
   ) => {
     const subHeaderClassNames: string = mergeClasses([
@@ -22,7 +22,7 @@ export const MenuItemSubHeader: FC<MenuItemSubHeaderProps> = forwardRef(
       classNames,
     ]);
     return (
-      <li className={subHeaderClassNames}>
+      <li className={subHeaderClassNames} role={containerRole}>
         <span data-disabled {...rest} tabIndex={-1} ref={ref}>
           {text}
         </span>

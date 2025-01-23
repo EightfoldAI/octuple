@@ -57,6 +57,10 @@ export interface MenuItemProps {
    * @default false
    */
   wrap?: boolean;
+  /**
+   * Menu Item Container Role
+   */
+  containerRole?: string;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
