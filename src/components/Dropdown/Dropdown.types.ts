@@ -89,6 +89,11 @@ export interface DropdownProps {
    */
   overlay?: React.ReactElement;
   /**
+   * The tabindex of the overlay wrapper
+   * @default 0
+   */
+  overlayTabIndex?: number;
+  /**
    * Placement of the menu
    * @default bottom-start
    */
