@@ -43,4 +43,8 @@ export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
    * The empty component title
    */
   title?: string;
+  /**
+   * Optional heading level (1-6) for the title
+   */
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 }
