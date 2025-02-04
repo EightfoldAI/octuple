@@ -85,6 +85,11 @@ export interface DropdownProps {
    */
   onVisibleChange?: (visible: boolean) => void;
   /**
+   * If the dropdown should be shown when the user presses the shift + tab key
+   * @default true
+   */
+  toggleDropdownOnShiftTab?: boolean;
+  /**
    * The dropdown content
    */
   overlay?: React.ReactElement;
