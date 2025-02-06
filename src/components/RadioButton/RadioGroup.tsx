@@ -114,7 +114,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
           {items.map((item: RadioButtonProps) => (
             <RadioButton
               key={item.value}
-              aria-describedby={ariaDescribedBy}
+              ariaDescribedBy={ariaDescribedBy}
               allowDisabledFocus={allowDisabledFocus}
               configContextProps={configContextProps}
               disabled={mergedDisabled}
