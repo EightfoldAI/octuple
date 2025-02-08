@@ -214,6 +214,7 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
       console.log('Dropped files', e.dataTransfer.files);
     },
     size: UploadSize.Small,
+    replaceFileAriaLabel: 'Replace file',
     showUploadList: {
       removeIconButtonType: 'button',
       replaceButtonType: 'button',

@@ -61,6 +61,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     removeIcon,
     removeIconButtonType = 'button',
     replaceButtonType = 'button',
+    replaceFileAriaLabel,
     replaceFileText,
     replaceIcon,
     showDownloadIconButton: showDownloadIconButton = false,
@@ -294,6 +295,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             removeIcon={removeIcon}
             removeIconButtonType={removeIconButtonType}
             replaceButtonType={replaceButtonType}
+            replaceFileAriaLabel={replaceFileAriaLabel}
             replaceFileText={replaceFileText}
             replaceIcon={replaceIcon}
             showDownloadIconButton={showDownloadIconButton}

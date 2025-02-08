@@ -517,6 +517,10 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
    */
   replaceFileText?: string;
   /**
+   * The replace button aria label.
+   */
+  replaceFileAriaLabel?: string;
+  /**
    * The select file string.
    * @default 'Select file'
    */
@@ -724,6 +728,10 @@ export interface UploadListProps<T = any> {
    */
   replaceFileText?: string;
   /**
+   * The replace button aria label.
+   */
+  replaceFileAriaLabel?: string;
+  /**
    * Customize the replace button icon svg path.
    */
   replaceIcon?: IconName | ((file: UploadFile) => IconName);
@@ -893,6 +901,10 @@ export interface ListItemProps {
    * @default 'Replace'
    */
   replaceFileText?: string;
+  /**
+   * The replace button aria label.
+   */
+  replaceFileAriaLabel?: string;
   /**
    * Customize the replace button icon svg path.
    */

@@ -80,6 +80,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     previewFileText: defaultPreviewFileText,
     progress,
     removeFileText: defaultRemoveFileText,
+    replaceFileAriaLabel,
     replaceFileText: defaultReplaceFileText,
     selectFileText: defaultSelectFileText,
     selectMultipleFilesText: defaultSelectMultipleFilesText,
@@ -540,6 +541,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               removeIcon={removeIcon}
               removeIconButtonType={removeIconButtonType}
               replaceButtonType={replaceButtonType}
+              replaceFileAriaLabel={replaceFileAriaLabel}
               replaceFileText={replaceFileText}
               replaceIcon={replaceIcon}
               showDownloadIconButton={showDownloadIconButton}
