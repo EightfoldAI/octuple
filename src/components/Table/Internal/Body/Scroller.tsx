@@ -164,7 +164,7 @@ export const Scroller = React.forwardRef(
         }
       }
       scrollBodyRef.current.scrollTo({
-        left: scrollLeft || 50,
+        left: scrollLeft,
         behavior: 'smooth',
       });
     };
