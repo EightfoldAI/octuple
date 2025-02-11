@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.23](https://github.com/EightfoldAI/octuple/compare/v2.52.22...v2.52.23) (2025-02-10)
+
+### Bug Fixes
+
+- a11y: Fix role inheritance for select options ([#943](https://github.com/EightfoldAI/octuple/issues/943)) ([c6a3e06](https://github.com/EightfoldAI/octuple/commits/c6a3e06d4978becaa2fa21c213f854f6a9aa7001))
+- Upload container max width 100% ([#939](https://github.com/EightfoldAI/octuple/issues/939)) ([437cbb8](https://github.com/EightfoldAI/octuple/commits/437cbb8d705a9be81e6547e7f5b9ed956ec349c5))
+
 ### [2.52.22](https://github.com/EightfoldAI/octuple/compare/v2.52.21...v2.52.22) (2025-01-15)
 
 ### [2.52.21](https://github.com/EightfoldAI/octuple/compare/v2.52.21-0...v2.52.21) (2025-01-15)
