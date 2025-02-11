@@ -240,13 +240,44 @@ function injectSorter<RecordType>(
         onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
-          return {
-            ...cell,
-            className: mergeClasses([
-              cell.className,
-              styles.tableColumnHasSorters,
-            ]),
+          const originOnClick = cell.onClick;
+          const originOKeyDown = cell.onKeyDown;
+          cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
+            triggerSorter({
+              column,
+              key: columnKey,
+              sortOrder: nextSortOrder,
+              multiplePriority: getMultiplePriority(column),
+            });
+            originOnClick?.(event);
           };
+          cell.onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+            if (event.key === eventKeys.ENTER) {
+              triggerSorter({
+                column,
+                key: columnKey,
+                sortOrder: nextSortOrder,
+                multiplePriority: getMultiplePriority(column),
+              });
+              originOKeyDown?.(event);
+            }
+          };
+          // Inform the screen-reader so it can tell the visually impaired user which column is sorted
+          if (sorterOrder) {
+            if (sorterOrder === 'ascend') {
+              cell['aria-sort'] = 'ascending';
+            } else {
+              cell['aria-sort'] = 'descending';
+            }
+          }
+          // Ensures the cell has the proper role.
+          cell.role = 'columnheader';
+          cell.className = mergeClasses([
+            cell.className,
+            styles.tableColumnHasSorters,
+          ]);
+          cell.tabIndex = 0;
+          return cell;
         },
       };
     }
