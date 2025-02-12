@@ -9,8 +9,12 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
+          "aria-controls": "dp-dialog-1",
+          "aria-expanded": "false",
+          "aria-haspopup": "dialog",
           "autocomplete": "off",
           "readonly": "",
+          "role": "combobox",
           "size": "12",
           "title": "1990-09-03",
           "value": "1990-09-03",
@@ -98,15 +102,23 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
+          "aria-controls": undefined,
+          "aria-expanded": undefined,
+          "aria-haspopup": undefined,
           "autocomplete": undefined,
           "readonly": undefined,
+          "role": undefined,
           "size": undefined,
           "title": undefined,
           "value": undefined,
         },
         "x-attribsPrefix": Object {
+          "aria-controls": undefined,
+          "aria-expanded": undefined,
+          "aria-haspopup": undefined,
           "autocomplete": undefined,
           "readonly": undefined,
+          "role": undefined,
           "size": undefined,
           "title": undefined,
           "value": undefined,
@@ -181,8 +193,12 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
+            "aria-controls": "dp-dialog-1",
+            "aria-expanded": "false",
+            "aria-haspopup": "dialog",
             "autocomplete": "off",
             "readonly": "",
+            "role": "combobox",
             "size": "12",
             "title": "1990-09-03",
             "value": "1990-09-03",
@@ -195,15 +211,23 @@ LoadedCheerio {
           "prev": null,
           "type": "tag",
           "x-attribsNamespace": Object {
+            "aria-controls": undefined,
+            "aria-expanded": undefined,
+            "aria-haspopup": undefined,
             "autocomplete": undefined,
             "readonly": undefined,
+            "role": undefined,
             "size": undefined,
             "title": undefined,
             "value": undefined,
           },
           "x-attribsPrefix": Object {
+            "aria-controls": undefined,
+            "aria-expanded": undefined,
+            "aria-haspopup": undefined,
             "autocomplete": undefined,
             "readonly": undefined,
+            "role": undefined,
             "size": undefined,
             "title": undefined,
             "value": undefined,
@@ -276,8 +300,12 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
+              "aria-controls": "dp-dialog-1",
+              "aria-expanded": "false",
+              "aria-haspopup": "dialog",
               "autocomplete": "off",
               "readonly": "",
+              "role": "combobox",
               "size": "12",
               "title": "1990-09-03",
               "value": "1990-09-03",
@@ -290,15 +318,23 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "autocomplete": undefined,
               "readonly": undefined,
+              "role": undefined,
               "size": undefined,
               "title": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "autocomplete": undefined,
               "readonly": undefined,
+              "role": undefined,
               "size": undefined,
               "title": undefined,
               "value": undefined,
@@ -439,8 +475,12 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
+          "aria-controls": "dp-dialog-1",
+          "aria-expanded": "false",
+          "aria-haspopup": "dialog",
           "autocomplete": "off",
           "readonly": "",
+          "role": "combobox",
           "size": "12",
           "title": "",
           "value": "",
@@ -453,15 +493,23 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
+          "aria-controls": undefined,
+          "aria-expanded": undefined,
+          "aria-haspopup": undefined,
           "autocomplete": undefined,
           "readonly": undefined,
+          "role": undefined,
           "size": undefined,
           "title": undefined,
           "value": undefined,
         },
         "x-attribsPrefix": Object {
+          "aria-controls": undefined,
+          "aria-expanded": undefined,
+          "aria-haspopup": undefined,
           "autocomplete": undefined,
           "readonly": undefined,
+          "role": undefined,
           "size": undefined,
           "title": undefined,
           "value": undefined,
@@ -589,8 +637,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-controls": "dp-dialog-1",
+              "aria-expanded": "true",
+              "aria-haspopup": "dialog",
               "autocomplete": "off",
               "readonly": "",
+              "role": "combobox",
               "size": "12",
               "title": "",
               "value": "",
@@ -603,15 +655,23 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "autocomplete": undefined,
               "readonly": undefined,
+              "role": undefined,
               "size": undefined,
               "title": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "autocomplete": undefined,
               "readonly": undefined,
+              "role": undefined,
               "size": undefined,
               "title": undefined,
               "value": undefined,
@@ -645,7 +705,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-modal": "true",
                 "class": "picker-partial-container",
+                "data-testid": "picker-dialog",
+                "id": "dp-dialog-1",
+                "role": "dialog",
               },
               "children": Array [
                 Node {
@@ -676,10 +740,18 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-modal": undefined,
                 "class": undefined,
+                "data-testid": undefined,
+                "id": undefined,
+                "role": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-modal": undefined,
                 "class": undefined,
+                "data-testid": undefined,
+                "id": undefined,
+                "role": undefined,
               },
             },
           ],
@@ -732,7 +804,11 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-modal": "true",
                     "class": "picker-partial-container",
+                    "data-testid": "picker-dialog",
+                    "id": "dp-dialog-1",
+                    "role": "dialog",
                   },
                   "children": Array [
                     Node {
@@ -763,10 +839,18 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-modal": undefined,
                     "class": undefined,
+                    "data-testid": undefined,
+                    "id": undefined,
+                    "role": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-modal": undefined,
                     "class": undefined,
+                    "data-testid": undefined,
+                    "id": undefined,
+                    "role": undefined,
                   },
                 },
               ],
@@ -822,7 +906,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-modal": "true",
               "class": "picker-partial-container",
+              "data-testid": "picker-dialog",
+              "id": "dp-dialog-1",
+              "role": "dialog",
             },
             "children": Array [
               Node {
@@ -853,10 +941,18 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-modal": undefined,
               "class": undefined,
+              "data-testid": undefined,
+              "id": undefined,
+              "role": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-modal": undefined,
               "class": undefined,
+              "data-testid": undefined,
+              "id": undefined,
+              "role": undefined,
             },
           },
         ],
@@ -893,8 +989,12 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-controls": "dp-dialog-1",
+                    "aria-expanded": "true",
+                    "aria-haspopup": "dialog",
                     "autocomplete": "off",
                     "readonly": "",
+                    "role": "combobox",
                     "size": "12",
                     "title": "",
                     "value": "",
@@ -907,15 +1007,23 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-controls": undefined,
+                    "aria-expanded": undefined,
+                    "aria-haspopup": undefined,
                     "autocomplete": undefined,
                     "readonly": undefined,
+                    "role": undefined,
                     "size": undefined,
                     "title": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-controls": undefined,
+                    "aria-expanded": undefined,
+                    "aria-haspopup": undefined,
                     "autocomplete": undefined,
                     "readonly": undefined,
+                    "role": undefined,
                     "size": undefined,
                     "title": undefined,
                     "value": undefined,
@@ -969,8 +1077,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-controls": "dp-dialog-1",
+                "aria-expanded": "true",
+                "aria-haspopup": "dialog",
                 "autocomplete": "off",
                 "readonly": "",
+                "role": "combobox",
                 "size": "12",
                 "title": "",
                 "value": "",
@@ -983,15 +1095,23 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-controls": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
                 "autocomplete": undefined,
                 "readonly": undefined,
+                "role": undefined,
                 "size": undefined,
                 "title": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-controls": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
                 "autocomplete": undefined,
                 "readonly": undefined,
+                "role": undefined,
                 "size": undefined,
                 "title": undefined,
                 "value": undefined,
@@ -1138,6 +1258,9 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-controls": "dp-dialog-1",
+              "aria-expanded": "false",
+              "aria-haspopup": "dialog",
               "aria-label": "3334",
               "autocomplete": "off",
               "data-test": "233",
@@ -1155,6 +1278,9 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "aria-label": undefined,
               "autocomplete": undefined,
               "data-test": undefined,
@@ -1165,6 +1291,9 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "aria-label": undefined,
               "autocomplete": undefined,
               "data-test": undefined,
@@ -1311,8 +1440,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-controls": "dp-dialog-1",
+              "aria-expanded": "false",
+              "aria-haspopup": "dialog",
               "autocomplete": "off",
               "readonly": "",
+              "role": "combobox",
               "size": "12",
               "title": "",
               "value": "",
@@ -1325,15 +1458,23 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "autocomplete": undefined,
               "readonly": undefined,
+              "role": undefined,
               "size": undefined,
               "title": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-controls": undefined,
+              "aria-expanded": undefined,
+              "aria-haspopup": undefined,
               "autocomplete": undefined,
               "readonly": undefined,
+              "role": undefined,
               "size": undefined,
               "title": undefined,
               "value": undefined,

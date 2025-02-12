@@ -783,6 +783,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             // the input itself provides the focus and action.
             tabIndex: -1,
             role: 'presentation',
+            ariaHidden: true,
             iconProps: {
               path: dropdownVisible
                 ? IconName.mdiChevronUp
@@ -874,6 +875,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   options?.length > 0)
               }
               ref={dropdownRef}
+              role={'group'}
             >
               <div className={styles.selectInputWrapper}>
                 {/* When Dropdown is visible, place Pills in the reference element */}

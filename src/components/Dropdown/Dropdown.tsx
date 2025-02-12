@@ -76,6 +76,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         visible,
         width,
         ariaLabel = 'dropdown',
+        overlayTabIndex = 0,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -283,7 +284,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       };
 
       const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
-        event.stopPropagation();
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
@@ -322,9 +322,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         }
         // If there's an ariaRef, apply the a11y attributes to it, rather than the immediate child.
         if (ariaRef?.current) {
-          ariaRef.current.setAttribute('aria-controls', dropdownId);
           ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
           ariaRef.current.setAttribute('aria-haspopup', 'true');
+
+          if (!ariaRef.current.hasAttribute('aria-controls')) {
+            ariaRef.current.setAttribute('aria-controls', dropdownId);
+          }
 
           if (!ariaRef.current.hasAttribute('role')) {
             ariaRef.current.setAttribute('role', 'button');
@@ -391,7 +394,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               ref={refs.setFloating}
               style={dropdownStyles}
               className={dropdownClasses}
-              tabIndex={0}
+              tabIndex={overlayTabIndex}
               onClick={
                 closeOnDropdownClick ? toggle(false, showDropdown) : null
               }
@@ -422,7 +425,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           {getReference()}
           <ConditionalWrapper
             condition={portal}
-            wrapper={(children) => <FloatingPortal>{children}</FloatingPortal>}
+            wrapper={(children) => (
+              <FloatingPortal preserveTabOrder>{children}</FloatingPortal>
+            )}
           >
             {getDropdown()}
           </ConditionalWrapper>

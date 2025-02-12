@@ -28,6 +28,10 @@ const locale: Locale = {
   year: 'సంవత్సరం',
   yearFormat: 'YYYY',
   yearSelect: 'సంవత్సరాన్ని ఎంచుకోండి',
+  prevAriaLabel: 'మునుపటి సంవత్సరం',
+  nextAriaLabel: 'తదుపరి సంవత్సరం',
+  superPrevAriaLabel: 'మునుపటి సంవత్సరం',
+  superNextAriaLabel: 'తదుపరి సంవత్సరం',
 };
 
 export default locale;

@@ -31,6 +31,10 @@ const locale: Locale = {
   year: 'Рік',
   yearFormat: 'YYYY',
   yearSelect: 'Обрати рік',
+  prevAriaLabel: 'Попередній рік',
+  nextAriaLabel: 'Наступний рік',
+  superPrevAriaLabel: 'Попередній рік',
+  superNextAriaLabel: 'Наступний рік',
 };
 
 export default locale;

@@ -44,6 +44,7 @@ function YearPartial<DateType>(props: YearPartialProps<DateType>) {
             sourceMode === 'date' ? 'date' : 'month',
             value || viewDate
           );
+          onSelect(value || viewDate, 'mouse');
         },
       }),
   };

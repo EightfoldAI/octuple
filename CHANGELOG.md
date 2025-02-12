@@ -2,6 +2,75 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.23](https://github.com/EightfoldAI/octuple/compare/v2.52.22...v2.52.23) (2025-02-10)
+
+### Bug Fixes
+
+- a11y: Fix role inheritance for select options ([#943](https://github.com/EightfoldAI/octuple/issues/943)) ([c6a3e06](https://github.com/EightfoldAI/octuple/commits/c6a3e06d4978becaa2fa21c213f854f6a9aa7001))
+- Upload container max width 100% ([#939](https://github.com/EightfoldAI/octuple/issues/939)) ([437cbb8](https://github.com/EightfoldAI/octuple/commits/437cbb8d705a9be81e6547e7f5b9ed956ec349c5))
+
+### [2.52.22](https://github.com/EightfoldAI/octuple/compare/v2.52.21...v2.52.22) (2025-01-15)
+
+### [2.52.21](https://github.com/EightfoldAI/octuple/compare/v2.52.21-0...v2.52.21) (2025-01-15)
+
+### [2.52.21-0](https://github.com/EightfoldAI/octuple/compare/v2.52.20...v2.52.21-0) (2025-01-15)
+
+### Bug Fixes
+
+- dropdown: removed outer container tabindex ([#930](https://github.com/EightfoldAI/octuple/issues/930)) ([5d05021](https://github.com/EightfoldAI/octuple/commits/5d050217ddf34ebbd5d48870f7e1bd2f2cd2aa37))
+- eng-120721 : added role to date picker span tag ([#924](https://github.com/EightfoldAI/octuple/issues/924)) ([3a05bbb](https://github.com/EightfoldAI/octuple/commits/3a05bbb9c2708ce220c5d33b12ea9b41b1b15b43))
+- remove unused event parameter from Table sorter onClick handler ([#935](https://github.com/EightfoldAI/octuple/issues/935)) ([c44c384](https://github.com/EightfoldAI/octuple/commits/c44c384df66500c66a904c74a663c15a771a7648))
+- table cells access using shortcut key ([#934](https://github.com/EightfoldAI/octuple/issues/934)) ([0d0b03f](https://github.com/EightfoldAI/octuple/commits/0d0b03f95e0d85f6affe7010db44c39346b5831b))
+
+### [2.52.20](https://github.com/EightfoldAI/octuple/compare/v2.52.19...v2.52.20) (2025-01-09)
+
+### [2.52.19](https://github.com/EightfoldAI/octuple/compare/v2.52.18...v2.52.19) (2025-01-09)
+
+### Bug Fixes
+
+- added aria-label to the date range picker ([#927](https://github.com/EightfoldAI/octuple/issues/927)) ([64519fb](https://github.com/EightfoldAI/octuple/commits/64519fb8c65ea1035c6003822c88f3b44492ed2c))
+- added keyboard accesibility to the easy cropper component ([#932](https://github.com/EightfoldAI/octuple/issues/932)) ([0a8b1ff](https://github.com/EightfoldAI/octuple/commits/0a8b1ffc761e28dbfac8f143a70ecc409269f845))
+- dropdown: fixed dropdown container focus issue ([#914](https://github.com/EightfoldAI/octuple/issues/914)) ([92a9407](https://github.com/EightfoldAI/octuple/commits/92a940763e9293a6e9b13059f5e7eed7e4638f25))
+- panelHeader: Added prop to the close button ([#917](https://github.com/EightfoldAI/octuple/issues/917)) ([906ee0a](https://github.com/EightfoldAI/octuple/commits/906ee0a5dd2491f760d495bc477767a73b70f9a7))
+- scroller is interrupting with the mouse events even when it is not visible ([#920](https://github.com/EightfoldAI/octuple/issues/920)) ([35efd65](https://github.com/EightfoldAI/octuple/commits/35efd656095e824014acbbde61e15cb127d4288f))
+- tabs: added inset box shadow on focus visible ([#916](https://github.com/EightfoldAI/octuple/issues/916)) ([41039f5](https://github.com/EightfoldAI/octuple/commits/41039f5fefcff744d467bc648fe350661bad8eec))
+- two state button loader background color ([#921](https://github.com/EightfoldAI/octuple/issues/921)) ([f0b09c2](https://github.com/EightfoldAI/octuple/commits/f0b09c2c6f0ec694923767775d13a99e2c226dea))
+
+### [2.52.18](https://github.com/EightfoldAI/octuple/compare/v2.52.17...v2.52.18) (2024-11-13)
+
+### Bug Fixes
+
+- dropdown items are not moving to the next tab index due to stopProgation ([#911](https://github.com/EightfoldAI/octuple/issues/911)) ([d571817](https://github.com/EightfoldAI/octuple/commits/d571817c0b10e409ecdc18fd0913150cfc63c663))
+
+### [2.52.17](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.17) (2024-11-12)
+
+### Bug Fixes
+
+- auto close date picker after selection ([#907](https://github.com/EightfoldAI/octuple/issues/907)) ([5c8c0ce](https://github.com/EightfoldAI/octuple/commits/5c8c0cefe989e9cc6c78ff8f8cf5a59ae7092843))
+- dropdown auto click the element when TAB operation is invoked ([#909](https://github.com/EightfoldAI/octuple/issues/909)) ([a86ce4d](https://github.com/EightfoldAI/octuple/commits/a86ce4dd8c8341af7588ff862294c2ec3f741261))
+
+### [2.52.16](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.16) (2024-11-11)
+
+### Bug Fixes
+
+- auto close date picker after selection ([#907](https://github.com/EightfoldAI/octuple/issues/907)) ([5c8c0ce](https://github.com/EightfoldAI/octuple/commits/5c8c0cefe989e9cc6c78ff8f8cf5a59ae7092843))
+
+### [2.52.15](https://github.com/EightfoldAI/octuple/compare/v2.52.15-1...v2.52.15) (2024-11-11)
+
+### [2.52.15-1](https://github.com/EightfoldAI/octuple/compare/v2.52.14...v2.52.15-1) (2024-11-11)
+
+### Features
+
+- change version in package.json ([#905](https://github.com/EightfoldAI/octuple/issues/905)) ([0e1730e](https://github.com/EightfoldAI/octuple/commits/0e1730eaf9b6fe076110644ee8a158a04ba20867))
+- remove focus visible ([#906](https://github.com/EightfoldAI/octuple/issues/906)) ([dd6eb34](https://github.com/EightfoldAI/octuple/commits/dd6eb3493afc703d555787ff193cc74a883ff598))
+
+### [2.52.15-0](https://github.com/EightfoldAI/octuple/compare/v2.52.14...v2.52.15-0) (2024-11-11)
+
+### Features
+
+- change version in package.json ([#905](https://github.com/EightfoldAI/octuple/issues/905)) ([0e1730e](https://github.com/EightfoldAI/octuple/commits/0e1730eaf9b6fe076110644ee8a158a04ba20867))
+- remove focus visible ([#906](https://github.com/EightfoldAI/octuple/issues/906)) ([dd6eb34](https://github.com/EightfoldAI/octuple/commits/dd6eb3493afc703d555787ff193cc74a883ff598))
+
 ## [2.52.0-rollup-rc.0](https://github.com/EightfoldAI/octuple/compare/v2.51.3...v2.52.0-rollup-rc.0) (2024-06-24)
 
 ### Features

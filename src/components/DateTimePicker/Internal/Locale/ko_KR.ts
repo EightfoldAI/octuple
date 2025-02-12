@@ -29,6 +29,10 @@ const locale: Locale = {
   year: '년',
   yearFormat: 'YYYY년',
   yearSelect: '연 선택',
+  prevAriaLabel: '이전 해',
+  nextAriaLabel: '다음 해',
+  superPrevAriaLabel: '이전 해',
+  superNextAriaLabel: '다음 해',
 };
 
 export default locale;

@@ -109,6 +109,115 @@ exports[`List List is horizontal 1`] = `
 </div>
 `;
 
+exports[`List Renders ol without crashing 1`] = `
+<div>
+  <div
+    class="my-ref-class"
+    data-testid="test-list"
+  >
+    <div
+      style="padding-left: 16px;"
+    >
+      <h2>
+        Header
+      </h2>
+    </div>
+    <ol
+      class="list-container my-list-class vertical"
+      role="list"
+    >
+      <li
+        class="list-item my-list-item-class"
+        style="padding: 8px 16px;"
+      >
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User1"
+          href="#"
+          id="User1"
+          role="link"
+          target="_self"
+        >
+          User 1
+        </a>
+      </li>
+      <li
+        class="list-item my-list-item-class"
+        style="padding: 8px 16px;"
+      >
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User2"
+          href="#"
+          id="User2"
+          role="link"
+          target="_self"
+        >
+          User 2
+        </a>
+      </li>
+      <li
+        class="list-item my-list-item-class"
+        style="padding: 8px 16px;"
+      >
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User3"
+          href="#"
+          id="User3"
+          role="link"
+          target="_self"
+        >
+          User 3
+        </a>
+      </li>
+      <li
+        class="list-item my-list-item-class"
+        style="padding: 8px 16px;"
+      >
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User4"
+          href="#"
+          id="User4"
+          role="link"
+          target="_self"
+        >
+          User 4
+        </a>
+      </li>
+      <li
+        class="list-item my-list-item-class"
+        style="padding: 8px 16px;"
+      >
+        <a
+          aria-disabled="false"
+          class="link-style full-width"
+          data-testid="User5"
+          href="#"
+          id="User5"
+          role="link"
+          target="_self"
+        >
+          User 5
+        </a>
+      </li>
+    </ol>
+    <div
+      style="padding-left: 16px;"
+    >
+      <h3>
+        Footer
+      </h3>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`List Renders without crashing 1`] = `
 <div>
   <div

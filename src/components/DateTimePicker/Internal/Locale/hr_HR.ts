@@ -30,6 +30,10 @@ const locale: Locale = {
   year: 'Godina',
   yearFormat: 'YYYY',
   yearSelect: 'Odaberite godinu',
+  prevAriaLabel: 'Prethodna godina',
+  nextAriaLabel: 'Sljedeća godina',
+  superPrevAriaLabel: 'Prethodna godina',
+  superNextAriaLabel: 'Sljedeća godina',
 };
 
 export default locale;

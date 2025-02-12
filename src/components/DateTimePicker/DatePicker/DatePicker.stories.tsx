@@ -7,6 +7,7 @@ import DatePicker, { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
 import { ButtonVariant } from '../../Button';
 import { Stack } from '../../Stack';
+import { ConfigProvider } from '../../ConfigProvider';
 
 export default {
   title: 'Date Picker',
@@ -90,6 +91,26 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
+  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
+  return (
+    <ConfigProvider themeOptions={{ name: 'blue' }}>
+      <Stack direction="vertical" flexGap="m">
+        <DatePicker {...args} onChange={onChange} />
+        <DatePicker {...args} onChange={onChange} picker="week" />
+        <DatePicker {...args} onChange={onChange} picker="month" />
+        <DatePicker {...args} onChange={onChange} picker="quarter" />
+        <DatePicker {...args} onChange={onChange} picker="year" />
+      </Stack>
+    </ConfigProvider>
+  );
+};
+
+const Single_Picker_TrapFocus_Story: ComponentStory<typeof DatePicker> = (
+  args
+) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -536,7 +557,12 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
+const Range_Picker_With_Aria_Labels_Story: ComponentStory<
+  typeof RangePicker
+> = (args) => <DatePicker.RangePicker {...args} />;
+
 export const Single_Picker = Single_Picker_Story.bind({});
+export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});
 export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
 export const Single_Picker_Disabled = Single_Picker_Disabled_Story.bind({});
 export const Single_Picker_Disabled_Date_and_Time =
@@ -566,12 +592,15 @@ export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
+export const Range_Picker_With_Aria_Labels =
+  Range_Picker_With_Aria_Labels_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Single_Picker',
+  'Single_Picker_TrapFocus',
   'Single_Picker_Readonly',
   'Single_Picker_Disabled',
   'Single_Picker_Disabled_Date_and_Time',
@@ -593,6 +622,7 @@ export const __namedExportsOrder = [
   'Range_Borderless',
   'Single_Status',
   'Range_Status',
+  'Range_Picker_With_Aria_Labels',
 ];
 
 const pickerArgs: Object = {
@@ -612,6 +642,11 @@ const pickerArgs: Object = {
 };
 
 Single_Picker.args = {
+  ...pickerArgs,
+  trapFocus: false,
+};
+
+Single_Picker_TrapFocus.args = {
   ...pickerArgs,
 };
 
@@ -720,3 +755,19 @@ Range_Status.args = {
   ...pickerArgs,
   showToday: false,
 };
+
+// Add argTypes specifically for RangePicker stories
+Range_Picker.argTypes = {
+  startDateInputAriaLabel: {
+    control: { type: 'text' },
+    description: 'Aria label for the start date input',
+    defaultValue: 'Start date',
+  },
+  endDateInputAriaLabel: {
+    control: { type: 'text' },
+    description: 'Aria label for the end date input',
+    defaultValue: 'End date',
+  },
+};
+
+Range_Picker_With_Aria_Labels.argTypes = Range_Picker.argTypes;

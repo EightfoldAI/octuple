@@ -9,6 +9,7 @@ import {
 import { addGlobalMouseDownEvent, getTargetFromEvent } from '../Utils/uiUtil';
 
 export default function usePickerInput({
+  trapFocus,
   open,
   value,
   isClickOutside,
@@ -22,6 +23,7 @@ export default function usePickerInput({
   onBlur,
   changeOnBlur,
 }: {
+  trapFocus?: boolean;
   open: boolean;
   value: string;
   isClickOutside: (clickElement: EventTarget | null) => boolean;
@@ -39,10 +41,18 @@ export default function usePickerInput({
   changeOnBlur?: boolean;
 }): [
   React.DOMAttributes<HTMLInputElement>,
-  { focused: boolean; typing: boolean }
+  {
+    focused: boolean;
+    typing: boolean;
+    trap: boolean;
+    setTrap: (value: boolean) => void;
+  }
 ] {
   const [typing, setTyping] = useState(false);
   const [focused, setFocused] = useState(false);
+  const [trap, setTrap] = useState(false);
+
+  const isTrapEnabled = trapFocus && trap;
 
   /**
    * Prevent blur to handle open event when user click outside,
@@ -56,6 +66,13 @@ export default function usePickerInput({
 
   const preventDefaultRef: React.MutableRefObject<boolean> =
     useRef<boolean>(false);
+
+  const updateFocusTrap = (value: boolean) => {
+    if (!trapFocus) {
+      return;
+    }
+    setTrap(value);
+  };
 
   const inputProps: React.DOMAttributes<HTMLInputElement> = {
     onMouseDown: () => {
@@ -86,6 +103,7 @@ export default function usePickerInput({
         case eventKeys.TAB: {
           if (typing && open && !e.shiftKey) {
             setTyping(false);
+            updateFocusTrap(true);
             e.preventDefault();
           } else if (!typing && open) {
             if (!forwardKeyDown(e) && e.shiftKey) {
@@ -97,6 +115,7 @@ export default function usePickerInput({
         }
 
         case eventKeys.ESCAPE: {
+          updateFocusTrap(false);
           setTyping(true);
           onCancel();
           return;
@@ -114,6 +133,7 @@ export default function usePickerInput({
     onFocus: (e: React.FocusEvent<HTMLInputElement, Element>): void => {
       setTyping(true);
       setFocused(true);
+      updateFocusTrap(false);
 
       if (onFocus) {
         onFocus(e);
@@ -122,6 +142,7 @@ export default function usePickerInput({
 
     onBlur: (e: React.FocusEvent<HTMLInputElement, Element>): void => {
       if (
+        isTrapEnabled ||
         preventBlurRef.current ||
         (canUseDocElement() && !isClickOutside(document.activeElement))
       ) {
@@ -183,10 +204,13 @@ export default function usePickerInput({
           });
         } else if (!changeOnBlur && (!focused || clickedOutside)) {
           triggerOpen(false);
+        } else if (isTrapEnabled && clickedOutside) {
+          updateFocusTrap(false);
+          triggerOpen(false);
         }
       }
     })
   );
 
-  return [inputProps, { focused, typing }];
+  return [inputProps, { focused, typing, trap, setTrap: updateFocusTrap }];
 }

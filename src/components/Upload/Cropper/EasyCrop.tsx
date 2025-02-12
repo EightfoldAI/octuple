@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   useRef,
   useState,
+  useLayoutEffect,
 } from 'react';
 import { OcThemeName } from '../../ConfigProvider';
 import ThemeContext from '../../ConfigProvider/ThemeContext';
@@ -103,6 +104,49 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
     }),
     [rotateVal]
   );
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      const step = 5;
+      setCrop((prev) => {
+        let newX = prev.x;
+        let newY = prev.y;
+
+        switch (event.key) {
+          case 'ArrowLeft':
+            newX = Math.max(prev.x - step, -cropSize.width / 2);
+            break;
+          case 'ArrowRight':
+            newX = Math.min(prev.x + step, cropSize.width / 2);
+            break;
+          case 'ArrowUp':
+            newY = Math.max(prev.y - step, -cropSize.height / 2);
+            break;
+          case 'ArrowDown':
+            newY = Math.min(prev.y + step, cropSize.height / 2);
+            break;
+          default:
+            return prev;
+        }
+
+        event.preventDefault();
+        return { x: newX, y: newY };
+      });
+    },
+    [cropSize]
+  );
+
+  // Add event listener for keyboard events
+  useLayoutEffect(() => {
+    const cropperElement = document.getElementsByClassName(
+      'reactEasyCrop_Container'
+    )?.[0];
+    cropperElement?.setAttribute('tabindex', '0'); // to make it focusable
+    cropperElement?.addEventListener('keydown', handleKeyDown);
+    return () => {
+      cropperElement?.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   return (
     <>

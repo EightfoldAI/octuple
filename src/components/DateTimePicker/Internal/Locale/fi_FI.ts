@@ -32,6 +32,10 @@ const locale: Locale = {
   year: 'Vuosi',
   yearFormat: 'YYYY',
   yearSelect: 'Valitse vuosi',
+  prevAriaLabel: 'Edellinen vuosi',
+  nextAriaLabel: 'Seuraava vuosi',
+  superPrevAriaLabel: 'Edellinen vuosi',
+  superNextAriaLabel: 'Seuraava vuosi',
 };
 
 export default locale;

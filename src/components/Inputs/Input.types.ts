@@ -100,6 +100,11 @@ export interface InputIconButtonProps {
    * Leverage this to programatically disable the focus for the button as needed.
    */
   tabIndex?: number;
+  /**
+   * Whether or not to apply the aria-hidden attribute to the icon button.
+   * @default false
+   */
+  ariaHidden?: boolean;
 }
 
 export interface ReadOnlyProps {

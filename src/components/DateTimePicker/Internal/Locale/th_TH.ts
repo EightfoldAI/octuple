@@ -30,6 +30,10 @@ const locale: Locale = {
   year: 'ปี',
   yearFormat: 'YYYY',
   yearSelect: 'เลือกปี',
+  prevAriaLabel: 'ปีก่อนหน้า',
+  nextAriaLabel: 'ปีถัดไป',
+  superPrevAriaLabel: 'ปีก่อนหน้า',
+  superNextAriaLabel: 'ปีถัดไป',
 };
 
 export default locale;

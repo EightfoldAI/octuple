@@ -49,6 +49,7 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
         },
         onEnter: (): void => {
           onPartialChange('year', viewDate);
+          onSelect(viewDate, 'mouse');
         },
       }),
   };

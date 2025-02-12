@@ -29,6 +29,10 @@ const locale: Locale = {
   year: 'Rok',
   yearFormat: 'YYYY',
   yearSelect: 'Vyberte rok',
+  prevAriaLabel: 'Předchozí rok',
+  nextAriaLabel: 'Následující rok',
+  superPrevAriaLabel: 'Předchozí rok',
+  superNextAriaLabel: 'Následující rok',
 };
 
 export default locale;

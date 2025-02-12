@@ -133,6 +133,22 @@ export type Locale = {
    * The picker month abbreviation text.
    */
   shortMonths?: string[];
+  /**
+   * The prev aria label.
+   */
+  prevAriaLabel?: string;
+  /**
+   * The next aria label.
+   */
+  nextAriaLabel?: string;
+  /**
+   * The super prev aria label.
+   */
+  superPrevAriaLabel?: string;
+  /**
+   * The super next aria label.
+   */
+  superNextAriaLabel?: string;
 };
 
 export type PartialMode =
@@ -584,6 +600,11 @@ export type OcPickerRefConfig = {
 };
 
 export type OcPickerSharedProps<DateType> = {
+  /**
+   * add focustrap on date picker.
+   * @default false
+   */
+  trapFocus?: boolean;
   /**
    * Show the clear button.
    * @default true
