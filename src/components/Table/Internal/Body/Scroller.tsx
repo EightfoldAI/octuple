@@ -243,6 +243,7 @@ export const Scroller = React.forwardRef(
                 ? 'unset'
                 : startButtonLtrOffset + BUTTON_PADDING,
             opacity: startButtonVisible && visible ? 1 : 0,
+            visibility: startButtonVisible && visible ? 'visible' : 'hidden',
             right:
               direction === 'rtl'
                 ? startButtonRtlOffset + BUTTON_PADDING
@@ -275,6 +276,7 @@ export const Scroller = React.forwardRef(
                   BUTTON_PADDING
                 : 'unset',
             opacity: endButtonVisible && visible ? 1 : 0,
+            visibility: endButtonVisible && visible ? 'visible' : 'hidden',
             right:
               direction === 'rtl'
                 ? 'unset'
