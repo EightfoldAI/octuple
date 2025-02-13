@@ -24,7 +24,7 @@ import styles from '../octable.module.scss';
 
 const BUTTON_HEIGHT: number = 36;
 const BUTTON_PADDING: number = 2;
-const DEFAULT_SCROLL_WIDTH:number = 100;
+const DEFAULT_SCROLL_WIDTH: number = 100;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
