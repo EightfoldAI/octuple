@@ -24,6 +24,7 @@ import styles from '../octable.module.scss';
 
 const BUTTON_HEIGHT: number = 36;
 const BUTTON_PADDING: number = 2;
+const DEFAULT_SCROLL_WIDTH:number = 100;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
@@ -55,7 +56,7 @@ export const Scroller = React.forwardRef(
             if (!column.fixed) {
               acc.widths += (column.width ||
                 (window.innerWidth && window.innerWidth / 2) ||
-                100) as number;
+                DEFAULT_SCROLL_WIDTH) as number;
               acc.columns.push(acc.widths);
             }
             return acc;
