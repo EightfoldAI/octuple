@@ -802,7 +802,6 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             size === StepperSize.Small &&
                             layout === 'horizontal' && (
                               <hr
-                                role='presentation'
                                 aria-hidden='true'
                                 className={mergeClasses([
                                   styles.separator,
