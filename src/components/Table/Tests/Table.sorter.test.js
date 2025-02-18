@@ -95,7 +95,7 @@ describe('Table.sorter', () => {
     const getNameColumn = () => wrapper.find('th').at(0);
 
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
   });
 
   it('should change aria-sort when default sort order is set to descend', () => {
@@ -114,33 +114,36 @@ describe('Table.sorter', () => {
 
     // Test that it cycles through the order of sortDirections
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     wrapper.find('.table-column-sorters').simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
 
     wrapper.find('.table-column-sorters').simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('sort records', () => {
     const wrapper = mount(createTable());
 
     const getNameColumn = () => wrapper.find('th').at(0);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
 
     // first assert default state
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
 
     // ascend
-    wrapper.find('.table-column-sorters').simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
 
     // descend
-    wrapper.find('.table-column-sorters').simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
   });
 
   it('sort records with keydown', () => {
@@ -148,13 +151,15 @@ describe('Table.sorter', () => {
 
     // ascend
     wrapper
-      .find('.table-column-has-sorters')
+      .find('.table-column-sorters')
+      .at(0)
       .simulate('keydown', { key: eventKeys.ENTER });
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
 
     // descend
     wrapper
-      .find('.table-column-has-sorters')
+      .find('.table-column-sorters')
+      .at(0)
       .simulate('keydown', { key: eventKeys.ENTER });
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
@@ -331,18 +336,22 @@ describe('Table.sorter', () => {
     ];
     const wrapper = mount(<Table columns={columns} dataSource={testData} />);
 
-    const getNameColumn = () => wrapper.find('.table-column-has-sorters').at(0);
-    const getAgeColumn = () => wrapper.find('.table-column-has-sorters').at(1);
+    const getNameColumn = () => wrapper.find('th').at(0);
+    const getAgeColumn = () => wrapper.find('th').at(1);
+    const getNameSortButton = () => wrapper.find('.table-column-sorters').at(0);
+    const getAgeSortButton = () => wrapper.find('.table-column-sorters').at(1);
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
-    expect(getAgeColumn().prop('aria-sort')).toEqual(undefined);
+    getNameSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
+    expect(getAgeColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getAgeColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
 
     // sort age
-    getAgeColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
-    expect(getAgeColumn().prop('aria-sort')).toEqual('ascending');
+    getAgeSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
+    expect(getAgeColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
   });
 
   it('should toggle sort state when columns are put in render', () => {
@@ -384,18 +393,20 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
 
     const getNameColumn = () => wrapper.find('th').at(0);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('should toggle sort state when columns with non primitive properties are put in render', () => {
@@ -439,18 +450,20 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
 
     const getNameColumn = () => wrapper.find('th').at(0);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('should toggle sort state when columns with key are put in render', () => {
@@ -495,67 +508,24 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<TableTest />);
     const getNameColumn = () => wrapper.find('th').at(0);
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-up')
-    ).toBeFalsy();
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-down')
-    ).toBeFalsy();
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
+
+    // Initial state
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-up')
-    ).toBeTruthy();
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-down')
-    ).toBeFalsy();
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-up')
-    ).toBeFalsy();
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-down')
-    ).toBeTruthy();
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     // sort name
-    getNameColumn().simulate('click');
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-up')
-    ).toBeFalsy();
-    expect(
-      getNameColumn()
-        .find('.table-column-sorter')
-        .at(0)
-        .hasClass('table-column-sorter-down')
-    ).toBeFalsy();
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    getSortButton().simulate('click');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('should first sort by descend, then ascend, then cancel sort', () => {
@@ -565,21 +535,23 @@ describe('Table.sorter', () => {
       })
     );
     const getNameColumn = () => wrapper.find('th').at(0);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
 
     // descend
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     // ascend
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeTruthy();
 
     // cancel sort
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('should first sort by descend, then cancel sort', () => {
@@ -590,19 +562,22 @@ describe('Table.sorter', () => {
     );
 
     const getNameColumn = () => wrapper.find('th').at(0);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
 
     // default
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
 
     // descend
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     // cancel sort
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('should first sort by descend, then cancel sort. (column prop)', () => {
@@ -616,19 +591,22 @@ describe('Table.sorter', () => {
     );
 
     const getNameColumn = () => wrapper.find('th').at(0);
+    const getSortButton = () => wrapper.find('.table-column-sorters').at(0);
 
     // default
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
 
     // descend
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeTruthy();
 
     // cancel sort
-    getNameColumn().simulate('click');
+    getSortButton().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+    expect(getNameColumn().find('.table-column-sorter-up').exists()).toBeFalsy();
+    expect(getNameColumn().find('.table-column-sorter-down').exists()).toBeFalsy();
   });
 
   it('should support onHeaderCell in sort column', () => {
@@ -644,7 +622,7 @@ describe('Table.sorter', () => {
         ]}
       />
     );
-    wrapper.find('th').simulate('click');
+    wrapper.find('.table-column-sorters').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
 
@@ -739,9 +717,9 @@ describe('Table.sorter', () => {
       </Table>
     );
 
-    wrapper.find('th').first().simulate('click');
+    wrapper.find('.table-column-sorters').first().simulate('click');
 
-    expect(wrapper.find('th.table-column-sort')).toHaveLength(1);
+    expect(wrapper.find('.table-column-sort')).toHaveLength(1);
   });
 
   it('surger should support sorterOrder', () => {

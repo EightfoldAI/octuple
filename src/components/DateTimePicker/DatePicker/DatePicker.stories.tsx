@@ -557,6 +557,10 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
+const Range_Picker_With_Aria_Labels_Story: ComponentStory<
+  typeof RangePicker
+> = (args) => <DatePicker.RangePicker {...args} />;
+
 export const Single_Picker = Single_Picker_Story.bind({});
 export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});
 export const Single_Picker_Readonly = Single_Picker_Readonly_Story.bind({});
@@ -588,6 +592,8 @@ export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
+export const Range_Picker_With_Aria_Labels =
+  Range_Picker_With_Aria_Labels_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -616,6 +622,7 @@ export const __namedExportsOrder = [
   'Range_Borderless',
   'Single_Status',
   'Range_Status',
+  'Range_Picker_With_Aria_Labels',
 ];
 
 const pickerArgs: Object = {
@@ -748,3 +755,19 @@ Range_Status.args = {
   ...pickerArgs,
   showToday: false,
 };
+
+// Add argTypes specifically for RangePicker stories
+Range_Picker.argTypes = {
+  startDateInputAriaLabel: {
+    control: { type: 'text' },
+    description: 'Aria label for the start date input',
+    defaultValue: 'Start date',
+  },
+  endDateInputAriaLabel: {
+    control: { type: 'text' },
+    description: 'Aria label for the end date input',
+    defaultValue: 'End date',
+  },
+};
+
+Range_Picker_With_Aria_Labels.argTypes = Range_Picker.argTypes;
