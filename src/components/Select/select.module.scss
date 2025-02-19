@@ -165,6 +165,7 @@ $multi-select-count-offset: 54px;
 .selected-option {
   background-color: var(--primary-background1-color);
   color: var(--primary-color);
+  width: fit-content;
 }
 
 .select-menu-empty {
