@@ -8,6 +8,7 @@ import {
   DropdownMenuItemProps,
 } from './MenuItem/MenuItem.types';
 import { ButtonProps } from '../Button';
+import { MenuRenderFunction } from './Menu.shared.types';
 
 export enum MenuVariant {
   disruptive = 'disruptive',
@@ -93,4 +94,5 @@ export interface DropdownMenuProps extends MenuProps {
    * @returns (event: React.KeyboardEvent) => void
    */
   referenceOnKeydown?: (event: React.KeyboardEvent) => void;
+  menuRenderer?: MenuRenderFunction;
 }

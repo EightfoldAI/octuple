@@ -46,6 +46,7 @@ import {
   mergeClasses,
   RenderProps,
 } from '../../shared/utilities';
+import { MenuRendererProps } from './Menu.shared.types';
 
 import dropdownStyles from '../Dropdown/dropdown.module.scss';
 import menuStyles from './menu.module.scss';
@@ -325,6 +326,7 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
       tabIndex={activeIndex === index && 0}
       type={item.type ?? MenuItemType.button}
       variant={props.variant}
+      menuRenderer={props.menuRenderer}
       {...item}
       {...getItemProps()}
     />
@@ -425,11 +427,25 @@ export const CascadingMenu: FC<DropdownMenuProps> = forwardRef<
     if (parentId === null) {
       return (
         <FloatingTree>
-          <MenuComponent {...props} ref={ref} />
+          <MenuComponent
+            {...props}
+            ref={ref}
+            menuRenderer={(rendererProps: MenuRendererProps) => (
+              <CascadingMenu {...rendererProps} />
+            )}
+          />
         </FloatingTree>
       );
     }
 
-    return <MenuComponent {...props} ref={ref} />;
+    return (
+      <MenuComponent
+        {...props}
+        ref={ref}
+        menuRenderer={(rendererProps: MenuRendererProps) => (
+          <CascadingMenu {...rendererProps} />
+        )}
+      />
+    );
   }
 );

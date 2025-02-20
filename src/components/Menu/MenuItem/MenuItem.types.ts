@@ -4,6 +4,7 @@ import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
 import { ButtonProps } from '../../Button';
+import { MenuRenderFunction } from '../Menu.shared.types';
 
 export interface MenuIconProps extends Omit<IconProps, 'size'> {}
 
@@ -57,6 +58,10 @@ export interface MenuItemProps {
    * @default false
    */
   wrap?: boolean;
+  /**
+   * Menu renderer for nested menus
+   */
+  menuRenderer?: MenuRenderFunction;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
