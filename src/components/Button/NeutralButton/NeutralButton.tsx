@@ -1,15 +1,15 @@
 'use client';
 
 import React, { FC, Ref } from 'react';
+import { Button } from '../Button';
 import {
-  Button,
   ButtonIconAlign,
   ButtonProps,
   ButtonShape,
   ButtonSize,
   ButtonTextAlign,
   ButtonVariant,
-} from '../';
+} from '../Button.types';
 
 // TODO: Remove in Octuple v3.0.0, use `<Button variant={ButtonVariant.Neutral} />` instead.
 export const NeutralButton: FC<ButtonProps> = React.forwardRef(

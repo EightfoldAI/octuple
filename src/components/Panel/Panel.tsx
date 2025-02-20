@@ -12,7 +12,7 @@ import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
-import { PanelLocale, PanelProps, PanelRef, PanelSize } from './';
+import { PanelLocale, PanelProps, PanelRef, PanelSize } from './Panel.types';
 import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { Portal } from '../Portal';
