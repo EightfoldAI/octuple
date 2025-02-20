@@ -33,7 +33,12 @@ import {
   useMergeRefs,
   useRole,
 } from '@floating-ui/react';
-import { DropdownMenuProps, MenuItemTypes, MenuSize } from './Menu.types';
+import {
+  DropdownMenuProps,
+  MenuItemTypes,
+  MenuSize,
+  MenuRendererProps,
+} from './Menu.types';
 import { MenuItemType } from './MenuItem/MenuItem.types';
 import { MenuItem } from './MenuItem/MenuItem';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
@@ -46,7 +51,6 @@ import {
   mergeClasses,
   RenderProps,
 } from '../../shared/utilities';
-import { MenuRendererProps } from './Menu.shared.types';
 
 import dropdownStyles from '../Dropdown/dropdown.module.scss';
 import menuStyles from './menu.module.scss';

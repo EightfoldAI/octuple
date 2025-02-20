@@ -1,10 +1,14 @@
 import React from 'react';
-import { DropdownMenuProps, MenuSize, MenuVariant } from '../Menu.types';
+import {
+  DropdownMenuProps,
+  MenuSize,
+  MenuVariant,
+  MenuRenderFunction,
+} from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
 import { ButtonProps } from '../../Button';
-import { MenuRenderFunction } from '../Menu.shared.types';
 
 export interface MenuIconProps extends Omit<IconProps, 'size'> {}
 
