@@ -30,7 +30,7 @@
     &:first-child {
       padding-left: 0;
       .tab-indicator {
-        width: calc(100% - calc(#{$space-xl / 2}));
+        width: calc(100% - $space-xl / 2);
       }
     }
 

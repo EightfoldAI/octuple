@@ -1,6 +1,8 @@
 // strip units helper
+@use 'sass:math';
+
 @function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+  @return math.div($number, ($number * 0 + 1));
 }
 
 $picker-input-padding-vertical: max(
@@ -8,11 +10,12 @@ $picker-input-padding-vertical: max(
       round(
           (
               (
-                (
-                    strip-units($picker-input-height-s) -
-                      strip-units($picker-font-size-m) *
-                      strip-units($picker-line-height-m)
-                  ) / 2
+                math.div(
+                  strip-units($picker-input-height-s) -
+                    strip-units($picker-font-size-m) *
+                    strip-units($picker-line-height-m),
+                  2
+                )
               )
             ) * 10
         ) / 10
