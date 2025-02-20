@@ -1,28 +1,26 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import {
-  BelowLargeImg,
-  BelowMediumImg,
-  BelowSmallImg,
-  BelowUpskillingLargeImg,
-  BelowUpskillingMediumImg,
-  BelowUpskillingSmallImg,
-  ExceedLargeImg,
-  ExceedMediumImg,
-  ExceedSmallImg,
-  ExceedUpskillingLargeImg,
-  ExceedUpskillingMediumImg,
-  ExceedUpskillingSmallImg,
-  MeetLargeImg,
-  MeetMediumImg,
-  MeetSmallImg,
-  MeetUpskillingLargeImg,
-  MeetUpskillingMediumImg,
-  MeetUpskillingSmallImg,
-  UpskillingLargeImg,
-  UpskillingMediumImg,
-  UpskillingSmallImg,
-} from '.';
+import { BelowLargeImg } from './SVG/BelowLargeImg';
+import { BelowMediumImg } from './SVG/BelowMediumImg';
+import { BelowSmallImg } from './SVG/BelowSmallImg';
+import { BelowUpskillingLargeImg } from './SVG/BelowUpskillingLargeImg';
+import { BelowUpskillingMediumImg } from './SVG/BelowUpskillingMediumImg';
+import { BelowUpskillingSmallImg } from './SVG/BelowUpskillingSmallImg';
+import { ExceedLargeImg } from './SVG/ExceedLargeImg';
+import { ExceedMediumImg } from './SVG/ExceedMediumImg';
+import { ExceedSmallImg } from './SVG/ExceedSmallImg';
+import { ExceedUpskillingLargeImg } from './SVG/ExceedUpskillingLargeImg';
+import { ExceedUpskillingMediumImg } from './SVG/ExceedUpskillingMediumImg';
+import { ExceedUpskillingSmallImg } from './SVG/ExceedUpskillingSmallImg';
+import { MeetLargeImg } from './SVG/MeetLargeImg';
+import { MeetMediumImg } from './SVG/MeetMediumImg';
+import { MeetSmallImg } from './SVG/MeetSmallImg';
+import { MeetUpskillingLargeImg } from './SVG/MeetUpskillingLargeImg';
+import { MeetUpskillingMediumImg } from './SVG/MeetUpskillingMediumImg';
+import { MeetUpskillingSmallImg } from './SVG/MeetUpskillingSmallImg';
+import { UpskillingLargeImg } from './SVG/UpskillingLargeImg';
+import { UpskillingMediumImg } from './SVG/UpskillingMediumImg';
+import { UpskillingSmallImg } from './SVG/UpskillingSmallImg';
 import { OcThemeName } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { DropdownProps } from '../Dropdown';

@@ -14,7 +14,7 @@ import {
   SelectorSize,
   SelectorVariant,
   SelectorWidth,
-} from './';
+} from './Checkbox.types';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
