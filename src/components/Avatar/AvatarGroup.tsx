@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Ref } from 'react';
+import React, { Ref, useEffect } from 'react';
 import { Avatar, AvatarGroupProps, AvatarGroupVariant } from '.';
 import { List } from '../List';
 import { Tooltip } from '../Tooltip';
@@ -26,12 +26,34 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       size,
       style,
       type,
+      ariaLabel,
+      roleSet,
+      tooltipId,
       ...rest
     },
     ref: Ref<HTMLDivElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
     const maxCount: number = maxProps?.count;
+
+    useEffect(() => {
+      const elements = document.querySelectorAll('#avatar-group-max-count');
+      elements.forEach((elem) => {
+        if (ariaLabel) {
+          elem.setAttribute(
+            'aria-label',
+            `${numChildren - maxCount} more ${ariaLabel}`
+          );
+        }
+        if (roleSet) {
+          elem.setAttribute('role', `${roleSet}`);
+        }
+        if (tooltipId) {
+          elem.setAttribute('aria-describedby', `${tooltipId}`);
+          elem.setAttribute('aria-owns', tooltipId);
+        }
+      });
+    }, []);
 
     const avatarGroupClassNames: string = mergeClasses([
       styles.avatarGroup,
@@ -68,6 +90,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       string | React.JSXElementConstructor<any>
     > = (
       <Avatar
+        id="avatar-group-max-count"
         size={size}
         type={type}
         fontSize={styles.maxCountFontSize}
@@ -95,6 +118,8 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           >
         ): JSX.Element => (
           <Tooltip
+            tabIndex={-1}
+            id={tooltipId}
             {...maxProps.tooltipProps}
             classNames={mergeClasses([
               styles.avatarGroupTooltip,

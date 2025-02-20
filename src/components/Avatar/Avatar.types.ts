@@ -267,4 +267,7 @@ export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
    * @default 'square'
    */
   type?: 'round' | 'square';
+  ariaLabel?: string;
+  roleSet?: string;
+  tooltipId?: string;
 }

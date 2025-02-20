@@ -257,6 +257,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
       style,
       theme,
       tabIndex = 0,
+      id = 'avatar-id',
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -290,6 +291,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
     return (
       <div
+        id={id}
         ref={ref}
         className={avatarClasses}
         onClick={onClick}
@@ -317,7 +319,7 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
       onMouseEnter,
       onMouseLeave,
       style,
-      tabIndex
+      tabIndex,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -369,6 +371,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       tooltipProps = undefined,
       type = 'square',
       tabIndex = 0,
+      id = 'avatar-id',
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -582,6 +585,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         )}
       >
         <AvatarFallback
+          id={id}
           classNames={wrapperClassNames}
           hashingFunction={hashingFunction}
           onClick={onClick}
