@@ -75,6 +75,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         trigger = 'click',
         visible,
         width,
+        ariaLabel = 'dropdown',
         overlayTabIndex = 0,
       },
       ref: React.ForwardedRef<DropdownRef>
@@ -411,6 +412,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           className={mainWrapperClasses}
           style={style}
           ref={refs.setReference}
+          ariaLabel={ariaLabel}
           {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
             ? {
                 [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
