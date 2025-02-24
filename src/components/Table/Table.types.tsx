@@ -13,7 +13,7 @@ import type { PaginationProps } from '../Pagination';
 import type { Breakpoint } from '../../shared/utilities';
 import { tuple } from '../../shared/utilities';
 import type { INTERNAL_SELECTION_ITEM } from './Hooks/useSelection';
-import { FilterState } from './Hooks/useFilter';
+import { FilterState } from './Hooks/useFilter/utils';
 import { SortState } from './Hooks/useSorter';
 import { SpinnerProps } from '../Spinner';
 import type { Size } from '../ConfigProvider/SizeContext';

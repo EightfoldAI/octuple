@@ -11,7 +11,7 @@ import {
   ButtonTextAlign,
   ButtonVariant,
   SplitButtonProps,
-} from '../';
+} from '../Button.types';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { InnerNudge, NudgeAnimation } from '../Nudge';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';

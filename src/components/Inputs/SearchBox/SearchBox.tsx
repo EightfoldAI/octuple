@@ -13,14 +13,14 @@ import {
 } from '../../ConfigProvider';
 import ThemeContext from '../../ConfigProvider/ThemeContext';
 import { IconName } from '../../Icon';
+import { TextInput } from '../TextInput/TextInput';
 import {
   SearchBoxProps,
-  TextInput,
   TextInputIconAlign,
   TextInputShape,
   TextInputSize,
   TextInputWidth,
-} from '../index';
+} from '../Input.types';
 import { FormItemInputContext } from '../../Form/Context';
 import { getMergedStatus } from '../../../shared/utilities';
 
@@ -68,7 +68,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       readonly = false,
       readOnlyProps,
       reset = false,
-      role,
+      role = 'combobox',
       searchButtonAriaLabel,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,

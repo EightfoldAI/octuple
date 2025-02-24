@@ -21,7 +21,7 @@ import {
   AccordionShape,
   AccordionSize,
   AccordionSummaryProps,
-} from './';
+} from './Accordion.types';
 import { Badge } from '../Badge';
 import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { Icon, IconName } from '../Icon';

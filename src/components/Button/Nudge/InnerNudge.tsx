@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, Ref } from 'react';
-import { NudgeAnimation, InnerNudgeProps } from './';
+import { NudgeAnimation, InnerNudgeProps } from './Nudge.types';
 
 export const InnerNudge: FC<InnerNudgeProps> = React.forwardRef(
   (props: InnerNudgeProps, ref: Ref<HTMLSpanElement>) => {

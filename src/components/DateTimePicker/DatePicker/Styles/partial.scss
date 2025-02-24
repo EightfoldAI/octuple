@@ -343,7 +343,7 @@ $picker-time-partial-cell-height: 28px;
 
   &-decade-partial {
     .picker-cell-inner {
-      padding: 0 ($space-xs / 2);
+      padding: 0 calc($space-xs / 2);
     }
 
     .picker-cell:before {
@@ -486,7 +486,7 @@ $picker-time-partial-cell-height: 28px;
             width: 100%;
             height: $picker-time-partial-cell-height;
             margin: 0;
-            padding: 0 0 0 (($picker-time-partial-column-width - 28px) / 2);
+            padding: 0 0 0 calc(($picker-time-partial-column-width - 28px) / 2);
             color: var(--picker-cell-foreground-color);
             line-height: $picker-time-partial-cell-height;
             border-radius: 0;

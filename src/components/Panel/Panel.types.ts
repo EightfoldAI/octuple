@@ -274,6 +274,10 @@ export interface PanelHeaderProps extends OcBaseProps<HTMLDivElement> {
    */
   closeIcon?: IconName;
   /**
+   * Close button extra props
+   */
+  closeButtonProps?: CloseButtonProps;
+  /**
    * Configure how contextual props are consumed
    */
   configContextProps?: ConfigContextProps;

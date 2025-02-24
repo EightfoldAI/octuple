@@ -4,7 +4,7 @@ import React, { FC, useContext } from 'react';
 import { Button, ButtonSize, ButtonShape } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
 import { IconName } from '../Icon/index';
-import { LabelIconButtonProps, LabelProps, LabelSize } from './index';
+import { LabelIconButtonProps, LabelProps, LabelSize } from './Label.types';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';

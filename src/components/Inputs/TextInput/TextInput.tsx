@@ -23,7 +23,7 @@ import {
   TextInputShape,
   TextInputSize,
   TextInputWidth,
-} from '../index';
+} from '../Input.types';
 import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
@@ -488,6 +488,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         tabIndex={iconButtonProps.tabIndex}
         transparent
         variant={ButtonVariant.SystemUI}
+        aria-hidden={iconButtonProps.ariaHidden}
       />
     );
 

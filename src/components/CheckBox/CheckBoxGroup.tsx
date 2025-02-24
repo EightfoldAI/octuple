@@ -5,8 +5,8 @@ import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
 import ThemeContext from '../ConfigProvider/ThemeContext';
 import { mergeClasses } from '../../shared/utilities';
+import { CheckBox } from './CheckBox';
 import {
-  CheckBox,
   CheckboxGroupProps,
   CheckboxValueType,
   LabelAlign,
@@ -14,7 +14,7 @@ import {
   SelectorSize,
   SelectorVariant,
   SelectorWidth,
-} from './';
+} from './Checkbox.types';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
 
@@ -107,7 +107,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
       <div
         className={checkboxGroupClassNames}
         style={style}
-        role="group"
+        role={items?.length > 1 ? 'group' : undefined}
         aria-label={ariaLabel}
         id={id}
         ref={ref}
