@@ -11,7 +11,7 @@ import {
   ButtonTextAlign,
   ButtonWidth,
   TwoStateButtonProps,
-} from '../';
+} from '../Button.types';
 import { Badge } from '../../Badge';
 import { Icon, IconSize } from '../../Icon';
 import { InnerNudge, NudgeAnimation, NudgeProps } from '../Nudge';

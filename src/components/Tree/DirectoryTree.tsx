@@ -8,7 +8,7 @@ import {
   convertTreeToData,
 } from './Internal/utils/treeUtil';
 import type { TreeProps, OcTreeNodeAttribute } from './Tree.types';
-import Tree from './Tree';
+import BaseTree from './BaseTree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './Utils/dictUtil';
 import { Icon, IconName, IconSize } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -237,7 +237,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<
   ]);
 
   return (
-    <Tree
+    <BaseTree
       icon={getIcon}
       ref={treeRef}
       blockNode

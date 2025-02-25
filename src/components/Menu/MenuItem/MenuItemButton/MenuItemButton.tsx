@@ -7,7 +7,6 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '../../../Button';
-import { CascadingMenu } from '../../CascadingMenu';
 import { Icon, IconSize } from '../../../Icon';
 import { mergeClasses } from '../../../../shared/utilities';
 
@@ -37,6 +36,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       value,
       variant = MenuVariant.neutral,
       wrap = false,
+      menuRenderer,
       ...rest
     },
     ref: React.ForwardedRef<HTMLButtonElement>
@@ -151,16 +151,21 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       </>
     );
 
-    const dropdownMenuButton = (): JSX.Element => (
-      <CascadingMenu
-        {...dropdownMenuProps}
-        items={dropdownMenuItems}
-        size={size}
-        variant={variant}
-      >
-        <div className={styles.menuItemWrapper}>{menuButton(true)}</div>
-      </CascadingMenu>
-    );
+    const dropdownMenuButton = (): JSX.Element => {
+      if (!menuRenderer || !dropdownMenuItems) {
+        return menuButton();
+      }
+
+      return menuRenderer({
+        items: dropdownMenuItems,
+        size,
+        variant,
+        ...dropdownMenuProps,
+        children: (
+          <div className={styles.menuItemWrapper}>{menuButton(true)}</div>
+        ),
+      });
+    };
 
     const renderedItem = (): JSX.Element => {
       if (secondaryButtonProps) {
@@ -170,6 +175,10 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       return dropdownMenuItems ? dropdownMenuButton() : menuButton();
     };
 
-    return <li className={menuItemClassNames}>{renderedItem()}</li>;
+    return (
+      <li className={menuItemClassNames} role="presentation">
+        {renderedItem()}
+      </li>
+    );
   }
 );
