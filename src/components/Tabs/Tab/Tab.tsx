@@ -25,6 +25,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       label,
       loading,
       value,
+      ariaControls,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
@@ -107,6 +108,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
     return (
       <button
         {...rest}
+        aria-controls={ariaControls}
         ref={ref}
         className={tabClassNames}
         aria-label={ariaLabel}

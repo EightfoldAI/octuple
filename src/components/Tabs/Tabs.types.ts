@@ -127,6 +127,8 @@ export interface TabsContextProps {
    * @default default
    */
   variant?: TabVariant;
+  enableArrowNav?: boolean;
+  disabledTabIndexes?: number[];
 }
 
 export interface ITabsContext {
@@ -255,6 +257,8 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
    * Active value of the tab.
    */
   value: TabValue;
+  ariaControls?: string;
+  enableArrowNav?: boolean;
 }
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
@@ -423,6 +427,8 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    * @default default
    */
   variant?: TabVariant;
+  enableArrowNav?: boolean;
+  disabledTabIndexes?: number[];
 }
 
 export interface TabsTheme {
