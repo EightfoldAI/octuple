@@ -38,3 +38,4 @@ export { default as visuallyHidden } from './visuallyHidden';
 export * from './statusUtils';
 export * from './warning';
 export * from './resolveOnChange';
+export * from './interactiveElements';

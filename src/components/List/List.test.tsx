@@ -105,10 +105,10 @@ describe('List', () => {
 
   test('handleItemKeyDown should update activeIndex correctly for vertical layout', () => {
     const { getByTestId } = render(<List {...listProps} layout="vertical" />);
-    const item1 = getByTestId('User1');
-    const item2 = getByTestId('User2');
-    const item3 = getByTestId('User3');
-    item1.focus();
+    const item1 = getByTestId('User1').closest('li');
+    const item2 = getByTestId('User2').closest('li');
+    const item3 = getByTestId('User3').closest('li');
+    fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item2).toHaveFocus();
@@ -122,11 +122,11 @@ describe('List', () => {
 
   test('handleItemKeyDown should update activeIndex correctly for end and home keys', () => {
     const { getByTestId } = render(<List {...listProps} layout="vertical" />);
-    const item1 = getByTestId('User1');
-    const item2 = getByTestId('User2');
-    const item3 = getByTestId('User3');
-    const item5 = getByTestId('User5');
-    item1.focus();
+    const item1 = getByTestId('User1').closest('li');
+    const item2 = getByTestId('User2').closest('li');
+    const item3 = getByTestId('User3').closest('li');
+    const item5 = getByTestId('User5').closest('li');
+    fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item2).toHaveFocus();
@@ -142,9 +142,9 @@ describe('List', () => {
 
   test('handleItemKeyDown should update activeIndex correctly for horizontal layout', () => {
     const { getByTestId } = render(<List {...listProps} layout="horizontal" />);
-    const item1 = getByTestId('User1');
-    const item2 = getByTestId('User2');
-    const item3 = getByTestId('User3');
+    const item1 = getByTestId('User1').closest('li');
+    const item2 = getByTestId('User2').closest('li');
+    const item3 = getByTestId('User3').closest('li');
     item1.focus();
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowRight' });
@@ -160,9 +160,9 @@ describe('List', () => {
   test('handleItemKeyDown should update activeIndex correctly for horizontal layout in rtl canvas', () => {
     document.documentElement.dir = 'rtl';
     const { getByTestId } = render(<List {...listProps} layout="horizontal" />);
-    const item1 = getByTestId('User1');
-    const item2 = getByTestId('User2');
-    const item3 = getByTestId('User3');
+    const item1 = getByTestId('User1').closest('li');
+    const item2 = getByTestId('User2').closest('li');
+    const item3 = getByTestId('User3').closest('li');
     item1.focus();
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowLeft' });
@@ -179,8 +179,8 @@ describe('List', () => {
     const { getByTestId } = render(
       <List {...listProps} disableKeys layout="horizontal" />
     );
-    const item1 = getByTestId('User1');
-    const item2 = getByTestId('User2');
+    const item1 = getByTestId('User1').closest('li');
+    const item2 = getByTestId('User2').closest('li');
     item1.focus();
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowRight' });

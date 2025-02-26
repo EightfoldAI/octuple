@@ -11,5 +11,9 @@
 
   .list-item {
     list-style-type: none;
+
+    &:focus-visible {
+      outline: 1px auto rgba(0, 150, 255, 1);
+    }
   }
 }

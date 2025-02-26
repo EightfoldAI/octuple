@@ -1,6 +1,8 @@
 export const SELECTORS: string =
   'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), iframe, object, embed';
 
+export const NON_TABBABLE_SELECTORS: string = '[tabindex="-1"]';
+
 export const focusable = (el: HTMLElement | null): boolean => {
   return (
     !el?.hasAttribute('data-disabled') && // optionally use a data attribute as a way to exclude certain elements without hiding them from screen readers to improve usability.

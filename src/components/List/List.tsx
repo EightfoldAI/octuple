@@ -8,7 +8,7 @@ import {
   eventKeys,
   focusable,
   mergeClasses,
-  SELECTORS,
+  interactWithFirstInteractiveElement,
 } from '../../shared/utilities';
 
 import styles from './list.module.scss';
@@ -73,6 +73,15 @@ export const List = <T extends any>({
     const arrowIncrement: boolean = htmlDir === 'rtl' ? arrowLeft : arrowRight;
     const end: boolean = event?.key === eventKeys.END;
     const home: boolean = event?.key === eventKeys.HOME;
+    const enter: boolean = event?.key === eventKeys.ENTER;
+    if (enter) {
+      event?.preventDefault();
+      const li = itemRefs?.current?.[index];
+      if (li) {
+        interactWithFirstInteractiveElement(li);
+      }
+      return;
+    }
     if (
       ((arrowDown || arrowUp) && layout === 'vertical') ||
       ((arrowDecrement || arrowIncrement) && layout === 'horizontal')
@@ -87,6 +96,13 @@ export const List = <T extends any>({
               ? 1
               : -1;
           let nextIndex: number = index + step;
+          if (focusIndex === null) {
+            if (arrowDown) {
+              nextIndex = 0;
+            } else if (arrowUp) {
+              nextIndex = items.length - 1;
+            }
+          }
           const additionalItemIndex: number = items ? items.length : 0;
           if (
             (renderAdditionalItem &&
@@ -97,11 +113,9 @@ export const List = <T extends any>({
               (arrowDecrement && layout === 'horizontal')) &&
               nextIndex === additionalItemIndex + 1)
           ) {
-            return [
-              ...(itemRefs.current[additionalItemIndex]?.querySelectorAll(
-                SELECTORS
-              ) as unknown as HTMLElement[]),
-            ].filter((el: HTMLElement) => focusable(el));
+            return [itemRefs.current[additionalItemIndex]].filter(
+              (el: HTMLElement) => focusable(el)
+            );
           }
           while (
             (nextIndex >= 0 && nextIndex <= additionalItemIndex) ||
@@ -112,11 +126,9 @@ export const List = <T extends any>({
               const nextFocusableItem: HTMLElement | null = external
                 ? nextItem.parentElement
                 : nextItem;
-              return [
-                ...(nextFocusableItem.querySelectorAll(
-                  SELECTORS
-                ) as unknown as HTMLElement[]),
-              ].filter((el: HTMLElement) => focusable(el));
+              return [nextFocusableItem].filter((el: HTMLElement) =>
+                focusable(el)
+              );
             }
             nextIndex += step;
           }
@@ -135,9 +147,7 @@ export const List = <T extends any>({
             ? itemRefs.current[index].parentElement
             : itemRefs.current[index];
           const getFocusableElements = (): HTMLElement[] => {
-            return [
-              ...(item.querySelectorAll(SELECTORS) as unknown as HTMLElement[]),
-            ].filter((el: HTMLElement) => focusable(el));
+            return [item].filter((el: HTMLElement) => focusable(el));
           };
           const focusableElements: HTMLElement[] = getFocusableElements();
           const focusableElement: HTMLElement | null = focusableElements?.[0];
@@ -180,6 +190,9 @@ export const List = <T extends any>({
         }
         ref={itemRef}
         style={itemStyle}
+        role="option"
+        aria-selected={focusIndex === additionalItemIndex ? 'true' : 'false'}
+        tabIndex={focusIndex === additionalItemIndex ? 0 : -1}
       >
         {renderAdditionalItem?.(additionalItem)}
       </li>
@@ -209,6 +222,9 @@ export const List = <T extends any>({
       }
       ref={itemRef}
       style={itemStyle}
+      role="option"
+      aria-selected={focusIndex === index ? 'true' : 'false'}
+      tabIndex={focusIndex === index ? 0 : -1}
     >
       {renderItem(item)}
     </li>

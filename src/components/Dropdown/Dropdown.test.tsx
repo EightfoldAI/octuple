@@ -518,9 +518,13 @@ describe('Dropdown', () => {
     });
     await waitFor(() => screen.getByTestId('User profile 1'));
     await waitFor(() =>
-      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+      expect(
+        screen.getByTestId('User profile 1').closest('li')?.matches(':focus')
+      ).toBe(true)
     );
-    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true);
+    expect(
+      screen.getByTestId('User profile 1').closest('li')?.matches(':focus')
+    ).toBe(true);
   });
 
   test('Focuses the reference element when not visible', async () => {
@@ -561,7 +565,9 @@ describe('Dropdown', () => {
 
     // Verify first menu item is focused
     await waitFor(() =>
-      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+      expect(
+        screen.getByTestId('User profile 1').closest('li')?.matches(':focus')
+      ).toBe(true)
     );
 
     // Tab to second menu item
