@@ -96,13 +96,6 @@ export const List = <T extends any>({
               ? 1
               : -1;
           let nextIndex: number = index + step;
-          if (focusIndex === null) {
-            if (arrowDown) {
-              nextIndex = 0;
-            } else if (arrowUp) {
-              nextIndex = items.length - 1;
-            }
-          }
           const additionalItemIndex: number = items ? items.length : 0;
           if (
             (renderAdditionalItem &&
