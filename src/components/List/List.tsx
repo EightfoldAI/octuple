@@ -19,7 +19,6 @@ export const List = <T extends any>({
   disableKeys = false,
   items,
   footer,
-  initialFocus = true,
   layout = 'vertical',
   renderAdditionalItem,
   renderItem,

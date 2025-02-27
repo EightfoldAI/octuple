@@ -18,11 +18,10 @@ exports[`List List is horizontal 1`] = `
       role="list"
     >
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
-        tabindex="-1"
+        tabindex="0"
       >
         <a
           aria-disabled="false"
@@ -37,7 +36,6 @@ exports[`List List is horizontal 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -56,7 +54,6 @@ exports[`List List is horizontal 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -75,7 +72,6 @@ exports[`List List is horizontal 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -94,7 +90,6 @@ exports[`List List is horizontal 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -142,11 +137,10 @@ exports[`List Renders ol without crashing 1`] = `
       role="list"
     >
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
-        tabindex="-1"
+        tabindex="0"
       >
         <a
           aria-disabled="false"
@@ -161,7 +155,6 @@ exports[`List Renders ol without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -180,7 +173,6 @@ exports[`List Renders ol without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -199,7 +191,6 @@ exports[`List Renders ol without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -218,7 +209,6 @@ exports[`List Renders ol without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -266,11 +256,10 @@ exports[`List Renders without crashing 1`] = `
       role="list"
     >
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
-        tabindex="-1"
+        tabindex="0"
       >
         <a
           aria-disabled="false"
@@ -285,7 +274,6 @@ exports[`List Renders without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -304,7 +292,6 @@ exports[`List Renders without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -323,7 +310,6 @@ exports[`List Renders without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"
@@ -342,7 +328,6 @@ exports[`List Renders without crashing 1`] = `
         </a>
       </li>
       <li
-        aria-selected="false"
         class="list-item my-list-item-class"
         role="option"
         style="padding: 8px 16px;"

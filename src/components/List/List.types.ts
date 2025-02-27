@@ -86,8 +86,4 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    * @param item
    */
   rowKey?: (item: T) => Key | keyof T;
-  /**
-   * Initial focus for the list.
-   */
-  initialFocus?: boolean;
 }

@@ -108,7 +108,7 @@ describe('List', () => {
     const item1 = getByTestId('User1').closest('li');
     const item2 = getByTestId('User2').closest('li');
     const item3 = getByTestId('User3').closest('li');
-    fireEvent.keyDown(item1, { key: 'ArrowDown' });
+    item1.focus();
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item2).toHaveFocus();
@@ -125,18 +125,21 @@ describe('List', () => {
     const item1 = getByTestId('User1').closest('li');
     const item2 = getByTestId('User2').closest('li');
     const item3 = getByTestId('User3').closest('li');
+    const item4 = getByTestId('User4').closest('li');
     const item5 = getByTestId('User5').closest('li');
-    fireEvent.keyDown(item1, { key: 'ArrowDown' });
-    expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item2).toHaveFocus();
     fireEvent.keyDown(item2, { key: 'ArrowDown' });
     expect(item3).toHaveFocus();
-    fireEvent.keyDown(item2, { key: 'Home' });
+    fireEvent.keyDown(item3, { key: 'ArrowDown' });
+    expect(item4).toHaveFocus();
+    fireEvent.keyDown(item4, { key: 'ArrowDown' });
+    expect(item5).toHaveFocus();
+    fireEvent.keyDown(item5, { key: 'Home' });
     expect(item1).toHaveFocus();
     fireEvent.keyDown(item1, { key: 'ArrowDown' });
     expect(item2).toHaveFocus();
-    fireEvent.keyDown(item3, { key: 'End' });
+    fireEvent.keyDown(item2, { key: 'End' });
     expect(item5).toHaveFocus();
   });
 
@@ -186,5 +189,24 @@ describe('List', () => {
     fireEvent.keyDown(item1, { key: 'ArrowRight' });
     expect(item2).not.toHaveFocus();
     expect(item1).toHaveFocus();
+  });
+
+  test('should handle focus on additionalItem correctly', () => {
+    const additionalItem = (
+      <button data-testid="additional-item">Additional Item</button>
+    );
+    const { getByTestId } = render(
+      <List
+        {...listProps}
+        layout="vertical"
+        renderAdditionalItem={() => additionalItem}
+      />
+    );
+    const item5 = getByTestId('User5').closest('li');
+    const additionalItemElement = getByTestId('additional-item').closest('li');
+    item5.focus();
+    expect(item5).toHaveFocus();
+    fireEvent.keyDown(item5, { key: 'ArrowDown' });
+    expect(additionalItemElement).toHaveFocus();
   });
 });
