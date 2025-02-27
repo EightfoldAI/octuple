@@ -28,6 +28,7 @@ import {
   DropdownRef,
 } from './Dropdown.types';
 import { Menu } from '../Menu';
+import { List } from '../List';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { usePreviousState } from '../../hooks/usePreviousState';
@@ -461,7 +462,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               role={role}
               {...overlayProps}
             >
-              {overlay}
+              {React.cloneElement(overlay, {
+                ...(overlay.type === List ? { initialFocus } : {}),
+              })}
             </div>
           </FloatingFocusManager>
         );

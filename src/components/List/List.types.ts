@@ -91,4 +91,8 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    * @default false
    */
   applyCyclicNavigation?: boolean;
+  /**
+   * Initial focus for the list.
+   */
+  initialFocus?: boolean;
 }
