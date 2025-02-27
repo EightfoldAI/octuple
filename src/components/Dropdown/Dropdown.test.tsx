@@ -548,6 +548,79 @@ describe('Dropdown', () => {
     expect(referenceElement).toHaveFocus();
   });
 
+  test('Should not close dropdown when clicking on list item content with closeOnElementClick=false', async () => {
+    // Create a test component with closeOnElementClick set to false
+    const CloseOnElementClickTestComponent = (): JSX.Element => {
+      const [visible, setVisibility] = useState(false);
+      return (
+        <Dropdown
+          {...dropdownProps}
+          closeOnElementClick={false}
+          onVisibleChange={(isVisible) => setVisibility(isVisible)}
+        >
+          <Button
+            alignIcon={ButtonIconAlign.Right}
+            text={'Dropdown menu test'}
+            iconProps={{
+              path: IconName.mdiChevronDown,
+              rotate: visible ? 180 : 0,
+            }}
+            data-testid="dropdown-reference"
+          />
+        </Dropdown>
+      );
+    };
+
+    const { container } = render(<CloseOnElementClickTestComponent />);
+    const referenceElement = screen.getByTestId('dropdown-reference');
+
+    // Open the dropdown
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+
+    // Wait for dropdown to be visible
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    // Click on a button inside a list item (not the list item itself)
+    const listItemButton = screen.getByTestId('User profile 1');
+    act(() => {
+      userEvent.click(listItemButton);
+    });
+
+    // Dropdown should still be open
+    await waitFor(() => {
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+      expect(screen.getByText('User profile 1')).toBeInTheDocument();
+    });
+  });
+
+  test('Should close dropdown when clicking on list item content with closeOnElementClick=true', async () => {
+    // Create a test component with closeOnElementClick set to true (default)
+    const { container } = render(<DropdownComponent />);
+    const referenceElement = screen.getByTestId('dropdown-reference');
+
+    // Open the dropdown
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+
+    // Wait for dropdown to be visible
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    // Click on a button inside a list item
+    const listItemButton = screen.getByTestId('User profile 1');
+    act(() => {
+      userEvent.click(listItemButton);
+    });
+
+    // Dropdown should close
+    await waitFor(() => {
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
+      expect(screen.queryByText('User profile 1')).not.toBeInTheDocument();
+    });
+  });
+
   test('Allows tabbing into submenu after click', async () => {
     const mockEventKeys = {
       TAB: 'Tab',
