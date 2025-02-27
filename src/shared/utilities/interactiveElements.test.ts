@@ -195,4 +195,149 @@ describe('interactWithFirstInteractiveElement', () => {
     // Restore original querySelector
     container.querySelector = originalQuerySelector;
   });
+
+  test('should click on input elements with type checkbox, radio, button, submit, or reset when using SELECTORS fallback', () => {
+    // Mock the specific selectors to not find anything
+    const originalQuerySelector = container.querySelector;
+
+    // First mock to return null for specific selectors, then return the input for SELECTORS
+    container.querySelector = jest.fn().mockImplementation((selector) => {
+      if (selector === SELECTORS) {
+        const input = document.createElement('input');
+        input.type = 'submit';
+        return input;
+      }
+      return null;
+    });
+
+    const result = interactWithFirstInteractiveElement(container);
+
+    expect(result).toBe(true);
+    // The mock implementation should have been called with SELECTORS
+    expect(container.querySelector).toHaveBeenCalledWith(SELECTORS);
+
+    // Restore original querySelector
+    container.querySelector = originalQuerySelector;
+  });
+
+  test('should focus on input elements with types other than checkbox, radio, button, submit, or reset when using SELECTORS fallback', () => {
+    // Mock the specific selectors to not find anything
+    const originalQuerySelector = container.querySelector;
+
+    // Create an input element with a type that should be focused, not clicked
+    const input = document.createElement('input');
+    input.type = 'text';
+    const focusSpy = jest.spyOn(input, 'focus');
+
+    // Mock querySelector to return null for specific selectors but our input for SELECTORS
+    container.querySelector = jest.fn().mockImplementation((selector) => {
+      if (selector === SELECTORS) {
+        return input;
+      }
+      return null;
+    });
+
+    const result = interactWithFirstInteractiveElement(container);
+
+    expect(result).toBe(true);
+    expect(focusSpy).toHaveBeenCalled();
+
+    // Restore original querySelector
+    container.querySelector = originalQuerySelector;
+  });
+
+  test('should toggle open state of details elements when using SELECTORS fallback', () => {
+    // Mock the specific selectors to not find anything
+    const originalQuerySelector = container.querySelector;
+
+    // Create a details element
+    const details = document.createElement('details');
+
+    // Mock querySelector to return null for specific selectors but our details for SELECTORS
+    container.querySelector = jest.fn().mockImplementation((selector) => {
+      if (selector === SELECTORS) {
+        return details;
+      }
+      return null;
+    });
+
+    const result = interactWithFirstInteractiveElement(container);
+
+    expect(result).toBe(true);
+    expect(details.open).toBe(true);
+
+    // Restore original querySelector
+    container.querySelector = originalQuerySelector;
+  });
+
+  test('should click on button and anchor elements when using SELECTORS fallback', () => {
+    // Mock the specific selectors to not find anything
+    const originalQuerySelector = container.querySelector;
+
+    // Test with button
+    const button = document.createElement('button');
+    const buttonClickSpy = jest.spyOn(button, 'click');
+
+    // Mock querySelector to return null for specific selectors but our button for SELECTORS
+    container.querySelector = jest.fn().mockImplementation((selector) => {
+      if (selector === SELECTORS) {
+        return button;
+      }
+      return null;
+    });
+
+    let result = interactWithFirstInteractiveElement(container);
+
+    expect(result).toBe(true);
+    expect(buttonClickSpy).toHaveBeenCalled();
+
+    // Reset mocks
+    jest.clearAllMocks();
+
+    // Test with anchor
+    const anchor = document.createElement('a');
+    anchor.href = '#test';
+    const anchorClickSpy = jest.spyOn(anchor, 'click');
+
+    // Update mock to return anchor
+    container.querySelector = jest.fn().mockImplementation((selector) => {
+      if (selector === SELECTORS) {
+        return anchor;
+      }
+      return null;
+    });
+
+    result = interactWithFirstInteractiveElement(container);
+
+    expect(result).toBe(true);
+    expect(anchorClickSpy).toHaveBeenCalled();
+
+    // Restore original querySelector
+    container.querySelector = originalQuerySelector;
+  });
+
+  test('should focus on other interactive elements when using SELECTORS fallback', () => {
+    // Mock the specific selectors to not find anything
+    const originalQuerySelector = container.querySelector;
+
+    // Create a select element (which should be focused)
+    const select = document.createElement('select');
+    const focusSpy = jest.spyOn(select, 'focus');
+
+    // Mock querySelector to return null for specific selectors but our select for SELECTORS
+    container.querySelector = jest.fn().mockImplementation((selector) => {
+      if (selector === SELECTORS) {
+        return select;
+      }
+      return null;
+    });
+
+    const result = interactWithFirstInteractiveElement(container);
+
+    expect(result).toBe(true);
+    expect(focusSpy).toHaveBeenCalled();
+
+    // Restore original querySelector
+    container.querySelector = originalQuerySelector;
+  });
 });
