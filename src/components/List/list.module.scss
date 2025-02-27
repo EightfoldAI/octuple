@@ -13,7 +13,7 @@
     list-style-type: none;
 
     &:focus-visible {
-      outline: 1px auto rgba(0, 150, 255, 1);
+      outline: -webkit-focus-ring-color auto 1px;
     }
   }
 }

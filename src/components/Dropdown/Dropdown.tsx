@@ -128,6 +128,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         intervalRef.current = setInterval((): void => {
           elementToFocus?.focus();
           if (document.activeElement === elementToFocus) {
+            elementToFocus.style.outline = '-webkit-focus-ring-color auto 1px';
             clearInterval(intervalRef?.current);
           }
         }, ANIMATION_DURATION);
@@ -296,6 +297,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
+        }
+        if (
+          event?.key === eventKeys.ARROWDOWN ||
+          event?.key === eventKeys.ARROWUP
+        ) {
+          const firstElement = firstFocusableElement();
+          if (firstElement) {
+            firstElement.style.outline = 'revert';
+          }
         }
         if (event?.key === eventKeys.TAB) {
           timeout && clearTimeout(timeout);
