@@ -28,6 +28,7 @@ import {
   DropdownRef,
 } from './Dropdown.types';
 import { Menu } from '../Menu';
+import { List } from '../List';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { usePreviousState } from '../../hooks/usePreviousState';
@@ -268,6 +269,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           toggle(true)(event);
         }
         if (
+          event?.key === eventKeys.ARROWDOWN &&
+          document.activeElement === event.target &&
+          mergedVisible &&
+          !initialFocus
+        ) {
+          focusFirstElement();
+        }
+        if (
           event?.key === eventKeys.ARROWUP &&
           document.activeElement === event.target &&
           mergedVisible
@@ -441,7 +450,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               role={role}
               {...overlayProps}
             >
-              {overlay}
+              {React.cloneElement(overlay, {
+                ...(overlay.type === List ? { initialFocus } : {}),
+              })}
             </div>
           </FloatingFocusManager>
         );

@@ -19,6 +19,7 @@ export const List = <T extends any>({
   disableKeys = false,
   items,
   footer,
+  initialFocus = true,
   layout = 'vertical',
   renderAdditionalItem,
   renderItem,
@@ -44,7 +45,7 @@ export const List = <T extends any>({
     listClassNames,
     { [styles.vertical]: layout === 'vertical' },
   ]);
-  const [focusIndex, setFocusIndex] = useState<number | null>(null);
+  const [focusIndex, setFocusIndex] = useState<number | null>(0);
   const itemRefs: React.MutableRefObject<HTMLElement[]> = useRef<
     (HTMLElement | null)[]
   >([]);
@@ -223,7 +224,6 @@ export const List = <T extends any>({
       ref={itemRef}
       style={itemStyle}
       role="option"
-      aria-selected={focusIndex === index ? 'true' : 'false'}
       tabIndex={focusIndex === index ? 0 : -1}
     >
       {renderItem(item)}
