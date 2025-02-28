@@ -93,7 +93,7 @@
   }
 
   &-range {
-    padding: ($picker-arrow-size * 2 / 3) 0;
+    padding: calc(($picker-arrow-size * 2) / 3) 0;
 
     &-hidden {
       display: none;

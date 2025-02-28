@@ -49,7 +49,7 @@ import useSelection, {
 } from './Hooks/useSelection';
 import type { SortState } from './Hooks/useSorter';
 import useSorter, { getSortData } from './Hooks/useSorter';
-import type { FilterState } from './Hooks/useFilter';
+import type { FilterState } from './Hooks/useFilter/utils';
 import useFilter, { getFilterData } from './Hooks/useFilter';
 import useTitleColumns from './Hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
