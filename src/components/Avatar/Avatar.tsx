@@ -10,7 +10,7 @@ import {
   StatusItemIconAlign,
   StatusItemsPosition,
   StatusItemsProps,
-} from './';
+} from './Avatar.types';
 import { Icon } from '../Icon';
 import { Popup } from '../Popup';
 import { Tooltip } from '../Tooltip';

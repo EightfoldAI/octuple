@@ -1,13 +1,15 @@
 // strip units helper
+@use 'sass:math';
+
 @function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+  @return math.div($number, ($number * 0 + 1));
 }
 
 $picker-input-padding-vertical: max(
   (
       round(
           (
-              (
+              calc(
                 (
                     strip-units($picker-input-height-s) -
                       strip-units($picker-font-size-m) *
