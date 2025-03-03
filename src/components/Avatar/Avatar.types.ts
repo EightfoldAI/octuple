@@ -160,6 +160,10 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLDivElement> {
    * @default 'square'
    */
   type?: 'round' | 'square';
+  ariaLabel?: string;
+  roleSet?: string;
+  ariaDescribedBy?: string;
+  ariaOwns?: string;
 }
 
 export interface AvatarPopupProps extends PopupProps {}
@@ -188,6 +192,10 @@ export interface AvatarProps
    * Hover tooltip
    */
   tooltipProps?: TooltipProps;
+  ariaLabel?: string;
+  roleSet?: string;
+  ariaDescribedBy?: string;
+  ariaOwns?: string;
 }
 
 interface MaxAvatarProps extends BaseAvatarProps {
