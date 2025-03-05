@@ -203,6 +203,9 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
 
 const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
+    tooltipId="avatar-group-tooltip-id"
+    ariaLabel="interviewers"
+    roleSet="button"
     animateOnHover
     avatarListProps={{
       items: sampleList,
