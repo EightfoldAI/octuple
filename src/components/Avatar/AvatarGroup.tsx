@@ -1,7 +1,8 @@
 'use client';
 
 import React, { Ref, useEffect } from 'react';
-import { Avatar, AvatarGroupProps, AvatarGroupVariant } from '.';
+import { Avatar } from './Avatar';
+import { AvatarGroupProps, AvatarGroupVariant } from './Avatar.types';
 import { List } from '../List';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';

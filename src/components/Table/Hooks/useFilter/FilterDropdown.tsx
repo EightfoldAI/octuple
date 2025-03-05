@@ -22,8 +22,8 @@ import type {
 } from '../../Table.types';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
-import type { FilterState } from './index';
-import { flattenKeys } from './index';
+import type { FilterState } from './utils';
+import { flattenKeys } from './utils';
 import { useSyncState } from '../../../../hooks/useSyncState';
 import { IconName, IconSize } from '../../../Icon';
 import { useCanvasDirection } from '../../../../hooks/useCanvasDirection';

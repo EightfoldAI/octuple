@@ -217,7 +217,7 @@
 
   &-ranges {
     margin-bottom: 0;
-    padding: ($space-xs / 2) $space-s;
+    padding: calc($space-xs / 2) $space-s;
     overflow: hidden;
     line-height: $picker-line-height-m - 2 * $picker-border-width -
       calc($space-xs / 2);

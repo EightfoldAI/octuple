@@ -6,13 +6,13 @@ import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
+import { Pager } from './Pager';
 import {
-  Pager,
   PaginationLayoutOptions,
   PaginationLocale,
   PaginationProps,
   PaginationVisiblePagerCountSizeOptions,
-} from './index';
+} from './Pagination.types';
 import {
   Button,
   ButtonIconAlign,
@@ -25,7 +25,7 @@ import { IconName } from '../Icon';
 import { Menu, MenuItemButtonProps } from '../Menu';
 import { TextInput, TextInputShape } from '../Inputs';
 import { mergeClasses } from '../../shared/utilities';
-import { useBoolean } from '../../octuple';
+import { useBoolean } from '../../hooks/useBoolean';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import LocaleReceiver, {
   useLocaleReceiver,

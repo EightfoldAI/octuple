@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ListProps } from '../List';
 import {
   MenuItemButtonProps,
@@ -93,4 +93,16 @@ export interface DropdownMenuProps extends MenuProps {
    * @returns (event: React.KeyboardEvent) => void
    */
   referenceOnKeydown?: (event: React.KeyboardEvent) => void;
+  menuRenderer?: MenuRenderFunction;
+}
+export interface MenuRendererProps {
+  items: MenuItemTypes[];
+  size?: MenuSize;
+  variant?: MenuVariant;
+  children?: ReactNode;
+  [key: string]: any;
+}
+
+export interface MenuRenderFunction {
+  (props: MenuRendererProps): JSX.Element;
 }

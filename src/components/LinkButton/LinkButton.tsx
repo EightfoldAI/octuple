@@ -15,7 +15,7 @@ import {
   LinkButtonTextAlign,
   LinkButtonVariant,
   LinkButtonWidth,
-} from '.';
+} from './LinkButton.types';
 import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { InnerNudge, NudgeAnimation, NudgeProps } from '../Button/Nudge';
