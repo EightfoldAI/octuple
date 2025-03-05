@@ -161,6 +161,10 @@ export interface DropdownProps {
    * The ref of the dropdown
    */
   ref?: Ref<DropdownRef>;
+  /**
+   * The props of the overlay
+   */
+  overlayProps?: HTMLDivElement;
 }
 
 export type DropdownRef = {
