@@ -76,6 +76,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         visible,
         width,
         overlayTabIndex = 0,
+        overlayProps,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -400,6 +401,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
+              {...overlayProps}
             >
               {overlay}
             </div>
