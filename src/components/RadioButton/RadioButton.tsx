@@ -52,6 +52,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
       value = '',
       variant = SelectorVariant.Default,
       'data-test-id': dataTestId,
+      ...rest
     },
     ref: Ref<HTMLInputElement>
   ) => {
@@ -205,6 +206,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
                 });
               }
             }}
+            {...rest}
           />
           <label htmlFor={radioButtonId.current} className={labelClassNames}>
             {labelPosition == LabelPosition.Start && (

@@ -4,7 +4,8 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
 import ThemeContext from '../ConfigProvider/ThemeContext';
-import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
+import { RadioButtonProps, RadioGroupProps } from './Radio.types';
+import { RadioButton } from './RadioButton';
 import {
   LabelAlign,
   LabelPosition,
@@ -103,7 +104,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     return (
       <RadioGroupProvider onChange={onChange} value={value}>
         <div
-          role="group"
+          role={items.length > 1 ? 'group' : undefined}
           className={radioGroupClasses}
           style={style}
           ref={ref}
@@ -114,7 +115,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
           {items.map((item: RadioButtonProps) => (
             <RadioButton
               key={item.value}
-              aria-describedby={ariaDescribedBy}
+              ariaDescribedBy={ariaDescribedBy}
               allowDisabledFocus={allowDisabledFocus}
               configContextProps={configContextProps}
               disabled={mergedDisabled}

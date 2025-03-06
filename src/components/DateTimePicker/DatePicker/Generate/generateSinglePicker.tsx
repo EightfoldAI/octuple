@@ -21,7 +21,7 @@ import {
   DatePickerSize,
   OcPickerMode,
 } from '../../Internal/OcPicker.types';
-import { getTimeProps } from './Generate';
+import { getTimeProps } from './utils';
 import type {
   CommonPickerMethods,
   DatePickRef,

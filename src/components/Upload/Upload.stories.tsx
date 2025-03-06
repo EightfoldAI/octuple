@@ -721,6 +721,39 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
   );
 };
 
+const Cropper_Story: ComponentStory<typeof Cropper> = (args) => {
+  const [image, setImage] = useState<string>('');
+
+  const handleImageUpload = (file: OcFile) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  return (
+    <Cropper
+      {...args}
+      onModalOk={(file) => console.log('Cropped file:', file)}
+      onUploadFail={(error) => console.error('Upload failed:', error)}
+    >
+      <Upload
+        action="https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61"
+        beforeUpload={handleImageUpload}
+      >
+        <Button
+          text="Select file"
+          variant={ButtonVariant.Primary}
+          iconProps={{ path: IconName.mdiUpload }}
+        />
+      </Upload>
+    </Cropper>
+  );
+};
+
 export const Basic = Basic_Story.bind({});
 export const Basic_With_Upload_List = Basic_With_Upload_List_Story.bind({});
 export const Drag_and_Drop_Single_Small = Drag_and_Drop_Single_Small_Story.bind(
@@ -740,6 +773,7 @@ export const Drag_and_Drop_Multiple_Large =
 export const Image_List = Image_List_Story.bind({});
 export const Image_Editor = Image_Editor_Story.bind({});
 export const Basic_Deferred_API = Basic_Deferred_API_Story.bind({});
+export const Basic_With_Cropper = Cropper_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -756,6 +790,7 @@ export const __namedExportsOrder = [
   'Image_List',
   'Image_Editor',
   'Basic_Deferred_API',
+  'Basic_With_Cropper',
 ];
 
 const uploadArgs: Object = {
@@ -817,4 +852,13 @@ Image_Editor.args = {
 Basic_Deferred_API.args = {
   ...uploadArgs,
   fullWidth: false,
+};
+
+Basic_With_Cropper.args = {
+  aspect: 1,
+  rotate: true,
+  zoom: true,
+  shape: 'round',
+  theme: 'blue',
+  themeContainerId: 'cropper-theme-container',
 };

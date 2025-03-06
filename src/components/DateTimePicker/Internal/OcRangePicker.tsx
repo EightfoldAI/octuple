@@ -111,6 +111,8 @@ type OmitType<DateType> = Omit<OcRangePickerBaseProps<DateType>, 'picker'> &
 
 type MergedOcRangePickerProps<DateType> = {
   picker?: OcPickerMode;
+  startDateInputAriaLabel?: string;
+  endDateInputAriaLabel?: string;
 } & OmitType<DateType>;
 
 function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
@@ -186,6 +188,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     todayActive,
     todayText,
     value,
+    startDateInputAriaLabel = '',
+    endDateInputAriaLabel = '',
   } = props as MergedOcRangePickerProps<DateType>;
 
   const needConfirmButton: boolean =
@@ -1291,6 +1295,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               }
               disabled={mergedDisabled[0]}
               id={id}
+              aria-label={startDateInputAriaLabel}
               readOnly={
                 mergedReadonly[0] ||
                 (!mergedReadonly && inputReadOnly) ||
@@ -1334,6 +1339,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           >
             <input
               disabled={mergedDisabled[1]}
+              aria-label={endDateInputAriaLabel}
               readOnly={
                 mergedReadonly[1] ||
                 (!mergedReadonly && inputReadOnly) ||

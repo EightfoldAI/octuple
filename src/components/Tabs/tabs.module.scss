@@ -30,7 +30,7 @@
     &:first-child {
       padding-left: 0;
       .tab-indicator {
-        width: calc(100% - calc(#{$space-xl / 2}));
+        width: calc(100% - $space-xl / 2);
       }
     }
 
@@ -90,6 +90,7 @@
     // Hides the browser default keyboard focus-visible styles.
     // Use the ConfigProvider instead.
     &:focus-visible {
+      box-shadow: inset var(--focus-visible-box-shadow);
       outline: none;
     }
 

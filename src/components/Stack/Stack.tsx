@@ -3,8 +3,7 @@
 import React, { FC, Ref } from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import { StackBreakpoint, StackProps } from './Stack.types';
-import { useMatchMedia } from '../../octuple';
-import { Breakpoints } from '../../hooks/useMatchMedia';
+import { useMatchMedia, Breakpoints } from '../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './stack.module.scss';

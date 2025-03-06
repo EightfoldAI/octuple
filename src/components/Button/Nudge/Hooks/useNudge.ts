@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useInterval } from '../../../../hooks/useInterval';
-import { NudgeAnimation, NudgeProps } from '../';
+import { NudgeAnimation, NudgeProps } from '../Nudge.types';
 
 export const useNudge = (
   disruptive: boolean,
