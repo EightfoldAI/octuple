@@ -1,5 +1,7 @@
-import { canUseDom, requestAnimationFrameWrapper } from './';
-import { getScroll, isWindow } from './';
+import { canUseDom } from './canUseDom';
+import { getScroll } from './getScroll';
+import { isWindow } from './getScroll';
+import { requestAnimationFrameWrapper } from './raf';
 import { easeInOutCubic } from '../../components/Motion/util/easings';
 
 interface ScrollToOptions {

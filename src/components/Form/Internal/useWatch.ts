@@ -1,11 +1,10 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react';
-import type { OcFormInstance } from '.';
-import { OcFieldContext } from '.';
-import { HOOK_MARK } from './OcFieldContext';
+import OcFieldContext, { HOOK_MARK } from './OcFieldContext';
 import type {
   InternalOcFormInstance,
   OcNamePath,
   OcStore,
+  OcFormInstance,
 } from './OcForm.types';
 import { getNamePath, getValue } from './Utils/valueUtil';
 

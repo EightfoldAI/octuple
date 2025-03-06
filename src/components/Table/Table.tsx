@@ -2,6 +2,7 @@
 
 import React, {
   forwardRef,
+  Key,
   ReactNode,
   useCallback,
   useContext,
@@ -49,7 +50,7 @@ import useSelection, {
 } from './Hooks/useSelection';
 import type { SortState } from './Hooks/useSorter';
 import useSorter, { getSortData } from './Hooks/useSorter';
-import type { FilterState } from './Hooks/useFilter';
+import type { FilterState } from './Hooks/useFilter/utils';
 import useFilter, { getFilterData } from './Hooks/useFilter';
 import useTitleColumns from './Hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
@@ -637,6 +638,20 @@ function InternalTable<RecordType extends object = any>(
       typeof indentSize === 'number' ? indentSize : 15;
   }
 
+  // ========================== Row Hover ==========================
+  const handleRowHoverEnter = (
+    index: number,
+    rowKey: Key,
+    event: React.MouseEvent<HTMLElement>
+  ) => {
+    const record = rawData[index];
+    if (!record) return;
+    const title = (record as { title?: string })?.title || '';
+    setScrollLeftAriaLabel(`Scroll ${title} left`);
+    setScrollRightAriaLabel(`Scroll ${title} right`);
+    onRowHoverEnter(index, rowKey, event);
+  };
+
   // ============================ Render ============================
   const transformColumns = useCallback(
     (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
@@ -833,7 +848,7 @@ function InternalTable<RecordType extends object = any>(
               transformColumns={
                 transformColumns as OcTableProps<RecordType>['transformColumns']
               }
-              onRowHoverEnter={onRowHoverEnter}
+              onRowHoverEnter={handleRowHoverEnter}
               onRowHoverLeave={onRowHoverLeave}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
