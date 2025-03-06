@@ -5,7 +5,7 @@ import IcomoonReact from 'icomoon-react';
 
 import { mergeClasses } from '../../shared/utilities';
 import { Icon as MdiIcon } from '@mdi/react';
-import { IconProps, IconSize } from './index';
+import { IconProps, IconSize } from './Icon.types';
 
 import styles from './icon.module.scss';
 import { useConfig } from '../ConfigProvider';

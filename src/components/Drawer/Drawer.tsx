@@ -1,7 +1,7 @@
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
-import { DrawerLocale, DrawerProps, DrawerVariant } from './';
-import { defaultSnapBreakPoints, hintSnapBreakPoints } from './';
-import { ANIMATION_DURATION, useDrawer } from './';
+import { DrawerLocale, DrawerProps, DrawerVariant } from './Drawer.types';
+import { defaultSnapBreakPoints, hintSnapBreakPoints } from './utils';
+import { ANIMATION_DURATION, useDrawer } from './Hooks/useDrawer';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
