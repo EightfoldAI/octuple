@@ -1,5 +1,10 @@
 import React from 'react';
-import { DropdownMenuProps, MenuSize, MenuVariant } from '../Menu.types';
+import {
+  DropdownMenuProps,
+  MenuSize,
+  MenuVariant,
+  MenuRenderFunction,
+} from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
@@ -57,6 +62,10 @@ export interface MenuItemProps {
    * @default false
    */
   wrap?: boolean;
+  /**
+   * Menu renderer for nested menus
+   */
+  menuRenderer?: MenuRenderFunction;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;

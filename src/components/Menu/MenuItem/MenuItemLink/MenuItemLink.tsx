@@ -68,7 +68,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = forwardRef(
     );
 
     return (
-      <li className={menuItemClassNames}>
+      <li className={menuItemClassNames} role="presentation">
         <Link
           classNames={styles.menuLink}
           disabled={disabled}
