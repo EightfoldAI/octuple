@@ -176,10 +176,7 @@ function injectSorter<RecordType>(
         title: (renderProps: ColumnTitleProps<RecordType>) => {
           const renderSortTitle = (
             <div
-              className={mergeClasses([
-                styles.tableColumnSorters,
-                styles.tableColumnHasSorters,
-              ])}
+              className={styles.tableColumnSorters}
               onClick={() => {
                 triggerSorter({
                   column,
@@ -240,13 +237,21 @@ function injectSorter<RecordType>(
         onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
-          return {
-            ...cell,
-            className: mergeClasses([
-              cell.className,
-              styles.tableColumnHasSorters,
-            ]),
-          };
+
+          // Inform the screen-reader so it can tell the visually impaired user which column is sorted
+          if (sorterOrder) {
+            cell['aria-sort'] =
+              sorterOrder === 'ascend' ? 'ascending' : 'descending';
+          } else {
+            cell['aria-sort'] = 'none';
+          }
+          // Ensures the cell has the proper role.
+          cell.role = 'columnheader';
+          cell.className = mergeClasses([
+            cell.className,
+            styles.tableColumnHasSorters,
+          ]);
+          return cell;
         },
       };
     }
