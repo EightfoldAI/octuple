@@ -2,6 +2,7 @@
 
 import React, {
   forwardRef,
+  Key,
   ReactNode,
   useCallback,
   useContext,
@@ -637,6 +638,20 @@ function InternalTable<RecordType extends object = any>(
       typeof indentSize === 'number' ? indentSize : 15;
   }
 
+  // ========================== Row Hover ==========================
+  const handleRowHoverEnter = (
+    index: number,
+    rowKey: Key,
+    event: React.MouseEvent<HTMLElement>
+  ) => {
+    const record = rawData[index];
+    if (!record) return;
+    const title = (record as { title?: string })?.title || '';
+    setScrollLeftAriaLabel(`Scroll ${title} left`);
+    setScrollRightAriaLabel(`Scroll ${title} right`);
+    onRowHoverEnter(index, rowKey, event);
+  };
+
   // ============================ Render ============================
   const transformColumns = useCallback(
     (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
@@ -833,7 +848,7 @@ function InternalTable<RecordType extends object = any>(
               transformColumns={
                 transformColumns as OcTableProps<RecordType>['transformColumns']
               }
-              onRowHoverEnter={onRowHoverEnter}
+              onRowHoverEnter={handleRowHoverEnter}
               onRowHoverLeave={onRowHoverLeave}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
