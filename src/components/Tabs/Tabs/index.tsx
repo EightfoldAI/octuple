@@ -24,6 +24,8 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       themeContainerId,
       value,
       variant,
+      enableArrowNav,
+      disabledTabIndexes,
     } = props;
     return (
       <TabsProvider
@@ -42,6 +44,8 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
         themeContainerId={themeContainerId}
         value={value}
         variant={variant}
+        enableArrowNav={enableArrowNav}
+        disabledTabIndexes={disabledTabIndexes}
       >
         <AnimatedTabs {...props} ref={ref}>
           {children}

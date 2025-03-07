@@ -80,6 +80,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
             role="tablist"
             className={tabClassNames}
             style={style}
+            tabIndex={-1}
           >
             {children}
           </div>
