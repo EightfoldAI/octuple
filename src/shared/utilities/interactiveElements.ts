@@ -41,27 +41,27 @@ export function interactWithFirstInteractiveElement(
   // Try to find and interact with elements in priority order
   const elementFound = interactiveElements.some(({ selector, action }) => {
     const element = containerElement.querySelector(selector) as HTMLElement;
-    if (element) {
-      switch (action) {
-        case 'click':
-          element.click();
-          break;
-        case 'focus':
-          element.focus();
-          break;
-        case 'toggle':
-          if (element instanceof HTMLDetailsElement) {
-            element.open = !element.open;
-          } else {
-            element.click();
-          }
-          break;
-        default:
-          element.click();
-      }
-      return true; // Stop the loop once we've found and acted on an element
+    if (!element) {
+      return false;
     }
-    return false;
+    switch (action) {
+      case 'click':
+        element.click();
+        break;
+      case 'focus':
+        element.focus();
+        break;
+      case 'toggle':
+        if (element instanceof HTMLDetailsElement) {
+          element.open = !element.open;
+        } else {
+          element.click();
+        }
+        break;
+      default:
+        element.click();
+    }
+    return true;
   });
 
   // If no specific interactive element was found, try using the SELECTORS constant
