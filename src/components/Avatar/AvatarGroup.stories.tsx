@@ -72,6 +72,9 @@ const sampleList: User[] = [
 
 const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
+    tooltipId="avatar-group-tooltip-id"
+    ariaLabel="interviewers"
+    roleSet="button"
     animateOnHover
     maxProps={{
       count: 4,
@@ -200,6 +203,9 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
 
 const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
+    tooltipId="avatar-group-tooltip-id"
+    ariaLabel="interviewers"
+    roleSet="button"
     animateOnHover
     avatarListProps={{
       items: sampleList,
