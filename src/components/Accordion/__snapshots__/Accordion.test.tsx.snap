@@ -554,6 +554,8 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                   >
                     <li
                       class="list-item"
+                      role="option"
+                      tabindex="0"
                     >
                       <button
                         aria-disabled="false"
@@ -580,6 +582,8 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                     </li>
                     <li
                       class="list-item"
+                      role="option"
+                      tabindex="-1"
                     >
                       <button
                         aria-disabled="false"
