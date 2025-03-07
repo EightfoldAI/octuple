@@ -257,6 +257,11 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
       style,
       theme,
       tabIndex = 0,
+      id = 'avatar-id',
+      ariaLabel,
+      roleSet,
+      ariaDescribedBy,
+      ariaOwns,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -290,6 +295,11 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
     return (
       <div
+        id={id}
+        aria-label={ariaLabel}
+        aria-owns={ariaOwns}
+        aria-describedby={ariaDescribedBy}
+        role={roleSet}
         ref={ref}
         className={avatarClasses}
         onClick={onClick}
@@ -369,6 +379,11 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       tooltipProps = undefined,
       type = 'square',
       tabIndex = 0,
+      id = 'avatar-id',
+      ariaLabel,
+      roleSet,
+      ariaDescribedBy,
+      ariaOwns,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -582,6 +597,11 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         )}
       >
         <AvatarFallback
+          id={id}
+          ariaLabel={ariaLabel}
+          ariaOwns={ariaOwns}
+          ariaDescribedBy={ariaDescribedBy}
+          roleSet={roleSet}
           classNames={wrapperClassNames}
           hashingFunction={hashingFunction}
           onClick={onClick}
