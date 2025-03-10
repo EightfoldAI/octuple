@@ -76,6 +76,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         visible,
         width,
         overlayTabIndex = 0,
+        overlayProps,
+        toggleDropdownOnShiftTab = true,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -298,7 +300,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (refs.floating.current.matches(':focus-within')) {
-              toggle(true)(event);
+              toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
         }
@@ -391,6 +393,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           >
             <div
               ref={refs.setFloating}
+              // @ts-expect-error - This is a valid CSSProperties object
               style={dropdownStyles}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
@@ -400,6 +403,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
+              {...overlayProps}
             >
               {overlay}
             </div>
