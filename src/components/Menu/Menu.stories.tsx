@@ -458,6 +458,7 @@ const menuArgs: object = {
   listType: 'ul',
   role: 'list',
   itemProps: { role: 'listitem' },
+  applyCyclicNavigation: false,
 };
 
 Basic_Menu.args = {
