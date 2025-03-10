@@ -35,6 +35,7 @@ export const List = <T extends any>({
   itemProps,
   getItem,
   id,
+  applyCyclicNavigation = false,
   ...rest
 }: ListProps<T>) => {
   const htmlDir: string = useCanvasDirection();
@@ -73,6 +74,8 @@ export const List = <T extends any>({
     const arrowIncrement: boolean = htmlDir === 'rtl' ? arrowLeft : arrowRight;
     const end: boolean = event?.key === eventKeys.END;
     const home: boolean = event?.key === eventKeys.HOME;
+    // If additional item is present, add 1 to the total items.
+    const totalItems = renderAdditionalItem ? items.length + 1 : items.length;
     if (
       ((arrowDown || arrowUp) && layout === 'vertical') ||
       ((arrowDecrement || arrowIncrement) && layout === 'horizontal')
@@ -86,7 +89,9 @@ export const List = <T extends any>({
             (arrowIncrement && layout === 'horizontal')
               ? 1
               : -1;
-          let nextIndex: number = index + step;
+          let nextIndex: number = applyCyclicNavigation
+            ? (index + step + totalItems) % totalItems
+            : index + step;
           const additionalItemIndex: number = items ? items.length : 0;
           if (
             (renderAdditionalItem &&
