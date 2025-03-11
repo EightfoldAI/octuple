@@ -464,6 +464,7 @@ const dropdownArgs: Object = {
     role: 'listbox',
     'aria-label': 'Dropdown overlay',
   },
+  toggleDropdownOnShiftTab: true,
 };
 
 Dropdown_Button.args = {
