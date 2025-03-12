@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { AiAgentProps, AiAgentDimensionsMap } from './AiAgent.types';
+import { mergeClasses } from '../../../shared/utilities';
 
 export const AiAgent: FC<AiAgentProps> = ({
   size = 'medium',
@@ -14,8 +15,12 @@ export const AiAgent: FC<AiAgentProps> = ({
   };
 
   // Combine classNames
-  const combinedClassName =
-    `ai-agent ai-agent-${size} ai-agent-${variant} ${classNames}`.trim();
+  const combinedClassName = mergeClasses(
+    'ai-agent',
+    `ai-agent-${size}`,
+    `ai-agent-${variant}`,
+    classNames
+  );
 
   const { width, height } = dimensions[size];
 
