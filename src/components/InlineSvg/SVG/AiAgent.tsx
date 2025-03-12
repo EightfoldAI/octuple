@@ -1,27 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { AiAgentProps, AiAgentDimensionsMap } from './AiAgent.types';
 
-interface AiAgentProps {
-  /**
-   * The size variant of the AI Agent icon
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * The style variant of the AI Agent icon
-   */
-  variant?: 'solid' | 'outline' | 'gradient';
-  /**
-   * Optional custom class name
-   */
-  className?: string;
-}
-
-export function AiAgent({
+export const AiAgent: FC<AiAgentProps> = ({
   size = 'medium',
   variant = 'gradient',
-  className = '',
-}: AiAgentProps): JSX.Element {
+  classNames = '',
+}: AiAgentProps) => {
   // Determine dimensions based on size
-  const dimensions = {
+  const dimensions: AiAgentDimensionsMap = {
     small: { width: 20, height: 18 },
     medium: { width: 30, height: 27 },
     large: { width: 40, height: 36 },
@@ -29,7 +15,7 @@ export function AiAgent({
 
   // Combine classNames
   const combinedClassName =
-    `ai-agent ai-agent-${size} ai-agent-${variant} ${className}`.trim();
+    `ai-agent ai-agent-${size} ai-agent-${variant} ${classNames}`.trim();
 
   const { width, height } = dimensions[size];
 
@@ -240,4 +226,4 @@ export function AiAgent({
       </defs>
     </svg>
   );
-}
+};

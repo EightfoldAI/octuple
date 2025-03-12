@@ -1,4 +1,5 @@
 export * from './InlineSvg.types';
+export * from './SVG/AiAgent.types';
 export * from './InlineSvg';
 export { CopilotFullLogoLarge } from './SVG/CopilotFullLogoLarge';
 export { CopilotFullLogoMedium } from './SVG/CopilotFullLogoMedium';

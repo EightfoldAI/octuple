@@ -165,7 +165,7 @@ describe('AiAgent', () => {
 
     test('renders with custom className', () => {
       const customClass = 'my-custom-class';
-      const { container } = render(<AiAgent className={customClass} />);
+      const { container } = render(<AiAgent classNames={customClass} />);
       const svg = container.querySelector('svg');
       expect(svg).toBeInTheDocument();
       expect(svg).toHaveClass(customClass);
@@ -173,7 +173,7 @@ describe('AiAgent', () => {
 
     test('renders with combined props', () => {
       const { container } = render(
-        <AiAgent size="large" variant="solid" className="test-class" />
+        <AiAgent size="large" variant="solid" classNames="test-class" />
       );
       const svg = container.querySelector('svg');
       expect(svg).toBeInTheDocument();

@@ -152,7 +152,7 @@ export const AiAgentComponents = () => {
           <div style={{ textAlign: 'center' }}>
             <p>Medium Outline with Custom Class</p>
             <AiAgent
-              className="custom-ai-agent"
+              classNames="custom-ai-agent"
               size="medium"
               variant="outline"
             />
