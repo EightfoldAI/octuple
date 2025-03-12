@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { AiAgent } from './AiAgent';
+import { AiAgentVariant } from './AiAgent.types';
 
-export function AiAgentOutline(): JSX.Element {
-  return <AiAgent variant="outline" />;
-}
+export const AiAgentOutline: FC = () => {
+  return <AiAgent variant={AiAgentVariant.OUTLINE} />;
+};

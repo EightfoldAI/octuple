@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { AiAgent } from './AiAgent';
+import { AiAgentSize } from './AiAgent.types';
 
-export function AiAgentLarge(): JSX.Element {
-  return <AiAgent size="large" />;
-}
+export const AiAgentLarge: FC = () => {
+  return <AiAgent size={AiAgentSize.LARGE} />;
+};
