@@ -1,5 +1,5 @@
 import { ValidateStatus } from '../../components/Form/Form.types';
-import { tuple } from './';
+import { tuple } from './types';
 
 const InputStatuses = tuple?.(
   'success',

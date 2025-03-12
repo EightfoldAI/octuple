@@ -15,8 +15,8 @@ import {
   ButtonTextAlign,
   ButtonVariant,
   ButtonWidth,
-  SplitButton,
-} from '.';
+} from './Button.types';
+import { SplitButton } from './SplitButton/SplitButton';
 import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { InnerNudge, NudgeAnimation, NudgeProps } from './Nudge';
