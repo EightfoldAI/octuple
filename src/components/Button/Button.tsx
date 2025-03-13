@@ -37,6 +37,9 @@ export const Button: FC<ButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedby,
+      ariaHaspopup,
+      ariaExpanded,
       badgeProps,
       buttonWidth = ButtonWidth.fitContent,
       checked = false,
@@ -339,6 +342,9 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           ref={mergedRef}
           aria-disabled={mergedDisabled || loading}
           aria-label={ariaLabel}
+          aria-describedby={ariaDescribedby}
+          aria-haspopup={ariaHaspopup}
+          aria-expanded={ariaExpanded}
           aria-pressed={toggle ? !!checked : undefined}
           defaultChecked={checked}
           disabled={(!allowDisabledFocus && mergedDisabled) || loading}
