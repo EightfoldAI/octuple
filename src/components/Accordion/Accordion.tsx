@@ -118,7 +118,6 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <Button
         ref={buttonRef}
         tabIndex={-1}
-        role="presentation"
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
         onClick={onIconButtonClick}
@@ -126,6 +125,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         shape={ButtonShape.Round}
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
         disabled={true}
+        aria-hidden={true}
         {...expandButtonProps}
       />
     </div>
