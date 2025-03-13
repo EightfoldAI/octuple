@@ -98,7 +98,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <div
         aria-controls={`${id}-content`}
         aria-expanded={expanded}
-        aria-describedby={expandButtonDescribedBy || `${id}-header-content`}
+        aria-labelledby={expandButtonDescribedBy || `${id}-header-content`}
         className={styles.clickableArea}
         onClick={onClick}
         onKeyDown={handleKeyDown}
@@ -118,13 +118,14 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <Button
         ref={buttonRef}
         tabIndex={-1}
-        role="presentation"
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
         onClick={onIconButtonClick}
         onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
+        disabled={true}
+        aria-hidden={true}
         {...expandButtonProps}
       />
     </div>
