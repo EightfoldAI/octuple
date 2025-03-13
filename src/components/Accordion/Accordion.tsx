@@ -124,7 +124,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
-        disabled={true}
+        disabled={disabled}
         aria-hidden={true}
         {...expandButtonProps}
       />
