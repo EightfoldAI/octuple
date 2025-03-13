@@ -368,6 +368,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       onKeyDown,
       onMouseEnter,
       onMouseLeave,
+      onError,
       outline,
       popupProps = undefined,
       randomiseTheme,
@@ -504,6 +505,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
               onKeyDown={onKeyDown}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              onError={onError}
               src={src}
               style={calculatedOutline}
               tabIndex={0}
@@ -560,6 +562,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             onKeyDown={onKeyDown}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            onError={onError}
             ref={ref}
             style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
             tabIndex={tabIndex}
