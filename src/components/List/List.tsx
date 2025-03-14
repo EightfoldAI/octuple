@@ -221,6 +221,7 @@ export const List = <T extends any>({
       ref={itemRef}
       style={itemStyle}
       role="option"
+      aria-selected={focusIndex === index ? 'true' : 'false'}
       tabIndex={focusIndex === index ? 0 : -1}
     >
       {renderItem(item)}
