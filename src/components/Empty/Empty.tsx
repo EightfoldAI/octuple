@@ -33,6 +33,7 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
       imageStyle,
       mode = EmptyMode.data,
       title,
+      headingLevel,
       ...rest
     },
     ref: Ref<HTMLDivElement>
@@ -86,7 +87,15 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
         <div className={styles.emptyImage} style={imageStyle}>
           {imageNode}
         </div>
-        {title && <div className={styles.emptyTitle}>{title}</div>}
+        {title && (
+          <h2
+            className={styles.emptyTitle}
+            role="heading"
+            aria-level={headingLevel || 2}
+          >
+            {title}
+          </h2>
+        )}
         {description && (
           <div
             className={mergeClasses([

@@ -824,6 +824,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                           <li className={styles.step}>
                             {layout === 'vertical' && (
                               <hr
+                                role="presentation"
                                 className={mergeClasses([
                                   innerSeparatorClassNames,
                                   (styles as any)[`${step.size}`],
@@ -834,6 +835,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             )}
                             {size !== StepperSize.Small && (
                               <hr
+                                role="presentation"
                                 className={mergeClasses([
                                   innerSeparatorClassNames,
                                   (styles as any)[`${step.size}`],

@@ -79,6 +79,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         width,
         overlayTabIndex = 0,
         overlayProps,
+        toggleDropdownOnShiftTab = true,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -319,7 +320,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (refs.floating.current.matches(':focus-within')) {
-              toggle(true)(event);
+              toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
         }
