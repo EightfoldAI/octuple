@@ -199,6 +199,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         );
       }, [refs.reference, refs.floating, update]);
 
+      // Add a new useEffect to update position when overlay content changes
+      useEffect(() => {
+        if (mergedVisible && refs.floating.current) {
+          // Update the position when the overlay content changes
+          update();
+        }
+      }, [overlay, mergedVisible, update]);
+
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
