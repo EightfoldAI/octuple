@@ -205,7 +205,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           // Update the position when the overlay content changes
           update();
         }
-      }, [overlay, mergedVisible, update]);
+      }, [overlay, mergedVisible, update, refs.floating]);
 
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
