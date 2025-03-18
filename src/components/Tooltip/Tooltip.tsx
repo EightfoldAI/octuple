@@ -473,7 +473,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             'aria-controls': tooltipId?.current,
             'aria-expanded': mergedVisible,
             'aria-haspopup': true,
-            role: 'button',
+            ...(trigger !== 'hover' && { role: 'button' }),
             'data-reference-id': tooltipReferenceId?.current,
             tabIndex: `${tabIndex}`,
           };
@@ -514,7 +514,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 ? toggle(true, showTooltip)
                 : null
             }
-            role="button"
+            {...(trigger !== 'hover' && { role: 'button' })}
             tab-index={tabIndex}
           >
             {node}
