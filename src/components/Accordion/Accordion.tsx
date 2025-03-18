@@ -51,7 +51,6 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   gradient,
   iconProps,
   id,
-  onIconButtonClick,
   onClick,
   size,
   ...rest
@@ -120,11 +119,9 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         tabIndex={-1}
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
-        onClick={onIconButtonClick}
-        onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
+        disabled
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
-        disabled={true}
         aria-hidden={true}
         {...expandButtonProps}
       />
@@ -315,7 +312,6 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                   gradient={gradient}
                   iconProps={iconProps}
                   id={id}
-                  onIconButtonClick={() => toggleAccordion(!isExpanded)}
                   onClick={() => toggleAccordion(!isExpanded)}
                   size={size}
                   {...headerProps}
