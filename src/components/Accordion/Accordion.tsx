@@ -118,6 +118,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         ref={buttonRef}
         tabIndex={-1}
         gradient={gradient}
+        classNames={styles.accordionIconButton}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
         shape={ButtonShape.Round}
         disabled
