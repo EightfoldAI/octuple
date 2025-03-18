@@ -170,6 +170,17 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
       onChange?.(e);
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+      if (!allowDisabledFocus && (e.key === 'Enter' || e.key === ' ')) {
+        const target = e.target as HTMLInputElement;
+        setIsActive((prev) => !prev);
+        onChange?.({
+          ...(e as any),
+          currentTarget: { checked: !target.checked },
+        });
+      }
+    };
+
     return (
       <ThemeContextProvider
         componentClassName={themedComponentStyles.theme}
@@ -196,17 +207,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             value={value}
             onChange={!allowDisabledFocus ? toggleChecked : null}
             readOnly
-            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-              if (!allowDisabledFocus && (e.key === 'Enter' || e.key === ' ')) {
-                const target = e.target as HTMLInputElement;
-                setIsActive((prev) => !prev);
-                onChange?.({
-                  ...(e as any),
-                  currentTarget: { checked: !target.checked },
-                });
-              }
-            }}
-            {...rest}
+            onKeyDown={handleKeyDown}
           />
           <label htmlFor={radioButtonId.current} className={labelClassNames}>
             {labelPosition == LabelPosition.Start && (
