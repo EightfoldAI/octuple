@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.24](https://github.com/EightfoldAI/octuple/compare/v2.52.23...v2.52.24) (2025-03-18)
+
+### Features
+
+- dropdown: added overlay props ([#956](https://github.com/EightfoldAI/octuple/issues/956)) ([0933ddf](https://github.com/EightfoldAI/octuple/commits/0933ddf8fe602427995e485cc644004d2d10782f))
+
+### Bug Fixes
+
+- added role presentation to hr tag ([#937](https://github.com/EightfoldAI/octuple/issues/937)) ([1003539](https://github.com/EightfoldAI/octuple/commits/100353920e40618d97eefe8c041e32726f261841))
+- avatar: tooltip accessibility fix ([#949](https://github.com/EightfoldAI/octuple/issues/949)) ([134dacd](https://github.com/EightfoldAI/octuple/commits/134dacdf341da572547f396a8f48c29309fe85a5))
+- build warning ([#950](https://github.com/EightfoldAI/octuple/issues/950)) ([c0ec69e](https://github.com/EightfoldAI/octuple/commits/c0ec69e8bf131ce0453503e794c0fdaf385d2620))
+- Close dropdown on Shift + Tab and enable cyclic navigation for menu items. ([#940](https://github.com/EightfoldAI/octuple/issues/940)) ([b0ce737](https://github.com/EightfoldAI/octuple/commits/b0ce73701903ab3a24972ebb470ca3b4e702c027))
+- **dropdown:** recalculate start position when overlaycontent gets updated ([#962](https://github.com/EightfoldAI/octuple/issues/962)) ([632a6c5](https://github.com/EightfoldAI/octuple/commits/632a6c5fa8ca866172e4c6731aebda837b82e452))
+- Heading heirarchy fix ([#938](https://github.com/EightfoldAI/octuple/issues/938)) ([7a283e1](https://github.com/EightfoldAI/octuple/commits/7a283e1e20ce85c3ea5605e2b9cd6e49ac4fb1de))
+- radio group prop name fixed ([#946](https://github.com/EightfoldAI/octuple/issues/946)) ([920ad63](https://github.com/EightfoldAI/octuple/commits/920ad6388f9130305aca39e61f19c94f678710cc))
+- snackbar: added focus to close button in snackbar ([#955](https://github.com/EightfoldAI/octuple/issues/955)) ([ec71eab](https://github.com/EightfoldAI/octuple/commits/ec71eaba2b1814c65f3cdd9831b49467ef624607))
+- **table:** update aria labels ([#952](https://github.com/EightfoldAI/octuple/issues/952)) ([0da22c6](https://github.com/EightfoldAI/octuple/commits/0da22c6de597e895d88675a8904b1607f52bbccc))
+- **ui:** remove aria properties from arrow button , added role presentation ([#951](https://github.com/EightfoldAI/octuple/issues/951)) ([cb18460](https://github.com/EightfoldAI/octuple/commits/cb184600ef96f3aac654bda1cae03d88dfd728a5))
+
 ### [2.52.23](https://github.com/EightfoldAI/octuple/compare/v2.52.22...v2.52.23) (2025-02-10)
 
 ### Bug Fixes
