@@ -28,6 +28,9 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
+      ariaDescribedby,
+      ariaHaspopup,
+      ariaExpanded,
       classNames,
       checked = false,
       configContextProps = {
@@ -169,6 +172,9 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         ref={mergedRef}
         aria-disabled={mergedDisabled}
         aria-label={ariaLabel}
+        aria-describedby={ariaDescribedby}
+        aria-haspopup={ariaHaspopup}
+        aria-expanded={ariaExpanded}
         aria-pressed={split ? !!checked : undefined}
         defaultChecked={checked}
         disabled={!allowDisabledFocus && mergedDisabled}
