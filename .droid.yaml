@@ -1,0 +1,13 @@
+review:
+  guidelines:
+  - path: '**'
+    guideline: Catch and correct any obvious bugs.
+  - path: '*'
+    guideline: Correct grammar mistakes. Only comment on incorrect grammar - not style.
+      However, allow for flexible capitalization and abbreviation for variable names.
+  - path: src/components/InlineSvg/**/*.tsx
+    guideline: Use enums for defining prop types and variant options in components
+      to ensure type safety and consistency across the codebase.
+  - path: src/components/**/*.ts*
+    guideline: Ensure components are designed with accessibility in mind, including
+      proper use of ARIA attributes and dynamic attribute control based on props.
