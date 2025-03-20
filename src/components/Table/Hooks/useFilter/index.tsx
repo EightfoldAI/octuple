@@ -4,21 +4,14 @@ import type {
   ColumnsType,
   ColumnType,
   ColumnTitleProps,
-  Key,
   FilterValue,
   FilterKey,
   GetPopupContainer,
-  ColumnFilterItem,
 } from '../../Table.types';
+import type { FilterState } from './utils';
+import { flattenKeys } from './utils';
 import { getColumnPos, renderColumnTitle, getColumnKey } from '../../utlities';
 import FilterDropdown from './FilterDropdown';
-
-export interface FilterState<RecordType> {
-  column: ColumnType<RecordType>;
-  key: Key;
-  filteredKeys?: FilterKey;
-  forceFiltered?: boolean;
-}
 
 function collectFilterStates<RecordType>(
   columns: ColumnsType<RecordType>,
@@ -137,17 +130,6 @@ function injectFilter<RecordType>(
 
     return newColumn;
   });
-}
-
-export function flattenKeys(filters?: ColumnFilterItem[]) {
-  let keys: FilterValue = [];
-  (filters || []).forEach(({ value, children }) => {
-    keys.push(value);
-    if (children) {
-      keys = [...keys, ...flattenKeys(children)];
-    }
-  });
-  return keys;
 }
 
 function generateFilterInfo<RecordType>(

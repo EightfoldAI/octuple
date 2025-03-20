@@ -110,9 +110,10 @@ const BasicOverlay = (args: any) => (
           value: 'menu 6',
         },
       ]}
-      onChange={(item) => {
-        args.onChange(item);
-        console.log(item);
+      onChange={(item, e) => {
+        e?.stopPropagation();
+        args.onChange(item, e);
+        console.log(item, e);
       }}
     />
   </ConfigProvider>
@@ -239,41 +240,66 @@ const SubHeaderOverlay = (args: any) => {
           value: 'menu 6',
         },
       ]}
-      onChange={(item) => {
-        args.onChange(item);
-        console.log(item);
+      onChange={(item, e) => {
+        e?.stopPropagation();
+        args.onChange(item, e);
+        console.log(item, e);
       }}
     />
   );
 };
 
 const Basic_Menu_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown initialFocus overlay={BasicOverlay(args)}>
-    <Button text={'Menu dropdown'} />
-  </Dropdown>
+  <div
+    onClick={() => {
+      console.log('Click event bubbled to parent');
+    }}
+  >
+    <Dropdown initialFocus overlay={BasicOverlay(args)}>
+      <Button text={'Menu dropdown'} />
+    </Dropdown>
+  </div>
 );
 
 const Menu_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown initialFocus overlay={LinkOverlay(args)}>
-    <Button text={'Menu dropdown'} />
-  </Dropdown>
+  <div
+    onClick={() => {
+      console.log('Click event bubbled to parent');
+    }}
+  >
+    <Dropdown initialFocus overlay={LinkOverlay(args)}>
+      <Button text={'Menu dropdown'} />
+    </Dropdown>
+  </div>
 );
 
 const Menu_Header_Story: ComponentStory<typeof Menu> = (args) => (
-  <Dropdown initialFocus overlay={BasicOverlay(args)}>
-    <Button text={'Menu dropdown'} />
-  </Dropdown>
+  <div
+    onClick={() => {
+      console.log('Click event bubbled to parent');
+    }}
+  >
+    <Dropdown initialFocus overlay={BasicOverlay(args)}>
+      <Button text={'Menu dropdown'} />
+    </Dropdown>
+  </div>
 );
 
 const Menu_Sub_Header_Story: ComponentStory<typeof Menu> = (args) => (
   // When hosting selectors, do not close dropdown on click :)
-  <Dropdown
-    closeOnDropdownClick={false}
-    initialFocus
-    overlay={SubHeaderOverlay(args)}
+  <div
+    onClick={() => {
+      console.log('Click event bubbled to parent');
+    }}
   >
-    <Button text={'Menu dropdown'} />
-  </Dropdown>
+    <Dropdown
+      closeOnDropdownClick={false}
+      initialFocus
+      overlay={SubHeaderOverlay(args)}
+    >
+      <Button text={'Menu dropdown'} />
+    </Dropdown>
+  </div>
 );
 
 const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
@@ -458,6 +484,7 @@ const menuArgs: object = {
   listType: 'ul',
   role: 'list',
   itemProps: { role: 'listitem' },
+  applyCyclicNavigation: false,
 };
 
 Basic_Menu.args = {

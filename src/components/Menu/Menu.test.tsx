@@ -288,4 +288,81 @@ describe('Menu', () => {
 
     expect(handleClick).toHaveBeenCalled();
   });
+
+  test('Menu onChange passes the event object to the handler', () => {
+    let capturedEvent: React.MouseEvent | undefined;
+
+    const menuChangeHandler = jest.fn((_item, e) => {
+      capturedEvent = e;
+    });
+
+    const { getByText } = render(
+      <Menu
+        onChange={menuChangeHandler}
+        items={[
+          {
+            text: 'Click me',
+            value: 'menu-item',
+          },
+        ]}
+      />
+    );
+
+    fireEvent.click(getByText('Click me'));
+
+    expect(menuChangeHandler).toHaveBeenCalled();
+    expect(capturedEvent).toBeDefined();
+    expect(typeof capturedEvent?.stopPropagation).toBe('function');
+  });
+
+  test('Menu onChange provides event parameter that can be used to stop propagation', () => {
+    const parentClickHandler = jest.fn();
+    const menuChangeHandler = jest.fn((_item, e) => {
+      e.stopPropagation();
+      e.stopPropagation();
+    });
+
+    const { getByText } = render(
+      <div onClick={parentClickHandler}>
+        <Menu
+          onChange={menuChangeHandler}
+          items={[
+            {
+              text: 'Click me',
+              value: 'menu-item',
+            },
+          ]}
+        />
+      </div>
+    );
+
+    fireEvent.click(getByText('Click me'));
+
+    expect(menuChangeHandler).toHaveBeenCalled();
+    expect(parentClickHandler).not.toHaveBeenCalled();
+  });
+
+  test('Menu onChange event bubbles to parent when stopPropagation is not called', () => {
+    const parentClickHandler = jest.fn();
+    const menuChangeHandler = jest.fn();
+
+    const { getByText } = render(
+      <div onClick={parentClickHandler}>
+        <Menu
+          onChange={menuChangeHandler}
+          items={[
+            {
+              text: 'Click me',
+              value: 'menu-item',
+            },
+          ]}
+        />
+      </div>
+    );
+
+    fireEvent.click(getByText('Click me'));
+
+    expect(menuChangeHandler).toHaveBeenCalled();
+    expect(parentClickHandler).toHaveBeenCalled();
+  });
 });
