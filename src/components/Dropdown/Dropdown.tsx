@@ -38,6 +38,7 @@ import {
   focusable,
   mergeClasses,
   SELECTORS,
+  NON_TABBABLE_SELECTORS,
   uniqueId,
 } from '../../shared/utilities';
 
@@ -51,6 +52,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         children,
         classNames,
         closeOnDropdownClick = true,
+        closeOnElementClick = true,
         closeOnReferenceClick = true,
         closeOnOutsideClick = true,
         disabled,
@@ -111,7 +113,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         const getFocusableElements = (): HTMLElement[] => {
           return [
             ...(refs.floating?.current.querySelectorAll(
-              SELECTORS
+              SELECTORS.concat(', ', NON_TABBABLE_SELECTORS)
             ) as unknown as HTMLElement[]),
           ].filter((el: HTMLElement) => focusable(el));
         };
@@ -127,6 +129,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         intervalRef.current = setInterval((): void => {
           elementToFocus?.focus();
           if (document.activeElement === elementToFocus) {
+            elementToFocus.style.outline = '-webkit-focus-ring-color auto 1px';
             clearInterval(intervalRef?.current);
           }
         }, ANIMATION_DURATION);
@@ -275,6 +278,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           toggle(true)(event);
         }
         if (
+          event?.key === eventKeys.ARROWDOWN &&
+          document.activeElement === event.target &&
+          mergedVisible &&
+          !initialFocus
+        ) {
+          focusFirstElement();
+        }
+        if (
           event?.key === eventKeys.ARROWUP &&
           document.activeElement === event.target &&
           mergedVisible
@@ -296,6 +307,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
+        if (
+          event?.key === eventKeys.ARROWDOWN ||
+          event?.key === eventKeys.ARROWUP
+        ) {
+          const firstElement = firstFocusableElement();
+          if (firstElement) {
+            firstElement.style.outline = 'revert';
+          }
+        }
         if (event?.key === eventKeys.TAB) {
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
@@ -311,6 +331,44 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
+        }
+      };
+
+      const handleDropdownClick = (event: React.MouseEvent): void => {
+        // Check if the click is on an element inside a list item
+        const isElementInsideListItem = (target: EventTarget): boolean => {
+          const element = target as HTMLElement;
+          // Walk up the DOM tree to find if we're inside a list item
+          let currentElement = element;
+          while (
+            currentElement &&
+            !currentElement.matches('[role="option"], .list-item, li')
+          ) {
+            // If we reach the dropdown wrapper, we're not inside a list item
+            if (currentElement.matches(`.${styles.dropdownWrapper}`)) {
+              return false;
+            }
+            currentElement = currentElement.parentElement;
+          }
+
+          // If we found a list item, check if the clicked element is a child of it
+          // but not the list item itself
+          if (currentElement) {
+            return element !== currentElement;
+          }
+
+          return false;
+        };
+        // If clicking on an element inside a list item and closeOnElementClick is false,
+        // don't close the dropdown
+        if (!closeOnElementClick && isElementInsideListItem(event.target)) {
+          event.stopPropagation();
+          return;
+        }
+
+        // Otherwise, use the original closeOnDropdownClick behavior
+        if (closeOnDropdownClick) {
+          toggle(false, showDropdown)(event);
         }
       };
 
@@ -405,9 +463,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               style={dropdownStyles}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
-              onClick={
-                closeOnDropdownClick ? toggle(false, showDropdown) : null
-              }
+              onClick={handleDropdownClick}
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
