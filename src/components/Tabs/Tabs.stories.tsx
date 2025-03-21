@@ -72,6 +72,7 @@ const tabs = [1, 2, 3, 4].map((i) => ({
   value: `tab${i}`,
   label: `Tab ${i}`,
   ariaLabel: `Tab ${i}`,
+  id: `tab-${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -79,6 +80,7 @@ const badgeTabs = [1, 2, 3, 4].map((i) => ({
   value: `tab${i}`,
   label: `Tab ${i}`,
   ariaLabel: `Tab ${i}`,
+  id: `tab-${i}`,
   badgeContent: i,
   ...(i === 4 ? { disabled: true } : {}),
 }));
@@ -87,6 +89,7 @@ const iconTabs = [1, 2, 3, 4].map((i) => ({
   value: `tab${i}`,
   icon: IconName.mdiCardsHeart,
   ariaLabel: `Tab ${i}`,
+  id: `tab-${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -95,6 +98,7 @@ const iconLabelTabs = [1, 2, 3, 4].map((i) => ({
   icon: IconName.mdiCardsHeart,
   label: `Tab ${i}`,
   ariaLabel: `Tab ${i}`,
+  id: `tab-${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -102,8 +106,13 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
   value: `tab${i}`,
   label: `Tab ${i}`,
   ariaLabel: `Tab ${i}`,
+  id: `tab-${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));
+
+const disabledTabIndexes = tabs
+  .map((tab, index) => (tab.disabled ? index : -1))
+  .filter((index) => index !== -1);
 
 const Tabs_Story: ComponentStory<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
@@ -122,6 +131,7 @@ const Tabs_Story: ComponentStory<typeof Tabs> = (args) => {
         {...args}
         onChange={(tab) => setActiveTabs({ ...activeTabs, defaultTab: tab })}
         value={activeTabs.defaultTab}
+        disabledTabIndexes={disabledTabIndexes}
       />
     </div>
   );
@@ -169,6 +179,7 @@ const tabsArgs: Object = {
   variant: TabVariant.default,
   size: TabSize.Medium,
   underlined: false,
+  enableArrowNav: false,
   children: tabs.map((tab) => <Tab key={tab.value} {...tab} />),
   style: {},
 };
