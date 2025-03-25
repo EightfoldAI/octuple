@@ -106,8 +106,9 @@ export interface MenuItemButtonProps
   /**
    * On Click handler of the menu item
    * @param value
+   * @param event
    */
-  onClick?: (value: any) => void;
+  onClick?: (value: any, event?: React.MouseEvent<any>) => void;
   /**
    * Secondary action button for the menu item
    */
@@ -164,7 +165,7 @@ export interface MenuItemSubHeaderProps
 export interface IMenuItemRender {
   value: any;
   index: number;
-  onChange: (value: any) => void;
+  onChange: (value: any, event?: React.MouseEvent<any>) => void;
   ref?: React.ForwardedRef<any>;
 }
 
