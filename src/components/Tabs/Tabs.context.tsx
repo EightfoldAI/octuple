@@ -173,7 +173,6 @@ const TabsProvider = ({
             currentEnabledIndex === 0
               ? enableTabIndexes[enableTabIndexes.length - 1]
               : enableTabIndexes[currentEnabledIndex - 1];
-          console.log('nextFocusIndex L', nextFocusIndex);
           event.preventDefault();
           break;
         case 'ArrowRight':
@@ -181,7 +180,6 @@ const TabsProvider = ({
             currentEnabledIndex === enableTabIndexes.length - 1
               ? enableTabIndexes[0]
               : enableTabIndexes[currentEnabledIndex + 1];
-          console.log('nextFocusIndex R', nextFocusIndex);
           event.preventDefault();
           break;
         case 'Home':
