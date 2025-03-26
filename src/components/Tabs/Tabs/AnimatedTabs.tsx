@@ -89,11 +89,6 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       return child;
     });
 
-    useEffect(() => {
-      console.log('>>combinedRef', ref);
-      console.log('>>tablist', tablistRef.current);
-    }, []);
-
     return (
       <Flipper flipKey={currentActiveTab}>
         <ThemeContextProvider
