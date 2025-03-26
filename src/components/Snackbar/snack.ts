@@ -11,7 +11,6 @@ import { InfoBarType } from '../InfoBar';
 
 const DEFAULT_POSITION: SnackbarPosition = 'top-center';
 
-
 const focusedElementsMap = new Map<string, HTMLElement>();
 
 export const SNACK_EVENTS: Record<string, string> = {
@@ -63,9 +62,6 @@ export const eat = (snackId: string): void => {
       elementToFocus.focus();
     }
     focusedElementsMap.delete(snackId);
-  }
-  if (focusedElementRef) {
-    focusedElementRef.focus();
   }
 };
 
