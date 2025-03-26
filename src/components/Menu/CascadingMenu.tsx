@@ -316,7 +316,7 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
       onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         props.onClick?.(event);
         tree?.events.emit('click');
-        props.onChange?.(item.value);
+        props.onChange?.(item.value, event);
       }}
       onMouseEnter={() => {
         if (allowHover && isOpen) {
