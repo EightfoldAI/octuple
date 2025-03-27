@@ -18,7 +18,8 @@ export type OcThemeName =
   | 'blueViolet'
   | 'violet'
   | 'violetRed'
-  | 'grey';
+  | 'grey'
+  | 'aiAgent';
 
 export type ThemeName = OcThemeName | OcCustomThemeName;
 
