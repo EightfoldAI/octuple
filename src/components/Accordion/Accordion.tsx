@@ -289,6 +289,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         [styles.rectangle]: shape === AccordionShape.Rectangle,
         [themedComponentStyles.theme]: mergedTheme,
         [styles.gradient]: mergedGradient,
+        [styles.aiAgent]: mergedTheme === 'aiAgent',
       },
       classNames
     );
