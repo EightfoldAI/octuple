@@ -44,6 +44,7 @@ export default {
         'violet',
         'violetRed',
         'grey',
+        'aiAgent',
       ],
       control: 'select',
     },

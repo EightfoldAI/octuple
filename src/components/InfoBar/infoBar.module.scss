@@ -61,6 +61,22 @@
     }
   }
 
+  &.ai-agent {
+    background: var(--info-bar-ai-agent-background-color);
+    color: var(--info-bar-ai-agent-text-color);
+
+    &.bordered {
+      border-color: var(--info-bar-ai-agent-border-color);
+    }
+
+    .action-button,
+    .close-button {
+      &:active {
+        background: var(--info-bar-ai-agent-button-color);
+      }
+    }
+  }
+
   &.disruptive {
     background: var(--info-bar-disruptive-background-color);
     color: var(--info-bar-disruptive-text-color);

@@ -99,6 +99,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       { [styles.disruptive]: type === InfoBarType.disruptive },
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.gradient]: mergedGradient },
+      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
     ]);
 
     const messageClasses: string = mergeClasses([
