@@ -156,6 +156,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.selectorRtl]: htmlDir === 'rtl' },
       { ['in-form-item']: mergedFormItemInput },
+      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
     ]);
 
     const checkBoxCheckClassNames: string = mergeClasses([
