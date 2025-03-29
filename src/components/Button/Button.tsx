@@ -196,6 +196,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           nudgeProps?.enabled &&
           nudgeProps?.animation === NudgeAnimation.Conic,
       },
+      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
     ]);
 
     const buttonClassNames: string = mergeClasses([
