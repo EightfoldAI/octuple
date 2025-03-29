@@ -38,6 +38,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       currentActiveTab,
       size,
       variant,
+      theme,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -51,6 +52,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       { [styles.active]: isActive },
       { [styles.inverse]: light || colorInvert },
       { [styles.tabRtl]: htmlDir === 'rtl' },
+      { [styles.aiAgent]: theme === 'aiAgent' },
       classNames,
     ]);
 

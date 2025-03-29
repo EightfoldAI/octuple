@@ -64,6 +64,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
         [themedComponentStyles.theme]: mergedTheme,
         [styles.inverse]: colorInvert,
         [styles.scrollable]: scrollable,
+        [styles.aiAgent]: mergedTheme === 'aiAgent',
       },
       classNames,
     ]);
