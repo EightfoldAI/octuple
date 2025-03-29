@@ -218,6 +218,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       },
       { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
+      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
     ]);
 
     useEffect(() => setInputValue(value), [value]);
