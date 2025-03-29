@@ -260,6 +260,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.progressSmall]: size === ProgressSize.Small },
       { [styles.progressRtl]: htmlDir === 'rtl' },
+      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
       classNames,
     ]);
 
