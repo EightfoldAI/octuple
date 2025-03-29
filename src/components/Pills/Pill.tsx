@@ -96,6 +96,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
         [styles.readOnly]:
           type !== PillType.withButton && type !== PillType.closable,
       },
+      { [styles.aiAgent]: theme === 'aiAgent' },
     ]);
 
     const getIcon = (): JSX.Element => (
