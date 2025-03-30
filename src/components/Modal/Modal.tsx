@@ -64,6 +64,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
       { [styles.large]: size === ModalSize.large },
       { [styles.xLarge]: size === ModalSize.xLarge },
       { [styles.fullscreen]: size === ModalSize.fullscreen },
+      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
     ]);
 
     const headerClasses: string = mergeClasses([
