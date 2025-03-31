@@ -72,7 +72,7 @@
     .action-button,
     .close-button {
       &:active {
-        background: var(--info-bar-ai-agent-button-color);
+        background: var(--info-bar-ai-agent-button-active-background-color);
       }
     }
   }
