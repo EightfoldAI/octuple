@@ -135,4 +135,11 @@
     --disruptive-background1-gradient
   );
   // ------ Info Bar theme ------
+  // AI Agent specific styling
+  --info-bar-ai-agent-background-color: var(--ai-agent-background1-gradient);
+  --info-bar-ai-agent-border-color: var(--ai-agent-background2-color);
+  --info-bar-ai-agent-text-color: var(--ai-agent-secondary-color);
+  --info-bar-ai-agent-button-active-background-color: var(
+    --ai-agent-background1-color
+  );
 }

@@ -52,7 +52,8 @@ export type PillThemeName =
   | 'violet'
   | 'violetRed'
   | 'grey'
-  | 'white';
+  | 'white'
+  | 'aiAgent';
 
 export interface PillProps extends OcBaseProps<HTMLElement> {
   /**

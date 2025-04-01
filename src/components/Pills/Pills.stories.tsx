@@ -68,6 +68,7 @@ const themes: PillThemeName[] = [
   'violetRed',
   'grey',
   'white',
+  'aiAgent',
 ];
 
 const Pill_Story: ComponentStory<typeof Pill> = (args) => (
