@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.25](https://github.com/EightfoldAI/octuple/compare/v2.52.24...v2.52.25) (2025-03-20)
+
+### Bug Fixes
+
+- added synthetic mouse event as a second optional param ([#967](https://github.com/EightfoldAI/octuple/issues/967)) ([9e36251](https://github.com/EightfoldAI/octuple/commits/9e362513dfdd42ad296a6387ff5eebeae193e30a))
+
 ### [2.52.24](https://github.com/EightfoldAI/octuple/compare/v2.52.23...v2.52.24) (2025-03-18)
 
 ### Features
