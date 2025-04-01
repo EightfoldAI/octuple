@@ -6,6 +6,26 @@ export type Value = string;
 
 export type OcCustomThemeName = string;
 
+/**
+ * Enum representing all available theme names
+ */
+// TODO: Use this enum throughout the codebase
+export enum ThemeNames {
+  Red = 'red',
+  RedOrange = 'redOrange',
+  Orange = 'orange',
+  Yellow = 'yellow',
+  YellowGreen = 'yellowGreen',
+  Green = 'green',
+  BlueGreen = 'blueGreen',
+  Blue = 'blue',
+  BlueViolet = 'blueViolet',
+  Violet = 'violet',
+  VioletRed = 'violetRed',
+  Grey = 'grey',
+  AIAgent = 'aiAgent',
+}
+
 export type OcThemeName =
   | 'red'
   | 'redOrange'

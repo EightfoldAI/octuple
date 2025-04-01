@@ -5,6 +5,7 @@ import { Button, ButtonProps, ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { Dropdown } from '../Dropdown';
 import { Panel } from '../Panel';
+import { ThemeNames } from '../ConfigProvider';
 import ThemeContext from '../ConfigProvider/ThemeContext';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses } from '../../shared/utilities';
@@ -47,7 +48,7 @@ export const LiveTaskBar: FC<LiveTaskBarProps> = React.forwardRef(
     const liveTaskBarClassNames: string = mergeClasses([
       styles.liveTaskBar,
       styles.horizontal,
-      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.liveTaskBarRtl]: htmlDir === 'rtl' },
       classNames,

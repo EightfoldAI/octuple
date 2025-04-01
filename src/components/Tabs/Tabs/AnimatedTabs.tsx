@@ -1,6 +1,6 @@
 import React, { FC, Ref, useContext } from 'react';
 import { Flipper } from 'react-flip-toolkit';
-import { OcThemeName } from '../../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../../ConfigProvider/ThemeContext';
@@ -64,7 +64,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
         [themedComponentStyles.theme]: mergedTheme,
         [styles.inverse]: colorInvert,
         [styles.scrollable]: scrollable,
-        [styles.aiAgent]: mergedTheme === 'aiAgent',
+        [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent,
       },
       classNames,
     ]);

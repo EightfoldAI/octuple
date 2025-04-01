@@ -2,7 +2,7 @@
 
 import React, { FC, Ref, useContext } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -64,7 +64,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
       { [styles.large]: size === ModalSize.large },
       { [styles.xLarge]: size === ModalSize.xLarge },
       { [styles.fullscreen]: size === ModalSize.fullscreen },
-      { [styles.aiAgent]: mergedTheme === 'aiAgent' },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     const headerClasses: string = mergeClasses([

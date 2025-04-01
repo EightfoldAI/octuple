@@ -10,7 +10,7 @@ import React, {
   useRef,
 } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -289,7 +289,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         [styles.rectangle]: shape === AccordionShape.Rectangle,
         [themedComponentStyles.theme]: mergedTheme,
         [styles.gradient]: mergedGradient,
-        [styles.aiAgent]: mergedTheme === 'aiAgent',
+        [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent,
       },
       classNames
     );
