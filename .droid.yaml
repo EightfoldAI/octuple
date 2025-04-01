@@ -1,5 +1,10 @@
 review:
   guidelines:
+  - path: '**'
+    guideline: Catch and correct any obvious bugs.
+  - path: src/components/InlineSvg/**/*.tsx
+    guideline: Use enums for defining prop types and variant options in components
+    to ensure type safety and consistency across the codebase.
   - path: "src/*"
     guideline: "Do not leave in commented out code. Delete it."
   - path: "*"
