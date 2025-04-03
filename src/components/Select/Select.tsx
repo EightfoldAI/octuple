@@ -882,7 +882,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 <TextInput
                   ref={inputRef}
                   aria-activedescendant={currentlySelectedOption.current?.id}
-                  aria-controls={selectMenuId?.current}
+                  aria-controls={
+                    dropdownVisible ? selectMenuId?.current : undefined
+                  }
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}
