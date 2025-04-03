@@ -742,6 +742,60 @@
       }
     }
   }
+
+  &.ai-agent {
+    input {
+      & + label {
+        .checkmark {
+          &.toggle {
+            background: var(--toggle-switch-ai-agent-background-color);
+            border: 2px solid var(--toggle-switch-ai-agent-border-color);
+
+            &:after {
+              background: var(--toggle-switch-ai-agent-pip-color);
+              border: none;
+            }
+          }
+        }
+      }
+
+      &:checked + label {
+        .checkmark {
+          &.toggle {
+            background: var(--toggle-switch-ai-agent-checked-background-color);
+            border: 2px solid var(--toggle-switch-ai-agent-checked-border-color);
+
+            &:after {
+              background: var(--toggle-switch-ai-agent-checked-pip-color);
+            }
+          }
+        }
+      }
+
+      &:not(.disabled):not([disabled]):hover + label {
+        .checkmark {
+          &.toggle {
+            background: var(--toggle-switch-ai-agent-hover-background-color);
+            border: 2px solid var(--toggle-switch-ai-agent-hover-border-color);
+
+            &:after {
+              background: var(--toggle-switch-ai-agent-hover-pip-color);
+            }
+          }
+        }
+      }
+
+      &:checked:not(.disabled):not([disabled]):hover + label {
+        .checkmark {
+          &.toggle {
+            &:after {
+              background: var(--toggle-switch-ai-agent-checked-hover-pip-color);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 :global(.focus-visible) {
