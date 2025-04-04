@@ -48,7 +48,11 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     <SystemUIButton
       classNames={'picker-year-btn'}
       key="year"
-      ariaLabel="year"
+      ariaLabel={formatValue(viewDate, {
+        locale,
+        format: locale.yearFormat,
+        generateConfig,
+      })}
       onClick={onYearClick}
       onKeyDown={(e) => {
         const isEventKey = [' ', 'Enter'].includes(e.key);
@@ -68,7 +72,15 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     <SystemUIButton
       classNames={'picker-month-btn'}
       key="month"
-      ariaLabel="month"
+      ariaLabel={
+        locale.monthFormat
+          ? formatValue(viewDate, {
+              locale,
+              format: locale.monthFormat,
+              generateConfig,
+            })
+          : monthsLocale[month]
+      }
       onClick={onMonthClick}
       onKeyDown={(e) => {
         const isEventKey = [' ', 'Enter'].includes(e.key);
