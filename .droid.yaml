@@ -1,30 +1,75 @@
 review:
+  # General review settings
+  disable_feedback_summary_comment: true
+  auto_review:
+    enabled: true
+    draft: false
+    bot: false
+    ignore_title_keywords:
+      - "WIP"
+      - "DO NOT MERGE"
+      - "DRAFT"
+    ignore_labels:
+      - "droid-skip"
+      - "no-review"
+
+  # General guidelines that apply to all files
   guidelines:
   - path: '**'
-    guideline: Catch and correct any obvious bugs.
-  - path: src/components/InlineSvg/**/*.tsx
-    guideline: Use enums for defining prop types and variant options in components
-    to ensure type safety and consistency across the codebase.
-  - path: "src/*"
-    guideline: "Do not leave in commented out code. Delete it."
+    guideline: >
+      Catch and correct any obvious bugs.
+      Ensure code is clean, maintainable, and follows project conventions.
+      Check for security vulnerabilities and performance issues.
+      Avoid circular dependencies.
+
   - path: "*"
-    guideline: "Correct grammar and spelling mistakes. Do not comment on writing style. Allow for flexible capitalization and abbreviation for variable names."
+    guideline: >
+      Correct grammar and spelling mistakes. Do not comment on writing style.
+      Allow for flexible capitalization and abbreviation for variable names.
+      Ensure consistent formatting across the codebase.
+
+  # Code cleanup guidelines
+  - path: "src/*"
+    guideline: >
+      Do not leave in commented out code. Delete it.
+      Remove unused imports, variables, and functions.
+      Ensure consistent code formatting and indentation.
+
+  # Component-specific guidelines
+  - path: src/components/InlineSvg/**/*.tsx
+    guideline: >
+      Use enums for defining prop types and variant options in components
+      to ensure type safety and consistency across the codebase.
+      Follow the established component patterns for SVG handling.
+
+  # TypeScript guidelines
   - path: "*.ts"
-    guideline: "Follow our TypeScript style guide."
+    guideline: >
+      Follow our TypeScript style guide.
+      Use interfaces for object shapes and types for unions/primitives.
+      Prefer readonly properties when values shouldn't change.
+      Use proper type annotations for function parameters and return types.
+      Avoid using 'any' type when possible, prefer unknown for truly unknown types.
+      Use type guards to narrow types safely.
+      Leverage TypeScript's utility types (Partial, Required, Pick, etc.) when appropriate.
     context_document_path: "https://google.github.io/styleguide/tsguide.html"
+
+  # React and TypeScript guidelines
   - path: "*.tsx"
     guideline: >
+      Always write declarative code, avoid imperative code.
+      Avoid manipulating the DOM directly, use React's declarative approach instead.
       Follow our React style guide.
       Use 2 spaces for indentation.
       Use 80 characters for line length.
-      Use type hints.
+      Use type hints and ensure proper typing for all components and props.
       Use type guards to check for types.
       Use type checking to validate data.
       Make sure relative imports are used when possible.
       Use style modules when possible.
-      single quotes are preferred over double quotes.
+      Single quotes are preferred over double quotes.
       Use camelCase for variable names.
-      export default components.
+      Export default components.
       Use native functions instead of lodash.
       Make sure the folder structure is followed.
       Add 'use client' directive at the top of client-side components.
@@ -32,6 +77,8 @@ review:
       Use FC<PropType> type annotation for functional components.
       Use mergeClasses utility for combining class names.
       Import styles using 'import styles from './componentname.module.scss'.
+      
+      # Accessibility guidelines
       Follow accessibility best practices with appropriate ARIA attributes and roles.
       Provide meaningful alt text for images and icons.
       Ensure proper heading hierarchy with appropriate aria-level attributes.
@@ -42,9 +89,16 @@ review:
       Ensure touch targets are at least 44x44px for mobile interactions.
       Give all interactive elements appropriate accessible names.
       Maintain accessibility across all viewport sizes with responsive design.
+      
+      # Component architecture
       Use ThemeContextProvider for themeable components.
       Follow existing patterns for component props interfaces.
+      Separate business logic from presentation when possible.
+      Use custom hooks for complex state management and side effects.
+      Memoize expensive computations and component renders when appropriate.
     context_document_path: "https://google.github.io/styleguide/tsguide.html"
+
+  # SCSS guidelines
   - path: "src/**/*.scss"
     guideline: >
       Follow BEM naming convention for CSS classes.
@@ -53,6 +107,13 @@ review:
       Use nesting for related styles, but avoid excessive nesting.
       Keep selectors as simple as possible.
       Use camelCase for SCSS variables.
+      Ensure responsive design with appropriate breakpoints.
+      Use mixins for reusable style patterns.
+      Avoid !important declarations unless absolutely necessary.
+      Group related properties together and maintain consistent ordering.
+      Use comments to explain complex styling decisions.
+
+  # React Hooks guidelines
   - path: "src/hooks/*.ts"
     guideline: >
       Add 'use client' directive at the top of client-side hooks.
@@ -60,6 +121,13 @@ review:
       Use TypeScript generics for type-safe hooks when appropriate.
       Add JSDoc comments to describe hook functionality.
       Return consistent values from hooks.
+      Follow React hooks rules (only call hooks at the top level, only call hooks from React functions).
+      Handle cleanup functions properly in useEffect to prevent memory leaks.
+      Use dependency arrays correctly in useEffect, useMemo, and useCallback.
+      Create custom hooks for reusable logic across components.
+      Ensure hooks have proper error handling and edge case management.
+
+  # Types guidelines
   - path: "src/**/*.types.ts"
     guideline: >
       Use interfaces for component props.
@@ -68,6 +136,12 @@ review:
       Use descriptive names for types and interfaces.
       Use proper JSDoc comments to document types.
       Follow TypeScript best practices for unions, intersections, and optional properties.
+      Use generics to create flexible, reusable types.
+      Avoid circular type dependencies.
+      Use type aliases for complex union or intersection types.
+      Ensure consistent naming conventions across type definitions.
+
+  # Utilities guidelines
   - path: "src/shared/utilities/*.ts"
     guideline: >
       Create reusable utilities for common operations.
@@ -75,6 +149,13 @@ review:
       Export utilities as named exports.
       Write thorough type annotations for parameters and return values.
       Follow functional programming patterns when applicable.
+      Ensure utilities are pure functions when possible.
+      Add unit tests for all utility functions.
+      Handle edge cases and errors gracefully.
+      Optimize for performance when dealing with data transformations.
+      Use meaningful parameter names that indicate their purpose.
+
+  # Testing guidelines
   - path: "**/__tests__/*.test.tsx"
     guideline: >
       Write tests with proper describes and it blocks.
@@ -82,12 +163,45 @@ review:
       Mock dependencies appropriately.
       Use testing library best practices.
       Ensure good test coverage for components.
+      Test edge cases and error handling.
+      Use data-testid attributes for test selectors instead of class names.
+      Write integration tests for complex component interactions.
+      Use snapshots sparingly and only for stable components.
+      Test accessibility with axe, arc or similar tools.
+      Ensure tests are isolated and don't depend on other tests.
+      Clean up after tests to prevent test pollution.
+
+  # CSS guidelines
   - path: "*.css"
-    guideline: "Follow our CSS style guide."
+    guideline: >
+      Follow our CSS style guide.
+      Use consistent naming conventions.
+      Minimize specificity conflicts.
+      Ensure responsive design principles are followed.
+      Use CSS variables for theming and consistent values.
+      Avoid inline styles in HTML.
     context_document_path: "https://google.github.io/styleguide/htmlcssguide.html"
+
+  # HTML guidelines
   - path: "*.html"
-    guideline: "Follow our HTML style guide."
+    guideline: >
+      Follow our HTML style guide.
+      Use semantic HTML elements appropriately.
+      Ensure proper document structure with correct heading levels.
+      Include appropriate meta tags for SEO and accessibility.
+      Ensure proper ARIA attributes for accessibility.
+      Validate HTML against W3C standards.
     context_document_path: "https://google.github.io/styleguide/htmlcssguide.html"
+
+  # JavaScript guidelines
   - path: "*.js"
-    guideline: "Follow our JavaScript style guide."
+    guideline: >
+      Follow our JavaScript style guide.
+      Use modern ES6+ features appropriately.
+      Avoid global variables and functions.
+      Use proper error handling with try/catch blocks.
+      Follow functional programming principles when appropriate.
+      Ensure consistent code formatting and style.
+      Use meaningful variable and function names.
+      Add JSDoc comments for functions and complex code blocks.
     context_document_path: "https://google.github.io/styleguide/jsguide.html"
