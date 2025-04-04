@@ -39,6 +39,7 @@ const ListItem = React.forwardRef(
       replaceFileText,
       removeIcon: customRemoveIcon,
       replaceIcon: customReplaceIcon,
+      replaceFileAriaLabel,
       showDownloadIconButton: showDownloadIconButton,
       showPreviewIconButton: showPreviewIconButton,
       showRemoveIconButton: showRemoveIconButton,
@@ -197,6 +198,7 @@ const ListItem = React.forwardRef(
             classNames: mergeClasses([styles.iconReplace]),
             disruptive: mergedStatus === 'error',
             htmlType: replaceButtonType,
+            ariaLabel: replaceFileAriaLabel,
             iconProps: {
               path:
                 typeof customReplaceIcon === 'function'
