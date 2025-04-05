@@ -47,6 +47,14 @@ export enum ButtonVariant {
   SystemUI = 'systemui',
 }
 
+export enum AriaHaspopupType {
+  Dialog = 'dialog',
+  Menu = 'menu',
+  Listbox = 'listbox',
+  Tree = 'tree',
+  Grid = 'grid',
+}
+
 export interface FloatingButtonProps {
   /**
    * Determines if the button is floating.
@@ -103,6 +111,18 @@ export interface ButtonProps extends NativeButtonProps {
    * The button aria-label text.
    */
   ariaLabel?: string;
+  /**
+   * ID of the element that describes the button.
+   */
+  ariaDescribedby?: string;
+  /**
+   * Indicates if the button controls a menu or other popover element.
+   */
+  ariaHaspopup?: boolean | AriaHaspopupType;
+  /**
+   * Indicates if the popup element controlled by the button is currently expanded or collapsed.
+   */
+  ariaExpanded?: boolean;
   /**
    * The button counter badge props.
    */
