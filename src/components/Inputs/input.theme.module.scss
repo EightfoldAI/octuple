@@ -163,4 +163,8 @@
   --input-highlight-border-color: var(--primary-tertiary-color);
   --input-highlight-placeholder-color: var(--input-placeholder-text-color);
   // ------ Input theme ------
+  // AI Agent specific styling
+  --input-ai-agent-border-color: var(--ai-agent-tertiary-color);
+  --input-ai-agent-placeholder-color: var(--grey-tertiary-color);
+  --input-ai-agent-clear-icon-color: var(--text-primary-color);
 }
