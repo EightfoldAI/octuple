@@ -11,7 +11,7 @@ import { InfoBarType } from '../InfoBar';
 
 const DEFAULT_POSITION: SnackbarPosition = 'top-center';
 
-const focusedElementsMap = new Map<string, HTMLElement>();
+let elementToFocus: HTMLElement | null = null;
 
 export const SNACK_EVENTS: Record<string, string> = {
   SERVE: 'serveSnack',
@@ -20,11 +20,6 @@ export const SNACK_EVENTS: Record<string, string> = {
 
 export const serve = (props: SnackbarProps): VoidFunction => {
   const id = props.id ?? generateId();
-
-  if (props.lastFocusableElement instanceof HTMLElement) {
-    focusedElementsMap.set(id, props.lastFocusableElement);
-  }
-
   const serveSnackEvent = new CustomEvent<SnackbarProps>(SNACK_EVENTS.SERVE, {
     bubbles: true,
     cancelable: false,
@@ -36,6 +31,10 @@ export const serve = (props: SnackbarProps): VoidFunction => {
   });
   if (canUseDocElement()) {
     document.dispatchEvent(serveSnackEvent);
+  }
+
+  if (props.lastFocusableElement) {
+    elementToFocus = props.lastFocusableElement;
   }
 
   if (!props.closable || props.actionButtonProps) {
@@ -56,12 +55,9 @@ export const eat = (snackId: string): void => {
 
   if (canUseDocElement()) {
     document.dispatchEvent(removeSnackEvent);
-
-    const elementToFocus = focusedElementsMap.get(snackId);
-    if (elementToFocus?.isConnected) {
-      elementToFocus.focus();
-    }
-    focusedElementsMap.delete(snackId);
+  }
+  if (elementToFocus) {
+    elementToFocus.focus();
   }
 };
 
