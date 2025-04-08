@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.53.0](https://github.com/EightfoldAI/octuple/compare/v2.52.25...v2.53.0) (2025-04-01)
+
+### Features
+
+- Ypatadia/eng 137079/ai agent theme addition ([#971](https://github.com/EightfoldAI/octuple/issues/971)) ([b1587bb](https://github.com/EightfoldAI/octuple/commits/b1587bbf7468e4f5e1004a9e97ea318b423fad8a))
+
 ### [2.52.25](https://github.com/EightfoldAI/octuple/compare/v2.52.24...v2.52.25) (2025-03-20)
 
 ### Bug Fixes

@@ -11,6 +11,65 @@
     large: $input-large-size,
   );
 
+  &.ai-agent {
+    &.disabled {
+      .input-group {
+        opacity: $disabled-ai-agent-alpha-value;
+      }
+
+      .text-area-group {
+        opacity: $disabled-ai-agent-alpha-value;
+      }
+    }
+    .input-group {
+      input {
+        border: 2px solid var(--input-ai-agent-border-color);
+
+        &:hover:not([disabled]):not([readOnly]) {
+          border-color: var(--input-ai-agent-border-color);
+        }
+
+        &:focus-visible:not([disabled]):not([readOnly]) {
+          outline-offset: 0;
+        }
+
+        &[disabled] {
+          opacity: 1;
+        }
+
+        &:not(:hover)::placeholder {
+          color: var(--input-ai-agent-placeholder-color);
+        }
+      }
+
+      .clear-icon-button {
+        color: var(--input-ai-agent-clear-icon-color);
+      }
+    }
+
+    .text-area-group {
+      textarea {
+        border: 2px solid var(--input-ai-agent-border-color);
+
+        &:hover:not([disabled]):not([readOnly]) {
+          border-color: var(--input-ai-agent-border-color);
+        }
+
+        &:focus-visible:not([disabled]):not([readOnly]) {
+          outline-offset: 0;
+        }
+
+        &[disabled] {
+          opacity: 1;
+        }
+
+        &:not(:hover)::placeholder {
+          color: var(--input-ai-agent-placeholder-color);
+        }
+      }
+    }
+  }
+
   input {
     @include text-overflow;
     background: var(--input-background-color);
