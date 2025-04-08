@@ -48,7 +48,7 @@ review:
       Follow our TypeScript style guide.
       Use interfaces for object shapes and types for unions/primitives.
       Prefer readonly properties when values shouldn't change.
-      Use proper type annotations for function parameters and return types.
+      Use proper enums for function parameters and return types.
       Avoid using 'any' type when possible, prefer unknown for truly unknown types.
       Use type guards to narrow types safely.
       Leverage TypeScript's utility types (Partial, Required, Pick, etc.) when appropriate.
@@ -77,6 +77,7 @@ review:
       Use FC<PropType> type annotation for functional components.
       Use mergeClasses utility for combining class names.
       Import styles using 'import styles from './componentname.module.scss'.
+      Make sure to use var theme for octuple theme provider.
       
       # Accessibility guidelines
       Follow accessibility best practices with appropriate ARIA attributes and roles.
@@ -112,6 +113,7 @@ review:
       Avoid !important declarations unless absolutely necessary.
       Group related properties together and maintain consistent ordering.
       Use comments to explain complex styling decisions.
+      Add theme variable from the octuple.theme.scss
 
   # React Hooks guidelines
   - path: "src/hooks/*.ts"
@@ -174,13 +176,7 @@ review:
   # CSS guidelines
   - path: "*.css"
     guideline: >
-      Follow our CSS style guide.
-      Use consistent naming conventions.
-      Minimize specificity conflicts.
-      Ensure responsive design principles are followed.
-      Use CSS variables for theming and consistent values.
-      Avoid inline styles in HTML.
-    context_document_path: "https://google.github.io/styleguide/htmlcssguide.html"
+      Don't let user create CSS files, use SCSS instead.
 
   # HTML guidelines
   - path: "*.html"
