@@ -30,6 +30,10 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
    * @default top-center
    */
   position?: SnackbarPosition;
+  /**
+   * Last focusable element of the snackbar
+   */
+  lastFocusableElement?: HTMLElement;
 }
 
 export interface SnackbarContainerProps {
