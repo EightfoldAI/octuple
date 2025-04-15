@@ -130,4 +130,15 @@
     var(--disruptive-gradient-middle-color-80) 49%,
     var(--disruptive-gradient-end-color-80) 100%
   ); // Extra high contrast
+
+  // AI Agent specific styling
+  --modal-ai-agent-header-text-color: var(--ai-agent-color);
+  --modal-ai-agent-header-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --modal-ai-agent-header-button-color: var(--ai-agent-color);
+  --modal-ai-agent-header-button-hover-background-color: var(
+    --transparent-color
+  );
+  --modal-ai-agent-header-body-text-color: var(--border-color);
 }
