@@ -354,6 +354,24 @@ describe('Tooltip', () => {
     expect(container.querySelector('#test-div-id')).toBeTruthy();
   });
 
+  test('Tooltip preserves custom aria-describedby on reference element', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div" aria-describedby="custom-description">
+          test
+        </div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(
+      container.querySelector('.test-div').getAttribute('aria-describedby')
+    ).toBe('custom-description');
+  });
+
   test('Tooltip is dismissed on click outside', async () => {
     const { container } = render(
       <Tooltip
@@ -444,7 +462,7 @@ describe('Tooltip', () => {
     const content = getByTestId('test-truncate-id');
     fireEvent.mouseEnter(content);
     await waitFor(() => expect(screen.queryByTestId('tooltip')).toBeNull());
-    expect(content.getAttribute('aria-describedby')).not.toBeNull();
+    expect(content.getAttribute('aria-describedby')).toBeNull();
   });
 
   test('enables tooltip when content is truncated', async () => {
@@ -495,6 +513,9 @@ describe('Tooltip', () => {
     const content = getByTestId('test-truncate-id');
     fireEvent.mouseEnter(content);
     await waitFor(() => screen.getByTestId('tooltip'));
-    expect(content.getAttribute('aria-describedby')).not.toBeNull();
+    await waitFor(() => {
+      const updatedContent = screen.getByTestId('test-truncate-id');
+      expect(updatedContent.getAttribute('aria-describedby')).not.toBeNull();
+    });
   });
 });
