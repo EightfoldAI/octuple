@@ -51,7 +51,6 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   gradient,
   iconProps,
   id,
-  onIconButtonClick,
   onClick,
   size,
   ...rest
@@ -98,7 +97,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <div
         aria-controls={`${id}-content`}
         aria-expanded={expanded}
-        aria-describedby={expandButtonDescribedBy || `${id}-header-content`}
+        aria-labelledby={expandButtonDescribedBy || `${id}-header-content`}
         className={styles.clickableArea}
         onClick={onClick}
         onKeyDown={handleKeyDown}
@@ -118,13 +117,13 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
       <Button
         ref={buttonRef}
         tabIndex={-1}
-        role="presentation"
         gradient={gradient}
+        classNames={styles.accordionIconButton}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
-        onClick={onIconButtonClick}
-        onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
+        disabled
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
+        aria-hidden={true}
         {...expandButtonProps}
       />
     </div>
@@ -315,7 +314,6 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                   gradient={gradient}
                   iconProps={iconProps}
                   id={id}
-                  onIconButtonClick={() => toggleAccordion(!isExpanded)}
                   onClick={() => toggleAccordion(!isExpanded)}
                   size={size}
                   {...headerProps}
