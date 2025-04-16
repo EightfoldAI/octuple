@@ -11,6 +11,7 @@ export const Snackbar: FC<SnackbarProps> = ({ classNames, ...rest }) => {
   const snackbarClasses = mergeClasses([styles.snackbar, classNames]);
   return (
     <InfoBar
+      tabIndex={0}
       {...rest}
       classNames={snackbarClasses}
       contentClassNames={styles.content}

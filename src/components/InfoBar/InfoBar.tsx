@@ -1,8 +1,8 @@
 'use client';
 
-import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -48,6 +48,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       type = InfoBarType.neutral,
       ...rest
     } = props;
+    const closeButtonRef = useRef<HTMLButtonElement>(null);
 
     const contextualGradient: Gradient = useContext(GradientContext);
     const mergedGradient: boolean = configContextProps.noGradientContext
@@ -82,6 +83,12 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       );
     }, [mergedLocale]);
 
+    setTimeout(() => {
+      if (closeButtonRef.current) {
+        closeButtonRef.current.focus();
+      }
+    }, 1000);
+
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,
       { [styles.bordered]: !!bordered },
@@ -92,6 +99,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       { [styles.disruptive]: type === InfoBarType.disruptive },
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.gradient]: mergedGradient },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     const messageClasses: string = mergeClasses([
@@ -129,7 +137,6 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 className={infoBarClassNames}
                 ref={ref}
                 style={style}
-                role={role}
               >
                 <Icon
                   path={getIconName()}
@@ -141,7 +148,9 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                     contentWrapperClassNames,
                   ])}
                 >
-                  <div className={messageClasses}>{content}</div>
+                  <div className={messageClasses} role={role}>
+                    {content}
+                  </div>
                   {actionButtonProps && (
                     <Button
                       buttonWidth={ButtonWidth.fitContent}
@@ -162,6 +171,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                     iconProps={{ path: closeIcon }}
                     onClick={onClose}
                     shape={ButtonShape.Round}
+                    ref={closeButtonRef}
                     transparent
                     {...closeButtonProps}
                     classNames={mergeClasses([

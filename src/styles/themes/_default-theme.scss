@@ -1162,6 +1162,25 @@
     var(--grey-gradient-end-color-80) 100%
   ); // Extra high contrast
 
+  // AI Agent base colors
+  --ai-agent-background1-color: var(--blueviolet-background1-color);
+  --ai-agent-background2-color: var(--blueviolet-background2-color);
+  --ai-agent-background3-color: var(--blueviolet-background3-color);
+  --ai-agent-tertiary-color: var(--blueviolet-tertiary-color);
+  --ai-agent-secondary-color: var(--blueviolet-secondary-color);
+  --ai-agent-color: var(--blueviolet-color);
+
+  --ai-agent-background1-gradient: var(--blueviolet-background1-gradient);
+  --ai-agent-background2-gradient: var(--blueviolet-background2-gradient);
+  --ai-agent-background3-gradient: var(--blueviolet-background3-gradient);
+  --ai-agent-tertiary-gradient: var(--blueviolet-tertiary-gradient);
+  --ai-agent-secondary-gradient: var(--blueviolet-secondary-gradient);
+  --ai-agent-gradient: var(--blueviolet-gradient);
+
+  // Custom base colors
+  --transparent-color: transparent;
+  --bluemagenta-color: #7b61ff;
+
   // Success (Validation) base colors
   --success-color: #2b715f;
   --success-background-color: #f0fefa;
@@ -1502,6 +1521,15 @@
   --button-transition-opacity: opacity 200ms cubic-bezier(0.42, 0, 0.58, 1) 0s;
   // TODO: button text/font related vars
   // ------ Generic button vars ------
+
+  // ------ AI Agent Button theme ------
+  --button-ai-agent-text-color: var(--ai-agent-color);
+  --button-ai-agent-focus-visible-outline-color: var(--bluemagenta-color);
+  // ------ AI Agent Button theme ------
+
+  // ------ Transparent Button theme ------
+  --button-transparent-background-color: var(--transparent-color);
+  // ------ Transparent Button theme ------
 
   // ------ Default Button theme ------
   --button-default-text-color: var(--primary-color);
