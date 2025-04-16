@@ -116,6 +116,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
+        data-testid="accordian-arrow-button"
         ref={buttonRef}
         tabIndex={-1}
         role="presentation"
