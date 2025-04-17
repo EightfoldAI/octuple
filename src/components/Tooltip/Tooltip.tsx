@@ -403,9 +403,12 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               // If the content is not a string, the element of the content should be
               // manually targeted by id via `aria-describedby` to be announced by screen readers.
               // As this is an edge case, don't worry about it here, instead take the override if available.
-              'aria-describedby': node.props?.['aria-describedby']
+              // Only assign aria-describedby if the tooltip element is present in the DOM.
+              'aria-describedby': mergedVisible
                 ? node.props?.['aria-describedby']
-                : tooltipId?.current,
+                  ? node.props?.['aria-describedby']
+                  : tooltipId?.current
+                : undefined,
               'data-reference-id': tooltipReferenceId?.current,
             };
 
