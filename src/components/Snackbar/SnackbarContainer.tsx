@@ -67,6 +67,7 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
       >
         {getPositionSnacks(position).map((snack) => (
           <Snackbar
+            moveFocusToCloseButton={true}
             {...snack}
             key={snack.id}
             onClose={() => {
