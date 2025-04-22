@@ -307,7 +307,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (event?.key === eventKeys.TAB && event.shiftKey) {
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
-            if (refs.floating.current.matches(':focus-within')) {
+            if (!refs.floating.current.matches(':focus-within')) {
               toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
