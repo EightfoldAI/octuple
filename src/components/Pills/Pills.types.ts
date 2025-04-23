@@ -29,7 +29,9 @@ export enum PillSize {
 export type closeButtonProps = Omit<
   ButtonProps,
   'icon' | 'onClick' | 'size' | 'classNames'
->;
+> & {
+  ariaLabel?: string | ((label: string) => string);
+};
 
 /**
  * Props for the pill button shown on right of the label

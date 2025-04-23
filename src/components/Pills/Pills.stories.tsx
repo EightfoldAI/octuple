@@ -148,6 +148,9 @@ With_Icon.args = {
 Closable.args = {
   ...pillArgs,
   type: PillType.closable,
+  closeButtonProps: {
+    ariaLabel: (label: string) => `Delete ${label}`,
+  },
 };
 
 Custom_Closable.args = {
