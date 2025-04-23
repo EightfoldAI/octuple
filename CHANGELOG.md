@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.1](https://github.com/EightfoldAI/octuple/compare/v2.53.0...v2.53.1) (2025-04-16)
+
+### Bug Fixes
+
+- add correct aria label ([#944](https://github.com/EightfoldAI/octuple/issues/944)) ([31e8710](https://github.com/EightfoldAI/octuple/commits/31e8710af0f4560cbc7f35be505008c9a4783120))
+- added data-testid to the accordion button ([#976](https://github.com/EightfoldAI/octuple/issues/976)) ([4c4de34](https://github.com/EightfoldAI/octuple/commits/4c4de34f055d7645394a87b7dbc8cb3677fb51b4))
+- description update ([#972](https://github.com/EightfoldAI/octuple/issues/972)) ([3cf7dd3](https://github.com/EightfoldAI/octuple/commits/3cf7dd37afee9ae0da38c51e3037e52f4db0f4ed))
+
+## [2.53.0](https://github.com/EightfoldAI/octuple/compare/v2.52.25...v2.53.0) (2025-04-01)
+
+### Features
+
+- Ypatadia/eng 137079/ai agent theme addition ([#971](https://github.com/EightfoldAI/octuple/issues/971)) ([b1587bb](https://github.com/EightfoldAI/octuple/commits/b1587bbf7468e4f5e1004a9e97ea318b423fad8a))
+
 ### [2.52.25](https://github.com/EightfoldAI/octuple/compare/v2.52.24...v2.52.25) (2025-03-20)
 
 ### Bug Fixes

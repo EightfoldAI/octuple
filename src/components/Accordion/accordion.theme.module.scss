@@ -161,5 +161,25 @@
   --accordion-summary-background-hover-gradient: var(
     --primary-background2-gradient
   );
+  // AI Agent specific styling
+  --accordion-ai-agent-body-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --accordion-ai-agent-border-color: var(--ai-agent-background3-color);
+  --accordion-ai-agent-summary-background-gradient: var(
+    --ai-agent-background1-gradient
+  );
+  --accordion-ai-agent-gradient-summary-text-color: var(--ai-agent-color);
+  --accordion-ai-agent-summary-background-hover-gradient: var(
+    --ai-agent-background2-gradient
+  );
+  --accordion-ai-agent-summary-background-hover-text-color: var(
+    --ai-agent-color
+  );
+  --accordion-ai-agent-summary-button-background-color: var(
+    --transparent-color
+  );
+  --accordion-ai-agent-gradient-body-text-color: var(--border-color);
+  --accordion-ai-agent-badge-color: var(--ai-agent-color);
   // ------ Accordion theme ------
 }
