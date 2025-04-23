@@ -10,6 +10,7 @@ import {
   Shape,
   SizeContext,
   Size,
+  ThemeNames,
 } from '../../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
@@ -23,7 +24,7 @@ import {
   TextInputShape,
   TextInputSize,
   TextInputWidth,
-} from '../index';
+} from '../Input.types';
 import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
@@ -333,6 +334,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       { ['in-form-item']: mergedFormItemInput },
       { [styles.isExpandable]: expandable },
       { [styles.expandRight]: expandable && expandRight },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     useEffect(() => {

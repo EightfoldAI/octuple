@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, Ref, useContext, useRef } from 'react';
-import { DirectionType, OcThemeName } from '../ConfigProvider';
+import { DirectionType, OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -260,6 +260,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.progressSmall]: size === ProgressSize.Small },
       { [styles.progressRtl]: htmlDir === 'rtl' },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
       classNames,
     ]);
 

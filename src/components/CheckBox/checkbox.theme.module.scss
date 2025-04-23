@@ -282,4 +282,27 @@
   --toggle-switch-focus-visible-pip-color: var(--primary-color);
   --toggle-switch-text-color: var(--primary-secondary-color);
   // ------ Toggle Switch theme ------
+  // AI Agent specific styling
+  --toggle-switch-ai-agent-background-color: var(
+    --grey-gradient-start-color-10
+  );
+  --toggle-switch-ai-agent-hover-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --toggle-switch-ai-agent-checked-background-color: var(
+    --ai-agent-background2-gradient
+  );
+  --toggle-switch-ai-agent-border-color: var(--ai-agent-secondary-color);
+  --toggle-switch-ai-agent-hover-border-color: var(--ai-agent-secondary-color);
+  --toggle-switch-ai-agent-checked-border-color: var(
+    --ai-agent-secondary-color
+  );
+  --toggle-switch-ai-agent-pip-color: var(--ai-agent-secondary-color);
+  --toggle-switch-ai-agent-hover-pip-color: var(--ai-agent-secondary-color);
+  --toggle-switch-ai-agent-checked-hover-pip-color: var(
+    --ai-agent-secondary-gradient
+  );
+  --toggle-switch-ai-agent-checked-pip-color: var(
+    --ai-agent-secondary-gradient
+  );
 }

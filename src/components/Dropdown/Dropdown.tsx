@@ -76,6 +76,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         visible,
         width,
         overlayTabIndex = 0,
+        overlayProps,
+        toggleDropdownOnShiftTab = true,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -197,6 +199,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         );
       }, [refs.reference, refs.floating, update]);
 
+      // Add a new useEffect to update position when overlay content changes
+      useEffect(() => {
+        if (mergedVisible && refs.floating.current) {
+          // Update the position when the overlay content changes
+          update();
+        }
+      }, [overlay, mergedVisible, update, refs.floating]);
+
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
@@ -298,7 +308,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (refs.floating.current.matches(':focus-within')) {
-              toggle(true)(event);
+              toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
         }
@@ -391,6 +401,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           >
             <div
               ref={refs.setFloating}
+              // @ts-expect-error - This is a valid CSSProperties object
               style={dropdownStyles}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
@@ -400,6 +411,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
+              {...overlayProps}
             >
               {overlay}
             </div>

@@ -16,6 +16,7 @@ export const Snackbar: FC<SnackbarProps> = ({
   return (
     <InfoBar
       moveFocusToCloseButton={moveFocusToCloseButton}
+      tabIndex={0}
       {...rest}
       classNames={snackbarClasses}
       contentClassNames={styles.content}

@@ -11,8 +11,15 @@ import {
   FieldNames,
   BasicDataNode,
 } from '../OcTree.types';
-import { getPosition, isTreeNode } from '../util';
 import { TreeNodeProps } from '../OcTree.types';
+
+export function isTreeNode(node: NodeElement) {
+  return node && node.type && node.type.isTreeNode;
+}
+
+export function getPosition(level: string | number, index: number) {
+  return `${level}-${index}`;
+}
 
 export function getKey(key: Key, pos: string) {
   if (key !== null && key !== undefined) {

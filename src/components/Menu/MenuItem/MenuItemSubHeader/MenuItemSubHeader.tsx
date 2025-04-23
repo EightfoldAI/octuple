@@ -22,7 +22,7 @@ export const MenuItemSubHeader: FC<MenuItemSubHeaderProps> = forwardRef(
       classNames,
     ]);
     return (
-      <li className={subHeaderClassNames}>
+      <li className={subHeaderClassNames} role="presentation">
         <span data-disabled {...rest} tabIndex={-1} ref={ref}>
           {text}
         </span>

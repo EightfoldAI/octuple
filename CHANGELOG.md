@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.1](https://github.com/EightfoldAI/octuple/compare/v2.53.0...v2.53.1) (2025-04-16)
+
+### Bug Fixes
+
+- add correct aria label ([#944](https://github.com/EightfoldAI/octuple/issues/944)) ([31e8710](https://github.com/EightfoldAI/octuple/commits/31e8710af0f4560cbc7f35be505008c9a4783120))
+- added data-testid to the accordion button ([#976](https://github.com/EightfoldAI/octuple/issues/976)) ([4c4de34](https://github.com/EightfoldAI/octuple/commits/4c4de34f055d7645394a87b7dbc8cb3677fb51b4))
+- description update ([#972](https://github.com/EightfoldAI/octuple/issues/972)) ([3cf7dd3](https://github.com/EightfoldAI/octuple/commits/3cf7dd37afee9ae0da38c51e3037e52f4db0f4ed))
+
+## [2.53.0](https://github.com/EightfoldAI/octuple/compare/v2.52.25...v2.53.0) (2025-04-01)
+
+### Features
+
+- Ypatadia/eng 137079/ai agent theme addition ([#971](https://github.com/EightfoldAI/octuple/issues/971)) ([b1587bb](https://github.com/EightfoldAI/octuple/commits/b1587bbf7468e4f5e1004a9e97ea318b423fad8a))
+
+### [2.52.25](https://github.com/EightfoldAI/octuple/compare/v2.52.24...v2.52.25) (2025-03-20)
+
+### Bug Fixes
+
+- added synthetic mouse event as a second optional param ([#967](https://github.com/EightfoldAI/octuple/issues/967)) ([9e36251](https://github.com/EightfoldAI/octuple/commits/9e362513dfdd42ad296a6387ff5eebeae193e30a))
+
+### [2.52.24](https://github.com/EightfoldAI/octuple/compare/v2.52.23...v2.52.24) (2025-03-18)
+
+### Features
+
+- dropdown: added overlay props ([#956](https://github.com/EightfoldAI/octuple/issues/956)) ([0933ddf](https://github.com/EightfoldAI/octuple/commits/0933ddf8fe602427995e485cc644004d2d10782f))
+
+### Bug Fixes
+
+- added role presentation to hr tag ([#937](https://github.com/EightfoldAI/octuple/issues/937)) ([1003539](https://github.com/EightfoldAI/octuple/commits/100353920e40618d97eefe8c041e32726f261841))
+- avatar: tooltip accessibility fix ([#949](https://github.com/EightfoldAI/octuple/issues/949)) ([134dacd](https://github.com/EightfoldAI/octuple/commits/134dacdf341da572547f396a8f48c29309fe85a5))
+- build warning ([#950](https://github.com/EightfoldAI/octuple/issues/950)) ([c0ec69e](https://github.com/EightfoldAI/octuple/commits/c0ec69e8bf131ce0453503e794c0fdaf385d2620))
+- Close dropdown on Shift + Tab and enable cyclic navigation for menu items. ([#940](https://github.com/EightfoldAI/octuple/issues/940)) ([b0ce737](https://github.com/EightfoldAI/octuple/commits/b0ce73701903ab3a24972ebb470ca3b4e702c027))
+- **dropdown:** recalculate start position when overlaycontent gets updated ([#962](https://github.com/EightfoldAI/octuple/issues/962)) ([632a6c5](https://github.com/EightfoldAI/octuple/commits/632a6c5fa8ca866172e4c6731aebda837b82e452))
+- Heading heirarchy fix ([#938](https://github.com/EightfoldAI/octuple/issues/938)) ([7a283e1](https://github.com/EightfoldAI/octuple/commits/7a283e1e20ce85c3ea5605e2b9cd6e49ac4fb1de))
+- radio group prop name fixed ([#946](https://github.com/EightfoldAI/octuple/issues/946)) ([920ad63](https://github.com/EightfoldAI/octuple/commits/920ad6388f9130305aca39e61f19c94f678710cc))
+- snackbar: added focus to close button in snackbar ([#955](https://github.com/EightfoldAI/octuple/issues/955)) ([ec71eab](https://github.com/EightfoldAI/octuple/commits/ec71eaba2b1814c65f3cdd9831b49467ef624607))
+- **table:** update aria labels ([#952](https://github.com/EightfoldAI/octuple/issues/952)) ([0da22c6](https://github.com/EightfoldAI/octuple/commits/0da22c6de597e895d88675a8904b1607f52bbccc))
+- **ui:** remove aria properties from arrow button , added role presentation ([#951](https://github.com/EightfoldAI/octuple/issues/951)) ([cb18460](https://github.com/EightfoldAI/octuple/commits/cb184600ef96f3aac654bda1cae03d88dfd728a5))
+
+### [2.52.23](https://github.com/EightfoldAI/octuple/compare/v2.52.22...v2.52.23) (2025-02-10)
+
+### Bug Fixes
+
+- a11y: Fix role inheritance for select options ([#943](https://github.com/EightfoldAI/octuple/issues/943)) ([c6a3e06](https://github.com/EightfoldAI/octuple/commits/c6a3e06d4978becaa2fa21c213f854f6a9aa7001))
+- Upload container max width 100% ([#939](https://github.com/EightfoldAI/octuple/issues/939)) ([437cbb8](https://github.com/EightfoldAI/octuple/commits/437cbb8d705a9be81e6547e7f5b9ed956ec349c5))
+
 ### [2.52.22](https://github.com/EightfoldAI/octuple/compare/v2.52.21...v2.52.22) (2025-01-15)
 
 ### [2.52.21](https://github.com/EightfoldAI/octuple/compare/v2.52.21-0...v2.52.21) (2025-01-15)
