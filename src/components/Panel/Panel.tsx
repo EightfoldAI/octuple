@@ -4,6 +4,7 @@ import React, {
   useContext,
   useEffect,
   useImperativeHandle,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -136,6 +137,19 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
           : mergedLocale.lang!.closeButtonAriaLabelText
       );
     }, [mergedLocale]);
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && visible ) {
+        onClose?.(event);
+      }
+    };
+
+    useLayoutEffect(() => {
+      document.addEventListener('keydown', handleEscapeKey);
+      return () => {
+        document.removeEventListener('keydown', handleEscapeKey); 
+      };
+    }, [handleEscapeKey, visible]);
 
     const panelBackdropClasses: string = mergeClasses([
       styles.panelBackdrop,
