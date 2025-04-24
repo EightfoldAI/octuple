@@ -31,12 +31,6 @@ export type closeButtonProps = Omit<
   'icon' | 'onClick' | 'size' | 'classNames'
 >;
 
-// Type guard for ariaLabel function
-export const isAriaLabelFunction = (
-  ariaLabel: string | ((label: string) => string)
-): ariaLabel is (label: string) => string => {
-  return typeof ariaLabel === 'function';
-};
 
 /**
  * Props for the pill button shown on right of the label
