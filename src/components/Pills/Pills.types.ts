@@ -29,9 +29,7 @@ export enum PillSize {
 export type closeButtonProps = Omit<
   ButtonProps,
   'icon' | 'onClick' | 'size' | 'classNames'
-> & {
-  ariaLabel?: string | ((label: string) => string);
-};
+>;
 
 // Type guard for ariaLabel function
 export const isAriaLabelFunction = (
@@ -75,7 +73,7 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    * if type is set to PillType.closable
    */
   closeButtonProps?: closeButtonProps & {
-    ariaLabel?: string | ((label: string) => string);
+    getAriaLabel?: (label: string) => string;
   };
   /**
    * Custom color for the pill

@@ -3,7 +3,7 @@
 import React, { FC, Ref, useContext } from 'react';
 import { ThemeNames } from '../ConfigProvider';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { PillIconAlign, PillProps, PillSize, PillType, isAriaLabelFunction } from './Pills.types';
+import { PillIconAlign, PillProps, PillSize, PillType } from './Pills.types';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { Button, ButtonSize } from '../Button';
 import { Icon, IconName, IconSize } from '../Icon';
@@ -100,17 +100,6 @@ export const Pill: FC<PillProps> = React.forwardRef(
       { [styles.aiAgent]: theme === ThemeNames.AIAgent },
     ]);
 
-    const getAriaLabel = (pillLabel: string): string | undefined => {
-      if (!closeButtonProps?.ariaLabel) {
-        return undefined;
-      }
-      const ariaLabel = closeButtonProps.ariaLabel;
-      if (isAriaLabelFunction(ariaLabel)) {
-        return ariaLabel(pillLabel);
-      }
-      return ariaLabel;
-    };
-
     const getIcon = (): JSX.Element => (
       <Icon
         {...iconProps}
@@ -148,7 +137,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             badgeProps={{ classNames: styles.badge }}
             iconProps={{ path: IconName.mdiClose }}
             {...closeButtonProps}
-            ariaLabel={getAriaLabel(label)}
+            ariaLabel={ closeButtonProps.ariaLabel || closeButtonProps?.getAriaLabel(label)}
             onClick={!mergedDisabled ? onClose : null}
             size={pillSizeToButtonSizeMap.get(size)}
             classNames={styles.closeButton}

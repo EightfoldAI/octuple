@@ -149,7 +149,7 @@ Closable.args = {
   ...pillArgs,
   type: PillType.closable,
   closeButtonProps: {
-    ariaLabel: (label: string) => `Delete ${label}`,
+    getAriaLabel: (label: string) => `Delete ${label}`,
   },
 };
 
