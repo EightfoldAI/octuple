@@ -149,7 +149,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       return () => {
         document.removeEventListener('keydown', handleEscapeKey); 
       };
-    }, [visible]);
+    }, []);
 
     const panelBackdropClasses: string = mergeClasses([
       styles.panelBackdrop,
