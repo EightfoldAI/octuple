@@ -509,6 +509,8 @@ export const grey: OcTheme = {
   ],
 };
 
+export const aiAgent: OcTheme = { ...blueViolet };
+
 const themes: Record<OcThemeName, OcTheme> = {
   red,
   redOrange,
@@ -522,6 +524,7 @@ const themes: Record<OcThemeName, OcTheme> = {
   violet,
   violetRed,
   grey,
+  aiAgent,
 };
 
 export default themes;

@@ -11,7 +11,6 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       alignIcon,
       children,
       colorInvert,
-      configContextProps,
       direction,
       fullWidth,
       lineClamp,
@@ -27,6 +26,7 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       enableArrowNav = false,
       disabledTabIndexs = [],
     } = props;
+    const { configContextProps, ...restProps } = props;
     return (
       <TabsProvider
         alignIcon={alignIcon}
@@ -47,7 +47,7 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
         enableArrowNav={enableArrowNav}
         disabledTabIndexes={disabledTabIndexs}
       >
-        <AnimatedTabs {...props} ref={ref}>
+        <AnimatedTabs {...restProps} ref={ref}>
           {children}
         </AnimatedTabs>
       </TabsProvider>

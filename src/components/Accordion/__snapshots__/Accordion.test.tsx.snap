@@ -53,6 +53,7 @@ exports[`Accordion Accordion is large 1`] = `
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
@@ -147,6 +148,7 @@ exports[`Accordion Accordion is medium 1`] = `
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
@@ -241,6 +243,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
@@ -335,6 +338,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
@@ -429,6 +433,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
@@ -618,6 +623,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
@@ -712,6 +718,7 @@ exports[`Accordion Renders without crashing 1`] = `
       </div>
       <button
         class="button button-neutral button-medium round-shape icon-left"
+        data-testid="accordian-arrow-button"
         role="presentation"
         tabindex="-1"
       >
