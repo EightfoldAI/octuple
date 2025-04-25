@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.3](https://github.com/EightfoldAI/octuple/compare/v2.53.2...v2.53.3) (2025-04-25)
+
+### [2.53.2](https://github.com/EightfoldAI/octuple/compare/v2.53.1...v2.53.2) (2025-04-23)
+
+### Bug Fixes
+
+- snackbar: fixed focus for info bar close button ([#979](https://github.com/EightfoldAI/octuple/issues/979)) ([2553631](https://github.com/EightfoldAI/octuple/commits/2553631cfab985a48ac1fa7633ea5b71db43695b))
+
 ### [2.53.1](https://github.com/EightfoldAI/octuple/compare/v2.53.0...v2.53.1) (2025-04-16)
 
 ### Bug Fixes
