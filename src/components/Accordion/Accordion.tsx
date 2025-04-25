@@ -10,7 +10,7 @@ import React, {
   useRef,
 } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -115,6 +115,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
+        data-testid="accordian-arrow-button"
         ref={buttonRef}
         tabIndex={-1}
         gradient={gradient}
@@ -288,6 +289,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         [styles.rectangle]: shape === AccordionShape.Rectangle,
         [themedComponentStyles.theme]: mergedTheme,
         [styles.gradient]: mergedGradient,
+        [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent,
       },
       classNames
     );

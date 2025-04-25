@@ -121,4 +121,9 @@ export interface InfoBarsProps
    * @default InfoBarType.neutral
    */
   type?: InfoBarType;
+  /**
+   * Whether to move focus to the close button
+   * @default false
+   */
+  moveFocusToCloseButton?: boolean;
 }

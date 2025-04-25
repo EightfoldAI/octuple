@@ -1,6 +1,7 @@
 'use client';
 
 import React, { FC, Ref, useContext } from 'react';
+import { ThemeNames } from '../ConfigProvider';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { PillIconAlign, PillProps, PillSize, PillType } from './Pills.types';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
@@ -96,6 +97,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
         [styles.readOnly]:
           type !== PillType.withButton && type !== PillType.closable,
       },
+      { [styles.aiAgent]: theme === ThemeNames.AIAgent },
     ]);
 
     const getIcon = (): JSX.Element => (

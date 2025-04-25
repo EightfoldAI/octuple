@@ -79,4 +79,39 @@
       margin-bottom: 0;
     }
   }
+
+  &.ai-agent {
+    padding: 0px;
+
+    .header {
+      @include octuple-h5();
+      color: var(--modal-ai-agent-header-text-color);
+      padding: $space-xs $space-m;
+      margin-bottom: 0px;
+      background: var(--modal-ai-agent-header-background-color);
+
+      button {
+        color: var(--modal-ai-agent-header-button-color);
+
+        &:not(:hover) {
+          background: var(
+            --modal-ai-agent-header-button-hover-background-color
+          );
+        }
+      }
+    }
+
+    .body {
+      padding: $text-font-size-6 $text-font-size-7;
+      color: var(--modal-ai-agent-header-body-text-color);
+
+      p {
+        margin-bottom: 0px;
+      }
+    }
+
+    .footer {
+      padding: $space-m $space-l;
+    }
+  }
 }

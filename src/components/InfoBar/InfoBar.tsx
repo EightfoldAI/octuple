@@ -2,7 +2,7 @@
 
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -46,6 +46,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       theme,
       themeContainerId,
       type = InfoBarType.neutral,
+      moveFocusToCloseButton = false,
       ...rest
     } = props;
     const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -83,11 +84,14 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       );
     }, [mergedLocale]);
 
-    setTimeout(() => {
-      if (closeButtonRef.current) {
-        closeButtonRef.current.focus();
-      }
-    }, 1000);
+    useEffect(() => {
+      setTimeout(() => {
+        if (closeButtonRef.current && moveFocusToCloseButton) {
+          closeButtonRef.current.focus();
+        }
+      }, 1000);
+    }, [closeButtonRef, closable]);
+
 
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,
@@ -99,6 +103,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       { [styles.disruptive]: type === InfoBarType.disruptive },
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.gradient]: mergedGradient },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     const messageClasses: string = mergeClasses([
