@@ -17,8 +17,17 @@ export const useMaxVisibleSections = (
   });
 
   const computeVisibleSections = () => {
+    const viewportWidth: number = window.innerWidth;
+    let updatedExtraItemWidth: number = extraItemWidth;
+    const selectedItemsLength = itemsRef.current?.filter(Boolean)?.length;
+    if (viewportWidth <= 360 && selectedItemsLength === 1) {
+      updatedExtraItemWidth = 50;
+    } else if (viewportWidth < 319 && selectedItemsLength > 1) {
+      updatedExtraItemWidth = 145;
+    }
     const availableWidth: number =
-      (containerRef.current?.getBoundingClientRect().width - extraItemWidth) *
+      (containerRef.current?.getBoundingClientRect().width -
+        updatedExtraItemWidth) *
       linesToShow;
     const sections = itemsRef.current?.reduce(
       (

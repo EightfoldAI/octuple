@@ -178,4 +178,12 @@ $multi-select-count-offset: 54px;
   max-width: unset;
 }
 
+@media (max-width: 319px) {
+  .select-wrapper {
+    .multi-select-pill {
+      max-width: 100px;
+    }
+  }
+}
+
 @import './Styles/rtl';
