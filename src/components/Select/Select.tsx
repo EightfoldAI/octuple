@@ -617,7 +617,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           const remainingCount = moreOptionsCount - count;
           const accessibleLabel = `and ${remainingCount} more ${
             remainingCount === 1 ? 'option' : 'options'
-          }`;
+          } selected`;
           pills.push(
             <Pill
               classNames={countPillClassNames}
