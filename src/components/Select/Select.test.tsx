@@ -498,7 +498,7 @@ describe('Select', () => {
       render(<Select options={options} filterable placeholder="Select test" />);
     const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
-    userEvent.type(select, 'Option 1');
+    fireEvent.change(select, { target: { value: 'Option 1' } });
     await waitFor(() => getAllByRole('option'));
     const option1 = getByText('Option 1');
     const option2 = queryByText('Option 2');
