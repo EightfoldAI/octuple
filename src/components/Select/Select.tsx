@@ -665,7 +665,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (filteredOptions.length > 0) {
         return (
           <Menu
-            aria-multiselectable={multiple ? 'true' : undefined}
             id={selectMenuId?.current}
             {...menuProps}
             items={updatedItems}
@@ -874,7 +873,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   options?.length > 0)
               }
               ref={dropdownRef}
-              role={'group'}
+              role={null}
             >
               <div className={styles.selectInputWrapper}>
                 {/* When Dropdown is visible, place Pills in the reference element */}
