@@ -614,16 +614,38 @@ export const Select: FC<SelectProps> = React.forwardRef(
           pills.push(pill());
         }
         if (pills?.length === count && filled) {
+          const remainingCount = moreOptionsCount - count;
+          const accessibleLabel = `and ${remainingCount} more ${
+            remainingCount === 1 ? 'option' : 'options'
+          } selected`;
           pills.push(
             <Pill
               classNames={countPillClassNames}
               disabled={mergedDisabled}
               id="select-pill-count"
               key="select-count"
-              label={'+' + (moreOptionsCount - count)}
+              label={'+' + remainingCount}
               tabIndex={0}
               theme={'blueGreen'}
               size={selectSizeToPillSizeMap.get(mergedSize)}
+              onClick={() => {
+                if (!dropdownVisible) {
+                  setDropdownVisibility(true);
+                }
+              }}
+              onKeyDown={(event) => {
+                if (
+                  event.key === eventKeys.ENTER ||
+                  event.key === eventKeys.SPACE
+                ) {
+                  event.preventDefault();
+                  if (!dropdownVisible) {
+                    setDropdownVisibility(true);
+                  }
+                }
+              }}
+              aria-label={accessibleLabel}
+              role="button"
               {...pillProps}
             />
           );
@@ -745,6 +767,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       onKeyDown?.(event);
       if (mergedDisabled) {
         return;
+      }
+      if (event.key === eventKeys.SPACE) {
+        event.preventDefault();
       }
       if (
         filterable &&
