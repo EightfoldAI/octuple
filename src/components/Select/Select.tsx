@@ -638,7 +638,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   event.key === eventKeys.ENTER ||
                   event.key === eventKeys.SPACE
                 ) {
-                  event.preventDefault();
+                  // event.preventDefault();
                   if (!dropdownVisible) {
                     setDropdownVisibility(true);
                   }
@@ -767,6 +767,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       onKeyDown?.(event);
       if (mergedDisabled) {
         return;
+      }
+      if (event.key === eventKeys.SPACE) {
+        event.preventDefault();
       }
       if (
         filterable &&
