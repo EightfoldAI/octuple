@@ -768,14 +768,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (mergedDisabled) {
         return;
       }
-      if (event.key === eventKeys.SPACE)
-        if (
-          filterable &&
-          event?.key === eventKeys.ARROWDOWN &&
-          document.activeElement === event.target
-        ) {
-          dropdownRef.current?.focusFirstElement?.();
-        }
+      if (event.key === eventKeys.SPACE) {
+        event.preventDefault();
+      }
+      if (
+        filterable &&
+        event?.key === eventKeys.ARROWDOWN &&
+        document.activeElement === event.target
+      ) {
+        dropdownRef.current?.focusFirstElement?.();
+      }
     };
 
     const clearButtonClassNames: string = mergeClasses([
