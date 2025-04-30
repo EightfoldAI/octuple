@@ -416,6 +416,7 @@ exports[`Select Renders with default values when multiple 1`] = `
         </span>
         <button
           aria-disabled="false"
+          aria-label="Delete Option 2"
           class="close-button button button-default button-small pill-shape icon-left"
         >
           <span
@@ -449,6 +450,7 @@ exports[`Select Renders with default values when multiple 1`] = `
         </span>
         <button
           aria-disabled="false"
+          aria-label="Delete Option 3"
           class="close-button button button-default button-small pill-shape icon-left"
         >
           <span
