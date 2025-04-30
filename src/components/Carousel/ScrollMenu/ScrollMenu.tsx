@@ -56,6 +56,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       transitionBehavior,
       transitionDuration = DEFAULT_TRANSITION_DURATION,
       transitionEase,
+      carouselOuterContainerProps = {},
       'data-test-id': dataTestId,
       ...rest
     } = props;
@@ -165,7 +166,10 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       >
         <VisibilityContext.Provider value={context}>
           {controls && !overlayControls && LeftArrow}
-          <div className={styles.carouselAutoScrollInnerWrapper}>
+          <div
+            className={styles.carouselAutoScrollInnerWrapper}
+            {...carouselOuterContainerProps}
+          >
             {!context?.isFirstItemVisible &&
               controls &&
               overlayControls &&
