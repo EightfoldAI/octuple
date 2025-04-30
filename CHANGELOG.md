@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.5](https://github.com/EightfoldAI/octuple/compare/v2.53.4...v2.53.5) (2025-04-30)
+
+### Bug Fixes
+
+- getAriaLabel check before use ([#989](https://github.com/EightfoldAI/octuple/issues/989)) ([c3f751d](https://github.com/EightfoldAI/octuple/commits/c3f751d48860105849e8bbe6202e1b1ceffc1e92))
+
 ### [2.53.4](https://github.com/EightfoldAI/octuple/compare/v2.53.3...v2.53.4) (2025-04-29)
 
 ### Bug Fixes
