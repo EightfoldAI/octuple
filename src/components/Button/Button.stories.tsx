@@ -363,6 +363,7 @@ Split.args = {
     iconProps: {
       path: IconName.mdiClockOutline,
     },
+    ariaLabel: 'Dropdown',
   },
   variant: ButtonVariant.Primary,
 };
@@ -376,6 +377,9 @@ Split_With_Counter.args = {
   splitButtonChecked: false,
   text: 'Split Button',
   variant: ButtonVariant.Primary,
+  splitButtonProps: {
+    ariaLabel: 'Dropdown',
+  },
 };
 
 Floating_Button.args = {
