@@ -11,7 +11,7 @@ import { InfoBarType } from '../InfoBar';
 
 const DEFAULT_POSITION: SnackbarPosition = 'top-center';
 
-let focusedElementRef: HTMLElement | null = null;
+let elementToFocus: HTMLElement | null = null;
 
 export const SNACK_EVENTS: Record<string, string> = {
   SERVE: 'serveSnack',
@@ -33,7 +33,9 @@ export const serve = (props: SnackbarProps): VoidFunction => {
     document.dispatchEvent(serveSnackEvent);
   }
 
-  focusedElementRef = document.activeElement as HTMLElement;
+  if (props.lastFocusableElement) {
+    elementToFocus = props.lastFocusableElement;
+  }
 
   if (!props.closable || props.actionButtonProps) {
     setTimeout(() => {
@@ -50,11 +52,12 @@ export const eat = (snackId: string): void => {
     cancelable: false,
     detail: snackId,
   });
+
   if (canUseDocElement()) {
     document.dispatchEvent(removeSnackEvent);
   }
-  if (focusedElementRef) {
-    focusedElementRef.focus();
+  if (elementToFocus) {
+    elementToFocus.focus();
   }
 };
 

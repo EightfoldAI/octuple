@@ -86,7 +86,8 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
 
     useEffect(() => {
       setTimeout(() => {
-        if (closeButtonRef.current && moveFocusToCloseButton) {
+        if (closeButtonRef.current) {
+        if (closeButtonRef.current && moveFocusToCloseButton) 
           closeButtonRef.current.focus();
         }
       }, 1000);
