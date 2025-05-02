@@ -12,6 +12,7 @@ exports[`Pill Pill should render as closable 1`] = `
     </span>
     <button
       aria-disabled="false"
+      aria-label="Delete A closable pill"
       class="close-button button button-default button-small pill-shape icon-left"
     >
       <span

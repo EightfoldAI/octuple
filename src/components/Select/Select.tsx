@@ -614,16 +614,38 @@ export const Select: FC<SelectProps> = React.forwardRef(
           pills.push(pill());
         }
         if (pills?.length === count && filled) {
+          const remainingCount = moreOptionsCount - count;
+          const accessibleLabel = `and ${remainingCount} more ${
+            remainingCount === 1 ? 'option' : 'options'
+          } selected`;
           pills.push(
             <Pill
               classNames={countPillClassNames}
               disabled={mergedDisabled}
               id="select-pill-count"
               key="select-count"
-              label={'+' + (moreOptionsCount - count)}
+              label={'+' + remainingCount}
               tabIndex={0}
               theme={'blueGreen'}
               size={selectSizeToPillSizeMap.get(mergedSize)}
+              onClick={() => {
+                if (!dropdownVisible) {
+                  setDropdownVisibility(true);
+                }
+              }}
+              onKeyDown={(event) => {
+                if (
+                  event.key === eventKeys.ENTER ||
+                  event.key === eventKeys.SPACE
+                ) {
+                  event.preventDefault();
+                  if (!dropdownVisible) {
+                    setDropdownVisibility(true);
+                  }
+                }
+              }}
+              aria-label={accessibleLabel}
+              role="button"
               {...pillProps}
             />
           );
@@ -665,7 +687,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (filteredOptions.length > 0) {
         return (
           <Menu
-            aria-multiselectable={multiple ? 'true' : undefined}
             id={selectMenuId?.current}
             {...menuProps}
             items={updatedItems}
@@ -745,6 +766,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       onKeyDown?.(event);
       if (mergedDisabled) {
         return;
+      }
+      if (event.key === eventKeys.SPACE) {
+        event.preventDefault();
       }
       if (
         filterable &&
@@ -874,7 +898,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   options?.length > 0)
               }
               ref={dropdownRef}
-              role={'group'}
+              role={null}
             >
               <div className={styles.selectInputWrapper}>
                 {/* When Dropdown is visible, place Pills in the reference element */}
@@ -883,6 +907,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   ref={inputRef}
                   aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
+                  aria-expanded={dropdownVisible}
+                  aria-multiselectable={multiple}
+                  title={placeholder + (multiple ? ' multi-select' : '')}
+                  aria-label={placeholder + (multiple ? ' multi-select' : '')}
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}

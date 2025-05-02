@@ -34,6 +34,11 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
    * Last focusable element of the snackbar
    */
   lastFocusableElement?: HTMLElement;
+  /**
+   * Whether to move focus to the close button
+   * @default true
+   */
+  moveFocusToCloseButton?: boolean;
 }
 
 export interface SnackbarContainerProps {

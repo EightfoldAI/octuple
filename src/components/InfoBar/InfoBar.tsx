@@ -46,6 +46,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       theme,
       themeContainerId,
       type = InfoBarType.neutral,
+      moveFocusToCloseButton = false,
       ...rest
     } = props;
     const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -86,6 +87,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
     useEffect(() => {
       setTimeout(() => {
         if (closeButtonRef.current) {
+        if (closeButtonRef.current && moveFocusToCloseButton) 
           closeButtonRef.current.focus();
         }
       }, 1000);
