@@ -1,4 +1,5 @@
 export * from './InlineSvg.types';
+export * from './SVG/AiAgent.types';
 export * from './InlineSvg';
 export { CopilotFullLogoLarge } from './SVG/CopilotFullLogoLarge';
 export { CopilotFullLogoMedium } from './SVG/CopilotFullLogoMedium';
@@ -7,3 +8,9 @@ export { CopilotIconGradient } from './SVG/CopilotIconGradient';
 export { CopilotIconLargeSolidColor } from './SVG/CopilotIconLargeSolidColor';
 export { CopilotIconMediumSolidColor } from './SVG/CopilotIconMediumSolidColor';
 export { CopilotIconSmallSolidColor } from './SVG/CopilotIconSmallSolidColor';
+export { AiAgent } from './SVG/AiAgent';
+export { AiAgentSmall } from './SVG/AiAgentSmall';
+export { AiAgentMedium } from './SVG/AiAgentMedium';
+export { AiAgentLarge } from './SVG/AiAgentLarge';
+export { AiAgentOutline } from './SVG/AiAgentOutline';
+export { AiAgentGradient } from './SVG/AiAgentGradient';
