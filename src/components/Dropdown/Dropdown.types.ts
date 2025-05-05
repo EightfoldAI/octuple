@@ -47,6 +47,11 @@ export interface DropdownProps {
    */
   closeOnOutsideClick?: boolean;
   /**
+   * Should close dropdown when elements inside list items are clicked
+   * @default true
+   */
+  closeOnElementClick?: boolean;
+  /**
    * If the dropdown is disabled or not
    */
   disabled?: boolean;

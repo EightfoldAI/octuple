@@ -88,7 +88,7 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
           {imageNode}
         </div>
         {title && (
-          <h2 
+          <h2
             className={styles.emptyTitle}
             role="heading"
             aria-level={headingLevel || 2}
