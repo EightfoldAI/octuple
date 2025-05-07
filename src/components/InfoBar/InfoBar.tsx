@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
@@ -46,6 +46,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       theme,
       themeContainerId,
       type = InfoBarType.neutral,
+      moveFocusToSnackbar = false,
       ...rest
     } = props;
 
@@ -81,6 +82,14 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
           : mergedLocale.lang!.closeButtonAriaLabelText
       );
     }, [mergedLocale]);
+
+    useEffect(() => {
+      setTimeout(() => {
+        if (ref && 'current' in ref) {
+          ref.current.focus();
+        }
+      }, 0);
+    }, [ref, moveFocusToSnackbar]);
 
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,

@@ -73,6 +73,8 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
               eat(snack.id);
               snack.onClose?.();
             }}
+            tabIndex={0}
+            moveFocusToSnackbar={true}
             {...(snack.actionButtonProps
               ? {
                   onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
