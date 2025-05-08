@@ -139,8 +139,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             {...closeButtonProps}
             ariaLabel={
               closeButtonProps?.ariaLabel ??
-              closeButtonProps?.getAriaLabel?.(label) ??
-              `Delete ${label || 'item'}`
+              closeButtonProps?.getAriaLabel?.(label)
             }
             onClick={!mergedDisabled ? onClose : null}
             size={pillSizeToButtonSizeMap.get(size)}
