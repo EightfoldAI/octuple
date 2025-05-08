@@ -86,4 +86,9 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    * @param item
    */
   rowKey?: (item: T) => Key | keyof T;
+  /**
+   * Optionally apply cyclic navigation for arrow keys.
+   * @default false
+   */
+  applyCyclicNavigation?: boolean;
 }

@@ -7,9 +7,10 @@ import React, {
   useContext,
   useEffect,
   useState,
+  useRef,
 } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -20,7 +21,7 @@ import {
   AccordionShape,
   AccordionSize,
   AccordionSummaryProps,
-} from './';
+} from './Accordion.types';
 import { Badge } from '../Badge';
 import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { Icon, IconName } from '../Icon';
@@ -55,6 +56,14 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   size,
   ...rest
 }) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.removeAttribute('aria-disabled');
+    }
+  }, []);
+
   const headerClassnames = mergeClasses([
     styles.accordionSummary,
     classNames,
@@ -88,7 +97,6 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     <div className={headerClassnames} id={`${id}-header`} {...rest}>
       <div
         aria-controls={`${id}-content`}
-        aria-label={expanded ? expandAriaLabelText : collapseAriaLabelText}
         aria-expanded={expanded}
         aria-describedby={expandButtonDescribedBy || `${id}-header-content`}
         className={styles.clickableArea}
@@ -108,10 +116,10 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
+        data-testid="accordian-arrow-button"
+        ref={buttonRef}
         tabIndex={-1}
-        aria-controls={`${id}-content`}
-        ariaLabel={expanded ? expandAriaLabelText : collapseAriaLabelText}
-        disabled={disabled}
+        role="presentation"
         gradient={gradient}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
         onClick={onIconButtonClick}
@@ -282,6 +290,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         [styles.rectangle]: shape === AccordionShape.Rectangle,
         [themedComponentStyles.theme]: mergedTheme,
         [styles.gradient]: mergedGradient,
+        [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent,
       },
       classNames
     );

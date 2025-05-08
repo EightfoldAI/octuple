@@ -8,6 +8,7 @@ import { IconName } from '../Icon';
 import Layout from '../Layout';
 import { List } from '../List';
 import { Stack } from '../Stack';
+import { OcThemeName } from '../ConfigProvider';
 
 export default {
   title: 'Accordion',
@@ -54,6 +55,7 @@ export default {
         'violet',
         'violetRed',
         'grey',
+        'aiAgent',
       ],
       control: 'select',
     },
@@ -100,7 +102,22 @@ const Single_Story: ComponentStory<typeof Accordion> = (args) => (
   <Accordion {...args} />
 );
 
-const List_Story: ComponentStory<typeof List> = (args) => <List {...args} />;
+interface ListStoryArgs {
+  items: AccordionProps[];
+  theme?: OcThemeName;
+}
+const List_Story: ComponentStory<typeof List> = (args: ListStoryArgs) => {
+  const { theme, ...restProps } = args;
+
+  return (
+    <List
+      {...restProps}
+      renderItem={(item: AccordionProps) => (
+        <Accordion {...item} theme={theme} />
+      )}
+    />
+  );
+};
 
 const Custom_Story: ComponentStory<typeof Accordion> = (args) => (
   <Accordion {...args} />
@@ -169,7 +186,6 @@ const listArgs: Object = {
     </>
   ),
   layout: 'vertical',
-  renderItem: (item: AccordionProps) => <Accordion {...item} />,
   header: (
     <>
       <div style={{ paddingLeft: '16px' }}>
@@ -184,6 +200,7 @@ const listArgs: Object = {
     padding: '8px 16px',
   },
   listType: 'ul',
+  theme: '',
 };
 
 List_Vertical.args = {

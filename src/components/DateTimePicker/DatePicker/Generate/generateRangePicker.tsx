@@ -25,7 +25,7 @@ import type {
   PickerLocale,
   RangePickerProps,
 } from './Generate.types';
-import { getTimeProps } from './Generate';
+import { getTimeProps } from './utils';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../../../LocaleProvider/LocaleReceiver';

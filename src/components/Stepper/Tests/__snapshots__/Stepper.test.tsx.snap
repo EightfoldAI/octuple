@@ -26,6 +26,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator solid timeline large grey undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -512,9 +513,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -988,6 +991,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -998,9 +1002,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -1022,6 +1028,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline small grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -1508,9 +1515,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -1984,6 +1993,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline small grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -1994,9 +2004,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -2012,12 +2024,14 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -2504,9 +2518,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -2980,6 +2996,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline large grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -2990,9 +3007,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -3014,6 +3033,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline small grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -3500,9 +3520,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -3976,6 +3998,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator solid timeline small grey undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -3986,9 +4009,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -4010,6 +4035,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "inner-separator solid timeline large grey undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -4496,9 +4522,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           Node {
@@ -4972,6 +5000,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "inner-separator solid timeline large grey undefined",
+                                "role": "presentation",
                               },
                               "children": Array [],
                               "name": "hr",
@@ -4982,9 +5011,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                             },
                             "type": "tag",
@@ -5023,9 +5054,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -5057,6 +5090,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator solid timeline small grey undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -5543,9 +5577,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -6019,6 +6055,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline small grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -6029,9 +6066,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -6047,12 +6086,14 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -6539,9 +6580,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -7015,6 +7058,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -7025,9 +7069,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -7049,6 +7095,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline small grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -7535,9 +7582,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -8011,6 +8060,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline small grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -8021,9 +8071,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -8045,6 +8097,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline large grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -8531,9 +8584,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -9007,6 +9062,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator solid timeline large grey undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -9017,9 +9073,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -9058,9 +9116,11 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -9073,6 +9133,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -9559,9 +9620,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -10035,6 +10098,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -10045,9 +10109,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -10082,12 +10148,14 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
+                  "aria-current": "step",
                   "class": "step",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "class": "inner-separator solid timeline large grey undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -10574,9 +10642,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -11050,6 +11120,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -11060,9 +11131,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -11084,6 +11157,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline small grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -11570,9 +11644,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -12046,6 +12122,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline small grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -12056,9 +12133,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -12080,6 +12159,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -12566,9 +12646,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -13042,6 +13124,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline large grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -13052,9 +13135,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -13098,6 +13183,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline small grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -13584,9 +13670,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -14060,6 +14148,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline small grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -14070,9 +14159,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -14096,6 +14187,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -14582,9 +14674,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -15058,6 +15152,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline large grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -15068,9 +15163,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -15105,9 +15202,11 @@ LoadedCheerio {
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
               },
@@ -15119,6 +15218,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator solid timeline small grey undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -15605,9 +15705,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -16081,6 +16183,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline small grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -16091,9 +16194,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -16115,6 +16220,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -16601,9 +16707,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -17077,6 +17185,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -17087,9 +17196,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -17117,12 +17228,14 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -17609,9 +17722,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -18085,6 +18200,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -18095,9 +18211,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -18121,6 +18239,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline small grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -18607,9 +18726,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -19083,6 +19204,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline small grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -19093,9 +19215,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -19119,6 +19243,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline large grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -19605,9 +19730,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -20081,6 +20208,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator solid timeline large grey undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -20091,9 +20219,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -20128,9 +20258,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -20150,6 +20282,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator solid timeline large grey undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -20636,9 +20769,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -21112,6 +21247,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline large grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -21122,9 +21258,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -21148,6 +21286,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator solid timeline small grey undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -21634,9 +21773,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -22110,6 +22251,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline small grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -22120,9 +22262,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -22140,12 +22284,14 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "class": "inner-separator solid timeline large grey undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -22632,9 +22778,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -23108,6 +23256,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline large grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -23118,9 +23267,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -23144,6 +23295,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator solid timeline small grey undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -23630,9 +23782,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -24106,6 +24260,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator solid timeline small grey undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -24116,9 +24271,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -24142,6 +24299,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "inner-separator solid timeline large grey undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -24628,9 +24786,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           Node {
@@ -25104,6 +25264,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "inner-separator solid timeline large grey undefined",
+                                "role": "presentation",
                               },
                               "children": Array [],
                               "name": "hr",
@@ -25114,9 +25275,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                             },
                             "type": "tag",
@@ -25151,9 +25314,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -25337,6 +25502,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator large undefined undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -25607,9 +25773,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -25867,6 +26035,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -25877,9 +26046,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -25901,6 +26072,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -26171,9 +26343,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -26431,6 +26605,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -26441,9 +26616,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -26459,12 +26636,14 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -26645,9 +26824,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -26815,6 +26996,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -26825,9 +27007,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -26849,6 +27033,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -27029,9 +27214,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -27199,6 +27386,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator large undefined undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -27209,9 +27397,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -27233,6 +27423,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "inner-separator large undefined undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -27413,9 +27604,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           Node {
@@ -27583,6 +27776,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "inner-separator large undefined undefined",
+                                "role": "presentation",
                               },
                               "children": Array [],
                               "name": "hr",
@@ -27593,9 +27787,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                             },
                             "type": "tag",
@@ -27634,9 +27830,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -27668,6 +27866,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator large undefined undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -27938,9 +28137,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -28198,6 +28399,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -28208,9 +28410,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -28226,12 +28430,14 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -28412,9 +28618,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -28582,6 +28790,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -28592,9 +28801,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -28616,6 +28827,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -28796,9 +29008,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -28966,6 +29180,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -28976,9 +29191,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -29000,6 +29217,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -29180,9 +29398,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -29350,6 +29570,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator large undefined undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -29360,9 +29581,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -29401,9 +29624,11 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -29416,6 +29641,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -29686,9 +29912,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -29946,6 +30174,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -29956,9 +30185,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -29993,12 +30224,14 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
+                  "aria-current": "step",
                   "class": "step",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "class": "inner-separator large undefined undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -30179,9 +30412,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -30349,6 +30584,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -30359,9 +30595,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -30383,6 +30621,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -30563,9 +30802,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -30733,6 +30974,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -30743,9 +30985,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -30767,6 +31011,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -30947,9 +31192,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -31117,6 +31364,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -31127,9 +31375,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -31173,6 +31423,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -31443,9 +31694,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -31703,6 +31956,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -31713,9 +31967,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -31739,6 +31995,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -32009,9 +32266,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -32269,6 +32528,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -32279,9 +32539,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -32316,9 +32578,11 @@ LoadedCheerio {
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
               },
@@ -32330,6 +32594,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator large undefined undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -32510,9 +32775,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -32680,6 +32947,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -32690,9 +32958,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -32714,6 +32984,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -32894,9 +33165,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -33064,6 +33337,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -33074,9 +33348,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -33104,12 +33380,14 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -33290,9 +33568,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -33460,6 +33740,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -33470,9 +33751,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -33496,6 +33779,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -33766,9 +34050,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -34026,6 +34312,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -34036,9 +34323,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -34062,6 +34351,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -34332,9 +34622,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -34592,6 +34884,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator large undefined undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -34602,9 +34895,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -34639,9 +34934,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -34661,6 +34958,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator large undefined undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -34841,9 +35139,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -35011,6 +35311,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -35021,9 +35322,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -35047,6 +35350,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator large undefined undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -35227,9 +35531,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -35397,6 +35703,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -35407,9 +35714,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -35427,12 +35736,14 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "class": "inner-separator large undefined undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -35613,9 +35924,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -35783,6 +36096,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -35793,9 +36107,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -35819,6 +36135,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator large undefined undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -36089,9 +36406,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -36349,6 +36668,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator large undefined undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -36359,9 +36679,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -36385,6 +36707,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "inner-separator large undefined undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -36655,9 +36978,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           Node {
@@ -36915,6 +37240,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "inner-separator large undefined undefined",
+                                "role": "presentation",
                               },
                               "children": Array [],
                               "name": "hr",
@@ -36925,9 +37251,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                             },
                             "type": "tag",
@@ -36962,9 +37290,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -37487,6 +37817,7 @@ LoadedCheerio {
                         "namespace": "http://www.w3.org/1999/xhtml",
                         "next": Node {
                           "attribs": Object {
+                            "aria-current": "step",
                             "class": "step",
                           },
                           "children": Array [
@@ -37885,9 +38216,11 @@ LoadedCheerio {
                           "prev": [Circular],
                           "type": "tag",
                           "x-attribsNamespace": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                           "x-attribsPrefix": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                         },
@@ -38076,6 +38409,7 @@ LoadedCheerio {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -38474,9 +38808,11 @@ LoadedCheerio {
                         "prev": [Circular],
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -38780,6 +39116,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -39178,9 +39515,11 @@ LoadedCheerio {
                       "prev": [Circular],
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -39369,6 +39708,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -39767,9 +40107,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -40073,6 +40415,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
@@ -40777,9 +41120,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -40991,6 +41336,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -41479,9 +41825,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -41695,6 +42043,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -42183,9 +42532,11 @@ LoadedCheerio {
                       },
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -42397,6 +42748,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -42885,9 +43237,11 @@ LoadedCheerio {
                         },
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -43101,6 +43455,7 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
+                            "aria-current": "step",
                             "class": "step",
                           },
                           "children": Array [
@@ -43589,9 +43944,11 @@ LoadedCheerio {
                           },
                           "type": "tag",
                           "x-attribsNamespace": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                           "x-attribsPrefix": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                         },
@@ -44050,6 +44407,7 @@ LoadedCheerio {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -44448,9 +44806,11 @@ LoadedCheerio {
                         "prev": [Circular],
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -44639,6 +44999,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -45037,9 +45398,11 @@ LoadedCheerio {
                       "prev": [Circular],
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -45343,6 +45706,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -45741,9 +46105,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -45932,6 +46298,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
@@ -46330,9 +46697,11 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -46636,6 +47005,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
+                  "aria-current": "step",
                   "class": "step",
                 },
                 "children": Array [
@@ -47340,9 +47710,11 @@ LoadedCheerio {
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
               },
@@ -47554,6 +47926,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
@@ -48042,9 +48415,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -48258,6 +48633,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -48746,9 +49122,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -48960,6 +49338,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -49448,9 +49827,11 @@ LoadedCheerio {
                       },
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -49664,6 +50045,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -50152,9 +50534,11 @@ LoadedCheerio {
                         },
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -50779,6 +51163,7 @@ LoadedCheerio {
                         "namespace": "http://www.w3.org/1999/xhtml",
                         "next": Node {
                           "attribs": Object {
+                            "aria-current": "step",
                             "class": "step",
                           },
                           "children": Array [
@@ -51177,9 +51562,11 @@ LoadedCheerio {
                           "prev": [Circular],
                           "type": "tag",
                           "x-attribsNamespace": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                           "x-attribsPrefix": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                         },
@@ -51368,6 +51755,7 @@ LoadedCheerio {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -51766,9 +52154,11 @@ LoadedCheerio {
                         "prev": [Circular],
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -52072,6 +52462,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -52470,9 +52861,11 @@ LoadedCheerio {
                       "prev": [Circular],
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -52661,6 +53054,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -53059,9 +53453,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -53365,6 +53761,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
@@ -54069,9 +54466,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -54283,6 +54682,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -54771,9 +55171,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -54987,6 +55389,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -55475,9 +55878,11 @@ LoadedCheerio {
                       },
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -55689,6 +56094,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -56177,9 +56583,11 @@ LoadedCheerio {
                         },
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -56393,6 +56801,7 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
+                            "aria-current": "step",
                             "class": "step",
                           },
                           "children": Array [
@@ -56881,9 +57290,11 @@ LoadedCheerio {
                           },
                           "type": "tag",
                           "x-attribsNamespace": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                           "x-attribsPrefix": Object {
+                            "aria-current": undefined,
                             "class": undefined,
                           },
                         },
@@ -57457,6 +57868,7 @@ LoadedCheerio {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -57855,9 +58267,11 @@ LoadedCheerio {
                         "prev": [Circular],
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -58046,6 +58460,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -58444,9 +58859,11 @@ LoadedCheerio {
                       "prev": [Circular],
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -58750,6 +59167,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -59148,9 +59566,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -59339,6 +59759,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
@@ -59737,9 +60158,11 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -60043,6 +60466,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
+                  "aria-current": "step",
                   "class": "step",
                 },
                 "children": Array [
@@ -60747,9 +61171,11 @@ LoadedCheerio {
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
               },
@@ -60961,6 +61387,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
@@ -61449,9 +61876,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -61665,6 +62094,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
@@ -62153,9 +62583,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -62367,6 +62799,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-current": "step",
                         "class": "step",
                       },
                       "children": Array [
@@ -62855,9 +63288,11 @@ LoadedCheerio {
                       },
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-current": undefined,
                         "class": undefined,
                       },
                     },
@@ -63071,6 +63506,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-current": "step",
                           "class": "step",
                         },
                         "children": Array [
@@ -63559,9 +63995,11 @@ LoadedCheerio {
                         },
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-current": undefined,
                           "class": undefined,
                         },
                       },
@@ -63765,6 +64203,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator timeline small null undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -64035,9 +64474,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -64295,6 +64736,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -64305,9 +64747,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -64329,6 +64773,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -64599,9 +65044,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -64859,6 +65306,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -64869,9 +65317,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -64887,12 +65337,14 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -65163,9 +65615,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -65423,6 +65877,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -65433,9 +65888,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -65457,6 +65914,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -65727,9 +66185,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -65987,6 +66447,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator timeline small null undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -65997,9 +66458,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -66021,6 +66484,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "inner-separator timeline small null undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -66291,9 +66755,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           Node {
@@ -66551,6 +67017,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "inner-separator timeline small null undefined",
+                                "role": "presentation",
                               },
                               "children": Array [],
                               "name": "hr",
@@ -66561,9 +67028,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                             },
                             "type": "tag",
@@ -66602,9 +67071,11 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },
@@ -66636,6 +67107,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator timeline small null undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -66906,9 +67378,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -67166,6 +67640,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -67176,9 +67651,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -67194,12 +67671,14 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -67470,9 +67949,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -67730,6 +68211,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -67740,9 +68222,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -67764,6 +68248,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -68034,9 +68519,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -68294,6 +68781,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -68304,9 +68792,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -68328,6 +68818,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -68598,9 +69089,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -68858,6 +69351,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator timeline small null undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -68868,9 +69362,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -68909,9 +69405,11 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -68924,6 +69422,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -69194,9 +69693,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -69454,6 +69955,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -69464,9 +69966,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -69501,12 +70005,14 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
+                  "aria-current": "step",
                   "class": "step",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "class": "inner-separator timeline small null undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -69777,9 +70283,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -70037,6 +70545,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -70047,9 +70556,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -70071,6 +70582,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -70341,9 +70853,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -70601,6 +71115,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -70611,9 +71126,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -70635,6 +71152,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -70905,9 +71423,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -71165,6 +71685,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -71175,9 +71696,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -71221,6 +71744,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -71491,9 +72015,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -71751,6 +72277,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -71761,9 +72288,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -71787,6 +72316,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -72057,9 +72587,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -72317,6 +72849,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -72327,9 +72860,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -72364,9 +72899,11 @@ LoadedCheerio {
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-current": undefined,
                   "class": undefined,
                 },
               },
@@ -72378,6 +72915,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator timeline small null undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -72648,9 +73186,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -72908,6 +73448,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -72918,9 +73459,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -72942,6 +73485,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -73212,9 +73756,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -73472,6 +74018,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -73482,9 +74029,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -73512,12 +74061,14 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-current": "step",
                     "class": "step",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -73788,9 +74339,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -74048,6 +74601,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -74058,9 +74612,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -74084,6 +74640,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -74354,9 +74911,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -74614,6 +75173,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -74624,9 +75184,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -74650,6 +75212,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -74920,9 +75483,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -75180,6 +75745,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator timeline small null undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -75190,9 +75756,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -75227,9 +75795,11 @@ LoadedCheerio {
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-current": undefined,
                     "class": undefined,
                   },
                 },
@@ -75249,6 +75819,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "inner-separator timeline small null undefined",
+                      "role": "presentation",
                     },
                     "children": Array [],
                     "name": "hr",
@@ -75519,9 +76090,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "role": undefined,
                     },
                   },
                   Node {
@@ -75779,6 +76352,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -75789,9 +76363,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     "type": "tag",
@@ -75815,6 +76391,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "inner-separator timeline small null undefined",
+                        "role": "presentation",
                       },
                       "children": Array [],
                       "name": "hr",
@@ -76085,9 +76662,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "role": undefined,
                       },
                     },
                     Node {
@@ -76345,6 +76924,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -76355,9 +76935,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       "type": "tag",
@@ -76375,12 +76957,14 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-current": "step",
                       "class": "step",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "class": "inner-separator timeline small null undefined",
+                          "role": "presentation",
                         },
                         "children": Array [],
                         "name": "hr",
@@ -76651,9 +77235,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "role": undefined,
                         },
                       },
                       Node {
@@ -76911,6 +77497,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -76921,9 +77508,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         "type": "tag",
@@ -76947,6 +77536,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "inner-separator timeline small null undefined",
+                            "role": "presentation",
                           },
                           "children": Array [],
                           "name": "hr",
@@ -77217,9 +77807,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "role": undefined,
                           },
                         },
                         Node {
@@ -77477,6 +78069,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "inner-separator timeline small null undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -77487,9 +78080,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           "type": "tag",
@@ -77513,6 +78108,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "inner-separator timeline small null undefined",
+                              "role": "presentation",
                             },
                             "children": Array [],
                             "name": "hr",
@@ -77783,9 +78379,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "role": undefined,
                             },
                           },
                           Node {
@@ -78043,6 +78641,7 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "inner-separator timeline small null undefined",
+                                "role": "presentation",
                               },
                               "children": Array [],
                               "name": "hr",
@@ -78053,9 +78652,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "role": undefined,
                               },
                             },
                             "type": "tag",
@@ -78090,9 +78691,11 @@ LoadedCheerio {
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-current": undefined,
                       "class": undefined,
                     },
                   },

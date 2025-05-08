@@ -200,6 +200,7 @@ const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
       {...args}
       value={selected1}
       onChange={radioChangeGroupHandler}
+      ariaDescribedBy={'radiodescribedby-Id1'}
     />
   );
 };
@@ -432,6 +433,7 @@ RadioButton_With_Custom_Label.args = {
 RadioGroup_With_Custom_Label.args = {
   allowDisabledFocus: false,
   ariaLabel: 'Radio Group Custom',
+  ariaDescribedBy: 'radiodescribedby-Id1',
   disabled: false,
   items: [1, 2, 3].map((i: number) => ({
     ariaLabel: `Radio${i}`,

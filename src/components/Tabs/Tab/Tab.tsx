@@ -7,7 +7,7 @@ import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
 
 import { Icon, IconSize } from '../../Icon';
-import { useConfig } from '../../ConfigProvider';
+import { ThemeNames, useConfig } from '../../ConfigProvider';
 import { Badge } from '../../Badge';
 import { Loader } from '../../Loader';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
@@ -38,6 +38,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       currentActiveTab,
       size,
       variant,
+      theme,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -51,6 +52,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       { [styles.active]: isActive },
       { [styles.inverse]: light || colorInvert },
       { [styles.tabRtl]: htmlDir === 'rtl' },
+      { [styles.aiAgent]: theme === ThemeNames.AIAgent },
       classNames,
     ]);
 

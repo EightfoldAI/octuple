@@ -76,6 +76,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         visible,
         width,
         overlayTabIndex = 0,
+        overlayProps,
+        toggleDropdownOnShiftTab = true,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -197,6 +199,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         );
       }, [refs.reference, refs.floating, update]);
 
+      // Add a new useEffect to update position when overlay content changes
+      useEffect(() => {
+        if (mergedVisible && refs.floating.current) {
+          // Update the position when the overlay content changes
+          update();
+        }
+      }, [overlay, mergedVisible, update, refs.floating]);
+
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
@@ -297,8 +307,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (event?.key === eventKeys.TAB && event.shiftKey) {
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
-            if (refs.floating.current.matches(':focus-within')) {
-              toggle(true)(event);
+            if (!refs.floating.current.matches(':focus-within')) {
+              toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
         }
@@ -322,7 +332,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         // If there's an ariaRef, apply the a11y attributes to it, rather than the immediate child.
         if (ariaRef?.current) {
           ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
-          ariaRef.current.setAttribute('aria-haspopup', 'true');
+
+          // Only add aria-haspopup for non-combobox elements
+          const currentRole = ariaRef.current.getAttribute('role');
+          if (currentRole !== 'combobox') {
+            ariaRef.current.setAttribute('aria-haspopup', 'true');
+          }
 
           if (!ariaRef.current.hasAttribute('aria-controls')) {
             ariaRef.current.setAttribute('aria-controls', dropdownId);
@@ -353,7 +368,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           className: referenceWrapperClasses,
           'aria-controls': dropdownId,
           'aria-expanded': mergedVisible,
-          'aria-haspopup': true,
+          'aria-haspopup': child.props.role !== 'combobox' ? true : undefined,
           role: 'button',
           tabIndex: tabIndex,
         });
@@ -391,6 +406,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           >
             <div
               ref={refs.setFloating}
+              // @ts-expect-error - This is a valid CSSProperties object
               style={dropdownStyles}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
@@ -400,6 +416,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
+              {...overlayProps}
             >
               {overlay}
             </div>

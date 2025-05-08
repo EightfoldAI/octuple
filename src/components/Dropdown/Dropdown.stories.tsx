@@ -460,6 +460,11 @@ const dropdownArgs: Object = {
   disabled: false,
   closeOnDropdownClick: true,
   portal: false,
+  overlayProps: {
+    role: 'listbox',
+    'aria-label': 'Dropdown overlay',
+  },
+  toggleDropdownOnShiftTab: true,
 };
 
 Dropdown_Button.args = {

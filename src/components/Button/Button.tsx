@@ -3,7 +3,7 @@
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import { SizeContext, Size, OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -15,8 +15,8 @@ import {
   ButtonTextAlign,
   ButtonVariant,
   ButtonWidth,
-  SplitButton,
-} from '.';
+} from './Button.types';
+import { SplitButton } from './SplitButton/SplitButton';
 import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { InnerNudge, NudgeAnimation, NudgeProps } from './Nudge';
@@ -196,6 +196,7 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           nudgeProps?.enabled &&
           nudgeProps?.animation === NudgeAnimation.Conic,
       },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     const buttonClassNames: string = mergeClasses([

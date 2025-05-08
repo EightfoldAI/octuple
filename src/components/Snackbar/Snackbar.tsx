@@ -19,6 +19,8 @@ export const Snackbar: FC<SnackbarProps> = ({
       role="status"
       ref={snackbarRef}
       moveFocusToSnackbar={moveFocusToSnackbar}
+      moveFocusToCloseButton={moveFocusToCloseButton}
+      tabIndex={0}
       {...rest}
       classNames={snackbarClasses}
       contentClassNames={styles.content}
