@@ -401,6 +401,8 @@ export interface ScrollMenuProps
    * See https://gist.github.com/gre/1650294#file-easing-js
    */
   transitionEase?: (t: number) => number;
+
+  carouselOuterContainerProps?: HTMLDivElement;
 }
 
 export interface ScrollContainerProps
