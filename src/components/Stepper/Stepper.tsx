@@ -802,7 +802,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             size === StepperSize.Small &&
                             layout === 'horizontal' && (
                               <hr
-                                aria-hidden="true"
+                                aria-hidden='true'
                                 className={mergeClasses([
                                   styles.separator,
                                   {
@@ -821,15 +821,10 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 ])}
                               />
                             )}
-                          <li
-                            {...(index === currentActiveStep && {
-                              'aria-current': 'step',
-                            })}
-                            className={styles.step}
-                          >
+                          <li className={styles.step}>
                             {layout === 'vertical' && (
                               <hr
-                                role="presentation"
+                                role='presentation'
                                 className={mergeClasses([
                                   innerSeparatorClassNames,
                                   (styles as any)[`${step.size}`],
@@ -840,7 +835,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             )}
                             {size !== StepperSize.Small && (
                               <hr
-                                role="presentation"
+                                role='presentation'
                                 className={mergeClasses([
                                   innerSeparatorClassNames,
                                   (styles as any)[`${step.size}`],
