@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { InfoBar } from '../InfoBar';
 import { SnackbarProps } from './Snackbar.types';
 import { mergeClasses } from '../../shared/utilities';
@@ -9,12 +9,16 @@ import styles from './snackbar.module.scss';
 
 export const Snackbar: FC<SnackbarProps> = ({
   classNames,
-  moveFocusToCloseButton,
+  moveFocusToSnackbar,
   ...rest
 }) => {
   const snackbarClasses = mergeClasses([styles.snackbar, classNames]);
+  const snackbarRef = useRef<HTMLDivElement>(null);
   return (
     <InfoBar
+      role="status"
+      ref={snackbarRef}
+      moveFocusToSnackbar={moveFocusToSnackbar}
       moveFocusToCloseButton={moveFocusToCloseButton}
       tabIndex={0}
       {...rest}
