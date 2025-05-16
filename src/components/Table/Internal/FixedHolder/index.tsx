@@ -44,7 +44,7 @@ const FixedHolder = forwardRef<HTMLDivElement, FixedHeaderProps<unknown>>(
       stickyTopOffset,
       stickyBottomOffset,
       stickyClassName,
-      ariaHidden,
+      ariaHidden = false,
       onScroll,
       maxContentScroll,
       children,
