@@ -11,6 +11,7 @@ export interface FixedHeaderProps<RecordType> extends HeaderProps<RecordType> {
   stickyTopOffset?: number;
   stickyBottomOffset?: number;
   stickyClassName?: string;
+  ariaHidden?: boolean;
   onScroll: (info: {
     currentTarget: HTMLDivElement;
     scrollLeft?: number;

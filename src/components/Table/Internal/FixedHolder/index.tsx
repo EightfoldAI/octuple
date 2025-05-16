@@ -44,6 +44,7 @@ const FixedHolder = forwardRef<HTMLDivElement, FixedHeaderProps<unknown>>(
       stickyTopOffset,
       stickyBottomOffset,
       stickyClassName,
+      ariaHidden = false,
       onScroll,
       maxContentScroll,
       children,
@@ -152,6 +153,7 @@ const FixedHolder = forwardRef<HTMLDivElement, FixedHeaderProps<unknown>>(
         ])}
       >
         <table
+          aria-hidden={ariaHidden}
           style={{
             tableLayout: 'fixed',
             visibility: noData || mergedColumnWidth ? null : 'hidden',
