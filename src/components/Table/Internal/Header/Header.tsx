@@ -94,7 +94,11 @@ function Header<RecordType>({
   const trComponent = getComponent(['header', 'row'], 'tr');
   const thComponent = getComponent(['header', 'cell'], 'th');
 
-  const className = `table-thead ${classNames || ''}`;
+  let className = 'table-thead';
+
+  if (classNames) {
+    className += ` ${classNames}`;
+  }
   return (
     <WrapperComponent className={className}>
       {rows.map((row, rowIndex) => {
