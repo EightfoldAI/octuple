@@ -620,13 +620,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
             remainingCount === 1 ? 'option' : 'options'
           } selected`;
           // if keepCountPillFocus is true, keep the count pill focusable
-          if (
-            keepCountPillFocus &&
+          const updatedPillProps = {
+            ...pillProps,
+            ...(keepCountPillFocus &&
             'tabIndex' in pillProps &&
             pillProps.tabIndex === -1
-          ) {
-            pillProps.tabIndex = 0;
-          }
+              ? { tabIndex: 0 }
+              : {}),
+          };
           pills.push(
             <Pill
               classNames={countPillClassNames}
@@ -655,7 +656,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               }}
               aria-label={accessibleLabel}
               role="button"
-              {...pillProps}
+              {...updatedPillProps}
             />
           );
         }
