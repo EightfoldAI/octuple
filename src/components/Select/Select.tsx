@@ -110,6 +110,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       themeContainerId,
       toggleButtonAriaLabel,
       'data-test-id': dataTestId,
+      keepCountPillFocus = true,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -618,6 +619,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
           const accessibleLabel = `and ${remainingCount} more ${
             remainingCount === 1 ? 'option' : 'options'
           } selected`;
+          // if keepCountPillFocus is true, keep the count pill focusable
+          if (
+            keepCountPillFocus &&
+            'tabIndex' in pillProps &&
+            pillProps.tabIndex === -1
+          ) {
+            pillProps.tabIndex = 0;
+          }
           pills.push(
             <Pill
               classNames={countPillClassNames}
