@@ -397,17 +397,15 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               'tooltip-reference',
             ]);
 
-            const ariaDescribedBy =
-              node.props?.['aria-describedby'] || tooltipId?.current;
-
             const clonedElementProps: RenderProps = {
               id: node.props?.id ? node.props?.id : tooltipReferenceId?.current,
               key: node.props?.key ? node.props?.key : tooltipId?.current,
               // If the content is not a string, the element of the content should be
               // manually targeted by id via `aria-describedby` to be announced by screen readers.
               // As this is an edge case, don't worry about it here, instead take the override if available.
-              // Only assign aria-describedby if the tooltip element is present in the DOM.
-              'aria-describedby': mergedVisible ? ariaDescribedBy : undefined,
+              'aria-describedby': node.props?.['aria-describedby']
+                ? node.props?.['aria-describedby']
+                : tooltipId?.current,
               'data-reference-id': tooltipReferenceId?.current,
             };
 
