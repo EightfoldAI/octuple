@@ -46,7 +46,7 @@ export default function useSticky(sticky: boolean | TableSticky): {
         ariaHidden: true,
       },
       hiddenHeaderProps: {
-        classNames: styles['sr-only'],
+        classNames: styles.srOnly,
       },
     };
   }, [offsetScroll, offsetHeader, offsetSummary, container]);

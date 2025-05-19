@@ -532,6 +532,11 @@ function OcTable<RecordType extends DefaultRecordType>(
     []
   );
 
+  const headerClassNames = mergeClasses(
+    headerClassName,
+    hiddenHeaderProps.classNames
+  );
+
   const bodyTable = (
     <Body
       data={mergedData}
@@ -617,9 +622,7 @@ function OcTable<RecordType extends DefaultRecordType>(
                 columns={columns}
                 flattenColumns={flattenColumns}
                 onHeaderRow={onHeaderRow}
-                classNames={`${headerClassName || ''} ${
-                  hiddenHeaderProps.classNames || ''
-                }`}
+                classNames={headerClassNames}
               />
             )}
             {bodyColGroup}
