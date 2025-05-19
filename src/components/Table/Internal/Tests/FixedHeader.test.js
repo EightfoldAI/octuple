@@ -211,13 +211,13 @@ describe('Table.FixedHeader', () => {
 
     expect(wrapper.find('Header').at(1).props()).toEqual(
       expect.objectContaining({
-        classNames: ' sr-only',
+        classNames: 'sr-only',
       })
     );
 
     expect(wrapper.find('Header').at(0).props()).not.toEqual(
       expect.objectContaining({
-        classNames: ' sr-only',
+        classNames: 'sr-only',
       })
     );
   });

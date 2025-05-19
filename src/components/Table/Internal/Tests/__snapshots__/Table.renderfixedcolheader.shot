@@ -707,7 +707,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "table-thead  sr-only",
+                        "class": "table-thead sr-only",
                         "name": "my-header-wrapper",
                       },
                       "children": Array [
@@ -718,7 +718,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                 "name": "my-header-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
@@ -735,7 +735,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only",
+                                  "class": "table-cell sr-only",
                                   "name": "my-header-cell",
                                 },
                                 "children": Array [
@@ -751,7 +751,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                    "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
@@ -809,7 +809,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only",
+                                "class": "table-cell sr-only",
                                 "name": "my-header-cell",
                               },
                               "children": Array [
@@ -825,7 +825,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                  "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
@@ -858,7 +858,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                  "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
@@ -900,7 +900,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                 "name": "my-header-cell",
                                 "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
@@ -919,7 +919,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only",
+                                  "class": "table-cell sr-only",
                                   "name": "my-header-cell",
                                 },
                                 "children": Array [
@@ -937,7 +937,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                    "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
@@ -3965,7 +3965,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "table-thead  sr-only",
+                          "class": "table-thead sr-only",
                           "name": "my-header-wrapper",
                         },
                         "children": Array [
@@ -3976,7 +3976,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                  "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
@@ -3993,7 +3993,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only",
+                                    "class": "table-cell sr-only",
                                     "name": "my-header-cell",
                                   },
                                   "children": Array [
@@ -4009,7 +4009,7 @@ LoadedCheerio {
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                      "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                       "name": "my-header-cell",
                                       "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                     },
@@ -4067,7 +4067,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only",
+                                  "class": "table-cell sr-only",
                                   "name": "my-header-cell",
                                 },
                                 "children": Array [
@@ -4083,7 +4083,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                    "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
@@ -4116,7 +4116,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                    "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
@@ -4158,7 +4158,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                  "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
@@ -4177,7 +4177,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only",
+                                    "class": "table-cell sr-only",
                                     "name": "my-header-cell",
                                   },
                                   "children": Array [
@@ -4195,7 +4195,7 @@ LoadedCheerio {
                                   "parent": [Circular],
                                   "prev": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                      "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                       "name": "my-header-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
@@ -5743,7 +5743,7 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "table-thead  sr-only",
+                            "class": "table-thead sr-only",
                             "name": "my-header-wrapper",
                           },
                           "children": Array [
@@ -5754,7 +5754,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                    "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
@@ -5771,7 +5771,7 @@ LoadedCheerio {
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only",
+                                      "class": "table-cell sr-only",
                                       "name": "my-header-cell",
                                     },
                                     "children": Array [
@@ -5787,7 +5787,7 @@ LoadedCheerio {
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
-                                        "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                        "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                         "name": "my-header-cell",
                                         "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                       },
@@ -5845,7 +5845,7 @@ LoadedCheerio {
                                 },
                                 Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only",
+                                    "class": "table-cell sr-only",
                                     "name": "my-header-cell",
                                   },
                                   "children": Array [
@@ -5861,7 +5861,7 @@ LoadedCheerio {
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                      "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                       "name": "my-header-cell",
                                       "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                     },
@@ -5894,7 +5894,7 @@ LoadedCheerio {
                                   "parent": [Circular],
                                   "prev": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                      "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                       "name": "my-header-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
@@ -5936,7 +5936,7 @@ LoadedCheerio {
                                 },
                                 Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                    "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
@@ -5955,7 +5955,7 @@ LoadedCheerio {
                                   "parent": [Circular],
                                   "prev": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only",
+                                      "class": "table-cell sr-only",
                                       "name": "my-header-cell",
                                     },
                                     "children": Array [
@@ -5973,7 +5973,7 @@ LoadedCheerio {
                                     "parent": [Circular],
                                     "prev": Node {
                                       "attribs": Object {
-                                        "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                        "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                         "name": "my-header-cell",
                                         "style": "position: sticky; left: 0px;",
                                       },
@@ -6127,7 +6127,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "table-thead  sr-only",
+                      "class": "table-thead sr-only",
                       "name": "my-header-wrapper",
                     },
                     "children": Array [
@@ -6138,7 +6138,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                              "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                               "name": "my-header-cell",
                               "style": "position: sticky; left: 0px;",
                             },
@@ -6155,7 +6155,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only",
+                                "class": "table-cell sr-only",
                                 "name": "my-header-cell",
                               },
                               "children": Array [
@@ -6171,7 +6171,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                  "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
@@ -6229,7 +6229,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "table-cell  sr-only",
+                              "class": "table-cell sr-only",
                               "name": "my-header-cell",
                             },
                             "children": Array [
@@ -6245,7 +6245,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                 "name": "my-header-cell",
                                 "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
@@ -6278,7 +6278,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                 "name": "my-header-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
@@ -6320,7 +6320,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                              "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                               "name": "my-header-cell",
                               "style": "position: sticky; right: 0px; border-right-color: transparent;",
                             },
@@ -6339,7 +6339,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only",
+                                "class": "table-cell sr-only",
                                 "name": "my-header-cell",
                               },
                               "children": Array [
@@ -6357,7 +6357,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                  "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
@@ -9385,7 +9385,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "table-thead  sr-only",
+                        "class": "table-thead sr-only",
                         "name": "my-header-wrapper",
                       },
                       "children": Array [
@@ -9396,7 +9396,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                 "name": "my-header-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
@@ -9413,7 +9413,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only",
+                                  "class": "table-cell sr-only",
                                   "name": "my-header-cell",
                                 },
                                 "children": Array [
@@ -9429,7 +9429,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                    "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
@@ -9487,7 +9487,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only",
+                                "class": "table-cell sr-only",
                                 "name": "my-header-cell",
                               },
                               "children": Array [
@@ -9503,7 +9503,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                  "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
@@ -9536,7 +9536,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                  "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
@@ -9578,7 +9578,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                 "name": "my-header-cell",
                                 "style": "position: sticky; right: 0px; border-right-color: transparent;",
                               },
@@ -9597,7 +9597,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only",
+                                  "class": "table-cell sr-only",
                                   "name": "my-header-cell",
                                 },
                                 "children": Array [
@@ -9615,7 +9615,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                    "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
@@ -11163,7 +11163,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "table-thead  sr-only",
+                          "class": "table-thead sr-only",
                           "name": "my-header-wrapper",
                         },
                         "children": Array [
@@ -11174,7 +11174,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                  "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
@@ -11191,7 +11191,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only",
+                                    "class": "table-cell sr-only",
                                     "name": "my-header-cell",
                                   },
                                   "children": Array [
@@ -11207,7 +11207,7 @@ LoadedCheerio {
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                      "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                       "name": "my-header-cell",
                                       "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                     },
@@ -11265,7 +11265,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only",
+                                  "class": "table-cell sr-only",
                                   "name": "my-header-cell",
                                 },
                                 "children": Array [
@@ -11281,7 +11281,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                    "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                   },
@@ -11314,7 +11314,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                    "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                     "name": "my-header-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
@@ -11356,7 +11356,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "table-cell  sr-only table-cell-fix-right table-cell-fix-right-first",
+                                  "class": "table-cell sr-only table-cell-fix-right table-cell-fix-right-first",
                                   "name": "my-header-cell",
                                   "style": "position: sticky; right: 0px; border-right-color: transparent;",
                                 },
@@ -11375,7 +11375,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "table-cell  sr-only",
+                                    "class": "table-cell sr-only",
                                     "name": "my-header-cell",
                                   },
                                   "children": Array [
@@ -11393,7 +11393,7 @@ LoadedCheerio {
                                   "parent": [Circular],
                                   "prev": Node {
                                     "attribs": Object {
-                                      "class": "table-cell  sr-only table-cell-fix-left table-cell-fix-left-last",
+                                      "class": "table-cell sr-only table-cell-fix-left table-cell-fix-left-last",
                                       "name": "my-header-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
