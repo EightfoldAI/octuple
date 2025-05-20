@@ -777,9 +777,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (mergedDisabled) {
         return;
       }
-      if (event.key === eventKeys.SPACE) {
-        event.preventDefault();
-      }
       if (
         filterable &&
         event?.key === eventKeys.ARROWDOWN &&
@@ -918,8 +915,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
                   aria-expanded={dropdownVisible}
-                  title={placeholder + (multiple ? ' multi-select' : '')}
-                  aria-label={placeholder + (multiple ? ' multi-select' : '')}
+                  title={placeholder}
+                  aria-label={placeholder}
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}
