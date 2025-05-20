@@ -328,6 +328,8 @@ function OcTable<RecordType extends DefaultRecordType>(
     offsetScroll,
     stickyClassName,
     container,
+    stickyHeaderProps,
+    hiddenHeaderProps,
   } = useSticky(sticky);
 
   // Footer (Fix footer must fixed header)
@@ -530,6 +532,11 @@ function OcTable<RecordType extends DefaultRecordType>(
     []
   );
 
+  const headerClassNames = mergeClasses(
+    headerClassName,
+    hiddenHeaderProps.classNames
+  );
+
   const bodyTable = (
     <Body
       data={mergedData}
@@ -609,6 +616,15 @@ function OcTable<RecordType extends DefaultRecordType>(
               tableLayout: mergedTableLayout,
             }}
           >
+            {showHeader !== false && (
+              <Header
+                stickyOffsets={stickyOffsets}
+                columns={columns}
+                flattenColumns={flattenColumns}
+                onHeaderRow={onHeaderRow}
+                classNames={headerClassNames}
+              />
+            )}
             {bodyColGroup}
             {bodyTable}
             {!fixFooter && summaryNode && (
@@ -641,6 +657,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         {showHeader !== false && (
           <FixedHolder
             {...fixedHolderProps}
+            {...stickyHeaderProps}
             stickyTopOffset={offsetHeader}
             classNames={styles.tableHeader}
             ref={scrollHeaderRef}
