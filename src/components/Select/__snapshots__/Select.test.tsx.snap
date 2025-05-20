@@ -32,7 +32,7 @@ exports[`Select Renders empty options in multiple mode without crashing 1`] = `
                 readonly=""
                 role="combobox"
                 tabindex="0"
-                title="Select multiple test"
+                title="Select multiple test multi-select"
                 type="text"
                 value=""
               />
@@ -188,7 +188,7 @@ exports[`Select Renders null options in multiple mode without crashing 1`] = `
                 readonly=""
                 role="combobox"
                 tabindex="0"
-                title="Select multiple test"
+                title="Select multiple test multi-select"
                 type="text"
                 value=""
               />
@@ -492,7 +492,7 @@ exports[`Select Renders with default values when multiple 1`] = `
                 readonly=""
                 role="combobox"
                 tabindex="0"
-                title="Select"
+                title="Select multi-select"
                 type="text"
                 value=""
               />
