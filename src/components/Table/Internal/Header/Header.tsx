@@ -3,6 +3,8 @@ import type { ColumnsType, CellType, ColumnGroupType } from '../OcTable.types';
 import { HeaderProps } from './Header.types';
 import HeaderRow from './HeaderRow';
 import TableContext from '../Context/TableContext';
+import { mergeClasses } from '../../../../shared/utilities/mergeClasses';
+import styles from '../octable.module.scss';
 
 function parseHeaderRows<RecordType>(
   rootColumns: ColumnsType<RecordType>
@@ -93,8 +95,9 @@ function Header<RecordType>({
   const trComponent = getComponent(['header', 'row'], 'tr');
   const thComponent = getComponent(['header', 'cell'], 'th');
 
+  const className = mergeClasses('table-thead', classNames);
   return (
-    <WrapperComponent className={'table-thead'}>
+    <WrapperComponent className={className}>
       {rows.map((row, rowIndex) => {
         const rowNode = (
           <HeaderRow

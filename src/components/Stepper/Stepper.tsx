@@ -821,12 +821,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 ])}
                               />
                             )}
-                          <li
-                            {...(index === currentActiveStep && {
-                              'aria-current': 'step',
-                            })}
-                            className={styles.step}
-                          >
+                          <li className={styles.step}>
                             {layout === 'vertical' && (
                               <hr
                                 role="presentation"
