@@ -40,6 +40,9 @@ export const List = <T extends any>({
 }: ListProps<T>) => {
   const htmlDir: string = useCanvasDirection();
 
+  // Total number of list items including optional additional item.
+  const setSize: number = items.length + (renderAdditionalItem ? 1 : 0);
+
   const containerClasses: string = mergeClasses([
     styles.listContainer,
     listClassNames,
@@ -180,6 +183,8 @@ export const List = <T extends any>({
         {...itemProps}
         key={getItemKey(additionalItem, additionalItemIndex)}
         className={itemClasses}
+        aria-posinset={additionalItemIndex + 1}
+        aria-setsize={setSize}
         onKeyDown={(event: React.KeyboardEvent<HTMLElement>) =>
           handleItemKeyDown(event, additionalItemIndex)
         }
@@ -209,6 +214,8 @@ export const List = <T extends any>({
       {...itemProps}
       key={getItemKey(item, index)}
       className={itemClasses}
+      aria-posinset={index + 1}
+      aria-setsize={setSize}
       onKeyDown={(event: React.KeyboardEvent<HTMLElement>) =>
         handleItemKeyDown(event, index)
       }
@@ -236,6 +243,7 @@ export const List = <T extends any>({
         handleItemKeyDown={handleItemKeyDown}
         id={item?.props?.id}
         index={index}
+        setSize={setSize}
         item={item}
         itemRefs={itemRefs}
         itemRef={itemRef}

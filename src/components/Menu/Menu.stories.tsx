@@ -472,7 +472,30 @@ export const __namedExportsOrder = [
   'Menu_Sub_Header',
   'Menu_Footer',
   'Cascading_Menu',
+  'Menu_A11y_Indexing',
 ];
+
+// -----------------------------------------------------------------------------
+// Accessibility-focused story to validate aria-posinset / aria-setsize
+// -----------------------------------------------------------------------------
+
+const Menu_A11y_Indexing_Story: ComponentStory<typeof Menu> = (args) => (
+  <Menu
+    {...args}
+    header="Marketplace"
+    items={[
+      { text: 'Projects', value: 'projects' },
+      { text: 'Courses', value: 'courses' },
+    ]}
+    onChange={(item) => console.log(item)}
+  />
+);
+
+export const Menu_A11y_Indexing = Menu_A11y_Indexing_Story.bind({});
+
+Menu_A11y_Indexing.args = {
+  ...menuArgs,
+};
 
 const menuArgs: object = {
   variant: MenuVariant.neutral,
