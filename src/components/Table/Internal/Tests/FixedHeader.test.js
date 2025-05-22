@@ -162,62 +162,10 @@ describe('Table.FixedHeader', () => {
       />
     );
 
-    expect(wrapper.find('Header').at(0).props().stickyOffsets).toEqual(
+    expect(wrapper.find('Header').props().stickyOffsets).toEqual(
       expect.objectContaining({
         isSticky: false,
         left: [expect.anything(), expect.anything()],
-      })
-    );
-  });
-
-  it('rtl-sticky', () => {
-    const wrapper = mount(
-      <OcTable
-        columns={[{ dataIndex: 'light', width: 100 }]}
-        data={[{ key: 0, light: 'bamboo' }]}
-        direction="rtl"
-        scroll={{
-          y: 100,
-        }}
-        expandableConfig={{
-          expandIcon: () => <div className="expand-icon" />,
-        }}
-        sticky={true}
-      />
-    );
-
-    expect(wrapper.find('FixedHolder').props()).toEqual(
-      expect.objectContaining({
-        ariaHidden: true,
-      })
-    );
-  });
-
-  it('rtl-screen-reader-only', () => {
-    const wrapper = mount(
-      <OcTable
-        columns={[{ dataIndex: 'light', width: 100 }]}
-        data={[{ key: 0, light: 'bamboo' }]}
-        direction="rtl"
-        scroll={{
-          y: 100,
-        }}
-        expandableConfig={{
-          expandIcon: () => <div className="expand-icon" />,
-        }}
-        sticky={true}
-      />
-    );
-
-    expect(wrapper.find('Header').at(1).props()).toEqual(
-      expect.objectContaining({
-        classNames: 'sr-only',
-      })
-    );
-
-    expect(wrapper.find('Header').at(0).props()).not.toEqual(
-      expect.objectContaining({
-        classNames: 'sr-only',
       })
     );
   });

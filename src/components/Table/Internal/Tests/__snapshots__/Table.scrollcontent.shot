@@ -20,7 +20,6 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-hidden": "true",
                   "style": "table-layout: fixed;",
                 },
                 "children": Array [
@@ -400,11 +399,9 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
-                  "aria-hidden": undefined,
                   "style": undefined,
                 },
                 "x-attribsPrefix": Object {
-                  "aria-hidden": undefined,
                   "style": undefined,
                 },
               },
@@ -466,7 +463,6 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "aria-hidden": "true",
                     "style": "table-layout: fixed;",
                   },
                   "children": Array [
@@ -846,11 +842,9 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
-                    "aria-hidden": undefined,
                     "style": undefined,
                   },
                   "x-attribsPrefix": Object {
-                    "aria-hidden": undefined,
                     "style": undefined,
                   },
                 },
