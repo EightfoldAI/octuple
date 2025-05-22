@@ -37,6 +37,10 @@ export interface ExternalListItemProps {
    * @param el The list item element.
    */
   itemRef?: (el: HTMLElement | null) => void;
+  /**
+   * Total size of the list for aria-setsize.
+   */
+  setSize?: number;
 }
 
 export interface ListItemProps
