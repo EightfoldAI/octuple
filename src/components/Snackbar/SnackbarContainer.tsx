@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import {
   SnackbarContainerProps,
   SnackbarPosition,
@@ -17,9 +17,18 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
   parent = typeof document !== 'undefined' ? document.body : null,
 }) => {
   const [snacks, setSnacks] = useState<SnackbarProps[]>([]);
+  const snackContainerRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  const addSnack = (e: CustomEvent<SnackbarProps>): void =>
-    setSnacks((s) => [...s, e.detail]);
+  const addSnack = (e: CustomEvent<SnackbarProps>): void => {
+    setSnacks((s) => {
+      const newSnacks = [...s, e.detail];
+      setTimeout(() => {
+        const newSnackIndex = newSnacks.length - 1;
+        snackContainerRef.current[newSnackIndex]?.focus();
+      }, 0);
+      return newSnacks;
+    });
+  };
 
   const removeSnack = (e: CustomEvent<string>): void =>
     setSnacks((s) => s.filter((snack) => snack.id !== e.detail));
@@ -65,16 +74,31 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
           positionToClassMap[position],
         ])}
       >
-        {getPositionSnacks(position).map((snack) => (
+        {getPositionSnacks(position).map((snack, index) => (
           <Snackbar
-            moveFocusToCloseButton={true}
-            tabIndex={-1}
+            ref={(ref) => {
+              if (ref) {
+                snackContainerRef.current[index] = ref;
+              }
+            }}
             {...snack}
             key={snack.id}
             onClose={() => {
+              const index = snackContainerRef.current.findIndex(
+                (ref) => ref?.id === snack.id
+              );
+              if (index !== -1) {
+                snackContainerRef.current.splice(index, 1);
+                const nextElement =
+                  snackContainerRef.current[index] ||
+                  snackContainerRef.current[index - 1];
+                nextElement?.focus();
+              }
               eat(snack.id);
               snack.onClose?.();
             }}
+            tabIndex={0}
+            moveFocusToSnackbar={true}
             {...(snack.actionButtonProps
               ? {
                   onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
