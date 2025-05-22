@@ -17,12 +17,6 @@ export default function useSticky(sticky: boolean | TableSticky): {
   offsetScroll: number;
   stickyClassName: string;
   container: Window | HTMLElement;
-  stickyHeaderProps: {
-    ariaHidden: boolean;
-  };
-  hiddenHeaderProps: {
-    classNames: string;
-  };
 } {
   const {
     offsetHeader = 0,
@@ -42,12 +36,6 @@ export default function useSticky(sticky: boolean | TableSticky): {
       offsetSummary,
       offsetScroll,
       container,
-      stickyHeaderProps: {
-        ariaHidden: true,
-      },
-      hiddenHeaderProps: {
-        classNames: styles.srOnly,
-      },
     };
   }, [offsetScroll, offsetHeader, offsetSummary, container]);
 }
