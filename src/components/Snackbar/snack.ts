@@ -33,8 +33,6 @@ export const serve = (props: SnackbarProps): VoidFunction => {
     document.dispatchEvent(serveSnackEvent);
   }
 
-  focusedElementRef = document.activeElement as HTMLElement;
-
   if (!props.closable || props.actionButtonProps) {
     setTimeout(() => {
       eat(id);
