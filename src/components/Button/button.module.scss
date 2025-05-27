@@ -413,6 +413,19 @@
     cursor: not-allowed;
   }
 
+  &.ai-agent {
+    color: var(--button-ai-agent-text-color);
+    &.focus-visible,
+    &:focus-visible {
+      outline: 2px solid var(--button-ai-agent-focus-visible-outline-color);
+      border-color: transparent;
+    }
+    &:disabled,
+    &.disabled {
+      opacity: $disabled-ai-agent-alpha-value;
+    }
+  }
+
   &.loading {
     opacity: 1;
     pointer-events: none;
@@ -507,6 +520,18 @@
   border-width: var(--button-primary-border-width);
   border-style: var(--button-primary-border-style);
   border-color: var(--button-primary-border-color);
+
+  &.ai-agent {
+    background: var(--button-ai-agent-primary-background-color);
+
+    &:hover:not([disabled]) {
+      background: var(--button-ai-agent-primary-hover-background-color);
+    }
+
+    &:active:not([disabled]) {
+      background: var(--button-ai-agent-primary-active-background-color);
+    }
+  }
 
   &.button-conic {
     border-color: transparent;
@@ -639,6 +664,19 @@
   border-width: var(--button-secondary-border-width);
   border-style: var(--button-secondary-border-style);
   border-color: var(--button-secondary-border-color);
+
+  &.ai-agent {
+    border-color: var(--button-ai-agent-secondary-border-color);
+
+    &:hover:not([disabled]) {
+      background: var(--button-ai-agent-secondary-hover-background-color);
+      border-color: var(--button-ai-agent-secondary-hover-border-color);
+    }
+
+    &:active:not([disabled]) {
+      background: var(--button-ai-agent-secondary-active-background-color);
+    }
+  }
 
   &.split-left {
     border-right-color: transparent;
@@ -1227,6 +1265,14 @@
   border-style: var(--button-default-border-style);
   border-color: var(--button-default-border-color);
 
+  &.ai-agent {
+    background: var(--button-ai-agent-default-background-color);
+
+    &:active:not([disabled]) {
+      background: var(--button-ai-agent-default-active-background-color);
+    }
+  }
+
   .loader-dot {
     background: var(--button-default-text-color);
   }
@@ -1510,7 +1556,7 @@
   color: var(--color);
 
   .loader {
-    background: var(--button-two-state-background-color);
+    background: var(--bg);
   }
 
   .loader-dot {

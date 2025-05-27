@@ -30,7 +30,7 @@
     &:first-child {
       padding-left: 0;
       .tab-indicator {
-        width: calc(100% - calc(#{$space-xl / 2}));
+        width: calc(100% - $space-xl / 2);
       }
     }
 
@@ -90,6 +90,7 @@
     // Hides the browser default keyboard focus-visible styles.
     // Use the ConfigProvider instead.
     &:focus-visible {
+      box-shadow: inset var(--focus-visible-box-shadow);
       outline: none;
     }
 
@@ -150,6 +151,14 @@
       background: var(--tab-inverse-pill-background);
     }
 
+    &.ai-agent {
+      --tab-label: var(--tab-ai-agent-label);
+      --tab-active-label: var(--tab-ai-agent-active-label);
+      --tab-active-background: var(--tab-ai-agent-active-background);
+      --tab-hover-label: var(--tab-ai-agent-hover-label);
+      background: var(--tab-ai-agent-background);
+    }
+
     .tab {
       border: var(--tab-pill-border);
       border-radius: var(--tab-pill-border-radius);
@@ -159,6 +168,13 @@
         border: var(--tab-pill-active-border);
         .badge {
           background-color: var(--primary-background1-color);
+        }
+      }
+
+      &.ai-agent {
+        &.active {
+          color: var(--tab-active-label);
+          background: var(--tab-active-background);
         }
       }
 

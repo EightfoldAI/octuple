@@ -24,6 +24,7 @@ import styles from '../octable.module.scss';
 
 const BUTTON_HEIGHT: number = 36;
 const BUTTON_PADDING: number = 2;
+const DEFAULT_SCROLL_WIDTH: number = 100;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
@@ -53,7 +54,9 @@ export const Scroller = React.forwardRef(
         columns.reduce(
           (acc, column: ColumnType<RecordType>) => {
             if (!column.fixed) {
-              acc.widths += column.width as number;
+              acc.widths += (column.width ||
+                (window.innerWidth && window.innerWidth / 2) ||
+                DEFAULT_SCROLL_WIDTH) as number;
               acc.columns.push(acc.widths);
             }
             return acc;
@@ -240,6 +243,7 @@ export const Scroller = React.forwardRef(
                 ? 'unset'
                 : startButtonLtrOffset + BUTTON_PADDING,
             opacity: startButtonVisible && visible ? 1 : 0,
+            visibility: startButtonVisible && visible ? 'visible' : 'hidden',
             right:
               direction === 'rtl'
                 ? startButtonRtlOffset + BUTTON_PADDING
@@ -272,6 +276,7 @@ export const Scroller = React.forwardRef(
                   BUTTON_PADDING
                 : 'unset',
             opacity: endButtonVisible && visible ? 1 : 0,
+            visibility: endButtonVisible && visible ? 'visible' : 'hidden',
             right:
               direction === 'rtl'
                 ? 'unset'

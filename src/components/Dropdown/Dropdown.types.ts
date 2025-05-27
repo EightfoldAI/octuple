@@ -85,9 +85,19 @@ export interface DropdownProps {
    */
   onVisibleChange?: (visible: boolean) => void;
   /**
+   * If the dropdown should be shown when the user presses the shift + tab key
+   * @default true
+   */
+  toggleDropdownOnShiftTab?: boolean;
+  /**
    * The dropdown content
    */
   overlay?: React.ReactElement;
+  /**
+   * The tabindex of the overlay wrapper
+   * @default 0
+   */
+  overlayTabIndex?: number;
   /**
    * Placement of the menu
    * @default bottom-start
@@ -156,6 +166,10 @@ export interface DropdownProps {
    * The ref of the dropdown
    */
   ref?: Ref<DropdownRef>;
+  /**
+   * The props of the overlay
+   */
+  overlayProps?: HTMLDivElement;
 }
 
 export type DropdownRef = {

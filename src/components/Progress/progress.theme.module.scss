@@ -178,4 +178,23 @@
   );
   --progress-text-color: var(--text-primary-color);
   // ------ Progress theme ------
+  // AI Agent specific styling
+  --progress-ai-agent-border-color: var(--ai-agent-tertiary-color);
+  --progress-ai-agent-complete-background-color: var(--ai-agent-tertiary-color);
+  --progress-ai-agent-text-color: var(--ai-agent-secondary-color);
+  --progress-ai-agent-incomplete-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --progress-ai-agent-progress-background-color: var(
+    --ai-agent-tertiary-gradient
+  );
+  --progress-ai-agent-progress-inner-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --progress-ai-agent-progress-inner-border-color: var(
+    --ai-agent-tertiary-gradient
+  );
+  --progress-ai-agent-progress-circle-text-color: var(
+    --ai-agent-secondary-color
+  );
 }

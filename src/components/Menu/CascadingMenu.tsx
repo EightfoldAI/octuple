@@ -33,7 +33,12 @@ import {
   useMergeRefs,
   useRole,
 } from '@floating-ui/react';
-import { DropdownMenuProps, MenuItemTypes, MenuSize } from './Menu.types';
+import {
+  DropdownMenuProps,
+  MenuItemTypes,
+  MenuSize,
+  MenuRendererProps,
+} from './Menu.types';
 import { MenuItemType } from './MenuItem/MenuItem.types';
 import { MenuItem } from './MenuItem/MenuItem';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
@@ -311,7 +316,7 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
       onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         props.onClick?.(event);
         tree?.events.emit('click');
-        props.onChange?.(item.value);
+        props.onChange?.(item.value, event);
       }}
       onMouseEnter={() => {
         if (allowHover && isOpen) {
@@ -325,6 +330,7 @@ export const MenuComponent: FC<DropdownMenuProps> = forwardRef<
       tabIndex={activeIndex === index && 0}
       type={item.type ?? MenuItemType.button}
       variant={props.variant}
+      menuRenderer={props.menuRenderer}
       {...item}
       {...getItemProps()}
     />
@@ -425,11 +431,25 @@ export const CascadingMenu: FC<DropdownMenuProps> = forwardRef<
     if (parentId === null) {
       return (
         <FloatingTree>
-          <MenuComponent {...props} ref={ref} />
+          <MenuComponent
+            {...props}
+            ref={ref}
+            menuRenderer={(rendererProps: MenuRendererProps) => (
+              <CascadingMenu {...rendererProps} />
+            )}
+          />
         </FloatingTree>
       );
     }
 
-    return <MenuComponent {...props} ref={ref} />;
+    return (
+      <MenuComponent
+        {...props}
+        ref={ref}
+        menuRenderer={(rendererProps: MenuRendererProps) => (
+          <CascadingMenu {...rendererProps} />
+        )}
+      />
+    );
   }
 );
