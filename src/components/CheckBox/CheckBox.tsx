@@ -2,7 +2,7 @@
 
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
-import { SizeContext, Size, OcThemeName } from '../ConfigProvider';
+import { SizeContext, Size, OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -156,6 +156,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.selectorRtl]: htmlDir === 'rtl' },
       { ['in-form-item']: mergedFormItemInput },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     const checkBoxCheckClassNames: string = mergeClasses([

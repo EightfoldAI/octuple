@@ -2,6 +2,68 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.8](https://github.com/EightfoldAI/octuple/compare/v2.53.7...v2.53.8) (2025-05-22)
+
+### [2.53.7](https://github.com/EightfoldAI/octuple/compare/v2.53.6...v2.53.7) (2025-05-20)
+
+### Bug Fixes
+
+- a11y invalid attribute issue ([#998](https://github.com/EightfoldAI/octuple/issues/998)) ([ab83b46](https://github.com/EightfoldAI/octuple/commits/ab83b46212367091ece990db525f6530812abe63))
+- table: improving accessibility aspect ([#994](https://github.com/EightfoldAI/octuple/issues/994)) ([fdd0878](https://github.com/EightfoldAI/octuple/commits/fdd0878a27fc7b4ca4ac32e0131fa3c57935fb93))
+
+### [2.53.6](https://github.com/EightfoldAI/octuple/compare/v2.53.5...v2.53.6) (2025-05-18)
+
+### Bug Fixes
+
+- plus n button focus will be on by default ([#997](https://github.com/EightfoldAI/octuple/issues/997)) ([03c17da](https://github.com/EightfoldAI/octuple/commits/03c17da5c6aaa0d8b07d6cda699288098ad7341e))
+- regression issue fix ([#993](https://github.com/EightfoldAI/octuple/issues/993)) ([e5b3381](https://github.com/EightfoldAI/octuple/commits/e5b3381708655be1803af083ec4bf9ca71964770))
+
+### [2.53.5](https://github.com/EightfoldAI/octuple/compare/v2.53.4...v2.53.5) (2025-04-30)
+
+### Bug Fixes
+
+- getAriaLabel check before use ([#989](https://github.com/EightfoldAI/octuple/issues/989)) ([c3f751d](https://github.com/EightfoldAI/octuple/commits/c3f751d48860105849e8bbe6202e1b1ceffc1e92))
+
+### [2.53.4](https://github.com/EightfoldAI/octuple/compare/v2.53.3...v2.53.4) (2025-04-29)
+
+### Bug Fixes
+
+- a11y issues ([#988](https://github.com/EightfoldAI/octuple/issues/988)) ([07f9937](https://github.com/EightfoldAI/octuple/commits/07f993799511f97c4ecc2916ab2798fc3361d6d6))
+- dropdown :added condition to close the dialog on shift tab ([#978](https://github.com/EightfoldAI/octuple/issues/978)) ([b4bed98](https://github.com/EightfoldAI/octuple/commits/b4bed9808e1b091bb4831427f6a603a5a53dd5db))
+- more button a11y fixes ([#986](https://github.com/EightfoldAI/octuple/issues/986)) ([1e7ca6e](https://github.com/EightfoldAI/octuple/commits/1e7ca6e7b2f939ffe10d1555eb58890b11129466))
+- multi-select label voice over a11y ([#987](https://github.com/EightfoldAI/octuple/issues/987)) ([066b3df](https://github.com/EightfoldAI/octuple/commits/066b3df9ef3130825b5f0daf96c941b98fc1b6d2))
+- overflow issue ([#985](https://github.com/EightfoldAI/octuple/issues/985)) ([a25ba6b](https://github.com/EightfoldAI/octuple/commits/a25ba6bb8d71e5297724f6240f753f5748667992))
+- remove non existent tooltip aria-describedby reference ([#975](https://github.com/EightfoldAI/octuple/issues/975)) ([f5429c9](https://github.com/EightfoldAI/octuple/commits/f5429c953e1538952b386fdf9447a184e39bcfb7))
+- stepper: added aria-current ([#974](https://github.com/EightfoldAI/octuple/issues/974)) ([b4e1bc3](https://github.com/EightfoldAI/octuple/commits/b4e1bc377e33c2c80bdf3bc1a1c65aeba209022e))
+
+### [2.53.3](https://github.com/EightfoldAI/octuple/compare/v2.53.2...v2.53.3) (2025-04-25)
+
+### [2.53.2](https://github.com/EightfoldAI/octuple/compare/v2.53.1...v2.53.2) (2025-04-23)
+
+### Bug Fixes
+
+- snackbar: fixed focus for info bar close button ([#979](https://github.com/EightfoldAI/octuple/issues/979)) ([2553631](https://github.com/EightfoldAI/octuple/commits/2553631cfab985a48ac1fa7633ea5b71db43695b))
+
+### [2.53.1](https://github.com/EightfoldAI/octuple/compare/v2.53.0...v2.53.1) (2025-04-16)
+
+### Bug Fixes
+
+- add correct aria label ([#944](https://github.com/EightfoldAI/octuple/issues/944)) ([31e8710](https://github.com/EightfoldAI/octuple/commits/31e8710af0f4560cbc7f35be505008c9a4783120))
+- added data-testid to the accordion button ([#976](https://github.com/EightfoldAI/octuple/issues/976)) ([4c4de34](https://github.com/EightfoldAI/octuple/commits/4c4de34f055d7645394a87b7dbc8cb3677fb51b4))
+- description update ([#972](https://github.com/EightfoldAI/octuple/issues/972)) ([3cf7dd3](https://github.com/EightfoldAI/octuple/commits/3cf7dd37afee9ae0da38c51e3037e52f4db0f4ed))
+
+## [2.53.0](https://github.com/EightfoldAI/octuple/compare/v2.52.25...v2.53.0) (2025-04-01)
+
+### Features
+
+- Ypatadia/eng 137079/ai agent theme addition ([#971](https://github.com/EightfoldAI/octuple/issues/971)) ([b1587bb](https://github.com/EightfoldAI/octuple/commits/b1587bbf7468e4f5e1004a9e97ea318b423fad8a))
+
+### [2.52.25](https://github.com/EightfoldAI/octuple/compare/v2.52.24...v2.52.25) (2025-03-20)
+
+### Bug Fixes
+
+- added synthetic mouse event as a second optional param ([#967](https://github.com/EightfoldAI/octuple/issues/967)) ([9e36251](https://github.com/EightfoldAI/octuple/commits/9e362513dfdd42ad296a6387ff5eebeae193e30a))
+
 ### [2.52.24](https://github.com/EightfoldAI/octuple/compare/v2.52.23...v2.52.24) (2025-03-18)
 
 ### Features

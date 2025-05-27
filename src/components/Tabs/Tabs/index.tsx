@@ -11,7 +11,6 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       alignIcon,
       children,
       colorInvert,
-      configContextProps,
       direction,
       fullWidth,
       lineClamp,
@@ -25,6 +24,7 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       value,
       variant,
     } = props;
+    const { configContextProps, ...restProps } = props;
     return (
       <TabsProvider
         alignIcon={alignIcon}
@@ -43,7 +43,7 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
         value={value}
         variant={variant}
       >
-        <AnimatedTabs {...props} ref={ref}>
+        <AnimatedTabs {...restProps} ref={ref}>
           {children}
         </AnimatedTabs>
       </TabsProvider>
