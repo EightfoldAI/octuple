@@ -46,6 +46,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       theme,
       themeContainerId,
       type = InfoBarType.neutral,
+      moveFocusToCloseButton = false,
       ...rest
     } = props;
     const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -83,11 +84,14 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       );
     }, [mergedLocale]);
 
-    setTimeout(() => {
-      if (closeButtonRef.current) {
-        closeButtonRef.current.focus();
-      }
-    }, 1000);
+    useEffect(() => {
+      setTimeout(() => {
+        if (closeButtonRef.current && moveFocusToCloseButton) {
+          closeButtonRef.current.focus();
+        }
+      }, 1000);
+    }, [closeButtonRef, closable]);
+
 
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,

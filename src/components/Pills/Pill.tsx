@@ -137,6 +137,10 @@ export const Pill: FC<PillProps> = React.forwardRef(
             badgeProps={{ classNames: styles.badge }}
             iconProps={{ path: IconName.mdiClose }}
             {...closeButtonProps}
+            ariaLabel={
+              closeButtonProps?.ariaLabel ??
+              closeButtonProps?.getAriaLabel?.(label)
+            }
             onClick={!mergedDisabled ? onClose : null}
             size={pillSizeToButtonSizeMap.get(size)}
             classNames={styles.closeButton}
