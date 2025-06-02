@@ -1,8 +1,10 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Icon, IconName } from '../Icon';
 import { Link } from './';
+import { Stack } from '../Stack';
+import { IconName } from '../Icon';
+import { BADGE } from '@geometric-panda/storybook-addon-badges';
 
 export default {
   title: 'Link',
@@ -14,32 +16,10 @@ export default {
             <section>
               <h1>Link</h1>
               <p>
-                Links lead to another part of an app, other pages, or help
-                articles. They can also be used to initiate commands.
+                Links are navigational elements that are used to take users to
+                another place, such as another page or another section within
+                the same page.
               </p>
-              <h2>Content</h2>
-              <ul>
-                <li>
-                  People should be able to accurately predict the result of
-                  selecting a link based on its link text and optional tooltip.
-                </li>
-                <li>
-                  Use descriptive, actionable link text when possible. Avoid
-                  using URLs as link text.
-                </li>
-                <li>
-                  Don't use if the action is destructive or irreversible. Links
-                  aren't appropriate for commands with significant consequences.
-                </li>
-                <li>
-                  Keep discrete links far enough apart that people can
-                  differentiate between them and easily select each one.
-                </li>
-                <li>
-                  Use sentence-style capitalization—only capitalize the first
-                  word.
-                </li>
-              </ul>
             </section>
             <section>
               <Stories includePrimary title="" />
@@ -48,242 +28,163 @@ export default {
         </main>
       ),
     },
+    badges: [BADGE.NEEDS_REVISION],
   },
   argTypes: {
-    onClick: {
-      action: 'click',
-    },
-    theme: {
-      options: [
-        'red',
-        'redOrange',
-        'orange',
-        'yellow',
-        'yellowGreen',
-        'green',
-        'blueGreen',
-        'blue',
-        'blueViolet',
-        'violet',
-        'violetRed',
-        'grey',
-      ],
-      control: 'select',
-    },
     variant: {
-      options: ['default', 'primary', 'secondary', 'neutral', 'disruptive'],
-      control: { type: 'inline' },
+      options: ['default', 'primary', 'secondary', 'disruptive', 'neutral'],
+      control: { type: 'select' },
+    },
+    target: {
+      options: ['_self', '_blank', '_parent', '_top'],
+      control: { type: 'select' },
+    },
+    underline: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
+    fullWidth: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
+    highContrastFocus: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+      description:
+        'Enables a high-contrast focus indicator for improved accessibility.',
     },
   },
 } as ComponentMeta<typeof Link>;
 
-const Link_Story: ComponentStory<typeof Link> = (args) => {
-  // Prevents :visited from persisting
-  const testAnchor = (): string => {
-    return `#${Math.floor(Math.random() * 1000)}-eftestanchor`;
-  };
-  return <Link {...args} href={testAnchor()} />;
-};
-
-export const Default = Link_Story.bind({});
-export const Primary = Link_Story.bind({});
-export const Secondary = Link_Story.bind({});
-export const Neutral = Link_Story.bind({});
-export const Disruptive = Link_Story.bind({});
-export const Primary_Underline = Link_Story.bind({});
-export const Secondary_Underline = Link_Story.bind({});
-export const Neutral_Underline = Link_Story.bind({});
-export const Disruptive_Underline = Link_Story.bind({});
-
-// Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
-// this line ensures they are exported in the desired order.
-// See https://www.npmjs.com/package/babel-plugin-named-exports-order
-export const __namedExportsOrder = [
-  'Default',
-  'Primary',
-  'Secondary',
-  'Neutral',
-  'Disruptive',
-  'Primary_Underline',
-  'Secondary_Underline',
-  'Neutral_Underline',
-  'Disruptive_Underline',
-];
-
-const linkArgs: Object = {
-  classNames: 'my-link-class',
-  configContextProps: {
-    noDisabledContext: false,
-    noThemeContext: false,
-  },
-  theme: '',
-  themeContainerId: 'my-link-theme-container',
-  disabled: false,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
+const AllLinks_Story: ComponentStory<typeof Link> = (args) => (
+  <Stack direction="vertical" gap="m">
+    <Link {...args} href="https://www.eightfold.ai/">
+      Default Link
+    </Link>
+    <Link {...args} href="https://www.eightfold.ai/" variant="primary">
+      Primary Link
+    </Link>
+    <Link {...args} href="https://www.eightfold.ai/" variant="secondary">
+      Secondary Link
+    </Link>
+    <Link {...args} href="https://www.eightfold.ai/" variant="disruptive">
+      Disruptive Link
+    </Link>
+    <Link {...args} href="https://www.eightfold.ai/" variant="neutral">
+      Neutral Link
+    </Link>
+    <Link {...args} href="https://www.eightfold.ai/" underline>
+      Underlined Link
+    </Link>
+    <Link
+      {...args}
+      href="https://www.eightfold.ai/"
+      variant="primary"
+      underline
     >
-      <Icon path={IconName.mdiBookmark} />
-      Default
-    </span>
-  ),
-  fullWidth: true,
-  target: '_self',
-  variant: 'default',
-};
+      Primary Underlined Link
+    </Link>
+    <Link {...args} href="https://www.eightfold.ai/" disabled>
+      Disabled Link
+    </Link>
+  </Stack>
+);
 
-Default.args = {
-  ...linkArgs,
-};
+export const All_Links = AllLinks_Story.bind({});
+All_Links.args = {};
 
+const Default_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Default Link
+  </Link>
+);
+
+export const Default = Default_Link_Story.bind({});
+Default.args = {};
+
+const Primary_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Primary Link
+  </Link>
+);
+
+export const Primary = Primary_Link_Story.bind({});
 Primary.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Primary
-    </span>
-  ),
-  fullWidth: false,
   variant: 'primary',
+  highContrastFocus: true,
 };
 
-Neutral.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Neutral
-    </span>
-  ),
-  fullWidth: false,
-  variant: 'neutral',
-};
+const Secondary_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Secondary Link
+  </Link>
+);
 
+export const Secondary = Secondary_Link_Story.bind({});
 Secondary.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Secondary
-    </span>
-  ),
-  fullWidth: false,
   variant: 'secondary',
 };
 
+const Disruptive_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Disruptive Link
+  </Link>
+);
+
+export const Disruptive = Disruptive_Link_Story.bind({});
 Disruptive.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Disruptive
-    </span>
-  ),
-  fullWidth: false,
   variant: 'disruptive',
 };
 
-Primary_Underline.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Primary
-    </span>
-  ),
-  fullWidth: false,
-  underline: true,
-  variant: 'primary',
-};
+const Neutral_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Neutral Link
+  </Link>
+);
 
-Neutral_Underline.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Neutral
-    </span>
-  ),
-  fullWidth: false,
-  underline: true,
+export const Neutral = Neutral_Link_Story.bind({});
+Neutral.args = {
   variant: 'neutral',
 };
 
-Secondary_Underline.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Secondary
-    </span>
-  ),
-  fullWidth: false,
+const Underlined_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Underlined Link
+  </Link>
+);
+
+export const Underlined = Underlined_Link_Story.bind({});
+Underlined.args = {
   underline: true,
-  variant: 'secondary',
 };
 
-Disruptive_Underline.args = {
-  ...linkArgs,
-  children: (
-    <span
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Icon path={IconName.mdiBookmark} />
-      Disruptive
-    </span>
-  ),
-  fullWidth: false,
-  underline: true,
-  variant: 'disruptive',
+const Disabled_Link_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Disabled Link
+  </Link>
+);
+
+export const Disabled_Link = Disabled_Link_Story.bind({});
+Disabled_Link.args = {
+  disabled: true,
+};
+
+const High_Contrast_Focus_Story: ComponentStory<typeof Link> = (args) => (
+  <Link {...args} href="https://www.eightfold.ai/">
+    Link with High Contrast Focus
+  </Link>
+);
+
+export const High_Contrast_Focus = High_Contrast_Focus_Story.bind({});
+High_Contrast_Focus.args = {
+  highContrastFocus: true,
+  variant: 'primary', // Example with primary variant
+};
+High_Contrast_Focus.parameters = {
+  docs: {
+    description: {
+      story:
+        'This story demonstrates the `highContrastFocus` prop. When enabled, the link will display a more prominent focus indicator (e.g., a white outline) when it receives keyboard focus. This is particularly beneficial for users with low vision or those who rely on keyboard navigation, as it ensures the focused element is clearly distinguishable, especially on busy or colorful backgrounds.',
+    },
+  },
 };

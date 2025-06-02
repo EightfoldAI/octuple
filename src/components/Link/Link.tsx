@@ -12,6 +12,21 @@ import { mergeClasses } from '../../shared/utilities';
 import styles from './link.module.scss';
 import themedComponentStyles from './link.theme.module.scss';
 
+/**
+ * Link component for navigation.
+ * It supports different visual variants, disabled states, and theming.
+ * Includes an accessibility feature for a high-contrast focus indicator.
+ * @param props - {@link LinkProps}
+ * @param ref - React ref for the anchor element.
+ * @returns The Link component.
+ * @example
+ * ```tsx
+ * <Link href="https://example.com">Default Link</Link>
+ * <Link href="https://example.com" variant="primary">Primary Link</Link>
+ * <Link href="https://example.com" disabled>Disabled Link</Link>
+ * <Link href="https://example.com" highContrastFocus>High Contrast Focus Link</Link>
+ * ```
+ */
 export const Link: FC<LinkProps> = React.forwardRef(
   (
     {
@@ -32,6 +47,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       style,
       theme,
       themeContainerId,
+      highContrastFocus = false, // Added new prop with default
       'data-test-id': dataTestId,
       ...rest
     },
@@ -57,6 +73,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       { [styles.underline]: !!underline },
       { [themedComponentStyles.theme]: mergedTheme },
       { [styles.disabled]: mergedDisabled },
+      { 'highContrastFocus': !!highContrastFocus }, // Added highContrastFocus class conditionally
       classNames,
     ]);
 

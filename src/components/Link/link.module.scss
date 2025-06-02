@@ -105,10 +105,22 @@
 
 :global(.focus-visible) {
   .link-style {
+    // Default focus style
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
       text-decoration: underline;
+    }
+
+    // High contrast focus style
+    // Applies if the link has the 'highContrastFocus' class
+    // and keyboard focus is detected (either via .focus-visible class or :focus-visible pseudo-class).
+    &.highContrastFocus {
+      &.focus-visible,
+      &:focus-visible {
+        box-shadow: 0 0 0 var(--focus-visible-shadow-width) #ffffff; // White focus shadow
+        text-decoration: underline; // Maintain underline for consistency
+      }
     }
   }
 }

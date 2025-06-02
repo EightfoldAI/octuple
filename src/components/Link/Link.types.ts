@@ -1,57 +1,67 @@
-import { AnchorHTMLAttributes } from 'react';
-import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
+import React from 'react';
 import { OcBaseProps } from '../OcBase';
+import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 
-export type LinkType =
+export type LinkVariant =
   | 'default'
   | 'disruptive'
   | 'neutral'
   | 'primary'
   | 'secondary';
 
-export interface LinkProps
-  extends OcBaseProps<HTMLAnchorElement>,
-    AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends OcBaseProps<HTMLAnchorElement> {
+  /**
+   * The url for the link
+   */
+  href?: string;
   /**
    * Configure how contextual props are consumed
    */
   configContextProps?: ConfigContextProps;
   /**
-   * Whether the Link is disabled.
+   * Link is disabled
    * @default false
    */
   disabled?: boolean;
   /**
-   * Whether the Link display is inline and width is unset.
+   * The Link will fill the width of its parent or not.
    * @default true
    */
   fullWidth?: boolean;
   /**
-   * The Link onClick event handler.
+   * The Link click event handler
    */
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   /**
-   * The Link role.
+   * The ARIA role of the link
+   * @default 'link'
    */
   role?: string;
   /**
-   * Theme of the Link.
-   * Use with configContextProps.noThemeContext to override theme.
-   * @default blue
+   * The html target attribute
+   * @default '_self'
+   */
+  target?: React.HTMLAttributeAnchorTarget;
+  /**
+   * Theme of the link
+   * Use with configContextProps.noThemeContext = true
    */
   theme?: OcThemeName;
   /**
-   * Theme container of the Link.
-   * Use with `theme` to generate a unique container or a common one.
+   * Theme container from which the component will propagate styles
    */
   themeContainerId?: string;
   /**
-   * Whether to show the Link underline.
+   * The Link variant
+   * @default 'default'
+   */
+  variant?: LinkVariant;
+  /**
+   * The Link is underlined or not
    */
   underline?: boolean;
   /**
-   * Link Variant.
-   * @default 'default'
+   * Enables a high-contrast focus indicator for improved accessibility.
    */
-  variant?: LinkType;
+  highContrastFocus?: boolean;
 }
