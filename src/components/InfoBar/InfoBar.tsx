@@ -86,11 +86,11 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
 
     useEffect(() => {
       setTimeout(() => {
-        if (ref && 'current' in ref) {
+        if (ref && 'current' in ref && moveFocusToSnackbar) {
           ref.current.focus();
         }
       }, 0);
-    }, [ref, moveFocusToSnackbar]);
+    }, [ref]);
 
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,
