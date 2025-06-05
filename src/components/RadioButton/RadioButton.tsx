@@ -175,7 +175,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const target = e.target as HTMLInputElement;
         setIsActive((prev) => !prev);
         onChange?.({
-          ...(e as any),
+          ...e,
           currentTarget: { checked: !target.checked },
         });
       }

@@ -185,7 +185,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         const target = e.target as HTMLInputElement;
         setIsChecked((prev) => !prev);
         onChange?.({
-          ...(e as any),
+          ...e,
           currentTarget: { checked: !target.checked },
         });
       }
