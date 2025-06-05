@@ -86,7 +86,6 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
 
     useEffect(() => {
       setTimeout(() => {
-
         if (ref && 'current' in ref) {
           ref.current.focus();
         }
@@ -141,6 +140,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 className={infoBarClassNames}
                 ref={ref}
                 style={style}
+                role={role}
               >
                 <Icon
                   path={getIconName()}
@@ -152,9 +152,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                     contentWrapperClassNames,
                   ])}
                 >
-                  <div className={messageClasses} role={role}>
-                    {content}
-                  </div>
+                  <div className={messageClasses}>{content}</div>
                   {actionButtonProps && (
                     <Button
                       buttonWidth={ButtonWidth.fitContent}
