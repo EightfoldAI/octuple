@@ -1,14 +1,14 @@
 'use client';
 
-import React, { FC, forwardRef, useEffect, useRef } from 'react';
+import React, { FC, forwardRef, useRef } from 'react';
 import { InfoBar } from '../InfoBar';
 import { SnackbarProps } from './Snackbar.types';
 import { mergeClasses } from '../../shared/utilities';
-
-import styles from './snackbar.module.scss';
 import { useMergedRefs } from '../../hooks/useMergedRefs';
 
-export const Snackbar: FC<SnackbarProps> = forwardRef(
+import styles from './snackbar.module.scss';
+
+export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ({ classNames, moveFocusToSnackbar, ...rest }, parentRef) => {
     const snackbarClasses = mergeClasses([styles.snackbar, classNames]);
     const snackbarRef = useRef<HTMLDivElement>(null);

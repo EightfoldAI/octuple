@@ -11,8 +11,6 @@ import { InfoBarType } from '../InfoBar';
 
 const DEFAULT_POSITION: SnackbarPosition = 'top-center';
 
-let focusedElementRef: HTMLElement | null = null;
-
 export const SNACK_EVENTS: Record<string, string> = {
   SERVE: 'serveSnack',
   EAT: 'eatSnack',
@@ -50,9 +48,6 @@ export const eat = (snackId: string): void => {
   });
   if (canUseDocElement()) {
     document.dispatchEvent(removeSnackEvent);
-  }
-  if (focusedElementRef) {
-    focusedElementRef.focus();
   }
 };
 
