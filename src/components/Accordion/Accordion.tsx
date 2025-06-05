@@ -132,7 +132,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         disabled
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
         aria-hidden={true}
-        {...expandButtonProps}
+        {...restExpandButtonProps}
       />
     </div>
   );
