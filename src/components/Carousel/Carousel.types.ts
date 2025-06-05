@@ -402,7 +402,7 @@ export interface ScrollMenuProps
    */
   transitionEase?: (t: number) => number;
 
-  carouselOuterContainerProps?: HTMLDivElement;
+  carouselOuterContainerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export interface ScrollContainerProps

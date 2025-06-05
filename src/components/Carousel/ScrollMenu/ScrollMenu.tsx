@@ -60,6 +60,11 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       'data-test-id': dataTestId,
       ...rest
     } = props;
+    const {
+      className: carouselOuterContainerClassName = '',
+      ...restCarouselOuterContainerProps
+    } = carouselOuterContainerProps || {};
+
     const LeftArrow: JSX.Element = getElementOrConstructor(_leftArrow);
     const RightArrow: JSX.Element = getElementOrConstructor(_rightArrow);
 
@@ -153,6 +158,11 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       scrollWrapperClassNames,
     ]);
 
+    const carouselContainerClassNames: string = mergeClasses([
+      styles.carouselAutoScrollInnerWrapper,
+      carouselOuterContainerClassName,
+    ]);
+
     return (
       <div
         {...rest}
@@ -167,8 +177,8 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
         <VisibilityContext.Provider value={context}>
           {controls && !overlayControls && LeftArrow}
           <div
-            className={styles.carouselAutoScrollInnerWrapper}
-            {...carouselOuterContainerProps}
+            className={carouselContainerClassNames}
+            {...restCarouselOuterContainerProps}
           >
             {!context?.isFirstItemVisible &&
               controls &&
