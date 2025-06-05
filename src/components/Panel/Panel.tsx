@@ -4,7 +4,6 @@ import React, {
   useContext,
   useEffect,
   useImperativeHandle,
-  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -144,7 +143,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       }
     };
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       document.addEventListener('keydown', handleEscapeKey);
       return () => {
         document.removeEventListener('keydown', handleEscapeKey); 
