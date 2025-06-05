@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.8](https://github.com/EightfoldAI/octuple/compare/v2.53.7...v2.53.8) (2025-05-22)
+
+### [2.53.7](https://github.com/EightfoldAI/octuple/compare/v2.53.6...v2.53.7) (2025-05-20)
+
+### Bug Fixes
+
+- a11y invalid attribute issue ([#998](https://github.com/EightfoldAI/octuple/issues/998)) ([ab83b46](https://github.com/EightfoldAI/octuple/commits/ab83b46212367091ece990db525f6530812abe63))
+- table: improving accessibility aspect ([#994](https://github.com/EightfoldAI/octuple/issues/994)) ([fdd0878](https://github.com/EightfoldAI/octuple/commits/fdd0878a27fc7b4ca4ac32e0131fa3c57935fb93))
+
+### [2.53.6](https://github.com/EightfoldAI/octuple/compare/v2.53.5...v2.53.6) (2025-05-18)
+
+### Bug Fixes
+
+- plus n button focus will be on by default ([#997](https://github.com/EightfoldAI/octuple/issues/997)) ([03c17da](https://github.com/EightfoldAI/octuple/commits/03c17da5c6aaa0d8b07d6cda699288098ad7341e))
+- regression issue fix ([#993](https://github.com/EightfoldAI/octuple/issues/993)) ([e5b3381](https://github.com/EightfoldAI/octuple/commits/e5b3381708655be1803af083ec4bf9ca71964770))
+
 ### [2.53.5](https://github.com/EightfoldAI/octuple/compare/v2.53.4...v2.53.5) (2025-04-30)
 
 ### Bug Fixes
