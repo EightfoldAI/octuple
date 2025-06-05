@@ -94,7 +94,6 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
    * @param event
    * @returns
    */
-  onIconButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
   /**
    * Whether to render Accordion Body content when Accordion `expanded` is `false`.
    * @default true

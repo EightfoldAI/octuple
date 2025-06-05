@@ -91,6 +91,13 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     },
     [onClick]
   );
+  const { classNames: expandButtonClassNames = '', ...restExpandButtonProps } =
+    expandButtonProps || {};
+
+  const buttonClassNames: string = mergeClasses([
+    styles.accordionIconButton,
+    expandButtonClassNames,
+  ]);
 
   return (
     <div className={headerClassnames} id={`${id}-header`} {...rest}>
@@ -119,7 +126,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         ref={buttonRef}
         tabIndex={-1}
         gradient={gradient}
-        classNames={styles.accordionIconButton}
+        classNames={buttonClassNames}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
         shape={ButtonShape.Round}
         disabled
