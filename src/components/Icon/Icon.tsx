@@ -56,7 +56,8 @@ export const Icon: FC<IconProps> = ({
       title={title}
       vertical={vertical}
       spin={spin}
-      {...({ role: iconRole } as any)}
+      // @ts-ignore
+      role={iconRole}
     />
   );
 
