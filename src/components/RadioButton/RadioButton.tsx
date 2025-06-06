@@ -178,7 +178,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-      if (!allowDisabledFocus && (e.key === 'Enter' || e.key === ' ')) {
+      if (e.key === 'Enter' || e.key === ' ') {
         const target = e.target as HTMLInputElement;
 
         setIsActive((prev) => !prev);
@@ -219,7 +219,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             value={value}
             onChange={!allowDisabledFocus ? toggleChecked : null}
             readOnly
-            onKeyDown={handleKeyDown}
+            onKeyDown={!allowDisabledFocus ? handleKeyDown : null}
             {...rest}
           />
           <label htmlFor={radioButtonId.current} className={labelClassNames}>

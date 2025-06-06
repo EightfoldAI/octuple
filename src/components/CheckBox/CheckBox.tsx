@@ -188,7 +188,8 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-      if (!allowDisabledFocus && (e.key === 'Enter' || e.key === ' ')) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
         const target = e.target as HTMLInputElement;
         applyCheckedState(!target.checked);
       }
@@ -218,7 +219,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             disabled={!allowDisabledFocus && mergedDisabled}
             id={checkBoxId.current}
             onChange={!allowDisabledFocus ? toggleChecked : null}
-            onKeyDown={handleKeyDown}
+            onKeyDown={!allowDisabledFocus ? handleKeyDown : null}
             name={name}
             type={'checkbox'}
             value={value}
