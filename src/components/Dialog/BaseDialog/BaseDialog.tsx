@@ -151,7 +151,13 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             {renderContentAlways && (
               <>
                 <div className={headerClasses}>
-                  <span id={labelId}>
+                  <span
+                    id={labelId}
+                    {...(header && {
+                      role: "heading",
+                      "aria-level": 2
+                    })}
+                  >
                     {headerButtonProps && (
                       <Button
                         classNames={styles.headerButton}
