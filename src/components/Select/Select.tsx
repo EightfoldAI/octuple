@@ -330,6 +330,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [filterable, initialFocus]);
 
+    // Focus the first element when dropdown becomes visible
+    useEffect(() => {
+      if (dropdownVisible && !mergedDisabled && !readonly) {
+        setTimeout(() => {
+          dropdownRef.current?.focusFirstElement();
+        }, 0);
+      }
+    }, [dropdownVisible, mergedDisabled, readonly]);
+
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
 
@@ -887,7 +896,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             {!dropdownVisible && showPills() ? getPills() : null}
             <Dropdown
               ariaRef={inputRef}
-              initialFocus={_initialFocus}
+              initialFocus={true}
               width={dropdownWidth}
               closeOnReferenceClick={closeOnReferenceClick}
               {...dropdownProps}
