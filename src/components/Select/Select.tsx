@@ -330,6 +330,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [filterable, initialFocus]);
 
+    // Update dropdown position on options change
+    useEffect(() => {
+      dropdownRef.current?.update();
+    }, [options?.length, dropdownVisible]);
+
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
 
@@ -454,8 +459,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
           onClear?.();
         }
       }
-      // Update dropdown position on options change
-      dropdownRef.current?.update();
     };
 
     const showDropdown = (show: boolean) => {
