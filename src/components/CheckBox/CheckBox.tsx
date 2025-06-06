@@ -183,15 +183,16 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     const applyCheckedState = (checked: boolean) => {
       setIsChecked(checked);
       onChange?.({
-        target: { checked } as HTMLInputElement,
+        target: { checked, type: 'checkbox' } as HTMLInputElement,
+        currentTarget: { checked, type: 'checkbox' } as HTMLInputElement,
+        type: 'change',
       } as React.ChangeEvent<HTMLInputElement>);
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const target = e.target as HTMLInputElement;
-        applyCheckedState(!target.checked);
+        applyCheckedState(!isChecked);
       }
     };
 
