@@ -92,7 +92,6 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       }, 1000);
     }, [closeButtonRef, closable]);
 
-
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,
       { [styles.bordered]: !!bordered },
