@@ -109,6 +109,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       theme,
       themeContainerId,
       toggleButtonAriaLabel,
+      clearButtonAriaLabel = 'Clear input',
       'data-test-id': dataTestId,
       keepCountPillFocus = true,
     },
@@ -949,6 +950,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   shape={selectShapeToTextInputShapeMap.get(mergedShape)}
                   size={selectSizeToTextInputSizeMap.get(mergedSize)}
                   value={selectedOptionText}
+                  clearButtonAriaLabel={clearButtonAriaLabel}
                 />
               </div>
             </Dropdown>
