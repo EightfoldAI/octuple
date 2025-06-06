@@ -122,8 +122,8 @@ export interface InfoBarsProps
    */
   type?: InfoBarType;
   /**
-   * Whether to move focus to the close button
+   * Whether to move focus to the snackbar
    * @default false
    */
-  moveFocusToCloseButton?: boolean;
+  moveFocusToSnackbar?: boolean;
 }

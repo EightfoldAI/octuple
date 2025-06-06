@@ -31,14 +31,9 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
    */
   position?: SnackbarPosition;
   /**
-   * Last focusable element of the snackbar
+   * Ref of the parent element
    */
-  lastFocusableElement?: HTMLElement;
-  /**
-   * Whether to move focus to the close button
-   * @default true
-   */
-  moveFocusToCloseButton?: boolean;
+  parentRef?: React.MutableRefObject<HTMLDivElement>;
 }
 
 export interface SnackbarContainerProps {
