@@ -330,6 +330,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [filterable, initialFocus]);
 
+    // Focus the first element when dropdown becomes visible
+    useEffect(() => {
+      if (dropdownVisible && !mergedDisabled && !readonly) {
+        dropdownRef.current?.focusFirstElement();
+      }
+    }, [dropdownVisible, mergedDisabled, readonly]);
+
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
 
