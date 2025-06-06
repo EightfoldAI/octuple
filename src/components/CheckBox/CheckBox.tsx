@@ -180,9 +180,24 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
       },
     ]);
 
+    const applyCheckedState = (checked: boolean) => {
+      setIsChecked(checked);
+      onChange?.({
+        target: { checked, type: 'checkbox' } as HTMLInputElement,
+        currentTarget: { checked, type: 'checkbox' } as HTMLInputElement,
+        type: 'change',
+      } as React.ChangeEvent<HTMLInputElement>);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        applyCheckedState(!isChecked);
+      }
+    };
+
     const toggleChecked = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      setIsChecked(e.target.checked);
-      onChange?.(e);
+      applyCheckedState(e.target.checked);
     };
 
     return (
@@ -205,6 +220,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             disabled={!allowDisabledFocus && mergedDisabled}
             id={checkBoxId.current}
             onChange={!allowDisabledFocus ? toggleChecked : null}
+            onKeyDown={!allowDisabledFocus ? handleKeyDown : null}
             name={name}
             type={'checkbox'}
             value={value}

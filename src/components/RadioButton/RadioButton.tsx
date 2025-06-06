@@ -160,14 +160,37 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
       setIsActive(radioGroupContext?.value === value);
     }, [radioGroupContext?.value]);
 
-    const toggleChecked = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const applyRadioChange = (
+      value: string,
+      e: React.SyntheticEvent<HTMLInputElement>
+    ) => {
       if (!radioGroupContext) {
-        setSelectedValue(e.currentTarget?.value as RadioButtonValue);
+        setSelectedValue(value as RadioButtonValue);
       } else {
-        radioGroupContext?.onChange?.(e);
+        radioGroupContext.onChange?.(e as React.ChangeEvent<HTMLInputElement>);
       }
 
-      onChange?.(e);
+      onChange?.(e as React.ChangeEvent<HTMLInputElement>);
+    };
+
+    const toggleChecked = (e: React.ChangeEvent<HTMLInputElement>): void => {
+      applyRadioChange(e.currentTarget.value, e);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const target = e.target as HTMLInputElement;
+
+        setIsActive((prev) => !prev);
+
+        const syntheticEvent = {
+          ...e,
+          currentTarget: target,
+          target: target,
+        } as unknown as React.ChangeEvent<HTMLInputElement>;
+
+        applyRadioChange(target.value, syntheticEvent);
+      }
     };
 
     return (
@@ -196,6 +219,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             value={value}
             onChange={!allowDisabledFocus ? toggleChecked : null}
             readOnly
+            onKeyDown={!allowDisabledFocus ? handleKeyDown : null}
             {...rest}
           />
           <label htmlFor={radioButtonId.current} className={labelClassNames}>
