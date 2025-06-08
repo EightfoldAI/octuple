@@ -179,6 +179,8 @@
   .accordion-icon-button {
     transition: transform $motion-duration-fast;
     z-index: 1;
+    opacity: 1;
+    pointer-events: none;
 
     &.expanded-icon-button {
       transform: rotate(180deg);
