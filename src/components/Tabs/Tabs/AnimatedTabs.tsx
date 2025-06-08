@@ -9,8 +9,8 @@ import { TabsProps, TabSize, TabVariant } from '../Tabs.types';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../tabs.module.scss';
-import themedComponentStyles from '../tabs.theme.module.scss';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
+import themedComponentStyles from '../tabs.theme.module.scss';
 
 export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
   (

@@ -12,8 +12,8 @@ import { Badge } from '../../Badge';
 import { Loader } from '../../Loader';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
-import styles from '../tabs.module.scss';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
+import styles from '../tabs.module.scss';
 
 export const Tab: FC<TabProps> = React.forwardRef(
   (
