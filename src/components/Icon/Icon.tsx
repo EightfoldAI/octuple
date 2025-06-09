@@ -27,7 +27,7 @@ export const Icon: FC<IconProps> = ({
   vertical,
   'data-test-id': dataTestId,
   icomoonIconName,
-  iconRole,
+  iconRole = 'presentation',
 }) => {
   const { icomoonIconSet } = useConfig();
 
