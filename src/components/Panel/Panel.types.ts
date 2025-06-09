@@ -19,7 +19,8 @@ export type PanelPlacement = 'top' | 'right' | 'bottom' | 'left';
 
 export type EventType =
   | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
+  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>
+  | KeyboardEvent;
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'iconProps'>;
 
