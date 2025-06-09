@@ -8,6 +8,32 @@ export enum IconSize {
   XSmall = '14px',
 }
 
+/**
+ * Interface for icon accessibility properties
+ */
+export interface IconAccessibilityProps {
+  /**
+   * Accessible label for the icon
+   */
+  'aria-label'?: string;
+  /**
+   * Element that describes the icon
+   */
+  'aria-describedby'?: string;
+  /**
+   * Whether the icon is hidden from screen readers
+   */
+  'aria-hidden'?: boolean;
+  /**
+   * Role of the icon element
+   */
+  role?: 'img' | 'presentation' | 'button' | 'none';
+  /**
+   * Tab index for keyboard navigation
+   */
+  tabIndex?: number;
+}
+
 export interface IconProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     Omit<MdiIconProps, 'path'> {
@@ -82,4 +108,8 @@ export interface IconProps
    * Unique id used to target element for testing
    */
   'data-test-id'?: string;
+  /**
+   * Additional accessibility properties for the icon
+   */
+  iconProps?: IconAccessibilityProps;
 }

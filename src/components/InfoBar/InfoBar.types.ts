@@ -2,6 +2,7 @@ import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
+import { IconAccessibilityProps } from '../Icon/Icon.types';
 import React from 'react';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
@@ -92,6 +93,11 @@ export interface InfoBarsProps
    * Custom classes of the icon.
    */
   iconClassNames?: string;
+  /**
+   * Additional props to be passed to the Icon component.
+   * These props will be merged with the default icon props.
+   */
+  iconProps?: IconAccessibilityProps;
   /**
    * The InfoBar locale.
    * @default 'enUS'

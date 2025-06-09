@@ -39,6 +39,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       gradient = false,
       icon,
       iconClassNames,
+      iconProps,
       locale = enUS,
       onClose,
       role = 'alert',
@@ -49,6 +50,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       ...rest
     } = props;
     const closeButtonRef = useRef<HTMLButtonElement>(null);
+    console.log('iconProps', iconProps);
 
     const contextualGradient: Gradient = useContext(GradientContext);
     const mergedGradient: boolean = configContextProps.noGradientContext
@@ -141,6 +143,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 <Icon
                   path={getIconName()}
                   classNames={mergeClasses([styles.icon, iconClassNames])}
+                  iconProps={iconProps}
                 />
                 <div
                   className={mergeClasses([
