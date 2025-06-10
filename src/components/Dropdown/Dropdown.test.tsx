@@ -385,7 +385,7 @@ describe('Dropdown', () => {
     const dropdownAriaRef = screen.getByTestId('test-input-id');
     expect(dropdownAriaRef.getAttribute('aria-controls')).toBeTruthy();
     expect(dropdownAriaRef.getAttribute('aria-expanded')).toBe('false');
-    expect(dropdownAriaRef.getAttribute('aria-haspopup')).toBe('true');
+    expect(dropdownAriaRef.getAttribute('aria-haspopup')).toBeNull();
     expect(dropdownAriaRef.getAttribute('role')).toBe('combobox');
     dropdownAriaRef.click();
     await waitFor(() => screen.getByText('User profile 1'));

@@ -31,6 +31,7 @@ export type closeButtonProps = Omit<
   'icon' | 'onClick' | 'size' | 'classNames'
 >;
 
+
 /**
  * Props for the pill button shown on right of the label
  */
@@ -52,7 +53,8 @@ export type PillThemeName =
   | 'violet'
   | 'violetRed'
   | 'grey'
-  | 'white';
+  | 'white'
+  | 'aiAgent';
 
 export interface PillProps extends OcBaseProps<HTMLElement> {
   /**
@@ -64,7 +66,9 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    * Props for the close button,
    * if type is set to PillType.closable
    */
-  closeButtonProps?: closeButtonProps;
+  closeButtonProps?: closeButtonProps & {
+    getAriaLabel?: (label: string) => string;
+  };
   /**
    * Custom color for the pill
    */
