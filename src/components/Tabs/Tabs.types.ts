@@ -487,7 +487,7 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    * Array of tab indexess that should be disabled
    @default []
    */
-  disabledTabIndexs?: number[];
+  disabledTabIndexes?: number[];
 }
 
 export interface TabsTheme {
