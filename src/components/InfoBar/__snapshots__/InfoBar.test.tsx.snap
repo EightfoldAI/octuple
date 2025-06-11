@@ -4,6 +4,7 @@ exports[`InfoBar InfoBar is Disruptive 1`] = `
 <div>
   <div
     class="info-bar disruptive"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -26,7 +27,6 @@ exports[`InfoBar InfoBar is Disruptive 1`] = `
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test disruptive
       </div>
@@ -39,6 +39,7 @@ exports[`InfoBar InfoBar is Neutral 1`] = `
 <div>
   <div
     class="info-bar neutral"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -61,7 +62,6 @@ exports[`InfoBar InfoBar is Neutral 1`] = `
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test neutral
       </div>
@@ -74,6 +74,7 @@ exports[`InfoBar InfoBar is Positive 1`] = `
 <div>
   <div
     class="info-bar positive"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -96,7 +97,6 @@ exports[`InfoBar InfoBar is Positive 1`] = `
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test positive
       </div>
@@ -109,6 +109,7 @@ exports[`InfoBar InfoBar is Warning 1`] = `
 <div>
   <div
     class="info-bar warning"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -131,7 +132,6 @@ exports[`InfoBar InfoBar is Warning 1`] = `
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test warning
       </div>
@@ -144,6 +144,7 @@ exports[`InfoBar InfoBar is bordered 1`] = `
 <div>
   <div
     class="info-bar bordered neutral"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -166,7 +167,6 @@ exports[`InfoBar InfoBar is bordered 1`] = `
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test border
       </div>
@@ -179,6 +179,7 @@ exports[`InfoBar Renders a custom icon when the icon prop uses a custom icon 1`]
 <div>
   <div
     class="info-bar neutral"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -201,7 +202,6 @@ exports[`InfoBar Renders a custom icon when the icon prop uses a custom icon 1`]
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test icon
       </div>
@@ -214,6 +214,7 @@ exports[`InfoBar Renders without crashing 1`] = `
 <div>
   <div
     class="info-bar neutral"
+    role="alert"
   >
     <span
       aria-hidden="false"
@@ -236,7 +237,6 @@ exports[`InfoBar Renders without crashing 1`] = `
     >
       <div
         class="message body2"
-        role="alert"
       >
         InfoBar test render
       </div>
