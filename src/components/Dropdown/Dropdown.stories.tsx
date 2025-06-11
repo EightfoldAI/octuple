@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
@@ -123,21 +123,38 @@ const Overlay = () => (
   <List<User>
     items={sampleList}
     renderItem={(item) => (
-      <Button
-        alignText={ButtonTextAlign.Left}
-        buttonWidth={ButtonWidth.fill}
-        iconProps={{
-          path: item.icon,
-        }}
-        role="listitem"
+      <div
+        className="dropdown-item"
+        role="option"
+        tabIndex={-1}
         style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '8px 12px',
           margin: '4px 0',
+          cursor: 'pointer',
+          width: '100%',
+          gap: '8px',
         }}
-        text={item.name}
-        variant={ButtonVariant.Default}
-      />
+      >
+        <span
+          aria-hidden="true"
+          className="icon-wrapper_fkuzpfU"
+          role="presentation"
+        >
+          <Icon path={item.icon} size="20px" role="presentation" />
+        </span>
+        <span>{item.name}</span>
+      </div>
     )}
-    role="list"
+    role="listbox"
+    className="list-container vertical"
+    itemProps={{
+      role: 'option',
+      'aria-selected': 'false',
+      className: 'list-item',
+    }}
+    layout="vertical"
   />
 );
 
@@ -146,19 +163,29 @@ const OverlayWithAdditionalListItem = () => (
     additionalItem={sampleAdditionalItem}
     items={sampleList}
     renderItem={(item) => (
-      <Button
-        alignText={ButtonTextAlign.Left}
-        buttonWidth={ButtonWidth.fill}
-        iconProps={{
-          path: item.icon,
-        }}
-        role="listitem"
+      <div
+        className="dropdown-item"
+        role="option"
+        tabIndex={-1}
         style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '8px 12px',
           margin: '4px 0',
+          cursor: 'pointer',
+          width: '100%',
+          gap: '8px',
         }}
-        text={item.name}
-        variant={ButtonVariant.Default}
-      />
+      >
+        <span
+          aria-hidden="true"
+          className="icon-wrapper_fkuzpfU"
+          role="presentation"
+        >
+          <Icon path={item.icon} size="20px" role="presentation" />
+        </span>
+        <span>{item.name}</span>
+      </div>
     )}
     renderAdditionalItem={(item) => (
       <Button
@@ -175,7 +202,14 @@ const OverlayWithAdditionalListItem = () => (
         variant={ButtonVariant.Secondary}
       />
     )}
-    role="list"
+    role="listbox"
+    className="list-container vertical"
+    itemProps={{
+      role: 'option',
+      'aria-selected': 'false',
+      className: 'list-item',
+    }}
+    layout="vertical"
   />
 );
 
@@ -268,28 +302,28 @@ const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
 };
 
 const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
-  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedItems, setCheckedItems] = useState<{
+    [key: string]: {
+      [itemName: string]: boolean;
+    };
+  }>({
+    'filter one': {},
+    'filter two': {},
+    'filter three': {},
+  });
   const [visibleQuickFilter, setVisibleQuickFilter] = useState<{
     [x: string]: boolean;
   }>({});
-  const currentDropdown = Object.keys(visibleQuickFilter)?.[0] || '';
 
-  useEffect(() => {
-    if (currentDropdown) {
-      console.log('Dropdown is: ' + currentDropdown);
-    } else {
-      setCheckedItems({});
-      console.log('checkedItems cleared');
-    }
-  }, [currentDropdown]);
-
-  useEffect(() => {
-    console.log('checkedItems: ', checkedItems);
-
-    if (checkedItems) {
-      setVisibleQuickFilter({});
-    }
-  }, [checkedItems]);
+  const checkboxRefs = useRef<{
+    [filterName: string]: {
+      [itemName: string]: HTMLInputElement | null;
+    };
+  }>({
+    'filter one': {},
+    'filter two': {},
+    'filter three': {},
+  });
 
   const toggleQuickFilterVisibility = ({
     key,
@@ -316,30 +350,53 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
     },
   ];
 
-  const handleChange = (event: { target: { value: any; checked: any } }) => {
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.value]: event.target.checked,
-    });
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    filterName: string
+  ) => {
+    const { value, checked } = event.target;
+    setCheckedItems((prevState) => ({
+      ...prevState,
+      [filterName]: {
+        ...prevState[filterName],
+        [value]: checked,
+      },
+    }));
   };
 
-  const Overlay = () => (
+  const Overlay = (filterName: string) => (
     <List
       items={sampleList}
-      itemProps={{ role: 'listitem' }}
+      itemProps={{
+        role: 'option',
+        'aria-selected': 'false',
+        className: 'list-item',
+      }}
       itemStyle={{
         margin: '4px 0',
       }}
-      renderItem={(item) => (
-        <CheckBox
-          checked={(checkedItems as any)?.[item.name]}
-          label={item.name}
-          onChange={handleChange}
-          role="listitem"
-          value={item.name}
-        />
-      )}
-      role="list"
+      renderItem={(item) => {
+        const isChecked = !!checkedItems[filterName]?.[item.name];
+        return (
+          <CheckBox
+            checked={isChecked}
+            label={item.name}
+            onChange={(e) => handleChange(e, filterName)}
+            role="listitem"
+            value={item.name}
+            ref={(el) => {
+              if (el) {
+                const inputEl = el.querySelector('input[type="checkbox"]');
+                checkboxRefs.current[filterName][item.name] =
+                  inputEl as HTMLInputElement;
+              }
+            }}
+          />
+        );
+      }}
+      role="listbox"
+      className="list-container vertical"
+      layout="vertical"
     />
   );
 
@@ -347,9 +404,10 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
     <Stack direction="horizontal" flexGap="l">
       <Dropdown
         {...args}
-        overlay={Overlay()}
+        overlay={Overlay('filter one')}
         closeOnDropdownClick={false}
         closeOnOutsideClick={false}
+        closeOnElementClick={false}
         onVisibleChange={(visible) => {
           toggleQuickFilterVisibility({
             key: 'filter one',
@@ -373,9 +431,10 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
       </Dropdown>
       <Dropdown
         {...args}
-        overlay={Overlay()}
+        overlay={Overlay('filter two')}
         closeOnDropdownClick={false}
         closeOnOutsideClick={false}
+        closeOnElementClick={false}
         onVisibleChange={(visible) => {
           toggleQuickFilterVisibility({
             key: 'filter two',
@@ -399,9 +458,10 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
       </Dropdown>
       <Dropdown
         {...args}
-        overlay={Overlay()}
+        overlay={Overlay('filter three')}
         closeOnDropdownClick={false}
         closeOnOutsideClick={false}
+        closeOnElementClick={false}
         onVisibleChange={(visible) => {
           toggleQuickFilterVisibility({
             key: 'filter three',
