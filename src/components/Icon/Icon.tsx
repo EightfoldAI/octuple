@@ -27,7 +27,6 @@ export const Icon: FC<IconProps> = ({
   vertical,
   'data-test-id': dataTestId,
   icomoonIconName,
-  iconProps,
 }) => {
   const { icomoonIconSet } = useConfig();
 
@@ -67,7 +66,6 @@ export const Icon: FC<IconProps> = ({
       id={id}
       role={role}
       style={style ? style : null}
-      {...iconProps}
     >
       {iconComponent}
     </span>

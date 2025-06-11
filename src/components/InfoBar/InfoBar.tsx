@@ -143,7 +143,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 <Icon
                   path={getIconName()}
                   classNames={mergeClasses([styles.icon, iconClassNames])}
-                  iconProps={iconProps}
+                  {...iconProps}
                 />
                 <div
                   className={mergeClasses([
