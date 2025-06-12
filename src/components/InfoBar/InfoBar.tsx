@@ -50,7 +50,6 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       ...rest
     } = props;
     const closeButtonRef = useRef<HTMLButtonElement>(null);
-    console.log('iconProps', iconProps);
 
     const contextualGradient: Gradient = useContext(GradientContext);
     const mergedGradient: boolean = configContextProps.noGradientContext
