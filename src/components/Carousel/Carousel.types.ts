@@ -401,6 +401,10 @@ export interface ScrollMenuProps
    * See https://gist.github.com/gre/1650294#file-easing-js
    */
   transitionEase?: (t: number) => number;
+  /**
+   * Props for the carousel outer container.
+   */
+  carouselOuterContainerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export interface ScrollContainerProps

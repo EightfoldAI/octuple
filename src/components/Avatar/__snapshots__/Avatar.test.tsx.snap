@@ -5,7 +5,6 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "wrapper-style avatar image-style",
-      "id": "avatar-id",
       "style": "width: 40px; height: 40px; min-width: 40px; min-height: 40px; font-size: 18px;",
       "tabindex": "0",
     },
@@ -35,13 +34,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
-      "id": undefined,
       "style": undefined,
       "tabindex": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
-      "id": undefined,
       "style": undefined,
       "tabindex": undefined,
     },
@@ -136,7 +133,6 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "wrapper-style avatar image-style round",
-      "id": "avatar-id",
       "style": "width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;",
       "tabindex": "0",
     },
@@ -166,13 +162,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
-      "id": undefined,
       "style": undefined,
       "tabindex": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
-      "id": undefined,
       "style": undefined,
       "tabindex": undefined,
     },
@@ -267,7 +261,6 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "wrapper-style avatar image-style",
-      "id": "avatar-id",
       "style": "width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;",
       "tabindex": "0",
     },
@@ -297,13 +290,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
-      "id": undefined,
       "style": undefined,
       "tabindex": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
-      "id": undefined,
       "style": undefined,
       "tabindex": undefined,
     },
