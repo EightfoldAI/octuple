@@ -5,89 +5,98 @@ import { ListItemProps } from './ListItem';
 
 export type ItemLayout = 'horizontal' | 'vertical';
 
+/**
+ * Props interface for the List component
+ * @template T - The type of items in the list
+ */
 export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
   /**
-   * Optional additonal list item.
+   * Additional item to be rendered at the end of the list
    */
   additionalItem?: T;
   /**
-   * Optionally disable default arrow key handling.
-   * @deprecated Use disableKeys instead.
+   * Disable arrow keys navigation
    * @default false
    */
   disableArrowKeys?: boolean;
   /**
-   * Optionally disable default arrow, end, and home key handling.
+   * Disable keyboard navigation
    * @default false
    */
   disableKeys?: boolean;
   /**
-   * List footer renderer.
+   * Disable keyboard handling completely (for parent components to handle)
+   * @default false
+   */
+  disableKeyboardHandling?: boolean;
+  /**
+   * Items to be rendered in the list
+   */
+  items: ReadonlyArray<T>;
+  /**
+   * Footer of the list
    */
   footer?: ReactNode;
   /**
-   * Get custom list item.
-   */
-  getItem?: (item: T, index: number) => ReactNode;
-  /**
-   * List header renderer.
-   */
-  header?: ReactNode;
-  /**
-   * Custom classes for the list item.
-   */
-  itemClassNames?: string;
-  /**
-   * List item props.
-   */
-  itemProps?: ListItemProps;
-  /**
-   * Array of list items.
-   */
-  items: T[];
-  /**
-   * Style of the item.
-   */
-  itemStyle?: React.CSSProperties;
-  /**
-   * The list layout direction.
-   * @default vertical
+   * Layout of the list
+   * @default 'vertical'
    */
   layout?: ItemLayout;
   /**
-   * Custom classes for the list.
-   */
-  listClassNames?: string;
-  /**
-   * Style of the list
-   */
-  listStyle?: React.CSSProperties;
-  /**
-   * The list html type.
-   * @default ul
-   */
-  listType?: 'ul' | 'ol';
-  /**
-   * Render method for list item.
-   * @param item
-   */
-  renderItem?: (item: T) => ReactNode;
-  /**
-   * Render method for additional list item.
-   * @param item
+   * Render function for additional item
    */
   renderAdditionalItem?: (item: T) => ReactNode;
   /**
-   * Role of the list.
+   * Render function for list item
+   */
+  renderItem?: (item: T) => ReactNode;
+  /**
+   * Key for the list item
+   */
+  rowKey?: string | ((item: T) => Key);
+  /**
+   * Header of the list
+   */
+  header?: ReactNode;
+  /**
+   * Class names for the list item
+   */
+  itemClassNames?: string;
+  /**
+   * Style for the list item
+   */
+  itemStyle?: React.CSSProperties;
+  /**
+   * Class names for the list
+   */
+  listClassNames?: string;
+  /**
+   * Style for the list
+   */
+  listStyle?: React.CSSProperties;
+  /**
+   * Type of the list
+   * @default 'ul'
+   */
+  listType?: 'ul' | 'ol';
+  /**
+   * ARIA role of the list
    */
   role?: string;
   /**
-   * Unique key for the list item.
-   * @param item
+   * Props for the list item
    */
-  rowKey?: (item: T) => Key | keyof T;
+  itemProps?: React.HTMLAttributes<HTMLLIElement>;
   /**
-   * Optionally apply cyclic navigation for arrow keys.
+   * Get item function
+   */
+  getItem?: (item: T, index: number) => ReactNode;
+  /**
+   * ID of the list
+   */
+  id?: string;
+  /**
+   * Apply cyclic navigation
    * @default false
    */
   applyCyclicNavigation?: boolean;
