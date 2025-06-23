@@ -125,5 +125,5 @@ export interface InfoBarsProps
    * Whether to move focus to the close button
    * @default false
    */
-  moveFocusToCloseButton?: boolean;
+  moveFocusToSnackbar?: boolean;
 }

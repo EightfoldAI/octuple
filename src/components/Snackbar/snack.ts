@@ -9,9 +9,10 @@ import {
 import { canUseDocElement, generateId } from '../../shared/utilities';
 import { InfoBarType } from '../InfoBar';
 
-const DEFAULT_POSITION: SnackbarPosition = 'top-center';
+let elementToFocus: HTMLElement | null = null;
+let activeSnacksCount: number = 0;
 
-let focusedElementRef: HTMLElement | null = null;
+const DEFAULT_POSITION: SnackbarPosition = 'top-center';
 
 export const SNACK_EVENTS: Record<string, string> = {
   SERVE: 'serveSnack',
@@ -33,8 +34,15 @@ export const serve = (props: SnackbarProps): VoidFunction => {
     document.dispatchEvent(serveSnackEvent);
   }
 
-  focusedElementRef = document.activeElement as HTMLElement;
+  if (activeSnacksCount === 0) {
+    if (props.lastFocusableElement) {
+      elementToFocus = props.lastFocusableElement;
+    } else {
+      elementToFocus = document.activeElement as HTMLElement;
+    }
+  }
 
+  activeSnacksCount++;
   if (!props.closable || props.actionButtonProps) {
     setTimeout(() => {
       eat(id);
@@ -53,8 +61,10 @@ export const eat = (snackId: string): void => {
   if (canUseDocElement()) {
     document.dispatchEvent(removeSnackEvent);
   }
-  if (focusedElementRef) {
-    focusedElementRef.focus();
+  activeSnacksCount--;
+
+  if (activeSnacksCount === 0 && elementToFocus) {
+    elementToFocus.focus();
   }
 };
 

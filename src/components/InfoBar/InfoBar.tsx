@@ -46,7 +46,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       theme,
       themeContainerId,
       type = InfoBarType.neutral,
-      moveFocusToCloseButton = false,
+      moveFocusToSnackbar = false,
       ...rest
     } = props;
     const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -86,13 +86,12 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
 
     useEffect(() => {
       setTimeout(() => {
-        if (closeButtonRef.current && moveFocusToCloseButton) {
-          closeButtonRef.current.focus();
+        if (ref && 'current' in ref && moveFocusToSnackbar && closable) {
+          ref.current.focus();
         }
-      }, 1000);
-    }, [closeButtonRef, closable]);
+      }, 0);
+    }, [ref]);
 
-    
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,
       { [styles.bordered]: !!bordered },
@@ -141,6 +140,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 className={infoBarClassNames}
                 ref={ref}
                 style={style}
+                role={role}
               >
                 <Icon
                   path={getIconName()}
@@ -152,9 +152,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                     contentWrapperClassNames,
                   ])}
                 >
-                  <div className={messageClasses} role={role}>
-                    {content}
-                  </div>
+                  <div className={messageClasses}>{content}</div>
                   {actionButtonProps && (
                     <Button
                       buttonWidth={ButtonWidth.fitContent}
