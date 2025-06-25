@@ -168,6 +168,11 @@
     --button-default-active-background-color
   );
   --button-default-split-divider-color: var(--primary-secondary-color);
+  // AI Agent specific styling
+  --button-ai-agent-default-background-color: var(--ai-agent-background1-color);
+  --button-ai-agent-default-active-background-color: var(
+    --ai-agent-background2-color
+  );
   // ------ Default Button theme ------
 
   // ------ Default Disruptive Button theme ------
@@ -271,6 +276,16 @@
   );
   --button-primary-split-rtl-hover-background-gradient-edge: var(
     --primary-gradient-start-color-10
+  );
+  // AI Agent specific styling
+  --button-ai-agent-primary-background-color: var(
+    --ai-agent-background2-gradient
+  );
+  --button-ai-agent-primary-hover-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --button-ai-agent-primary-active-background-color: var(
+    --ai-agent-background3-gradient
   );
   // ------ Primary Button theme ------
 
@@ -390,6 +405,15 @@
     --primary-gradient-start-color-10
   );
   --button-secondary-gradient-split-divider-color: var(--primary-color);
+  // AI Agent specific styling
+  --button-ai-agent-secondary-hover-background-color: var(
+    --ai-agent-background1-gradient
+  );
+  --button-ai-agent-secondary-active-background-color: var(
+    --ai-agent-background2-gradient
+  );
+  --button-ai-agent-secondary-hover-border-color: var(--blueviolet-color-60);
+  --button-ai-agent-secondary-border-color: var(--blueviolet-color-60);
   // ------ Secondary Button theme ------
 
   // ------ Secondary Disruptive Button theme ------
