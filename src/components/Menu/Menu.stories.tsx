@@ -64,50 +64,28 @@ const BasicOverlay = (args: any) => (
       {...args}
       items={[
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
           value: 'menu 1',
-          counter: '8',
-          secondaryButtonProps: {
-            iconProps: {
-              path: IconName.mdiTrashCan,
-            },
-            onClick: () => {
-              console.log('Delete clicked');
-            },
-          },
+          text: 'Item 1',
         },
         {
-          text: 'Disabled button',
           value: 'menu 2',
-          disabled: true,
-          subText: 'This is a sub text',
+          text: 'Item 2',
         },
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
           value: 'menu 3',
-          counter: '8',
+          text: 'Item 3',
         },
         {
-          text: 'Button',
           value: 'menu 4',
+          text: 'Item 4',
         },
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
           value: 'menu 5',
-          counter: '8',
+          text: 'Item 5',
         },
         {
-          text: 'Button',
           value: 'menu 6',
+          text: 'Item 6',
         },
       ]}
       onChange={(item, e) => {

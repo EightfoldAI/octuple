@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { MenuItemTypes, MenuProps, MenuSize, MenuVariant } from './Menu.types';
 import { List } from '../List';
 import { MenuItem } from './MenuItem/MenuItem';
@@ -25,6 +25,7 @@ export const Menu: FC<MenuProps> = ({
   onCancel,
   onChange,
   onOk,
+  onClose,
   role = 'menu',
   size = MenuSize.medium,
   style,
@@ -33,6 +34,54 @@ export const Menu: FC<MenuProps> = ({
   ...rest
 }) => {
   const htmlDir: string = useCanvasDirection();
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const focusableElements =
+      listRef.current?.querySelectorAll('[role="menuitem"]');
+    if (!focusableElements?.length) return;
+
+    const currentIndex = Array.from(focusableElements).findIndex(
+      (element) => element === document.activeElement
+    );
+
+    switch (event.key) {
+      case 'ArrowDown': {
+        event.preventDefault();
+        const nextIndex = (currentIndex + 1) % focusableElements.length;
+        (focusableElements[nextIndex] as HTMLElement)?.focus();
+        break;
+      }
+      case 'ArrowUp': {
+        event.preventDefault();
+        const prevIndex =
+          currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
+        (focusableElements[prevIndex] as HTMLElement)?.focus();
+        break;
+      }
+      case 'Home': {
+        event.preventDefault();
+        (focusableElements[0] as HTMLElement)?.focus();
+        break;
+      }
+      case 'End': {
+        event.preventDefault();
+        (
+          focusableElements[focusableElements.length - 1] as HTMLElement
+        )?.focus();
+        break;
+      }
+      case 'Tab': {
+        event.preventDefault();
+        onClose?.();
+        break;
+      }
+      case 'Escape': {
+        onClose?.();
+        break;
+      }
+    }
+  };
 
   const footerClassNames: string = mergeClasses([
     styles.menuFooterContainer,
@@ -120,8 +169,10 @@ export const Menu: FC<MenuProps> = ({
     );
 
   return (
-    <List<MenuItemTypes>
+    <List
       {...rest}
+      ref={listRef}
+      onKeyDown={handleKeyDown}
       classNames={menuClassNames}
       footer={getFooter()}
       getItem={getListItem}
@@ -130,6 +181,7 @@ export const Menu: FC<MenuProps> = ({
       listType={listType}
       role={role}
       style={style}
+      disableKeyboardHandling={true}
     />
   );
 };

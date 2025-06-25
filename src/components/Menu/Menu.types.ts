@@ -55,6 +55,10 @@ export interface MenuProps
    */
   onOk?: React.MouseEventHandler<HTMLButtonElement>;
   /**
+   * Callback when menu should close (e.g., on tab or escape key)
+   */
+  onClose?: () => void;
+  /**
    * The menu aria role.
    * @default 'menu'
    */
