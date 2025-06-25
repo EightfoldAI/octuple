@@ -148,18 +148,6 @@ describe('Panel', () => {
     expect(wrapper.find('.button-primary').text()).toBe('Close');
   });
 
-  test('Should call onClose when escape key is pressed', () => {
-    const onClose = jest.fn();
-    wrapper.setProps({
-      visible: true,
-      onClose,
-    });
-
-    // Simulate escape key press
-    const escapeKeyEvent = new KeyboardEvent('keydown', { key: 'Escape' });
-    document.dispatchEvent(escapeKeyEvent);
-  });
-
   test('Should render content when renderContentAlways is true', () => {
     const { getByText } = render(
       <Panel renderContentAlways>

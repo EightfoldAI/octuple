@@ -87,7 +87,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
 
     useEffect(() => {
       setTimeout(() => {
-        if (ref && 'current' in ref && moveFocusToSnackbar) {
+        if (ref && 'current' in ref && moveFocusToSnackbar && closable) {
           ref.current.focus();
         }
       }, 0);
