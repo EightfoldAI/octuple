@@ -10,6 +10,7 @@ import {
   Shape,
   SizeContext,
   Size,
+  ThemeNames,
 } from '../../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
@@ -218,6 +219,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       },
       { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     useEffect(() => setInputValue(value), [value]);

@@ -10,6 +10,7 @@ import {
   Shape,
   SizeContext,
   Size,
+  ThemeNames,
 } from '../../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
@@ -332,6 +333,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       { ['in-form-item']: mergedFormItemInput },
       { [styles.isExpandable]: expandable },
       { [styles.expandRight]: expandable && expandRight },
+      { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
     useEffect(() => {

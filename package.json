@@ -1,7 +1,8 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.52.23",
+  "version": "2.53.12",
   "license": "MIT",
+  "description": "Eightfold Octuple Design System Component Library",
   "sideEffects": [
     "**/*.css"
   ],
@@ -46,10 +47,10 @@
     "chromatic": "chromatic --exit-zero-on-changes",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "release": "standard-version",
-    "release:minor": "standard-version --release-as minor",
-    "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major",
+    "release": "SKIP_TESTS=true standard-version",
+    "release:minor": "SKIP_TESTS=true standard-version --release-as minor",
+    "release:patch": "SKIP_TESTS=true standard-version --release-as patch",
+    "release:major": "SKIP_TESTS=true standard-version --release-as major",
     "prepublishOnly": "clean-package",
     "postpublish": "clean-package restore",
     "typecheck": "tsc --noEmit --skipLibCheck"
@@ -237,7 +238,7 @@
     "webpack-bundle-analyzer": "4.5.0",
     "webpack-cli": "4.9.2",
     "webpack-dev-middleware": "5.3.4",
-    "webpack-dev-server": "4.9.3",
+    "webpack-dev-server": "5.2.1",
     "webpack-manifest-plugin": "4.0.2",
     "webpack-virtual-modules": "0.4.2",
     "window-resizeto": "0.0.2",

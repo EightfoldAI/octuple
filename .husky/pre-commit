@@ -1,4 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Skip tests if SKIP_TESTS environment variable is set (for releases)
+if [ "$SKIP_TESTS" != "true" ]; then
+  yarn test -u
+fi
+
 yarn lint-staged

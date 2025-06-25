@@ -1,0 +1,11 @@
+.theme {
+  /* Main task bar */
+  --live-task-bar-background-color: var(--background-color);
+  --live-task-bar-text-color: var(--text-primary-color);
+  --live-task-bar-border-color: var(--grey-color-20);
+
+  // AI Agent specific styling
+  --live-task-bar-ai-agent-background1-gradient: var(
+    --ai-agent-background1-gradient
+  );
+}

@@ -65,4 +65,10 @@
     var(--tab-inverse-pill-active-border-color);
   --tab-underline: var(--border-color);
   // ------ Tabs theme ------
+  // AI Agent specific styling
+  --tab-ai-agent-label: var(--ai-agent-secondary-color);
+  --tab-ai-agent-background: var(--ai-agent-background1-gradient);
+  --tab-ai-agent-active-label: var(--ai-agent-secondary-color);
+  --tab-ai-agent-active-background: var(--ai-agent-background2-gradient);
+  --tab-ai-agent-hover-label: var(--ai-agent-secondary-color);
 }
