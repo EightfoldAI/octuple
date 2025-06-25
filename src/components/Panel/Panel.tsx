@@ -6,7 +6,6 @@ import React, {
   useImperativeHandle,
   useRef,
   useState,
-  useCallback,
 } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
@@ -137,19 +136,6 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
           : mergedLocale.lang!.closeButtonAriaLabelText
       );
     }, [mergedLocale]);
-
-    const handleEscapeKey = useCallback((event: KeyboardEvent) => {
-      if (event.key === 'Escape' && visible) {
-        onClose?.(event);
-      }
-    }, [onClose, visible]);
-
-    useEffect(() => {
-      document.addEventListener('keydown', handleEscapeKey);
-      return () => {
-        document.removeEventListener('keydown', handleEscapeKey); 
-      };
-    }, [handleEscapeKey]);
 
     const panelBackdropClasses: string = mergeClasses([
       styles.panelBackdrop,
