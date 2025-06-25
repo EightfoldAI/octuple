@@ -142,6 +142,8 @@ import {
 
 import { List } from './components/List';
 
+import { LiveTaskBar } from './components/LiveTaskBar';
+
 import { MessageBar, MessageBarType } from './components/MessageBar';
 
 import {
@@ -456,6 +458,7 @@ export {
   LinkButtonVariant,
   LinkButtonWidth,
   List,
+  LiveTaskBar,
   Loader,
   LoaderSize,
   matchingSkillAssessment,

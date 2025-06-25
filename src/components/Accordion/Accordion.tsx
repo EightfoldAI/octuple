@@ -10,7 +10,7 @@ import React, {
   useRef,
 } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
-import { OcThemeName } from '../ConfigProvider';
+import { OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
@@ -51,7 +51,6 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   gradient,
   iconProps,
   id,
-  onIconButtonClick,
   onClick,
   size,
   ...rest
@@ -92,6 +91,13 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     },
     [onClick]
   );
+  const { classNames: expandButtonClassNames = '', ...restExpandButtonProps } =
+    expandButtonProps || {};
+
+  const buttonClassNames: string = mergeClasses([
+    styles.accordionIconButton,
+    expandButtonClassNames,
+  ]);
 
   return (
     <div className={headerClassnames} id={`${id}-header`} {...rest}>
@@ -116,16 +122,17 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {badgeProps && <Badge classNames={styles.badge} {...badgeProps} />}
       </div>
       <Button
+        data-testid="accordian-arrow-button"
         ref={buttonRef}
         tabIndex={-1}
-        role="presentation"
         gradient={gradient}
+        classNames={buttonClassNames}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
-        onClick={onIconButtonClick}
-        onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
+        disabled
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
-        {...expandButtonProps}
+        aria-hidden={true}
+        {...restExpandButtonProps}
       />
     </div>
   );
@@ -289,6 +296,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         [styles.rectangle]: shape === AccordionShape.Rectangle,
         [themedComponentStyles.theme]: mergedTheme,
         [styles.gradient]: mergedGradient,
+        [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent,
       },
       classNames
     );
@@ -314,7 +322,6 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                   gradient={gradient}
                   iconProps={iconProps}
                   id={id}
-                  onIconButtonClick={() => toggleAccordion(!isExpanded)}
                   onClick={() => toggleAccordion(!isExpanded)}
                   size={size}
                   {...headerProps}
