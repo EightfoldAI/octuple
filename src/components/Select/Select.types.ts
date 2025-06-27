@@ -222,4 +222,9 @@ export interface SelectProps
    * The Select toggle dropdown chevron button aria label.
    */
   toggleButtonAriaLabel?: string;
+  /**
+   * Whether to keep the count pill focusable.
+   * @default true
+   */
+  keepCountPillFocus?: boolean;
 }

@@ -68,6 +68,7 @@ const themes: PillThemeName[] = [
   'violetRed',
   'grey',
   'white',
+  'aiAgent',
 ];
 
 const Pill_Story: ComponentStory<typeof Pill> = (args) => (
@@ -147,6 +148,9 @@ With_Icon.args = {
 Closable.args = {
   ...pillArgs,
   type: PillType.closable,
+  closeButtonProps: {
+    getAriaLabel: (label: string) => `Delete ${label}`,
+  },
 };
 
 Custom_Closable.args = {

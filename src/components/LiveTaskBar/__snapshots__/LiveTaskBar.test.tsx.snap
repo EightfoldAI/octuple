@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LiveTaskBar Renders with various configurations 1`] = `
+<div>
+  <div
+    aria-label="Live task status"
+    class="live-task-bar-wrapper"
+    data-testid="test-live-task-bar"
+    role="region"
+  >
+    <div
+      class="live-task-bar horizontal custom-class"
+      style="color: rgb(0, 0, 0);"
+    >
+      <div
+        class="left-section"
+      />
+      <div
+        aria-label="Action items"
+        class="action-items"
+        role="group"
+      />
+    </div>
+  </div>
+</div>
+`;

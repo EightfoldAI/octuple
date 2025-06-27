@@ -74,7 +74,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
         event.preventDefault();
         return;
       }
-      onClick?.(value);
+      onClick?.(value, event);
     };
 
     const getIcon = (): JSX.Element => (
