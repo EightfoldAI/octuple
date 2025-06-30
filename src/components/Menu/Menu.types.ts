@@ -54,6 +54,8 @@ export interface MenuProps
    * Callback when ok button is clicked
    */
   onOk?: React.MouseEventHandler<HTMLButtonElement>;
+
+  onClose?: () => void;
   /**
    * The menu aria role.
    * @default 'menu'

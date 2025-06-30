@@ -91,4 +91,6 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    * @default false
    */
   applyCyclicNavigation?: boolean;
+  ref?: React.Ref<HTMLDivElement>;
+  disableKeyboardHandling?: boolean;
 }
