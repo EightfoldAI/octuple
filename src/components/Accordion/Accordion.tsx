@@ -51,7 +51,6 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   gradient,
   iconProps,
   id,
-  onIconButtonClick,
   onClick,
   size,
   ...rest
@@ -92,13 +91,20 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     },
     [onClick]
   );
+  const { classNames: expandButtonClassNames = '', ...restExpandButtonProps } =
+    expandButtonProps || {};
+
+  const buttonClassNames: string = mergeClasses([
+    styles.accordionIconButton,
+    expandButtonClassNames,
+  ]);
 
   return (
     <div className={headerClassnames} id={`${id}-header`} {...rest}>
       <div
         aria-controls={`${id}-content`}
         aria-expanded={expanded}
-        aria-describedby={expandButtonDescribedBy || `${id}-header-content`}
+        aria-labelledby={expandButtonDescribedBy || `${id}-header-content`}
         className={styles.clickableArea}
         onClick={onClick}
         onKeyDown={handleKeyDown}
@@ -119,14 +125,14 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         data-testid="accordian-arrow-button"
         ref={buttonRef}
         tabIndex={-1}
-        role="presentation"
         gradient={gradient}
+        classNames={buttonClassNames}
         iconProps={{ classNames: iconButtonClassNames, ...expandIconProps }}
-        onClick={onIconButtonClick}
-        onKeyDown={handleKeyDown}
         shape={ButtonShape.Round}
+        disabled
         variant={gradient ? ButtonVariant.Secondary : ButtonVariant.Neutral}
-        {...expandButtonProps}
+        aria-hidden={true}
+        {...restExpandButtonProps}
       />
     </div>
   );
@@ -316,7 +322,6 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                   gradient={gradient}
                   iconProps={iconProps}
                   id={id}
-                  onIconButtonClick={() => toggleAccordion(!isExpanded)}
                   onClick={() => toggleAccordion(!isExpanded)}
                   size={size}
                   {...headerProps}

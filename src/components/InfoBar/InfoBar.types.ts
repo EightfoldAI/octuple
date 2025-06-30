@@ -148,4 +148,9 @@ export interface InfoBarsProps
    * @default InfoBarType.neutral
    */
   type?: InfoBarType;
+  /**
+   * Whether to move focus to the snackbar
+   * @default false
+   */
+  moveFocusToSnackbar?: boolean;
 }

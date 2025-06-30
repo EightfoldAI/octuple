@@ -77,7 +77,6 @@ exports[`SkillBlock Skill block has no border 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -192,7 +191,6 @@ exports[`SkillBlock Skill block is bordered 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -306,7 +304,6 @@ exports[`SkillBlock Skill block is disabled 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -421,7 +418,6 @@ exports[`SkillBlock Skill block is readonly 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -536,7 +532,6 @@ exports[`SkillBlock Skill block renders 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -677,7 +672,6 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -913,7 +907,6 @@ exports[`SkillBlock Skill is a below and upskilling assessment block and the ico
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1028,7 +1021,6 @@ exports[`SkillBlock Skill is a below and upskilling assessment block and the ico
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1168,7 +1160,6 @@ exports[`SkillBlock Skill is a below assessment block and the icon is enabled 1`
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1283,7 +1274,6 @@ exports[`SkillBlock Skill is a below assessment block and the icon is not enable
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1400,7 +1390,6 @@ exports[`SkillBlock Skill is a clickable block 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1515,7 +1504,6 @@ exports[`SkillBlock Skill is a default block 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1646,7 +1634,6 @@ exports[`SkillBlock Skill is a default block with custom iconProps 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1772,7 +1759,6 @@ exports[`SkillBlock Skill is a default block with custom inlineSvgProps 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -1887,7 +1873,6 @@ exports[`SkillBlock Skill is a default block with customButtonProps 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2035,7 +2020,6 @@ exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2191,7 +2175,6 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2378,7 +2361,6 @@ exports[`SkillBlock Skill is a exceed and upskilling assessment block and the ic
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2493,7 +2475,6 @@ exports[`SkillBlock Skill is a exceed and upskilling assessment block and the ic
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2633,7 +2614,6 @@ exports[`SkillBlock Skill is a exceed assessment block and the icon is enabled 1
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2748,7 +2728,6 @@ exports[`SkillBlock Skill is a exceed assessment block and the icon is not enabl
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -2879,7 +2858,6 @@ exports[`SkillBlock Skill is a highlight block 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3010,7 +2988,6 @@ exports[`SkillBlock Skill is a match block 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3163,7 +3140,6 @@ exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3278,7 +3254,6 @@ exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3418,7 +3393,6 @@ exports[`SkillBlock Skill is a meet assessment block and the icon is enabled 1`]
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3533,7 +3507,6 @@ exports[`SkillBlock Skill is a meet assessment block and the icon is not enabled
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3648,7 +3621,6 @@ exports[`SkillBlock Skill is a required block 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -3770,7 +3742,6 @@ exports[`SkillBlock Skill is a required block with lineClamp and long text 1`] =
                   id="tooltip--wrapper"
                 >
                   <input
-                    aria-describedby="tooltip-"
                     aria-disabled="false"
                     class="thumb tooltip-reference"
                     data-reference-id="tooltip--reference"
@@ -3886,7 +3857,6 @@ exports[`SkillBlock Skill is a required block with the required mark hidden 1`] 
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -4026,7 +3996,6 @@ exports[`SkillBlock Skill is a upskilling assessment block and the icon is enabl
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -4141,7 +4110,6 @@ exports[`SkillBlock Skill is a upskilling assessment block and the icon is not e
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"
@@ -4258,7 +4226,6 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
                 id="tooltip--wrapper"
               >
                 <input
-                  aria-describedby="tooltip-"
                   aria-disabled="false"
                   class="thumb tooltip-reference"
                   data-reference-id="tooltip--reference"

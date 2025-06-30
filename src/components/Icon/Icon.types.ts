@@ -98,4 +98,8 @@ export interface IconProps
    * Tab index for keyboard navigation
    */
   tabIndex?: number;
+  /**
+   * The icon role.
+   */
+  iconRole?: string;
 }
