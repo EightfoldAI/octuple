@@ -40,7 +40,6 @@ export const serve = (props: SnackbarProps): VoidFunction => {
       elementToFocus = props.lastFocusableElement;
     } else {
       elementToFocus = document.activeElement as HTMLElement;
-      console.log('>>elementToFocus', elementToFocus);
     }
   }
 
