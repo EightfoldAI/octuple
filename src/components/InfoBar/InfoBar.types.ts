@@ -2,10 +2,31 @@ import { ConfigContextProps, OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
-import { IconAccessibilityProps } from '../Icon/Icon.types';
 import React from 'react';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
+export interface IconAccessibilityProps {
+  /**
+   * Accessible label for the icon
+   */
+  'aria-label'?: string;
+  /**
+   * Element that describes the icon
+   */
+  'aria-describedby'?: string;
+  /**
+   * Whether the icon is hidden from screen readers
+   */
+  'aria-hidden'?: boolean;
+  /**
+   * Role of the icon element
+   */
+  role?: 'img' | 'presentation' | 'button' | 'none';
+  /**
+   * Tab index for keyboard navigation
+   */
+  tabIndex?: number;
+}
 
 export enum InfoBarType {
   neutral = 'neutral',

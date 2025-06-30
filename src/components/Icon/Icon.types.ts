@@ -82,4 +82,20 @@ export interface IconProps
    * Unique id used to target element for testing
    */
   'data-test-id'?: string;
+  /**
+   * Accessible label for the icon
+   */
+  'aria-label'?: string;
+  /**
+   * Element that describes the icon
+   */
+  'aria-describedby'?: string;
+  /**
+   * Whether the icon is hidden from screen readers
+   */
+  'aria-hidden'?: boolean;
+  /**
+   * Tab index for keyboard navigation
+   */
+  tabIndex?: number;
 }
