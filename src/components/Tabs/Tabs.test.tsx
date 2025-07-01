@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import { create } from 'react-test-renderer';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
@@ -334,5 +334,119 @@ describe('Tabs', () => {
         </Tabs>
       ).toJSON()
     ).toMatchSnapshot();
+  });
+});
+
+describe('Tabs Keyboard Navigation', () => {
+  const tabs = [
+    { value: 'tab1', label: 'Tab 1', ariaLabel: 'Tab 1' },
+    { value: 'tab2', label: 'Tab 2', ariaLabel: 'Tab 2' },
+    { value: 'tab3', label: 'Tab 3', ariaLabel: 'Tab 3', disabled: true },
+    { value: 'tab4', label: 'Tab 4', ariaLabel: 'Tab 4' },
+  ];
+  const disabledTabIndexes = [2];
+
+  function KeyboardTabsWrapper(props: any) {
+    const [active, setActive] = useState('tab1');
+    return (
+      <Tabs
+        onChange={setActive}
+        value={active}
+        enableArrowNav={true}
+        disabledTabIndexes={disabledTabIndexes}
+        {...props}
+      >
+        {tabs.map((tab) => (
+          <Tab key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+  }
+
+  it('should not activate tab on Arrow navigation, only on Enter', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+    // Start on tab1, ArrowRight should NOT activate tab2
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      false
+    );
+    // Now press Enter on tab2
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+    // ArrowRight again (should skip disabled tab3 and go to tab4, but not activate)
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+    // Now press Enter on tab4
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+    // ArrowRight again should wrap to tab1, but not activate
+    tabButtons.at(3).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      false
+    );
+    // Now press Enter on tab1
+    tabButtons.at(0).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should not allow navigation if enableArrowNav is false', () => {
+    const wrapper = mount(<KeyboardTabsWrapper enableArrowNav={false} />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+    // Should still be on tab1
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    // Even Enter should only work on the currently active tab
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should not activate disabled tabs', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+    // Move to tab2
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+    // ArrowRight should skip tab3 and go to tab4, but not activate
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+    // Try to activate disabled tab3 (should not work)
+    tabButtons.at(2).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(2).hasClass('active')).toBe(
+      false
+    );
   });
 });
