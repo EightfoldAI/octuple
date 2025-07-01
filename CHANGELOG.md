@@ -2,22 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.12](https://github.com/EightfoldAI/octuple/compare/v2.53.11...v2.53.12) (2025-06-25)
+
+### Bug Fixes
+
+- snackbar: fixed focus for snackbar ([#1011](https://github.com/EightfoldAI/octuple/issues/1011)) ([d2261d1](https://github.com/EightfoldAI/octuple/commits/d2261d16e5673c0f0796dc08d8a321ee5fe5e3ac))
+
+### [2.53.11](https://github.com/EightfoldAI/octuple/compare/v2.53.10...v2.53.11) (2025-06-18)
+
+### [2.53.11](https://github.com/EightfoldAI/octuple/compare/v2.53.10...v2.53.11) (2025-06-18)
+
 ### [2.53.10](https://github.com/EightfoldAI/octuple/compare/v2.53.9...v2.53.10) (2025-06-11)
 
 ### [2.53.9](https://github.com/EightfoldAI/octuple/compare/v2.53.8...v2.53.9) (2025-06-11)
 
-
 ### Features
 
-* test update ([#1006](https://github.com/EightfoldAI/octuple/issues/1006)) ([3f155da](https://github.com/EightfoldAI/octuple/commits/3f155daa1979eedd75bce10ca766634e5837e1cf))
-
+- test update ([#1006](https://github.com/EightfoldAI/octuple/issues/1006)) ([3f155da](https://github.com/EightfoldAI/octuple/commits/3f155daa1979eedd75bce10ca766634e5837e1cf))
 
 ### Bug Fixes
 
-* carousel: added carouselOuterContainerProps prop to the carousel container element ([#990](https://github.com/EightfoldAI/octuple/issues/990)) ([860d40a](https://github.com/EightfoldAI/octuple/commits/860d40acc7d694373dd362942e4655caaacc99fa))
-* disabled button and replaced aria-describedby with aria-labelledby ([#960](https://github.com/EightfoldAI/octuple/issues/960)) ([a1170bc](https://github.com/EightfoldAI/octuple/commits/a1170bc7e911cc82120d63affe43ed57a94684f2))
-* icon: Add role prop support to MdiIcon component ([#1001](https://github.com/EightfoldAI/octuple/issues/1001)) ([09f95bc](https://github.com/EightfoldAI/octuple/commits/09f95bc8ef832a30de4163727f8df8f96d75b831))
-* snackbar: fixed announcement for snackbar ([#992](https://github.com/EightfoldAI/octuple/issues/992)) ([6313fde](https://github.com/EightfoldAI/octuple/commits/6313fde9fd77009a1d815782f168d1f6674ed4c1))
+- carousel: added carouselOuterContainerProps prop to the carousel container element ([#990](https://github.com/EightfoldAI/octuple/issues/990)) ([860d40a](https://github.com/EightfoldAI/octuple/commits/860d40acc7d694373dd362942e4655caaacc99fa))
+- disabled button and replaced aria-describedby with aria-labelledby ([#960](https://github.com/EightfoldAI/octuple/issues/960)) ([a1170bc](https://github.com/EightfoldAI/octuple/commits/a1170bc7e911cc82120d63affe43ed57a94684f2))
+- icon: Add role prop support to MdiIcon component ([#1001](https://github.com/EightfoldAI/octuple/issues/1001)) ([09f95bc](https://github.com/EightfoldAI/octuple/commits/09f95bc8ef832a30de4163727f8df8f96d75b831))
+- snackbar: fixed announcement for snackbar ([#992](https://github.com/EightfoldAI/octuple/issues/992)) ([6313fde](https://github.com/EightfoldAI/octuple/commits/6313fde9fd77009a1d815782f168d1f6674ed4c1))
 
 ### [2.53.8](https://github.com/EightfoldAI/octuple/compare/v2.53.7...v2.53.8) (2025-05-22)
 
