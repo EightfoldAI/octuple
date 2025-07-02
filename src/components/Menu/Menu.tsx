@@ -36,15 +36,17 @@ export const Menu: FC<MenuProps> = ({
   const htmlDir: string = useCanvasDirection();
   const listRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   if (items && items.length > 0) {
-  //     requestAnimationFrame(() => {
-  //       const firstMenuItem = listRef.current?.querySelector('[role="menuitem"]') as HTMLElement;
-  //       firstMenuItem?.focus();
-  //       document.documentElement.classList.add('focus-visible');
-  //     });
-  //   }
-  // }, [items]);
+  useEffect(() => {
+    if (items && items.length > 0) {
+      requestAnimationFrame(() => {
+        const firstMenuItem = listRef.current?.querySelector(
+          '[role="menuitem"]'
+        ) as HTMLElement;
+        firstMenuItem?.focus();
+        document.documentElement.classList.add('focus-visible');
+      });
+    }
+  }, [items]);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const focusableElements =
