@@ -98,6 +98,30 @@ describe('Tabs', () => {
     expect(wrapper.find('.tab').at(2).hasClass('active')).toEqual(true);
   });
 
+  test('should update when value prop changes', () => {
+    const Stateful = () => {
+      const [val, setVal] = useState('tab1');
+      return (
+        <>
+          <button id="change" onClick={() => setVal('tab4')}>
+            Change
+          </button>
+          <Tabs onChange={tabClick} value={val}>
+            {tabs.map((tab) => (
+              <Tab key={tab.value} {...tab} />
+            ))}
+          </Tabs>
+        </>
+      );
+    };
+    const wrapper = mount(<Stateful />);
+    wrapper.find('#change').simulate('click');
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+  });
+
   test('tabs badgeContent', () => {
     expect(
       create(
