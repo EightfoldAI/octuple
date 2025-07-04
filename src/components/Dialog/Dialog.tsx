@@ -42,6 +42,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
       headerButtonProps,
       headerClassNames,
       headerIcon,
+      headingLevel=1,
       height,
       locale = enUS,
       okButtonProps,
@@ -179,6 +180,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                 headerButtonProps={headerButtonProps}
                 headerClassNames={headerClasses}
                 headerIcon={headerIcon}
+                headingLevel={headingLevel}
                 height={height}
                 locale={locale}
                 okText={okText}

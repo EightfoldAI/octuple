@@ -138,6 +138,11 @@ export interface BaseDialogProps
    */
   headerIcon?: IconName;
   /**
+   * The heading level for the dialog header
+   * default 1
+   */
+  headingLevel?: number;
+  /**
    * Custom height of the dialog
    */
   height?: number;

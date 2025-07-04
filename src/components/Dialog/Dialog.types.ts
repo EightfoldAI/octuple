@@ -19,6 +19,11 @@ export interface DialogProps extends BaseDialogProps {
    */
   okButtonProps?: DialogButtonProps;
   /**
+   * The heading level for the dialog header
+   * default 1
+   */
+  headingLevel?: number;
+  /**
    * Callback when cancel button is clicked
    */
   onCancel?: React.MouseEventHandler<HTMLButtonElement>;
