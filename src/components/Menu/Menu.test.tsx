@@ -365,4 +365,76 @@ describe('Menu', () => {
     expect(menuChangeHandler).toHaveBeenCalled();
     expect(parentClickHandler).toHaveBeenCalled();
   });
+
+  describe('Menu Keyboard Navigation', () => {
+    test('Should handle ArrowDown/ArrowUp navigation', async () => {
+      const { getByRole } = render(
+        <Menu
+          items={[
+            { text: 'Item 1', value: '1' },
+            { text: 'Item 2', value: '2' },
+            { text: 'Item 3', value: '3' },
+          ]}
+        />
+      );
+
+      await waitFor(() => screen.getByText('Item 1'));
+      const menuContainer = getByRole('menu');
+
+      expect(document.activeElement).toBe(
+        screen.getByText('Item 1').closest('[role="menuitem"]')
+      );
+
+      fireEvent.keyDown(menuContainer, { key: 'ArrowDown' });
+      expect(document.activeElement).toBe(
+        screen.getByText('Item 2').closest('[role="menuitem"]')
+      );
+
+      fireEvent.keyDown(menuContainer, { key: 'ArrowUp' });
+      expect(document.activeElement).toBe(
+        screen.getByText('Item 1').closest('[role="menuitem"]')
+      );
+    });
+
+    test('Should handle Home/End keys', async () => {
+      const { getByRole } = render(
+        <Menu
+          items={[
+            { text: 'Item 1', value: '1' },
+            { text: 'Item 2', value: '2' },
+            { text: 'Item 3', value: '3' },
+          ]}
+        />
+      );
+
+      await waitFor(() => screen.getByText('Item 1'));
+      const menuContainer = getByRole('menu');
+
+      fireEvent.keyDown(menuContainer, { key: 'End' });
+      expect(document.activeElement).toBe(
+        screen.getByText('Item 3').closest('[role="menuitem"]')
+      );
+
+      fireEvent.keyDown(menuContainer, { key: 'Home' });
+      expect(document.activeElement).toBe(
+        screen.getByText('Item 1').closest('[role="menuitem"]')
+      );
+    });
+
+    test('Should handle Tab/Escape to close menu', async () => {
+      const onClose = jest.fn();
+      const { getByRole } = render(
+        <Menu onClose={onClose} items={[{ text: 'Item 1', value: '1' }]} />
+      );
+
+      await waitFor(() => screen.getByText('Item 1'));
+      const menuContainer = getByRole('menu');
+
+      fireEvent.keyDown(menuContainer, { key: 'Tab' });
+      expect(onClose).toHaveBeenCalled();
+
+      fireEvent.keyDown(menuContainer, { key: 'Escape' });
+      expect(onClose).toHaveBeenCalledTimes(2);
+    });
+  });
 });

@@ -64,49 +64,27 @@ const BasicOverlay = (args: any) => (
       {...args}
       items={[
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'First Menu Item',
           value: 'menu 1',
-          counter: '8',
-          secondaryButtonProps: {
-            iconProps: {
-              path: IconName.mdiTrashCan,
-            },
-            onClick: () => {
-              console.log('Delete clicked');
-            },
-          },
         },
         {
-          text: 'Disabled button',
+          text: 'Second Menu Item',
           value: 'menu 2',
-          disabled: true,
-          subText: 'This is a sub text',
         },
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'Third Menu Item',
           value: 'menu 3',
-          counter: '8',
         },
         {
-          text: 'Button',
+          text: 'Fourth Menu Item',
           value: 'menu 4',
         },
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'Fifth Menu Item',
           value: 'menu 5',
-          counter: '8',
         },
         {
-          text: 'Button',
+          text: 'Sixth Menu Item',
           value: 'menu 6',
         },
       ]}
@@ -162,81 +140,27 @@ const SubHeaderOverlay = (args: any) => {
       {...args}
       items={[
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'First Menu Item',
           value: 'menu 1',
-          counter: '8',
         },
         {
-          text: 'Disabled button',
+          text: 'Second Menu Item',
           value: 'menu 2',
-          disabled: true,
         },
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'Third Menu Item',
           value: 'menu 3',
-          counter: '8',
         },
         {
-          text: 'Button',
+          text: 'Fourth Menu Item',
           value: 'menu 4',
         },
         {
-          type: MenuItemType.subHeader,
-          text: 'Sub header',
-        },
-        {
-          type: MenuItemType.link,
-          text: 'X link',
-          href: 'https://x.com',
-          target: '_blank',
-        },
-        {
-          type: MenuItemType.link,
-          text: 'Facebook link',
-          href: 'https://facebook.com',
-          target: '_blank',
-        },
-        {
-          type: MenuItemType.subHeader,
-          text: 'Menu type custom',
-        },
-        {
-          type: MenuItemType.custom,
-          render: ({ onChange, ...rest }) => (
-            <RadioGroup
-              {...rest}
-              {...{
-                ariaLabel: 'Radio Group',
-                value: 'Radio1',
-                items: [1, 2, 3].map((i) => ({
-                  value: `Radio${i}`,
-                  label: `Radio${i}`,
-                  name: 'group',
-                  id: `oea2exk-${i}`,
-                })),
-                layout: 'vertical',
-              }}
-              onChange={onChange}
-              size={menuSizeToSelectorSizeSizeMap.get(args.size)}
-            />
-          ),
-        },
-        {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'Fifth Menu Item',
           value: 'menu 5',
-          counter: '8',
         },
         {
-          text: 'Button',
+          text: 'Sixth Menu Item',
           value: 'menu 6',
         },
       ]}
@@ -310,139 +234,28 @@ const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
       {...args}
       items={[
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Button',
+          text: 'First Menu Item',
           value: 'menu 1',
-          counter: '8',
-          secondaryButtonProps: {
-            iconProps: {
-              path: IconName.mdiTrashCan,
-            },
-            onClick: () => {
-              console.log('Delete clicked');
-            },
-          },
         },
         {
-          text: 'Disabled button',
+          text: 'Second Menu Item',
           value: 'menu 2',
-          disabled: true,
-          subText: 'This is a sub text',
         },
         {
-          iconProps: {
-            path: IconName.mdiCalendar,
-          },
-          text: 'Date',
+          text: 'Third Menu Item',
           value: 'menu 3',
-          counter: '8',
         },
         {
-          alignIcon: MenuItemIconAlign.Right,
-          iconProps: {
-            path:
-              htmlDir === 'rtl'
-                ? IconName.mdiChevronLeft
-                : IconName.mdiChevronRight,
-          },
-          dropdownMenuItems: [
-            {
-              text: 'Button',
-              value: 'subMenuA 1',
-            },
-            {
-              text: 'Button',
-              value: 'subMenuA 1',
-            },
-            {
-              text: 'Button',
-              value: 'subMenuA 1',
-            },
-            {
-              alignIcon: MenuItemIconAlign.Right,
-              iconProps: {
-                path:
-                  htmlDir === 'rtl'
-                    ? IconName.mdiChevronLeft
-                    : IconName.mdiChevronRight,
-              },
-              dropdownMenuItems: [
-                {
-                  type: MenuItemType.subHeader,
-                  text: 'Sub header',
-                },
-                {
-                  type: MenuItemType.custom,
-                  render: ({ onChange, ...rest }) => (
-                    <RadioGroup
-                      {...rest}
-                      {...{
-                        ariaLabel: 'Radio Group',
-                        value: 'Radio1',
-                        items: [1, 2, 3].map((i) => ({
-                          value: `Radio${i}`,
-                          label: `Radio${i}`,
-                          name: 'group',
-                          id: `oea2exk-${i}`,
-                        })),
-                        layout: 'vertical',
-                      }}
-                      onChange={onChange}
-                      size={menuSizeToSelectorSizeSizeMap.get(args.size)}
-                    />
-                  ),
-                },
-              ],
-              text: 'Sub menu',
-              value: 'subMenuA 2',
-            },
-          ],
-          text: 'Sub menu',
+          text: 'Fourth Menu Item',
           value: 'menu 4',
-          dropdownMenuProps: {
-            cancelButtonProps: {
-              ariaLabel: 'Cancel',
-              classNames: 'my-cancel-btn-class',
-              'data-test-id': 'my-cancel-btn-test-id',
-              iconProps: null,
-              id: 'myCancelButton',
-              text: 'Cancel',
-            },
-            okButtonProps: {
-              ariaLabel: 'Accept',
-              classNames: 'my-accept-btn-class',
-              'data-test-id': 'my-accept-btn-test-id',
-              iconProps: null,
-              id: 'myAcceptButton',
-              text: 'Accept',
-            },
-          },
         },
         {
-          text: 'Button',
+          text: 'Fifth Menu Item',
+          value: 'menu 5',
+        },
+        {
+          text: 'Sixth Menu Item',
           value: 'menu 6',
-        },
-        {
-          text: 'Button',
-          value: 'menu 7',
-        },
-        {
-          type: MenuItemType.subHeader,
-          text: 'Sub header',
-        },
-        {
-          type: MenuItemType.link,
-          text: 'X link',
-          href: 'https://x.com',
-          target: '_blank',
-        },
-        {
-          type: MenuItemType.link,
-          text: 'Facebook link',
-          href: 'https://facebook.com',
-          target: '_blank',
         },
       ]}
       onChange={(item) => {

@@ -100,6 +100,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
         onClick={!isNested ? handleOnClick : null}
         ref={ref}
         role={role}
+        autoFocus={rest.autoFocus}
       >
         {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
         <span className={styles.menuItemWrapper}>
