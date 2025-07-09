@@ -347,6 +347,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     trap={visible && focusTrap}
                     {...rest}
                     ref={containerRef}
+                    role="dialog"
+                    aria-modal={true}
                     classNames={panelBackdropClasses}
                     onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                       maskClosable && onClose(e);
