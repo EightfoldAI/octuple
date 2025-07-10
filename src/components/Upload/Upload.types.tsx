@@ -314,6 +314,10 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
    * Upload URL
    */
   action?: Action;
+
+  'aria-describedby'?: string;
+
+  'aria-labelledby'?: string;
   /**
    * Hook executed before uploading.
    * Uploading will be stopped with false or a rejected Promise returned.
