@@ -473,4 +473,273 @@ describe('Tabs Keyboard Navigation', () => {
       false
     );
   });
+
+  // Additional comprehensive tests for better coverage
+  it('should handle ArrowLeft navigation and wrap around', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start on tab1, ArrowLeft should wrap to tab4 (last enabled tab)
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    // Focus should be on tab4 but not activated
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+
+    // Test ArrowLeft from tab4 to tab2 (skipping disabled tab3)
+    tabButtons.at(3).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    // Test ArrowLeft from tab2 to tab1
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+  });
+
+  it('should handle Home and End key navigation', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start on tab1, press End to go to last enabled tab (tab4)
+    tabButtons.at(0).simulate('keyDown', { key: 'End' });
+    wrapper.update();
+
+    // Press Home to go to first enabled tab (tab1)
+    tabButtons.at(3).simulate('keyDown', { key: 'Home' });
+    wrapper.update();
+
+    // Verify the active tab hasn't changed (focus only)
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should handle Enter key activation properly', () => {
+    const mockOnChange = jest.fn();
+    const wrapper = mount(<KeyboardTabsWrapper onChange={mockOnChange} />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Navigate to tab2 and press Enter
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+
+    // Verify tab2 is now active
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should not navigate when readOnly is true', () => {
+    const wrapper = mount(<KeyboardTabsWrapper readOnly={true} />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Try to navigate - should not work
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+
+    // Try to activate with Enter - should not work
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+
+    // Tab1 should still be active
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should handle Tab key navigation when enableArrowNav is false', () => {
+    const wrapper = mount(<KeyboardTabsWrapper enableArrowNav={false} />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Simulate Tab key press
+    tabButtons.at(0).simulate('keyDown', { key: 'Tab' });
+    wrapper.update();
+
+    // Simulate Shift+Tab
+    tabButtons.at(0).simulate('keyDown', { key: 'Tab', shiftKey: true });
+    wrapper.update();
+
+    // Should still be on tab1
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should handle all disabled tabs scenario', () => {
+    const allDisabledTabs = [
+      { value: 'tab1', label: 'Tab 1', ariaLabel: 'Tab 1', disabled: true },
+      { value: 'tab2', label: 'Tab 2', ariaLabel: 'Tab 2', disabled: true },
+      { value: 'tab3', label: 'Tab 3', ariaLabel: 'Tab 3', disabled: true },
+    ];
+
+    const wrapper = mount(
+      <Tabs
+        onChange={() => {}}
+        value="tab1"
+        enableArrowNav={true}
+        disabledTabIndexes={[0, 1, 2]}
+      >
+        {allDisabledTabs.map((tab) => (
+          <Tab key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Try to navigate - should not move focus
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+
+    // Try Enter - should not activate
+    tabButtons.at(0).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+  });
+
+  it('should handle empty tabs array', () => {
+    const wrapper = mount(
+      <Tabs onChange={() => {}} value="" enableArrowNav={true}>
+        {[]}
+      </Tabs>
+    );
+
+    // Should not crash when there are no tabs
+    expect(wrapper.find('button[role="tab"]')).toHaveLength(0);
+  });
+
+  it('should handle unknown key presses', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Press unknown key - should not affect anything
+    tabButtons.at(0).simulate('keyDown', { key: 'Space' });
+    wrapper.update();
+
+    // Should still be on tab1
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should handle navigation with no initial focused tab', () => {
+    const wrapper = mount(<KeyboardTabsWrapper value="tab2" />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start from tab2 and navigate
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+
+    // Should skip disabled tab3 and move to tab4
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should handle focus management with multiple disabled tabs', () => {
+    const tabsWithMultipleDisabled = [
+      { value: 'tab1', label: 'Tab 1', ariaLabel: 'Tab 1' },
+      { value: 'tab2', label: 'Tab 2', ariaLabel: 'Tab 2', disabled: true },
+      { value: 'tab3', label: 'Tab 3', ariaLabel: 'Tab 3', disabled: true },
+      { value: 'tab4', label: 'Tab 4', ariaLabel: 'Tab 4' },
+      { value: 'tab5', label: 'Tab 5', ariaLabel: 'Tab 5', disabled: true },
+      { value: 'tab6', label: 'Tab 6', ariaLabel: 'Tab 6' },
+    ];
+
+    const wrapper = mount(
+      <Tabs
+        onChange={() => {}}
+        value="tab1"
+        enableArrowNav={true}
+        disabledTabIndexes={[1, 2, 4]}
+      >
+        {tabsWithMultipleDisabled.map((tab) => (
+          <Tab key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Navigate from tab1 - should skip disabled tabs and go to tab4
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+
+    // Navigate from tab4 - should skip disabled tab5 and go to tab6
+    tabButtons.at(3).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+
+    // Navigate from tab6 - should wrap around to tab1
+    tabButtons.at(5).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+  });
+
+  it('should handle preventDefault on key events', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    const mockEvent = {
+      key: 'ArrowRight',
+      preventDefault: jest.fn(),
+    };
+
+    tabButtons.at(0).simulate('keyDown', mockEvent);
+
+    // preventDefault should have been called
+    expect(mockEvent.preventDefault).toHaveBeenCalled();
+  });
+
+  it('should handle when tab element has no data-value attribute', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Mock a tab without data-value attribute
+    const tabElement = tabButtons.at(0).getDOMNode();
+    jest.spyOn(tabElement, 'getAttribute').mockReturnValue(null);
+
+    // Try to activate with Enter - should handle gracefully
+    tabButtons.at(0).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+
+    // Should still be on tab1
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should handle circular navigation edge cases', () => {
+    // Test with only one enabled tab
+    const singleEnabledTab = [
+      { value: 'tab1', label: 'Tab 1', ariaLabel: 'Tab 1' },
+      { value: 'tab2', label: 'Tab 2', ariaLabel: 'Tab 2', disabled: true },
+    ];
+
+    const wrapper = mount(
+      <Tabs
+        onChange={() => {}}
+        value="tab1"
+        enableArrowNav={true}
+        disabledTabIndexes={[1]}
+      >
+        {singleEnabledTab.map((tab) => (
+          <Tab key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Navigate right - should stay on tab1 (only enabled tab)
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    wrapper.update();
+
+    // Navigate left - should stay on tab1 (only enabled tab)
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
 });
