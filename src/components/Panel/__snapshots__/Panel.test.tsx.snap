@@ -5,7 +5,9 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "aria-hidden": "false",
+      "aria-modal": "true",
       "class": "panel-backdrop visible",
+      "role": "dialog",
     },
     "children": Array [
       Node {
@@ -1212,11 +1214,15 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "aria-hidden": undefined,
+      "aria-modal": undefined,
       "class": undefined,
+      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "aria-hidden": undefined,
+      "aria-modal": undefined,
       "class": undefined,
+      "role": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -1309,7 +1315,9 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "aria-hidden": "false",
+      "aria-modal": "true",
       "class": "panel-backdrop visible",
+      "role": "dialog",
     },
     "children": Array [
       Node {
@@ -2516,11 +2524,15 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "aria-hidden": undefined,
+      "aria-modal": undefined,
       "class": undefined,
+      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "aria-hidden": undefined,
+      "aria-modal": undefined,
       "class": undefined,
+      "role": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -2613,7 +2625,9 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "aria-hidden": "false",
+      "aria-modal": "true",
       "class": "panel-backdrop visible",
+      "role": "dialog",
     },
     "children": Array [
       Node {
@@ -3820,11 +3834,15 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "aria-hidden": undefined,
+      "aria-modal": undefined,
       "class": undefined,
+      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "aria-hidden": undefined,
+      "aria-modal": undefined,
       "class": undefined,
+      "role": undefined,
     },
   },
   "_root": LoadedCheerio {
