@@ -5,9 +5,10 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import { Panel } from './';
 import { Button, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { ConfigProvider } from '../ConfigProvider';
 import { FeatureFlagContextProvider } from '../ConfigProvider/FeatureFlagProvider';
+import { eventKeys } from '../../shared/utilities';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -212,5 +213,40 @@ describe('Panel', () => {
       </FeatureFlagContextProvider>
     );
     expect(queryByText('Content is not always rendered')).toBeTruthy();
+  });
+
+  test('Should not call onClose when escape key is pressed inside dropdown in panel', () => {
+    // Mock the utilities module
+    jest.doMock('../../shared/utilities', () => ({
+      ...jest.requireActual('../../shared/utilities'),
+      canUseDocElement: jest.fn().mockReturnValue(true)
+    }));
+    
+    const onClose = jest.fn();
+    
+    wrapper = mount(
+      <Panel visible={true} onClose={onClose}>
+        <div>
+          <div className="dropdown-wrapper" data-testid="dropdown">
+            <div>Dropdown content</div>
+          </div>
+        </div>
+      </Panel>
+    );
+
+    // Find the dropdown element and create event with it as target
+    const dropdownElement = wrapper.find('.dropdown-wrapper').getDOMNode();
+    const escapeEvent = new KeyboardEvent('keydown', { key: eventKeys.ESCAPE });
+    Object.defineProperty(escapeEvent, 'target', {
+      value: dropdownElement,
+      writable: false
+    });
+
+    document.dispatchEvent(escapeEvent);
+
+    expect(onClose).not.toHaveBeenCalled();
+    
+    // Reset the mock
+    jest.dontMock('../../shared/utilities');
   });
 });

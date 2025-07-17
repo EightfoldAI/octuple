@@ -8,6 +8,8 @@ import { FeatureFlagContextProvider } from '../ConfigProvider/FeatureFlagProvide
 import { IconName } from '../Icon';
 import { Panel, PanelSize } from './';
 import { PanelHeader } from './PanelHeader';
+import { Dropdown } from '../Dropdown';
+import { Menu, MenuItemType, MenuSize, MenuVariant } from '../Menu';
 
 export default {
   title: 'Panel',
@@ -314,6 +316,100 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
   );
 };
 
+const Panel_With_Dropdown_Story: ComponentStory<typeof Panel> = (args) => {
+  const [visible, setVisible] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<string>('Select an option');
+
+  const menuItems = [
+    { text: 'Option 1', value: 'option1', type: MenuItemType.button },
+    { text: 'Option 2', value: 'option2', type: MenuItemType.button },
+    { text: 'Option 3', value: 'option3', type: MenuItemType.button },
+  ];
+
+  const handleMenuChange = (value: any) => {
+    setSelectedOption(value);
+  };
+
+  return (
+    <>
+      <Button
+        onClick={() => setVisible(true)}
+        text={'Open panel with dropdown'}
+        variant={ButtonVariant.Primary}
+      />
+      <Panel
+        {...args}
+        footer={
+          <div>
+            <Button
+              configContextProps={args.configContextProps}
+              gradient={args.gradient}
+              onClick={() => setVisible(false)}
+              text={'Close'}
+              theme={args.theme}
+              themeContainerId={args.themeContainerId}
+              variant={ButtonVariant.Primary}
+            />
+          </div>
+        }
+        visible={visible}
+        onClose={() => setVisible(false)}
+      >
+        <div style={{ padding: '20px 0' }}>
+          <h3>Panel with Dropdown</h3>
+          <p>
+            This panel demonstrates keyboard handling with nested components. Try the following:
+          </p>
+          <ul style={{ marginBottom: '20px' }}>
+            <li>Open the dropdown, tooltip, or menu</li>
+            <li>Press <strong>Escape</strong> - it will close nested components first, then the panel</li>
+            <li>Press <strong>Tab</strong> to navigate between elements</li>
+          </ul>
+          
+          <div style={{ marginTop: '20px', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <div>
+              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
+                Dropdown:
+              </label>
+              <Dropdown
+                overlay={
+                  <Menu
+                    items={menuItems}
+                    onChange={handleMenuChange}
+                    size={MenuSize.medium}
+                    variant={MenuVariant.neutral}
+                  />
+                }
+                placement="bottom-start"
+                trigger="click"
+              >
+                <Button
+                  text={selectedOption}
+                  variant={ButtonVariant.Default}
+                  iconProps={{
+                    path: IconName.mdiChevronDown,
+                  }}
+                />
+              </Dropdown>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '20px' }}>
+            <p><strong>Selected:</strong> {selectedOption}</p>
+          </div>
+
+          <div style={{ marginTop: '20px' }}>
+            <p>
+              <strong>Note:</strong> The panel uses <code>canUseDocElement()</code> to safely check for 
+              browser environment and properly handle nested overlays before closing the panel itself.
+            </p>
+          </div>
+        </div>
+      </Panel>
+    </>
+  );
+};
+
 export const Small = Panel_Story.bind({});
 export const Medium = Panel_Story.bind({});
 export const Large = Panel_Story.bind({});
@@ -323,6 +419,7 @@ export const Bottom = Panel_Story.bind({});
 export const Top = Panel_Story.bind({});
 export const Header_Actions = Panel_Story.bind({});
 export const Panel_Header = Panel_Header_Story.bind({});
+export const Panel_With_Dropdown = Panel_With_Dropdown_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -337,6 +434,7 @@ export const __namedExportsOrder = [
   'Top',
   'Header_Actions',
   'Panel_Header',
+  'Panel_With_Dropdown',
 ];
 
 const panelArgs: Object = {
@@ -497,4 +595,8 @@ Panel_Header.args = {
   bodyPadding: true,
   headerPadding: false,
   size: PanelSize.medium,
+};
+
+Panel_With_Dropdown.args = {
+  ...panelArgs,
 };
