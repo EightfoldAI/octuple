@@ -5,14 +5,19 @@ exports[`Tabs pill tabs large snapshot 1`] = `
   <div
     className="tab-wrap large pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -56,8 +61,12 @@ exports[`Tabs pill tabs large snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -95,8 +104,12 @@ exports[`Tabs pill tabs large snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -134,9 +147,13 @@ exports[`Tabs pill tabs large snapshot 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -179,14 +196,19 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
   <div
     className="tab-wrap pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -230,8 +252,12 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -269,8 +295,12 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -308,9 +338,13 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -353,14 +387,19 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
   <div
     className="tab-wrap pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -404,8 +443,12 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -443,8 +486,12 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -482,9 +529,13 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -527,14 +578,19 @@ exports[`Tabs pill tabs small snapshot 1`] = `
   <div
     className="tab-wrap small pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -578,8 +634,12 @@ exports[`Tabs pill tabs small snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -617,8 +677,12 @@ exports[`Tabs pill tabs small snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -656,9 +720,13 @@ exports[`Tabs pill tabs small snapshot 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -703,12 +771,14 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
     lineClamp={2}
     maxWidth={240}
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -785,6 +855,7 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -861,6 +932,7 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -938,6 +1010,7 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -1019,12 +1092,14 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -1097,6 +1172,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -1169,6 +1245,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -1242,6 +1319,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -1319,12 +1397,14 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -1397,6 +1477,7 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -1469,6 +1550,7 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -1542,6 +1624,7 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -1619,12 +1702,14 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -1697,6 +1782,7 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -1769,6 +1855,7 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -1842,6 +1929,7 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -1919,12 +2007,14 @@ exports[`Tabs stat tabs small snapshot 1`] = `
   <div
     className="tab-wrap small"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -1997,6 +2087,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -2069,6 +2160,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -2142,6 +2234,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -2219,12 +2312,14 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
   <div
     className="tab-wrap small"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -2297,6 +2392,7 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -2369,6 +2465,7 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -2442,6 +2539,7 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -2519,12 +2617,14 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -2632,6 +2732,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -2739,6 +2840,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -2847,6 +2949,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -2959,12 +3062,14 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -3037,6 +3142,7 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -3109,6 +3215,7 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -3182,6 +3289,7 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -3259,12 +3367,14 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab undefined active"
+      index={0}
       onClick={[Function]}
       role="tab"
       style={
@@ -3337,6 +3447,7 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab undefined"
+      index={1}
       onClick={[Function]}
       role="tab"
       style={
@@ -3409,6 +3520,7 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab undefined"
+      index={2}
       onClick={[Function]}
       role="tab"
       style={
@@ -3482,6 +3594,7 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       aria-selected={false}
       className="tab undefined"
       disabled={true}
+      index={3}
       onClick={[Function]}
       role="tab"
       style={
@@ -3560,14 +3673,19 @@ exports[`Tabs tabs alignIcon end 1`] = `
     alignIcon="end"
     className="tab-wrap pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         className="label"
@@ -3611,8 +3729,12 @@ exports[`Tabs tabs alignIcon end 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         className="label"
@@ -3650,8 +3772,12 @@ exports[`Tabs tabs alignIcon end 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         className="label"
@@ -3689,9 +3815,13 @@ exports[`Tabs tabs alignIcon end 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         className="label"
@@ -3735,14 +3865,19 @@ exports[`Tabs tabs alignIcon start 1`] = `
     alignIcon="start"
     className="tab-wrap pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -3786,8 +3921,12 @@ exports[`Tabs tabs alignIcon start 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -3825,8 +3964,12 @@ exports[`Tabs tabs alignIcon start 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -3864,9 +4007,13 @@ exports[`Tabs tabs alignIcon start 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -3910,14 +4057,19 @@ exports[`Tabs tabs badgeContent 1`] = `
     alignIcon="start"
     className="tab-wrap pill"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -3966,8 +4118,12 @@ exports[`Tabs tabs badgeContent 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -4010,8 +4166,12 @@ exports[`Tabs tabs badgeContent 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -4054,9 +4214,13 @@ exports[`Tabs tabs badgeContent 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -4104,14 +4268,19 @@ exports[`Tabs tabs snapshot 1`] = `
   <div
     className="tab-wrap"
     role="tablist"
+    tabIndex={-1}
     value="tab1"
   >
     <button
       aria-label="Tab 1"
       aria-selected={true}
       className="tab active"
+      data-index={0}
+      data-value="tab1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={0}
     >
       <span
         aria-hidden={false}
@@ -4155,8 +4324,12 @@ exports[`Tabs tabs snapshot 1`] = `
       aria-label="Tab 2"
       aria-selected={false}
       className="tab"
+      data-index={1}
+      data-value="tab2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -4194,8 +4367,12 @@ exports[`Tabs tabs snapshot 1`] = `
       aria-label="Tab 3"
       aria-selected={false}
       className="tab"
+      data-index={2}
+      data-value="tab3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
@@ -4233,9 +4410,13 @@ exports[`Tabs tabs snapshot 1`] = `
       aria-label="Tab 4"
       aria-selected={false}
       className="tab"
+      data-index={3}
+      data-value="tab4"
       disabled={true}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
+      tabIndex={-1}
     >
       <span
         aria-hidden={false}
