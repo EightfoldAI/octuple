@@ -234,6 +234,7 @@ const SelectArgs: SelectProps = {
 
 Basic.args = {
   ...SelectArgs,
+  'aria-label': 'This is a select aria label',
 };
 
 Dynamic_Width.args = {
