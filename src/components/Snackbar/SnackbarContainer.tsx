@@ -66,51 +66,57 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
   };
 
   const getSnackContainers = (): JSX.Element[] =>
-    Object.keys(positionToClassMap).map((position: SnackbarPosition) => (
-      <div
-        key={position}
-        className={mergeClasses([
-          styles.snackbarContainer,
-          positionToClassMap[position],
-        ])}
-      >
-        {getPositionSnacks(position).map((snack, index) => (
-          <Snackbar
-            ref={(ref) => {
-              if (ref) {
-                snackContainerRef.current[index] = ref;
-              }
-            }}
-            {...snack}
-            key={snack.id}
-            onClose={() => {
-              const index = snackContainerRef.current.findIndex(
-                (ref) => ref?.id === snack.id
-              );
-              if (index !== -1) {
-                snackContainerRef.current.splice(index, 1);
-                const nextElement =
-                  snackContainerRef.current[index] ||
-                  snackContainerRef.current[index - 1];
-                nextElement?.focus();
-              }
-              eat(snack.id);
-              snack.onClose?.();
-            }}
-            tabIndex={0}
-            moveFocusToSnackbar={true}
-            {...(snack.actionButtonProps
-              ? {
-                  onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-                    eat(snack.id);
-                    snack.actionButtonProps?.onClick?.(e);
-                  },
+    Object.keys(positionToClassMap).map((position: SnackbarPosition) => {
+      const positionSnacks = getPositionSnacks(position);
+      const hasClosableSnack = positionSnacks.some((snack) => snack.closable);
+
+      return (
+        <div
+          key={position}
+          className={mergeClasses([
+            styles.snackbarContainer,
+            positionToClassMap[position],
+          ])}
+        >
+          {positionSnacks.map((snack, index) => (
+            <Snackbar
+              ref={(ref) => {
+                if (ref) {
+                  snackContainerRef.current[index] = ref;
                 }
-              : {})}
-          />
-        ))}
-      </div>
-    ));
+              }}
+              {...snack}
+              key={snack.id}
+              onClose={() => {
+                const index = snackContainerRef.current.findIndex(
+                  (ref) => ref?.id === snack.id
+                );
+                if (index !== -1) {
+                  snackContainerRef.current.splice(index, 1);
+                  const nextElement =
+                    snackContainerRef.current[index] ||
+                    snackContainerRef.current[index - 1];
+                  nextElement?.focus();
+                }
+                eat(snack.id);
+                snack.onClose?.();
+              }}
+              {...(hasClosableSnack ? { tabIndex: 0 } : {})}
+              role={hasClosableSnack ? 'status' : 'alert'}
+              moveFocusToSnackbar={hasClosableSnack}
+              {...(snack.actionButtonProps
+                ? {
+                    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                      eat(snack.id);
+                      snack.actionButtonProps?.onClick?.(e);
+                    },
+                  }
+                : {})}
+            />
+          ))}
+        </div>
+      );
+    });
 
   return <Portal getContainer={() => parent}>{getSnackContainers()}</Portal>;
 };
