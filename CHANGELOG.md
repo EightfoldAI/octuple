@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.13](https://github.com/EightfoldAI/octuple/compare/v2.53.12...v2.53.13) (2025-07-21)
+
+### Bug Fixes
+
+- panel: panel role not assigned ([#1018](https://github.com/EightfoldAI/octuple/issues/1018)) ([5cca827](https://github.com/EightfoldAI/octuple/commits/5cca8275ccea2721b4975e1940b829f96c40cc5c))
+- pre-commit hook update ([#1016](https://github.com/EightfoldAI/octuple/issues/1016)) ([25f141f](https://github.com/EightfoldAI/octuple/commits/25f141fe44f0a874b748a9457a92c0f3bc1c9b7a))
+- select input will have ariaLabel ([#1019](https://github.com/EightfoldAI/octuple/issues/1019)) ([2c724cd](https://github.com/EightfoldAI/octuple/commits/2c724cdc7ef2d638fce58738954760a0130df8e3))
+
 ### [2.53.12](https://github.com/EightfoldAI/octuple/compare/v2.53.11...v2.53.12) (2025-06-25)
 
 ### Bug Fixes
