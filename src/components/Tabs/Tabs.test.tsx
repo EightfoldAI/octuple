@@ -845,9 +845,7 @@ describe('Tabs Keyboard Navigation', () => {
 describe('Tabs internal logic edge cases', () => {
   it('should not break if tabValues is empty', () => {
     const wrapper = mount(
-      <Tabs onChange={() => {}} value={'tab1'} children={[]}>
-        {/* No Tab components */}
-      </Tabs>
+      <Tabs onChange={() => {}} value={'tab1'} children={[]} />
     );
 
     const tabButtons = wrapper.find('button[role="tab"]');
