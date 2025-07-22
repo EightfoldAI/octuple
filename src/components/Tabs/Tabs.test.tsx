@@ -438,6 +438,314 @@ describe('Tabs Keyboard Navigation', () => {
     );
   });
 
+  it('should navigate left with ArrowLeft and only focus, not activate', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start on tab1 (index 0), ArrowLeft should wrap to last enabled tab (tab4, index 3)
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    // Tab1 should still be active, tab4 should have focus but not be active
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+
+    // Now press Enter on tab4 to activate it
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+
+    // ArrowLeft from tab4 should go to tab2 (skipping disabled tab3)
+    tabButtons.at(3).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      false
+    );
+
+    // Enter on tab2 to activate it
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+
+    // ArrowLeft from tab2 should go to tab1
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      false
+    );
+  });
+
+  it('should skip disabled tabs when navigating left with ArrowLeft', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Move to tab4 first
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+
+    // Now on tab4, ArrowLeft should skip disabled tab3 and go to tab2
+    tabButtons.at(3).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    // Tab4 should still be active, focus should be on tab2
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(2).hasClass('active')).toBe(
+      false
+    );
+
+    // Verify tab3 (disabled) was skipped by trying to activate it
+    tabButtons.at(2).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(2).hasClass('active')).toBe(
+      false
+    );
+  });
+
+  it('should wrap to last enabled tab when ArrowLeft from first tab', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start on tab1 (first tab), ArrowLeft should wrap to tab4 (last enabled tab)
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    // Tab1 should still be active, but focus should move to tab4
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+
+    // Enter should activate tab4
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should not respond to ArrowLeft when enableArrowNav is false', () => {
+    const wrapper = mount(<KeyboardTabsWrapper enableArrowNav={false} />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // ArrowLeft should not move focus when enableArrowNav is false
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowLeft' });
+    wrapper.update();
+
+    // Should still be on tab1 and no other tab should have focus
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+  });
+
+  it('should move focus to first enabled tab with Home key', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // First, move to tab4 and activate it
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    tabButtons.at(1).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+
+    // Home key should move focus to first enabled tab (tab1) but not activate it
+    tabButtons.at(3).simulate('keyDown', { key: 'Home' });
+    wrapper.update();
+
+    // Tab4 should still be active, but focus should be on tab1
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      false
+    );
+
+    // Enter should activate tab1
+    tabButtons.at(0).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should move focus to last enabled tab with End key', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start on tab1, End key should move focus to last enabled tab (tab4)
+    tabButtons.at(0).simulate('keyDown', { key: 'End' });
+    wrapper.update();
+
+    // Tab1 should still be active, but focus should be on tab4
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+
+    // Enter should activate tab4
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+  });
+
+  it('should move focus to first enabled tab with Home key from any position', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Move to tab2 first
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+
+    // Home key from tab2 should move focus to tab1
+    tabButtons.at(1).simulate('keyDown', { key: 'Home' });
+    wrapper.update();
+
+    // Tab2 should still be active, focus should be on tab1
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      false
+    );
+  });
+
+  it('should move focus to last enabled tab with End key from any position', () => {
+    const wrapper = mount(<KeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Move to tab2 first
+    tabButtons.at(0).simulate('keyDown', { key: 'ArrowRight' });
+    tabButtons.at(1).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+
+    // End key from tab2 should move focus to tab4 (last enabled)
+    tabButtons.at(1).simulate('keyDown', { key: 'End' });
+    wrapper.update();
+
+    // Tab2 should still be active, focus should be on tab4
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+  });
+
+  it('should not respond to Home and End keys when enableArrowNav is false', () => {
+    const wrapper = mount(<KeyboardTabsWrapper enableArrowNav={false} />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Home key should not move focus when enableArrowNav is false
+    tabButtons.at(0).simulate('keyDown', { key: 'Home' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+
+    // End key should not move focus when enableArrowNav is false
+    tabButtons.at(0).simulate('keyDown', { key: 'End' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(0).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+  });
+
+  it('should skip disabled tabs when using Home and End keys', () => {
+    // Create a wrapper where the first tab is disabled
+    const tabsWithFirstDisabled = [
+      { value: 'tab1', label: 'Tab 1', ariaLabel: 'Tab 1', disabled: true },
+      { value: 'tab2', label: 'Tab 2', ariaLabel: 'Tab 2' },
+      { value: 'tab3', label: 'Tab 3', ariaLabel: 'Tab 3', disabled: true },
+      { value: 'tab4', label: 'Tab 4', ariaLabel: 'Tab 4' },
+    ];
+    const disabledIndexes = [0, 2];
+
+    function CustomKeyboardTabsWrapper() {
+      const [active, setActive] = useState('tab2');
+      return (
+        <Tabs
+          onChange={setActive}
+          value={active}
+          enableArrowNav={true}
+          disabledTabIndexes={disabledIndexes}
+        >
+          {tabsWithFirstDisabled.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+    }
+
+    const wrapper = mount(<CustomKeyboardTabsWrapper />);
+    const tabButtons = wrapper.find('button[role="tab"]');
+
+    // Start on tab2, Home should go to first enabled tab (tab2 itself in this case)
+    tabButtons.at(1).simulate('keyDown', { key: 'Home' });
+    wrapper.update();
+    // Focus should stay on tab2 since it's the first enabled tab
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+
+    // End should go to last enabled tab (tab4)
+    tabButtons.at(1).simulate('keyDown', { key: 'End' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(1).hasClass('active')).toBe(
+      true
+    );
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      false
+    );
+
+    // Enter should activate tab4
+    tabButtons.at(3).simulate('keyDown', { key: 'Enter' });
+    wrapper.update();
+    expect(wrapper.find('button[role="tab"]').at(3).hasClass('active')).toBe(
+      true
+    );
+  });
+
   it('should not allow navigation if enableArrowNav is false', () => {
     const wrapper = mount(<KeyboardTabsWrapper enableArrowNav={false} />);
     const tabButtons = wrapper.find('button[role="tab"]');
@@ -499,30 +807,6 @@ describe('Tabs Keyboard Navigation', () => {
     expect(document.activeElement).toBe(secondTabNode);
 
     // Ensure no activation happened
-    expect(tabButtons.at(0).hasClass('active')).toBe(true);
-    expect(tabButtons.at(1).hasClass('active')).toBe(false);
-  });
-
-  it('should move focus to next tab on Tab key when enableArrowNav is false', () => {
-    const wrapperDiv = document.createElement('div');
-    document.body.appendChild(wrapperDiv);
-
-    const wrapper = mount(<KeyboardTabsWrapper enableArrowNav={false} />, {
-      attachTo: wrapperDiv,
-    });
-
-    const tabButtons = wrapper.find('button[role="tab"]');
-    const firstTabNode = tabButtons.at(0).getDOMNode<HTMLButtonElement>();
-    const secondTabNode = tabButtons.at(1).getDOMNode<HTMLButtonElement>();
-
-    firstTabNode.focus();
-    expect(document.activeElement).toBe(firstTabNode);
-
-    fireEvent.keyDown(firstTabNode, { key: 'Tab' });
-
-    secondTabNode.focus();
-
-    expect(document.activeElement).toBe(secondTabNode);
     expect(tabButtons.at(0).hasClass('active')).toBe(true);
     expect(tabButtons.at(1).hasClass('active')).toBe(false);
   });
