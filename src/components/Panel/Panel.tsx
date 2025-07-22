@@ -373,6 +373,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                       skipFocusableSelectorsFromIndex
                     }
                     trap={visible && focusTrap}
+                    role="dialog"
+                    aria-modal={true}
                     {...rest}
                     ref={containerRef}
                     classNames={panelBackdropClasses}
