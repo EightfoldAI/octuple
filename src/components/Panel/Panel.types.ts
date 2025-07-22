@@ -248,6 +248,10 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
    * Custom zIndex for the panel
    */
   zIndex?: number;
+  /**
+   * Custom escape target selector for the panel
+   */
+  escapeTargetSelector?: string;
 }
 
 export interface PanelHeaderProps extends OcBaseProps<HTMLDivElement> {
