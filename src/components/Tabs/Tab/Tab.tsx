@@ -127,8 +127,9 @@ export const Tab: FC<TabProps> = React.forwardRef(
       }
     };
 
-    const currentActiveTabIndex =
-      parseInt(currentActiveTab.match(/\d+/)?.[0] || '0', 10) - 1;
+    const currentActiveTabIndex = currentActiveTab
+      ? parseInt(currentActiveTab.match(/\d+/)?.[0] || '0', 10) - 1
+      : -1;
 
     const getTabIndex = () => {
       if (
