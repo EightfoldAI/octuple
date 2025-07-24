@@ -111,6 +111,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       toggleButtonAriaLabel,
       'data-test-id': dataTestId,
       keepCountPillFocus = true,
+      'aria-label': ariaLabel,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -949,6 +950,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   shape={selectShapeToTextInputShapeMap.get(mergedShape)}
                   size={selectSizeToTextInputSizeMap.get(mergedSize)}
                   value={selectedOptionText}
+                  ariaLabel={ariaLabel}
                 />
               </div>
             </Dropdown>

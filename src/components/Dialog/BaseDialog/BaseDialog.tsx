@@ -44,6 +44,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       headerButtonProps,
       headerClassNames,
       headerIcon = IconName.mdiArrowLeftThick,
+      headingLevel = 1,
       height,
       lastFocusableSelector,
       maskClosable = true,
@@ -151,7 +152,13 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             {renderContentAlways && (
               <>
                 <div className={headerClasses}>
-                  <span id={labelId}>
+                  <span
+                    id={labelId}
+                    {...(header && {
+                      role: 'heading',
+                      'aria-level': headingLevel,
+                    })}
+                  >
                     {headerButtonProps && (
                       <Button
                         classNames={styles.headerButton}

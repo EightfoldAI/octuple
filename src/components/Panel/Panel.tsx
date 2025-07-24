@@ -21,7 +21,12 @@ import { useFeatureFlags } from '../ConfigProvider/FeatureFlagProvider';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useScrollLock } from '../../hooks/useScrollLock';
-import { mergeClasses, stopPropagation } from '../../shared/utilities';
+import {
+  mergeClasses,
+  stopPropagation,
+  canUseDocElement,
+  eventKeys,
+} from '../../shared/utilities';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
@@ -89,6 +94,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       theme,
       themeContainerId,
       focusTrap = true,
+      escapeTargetSelector = '[role="listbox"], [role="menu"], [role="tooltip"], .dropdown-wrapper, .tooltip-wrapper',
       ...rest
     } = props;
 
@@ -188,6 +194,34 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       }
       onVisibleChange?.(visible);
     }, [visible]);
+
+    const handleGlobalEscape = (event: KeyboardEvent) => {
+      if (!canUseDocElement() || !visible) {
+        return;
+      }
+
+      if (event.key === eventKeys.ESCAPE) {
+        if (
+          panelRef.current &&
+          panelRef.current.contains(event.target as Node)
+        ) {
+          const target = event.target as HTMLElement;
+          const isNestedComponent = target.closest(escapeTargetSelector);
+
+          if (!isNestedComponent) {
+            onClose(event as any);
+          }
+        }
+      }
+    };
+
+    useEffect(() => {
+      document.addEventListener('keydown', handleGlobalEscape, true);
+
+      return () => {
+        document.removeEventListener('keydown', handleGlobalEscape, true);
+      };
+    }, [visible, onClose, escapeTargetSelector]);
 
     const getDefaultHeader = (): JSX.Element => (
       <div className={headerClasses}>
@@ -345,6 +379,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                       skipFocusableSelectorsFromIndex
                     }
                     trap={visible && focusTrap}
+                    role="dialog"
+                    aria-modal={true}
                     {...rest}
                     ref={containerRef}
                     classNames={panelBackdropClasses}
