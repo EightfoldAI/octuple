@@ -83,6 +83,22 @@ export interface IconProps
    */
   'data-test-id'?: string;
   /**
+   * Accessible label for the icon
+   */
+  'aria-label'?: string;
+  /**
+   * Element that describes the icon
+   */
+  'aria-describedby'?: string;
+  /**
+   * Whether the icon is hidden from screen readers
+   */
+  'aria-hidden'?: boolean;
+  /**
+   * Tab index for keyboard navigation
+   */
+  tabIndex?: number;
+  /**
    * The icon role.
    */
   iconRole?: string;

@@ -5,6 +5,28 @@ import { OcBaseProps } from '../OcBase';
 import React from 'react';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
+export interface IconAccessibilityProps {
+  /**
+   * Accessible label for the icon
+   */
+  'aria-label'?: string;
+  /**
+   * Element that describes the icon
+   */
+  'aria-describedby'?: string;
+  /**
+   * Whether the icon is hidden from screen readers
+   */
+  'aria-hidden'?: boolean;
+  /**
+   * Role of the icon element
+   */
+  role?: 'img' | 'presentation' | 'button' | 'none';
+  /**
+   * Tab index for keyboard navigation
+   */
+  tabIndex?: number;
+}
 
 export enum InfoBarType {
   neutral = 'neutral',
@@ -92,6 +114,11 @@ export interface InfoBarsProps
    * Custom classes of the icon.
    */
   iconClassNames?: string;
+  /**
+   * Additional props to be passed to the Icon component.
+   * These props will be merged with the default icon props.
+   */
+  iconProps?: IconAccessibilityProps;
   /**
    * The InfoBar locale.
    * @default 'enUS'
