@@ -134,8 +134,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     const ariaInvalid = ariaInvalidProp || mergedStatus === 'error';
     const ariaDescribedBy =
       mergedStatus === 'error'
-        ? ariaDescribedByProp || errorMessageId
-        : undefined;
+        ? [ariaDescribedByProp, errorMessageId].filter(Boolean).join(' ')
+        : ariaDescribedByProp;
 
     // Needed for form error scroll-into-view by id
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
