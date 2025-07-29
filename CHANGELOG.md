@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.16](https://github.com/EightfoldAI/octuple/compare/v2.53.15...v2.53.16) (2025-07-23)
+
+### Bug Fixes
+
+- tab issue causing frontend error ([#1023](https://github.com/EightfoldAI/octuple/issues/1023)) ([4189315](https://github.com/EightfoldAI/octuple/commits/418931595f93ae2a69e7e7e7325afba8911cdc02))
+
+### [2.53.15](https://github.com/EightfoldAI/octuple/compare/v2.53.14...v2.53.15) (2025-07-22)
+
+### Bug Fixes
+
+- tab: added a prop to enable standard key navigation for tabs component ([#953](https://github.com/EightfoldAI/octuple/issues/953)) ([7934881](https://github.com/EightfoldAI/octuple/commits/79348811e884f7a10cabbc15d31f6c65e464a3a1))
+
 ### [2.53.14](https://github.com/EightfoldAI/octuple/compare/v2.53.13...v2.53.14) (2025-07-21)
 
 ### [2.53.13](https://github.com/EightfoldAI/octuple/compare/v2.53.12...v2.53.13) (2025-07-21)
