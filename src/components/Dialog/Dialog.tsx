@@ -42,7 +42,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
       headerButtonProps,
       headerClassNames,
       headerIcon,
-      headingLevel=1,
+      headingLevel = 1,
       height,
       locale = enUS,
       okButtonProps,
