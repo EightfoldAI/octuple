@@ -100,17 +100,19 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   ]);
 
   return (
-    <div className={headerClassnames} id={`${id}-header`} {...rest}>
-      <div
-        aria-controls={`${id}-content`}
-        aria-expanded={expanded}
-        aria-labelledby={expandButtonDescribedBy || `${id}-header-content`}
-        className={styles.clickableArea}
-        onClick={onClick}
-        onKeyDown={handleKeyDown}
-        role="button"
-        tabIndex={0}
-      ></div>
+    <div
+      className={headerClassnames}
+      id={`${id}-header`}
+      aria-controls={`${id}-content`}
+      aria-expanded={expanded}
+      aria-labelledby={expandButtonDescribedBy || `${id}-header-content`}
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      data-testid="accordion-header-clickable-area"
+      {...rest}
+    >
       <div
         id={`${id}-header-content`}
         className={styles.accordionHeaderContainer}
