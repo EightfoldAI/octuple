@@ -90,7 +90,9 @@ describe('Accordion', () => {
     const { container } = render(
       <Accordion {...accordionProps} size={AccordionSize.Large} />
     );
-    const summaryClickableArea = container.querySelector('.clickable-area');
+    const summaryClickableArea = container.querySelector(
+      '[data-testid="accordion-header-clickable-area"]'
+    );
     fireEvent.click(summaryClickableArea);
     await waitFor(() =>
       expect(
