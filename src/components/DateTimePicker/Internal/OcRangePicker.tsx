@@ -37,6 +37,7 @@ import {
   getInputSize,
   elementsContains,
 } from './Utils/uiUtil';
+import { setTime } from './Utils/timeUtil';
 import type { ContextOperationRefProps } from './PartialContext';
 import PartialContext from './PartialContext';
 import {
@@ -409,6 +410,37 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     }
 
+    // Normalize times when showTime is false
+    if (!showTime && picker !== 'time') {
+      let normalizedValues: [DateType, DateType] = values;
+
+      // Set start date to beginning of day (00:00:00)
+      if (normalizedValues?.[0]) {
+        normalizedValues[0] = setTime(
+          generateConfig,
+          normalizedValues[0],
+          0, // hour
+          0, // minute
+          0 // second
+        );
+      }
+
+      // Set end date to end of day (23:59:59)
+      if (normalizedValues?.[1]) {
+        normalizedValues[1] = setTime(
+          generateConfig,
+          normalizedValues[1],
+          23, // hour
+          59, // minute
+          59 // second
+        );
+      }
+
+      values = normalizedValues;
+      startValue = getValue(values, 0);
+      endValue = getValue(values, 1);
+    }
+
     setSelectedValue(values);
 
     const startStr: string = values?.[0]
@@ -452,7 +484,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
     const canTrigger: boolean =
       values === null || (canStartValueTrigger && canEndValueTrigger);
-
     if (canTrigger) {
       // Trigger onChange only when value is validated.
       setInnerValue(values);
@@ -503,8 +534,33 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       index === 0 ? disabledStartDate : disabledEndDate;
 
     if (inputDate && !disabledFunc(inputDate)) {
-      setSelectedValue(updateValues(selectedValue, inputDate, index));
-      setViewDate(inputDate, index);
+      let normalizedInputDate: DateType = inputDate;
+
+      // Normalize times when showTime is false
+      if (!showTime && picker !== 'time') {
+        if (index === 0) {
+          // Set start date to beginning of day (00:00:00)
+          normalizedInputDate = setTime(
+            generateConfig,
+            inputDate,
+            0, // hour
+            0, // minute
+            0 // second
+          );
+        } else {
+          // Set end date to end of day (23:59:59)
+          normalizedInputDate = setTime(
+            generateConfig,
+            inputDate,
+            23, // hour
+            59, // minute
+            59 // second
+          );
+        }
+      }
+
+      setSelectedValue(updateValues(selectedValue, normalizedInputDate, index));
+      setViewDate(normalizedInputDate, index);
     }
   };
 
@@ -1170,7 +1226,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     date: DateType,
     type: 'key' | 'mouse' | 'submit'
   ) => {
-    const values: [DateType, DateType] = updateValues(
+    let values: [DateType, DateType] = updateValues(
       selectedValue,
       date,
       mergedActivePickerIndex
@@ -1197,6 +1253,35 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         triggerOpen(false, mergedActivePickerIndex, 'confirm');
       }
     } else {
+      // Normalize times when showTime is false before setting selected value
+      if (!showTime && picker !== 'time') {
+        let normalizedValues: [DateType, DateType] = values;
+
+        // Set start date to beginning of day (00:00:00)
+        if (normalizedValues?.[0]) {
+          normalizedValues[0] = setTime(
+            generateConfig,
+            normalizedValues[0],
+            0, // hour
+            0, // minute
+            0 // second
+          );
+        }
+
+        // Set end date to end of day (23:59:59)
+        if (normalizedValues?.[1]) {
+          normalizedValues[1] = setTime(
+            generateConfig,
+            normalizedValues[1],
+            23, // hour
+            59, // minute
+            59 // second
+          );
+        }
+
+        values = normalizedValues;
+      }
+
       setSelectedValue(values);
     }
   };
