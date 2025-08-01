@@ -2024,4 +2024,16 @@ describe('Picker.Range', () => {
     ).toBe('0px');
     mock.mockRestore();
   });
+
+  it('should select the start time stamp at 00:00:00 and end time stamp at 23:59:59 when the time is not selected', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<DayjsRangePicker onChange={onChange} />);
+
+    wrapper.openPicker();
+    wrapper.selectCell(2);
+    wrapper.selectCell(5);
+
+    expect(onChange.mock.calls[0][0][0].format('HH:mm:ss')).toBe('00:00:00');
+    expect(onChange.mock.calls[0][0][1].format('HH:mm:ss')).toBe('23:59:59');
+  });
 });
