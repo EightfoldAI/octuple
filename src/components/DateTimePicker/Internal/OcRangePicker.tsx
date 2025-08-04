@@ -37,7 +37,7 @@ import {
   getInputSize,
   elementsContains,
 } from './Utils/uiUtil';
-import { setTime } from './Utils/timeUtil';
+import { normalizeRangeTimes, normalizeSingleTime } from './Utils/timeUtil';
 import type { ContextOperationRefProps } from './PartialContext';
 import PartialContext from './PartialContext';
 import {
@@ -412,31 +412,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
     // Normalize times when showTime is false
     if (!showTime && picker !== 'time') {
-      let normalizedValues: [DateType, DateType] = values;
-
-      // Set start date to beginning of day (00:00:00)
-      if (normalizedValues?.[0]) {
-        normalizedValues[0] = setTime(
-          generateConfig,
-          normalizedValues[0],
-          0, // hour
-          0, // minute
-          0 // second
-        );
-      }
-
-      // Set end date to end of day (23:59:59)
-      if (normalizedValues?.[1]) {
-        normalizedValues[1] = setTime(
-          generateConfig,
-          normalizedValues[1],
-          23, // hour
-          59, // minute
-          59 // second
-        );
-      }
-
-      values = normalizedValues;
+      values = normalizeRangeTimes(generateConfig, values);
       startValue = getValue(values, 0);
       endValue = getValue(values, 1);
     }
@@ -538,25 +514,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
       // Normalize times when showTime is false
       if (!showTime && picker !== 'time') {
-        if (index === 0) {
-          // Set start date to beginning of day (00:00:00)
-          normalizedInputDate = setTime(
-            generateConfig,
-            inputDate,
-            0, // hour
-            0, // minute
-            0 // second
-          );
-        } else {
-          // Set end date to end of day (23:59:59)
-          normalizedInputDate = setTime(
-            generateConfig,
-            inputDate,
-            23, // hour
-            59, // minute
-            59 // second
-          );
-        }
+        normalizedInputDate = normalizeSingleTime(
+          generateConfig,
+          inputDate,
+          index === 0 // isStartDate
+        );
       }
 
       setSelectedValue(updateValues(selectedValue, normalizedInputDate, index));
@@ -1255,31 +1217,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     } else {
       // Normalize times when showTime is false before setting selected value
       if (!showTime && picker !== 'time') {
-        let normalizedValues: [DateType, DateType] = values;
-
-        // Set start date to beginning of day (00:00:00)
-        if (normalizedValues?.[0]) {
-          normalizedValues[0] = setTime(
-            generateConfig,
-            normalizedValues[0],
-            0, // hour
-            0, // minute
-            0 // second
-          );
-        }
-
-        // Set end date to end of day (23:59:59)
-        if (normalizedValues?.[1]) {
-          normalizedValues[1] = setTime(
-            generateConfig,
-            normalizedValues[1],
-            23, // hour
-            59, // minute
-            59 // second
-          );
-        }
-
-        values = normalizedValues;
+        values = normalizeRangeTimes(generateConfig, values);
       }
 
       setSelectedValue(values);
