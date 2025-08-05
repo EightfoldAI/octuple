@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.17](https://github.com/EightfoldAI/octuple/compare/v2.53.16...v2.53.17) (2025-08-04)
+
+### Bug Fixes
+
+- normalize startdate and enddate timestamps in rangepicker ([#1025](https://github.com/EightfoldAI/octuple/issues/1025)) ([899af1e](https://github.com/EightfoldAI/octuple/commits/899af1ead20647d2e2ae2d8df5836a960c8b2724))
+
+### [2.53.16](https://github.com/EightfoldAI/octuple/compare/v2.53.15...v2.53.16) (2025-07-23)
+
+### Bug Fixes
+
+- tab issue causing frontend error ([#1023](https://github.com/EightfoldAI/octuple/issues/1023)) ([4189315](https://github.com/EightfoldAI/octuple/commits/418931595f93ae2a69e7e7e7325afba8911cdc02))
+
 ### [2.53.15](https://github.com/EightfoldAI/octuple/compare/v2.53.14...v2.53.15) (2025-07-22)
 
 ### Bug Fixes
