@@ -178,7 +178,13 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                 themeContainerId={themeContainerId}
                 variant={ButtonVariant.Neutral}
                 ariaLabel={
-                  locale.lang.pageSizeText + ' ' + '1'.toLocaleString()
+                  locale.lang.pageSizeText +
+                  ' ' +
+                  '1'.toLocaleString() +
+                  ' ' +
+                  locale.lang.pagerText +
+                  ' ' +
+                  pageCount.toLocaleString()
                 }
               />
             ) : (
@@ -245,7 +251,13 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                   themeContainerId={themeContainerId}
                   variant={ButtonVariant.Neutral}
                   ariaLabel={
-                    locale.lang.pageSizeText + ' ' + pager.toLocaleString()
+                    locale.lang.pageSizeText +
+                    ' ' +
+                    pager.toLocaleString() +
+                    ' ' +
+                    locale.lang.pagerText +
+                    ' ' +
+                    pageCount.toLocaleString()
                   }
                 />
               </li>
@@ -304,7 +316,13 @@ export const Pager: FC<PagerProps> = React.forwardRef(
               themeContainerId={themeContainerId}
               variant={ButtonVariant.Neutral}
               ariaLabel={
-                locale.lang.pageSizeText + ' ' + pageCount.toLocaleString()
+                locale.lang.pageSizeText +
+                ' ' +
+                pageCount.toLocaleString() +
+                ' ' +
+                locale.lang.pagerText +
+                ' ' +
+                pageCount.toLocaleString()
               }
             />
           </li>
