@@ -106,6 +106,14 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
+const defaultArrowNavTabs = [1, 2, 3, 4].map((i) => ({
+  value: `tab${i}`,
+  label: `Tab ${i}`,
+  ariaLabel: `Tab ${i}`,
+  id: `tab-${i}`,
+  ...(i === 4 ? { disabled: true } : {}),
+}));
+
 const Tabs_Story: ComponentStory<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
@@ -131,6 +139,7 @@ const Tabs_Story: ComponentStory<typeof Tabs> = (args) => {
 export const Default = Tabs_Story.bind({});
 export const Default_Underlined = Tabs_Story.bind({});
 export const Default_Loader = Tabs_Story.bind({});
+export const Default_Arrow_Nav = Tabs_Story.bind({});
 export const Small = Tabs_Story.bind({});
 export const With_Badge = Tabs_Story.bind({});
 export const Icon = Tabs_Story.bind({});
@@ -148,6 +157,7 @@ export const __namedExportsOrder = [
   'Default',
   'Default_Underlined',
   'Default_Loader',
+  'Default_Arrow_Nav',
   'Small',
   'With_Badge',
   'Icon',
@@ -170,6 +180,7 @@ const tabsArgs: Object = {
   variant: TabVariant.default,
   size: TabSize.Medium,
   underlined: false,
+  enableArrowNav: false,
   children: tabs.map((tab) => <Tab key={tab.value} {...tab} />),
   style: {},
 };
@@ -188,6 +199,12 @@ Default_Loader.args = {
   children: badgeTabs.map((tab, index) => (
     <Tab key={tab.value} {...tab} loading={index % 2 === 0} />
   )),
+};
+
+Default_Arrow_Nav.args = {
+  ...tabsArgs,
+  enableArrowNav: true,
+  children: defaultArrowNavTabs.map((tab) => <Tab key={tab.value} {...tab} />),
 };
 
 Small.args = {
