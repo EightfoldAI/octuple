@@ -475,7 +475,7 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
   variant?: TabVariant;
   /**
    * Whether to enable arrow key navigation between tabs
-   @default true
+   @default false
    */
   enableArrowNav?: boolean;
   /**
