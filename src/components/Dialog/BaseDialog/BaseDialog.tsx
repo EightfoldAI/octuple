@@ -155,8 +155,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                   <span
                     id={labelId}
                     {...(header && {
-                      role: 'heading',
-                      'aria-level': headingLevel,
+                      role: "heading",
+                      "aria-level": headingLevel
                     })}
                   >
                     {headerButtonProps && (
