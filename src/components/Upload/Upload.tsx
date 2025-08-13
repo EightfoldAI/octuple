@@ -47,6 +47,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     accept = '',
     acceptedFileTypesText: defaultAcceptedFileTypesText,
     action = '',
+    'aria-describedby': ariaDescribedBy,
+    'aria-labelledby': ariaLabelledBy,
     children,
     classNames,
     configContextProps = {
@@ -577,6 +579,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     );
     const renderButton = (): JSX.Element => (
       <Button
+        aria-describedby={ariaDescribedBy}
+        aria-labelledby={ariaLabelledBy}
         classNames={styles.uploadDropButton}
         configContextProps={configContextProps}
         disabled={mergedDisabled}
@@ -699,7 +703,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
   const renderUploadButton = (
     uploadButtonStyle?: React.CSSProperties
   ): JSX.Element => (
-    <div className={uploadButtonClassNames} style={uploadButtonStyle}>
+    <div
+      aria-describedby={ariaDescribedBy}
+      aria-labelledby={ariaLabelledBy}
+      className={uploadButtonClassNames}
+      style={uploadButtonStyle}
+    >
       <OcUpload {...ocUploadProps} ref={upload} />
     </div>
   );
