@@ -39,6 +39,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       gradient = false,
       icon,
       iconClassNames,
+      iconProps = {},
       locale = enUS,
       onClose,
       role = 'alert',
@@ -145,6 +146,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 <Icon
                   path={getIconName()}
                   classNames={mergeClasses([styles.icon, iconClassNames])}
+                  {...iconProps}
                 />
                 <div
                   className={mergeClasses([
