@@ -39,7 +39,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       gradient = false,
       icon,
       iconClassNames,
-      iconProps,
+      iconProps = {},
       locale = enUS,
       onClose,
       role = 'alert',
