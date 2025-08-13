@@ -170,18 +170,16 @@ export const SkillTag: FC<SkillTagProps> = React.forwardRef(
       >
         <div
           className={styles.background}
-          onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-            if (
-              readonly ||
-              disabled ||
-              !clickable ||
-              size === SkillSize.XSmall ||
-              e.target !== e.currentTarget
-            ) {
-              return;
-            }
-            onClick?.(e);
-          }}
+          {...(!readonly && !disabled && clickable && size !== SkillSize.XSmall
+            ? {
+                onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                  if (e.target !== e.currentTarget) {
+                    return;
+                  }
+                  onClick?.(e);
+                },
+              }
+            : {})}
           style={{ background }}
         ></div>
         <div className={styles.content}>{children}</div>
