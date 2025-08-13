@@ -397,15 +397,17 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               'tooltip-reference',
             ]);
 
+            const ariaDescribedBy =
+              node.props?.['aria-describedby'] || tooltipId?.current;
+
             const clonedElementProps: RenderProps = {
               id: node.props?.id ? node.props?.id : tooltipReferenceId?.current,
               key: node.props?.key ? node.props?.key : tooltipId?.current,
               // If the content is not a string, the element of the content should be
               // manually targeted by id via `aria-describedby` to be announced by screen readers.
               // As this is an edge case, don't worry about it here, instead take the override if available.
-              'aria-describedby': node.props?.['aria-describedby']
-                ? node.props?.['aria-describedby']
-                : tooltipId?.current,
+              // Only assign aria-describedby if the tooltip element is present in the DOM.
+              'aria-describedby': mergedVisible ? ariaDescribedBy : undefined,
               'data-reference-id': tooltipReferenceId?.current,
             };
 
@@ -473,7 +475,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             'aria-controls': tooltipId?.current,
             'aria-expanded': mergedVisible,
             'aria-haspopup': true,
-            role: 'button',
+            ...(trigger !== 'hover' && { role: 'button' }),
             'data-reference-id': tooltipReferenceId?.current,
             tabIndex: `${tabIndex}`,
           };
@@ -514,7 +516,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 ? toggle(true, showTooltip)
                 : null
             }
-            role="button"
+            {...(trigger !== 'hover' && { role: 'button' })}
             tab-index={tabIndex}
           >
             {node}

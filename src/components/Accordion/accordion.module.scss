@@ -179,6 +179,8 @@
   .accordion-icon-button {
     transition: transform $motion-duration-fast;
     z-index: 1;
+    opacity: 1;
+    pointer-events: none;
 
     &.expanded-icon-button {
       transform: rotate(180deg);
@@ -219,6 +221,42 @@
           background-color: var(--primary-background1-color);
           color: var(--primary-color);
         }
+      }
+    }
+  }
+
+  &.ai-agent {
+    &.accordion-border {
+      border-color: var(--accordion-ai-agent-border-color);
+    }
+
+    .accordion-body-container {
+      background: var(--accordion-ai-agent-body-background-color);
+    }
+
+    .accordion-body {
+      color: var(--accordion-ai-agent-gradient-body-text-color);
+
+      &.border-top {
+        border-top-color: var(--accordion-ai-agent-border-color);
+      }
+    }
+
+    .accordion-summary {
+      background: var(--accordion-ai-agent-summary-background-gradient);
+      color: var(--accordion-ai-agent-gradient-summary-text-color);
+
+      .badge {
+        color: var(--accordion-ai-agent-badge-color);
+      }
+
+      button {
+        background: var(--accordion-ai-agent-summary-button-background-color);
+      }
+
+      &:hover {
+        background: var(--accordion-ai-agent-summary-background-hover-gradient);
+        color: var(--accordion-ai-agent-summary-background-hover-text-color);
       }
     }
   }

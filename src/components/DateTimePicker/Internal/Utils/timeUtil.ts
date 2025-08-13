@@ -1,5 +1,6 @@
 import type { NullableDateType } from '../OcPicker.types';
 import type { GenerateConfig } from '../Generate';
+import type { RangeValue } from '../OcPicker.types';
 
 export function setTime<DateType>(
   generateConfig: GenerateConfig<DateType>,
@@ -71,4 +72,53 @@ export function getLastDay<DateType>(
   const lastDay: number = generateConfig.getDate(endDate);
   const monthShow: string = month < 10 ? `0${month}` : `${month}`;
   return `${year}-${monthShow}-${lastDay}`;
+}
+
+export function normalizeRangeTimes<DateType>(
+  generateConfig: GenerateConfig<DateType>,
+  values: RangeValue<DateType>
+): RangeValue<DateType> {
+  if (!values) {
+    return values;
+  }
+
+  let normalizedValues: [DateType, DateType] = values;
+
+  // Set start date to beginning of day (00:00:00)
+  if (normalizedValues?.[0]) {
+    normalizedValues[0] = setTime(
+      generateConfig,
+      normalizedValues[0],
+      0, // hour
+      0, // minute
+      0 // second
+    );
+  }
+
+  // Set end date to end of day (23:59:59)
+  if (normalizedValues?.[1]) {
+    normalizedValues[1] = setTime(
+      generateConfig,
+      normalizedValues[1],
+      23, // hour
+      59, // minute
+      59 // second
+    );
+  }
+
+  return normalizedValues;
+}
+
+export function normalizeSingleTime<DateType>(
+  generateConfig: GenerateConfig<DateType>,
+  date: DateType,
+  isStartDate: boolean
+): DateType {
+  if (isStartDate) {
+    // Set to beginning of day (00:00:00)
+    return setTime(generateConfig, date, 0, 0, 0);
+  } else {
+    // Set to end of day (23:59:59)
+    return setTime(generateConfig, date, 23, 59, 59);
+  }
 }

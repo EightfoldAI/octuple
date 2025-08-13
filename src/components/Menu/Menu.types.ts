@@ -49,7 +49,7 @@ export interface MenuProps
    * On change callback when menu item is clicked
    * @param value
    */
-  onChange?: (value: any) => void;
+  onChange?: (value: any, event?: React.MouseEvent) => void;
   /**
    * Callback when ok button is clicked
    */
