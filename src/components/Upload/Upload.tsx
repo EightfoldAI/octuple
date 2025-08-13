@@ -94,7 +94,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     type = 'select',
     uploadErrorText: defaultUploadErrorText,
     uploadingText: defaultUploadingText,
-    ...rest
   } = props;
 
   const contextuallyDisabled: Disabled = useContext(DisabledContext);
@@ -478,7 +477,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     onProgress,
     onSuccess,
     ...props,
-    ...rest,
     accept,
     action,
     beforeUpload: mergedBeforeUpload,
