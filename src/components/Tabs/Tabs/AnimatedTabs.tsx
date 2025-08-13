@@ -27,6 +27,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       style,
       underlined = false,
       variant = TabVariant.default,
+      enableArrowNav = false,
       ...rest
     },
     ref: Ref<HTMLDivElement>
