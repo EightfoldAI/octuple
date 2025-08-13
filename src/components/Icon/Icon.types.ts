@@ -79,6 +79,10 @@ export interface IconProps
    */
   vertical?: boolean;
   /**
+   * Unique id used to target element for testing
+   */
+  'data-test-id'?: string;
+  /**
    * The icon role.
    */
   iconRole?: string;
