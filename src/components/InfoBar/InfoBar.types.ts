@@ -3,6 +3,7 @@ import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
 import React from 'react';
+import { IconProps } from '../Icon/Icon.types';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
@@ -92,6 +93,11 @@ export interface InfoBarsProps
    * Custom classes of the icon.
    */
   iconClassNames?: string;
+  /**
+   * Additional props to be passed to the Icon component.
+   * These props will be merged with the default icon props.
+   */
+  iconProps?: IconProps;
   /**
    * The InfoBar locale.
    * @default 'enUS'

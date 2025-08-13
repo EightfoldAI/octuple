@@ -31,7 +31,6 @@ export type closeButtonProps = Omit<
   'icon' | 'onClick' | 'size' | 'classNames'
 >;
 
-
 /**
  * Props for the pill button shown on right of the label
  */
