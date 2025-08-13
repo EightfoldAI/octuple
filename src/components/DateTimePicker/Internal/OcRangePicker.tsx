@@ -37,6 +37,7 @@ import {
   getInputSize,
   elementsContains,
 } from './Utils/uiUtil';
+import { normalizeRangeTimes, normalizeSingleTime } from './Utils/timeUtil';
 import type { ContextOperationRefProps } from './PartialContext';
 import PartialContext from './PartialContext';
 import {
@@ -409,6 +410,13 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     }
 
+    // Normalize times when showTime is false
+    if (!showTime && picker !== 'time') {
+      values = normalizeRangeTimes(generateConfig, values);
+      startValue = getValue(values, 0);
+      endValue = getValue(values, 1);
+    }
+
     setSelectedValue(values);
 
     const startStr: string = values?.[0]
@@ -452,7 +460,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
     const canTrigger: boolean =
       values === null || (canStartValueTrigger && canEndValueTrigger);
-
     if (canTrigger) {
       // Trigger onChange only when value is validated.
       setInnerValue(values);
@@ -503,8 +510,19 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       index === 0 ? disabledStartDate : disabledEndDate;
 
     if (inputDate && !disabledFunc(inputDate)) {
-      setSelectedValue(updateValues(selectedValue, inputDate, index));
-      setViewDate(inputDate, index);
+      let normalizedInputDate: DateType = inputDate;
+
+      // Normalize times when showTime is false
+      if (!showTime && picker !== 'time') {
+        normalizedInputDate = normalizeSingleTime(
+          generateConfig,
+          inputDate,
+          index === 0 // isStartDate
+        );
+      }
+
+      setSelectedValue(updateValues(selectedValue, normalizedInputDate, index));
+      setViewDate(normalizedInputDate, index);
     }
   };
 
@@ -1170,7 +1188,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     date: DateType,
     type: 'key' | 'mouse' | 'submit'
   ) => {
-    const values: [DateType, DateType] = updateValues(
+    let values: [DateType, DateType] = updateValues(
       selectedValue,
       date,
       mergedActivePickerIndex
@@ -1197,6 +1215,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         triggerOpen(false, mergedActivePickerIndex, 'confirm');
       }
     } else {
+      // Normalize times when showTime is false before setting selected value
+      if (!showTime && picker !== 'time') {
+        values = normalizeRangeTimes(generateConfig, values);
+      }
+
       setSelectedValue(values);
     }
   };
