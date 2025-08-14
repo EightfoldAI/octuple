@@ -69,29 +69,12 @@
     width: 100%;
     transition: background-color $motion-duration-fast $motion-easing-easeout;
     z-index: 0;
-
-    .clickable-area {
-      bottom: 0;
-      border-radius: $border-radius-xl;
-      cursor: pointer;
-      left: 0;
-      pointer-events: all;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 0;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
-    }
+    cursor: pointer;
 
     // By default we ensure the header content does not obscure the clickable area.
     .accordion-header-container {
       pointer-events: none;
       z-index: 1;
-
       // If there's custom content in the header, its interactive children should be clickable or selectable.
       a[href],
       area,
@@ -265,23 +248,10 @@
 :global(.focus-visible) {
   .accordion-container {
     .accordion-summary {
-      .clickable-area {
-        &.focus-visible,
-        &:focus-visible {
-          box-shadow: inset var(--focus-visible-box-shadow);
-        }
-      }
-
       &.accordion-summary-expanded {
         border-radius: 0;
         border-top-left-radius: $border-radius-xl;
         border-top-right-radius: $border-radius-xl;
-
-        .clickable-area {
-          border-radius: 0;
-          border-top-left-radius: $border-radius-xl;
-          border-top-right-radius: $border-radius-xl;
-        }
       }
     }
   }
