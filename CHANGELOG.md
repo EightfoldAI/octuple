@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.18](https://github.com/EightfoldAI/octuple/compare/v2.53.17...v2.53.18) (2025-08-14)
+
+### Bug Fixes
+
+- add icon path for mdiAccountOffOutline ([#1029](https://github.com/EightfoldAI/octuple/issues/1029)) ([d0fbb1f](https://github.com/EightfoldAI/octuple/commits/d0fbb1fd86826b014bdb2eedf8e17254949550f9))
+- added prop to enable standard arrow key navigation for tabs component ([#1028](https://github.com/EightfoldAI/octuple/issues/1028)) ([a4f58fd](https://github.com/EightfoldAI/octuple/commits/a4f58fd7ce39e00b37e98d6afcbd9f6ea25f076d))
+- icon: Add iconProps prop support to MdiIcon component ([#1005](https://github.com/EightfoldAI/octuple/issues/1005)) ([cb17f8a](https://github.com/EightfoldAI/octuple/commits/cb17f8ac350b1a23cd30fc83d8d409b3c18940c6))
+- removed ariaDescribedby on conditionally joined ariadescribedBy ([#1012](https://github.com/EightfoldAI/octuple/issues/1012)) ([13a6999](https://github.com/EightfoldAI/octuple/commits/13a6999d6bc420b8ea2b819b2fac0fd09588a71d))
+- removed clickable area div and moved a11y to parent and render a… ([#1024](https://github.com/EightfoldAI/octuple/issues/1024)) ([24b56ef](https://github.com/EightfoldAI/octuple/commits/24b56efd32965a3ef4f2854df279f120048e1f6a))
+- update pagination button aria-label ([#1017](https://github.com/EightfoldAI/octuple/issues/1017)) ([7abf1b4](https://github.com/EightfoldAI/octuple/commits/7abf1b4e6b17c75f815f55ef1438352545d5e92d))
+- update role to get applied conditionally and aria-describedBy ([#1015](https://github.com/EightfoldAI/octuple/issues/1015)) ([ceba97f](https://github.com/EightfoldAI/octuple/commits/ceba97f366aa986c44558fa3721ab2322ac76b66))
+
 ### [2.53.17](https://github.com/EightfoldAI/octuple/compare/v2.53.16...v2.53.17) (2025-08-04)
 
 ### Bug Fixes
