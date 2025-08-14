@@ -7,17 +7,15 @@ exports[`Accordion Accordion is large 1`] = `
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary large"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="false"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
@@ -103,17 +101,15 @@ exports[`Accordion Accordion is medium 1`] = `
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary medium"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="false"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
@@ -199,17 +195,15 @@ exports[`Accordion Accordion is not bordered 1`] = `
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary large"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="false"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
@@ -295,17 +289,15 @@ exports[`Accordion Accordion is pill shaped 1`] = `
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary large"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="false"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
@@ -391,17 +383,15 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary large"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="false"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
@@ -487,18 +477,16 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="true"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary accordion-summary-full-width medium accordion-summary-expanded"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
       style="gap: 8px;"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="true"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
@@ -678,17 +666,15 @@ exports[`Accordion Renders without crashing 1`] = `
     data-testid="test-accordion"
   >
     <div
+      aria-controls="myAccordionId-content"
+      aria-expanded="false"
+      aria-labelledby="myAccordionId-header-content"
       class="accordion-summary large"
+      data-testid="accordion-header-clickable-area"
       id="myAccordionId-header"
+      role="button"
+      tabindex="0"
     >
-      <div
-        aria-controls="myAccordionId-content"
-        aria-expanded="false"
-        aria-labelledby="myAccordionId-header-content"
-        class="clickable-area"
-        role="button"
-        tabindex="0"
-      />
       <div
         class="accordion-header-container"
         id="myAccordionId-header-content"
