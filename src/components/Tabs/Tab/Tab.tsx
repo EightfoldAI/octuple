@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useEffect, useRef } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
 import { TabIconAlign, TabProps, TabSize, TabVariant } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
@@ -12,6 +12,7 @@ import { Badge } from '../../Badge';
 import { Loader } from '../../Loader';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
+import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import styles from '../tabs.module.scss';
 
 export const Tab: FC<TabProps> = React.forwardRef(
@@ -25,11 +26,15 @@ export const Tab: FC<TabProps> = React.forwardRef(
       label,
       loading,
       value,
+      ariaControls,
+      index = 0,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
+    const tabRef = useRef(null);
+    const combinedRef = useMergedRefs(ref, tabRef);
 
     const {
       alignIcon,
@@ -38,7 +43,11 @@ export const Tab: FC<TabProps> = React.forwardRef(
       currentActiveTab,
       size,
       variant,
+      enableArrowNav,
+      handleKeyDown,
+      registerTab,
       theme,
+      disabledTabIndexes,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -62,6 +71,12 @@ export const Tab: FC<TabProps> = React.forwardRef(
       [TabSize.Small, IconSize.Small],
       [TabSize.XSmall, IconSize.Small],
     ]);
+
+    useEffect(() => {
+      if (registerTab) {
+        registerTab(tabRef.current, index);
+      }
+    }, [registerTab, index]);
 
     const getIcon = (): JSX.Element =>
       // TODO: Once sizes are implemented for other variants, use the mapping.
@@ -106,16 +121,51 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const getLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} />;
 
+    const handleTabKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (enableArrowNav && index !== undefined) {
+        handleKeyDown?.(e, index);
+      }
+    };
+
+    const getTabIndex = () => {
+      const isActiveTabIndex = isActive ? 0 : -1;
+
+      if (!enableArrowNav) {
+        return 0;
+      }
+
+      if (currentActiveTab) {
+        return isActiveTabIndex;
+      }
+
+      // Find the least active (enabled) index when no tab is currently active
+      // Find the first enabled index (not in disabledTabIndexes)
+      let leastActiveIndex = 0;
+      while (disabledTabIndexes.includes(leastActiveIndex)) {
+        leastActiveIndex++;
+      }
+      console.log('disabledTabIndexes>> :', disabledTabIndexes);
+      console.log('leastActiveIndex>> :', leastActiveIndex);
+
+      // Return 0 for the least enabled index, -1 for others
+      return index === leastActiveIndex ? 0 : -1;
+    };
+
     return (
       <button
         {...rest}
-        ref={ref}
+        aria-controls={ariaControls}
+        ref={combinedRef}
         className={tabClassNames}
         aria-label={ariaLabel}
         aria-selected={isActive}
         role="tab"
         disabled={disabled}
         onClick={(e) => onTabClick(value, e)}
+        onKeyDown={handleTabKeyDown}
+        tabIndex={getTabIndex()}
+        data-index={index}
+        data-value={value}
       >
         {alignIcon === TabIconAlign.Start && getIcon()}
         {getLabel()}
