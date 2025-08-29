@@ -257,7 +257,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     ' ' +
                     locale.lang.pagerText +
                     ' ' +
-                    _pagers.toLocaleString()
+                    pageCount.toLocaleString()
                   }
                 />
               </li>
