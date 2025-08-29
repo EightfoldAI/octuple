@@ -116,4 +116,68 @@ describe('Dialog', () => {
       false
     );
   });
+
+  test('Should render header without heading attributes when headingLevel is undefined', () => {
+    wrapper.setProps({
+      visible: true,
+      header,
+      body,
+      // headingLevel is undefined by default
+    });
+
+    // Find the header span element
+    const headerSpan = wrapper.find('.header span').first();
+
+    // Should not have role="heading" or aria-level attributes when headingLevel is undefined
+    expect(headerSpan.prop('role')).toBeUndefined();
+    expect(headerSpan.prop('aria-level')).toBeUndefined();
+  });
+
+  test('Should render header with heading attributes when headingLevel is provided', () => {
+    wrapper.setProps({
+      visible: true,
+      header,
+      body,
+      headingLevel: 2,
+    });
+
+    // Find the header span element
+    const headerSpan = wrapper.find('.header span').first();
+
+    // Should have role="heading" and aria-level attributes when headingLevel is provided
+    expect(headerSpan.prop('role')).toBe('heading');
+    expect(headerSpan.prop('aria-level')).toBe(2);
+  });
+
+  test('Should not apply heading attributes when header is not provided even if headingLevel is set', () => {
+    wrapper.setProps({
+      visible: true,
+      // No header prop
+      body,
+      headingLevel: 3,
+    });
+
+    // Find the header span element
+    const headerSpan = wrapper.find('.header span').first();
+
+    // Should not have heading attributes when header prop is not provided
+    expect(headerSpan.prop('role')).toBeUndefined();
+    expect(headerSpan.prop('aria-level')).toBeUndefined();
+  });
+
+  test('Should handle headingLevel of 0 correctly', () => {
+    wrapper.setProps({
+      visible: true,
+      header,
+      body,
+      headingLevel: 0, // Edge case: headingLevel is 0 (falsy but valid)
+    });
+
+    // Find the header span element
+    const headerSpan = wrapper.find('.header span').first();
+
+    // Should still apply heading attributes when headingLevel is 0 (since !== undefined)
+    expect(headerSpan.prop('role')).toBe('heading');
+    expect(headerSpan.prop('aria-level')).toBe(0);
+  });
 });
