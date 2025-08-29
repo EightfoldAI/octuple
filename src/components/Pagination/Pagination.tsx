@@ -247,7 +247,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
     };
 
     const getPageCount = (): number => {
-      let pages: number;
+      let pages: number = 0;
 
       if (total) {
         pages = Math.ceil(total / _pageSize);
