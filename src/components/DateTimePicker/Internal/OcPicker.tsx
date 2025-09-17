@@ -44,6 +44,7 @@ type MergedOcPickerProps<DateType> = {
 function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const {
     allowClear,
+    announceArrowKeyNavigation,
     autoComplete = 'off',
     autoFocus,
     bordered = true,
@@ -121,6 +122,8 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const inputDivRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
   const containerRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const announcementRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
 
   // Real value
@@ -275,6 +278,42 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     changeOnBlur,
   });
 
+  // Announce arrow key navigation and coordinate with focus trap when picker opens
+  useEffect(() => {
+    if (mergedOpen) {
+      // Handle accessibility announcement
+      if (announceArrowKeyNavigation && announcementRef.current) {
+        const message = announceArrowKeyNavigation ?? locale?.arrowKeyNavigationText;
+
+        announcementRef.current.textContent = message as string;
+
+        // Clear announcement and activate focus trap after announcement completes
+        const timer = setTimeout(() => {
+          if (announcementRef.current) {
+            announcementRef.current.textContent = '';
+          }
+          // Activate focus trap after announcement is complete
+          if (trapFocus) {
+            setTrap(true);
+          }
+        }, 2000);
+
+        return () => clearTimeout(timer);
+      }
+      // If trapFocus is enabled but no announcement, activate immediately
+      else if (trapFocus) {
+        setTrap(true);
+      }
+    } else {
+      // Reset trap when picker closes
+      if (trapFocus) {
+        setTrap(false);
+      }
+    }
+
+    return undefined;
+  }, [mergedOpen, announceArrowKeyNavigation, locale?.arrowKeyNavigationText, trapFocus, setTrap]);
+
   // Close should sync back with text value
   useEffect((): void => {
     if (!mergedOpen) {
@@ -388,7 +427,15 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         }
       }}
     >
-      {partialNode}
+      <>
+        <div
+          ref={announcementRef}
+          className={styles.srOnly}
+          aria-live="polite"
+          aria-atomic="true"
+        />
+        {partialNode}
+      </>
     </FocusTrap>
   ) : (
     <div

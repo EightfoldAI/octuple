@@ -149,6 +149,10 @@ export type Locale = {
    * The super next aria label.
    */
   superNextAriaLabel?: string;
+  /**
+   * The arrow key navigation announcement text.
+   */
+  arrowKeyNavigationText?: string;
 };
 
 export type PartialMode =
@@ -621,6 +625,12 @@ export type OcPickerSharedProps<DateType> = {
    * @default false
    */
   autoFocus?: boolean;
+  /**
+   * Announces arrow key navigation instructions when the picker opens.
+   * When true, uses default locale text. When string, uses custom message.
+   * @default false
+   */
+  announceArrowKeyNavigation?: boolean | string;
   /**
    * Determines if the picker has a border style.
    */
