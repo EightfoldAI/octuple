@@ -280,32 +280,33 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
 
   // Announce arrow key navigation and coordinate with focus trap when picker opens
   useEffect(() => {
+    // Only run this effect if announceArrowKeyNavigation is enabled
+    if (!announceArrowKeyNavigation) {
+      return undefined;
+    }
+
     if (mergedOpen) {
       // Handle accessibility announcement
       if (announceArrowKeyNavigation && announcementRef.current) {
-        const message = announceArrowKeyNavigation ?? locale?.arrowKeyNavigationText;
+        const message = announceArrowKeyNavigation === true ? locale?.arrowKeyNavigationText : announceArrowKeyNavigation;
 
         announcementRef.current.textContent = message as string;
 
-        // Clear announcement and activate focus trap after announcement completes
+        // Clear announcement and optionally activate focus trap after announcement completes
         const timer = setTimeout(() => {
           if (announcementRef.current) {
             announcementRef.current.textContent = '';
           }
-          // Activate focus trap after announcement is complete
-          if (trapFocus) {
+          // Only activate focus trap if both trapFocus is enabled AND announcement is being used
+          if (trapFocus && announceArrowKeyNavigation) {
             setTrap(true);
           }
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(timer);
       }
-      // If trapFocus is enabled but no announcement, activate immediately
-      else if (trapFocus) {
-        setTrap(true);
-      }
     } else {
-      // Reset trap when picker closes
+      // Reset trap when picker closes (only if trapFocus was actually being used)
       if (trapFocus) {
         setTrap(false);
       }
@@ -428,12 +429,14 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       }}
     >
       <>
-        <div
-          ref={announcementRef}
-          className={styles.srOnly}
-          aria-live="polite"
-          aria-atomic="true"
-        />
+        {announceArrowKeyNavigation && (
+          <div
+            ref={announcementRef}
+            className={styles.srOnly}
+            aria-live="polite"
+            aria-atomic="true"
+          />
+        )}
         {partialNode}
       </>
     </FocusTrap>
