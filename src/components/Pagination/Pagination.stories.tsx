@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { PagerSizeOptions, Pagination, PaginationLayoutOptions } from './index';
 
 export default {
@@ -65,9 +65,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Pagination>;
+} as Meta<typeof Pagination>;
 
-const Pagination_Story: ComponentStory<typeof Pagination> = (args) => (
+const Pagination_Story: StoryFn<typeof Pagination> = (args) => (
   <Pagination {...args} />
 );
 

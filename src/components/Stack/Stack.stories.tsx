@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Stack } from './Stack';
 import styles from './stack.stories.module.scss';
 
@@ -91,9 +91,9 @@ export default {
       control: { type: 'select' },
     },
   },
-} as ComponentMeta<typeof Stack>;
+} as Meta<typeof Stack>;
 
-const Stack_Story: ComponentStory<typeof Stack> = (args) => (
+const Stack_Story: StoryFn<typeof Stack> = (args) => (
   <Stack {...args}>{args.children}</Stack>
 );
 

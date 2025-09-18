@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import {
   LinkButton,
   LinkButtonIconAlign,
@@ -138,9 +138,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof LinkButton>;
+} as Meta<typeof LinkButton>;
 
-const Link_Button_Story: ComponentStory<typeof LinkButton> = (args) => (
+const Link_Button_Story: StoryFn<typeof LinkButton> = (args) => (
   <LinkButton {...args} />
 );
 

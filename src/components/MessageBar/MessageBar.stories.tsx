@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { MessageBar, MessageBarType } from '.';
 import { IconName } from '../Icon';
 
@@ -29,9 +29,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageBar>;
+} as Meta<typeof MessageBar>;
 
-const MessageBar_Story: ComponentStory<typeof MessageBar> = (args) => (
+const MessageBar_Story: StoryFn<typeof MessageBar> = (args) => (
   <MessageBar {...args} />
 );
 

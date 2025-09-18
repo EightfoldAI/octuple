@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { SkillBlock, SkillBlockProps, SkillStatus } from '.';
 import {
   Button,
@@ -69,9 +69,9 @@ export default {
       action: 'mouseleave',
     },
   },
-} as ComponentMeta<typeof SkillBlock>;
+} as Meta<typeof SkillBlock>;
 
-const SkillBlock_Story: ComponentStory<typeof SkillBlock> = (args) => {
+const SkillBlock_Story: StoryFn<typeof SkillBlock> = (args) => {
   return (
     <Stack direction="vertical" flexGap="l" fullWidth>
       <SkillBlock {...args} label="Default" />
@@ -86,9 +86,7 @@ const SkillBlock_Story: ComponentStory<typeof SkillBlock> = (args) => {
   );
 };
 
-const SkillBlock_With_Content_Story: ComponentStory<typeof SkillBlock> = (
-  args
-) => {
+const SkillBlock_With_Content_Story: StoryFn<typeof SkillBlock> = (args) => {
   const [sliderValue, setSliderValue] = useState(0);
   const [sliderLabel, setSliderLabel] = useState('Assess skill level');
 
@@ -176,9 +174,7 @@ const SkillBlock_With_Content_Story: ComponentStory<typeof SkillBlock> = (
   );
 };
 
-const SkillBlock_With_Long_Text_Story: ComponentStory<typeof SkillBlock> = (
-  args
-) => {
+const SkillBlock_With_Long_Text_Story: StoryFn<typeof SkillBlock> = (args) => {
   const [sliderValue, setSliderValue] = useState(0);
   const [sliderLabel, setSliderLabel] = useState('Assess skill level');
 

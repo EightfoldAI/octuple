@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Portal } from './';
 
 export default {
@@ -22,9 +22,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Portal>;
+} as Meta<typeof Portal>;
 
-const Portal_Story: ComponentStory<typeof Portal> = (args) => {
+const Portal_Story: StoryFn<typeof Portal> = (args) => {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
     <>

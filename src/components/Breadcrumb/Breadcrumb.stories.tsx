@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Breadcrumb } from './';
 import { IconName } from '../Icon';
 import { Link } from '../Link';
@@ -54,9 +54,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Breadcrumb>;
+} as Meta<typeof Breadcrumb>;
 
-const Breadcrumb_Story: ComponentStory<typeof Breadcrumb> = (args) => (
+const Breadcrumb_Story: StoryFn<typeof Breadcrumb> = (args) => (
   <Breadcrumb {...args} />
 );
 

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { ConfigProvider } from '../ConfigProvider';
 import { Icon, IconName } from '../Icon';
 import { Navbar, NavbarContent } from './';
@@ -34,7 +34,7 @@ export default {
     },
   },
   argTypes: {},
-} as ComponentMeta<typeof Navbar>;
+} as Meta<typeof Navbar>;
 
 const sampleList: string[] = [1, 2, 3, 4, 5].map((i) => `User ${i}`);
 
@@ -68,7 +68,7 @@ const ProfileDropdown = () => {
   );
 };
 
-const Basic_Story: ComponentStory<typeof Navbar> = (args) => {
+const Basic_Story: StoryFn<typeof Navbar> = (args) => {
   return (
     <ConfigProvider
       themeOptions={{
@@ -96,7 +96,7 @@ const Basic_Story: ComponentStory<typeof Navbar> = (args) => {
   );
 };
 
-const Theme_Story: ComponentStory<typeof Navbar> = (args) => {
+const Theme_Story: StoryFn<typeof Navbar> = (args) => {
   const linkRef = useRef(null);
   return (
     <ConfigProvider

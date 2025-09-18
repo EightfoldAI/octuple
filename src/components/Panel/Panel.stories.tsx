@@ -478,7 +478,7 @@ export const __namedExportsOrder = [
   'Header_Actions',
   'Panel_Header',
   'Panel_With_Dropdown',
-  'Panel_With_Feature_Flag',
+  'Panel_With_Lazy_Load_Content',
 ];
 
 const panelArgs: Object = {

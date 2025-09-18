@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Menu,
   MenuItemIconAlign,
@@ -56,7 +56,7 @@ export default {
       action: 'click',
     },
   },
-} as ComponentMeta<typeof Menu>;
+} as Meta<typeof Menu>;
 
 const BasicOverlay = (args: any) => (
   <ConfigProvider themeOptions={{ name: 'blue' }}>
@@ -249,7 +249,7 @@ const SubHeaderOverlay = (args: any) => {
   );
 };
 
-const Basic_Menu_Story: ComponentStory<typeof Menu> = (args) => (
+const Basic_Menu_Story: StoryFn<typeof Menu> = (args) => (
   <div
     onClick={() => {
       console.log('Click event bubbled to parent');
@@ -261,7 +261,7 @@ const Basic_Menu_Story: ComponentStory<typeof Menu> = (args) => (
   </div>
 );
 
-const Menu_Story: ComponentStory<typeof Menu> = (args) => (
+const Menu_Story: StoryFn<typeof Menu> = (args) => (
   <div
     onClick={() => {
       console.log('Click event bubbled to parent');
@@ -273,7 +273,7 @@ const Menu_Story: ComponentStory<typeof Menu> = (args) => (
   </div>
 );
 
-const Menu_Header_Story: ComponentStory<typeof Menu> = (args) => (
+const Menu_Header_Story: StoryFn<typeof Menu> = (args) => (
   <div
     onClick={() => {
       console.log('Click event bubbled to parent');
@@ -285,7 +285,7 @@ const Menu_Header_Story: ComponentStory<typeof Menu> = (args) => (
   </div>
 );
 
-const Menu_Sub_Header_Story: ComponentStory<typeof Menu> = (args) => (
+const Menu_Sub_Header_Story: StoryFn<typeof Menu> = (args) => (
   // When hosting selectors, do not close dropdown on click :)
   <div
     onClick={() => {
@@ -302,7 +302,7 @@ const Menu_Sub_Header_Story: ComponentStory<typeof Menu> = (args) => (
   </div>
 );
 
-const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
+const Cascading_Menu_Story: StoryFn<typeof Menu> = (args) => {
   const htmlDir = useCanvasDirection();
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Layout from './';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Icon, IconName } from '../Icon';
@@ -35,7 +35,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Layout>;
+} as Meta<typeof Layout>;
 
 const sampleList: string[] = [1, 2, 3, 4, 5].map((i) => `User ${i}`);
 
@@ -94,7 +94,7 @@ const getNavBar = (): JSX.Element => (
   </Navbar>
 );
 
-const Basic_Story: ComponentStory<typeof Layout> = (args) => (
+const Basic_Story: StoryFn<typeof Layout> = (args) => (
   <Stack direction="vertical" flexGap="xxxl" justify="center" fullWidth>
     <Layout {...args}>
       <Nav>{getNavBar()}</Nav>
@@ -224,7 +224,7 @@ const Basic_Story: ComponentStory<typeof Layout> = (args) => (
   </Stack>
 );
 
-const Fixed_Navbar_Story: ComponentStory<typeof Layout> = (args) => (
+const Fixed_Navbar_Story: StoryFn<typeof Layout> = (args) => (
   <Layout {...args} style={{ height: '294px' }}>
     <Nav
       style={{
@@ -272,7 +272,7 @@ const Fixed_Navbar_Story: ComponentStory<typeof Layout> = (args) => (
   </Layout>
 );
 
-const Fixed_Aside_Story: ComponentStory<typeof Layout> = (args) => (
+const Fixed_Aside_Story: StoryFn<typeof Layout> = (args) => (
   <Layout {...args}>
     <Aside
       style={{
@@ -463,7 +463,7 @@ const Fixed_Aside_Story: ComponentStory<typeof Layout> = (args) => (
   </Layout>
 );
 
-const Responsive_Story: ComponentStory<typeof Layout> = (args) => (
+const Responsive_Story: StoryFn<typeof Layout> = (args) => (
   <Layout {...args}>
     <Aside
       breakpoint="lg"
@@ -505,7 +505,7 @@ const Responsive_Story: ComponentStory<typeof Layout> = (args) => (
   </Layout>
 );
 
-const Trigger_Story: ComponentStory<typeof Layout> = (args) => {
+const Trigger_Story: StoryFn<typeof Layout> = (args) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (

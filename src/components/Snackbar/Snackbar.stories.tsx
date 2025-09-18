@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { snack, Snackbar, SnackbarContainer } from './';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { InfoBarType } from '../InfoBar';
@@ -71,9 +71,9 @@ export default {
       control: { type: 'select' },
     },
   },
-} as ComponentMeta<typeof Snackbar>;
+} as Meta<typeof Snackbar>;
 
-const Default_Story: ComponentStory<typeof Snackbar> = (args) => (
+const Default_Story: StoryFn<typeof Snackbar> = (args) => (
   <>
     <Button
       text="Serve snack"
@@ -84,7 +84,7 @@ const Default_Story: ComponentStory<typeof Snackbar> = (args) => (
   </>
 );
 
-const Basic_Story: ComponentStory<typeof Snackbar> = (args) => (
+const Basic_Story: StoryFn<typeof Snackbar> = (args) => (
   <>
     <Button
       text="Serve snack"
@@ -95,7 +95,7 @@ const Basic_Story: ComponentStory<typeof Snackbar> = (args) => (
   </>
 );
 
-const Closable_Story: ComponentStory<typeof Snackbar> = (args) => {
+const Closable_Story: StoryFn<typeof Snackbar> = (args) => {
   type closeSnack = () => void;
   const [closeFunctions, setCloseFunctions] = useState<closeSnack[]>([]);
 
@@ -136,7 +136,7 @@ const Closable_Story: ComponentStory<typeof Snackbar> = (args) => {
   );
 };
 
-const With_Action_Story: ComponentStory<typeof Snackbar> = (args) => (
+const With_Action_Story: StoryFn<typeof Snackbar> = (args) => (
   <>
     <Button
       text="Serve snack with action"

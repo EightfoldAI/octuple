@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { List } from './';
 import { Stack } from '../Stack';
 import { Button } from '../Button';
@@ -41,7 +41,7 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof List>;
+} as Meta<typeof List>;
 
 interface User {
   name: string;
@@ -56,9 +56,9 @@ const sampleList: User[] = [0, 1, 2, 3, 4].map((i) => ({
   img: '',
 }));
 
-const List_Story: ComponentStory<typeof List> = (args) => <List {...args} />;
+const List_Story: StoryFn<typeof List> = (args) => <List {...args} />;
 
-const Update_List_Story: ComponentStory<typeof List> = (args) => {
+const Update_List_Story: StoryFn<typeof List> = (args) => {
   const [list, setSampleList] = useState<User[]>(sampleList);
   const addItem = (i: number) => {
     setSampleList((prevSampleList) => [

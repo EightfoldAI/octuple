@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Label } from '../Label';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
 import {
@@ -144,9 +144,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof RadioButton>;
+} as Meta<typeof RadioButton>;
 
-const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => {
+const RadioButton_Story: StoryFn<typeof RadioButton> = (args) => {
   const [selected, setSelected] = useState<RadioButtonValue>('label1');
 
   const radioChangeHandler = (
@@ -164,9 +164,7 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => {
   );
 };
 
-const RadioButtonLongText_Story: ComponentStory<typeof RadioButton> = (
-  args
-) => {
+const RadioButtonLongText_Story: StoryFn<typeof RadioButton> = (args) => {
   const [selected, setSelected] = useState<RadioButtonValue>('label1');
 
   const radioChangeHandler = (
@@ -186,7 +184,7 @@ const RadioButtonLongText_Story: ComponentStory<typeof RadioButton> = (
   );
 };
 
-const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
+const RadioGroup_Story: StoryFn<typeof RadioGroup> = (args) => {
   const [selected1, setSelected1] = useState<RadioButtonValue>(args.value);
 
   const radioChangeGroupHandler = (
@@ -205,7 +203,7 @@ const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
   );
 };
 
-const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
+const Bespoke_RadioGroup_Story: StoryFn<typeof RadioButton> = (args) => {
   const [selected2a, setSelected2a] = useState<RadioButtonValue>('label1');
   const [selected2b, setSelected2b] = useState<RadioButtonValue>('label1');
 
@@ -289,9 +287,9 @@ const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
   );
 };
 
-const RadioButton_With_Custom_Label_Story: ComponentStory<
-  typeof RadioButton
-> = (args) => {
+const RadioButton_With_Custom_Label_Story: StoryFn<typeof RadioButton> = (
+  args
+) => {
   const [selected, setSelected] = useState<RadioButtonValue>('label1');
 
   const radioChangeHandler = (
@@ -309,7 +307,7 @@ const RadioButton_With_Custom_Label_Story: ComponentStory<
   );
 };
 
-const RadioGroup_With_Custom_Label_Story: ComponentStory<typeof RadioGroup> = (
+const RadioGroup_With_Custom_Label_Story: StoryFn<typeof RadioGroup> = (
   args
 ) => {
   const [selected3, setSelected3] = useState<RadioButtonValue>(args.value);

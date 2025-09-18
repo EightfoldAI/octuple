@@ -1,6 +1,6 @@
 import React, { Component, FC, useEffect, useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Table from './index';
 import { TableSize } from './Table.types';
 import type { ColumnsType } from './Table.types';
@@ -108,7 +108,7 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof Component>;
+} as Meta<typeof Component>;
 
 interface DataType {
   key: React.Key;
@@ -1215,11 +1215,11 @@ const rowSelection = {
   }),
 };
 
-const Table_Base_Story: ComponentStory<typeof Table> = (args) => {
+const Table_Base_Story: StoryFn<typeof Table> = (args) => {
   return <Table {...args} />;
 };
 
-const Table_Wrapped_Story: ComponentStory<typeof Table> = (args) => {
+const Table_Wrapped_Story: StoryFn<typeof Table> = (args) => {
   return (
     <div style={{ width: 900, height: 2000 }}>
       <Table {...args} />
@@ -1343,7 +1343,7 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
   );
 };
 
-const Page_Sizes_Story: ComponentStory<typeof Table> = (args) => {
+const Page_Sizes_Story: StoryFn<typeof Table> = (args) => {
   const n: any[] = [];
   const total = 1000;
 

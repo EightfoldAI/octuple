@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Avatar, AvatarGroup, AvatarGroupVariant, AvatarPopupProps } from '.';
 import { TooltipSize, TooltipTheme } from '../Tooltip';
 
@@ -33,7 +33,7 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof AvatarGroup>;
+} as Meta<typeof AvatarGroup>;
 
 const imageProps = {
   src: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg',
@@ -70,7 +70,7 @@ const sampleList: User[] = [
   randomiseTheme: true,
 }));
 
-const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
+const Basic_Story: StoryFn<typeof AvatarGroup> = (args) => (
   <AvatarGroup
     animateOnHover
     maxProps={{
@@ -198,7 +198,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   </AvatarGroup>
 );
 
-const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
+const List_Story: StoryFn<typeof AvatarGroup> = (args) => (
   <AvatarGroup
     animateOnHover
     avatarListProps={{

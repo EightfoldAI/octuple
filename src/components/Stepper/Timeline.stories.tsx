@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
 import {
   Stepper,
@@ -131,7 +131,7 @@ export default {
       control: 'boolean',
     },
   },
-} as ComponentMeta<typeof Stepper>;
+} as Meta<typeof Stepper>;
 
 const themes: StepperThemeName[] = [
   'red',
@@ -161,7 +161,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ index }) => {
   );
 };
 
-const Default_Story: ComponentStory<typeof Stepper> = (args) => {
+const Default_Story: StoryFn<typeof Stepper> = (args) => {
   return (
     <Row>
       <Col span="12">
@@ -171,9 +171,7 @@ const Default_Story: ComponentStory<typeof Stepper> = (args) => {
   );
 };
 
-const Show_Small_Active_Index_Story: ComponentStory<typeof Stepper> = (
-  args
-) => {
+const Show_Small_Active_Index_Story: StoryFn<typeof Stepper> = (args) => {
   const [_, updateArgs] = useArgs();
 
   const handle = (index: number = 3) => {
@@ -201,9 +199,7 @@ const Show_Small_Active_Index_Story: ComponentStory<typeof Stepper> = (
   );
 };
 
-const Show_Medium_Active_Index_Story: ComponentStory<typeof Stepper> = (
-  args
-) => {
+const Show_Medium_Active_Index_Story: StoryFn<typeof Stepper> = (args) => {
   const [_, updateArgs] = useArgs();
 
   const handle = (index: number = 3) => {

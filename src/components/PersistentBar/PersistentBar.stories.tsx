@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { PersistentBar, PersistentBarType } from './';
 import { IconName } from '../Icon';
 import { PaginationLayoutOptions } from '../Pagination';
@@ -62,9 +62,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof PersistentBar>;
+} as Meta<typeof PersistentBar>;
 
-const PersistentBar_Story: ComponentStory<typeof PersistentBar> = (args) => (
+const PersistentBar_Story: StoryFn<typeof PersistentBar> = (args) => (
   <PersistentBar {...args} />
 );
 

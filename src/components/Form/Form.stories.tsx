@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Form from './';
 import type { FormInstance } from './';
 import { CheckBox } from '../CheckBox';
@@ -57,9 +57,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof Form>;
+} as Meta<typeof Form>;
 
-const Basic_Story: ComponentStory<typeof Form> = (args) => {
+const Basic_Story: StoryFn<typeof Form> = (args) => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -123,7 +123,7 @@ const Basic_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Disabled_Story: ComponentStory<typeof Form> = (args) => {
+const Disabled_Story: StoryFn<typeof Form> = (args) => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
   const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
     setComponentDisabled(disabled);
@@ -224,7 +224,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Methods_Story: ComponentStory<typeof Form> = (args) => {
+const Methods_Story: StoryFn<typeof Form> = (args) => {
   const [form] = Form.useForm();
   const [selected, setSelected] = useState<string>();
   const layout = {
@@ -377,7 +377,7 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Form_Story: ComponentStory<typeof Form> = (args) => {
+const Form_Story: StoryFn<typeof Form> = (args) => {
   const [selected, setSelected] = useState<RadioButtonValue>('apple');
 
   const radioChangeGroupHandler = (
@@ -464,7 +464,7 @@ const Form_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Layout_Story: ComponentStory<typeof Form> = (args) => {
+const Layout_Story: StoryFn<typeof Form> = (args) => {
   return (
     <ConfigProvider
       themeOptions={{ name: 'blue' }}
@@ -486,7 +486,7 @@ const Layout_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Label_Wrap_Story: ComponentStory<typeof Form> = (args) => {
+const Label_Wrap_Story: StoryFn<typeof Form> = (args) => {
   return (
     <ConfigProvider
       themeOptions={{ name: 'blue' }}
@@ -505,7 +505,7 @@ const Label_Wrap_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
+const Non_Blocking_Story: StoryFn<typeof Form> = (args) => {
   const [form] = Form.useForm();
 
   const onFinish = () => {
@@ -575,7 +575,7 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
+const Watch_Hooks_Story: StoryFn<typeof Form> = () => {
   const [form] = Form.useForm<{ foo: string; bar: number }>();
   const fooValue = Form.useWatch('foo', form);
 
@@ -603,7 +603,7 @@ const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
   );
 };
 
-const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
+const Dynamic_Form_Item_Story: StoryFn<typeof Form> = (args) => {
   const formItemLayout = {
     labelCol: {
       xs: { span: 12 },
@@ -740,7 +740,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Dynamic_Form_Nest_Items_Story: ComponentStory<typeof Form> = (args) => {
+const Dynamic_Form_Nest_Items_Story: StoryFn<typeof Form> = (args) => {
   const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
@@ -829,9 +829,7 @@ const Dynamic_Form_Nest_Items_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
-  args
-) => {
+const Complex_Dynamic_Form_Items_Story: StoryFn<typeof Form> = (args) => {
   const [form] = Form.useForm();
 
   const areaOptions: SelectOption[] = [
@@ -1015,7 +1013,7 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
   );
 };
 
-const Nest_Story: ComponentStory<typeof Form> = (args) => {
+const Nest_Story: StoryFn<typeof Form> = (args) => {
   const layout = {
     labelCol: { span: 2 },
     wrapperCol: { span: 8 },
@@ -1091,7 +1089,7 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
+const Complex_Form_Control_Story: StoryFn<typeof Form> = (args) => {
   const [form] = Form.useForm();
   const defaultOptions: SelectOption[] = [
     {
@@ -1284,7 +1282,7 @@ const PriceInput: FC<PriceInputProps> = ({ value = {}, onChange }) => {
   );
 };
 
-const Custom_Form_Controls_Story: ComponentStory<typeof Form> = (args) => {
+const Custom_Form_Controls_Story: StoryFn<typeof Form> = (args) => {
   const checkPrice = (_: any, value: { number: number }) => {
     if (value.number > 0) {
       return Promise.resolve();
@@ -1368,7 +1366,7 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({
   </Form>
 );
 
-const Store_Form_Data_Story: ComponentStory<typeof Form> = () => {
+const Store_Form_Data_Story: StoryFn<typeof Form> = () => {
   const [fields, setFields] = useState<FieldData[]>([
     { name: ['username'], value: 'Octuple' },
   ]);
@@ -1476,7 +1474,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   );
 };
 
-const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
+const Control_Between_Forms_Story: StoryFn<typeof Form> = () => {
   const [visible, setVisible] = useState(false);
 
   const showUserModal = () => {
@@ -1712,7 +1710,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   );
 };
 
-const Form_In_Modal_Story: ComponentStory<typeof Form> = () => {
+const Form_In_Modal_Story: StoryFn<typeof Form> = () => {
   const [visible, setVisible] = useState(false);
 
   const onDecline = (values: any) => {
@@ -1747,7 +1745,7 @@ const Form_In_Modal_Story: ComponentStory<typeof Form> = () => {
   );
 };
 
-const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
+const Dates_and_Times_Story: StoryFn<typeof Form> = (args) => {
   const formItemLayout = {
     labelCol: {
       xs: { span: 12 },
@@ -1857,7 +1855,7 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Manual_Form_Data_Story: ComponentStory<typeof Form> = (args) => {
+const Manual_Form_Data_Story: StoryFn<typeof Form> = (args) => {
   type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
 
   const validatePrimeNumber = (
@@ -1929,7 +1927,7 @@ const Manual_Form_Data_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Custom_Validation_Story: ComponentStory<typeof Form> = (args) => {
+const Custom_Validation_Story: StoryFn<typeof Form> = (args) => {
   const formItemLayout = {
     labelCol: {
       xs: { span: 12 },
@@ -2042,7 +2040,7 @@ const Custom_Validation_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Dynamic_Rules_Story: ComponentStory<typeof Form> = (args) => {
+const Dynamic_Rules_Story: StoryFn<typeof Form> = (args) => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = useState(false);
 
@@ -2131,7 +2129,7 @@ const Dynamic_Rules_Story: ComponentStory<typeof Form> = (args) => {
   );
 };
 
-const Form_Select_Multiple_Story: ComponentStory<typeof Form> = (args) => {
+const Form_Select_Multiple_Story: StoryFn<typeof Form> = (args) => {
   const [form] = Form.useForm();
   const [selected, setSelected] = useState<string>();
   const layout = {

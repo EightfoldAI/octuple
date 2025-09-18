@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { LiveTaskBar } from './';
 import { IconName, IconSize } from '../Icon';
 import { Icon } from '../Icon';
@@ -77,7 +77,7 @@ export default {
       control: { type: 'select' },
     },
   },
-} as ComponentMeta<typeof LiveTaskBar>;
+} as Meta<typeof LiveTaskBar>;
 
 // Create a custom header component
 const CustomHeader = () => (
@@ -204,7 +204,7 @@ const dropdownButtonProps = {
   theme: 'aiAgent',
 };
 
-const LiveTaskBarStory: ComponentStory<typeof LiveTaskBar> = (args) => (
+const LiveTaskBarStory: StoryFn<typeof LiveTaskBar> = (args) => (
   <LiveTaskBar {...args} />
 );
 

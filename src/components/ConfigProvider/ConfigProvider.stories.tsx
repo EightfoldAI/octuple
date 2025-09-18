@@ -1,6 +1,6 @@
 import React, { FC, useState, useRef, useCallback } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
 import { CompactPicker } from 'react-color';
 import { tinycolor } from '@ctrl/tinycolor';
@@ -269,7 +269,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ConfigProvider>;
+} as Meta<typeof ConfigProvider>;
 
 const ThemedComponents: FC = () => {
   const [showVarThemeModal, setShowVarThemeModal] = useState(false);
@@ -774,7 +774,7 @@ const Overlay = () => (
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
 
-const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
+const Theming_Story: StoryFn<typeof ConfigProvider> = (args) => {
   addCustomFontsToThemeOptions(args.themeOptions);
   return <ConfigProvider {...args} />;
 };
@@ -845,7 +845,7 @@ const snackArgs: Object = {
   id: 'mySnackId',
 };
 
-const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
+const Locale_Story: StoryFn<typeof ConfigProvider> = (args) => {
   const [_, updateArgs] = useArgs();
   const [locale, setLocale] = useState<OcLocale>(enUS);
   const [localeValue, setLocaleValue] = useState<string>('en_US');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Card, CardSize } from './';
 import { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
@@ -35,9 +35,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const Card_Story: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Card_Story: StoryFn<typeof Card> = (args) => <Card {...args} />;
 
 export const CustomCard = Card_Story.bind({});
 

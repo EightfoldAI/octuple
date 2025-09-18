@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Stat, StatThemeName, Tabs, TabSize, TabVariant } from './';
 import type { StatValidationStatus } from './';
 import { ButtonShape, ButtonVariant } from '../Button';
@@ -69,7 +69,7 @@ export default {
       control: { type: 'select' },
     },
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
 const themes: StatThemeName[] = [
   'red',
@@ -130,7 +130,7 @@ const statTabsWithButtons = [1, 2, 3, 4].map((i) => ({
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
-const Stat_Story: ComponentStory<typeof Tabs> = (args) => {
+const Stat_Story: StoryFn<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
     <Tabs
@@ -144,7 +144,7 @@ const Stat_Story: ComponentStory<typeof Tabs> = (args) => {
   );
 };
 
-const Stat_Themed_Story: ComponentStory<typeof Tabs> = (args) => {
+const Stat_Themed_Story: StoryFn<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
     <Tabs
@@ -158,7 +158,7 @@ const Stat_Themed_Story: ComponentStory<typeof Tabs> = (args) => {
   );
 };
 
-const Stat_With_Button_Story: ComponentStory<typeof Tabs> = (args) => {
+const Stat_With_Button_Story: StoryFn<typeof Tabs> = (args) => {
   const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
   return (
     <Tabs

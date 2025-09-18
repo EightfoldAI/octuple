@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Grid, { Col, Row } from './';
 import { Pill } from '../Pills';
 import { Stack } from '../Stack';
@@ -36,9 +36,9 @@ export default {
     },
   },
   subcomponents: { Col },
-} as ComponentMeta<typeof Row>;
+} as Meta<typeof Row>;
 
-const Basic_Story: ComponentStory<typeof Row> = (args) => (
+const Basic_Story: StoryFn<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
       <Col {...args} span={6} push={6}>
@@ -126,7 +126,7 @@ const style: React.CSSProperties = {
   padding: '8px 0',
 };
 
-const Horizontal_Gutter_Story: ComponentStory<typeof Row> = (args) => (
+const Horizontal_Gutter_Story: StoryFn<typeof Row> = (args) => (
   <Row gutter={16}>
     <Col {...args} span={3}>
       <div style={style}>col-3</div>
@@ -143,7 +143,7 @@ const Horizontal_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Responsive_Gutter_Story: ComponentStory<typeof Row> = (args) => (
+const Responsive_Gutter_Story: StoryFn<typeof Row> = (args) => (
   <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32, xl: 48 }}>
     <Col {...args} span={3}>
       <div style={style}>col-3</div>
@@ -160,7 +160,7 @@ const Responsive_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Vertical_Gutter_Story: ComponentStory<typeof Row> = (args) => (
+const Vertical_Gutter_Story: StoryFn<typeof Row> = (args) => (
   <Row gutter={[16, 16]}>
     <Col {...args} span={3}>
       <div style={style}>col-3</div>
@@ -189,7 +189,7 @@ const Vertical_Gutter_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Column_Offset_Story: ComponentStory<typeof Row> = (args) => (
+const Column_Offset_Story: StoryFn<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
       <Col {...args} span={4}>
@@ -215,7 +215,7 @@ const Column_Offset_Story: ComponentStory<typeof Row> = (args) => (
   </div>
 );
 
-const Grid_Sort_Story: ComponentStory<typeof Row> = (args) => (
+const Grid_Sort_Story: StoryFn<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row>
       <Col {...args} span={8} push={4}>
@@ -228,7 +228,7 @@ const Grid_Sort_Story: ComponentStory<typeof Row> = (args) => (
   </div>
 );
 
-const Typesetting_Story: ComponentStory<typeof Row> = (args) => (
+const Typesetting_Story: StoryFn<typeof Row> = (args) => (
   <div style={{ border: '1px solid var(--primary-secondary-color)' }}>
     <Row justify="start">
       <Col {...args} span={2}>
@@ -331,7 +331,7 @@ const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = (
   </p>
 );
 
-const Alignment_Story: ComponentStory<typeof Row> = (args) => (
+const Alignment_Story: StoryFn<typeof Row> = (args) => (
   <>
     <Row justify="center" align="top">
       <Col {...args} span={2}>
@@ -378,7 +378,7 @@ const Alignment_Story: ComponentStory<typeof Row> = (args) => (
   </>
 );
 
-const Order_Normal_Story: ComponentStory<typeof Row> = (args) => (
+const Order_Normal_Story: StoryFn<typeof Row> = (args) => (
   <Row>
     <Col {...args} span={3} order={4}>
       1 col-order-4
@@ -395,7 +395,7 @@ const Order_Normal_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
+const Order_Responsive_Story: StoryFn<typeof Row> = (args) => (
   <Row>
     <Col
       {...args}
@@ -444,7 +444,7 @@ const Order_Responsive_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Percentage_Columns_Story: ComponentStory<typeof Row> = (args) => (
+const Percentage_Columns_Story: StoryFn<typeof Row> = (args) => (
   <Row>
     <Col {...args} flex={2}>
       2 / 5
@@ -455,7 +455,7 @@ const Percentage_Columns_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Fill_Rest_Story: ComponentStory<typeof Row> = (args) => (
+const Fill_Rest_Story: StoryFn<typeof Row> = (args) => (
   <Row>
     <Col {...args} flex="100px">
       100px
@@ -466,7 +466,7 @@ const Fill_Rest_Story: ComponentStory<typeof Row> = (args) => (
   </Row>
 );
 
-const Raw_Flex_Style_Story: ComponentStory<typeof Row> = (args) => (
+const Raw_Flex_Style_Story: StoryFn<typeof Row> = (args) => (
   <>
     <Row>
       <Col {...args} flex="1 1 200px">
@@ -488,7 +488,7 @@ const Raw_Flex_Style_Story: ComponentStory<typeof Row> = (args) => (
   </>
 );
 
-const Responsive_Story: ComponentStory<typeof Row> = (args) => (
+const Responsive_Story: StoryFn<typeof Row> = (args) => (
   <Row>
     <Col
       {...args}

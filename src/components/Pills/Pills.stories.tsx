@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Pill, PillIconAlign, PillSize, PillThemeName, PillType } from './';
 import { IconName } from '../Icon';
 import { Stack } from '../Stack';
@@ -52,7 +52,7 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof Pill>;
+} as Meta<typeof Pill>;
 
 const themes: PillThemeName[] = [
   'red',
@@ -71,7 +71,7 @@ const themes: PillThemeName[] = [
   'aiAgent',
 ];
 
-const Pill_Story: ComponentStory<typeof Pill> = (args) => (
+const Pill_Story: StoryFn<typeof Pill> = (args) => (
   <Stack direction="vertical" flexGap="l">
     {themes.map((theme) => (
       <Pill {...args} label={theme} theme={theme} key={theme} />
@@ -79,7 +79,7 @@ const Pill_Story: ComponentStory<typeof Pill> = (args) => (
   </Stack>
 );
 
-const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
+const With_Long_Text_Story: StoryFn<typeof Pill> = (args) => (
   <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
     {themes.map((theme) => (
       <Pill

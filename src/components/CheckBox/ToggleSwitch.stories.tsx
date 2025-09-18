@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { CheckBox, LabelPosition, SelectorSize } from '.';
 
 export default {
@@ -72,9 +72,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof CheckBox>;
+} as Meta<typeof CheckBox>;
 
-const Toggle_Switch_Story: ComponentStory<typeof CheckBox> = (args) => (
+const Toggle_Switch_Story: StoryFn<typeof CheckBox> = (args) => (
   <CheckBox checked={true} {...args} />
 );
 

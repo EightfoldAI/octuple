@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Slider, SliderSize, SliderTrackStatus } from './';
 import { Stack } from '../Stack';
 import { Tooltip, TooltipTheme } from '../Tooltip';
@@ -39,9 +39,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Slider>;
+} as Meta<typeof Slider>;
 
-const Slider_Story: ComponentStory<typeof Slider> = (args) => {
+const Slider_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingAValue, setTransientSlidingAValue] = useState<number>(
     Number(args.value)
   );
@@ -80,7 +80,7 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
+const Range_Slider_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingAValues, setTransientSlidingAValues] = useState<
     number[]
   >(args.value as number[]);
@@ -121,7 +121,7 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
+const Inline_Extemity_Labels_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingAValue, setTransientSlidingAValue] = useState<number>(
     Number(args.value)
   );
@@ -156,7 +156,7 @@ const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Custom_Markers_Included_Story: ComponentStory<typeof Slider> = (args) => {
+const Custom_Markers_Included_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingAValue, setTransientSlidingAValue] =
     useState<number>(37);
   const [transientSlidingBValues, setTransientSlidingBValues] = useState<
@@ -187,7 +187,7 @@ const Custom_Markers_Included_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Custom_Markers_Excluded_Story: ComponentStory<typeof Slider> = (args) => {
+const Custom_Markers_Excluded_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingCValue, setTransientSlidingCValue] =
     useState<number>(37);
 
@@ -205,9 +205,7 @@ const Custom_Markers_Excluded_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Custom_Markers_With_Step_Story: ComponentStory<typeof Slider> = (
-  args
-) => {
+const Custom_Markers_With_Step_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingDValue, setTransientSlidingDValue] =
     useState<number>(30);
 
@@ -225,9 +223,7 @@ const Custom_Markers_With_Step_Story: ComponentStory<typeof Slider> = (
   );
 };
 
-const Custom_Markers_Null_Step_Story: ComponentStory<typeof Slider> = (
-  args
-) => {
+const Custom_Markers_Null_Step_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingEValue, setTransientSlidingEValue] =
     useState<number>(37);
 
@@ -245,7 +241,7 @@ const Custom_Markers_Null_Step_Story: ComponentStory<typeof Slider> = (
   );
 };
 
-const Dots_Story: ComponentStory<typeof Slider> = (args) => {
+const Dots_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingAValue, setTransientSlidingAValue] = useState<number>(
     Number(args.value)
   );
@@ -265,7 +261,7 @@ const Dots_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Toggle_Thumb_Story: ComponentStory<typeof Slider> = (args) => {
+const Toggle_Thumb_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingAValue, setTransientSlidingAValue] = useState<number>(
     Number(args.value)
   );
@@ -798,7 +794,7 @@ const iconSet: Object = {
   },
 };
 
-const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
+const With_Benchmark_Story: StoryFn<typeof Slider> = (args) => {
   const [_, updateArgs] = useArgs();
   const [sliderMinLabel, setSliderMinLabel] = useState(args.minLabel);
   const [transientSlidingValue, setTransientSlidingValue] = useState<
@@ -866,7 +862,7 @@ const With_Benchmark_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Data_Inactive_Story: ComponentStory<typeof Slider> = (args) => {
+const Data_Inactive_Story: StoryFn<typeof Slider> = (args) => {
   const [transientSlidingBValues, setTransientSlidingBValues] = useState<
     number[]
   >([1, 3]);
@@ -888,7 +884,7 @@ const Data_Inactive_Story: ComponentStory<typeof Slider> = (args) => {
   );
 };
 
-const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
+const Data_Active_Story: StoryFn<typeof Slider> = (args) => {
   const [_, updateArgs] = useArgs();
   const sliderRef: React.MutableRefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);

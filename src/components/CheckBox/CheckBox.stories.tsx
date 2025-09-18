@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
 import {
   CheckBox,
@@ -128,9 +128,9 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof CheckBox>;
+} as Meta<typeof CheckBox>;
 
-const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => {
+const CheckBox_Story: StoryFn<typeof CheckBox> = (args) => {
   const [_, updateArgs] = useArgs();
   const onSelectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     updateArgs({
@@ -142,7 +142,7 @@ const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => {
   return <CheckBox {...args} onChange={onSelectionChange} />;
 };
 
-const CheckBox_Long_text_Story: ComponentStory<typeof CheckBox> = (args) => {
+const CheckBox_Long_text_Story: StoryFn<typeof CheckBox> = (args) => {
   const [_, updateArgs] = useArgs();
   const onSelectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     updateArgs({
@@ -158,7 +158,7 @@ const CheckBox_Long_text_Story: ComponentStory<typeof CheckBox> = (args) => {
   );
 };
 
-const CheckBoxGroup_Story: ComponentStory<typeof CheckBoxGroup> = (args) => {
+const CheckBoxGroup_Story: StoryFn<typeof CheckBoxGroup> = (args) => {
   const [selected, setSelected] = useState<CheckboxValueType[]>([]);
   return (
     <CheckBoxGroup
