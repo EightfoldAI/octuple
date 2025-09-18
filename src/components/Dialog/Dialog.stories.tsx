@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Dialog, DialogSize } from './';
 import { Button, ButtonVariant } from '../Button';
 import { DialogHelper as dialogHelper } from './DialogHelper';
@@ -143,9 +143,9 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof Dialog>;
+} as Meta<typeof Dialog>;
 
-const Medium_Story: ComponentStory<typeof Dialog> = (args) => {
+const Medium_Story: StoryFn<typeof Dialog> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -165,7 +165,7 @@ const Medium_Story: ComponentStory<typeof Dialog> = (args) => {
   );
 };
 
-const Small_Story: ComponentStory<typeof Dialog> = (args) => {
+const Small_Story: StoryFn<typeof Dialog> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -186,7 +186,7 @@ const Small_Story: ComponentStory<typeof Dialog> = (args) => {
   );
 };
 
-const DialogHelper_Story: ComponentStory<typeof Dialog> = (args) => (
+const DialogHelper_Story: StoryFn<typeof Dialog> = (args) => (
   <Button
     onClick={() =>
       dialogHelper.show({

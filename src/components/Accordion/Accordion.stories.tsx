@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Accordion, AccordionProps, AccordionSize, AccordionShape } from './';
 import { Button, ButtonShape, ButtonVariant } from '../Button';
 import { Badge } from '../Badge';
@@ -60,7 +60,7 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Accordion>;
+} as Meta<typeof Accordion>;
 
 const listItems: AccordionProps[] = [
   {
@@ -98,7 +98,7 @@ const buttons = [0, 1].map((i) => ({
   variant: i === 0 ? ButtonVariant.Neutral : ButtonVariant.Secondary,
 }));
 
-const Single_Story: ComponentStory<typeof Accordion> = (args) => (
+const Single_Story: StoryFn<typeof Accordion> = (args) => (
   <Accordion {...args} />
 );
 
@@ -106,7 +106,7 @@ interface ListStoryArgs {
   items: AccordionProps[];
   theme?: OcThemeName;
 }
-const List_Story: ComponentStory<typeof List> = (args: ListStoryArgs) => {
+const List_Story: StoryFn<typeof List> = (args: ListStoryArgs) => {
   const { theme, ...restProps } = args;
 
   return (
@@ -119,7 +119,7 @@ const List_Story: ComponentStory<typeof List> = (args: ListStoryArgs) => {
   );
 };
 
-const Custom_Story: ComponentStory<typeof Accordion> = (args) => (
+const Custom_Story: StoryFn<typeof Accordion> = (args) => (
   <Accordion {...args} />
 );
 

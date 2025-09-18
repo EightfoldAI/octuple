@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { Tooltip, TooltipTheme, TooltipTouchInteraction } from './';
 import { Label, LabelSize } from '../Label';
@@ -122,13 +122,11 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof Tooltip>;
+} as Meta<typeof Tooltip>;
 
-const Tooltip_Story: ComponentStory<typeof Tooltip> = (args) => (
-  <Tooltip {...args} />
-);
+const Tooltip_Story: StoryFn<typeof Tooltip> = (args) => <Tooltip {...args} />;
 
-const Truncation_Detection_Story: ComponentStory<typeof Tooltip> = (args) => {
+const Truncation_Detection_Story: StoryFn<typeof Tooltip> = (args) => {
   const [truncationStatus, setTruncationStatus] = useState<
     Record<string, boolean>
   >({});

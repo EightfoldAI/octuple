@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import {
   Button,
   ButtonIconAlign,
@@ -179,11 +179,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Button_Story: ComponentStory<typeof Button> = (args) => (
-  <Button {...args} />
-);
+const Button_Story: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Button_Story.bind({});
 export const Counter = Button_Story.bind({});

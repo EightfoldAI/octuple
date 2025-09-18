@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { ConfigProvider } from '../ConfigProvider';
 import { Icon, IconName, IconSize } from './index';
 import iconSet from './selection.json';
@@ -86,11 +86,11 @@ export default {
       control: { type: 'select' },
     },
   },
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
 
-const Basic_Story: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
+const Basic_Story: StoryFn<typeof Icon> = (args) => <Icon {...args} />;
 
-const Icomoon_Story: ComponentStory<typeof Icon> = (args) => (
+const Icomoon_Story: StoryFn<typeof Icon> = (args) => (
   <ConfigProvider
     icomoonIconSet={iconSet}
     themeOptions={{

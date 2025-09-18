@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   autoScrollApiType,
   Carousel,
@@ -68,9 +68,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Carousel>;
+} as Meta<typeof Carousel>;
 
-const Slide_Story: ComponentStory<typeof Carousel> = (args) => (
+const Slide_Story: StoryFn<typeof Carousel> = (args) => (
   <Carousel {...args}>
     <Slide>
       <div
@@ -121,9 +121,7 @@ const sampleList: SampleItem[] = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
   key: `key-${i}`,
 }));
 
-const Scroll_Story: ComponentStory<typeof Carousel> = (args) => (
-  <Carousel {...args} />
-);
+const Scroll_Story: StoryFn<typeof Carousel> = (args) => <Carousel {...args} />;
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
@@ -147,7 +145,7 @@ const onWheel = (
   }
 };
 
-const Scroll_Custom_Buttons_Story: ComponentStory<typeof Carousel> = (args) => {
+const Scroll_Custom_Buttons_Story: StoryFn<typeof Carousel> = (args) => {
   const htmlDir: string = useCanvasDirection();
   const apiRef: React.MutableRefObject<autoScrollApiType> = useRef(
     {} as scrollVisibilityApiType

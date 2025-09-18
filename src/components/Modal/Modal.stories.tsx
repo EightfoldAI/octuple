@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Modal, ModalSize } from './';
 import { Button, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
@@ -98,9 +98,9 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof Modal>;
+} as Meta<typeof Modal>;
 
-const Modal_Story: ComponentStory<typeof Modal> = (args) => {
+const Modal_Story: StoryFn<typeof Modal> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -114,7 +114,7 @@ const Modal_Story: ComponentStory<typeof Modal> = (args) => {
   );
 };
 
-const Scrollable_Story: ComponentStory<typeof Modal> = (args) => {
+const Scrollable_Story: StoryFn<typeof Modal> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>

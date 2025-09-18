@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import DatePicker, { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
 import { ButtonVariant } from '../../Button';
@@ -88,9 +88,9 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof DatePicker>;
+} as Meta<typeof DatePicker>;
 
-const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
+const Single_Picker_Story: StoryFn<typeof DatePicker> = (args) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -108,9 +108,7 @@ const Single_Picker_Story: ComponentStory<typeof DatePicker> = (args) => {
   );
 };
 
-const Single_Picker_TrapFocus_Story: ComponentStory<typeof DatePicker> = (
-  args
-) => {
+const Single_Picker_TrapFocus_Story: StoryFn<typeof DatePicker> = (args) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -126,9 +124,7 @@ const Single_Picker_TrapFocus_Story: ComponentStory<typeof DatePicker> = (
   );
 };
 
-const Single_Picker_Readonly_Story: ComponentStory<typeof DatePicker> = (
-  args
-) => {
+const Single_Picker_Readonly_Story: StoryFn<typeof DatePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <DatePicker {...args} defaultValue={dayjs('2023-10-24', dateFormat)} />
@@ -136,9 +132,7 @@ const Single_Picker_Readonly_Story: ComponentStory<typeof DatePicker> = (
   );
 };
 
-const Single_Picker_Disabled_Story: ComponentStory<typeof DatePicker> = (
-  args
-) => {
+const Single_Picker_Disabled_Story: StoryFn<typeof DatePicker> = (args) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -151,9 +145,9 @@ const Single_Picker_Disabled_Story: ComponentStory<typeof DatePicker> = (
   );
 };
 
-const Single_Picker_Disabled_Date_and_Time_Story: ComponentStory<
-  typeof DatePicker
-> = (args) => {
+const Single_Picker_Disabled_Date_and_Time_Story: StoryFn<typeof DatePicker> = (
+  args
+) => {
   const range = (start: number, end: number) => {
     const result = [];
     for (let i = start; i < end; i++) {
@@ -187,9 +181,7 @@ const Single_Picker_Disabled_Date_and_Time_Story: ComponentStory<
   );
 };
 
-const Single_Picker_Choose_Time_Story: ComponentStory<typeof DatePicker> = (
-  args
-) => {
+const Single_Picker_Choose_Time_Story: StoryFn<typeof DatePicker> = (args) => {
   const onChange = (
     value: DatePickerProps['value'],
     dateString: [string, string] | string
@@ -205,7 +197,7 @@ const Single_Picker_Choose_Time_Story: ComponentStory<typeof DatePicker> = (
   return <DatePicker {...args} showTime onChange={onChange} onOk={onOk} />;
 };
 
-const Single_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
+const Single_Picker_Choose_Time_Hide_Buttons_Story: StoryFn<
   typeof DatePicker
 > = (args) => {
   const onChange = (
@@ -221,7 +213,7 @@ const Single_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
 
 const { RangePicker } = DatePicker;
 
-const Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
+const Range_Picker_Story: StoryFn<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} />
@@ -233,9 +225,7 @@ const Range_Picker_Story: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
-const Range_Picker_Choose_Time_Story: ComponentStory<typeof RangePicker> = (
-  args
-) => {
+const Range_Picker_Choose_Time_Story: StoryFn<typeof RangePicker> = (args) => {
   const onChange = (
     value: RangePickerProps['value'],
     dateString: [string, string] | string
@@ -259,7 +249,7 @@ const Range_Picker_Choose_Time_Story: ComponentStory<typeof RangePicker> = (
   );
 };
 
-const Range_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
+const Range_Picker_Choose_Time_Hide_Buttons_Story: StoryFn<
   typeof RangePicker
 > = (args) => {
   const onChange = (
@@ -280,9 +270,7 @@ const Range_Picker_Choose_Time_Hide_Buttons_Story: ComponentStory<
   );
 };
 
-const Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
-  args
-) => {
+const Range_Picker_Readonly_Story: StoryFn<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <RangePicker
@@ -296,9 +284,7 @@ const Range_Picker_Readonly_Story: ComponentStory<typeof RangePicker> = (
   );
 };
 
-const Range_Picker_Disabled_Story: ComponentStory<typeof RangePicker> = (
-  args
-) => {
+const Range_Picker_Disabled_Story: StoryFn<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} />
@@ -313,9 +299,9 @@ const Range_Picker_Disabled_Story: ComponentStory<typeof RangePicker> = (
   );
 };
 
-const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
-  typeof RangePicker
-> = (args) => {
+const Range_Picker_Disabled_Date_and_Time_Story: StoryFn<typeof RangePicker> = (
+  args
+) => {
   const range = (start: number, end: number) => {
     const result = [];
     for (let i = start; i < end; i++) {
@@ -365,7 +351,7 @@ const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
   );
 };
 
-const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
+const Preset_Ranges_Story: StoryFn<typeof RangePicker> = (args) => {
   const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
     if (dates) {
       console.log('From: ', dates[0], ', to: ', dates[1]);
@@ -399,9 +385,7 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
-const Select_Range_By_Day_Limit_Story: ComponentStory<typeof RangePicker> = (
-  args
-) => {
+const Select_Range_By_Day_Limit_Story: StoryFn<typeof RangePicker> = (args) => {
   type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
   const [dates, setDates] = useState<RangeValue>(null);
@@ -452,7 +436,7 @@ const weekStartEndFormat: DatePickerProps['format'] = (value) =>
 const customFormat: DatePickerProps['format'] = (value) =>
   `custom format: ${value.format(dateFormat)}`;
 
-const Date_Format_Basic_Story: ComponentStory<typeof DatePicker> = (args) => {
+const Date_Format_Basic_Story: StoryFn<typeof DatePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <DatePicker
@@ -486,7 +470,7 @@ const Date_Format_Basic_Story: ComponentStory<typeof DatePicker> = (args) => {
   );
 };
 
-const Date_Format_Range_Story: ComponentStory<typeof RangePicker> = (args) => (
+const Date_Format_Range_Story: StoryFn<typeof RangePicker> = (args) => (
   <RangePicker
     {...args}
     defaultValue={[
@@ -497,13 +481,11 @@ const Date_Format_Range_Story: ComponentStory<typeof RangePicker> = (args) => (
   />
 );
 
-const Extra_Footer_Story: ComponentStory<typeof DatePicker> = (args) => (
+const Extra_Footer_Story: StoryFn<typeof DatePicker> = (args) => (
   <DatePicker {...args} renderExtraFooter={() => 'extra footer'} />
 );
 
-const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (
-  args
-) => (
+const Customized_Date_Styling_Story: StoryFn<typeof RangePicker> = (args) => (
   <RangePicker
     {...args}
     dateRender={(current) => {
@@ -527,15 +509,15 @@ const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (
   />
 );
 
-const Single_Borderless_Story: ComponentStory<typeof DatePicker> = (args) => {
+const Single_Borderless_Story: StoryFn<typeof DatePicker> = (args) => {
   return <DatePicker {...args} />;
 };
 
-const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
+const Range_Borderless_Story: StoryFn<typeof RangePicker> = (args) => {
   return <RangePicker {...args} />;
 };
 
-const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
+const Single_Status_Story: StoryFn<typeof DatePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <DatePicker {...args} status="success" />
@@ -546,7 +528,7 @@ const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
   );
 };
 
-const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
+const Range_Status_Story: StoryFn<typeof RangePicker> = (args) => {
   return (
     <Stack direction="vertical" flexGap="m">
       <RangePicker {...args} status="success" />
@@ -557,9 +539,9 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
-const Range_Picker_With_Aria_Labels_Story: ComponentStory<
-  typeof RangePicker
-> = (args) => <DatePicker.RangePicker {...args} />;
+const Range_Picker_With_Aria_Labels_Story: StoryFn<typeof RangePicker> = (
+  args
+) => <DatePicker.RangePicker {...args} />;
 
 export const Single_Picker = Single_Picker_Story.bind({});
 export const Single_Picker_TrapFocus = Single_Picker_TrapFocus_Story.bind({});

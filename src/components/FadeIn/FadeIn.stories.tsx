@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { FadeIn } from './';
 
 export default {
@@ -22,9 +22,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof FadeIn>;
+} as Meta<typeof FadeIn>;
 
-const FadeIn_Story: ComponentStory<typeof FadeIn> = (args) => {
+const FadeIn_Story: StoryFn<typeof FadeIn> = (args) => {
   return (
     <>
       <FadeIn {...args} />

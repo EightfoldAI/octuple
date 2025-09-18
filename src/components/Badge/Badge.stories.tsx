@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Badge, BadgeSize } from './';
 import { Popup, PopupTheme } from '../Popup';
 
@@ -33,10 +33,10 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof Badge>;
+} as Meta<typeof Badge>;
 
-const Badge_Story: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
-const Badge_Popup_Story: ComponentStory<typeof Badge> = (args) => (
+const Badge_Story: StoryFn<typeof Badge> = (args) => <Badge {...args} />;
+const Badge_Popup_Story: StoryFn<typeof Badge> = (args) => (
   <Popup
     content={
       <div

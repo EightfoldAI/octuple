@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Drawer, DrawerVariant } from './';
 import { Button, ButtonVariant, ButtonWidth } from '../Button';
 import { IconName } from '../Icon';
@@ -43,9 +43,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Drawer>;
+} as Meta<typeof Drawer>;
 
-const Default_Story: ComponentStory<typeof Drawer> = (args) => {
+const Default_Story: StoryFn<typeof Drawer> = (args) => {
   const [visible, setVisible] = useState<boolean>(args.visible);
   useMemo(() => setVisible(args.visible), [args.visible]);
   const onClose = (_event: React.MouseEvent<HTMLButtonElement>) => {
@@ -90,7 +90,7 @@ const Default_Story: ComponentStory<typeof Drawer> = (args) => {
   );
 };
 
-const Hint_Story: ComponentStory<typeof Drawer> = (args) => {
+const Hint_Story: StoryFn<typeof Drawer> = (args) => {
   const [visible, setVisible] = useState<boolean>(args.visible);
   useMemo(() => setVisible(args.visible), [args.visible]);
   const onClose = (_event: React.MouseEvent<HTMLButtonElement>) => {

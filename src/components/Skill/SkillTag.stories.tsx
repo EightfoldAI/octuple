@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import {
   SkillAssessment,
   SkillSize,
@@ -68,7 +68,7 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof SkillTag>;
+} as Meta<typeof SkillTag>;
 
 interface User {
   name: string;
@@ -103,7 +103,7 @@ const Overlay = () => (
   />
 );
 
-const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
+const SkillTag_Story: StoryFn<typeof SkillTag> = (args) => {
   // If you wish to show a skeleton whilst loading,
   // make sure it's a good size match to the tag size.
   // The width may be different than the height.
@@ -292,7 +292,7 @@ const SkillTag_Story: ComponentStory<typeof SkillTag> = (args) => {
   );
 };
 
-const With_Long_Text_Story: ComponentStory<typeof SkillTag> = (args) => {
+const With_Long_Text_Story: StoryFn<typeof SkillTag> = (args) => {
   return (
     <Stack direction="vertical" flexGap="l" style={{ width: 216 }}>
       <SkillTag {...args} label="Some very long Default text is present here" />

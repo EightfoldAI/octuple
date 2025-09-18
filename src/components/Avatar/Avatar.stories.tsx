@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { IconName } from '../Icon';
 import {
   Avatar,
@@ -40,30 +40,28 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof Avatar>;
+} as Meta<typeof Avatar>;
 
 const imageProps = {
   src: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg',
   alt: 'random profile image',
 };
 
-const Avatar_Story: ComponentStory<typeof Avatar> = (args) => (
-  <Avatar {...args} />
-);
+const Avatar_Story: StoryFn<typeof Avatar> = (args) => <Avatar {...args} />;
 
-const Avatar_Round_Story: ComponentStory<typeof Avatar> = (args) => (
+const Avatar_Round_Story: StoryFn<typeof Avatar> = (args) => (
   <Avatar popupProps={{ content: 'A popup' }} {...args} />
 );
 
-const Avatar_Fallback_Theme_Story: ComponentStory<typeof Avatar> = (args) => (
+const Avatar_Fallback_Theme_Story: StoryFn<typeof Avatar> = (args) => (
   <Avatar {...args} theme="green" />
 );
 
-const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
+const Avatar_Fallback_Hashing_Story: StoryFn<typeof Avatar> = (args) => (
   <Avatar {...args} hashingFunction={() => 3} />
 );
 
-const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
+const Avatar_StatusItem_Story: StoryFn<typeof Avatar> = (args) => {
   const avatarSize = 100;
   const [statusItemSize] = getStatusItemSizeAndPadding(avatarSize);
   args.size = `${avatarSize}px`;
@@ -210,7 +208,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
   );
 };
 
-const Avatar_Tooltip_Story: ComponentStory<typeof Avatar> = (args) => (
+const Avatar_Tooltip_Story: StoryFn<typeof Avatar> = (args) => (
   <Avatar {...args} theme="red" />
 );
 

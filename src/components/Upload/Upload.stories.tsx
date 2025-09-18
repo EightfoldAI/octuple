@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Upload from '.';
 import {
   OcFile,
@@ -64,7 +64,7 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Upload>;
+} as Meta<typeof Upload>;
 
 const snackArgs: Object = {
   position: 'top-center',
@@ -74,7 +74,7 @@ const snackArgs: Object = {
   id: 'mySnackId',
 };
 
-const Basic_Story: ComponentStory<typeof Upload> = (args) => {
+const Basic_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -127,7 +127,7 @@ const Basic_Story: ComponentStory<typeof Upload> = (args) => {
   );
 };
 
-const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = (args) => {
+const Basic_With_Upload_List_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -184,9 +184,7 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = (args) => {
   );
 };
 
-const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
-  args
-) => {
+const Drag_and_Drop_Single_Small_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -229,9 +227,7 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Multiple_Small_Story: ComponentStory<typeof Upload> = (
-  args
-) => {
+const Drag_and_Drop_Multiple_Small_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -272,9 +268,7 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = (
-  args
-) => {
+const Drag_and_Drop_Single_Medium_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -311,9 +305,7 @@ const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
-  args
-) => {
+const Drag_and_Drop_Multiple_Medium_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -354,9 +346,7 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = (
-  args
-) => {
+const Drag_and_Drop_Single_Large_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -394,9 +384,7 @@ const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Drag_and_Drop_Multiple_Large_Story: ComponentStory<typeof Upload> = (
-  args
-) => {
+const Drag_and_Drop_Multiple_Large_Story: StoryFn<typeof Upload> = (args) => {
   const props: UploadProps = {
     ...args,
     name: 'file',
@@ -438,7 +426,7 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<typeof Upload> = (
   );
 };
 
-const Image_List_Story: ComponentStory<typeof Upload> = (args) => {
+const Image_List_Story: StoryFn<typeof Upload> = (args) => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
   const [previewTitle, setPreviewTitle] = useState<string>('');
@@ -554,7 +542,7 @@ const Image_List_Story: ComponentStory<typeof Upload> = (args) => {
   );
 };
 
-const Image_Editor_Story: ComponentStory<typeof Upload> = (args) => {
+const Image_Editor_Story: StoryFn<typeof Upload> = (args) => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',
@@ -627,7 +615,7 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = (args) => {
   );
 };
 
-const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
+const Basic_Deferred_API_Story: StoryFn<typeof Upload> = (args) => {
   const [data, setData] = useState<Record<string, unknown>>({});
   const [thumbUrl, setThumbUrl] = useState<string>('');
 
@@ -721,7 +709,7 @@ const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = (args) => {
   );
 };
 
-const Cropper_Story: ComponentStory<typeof Cropper> = (args) => {
+const Cropper_Story: StoryFn<typeof Cropper> = (args) => {
   const [image, setImage] = useState<string>('');
 
   const handleImageUpload = (file: OcFile) => {

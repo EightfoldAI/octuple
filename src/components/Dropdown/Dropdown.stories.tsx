@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import {
   Button,
   ButtonIconAlign,
@@ -102,7 +102,7 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-} as ComponentMeta<typeof Dropdown>;
+} as Meta<typeof Dropdown>;
 
 interface User {
   name: string;
@@ -179,7 +179,7 @@ const OverlayWithAdditionalListItem = () => (
   />
 );
 
-const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
+const Dropdown_Button_Story: StoryFn<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
     <Dropdown
@@ -200,7 +200,7 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
+const Dropdown_IconButton_Story: StoryFn<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
     <Dropdown
@@ -221,7 +221,7 @@ const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
+const Dropdown_Div_Story: StoryFn<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
     <Dropdown
@@ -236,7 +236,7 @@ const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
+const Dropdown_External_Story: StoryFn<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
     <Stack direction="horizontal" flexGap="xxl">
@@ -267,7 +267,7 @@ const Dropdown_External_Story: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
+const Dropdown_Advanced_Story: StoryFn<typeof Dropdown> = (args) => {
   const [checkedItems, setCheckedItems] = useState({});
   const [visibleQuickFilter, setVisibleQuickFilter] = useState<{
     [x: string]: boolean;

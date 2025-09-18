@@ -1,5 +1,5 @@
 import React, { FC, useState, useRef } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { Select } from './';
@@ -129,7 +129,7 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
 const Wrapper: FC<SelectProps> = ({ children }) => {
   return <div style={{ marginTop: 80 }}>{children}</div>;
@@ -164,7 +164,7 @@ const DynamicSelect: FC<SelectProps> = (args) => {
   );
 };
 
-const Basic_Story: ComponentStory<typeof Select> = (args) => {
+const Basic_Story: StoryFn<typeof Select> = (args) => {
   if (args.multiple) {
     return (
       <Wrapper>
@@ -175,11 +175,11 @@ const Basic_Story: ComponentStory<typeof Select> = (args) => {
   return <Select {...args} />;
 };
 
-const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
+const Dynamic_Story: StoryFn<typeof Select> = (args) => (
   <DynamicSelect {...args} />
 );
 
-export type SelectStory = ComponentStory<React.FC<SelectProps>>;
+export type SelectStory = StoryFn<React.FC<SelectProps>>;
 
 export const Basic: SelectStory = Basic_Story.bind({});
 export const Dynamic_Width: SelectStory = Basic_Story.bind({});

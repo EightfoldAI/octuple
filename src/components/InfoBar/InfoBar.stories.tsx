@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { InfoBar, InfoBarType } from './';
 import { IconName } from '../Icon';
 
@@ -49,11 +49,9 @@ export default {
       control: 'select',
     },
   },
-} as ComponentMeta<typeof InfoBar>;
+} as Meta<typeof InfoBar>;
 
-const InfoBar_Story: ComponentStory<typeof InfoBar> = (args) => (
-  <InfoBar {...args} />
-);
+const InfoBar_Story: StoryFn<typeof InfoBar> = (args) => <InfoBar {...args} />;
 
 export const Neutral = InfoBar_Story.bind({});
 export const Positive = InfoBar_Story.bind({});

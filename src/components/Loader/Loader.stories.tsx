@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Loader, LoaderSize } from './';
 
 export default {
@@ -27,11 +27,9 @@ export default {
       control: { type: 'select' },
     },
   },
-} as ComponentMeta<typeof Loader>;
+} as Meta<typeof Loader>;
 
-const Loader_Story: ComponentStory<typeof Loader> = (args) => (
-  <Loader {...args} />
-);
+const Loader_Story: StoryFn<typeof Loader> = (args) => <Loader {...args} />;
 
 export const Default = Loader_Story.bind({});
 
