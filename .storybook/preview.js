@@ -1,2 +1,2 @@
-import { initializeRTL } from 'storybook-addon-rtl';
-initializeRTL();
+// import { initializeRTL } from 'storybook-addon-rtl';
+// initializeRTL();

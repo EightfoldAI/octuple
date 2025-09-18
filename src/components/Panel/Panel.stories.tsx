@@ -1,5 +1,5 @@
 import { Stories } from '@storybook/addon-docs';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { Button, ButtonVariant } from '../Button';
@@ -83,8 +83,8 @@ export default {
                 <li>
                   Be concise. Limit labels to one or two words. Usually a single
                   verb is best. Include a noun if there's any room for
-                  interpretation about what the verb means. For example, “Save”
-                  or “Save settings.”
+                  interpretation about what the verb means. For example, "Save"
+                  or "Save settings."
                 </li>
               </ul>
             </section>
@@ -122,25 +122,26 @@ export default {
       options: ['top', 'right', 'bottom', 'left'],
       control: { type: 'radio' },
     },
-    panelLazyLoadContent: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-    },
   },
   decorators: [
-    (Story, context) => (
-      <ConfigProvider
-        featureFlags={{
-          panelLazyLoadContent: context.args.panelLazyLoadContent,
-        }}
-      >
-        <Story />
-      </ConfigProvider>
-    ),
+    (Story, context) => {
+      // Get feature flag from parameters instead of args
+      const panelLazyLoadContent =
+        context.parameters?.panelLazyLoadContent ?? false;
+      return (
+        <ConfigProvider
+          featureFlags={{
+            panelLazyLoadContent: panelLazyLoadContent,
+          }}
+        >
+          <Story />
+        </ConfigProvider>
+      );
+    },
   ],
-} as ComponentMeta<typeof Panel>;
+} as Meta<typeof Panel>;
 
-const FeatureFlag_Story: ComponentStory<typeof FeatureFlagContextProvider> = (
+const FeatureFlag_Story: StoryFn<typeof FeatureFlagContextProvider> = (
   args
 ) => {
   return (
@@ -150,7 +151,7 @@ const FeatureFlag_Story: ComponentStory<typeof FeatureFlagContextProvider> = (
   );
 };
 
-const Panel_Story: ComponentStory<typeof Panel> = (args) => {
+const Panel_Story: StoryFn<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -181,7 +182,7 @@ const Panel_Story: ComponentStory<typeof Panel> = (args) => {
   );
 };
 
-const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
+const Stacked_Story: StoryFn<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<Record<string, boolean>>({});
   return (
     <>
@@ -251,7 +252,7 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
   );
 };
 
-const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
+const Panel_Header_Story: StoryFn<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -316,9 +317,10 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
   );
 };
 
-const Panel_With_Dropdown_Story: ComponentStory<typeof Panel> = (args) => {
+const Panel_With_Dropdown_Story: StoryFn<typeof Panel> = (args) => {
   const [visible, setVisible] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<string>('Select an option');
+  const [selectedOption, setSelectedOption] =
+    useState<string>('Select an option');
 
   const menuItems = [
     { text: 'Option 1', value: 'option1', type: MenuItemType.button },
@@ -358,17 +360,36 @@ const Panel_With_Dropdown_Story: ComponentStory<typeof Panel> = (args) => {
         <div style={{ padding: '20px 0' }}>
           <h3>Panel with Dropdown</h3>
           <p>
-            This panel demonstrates keyboard handling with nested components. Try the following:
+            This panel demonstrates keyboard handling with nested components.
+            Try the following:
           </p>
           <ul style={{ marginBottom: '20px' }}>
             <li>Open the dropdown, tooltip, or menu</li>
-            <li>Press <strong>Escape</strong> - it will close nested components first, then the panel</li>
-            <li>Press <strong>Tab</strong> to navigate between elements</li>
+            <li>
+              Press <strong>Escape</strong> - it will close nested components
+              first, then the panel
+            </li>
+            <li>
+              Press <strong>Tab</strong> to navigate between elements
+            </li>
           </ul>
-          
-          <div style={{ marginTop: '20px', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+
+          <div
+            style={{
+              marginTop: '20px',
+              display: 'flex',
+              gap: '20px',
+              flexWrap: 'wrap',
+            }}
+          >
             <div>
-              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
+              <label
+                style={{
+                  display: 'block',
+                  marginBottom: '8px',
+                  fontWeight: 'bold',
+                }}
+              >
                 Dropdown:
               </label>
               <Dropdown
@@ -395,16 +416,36 @@ const Panel_With_Dropdown_Story: ComponentStory<typeof Panel> = (args) => {
           </div>
 
           <div style={{ marginTop: '20px' }}>
-            <p><strong>Selected:</strong> {selectedOption}</p>
+            <p>
+              <strong>Selected:</strong> {selectedOption}
+            </p>
           </div>
 
           <div style={{ marginTop: '20px' }}>
             <p>
-              <strong>Note:</strong> The panel uses <code>canUseDocElement()</code> to safely check for 
-              browser environment and properly handle nested overlays before closing the panel itself.
+              <strong>Note:</strong> The panel uses{' '}
+              <code>canUseDocElement()</code> to safely check for browser
+              environment and properly handle nested overlays before closing the
+              panel itself.
             </p>
           </div>
         </div>
+      </Panel>
+    </>
+  );
+};
+
+const Panel_With_Lazy_Load_Content_Story: StoryFn<typeof Panel> = (args) => {
+  const [visible, setVisible] = useState<boolean>(false);
+  return (
+    <>
+      <Button
+        onClick={() => setVisible(true)}
+        text={'Open panel with feature flag'}
+        variant={ButtonVariant.Primary}
+      />
+      <Panel {...args} visible={visible} onClose={() => setVisible(false)}>
+        <div>Panel lazy load content</div>
       </Panel>
     </>
   );
@@ -420,6 +461,8 @@ export const Top = Panel_Story.bind({});
 export const Header_Actions = Panel_Story.bind({});
 export const Panel_Header = Panel_Header_Story.bind({});
 export const Panel_With_Dropdown = Panel_With_Dropdown_Story.bind({});
+export const Panel_With_Lazy_Load_Content =
+  Panel_With_Lazy_Load_Content_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -435,6 +478,7 @@ export const __namedExportsOrder = [
   'Header_Actions',
   'Panel_Header',
   'Panel_With_Dropdown',
+  'Panel_With_Feature_Flag',
 ];
 
 const panelArgs: Object = {
@@ -599,4 +643,12 @@ Panel_Header.args = {
 
 Panel_With_Dropdown.args = {
   ...panelArgs,
+};
+
+Panel_With_Lazy_Load_Content.args = {
+  ...panelArgs,
+};
+
+Panel_With_Lazy_Load_Content.parameters = {
+  panelLazyLoadContent: true,
 };
