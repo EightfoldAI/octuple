@@ -242,6 +242,12 @@ export interface TooltipProps
    * The Wrapper style.
    */
   wrapperStyle?: React.CSSProperties;
+
+  /**
+   * The props of the Tooltip wrapper.
+   * @default {}
+   */
+  wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export type TooltipRef = {
