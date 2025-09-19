@@ -617,7 +617,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             style={wrapperStyle}
             id={tooltipWrapperId?.current}
             {...wrapperProps}
-            role={wrapperProps.role}
             onClick={(
               event: React.MouseEvent<HTMLDivElement, MouseEvent>
             ): void => {
@@ -674,7 +673,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           style={wrapperStyle}
           ref={reference}
           {...wrapperProps}
-          role={wrapperProps.role}
           {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger] && !gestureType
             ? {
                 [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
