@@ -1,6 +1,6 @@
 import { formatValue } from '../Utils/dateUtil';
 import type { GenerateConfig } from '../Generate';
-import type { NullableDateType, Locale, RangeValue } from '../OcPicker.types';
+import type { NullableDateType, Locale } from '../OcPicker.types';
 
 type UseCellPropsArgs<DateType> = {
   generateConfig: GenerateConfig<DateType>;
@@ -11,7 +11,6 @@ type UseCellPropsArgs<DateType> = {
   ) => boolean;
   today?: NullableDateType<DateType>;
   locale: Locale;
-  rangedValue?: RangeValue<DateType>;
 };
 
 export default function useCellProps<DateType>({
@@ -20,7 +19,6 @@ export default function useCellProps<DateType>({
   isSameCell,
   locale,
   generateConfig,
-  rangedValue,
 }: UseCellPropsArgs<DateType>) {
   function getCellProps(currentDate: DateType) {
     return {
@@ -38,5 +36,5 @@ export default function useCellProps<DateType>({
       isCellFocused: isSameCell(value, currentDate),
     };
   }
-  return rangedValue ? undefined : getCellProps;
+  return getCellProps;
 }

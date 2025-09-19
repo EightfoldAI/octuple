@@ -5,6 +5,7 @@ import {
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../../shared/utilities';
+import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import type {
   EventValue,
@@ -121,6 +122,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     activePickerIndex,
     allowClear,
     allowEmpty,
+    announceArrowKeyNavigation,
     autoComplete = 'off',
     autoFocus,
     bordered = true,
@@ -188,6 +190,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     todayButtonProps,
     todayActive,
     todayText,
+    trapFocus = false,
     value,
     startDateInputAriaLabel = '',
     endDateInputAriaLabel = '',
@@ -667,15 +670,18 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       onKeyDown?.(e, preventDefault);
     },
     changeOnBlur,
+    trapFocus,
   };
 
-  const [startInputProps, { focused: startFocused, typing: startTyping }] =
-    usePickerInput({
-      ...getSharedInputHookProps(0, resetStartText),
-      open: startOpen,
-      value: startText,
-      ...sharedPickerInput,
-    });
+  const [
+    startInputProps,
+    { focused: startFocused, typing: startTyping, trap, setTrap },
+  ] = usePickerInput({
+    ...getSharedInputHookProps(0, resetStartText),
+    open: startOpen,
+    value: startText,
+    ...sharedPickerInput,
+  });
 
   const [endInputProps, { focused: endFocused, typing: endTyping }] =
     usePickerInput({
@@ -831,15 +837,17 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         });
     }
 
-    return (
-      <RangeContext.Provider
-        value={{
-          inRange: true,
-          partialPosition,
-          rangedValue: rangeHoverValue || selectedValue,
-          hoverRangedValue: partialHoverRangedValue,
-        }}
-      >
+    const navigationAnnouncement = announceArrowKeyNavigation ? (
+      <div className={styles.srOnly} aria-live="polite" aria-atomic="true">
+        {announceArrowKeyNavigation === true
+          ? locale?.arrowKeyNavigationText
+          : announceArrowKeyNavigation}
+      </div>
+    ) : null;
+
+    const partialContent = (
+      <>
+        {navigationAnnouncement}
         <OcPickerPartial<DateType>
           {...(props as any)}
           {...partialProps}
@@ -917,6 +925,42 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           }
           size={size}
         />
+      </>
+    );
+
+    const partial: JSX.Element = trapFocus ? (
+      <FocusTrap
+        data-testid="picker-dialog"
+        role="dialog"
+        aria-modal="true"
+        id="dp-dialog-1"
+        trap={trap}
+        onMouseDown={(e) => {
+          e.preventDefault();
+        }}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            triggerOpen(false, mergedActivePickerIndex, 'cancel');
+            setTrap(false);
+          }
+        }}
+      >
+        {partialContent}
+      </FocusTrap>
+    ) : (
+      partialContent
+    );
+
+    return (
+      <RangeContext.Provider
+        value={{
+          inRange: true,
+          partialPosition,
+          rangedValue: rangeHoverValue || selectedValue,
+          hoverRangedValue: partialHoverRangedValue,
+        }}
+      >
+        {partial}
       </RangeContext.Provider>
     );
   }
@@ -1229,11 +1273,13 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       value={{
         operationRef,
         hideHeader: picker === 'time',
+        partialRef: partialDivRef,
         onDateMouseEnter,
         onDateMouseLeave,
         hideRanges: true,
         onSelect: onContextSelect,
         open: mergedOpen,
+        trapFocus: trapFocus && trap,
       }}
     >
       <OcPickerTrigger

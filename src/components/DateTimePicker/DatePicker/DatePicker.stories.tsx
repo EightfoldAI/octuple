@@ -557,7 +557,9 @@ const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
-const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (args) => {
+const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (
+  args
+) => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -569,20 +571,19 @@ const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (arg
           <h3>Default Announcement (uses locale text)</h3>
           <p>Opens with "Use arrow keys to navigate dates" announcement</p>
           <Stack direction="vertical" flexGap="m">
-
             <DatePicker
-            {...args}
-            onChange={onChange}
-            announceArrowKeyNavigation={true}
-            placeholder="Click to open with announcement"
-          />
-          <DatePicker.RangePicker
-            onChange={(values, formatString) => {
-              console.log(values, formatString);
-            }}
-            trapFocus
-            announceArrowKeyNavigation
-          />
+              {...args}
+              onChange={onChange}
+              announceArrowKeyNavigation
+              placeholder="Click to open with announcement"
+            />
+            <DatePicker.RangePicker
+              onChange={(values, formatString) => {
+                console.log(values, formatString);
+              }}
+              trapFocus
+              announceArrowKeyNavigation
+            />
           </Stack>
         </div>
 
@@ -592,14 +593,17 @@ const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (arg
           <DatePicker
             {...args}
             onChange={onChange}
-            announceArrowKeyNavigation="Navigate this calendar using your arrow keys for accessibility"
+            announceArrowKeyNavigation="Navigate this calendar using your arrow keys"
             placeholder="Click to open with custom announcement"
           />
         </div>
 
         <div>
           <h3>Focus Trap + Announcement (Coordinated)</h3>
-          <p>Announces navigation first, then automatically moves focus to calendar after 1 second</p>
+          <p>
+            Announces navigation first, then automatically moves focus to
+            calendar after 1 second
+          </p>
           <DatePicker
             {...args}
             onChange={onChange}
@@ -630,15 +634,26 @@ const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (arg
           />
         </div>
 
-        <div style={{ backgroundColor: '#f5f5f5', padding: '16px', borderRadius: '4px' }}>
+        <div
+          style={{
+            backgroundColor: '#f5f5f5',
+            padding: '16px',
+            borderRadius: '4px',
+          }}
+        >
           <h4>Screen Reader Instructions:</h4>
           <p>
             To test this feature with a screen reader:
             <br />• Enable your screen reader (NVDA, JAWS, VoiceOver, etc.)
-            <br />• <strong>Coordinated example:</strong> Click "announcement → auto focus shift" - hear announcement, then focus moves to calendar after 1 second
-            <br />• <strong>Immediate example:</strong> Click "immediate focus shift" - focus moves to calendar immediately
-            <br />• <strong>Keyboard navigation:</strong> Use TAB/Shift+TAB to cycle within the trapped focus area
-            <br />• <strong>Exit:</strong> Press ESC or click outside to return focus to input and close picker
+            <br />• <strong>Coordinated example:</strong> Click "announcement →
+            auto focus shift" - hear announcement, then focus moves to calendar
+            after 1 second
+            <br />• <strong>Immediate example:</strong> Click "immediate focus
+            shift" - focus moves to calendar immediately
+            <br />• <strong>Keyboard navigation:</strong> Use TAB/Shift+TAB to
+            cycle within the trapped focus area
+            <br />• <strong>Exit:</strong> Press ESC or click outside to return
+            focus to input and close picker
           </p>
         </div>
       </Stack>
@@ -681,7 +696,9 @@ export const Single_Borderless = Single_Borderless_Story.bind({});
 export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
-export const Accessibility_Announcement = Accessibility_Announcement_Story.bind({});
+export const Accessibility_Announcement = Accessibility_Announcement_Story.bind(
+  {}
+);
 export const Range_Picker_With_Aria_Labels =
   Range_Picker_With_Aria_Labels_Story.bind({});
 
