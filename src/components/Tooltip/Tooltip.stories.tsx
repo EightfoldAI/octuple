@@ -121,6 +121,9 @@ export default {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
+    wrapperProps: {
+      control: { type: 'object' },
+    },
   },
 } as ComponentMeta<typeof Tooltip>;
 
