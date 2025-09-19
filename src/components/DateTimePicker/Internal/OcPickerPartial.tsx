@@ -238,7 +238,6 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
       }
       return partialRef.current?.onKeyDown(e);
     }
-
     return null;
   };
 

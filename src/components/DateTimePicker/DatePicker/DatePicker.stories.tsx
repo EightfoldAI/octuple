@@ -568,12 +568,22 @@ const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (arg
         <div>
           <h3>Default Announcement (uses locale text)</h3>
           <p>Opens with "Use arrow keys to navigate dates" announcement</p>
-          <DatePicker
+          <Stack direction="vertical" flexGap="m">
+
+            <DatePicker
             {...args}
             onChange={onChange}
             announceArrowKeyNavigation={true}
             placeholder="Click to open with announcement"
           />
+          <DatePicker.RangePicker
+            onChange={(values, formatString) => {
+              console.log(values, formatString);
+            }}
+            trapFocus
+            announceArrowKeyNavigation
+          />
+          </Stack>
         </div>
 
         <div>

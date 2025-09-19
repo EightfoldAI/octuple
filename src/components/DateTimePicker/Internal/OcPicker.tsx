@@ -123,8 +123,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     useRef<HTMLDivElement>(null);
   const containerRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
-  const announcementRef: React.MutableRefObject<HTMLDivElement> =
-    useRef<HTMLDivElement>(null);
 
   // Real value
   const [mergedValue, setInnerValue] = useMergedState(null, {
@@ -278,43 +276,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     changeOnBlur,
   });
 
-  // Announce arrow key navigation and coordinate with focus trap when picker opens
-  useEffect(() => {
-    // Only run this effect if announceArrowKeyNavigation is enabled
-    if (!announceArrowKeyNavigation) {
-      return undefined;
-    }
-
-    if (mergedOpen) {
-      // Handle accessibility announcement
-      if (announceArrowKeyNavigation && announcementRef.current) {
-        const message = announceArrowKeyNavigation === true ? locale?.arrowKeyNavigationText : announceArrowKeyNavigation;
-
-        announcementRef.current.textContent = message as string;
-
-        // Clear announcement and optionally activate focus trap after announcement completes
-        const timer = setTimeout(() => {
-          if (announcementRef.current) {
-            announcementRef.current.textContent = '';
-          }
-          // Only activate focus trap if both trapFocus is enabled AND announcement is being used
-          if (trapFocus && announceArrowKeyNavigation) {
-            setTrap(true);
-          }
-        }, 1000);
-
-        return () => clearTimeout(timer);
-      }
-    } else {
-      // Reset trap when picker closes (only if trapFocus was actually being used)
-      if (trapFocus) {
-        setTrap(false);
-      }
-    }
-
-    return undefined;
-  }, [mergedOpen, announceArrowKeyNavigation, locale?.arrowKeyNavigationText, trapFocus, setTrap]);
-
   // Close should sync back with text value
   useEffect((): void => {
     if (!mergedOpen) {
@@ -410,6 +371,16 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     partialNode = partialRender(partialNode);
   }
 
+  const navigationAnnouncement = announceArrowKeyNavigation ? (
+    <div
+      className={styles.srOnly}
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {announceArrowKeyNavigation === true ? locale?.arrowKeyNavigationText : announceArrowKeyNavigation}
+    </div>
+  ) : null;
+
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
@@ -429,14 +400,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       }}
     >
       <>
-        {announceArrowKeyNavigation && (
-          <div
-            ref={announcementRef}
-            className={styles.srOnly}
-            aria-live="polite"
-            aria-atomic="true"
-          />
-        )}
+        {navigationAnnouncement}
         {partialNode}
       </>
     </FocusTrap>
@@ -447,6 +411,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         e.preventDefault();
       }}
     >
+      {navigationAnnouncement}
       {partialNode}
     </div>
   );
