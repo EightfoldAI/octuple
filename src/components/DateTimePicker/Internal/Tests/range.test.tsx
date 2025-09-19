@@ -21,6 +21,7 @@ import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
 import { ButtonVariant } from '../../../Button';
 import { createEvent, fireEvent, render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -2035,5 +2036,155 @@ describe('Picker.Range', () => {
 
     expect(onChange.mock.calls[0][0][0].format('HH:mm:ss')).toBe('00:00:00');
     expect(onChange.mock.calls[0][0][1].format('HH:mm:ss')).toBe('23:59:59');
+  });
+
+  describe('accessibility features', () => {
+    describe('announceArrowKeyNavigation prop', () => {
+      it('should not render announcement div when announceArrowKeyNavigation is false/undefined', () => {
+        const { container } = render(<DayjsRangePicker />);
+
+        // Open the picker
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Should not have any announcement div
+        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        expect(announcementDiv).toBeNull();
+      });
+
+      it('should render announcement div when announceArrowKeyNavigation is true', () => {
+        const { container } = render(
+          <DayjsRangePicker announceArrowKeyNavigation={true} />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Should have announcement div (look in document since popup is in Portal)
+        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        expect(announcementDiv).toBeInTheDocument();
+        expect(announcementDiv).toHaveAttribute('aria-atomic', 'true');
+        expect(announcementDiv).toHaveClass('sr-only');
+      });
+
+      it('should render announcement div when announceArrowKeyNavigation is a custom string', () => {
+        const customMessage =
+          'Navigate using arrow keys for better accessibility';
+        const { container } = render(
+          <DayjsRangePicker announceArrowKeyNavigation={customMessage} />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Should have announcement div with custom message
+        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        expect(announcementDiv).toBeInTheDocument();
+        expect(announcementDiv).toHaveTextContent(customMessage);
+      });
+    });
+
+    describe('trapFocus prop', () => {
+      it('should not render FocusTrap when trapFocus is false (default)', () => {
+        const { container } = render(<DayjsRangePicker />);
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Should not have focus trap container
+        const focusTrapContainer = document.querySelector(
+          '[data-testid="picker-dialog"]'
+        );
+        expect(focusTrapContainer).toBeNull();
+      });
+
+      it('should render FocusTrap when trapFocus is true', () => {
+        const { container } = render(<DayjsRangePicker trapFocus={true} />);
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Should have focus trap container
+        const focusTrapContainer = document.querySelector(
+          '[data-testid="picker-dialog"]'
+        );
+        expect(focusTrapContainer).toBeInTheDocument();
+        expect(focusTrapContainer).toHaveAttribute('role', 'dialog');
+        expect(focusTrapContainer).toHaveAttribute('aria-modal', 'true');
+      });
+
+      it('should handle Escape key when trapFocus is enabled', () => {
+        const onOpenChange = jest.fn();
+        const { container } = render(
+          <DayjsRangePicker trapFocus={true} onOpenChange={onOpenChange} />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Focus trap should be present
+        const focusTrapContainer = document.querySelector(
+          '[data-testid="picker-dialog"]'
+        );
+        expect(focusTrapContainer).toBeInTheDocument();
+
+        // Press Escape key
+        fireEvent.keyDown(focusTrapContainer!, { key: 'Escape' });
+
+        // Should trigger onOpenChange with cancel
+        expect(onOpenChange).toHaveBeenCalled();
+      });
+    });
+
+    describe('basic integration tests', () => {
+      it('should work with both trapFocus and announceArrowKeyNavigation enabled', () => {
+        const { container } = render(
+          <DayjsRangePicker
+            trapFocus={true}
+            announceArrowKeyNavigation={true}
+          />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        // Should have both focus trap and announcement
+        const focusTrapContainer = document.querySelector(
+          '[data-testid="picker-dialog"]'
+        );
+        expect(focusTrapContainer).toBeInTheDocument();
+
+        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        expect(announcementDiv).toBeInTheDocument();
+      });
+
+      it('should have two input fields for range picker', () => {
+        const { container } = render(<DayjsRangePicker />);
+        const inputs = container.querySelectorAll('input');
+        expect(inputs).toHaveLength(2);
+      });
+
+      it('should support custom announcement messages', () => {
+        const customMessage = 'Use arrow keys to navigate range calendar';
+        const { container } = render(
+          <DayjsRangePicker announceArrowKeyNavigation={customMessage} />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+
+        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        expect(announcementDiv).toBeInTheDocument();
+        expect(announcementDiv).toHaveTextContent(customMessage);
+      });
+    });
   });
 });

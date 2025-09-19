@@ -44,6 +44,7 @@ type MergedOcPickerProps<DateType> = {
 function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const {
     allowClear,
+    announceArrowKeyNavigation,
     autoComplete = 'off',
     autoFocus,
     bordered = true,
@@ -370,6 +371,16 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     partialNode = partialRender(partialNode);
   }
 
+  const navigationAnnouncement = announceArrowKeyNavigation ? (
+    <div
+      className={styles.srOnly}
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {announceArrowKeyNavigation === true ? locale?.arrowKeyNavigationText : announceArrowKeyNavigation}
+    </div>
+  ) : null;
+
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
@@ -388,7 +399,10 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         }
       }}
     >
-      {partialNode}
+      <>
+        {navigationAnnouncement}
+        {partialNode}
+      </>
     </FocusTrap>
   ) : (
     <div
@@ -397,6 +411,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         e.preventDefault();
       }}
     >
+      {navigationAnnouncement}
       {partialNode}
     </div>
   );

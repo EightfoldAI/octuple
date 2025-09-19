@@ -76,7 +76,6 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
     isSameCell: (current, target) =>
       isSameDate(generateConfig, current, target) && trapFocus,
     locale,
-    rangedValue: rangedValue,
   });
 
   return (

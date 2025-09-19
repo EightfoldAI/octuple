@@ -1,5 +1,9 @@
 @import '../DatePicker/Styles/mixins';
 
+.sr-only {
+  @include screen-reader-only();
+}
+
 .picker {
   border: var(--picker-border);
   border-radius: $picker-border-radius;
