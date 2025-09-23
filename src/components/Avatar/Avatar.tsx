@@ -256,7 +256,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
       randomiseTheme,
       style,
       theme,
-      tabIndex = 0,
+      tabIndex = -1,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -368,7 +368,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       theme,
       tooltipProps = undefined,
       type = 'square',
-      tabIndex = 0,
+      tabIndex = -1,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -491,7 +491,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
               onMouseLeave={onMouseLeave}
               src={src}
               style={calculatedOutline}
-              tabIndex={0}
+              tabIndex={tabIndex}
               width={size}
             />
             <AvatarStatusItems
