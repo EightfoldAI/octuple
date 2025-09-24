@@ -68,6 +68,7 @@ const emptyArgs: Object = {
   style: {},
   title: 'Short Message Here',
   descriptionClassNames: 'my-description-class',
+  titleClassNames: 'my-title-class',
 };
 
 No_Data.args = {
