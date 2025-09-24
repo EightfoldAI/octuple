@@ -6,7 +6,7 @@ LoadedCheerio {
     "attribs": Object {
       "class": "wrapper-style avatar image-style",
       "style": "width: 40px; height: 40px; min-width: 40px; min-height: 40px; font-size: 18px;",
-      "tabindex": "-1",
+      "tabindex": "0",
     },
     "children": Array [
       Node {
@@ -134,7 +134,7 @@ LoadedCheerio {
     "attribs": Object {
       "class": "wrapper-style avatar image-style round",
       "style": "width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;",
-      "tabindex": "-1",
+      "tabindex": "0",
     },
     "children": Array [
       Node {
@@ -262,7 +262,7 @@ LoadedCheerio {
     "attribs": Object {
       "class": "wrapper-style avatar image-style",
       "style": "width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;",
-      "tabindex": "-1",
+      "tabindex": "0",
     },
     "children": Array [
       Node {
