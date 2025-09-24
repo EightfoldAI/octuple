@@ -155,4 +155,18 @@ describe('Avatar', () => {
     );
     expect(wrapper.children().length).toEqual(1);
   });
+
+  test('Avatar respects custom tabIndex prop', () => {
+    const wrapper = mount(<Avatar tabIndex={-1}>AB</Avatar>);
+    expect(wrapper.find('[tabIndex]').first().prop('tabIndex')).toBe(-1);
+  });
+
+  test('Avatar with image respects custom tabIndex prop', () => {
+    const wrapper = mount(
+      <Avatar src="test.jpg" alt="test" tabIndex={-1}>
+        AB
+      </Avatar>
+    );
+    expect(wrapper.find('img').prop('tabIndex')).toBe(-1);
+  });
 });
