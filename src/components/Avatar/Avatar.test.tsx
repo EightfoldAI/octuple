@@ -155,4 +155,32 @@ describe('Avatar', () => {
     );
     expect(wrapper.children().length).toEqual(1);
   });
+
+  test('Avatar tabIndex defaults to -1', () => {
+    const wrapper = mount(<Avatar>AB</Avatar>);
+    expect(wrapper.find('[tabIndex]').first().prop('tabIndex')).toBe(-1);
+  });
+
+  test('Avatar with image tabIndex defaults to -1', () => {
+    const wrapper = mount(
+      <Avatar src="test.jpg" alt="test">
+        AB
+      </Avatar>
+    );
+    expect(wrapper.find('img').prop('tabIndex')).toBe(-1);
+  });
+
+  test('Avatar respects custom tabIndex prop', () => {
+    const wrapper = mount(<Avatar tabIndex={0}>AB</Avatar>);
+    expect(wrapper.find('[tabIndex]').first().prop('tabIndex')).toBe(0);
+  });
+
+  test('Avatar with image respects custom tabIndex prop', () => {
+    const wrapper = mount(
+      <Avatar src="test.jpg" alt="test" tabIndex={0}>
+        AB
+      </Avatar>
+    );
+    expect(wrapper.find('img').prop('tabIndex')).toBe(0);
+  });
 });
