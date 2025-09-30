@@ -22,6 +22,7 @@ export default function usePickerInput({
   onFocus,
   onBlur,
   changeOnBlur,
+  announceArrowKeyNavigation,
 }: {
   trapFocus?: boolean;
   open: boolean;
@@ -39,6 +40,7 @@ export default function usePickerInput({
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   changeOnBlur?: boolean;
+  announceArrowKeyNavigation?: boolean | string;
 }): [
   React.DOMAttributes<HTMLInputElement>,
   {
@@ -46,11 +48,13 @@ export default function usePickerInput({
     typing: boolean;
     trap: boolean;
     setTrap: (value: boolean) => void;
+    announcing: boolean;
   }
 ] {
   const [typing, setTyping] = useState(false);
   const [focused, setFocused] = useState(false);
   const [trap, setTrap] = useState(false);
+  const [announcing, setAnnouncing] = useState(false);
 
   const isTrapEnabled = trapFocus && trap;
 
@@ -103,7 +107,26 @@ export default function usePickerInput({
         case eventKeys.TAB: {
           if (typing && open && !e.shiftKey) {
             setTyping(false);
-            updateFocusTrap(true);
+
+            // If announcement is enabled, trigger announcement first, then delay focus shift
+            if (announceArrowKeyNavigation) {
+              console.log('[DEBUG] TAB pressed with announcement enabled');
+              // Set announcing flag immediately to trigger announcement
+              setAnnouncing(true);
+              console.log('[DEBUG] announcing set to true');
+
+              // Delay trap by 1500ms to let screen reader read announcement
+              setTimeout(() => {
+                console.log('[DEBUG] 1500ms passed, setting trap=true');
+                setAnnouncing(false);
+                updateFocusTrap(true);
+              }, 1500);
+            } else {
+              console.log('[DEBUG] TAB pressed without announcement');
+              // No announcement, shift focus immediately
+              updateFocusTrap(true);
+            }
+
             e.preventDefault();
           } else if (!typing && open) {
             if (!forwardKeyDown(e) && e.shiftKey) {
@@ -212,5 +235,5 @@ export default function usePickerInput({
     })
   );
 
-  return [inputProps, { focused, typing, trap, setTrap: updateFocusTrap }];
+  return [inputProps, { focused, typing, trap, setTrap: updateFocusTrap, announcing }];
 }

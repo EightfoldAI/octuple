@@ -1,4 +1,5 @@
 export * from './addEventListenerWrapper';
+export * from './announceToScreenReader';
 export * from './canUseDom';
 export * from './conditionalWrapper';
 export * from './contains';

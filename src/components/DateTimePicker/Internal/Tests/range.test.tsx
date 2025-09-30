@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockDate from 'mockdate';
 import { act } from 'react-dom/test-utils';
 import { eventKeys } from '../../../../shared/utilities';
+import { clearAnnouncementRegions } from '../../../../shared/utilities/announceToScreenReader';
 import { spyElementPrototypes } from '../../../../tests/domHook';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
@@ -2039,8 +2040,18 @@ describe('Picker.Range', () => {
   });
 
   describe('accessibility features', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+      // Clean up announcement regions using the utility function
+      clearAnnouncementRegions();
+    });
+
     describe('announceArrowKeyNavigation prop', () => {
-      it('should not render announcement div when announceArrowKeyNavigation is false/undefined', () => {
+      it('should not create announcement region when announceArrowKeyNavigation is false/undefined', () => {
         const { container } = render(<DayjsRangePicker />);
 
         // Open the picker
@@ -2048,12 +2059,12 @@ describe('Picker.Range', () => {
         fireEvent.mouseDown(input);
         fireEvent.click(input);
 
-        // Should not have any announcement div
-        const announcementDiv = document.querySelector('[aria-live="polite"]');
-        expect(announcementDiv).toBeNull();
+        // Should not have any announcement region
+        const announcementRegions = document.querySelectorAll('[aria-live]');
+        expect(announcementRegions).toHaveLength(0);
       });
 
-      it('should render announcement div when announceArrowKeyNavigation is true', () => {
+      it('should create NVDA-optimized announcement region when announceArrowKeyNavigation is true', async () => {
         const { container } = render(
           <DayjsRangePicker announceArrowKeyNavigation={true} />
         );
@@ -2062,14 +2073,20 @@ describe('Picker.Range', () => {
         fireEvent.mouseDown(input);
         fireEvent.click(input);
 
-        // Should have announcement div (look in document since popup is in Portal)
-        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        // Wait for announcement utility to create region and populate content
+        await act(async () => {
+          jest.advanceTimersByTime(200); // Wait for 150ms delay + buffer
+        });
+
+        // Should have NVDA-optimized announcement region with assertive priority
+        const announcementDiv = document.querySelector('[aria-live="assertive"]');
         expect(announcementDiv).toBeInTheDocument();
         expect(announcementDiv).toHaveAttribute('aria-atomic', 'true');
-        expect(announcementDiv).toHaveClass('sr-only');
+        expect(announcementDiv).toHaveAttribute('role', 'status');
+        expect(announcementDiv).toHaveAttribute('aria-relevant', 'additions text');
       });
 
-      it('should render announcement div when announceArrowKeyNavigation is a custom string', () => {
+      it('should create announcement region with custom message', async () => {
         const customMessage =
           'Navigate using arrow keys for better accessibility';
         const { container } = render(
@@ -2080,10 +2097,15 @@ describe('Picker.Range', () => {
         fireEvent.mouseDown(input);
         fireEvent.click(input);
 
-        // Should have announcement div with custom message
-        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        // Wait for announcement utility to create region and populate content
+        await act(async () => {
+          jest.advanceTimersByTime(200);
+        });
+
+        // Should have announcement region with custom message
+        const announcementDiv = document.querySelector('[aria-live="assertive"]');
         expect(announcementDiv).toBeInTheDocument();
-        expect(announcementDiv).toHaveTextContent(customMessage);
+        expect(announcementDiv?.textContent).toBe(customMessage);
       });
     });
 
@@ -2143,7 +2165,7 @@ describe('Picker.Range', () => {
     });
 
     describe('basic integration tests', () => {
-      it('should work with both trapFocus and announceArrowKeyNavigation enabled', () => {
+      it('should work with both trapFocus and announceArrowKeyNavigation enabled', async () => {
         const { container } = render(
           <DayjsRangePicker
             trapFocus={true}
@@ -2155,13 +2177,18 @@ describe('Picker.Range', () => {
         fireEvent.mouseDown(input);
         fireEvent.click(input);
 
-        // Should have both focus trap and announcement
+        // Wait for announcement utility to create region
+        await act(async () => {
+          jest.advanceTimersByTime(200);
+        });
+
+        // Should have both focus trap and NVDA-optimized announcement
         const focusTrapContainer = document.querySelector(
           '[data-testid="picker-dialog"]'
         );
         expect(focusTrapContainer).toBeInTheDocument();
 
-        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        const announcementDiv = document.querySelector('[aria-live="assertive"]');
         expect(announcementDiv).toBeInTheDocument();
       });
 
@@ -2171,7 +2198,7 @@ describe('Picker.Range', () => {
         expect(inputs).toHaveLength(2);
       });
 
-      it('should support custom announcement messages', () => {
+      it('should support custom announcement messages', async () => {
         const customMessage = 'Use arrow keys to navigate range calendar';
         const { container } = render(
           <DayjsRangePicker announceArrowKeyNavigation={customMessage} />
@@ -2181,9 +2208,14 @@ describe('Picker.Range', () => {
         fireEvent.mouseDown(input);
         fireEvent.click(input);
 
-        const announcementDiv = document.querySelector('[aria-live="polite"]');
+        // Wait for announcement utility to create region and populate content
+        await act(async () => {
+          jest.advanceTimersByTime(200);
+        });
+
+        const announcementDiv = document.querySelector('[aria-live="assertive"]');
         expect(announcementDiv).toBeInTheDocument();
-        expect(announcementDiv).toHaveTextContent(customMessage);
+        expect(announcementDiv?.textContent).toBe(customMessage);
       });
     });
   });

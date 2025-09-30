@@ -12,7 +12,7 @@ import {
   OcPickerRefConfig,
   OcPickerTimeProps,
 } from './OcPicker.types';
-import { mergeClasses } from '../../../shared/utilities';
+import { mergeClasses, announceToScreenReader } from '../../../shared/utilities';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import OcPickerPartial from './OcPickerPartial';
@@ -233,7 +233,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     onBlur?.(e);
   };
 
-  const [inputProps, { focused, typing, trap, setTrap }] = usePickerInput({
+  const [inputProps, { focused, typing, trap, setTrap, announcing }] = usePickerInput({
     trapFocus,
     blurToCancel: needConfirmButton,
     open: mergedOpen,
@@ -245,6 +245,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         [partialDivRef.current, inputDivRef.current, containerRef.current],
         target as HTMLElement
       ),
+    announceArrowKeyNavigation,
     onSubmit: (): boolean | void => {
       if (
         // When user typing disabledDate with keyboard and enter, this value will be empty
@@ -301,6 +302,23 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     // Sync select value
     setSelectedValue(mergedValue);
   }, [mergedValue]);
+
+  // Announce arrow key navigation when user presses TAB (NVDA-optimized)
+  useEffect((): void => {
+    console.log('[DEBUG OcPicker] useEffect triggered - announcing:', announcing, 'announceArrowKeyNavigation:', announceArrowKeyNavigation);
+    if (announcing && announceArrowKeyNavigation) {
+      const message = announceArrowKeyNavigation === true
+        ? locale?.arrowKeyNavigationText || 'Use arrow keys to navigate the calendar'
+        : announceArrowKeyNavigation;
+
+      console.log('[DEBUG OcPicker] Making announcement:', message);
+      announceToScreenReader({
+        message,
+        priority: 'assertive', // Better NVDA support
+        delay: 50, // Announce immediately when announcing flag is set
+      });
+    }
+  }, [announcing, announceArrowKeyNavigation, locale?.arrowKeyNavigationText]);
 
   if (pickerRef) {
     pickerRef.current = {
@@ -371,15 +389,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     partialNode = partialRender(partialNode);
   }
 
-  const navigationAnnouncement = announceArrowKeyNavigation ? (
-    <div
-      className={styles.srOnly}
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      {announceArrowKeyNavigation === true ? locale?.arrowKeyNavigationText : announceArrowKeyNavigation}
-    </div>
-  ) : null;
 
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
@@ -399,10 +408,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         }
       }}
     >
-      <>
-        {navigationAnnouncement}
-        {partialNode}
-      </>
+      {partialNode}
     </FocusTrap>
   ) : (
     <div
@@ -411,7 +417,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         e.preventDefault();
       }}
     >
-      {navigationAnnouncement}
       {partialNode}
     </div>
   );

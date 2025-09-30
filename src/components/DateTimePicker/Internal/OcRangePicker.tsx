@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import {
   mergeClasses,
   requestAnimationFrameWrapper,
+  announceToScreenReader,
 } from '../../../shared/utilities';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
@@ -675,12 +676,13 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   const [
     startInputProps,
-    { focused: startFocused, typing: startTyping, trap, setTrap },
+    { focused: startFocused, typing: startTyping, trap, setTrap, announcing },
   ] = usePickerInput({
     ...getSharedInputHookProps(0, resetStartText),
     open: startOpen,
     value: startText,
     ...sharedPickerInput,
+    announceArrowKeyNavigation,
   });
 
   const [endInputProps, { focused: endFocused, typing: endTyping }] =
@@ -763,6 +765,23 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     setSelectedValue(mergedValue);
   }, [startStr, endStr]);
 
+  // Announce arrow key navigation when user presses TAB (NVDA-optimized)
+  useEffect((): void => {
+    console.log('[DEBUG OcRangePicker] useEffect triggered - announcing:', announcing, 'announceArrowKeyNavigation:', announceArrowKeyNavigation);
+    if (announcing && announceArrowKeyNavigation) {
+      const message = announceArrowKeyNavigation === true
+        ? locale?.arrowKeyNavigationText || 'Use arrow keys to navigate the calendar'
+        : announceArrowKeyNavigation;
+
+      console.log('[DEBUG OcRangePicker] Making announcement:', message);
+      announceToScreenReader({
+        message,
+        priority: 'assertive', // Better NVDA support
+        delay: 50, // Announce immediately when announcing flag is set
+      });
+    }
+  }, [announcing, announceArrowKeyNavigation, locale?.arrowKeyNavigationText]);
+
   if (pickerRef) {
     pickerRef.current = {
       focus: (): void => {
@@ -837,17 +856,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         });
     }
 
-    const navigationAnnouncement = announceArrowKeyNavigation ? (
-      <div className={styles.srOnly} aria-live="polite" aria-atomic="true">
-        {announceArrowKeyNavigation === true
-          ? locale?.arrowKeyNavigationText
-          : announceArrowKeyNavigation}
-      </div>
-    ) : null;
-
     const partialContent = (
       <>
-        {navigationAnnouncement}
         <OcPickerPartial<DateType>
           {...(props as any)}
           {...partialProps}
