@@ -27,7 +27,7 @@ export interface AnnouncementOptions {
 
 interface AnnouncementRegion {
   element: HTMLElement;
-  timeoutId?: number;
+  timeoutId?: NodeJS.Timeout;
 }
 
 // Global announcement regions for reuse
