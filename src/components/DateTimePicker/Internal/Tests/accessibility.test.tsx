@@ -51,12 +51,15 @@ describe('DatePicker Accessibility Announcements', () => {
 
     test('should create announcement region when announceArrowKeyNavigation is true', async () => {
       const { container } = render(
-        <DayjsPicker announceArrowKeyNavigation={true} />
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement utility to create region and populate content
       await act(async () => {
@@ -74,12 +77,15 @@ describe('DatePicker Accessibility Announcements', () => {
     test('should create announcement region with custom message', async () => {
       const customMessage = 'Navigate using arrow keys for better accessibility';
       const { container } = render(
-        <DayjsPicker announceArrowKeyNavigation={customMessage} />
+        <DayjsPicker announceArrowKeyNavigation={customMessage} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement utility to create region and populate content
       await act(async () => {
@@ -96,12 +102,15 @@ describe('DatePicker Accessibility Announcements', () => {
   describe('NVDA-optimized announcement content and timing', () => {
     test('should announce default locale text with NVDA-optimized attributes', async () => {
       const { container } = render(
-        <DayjsPicker announceArrowKeyNavigation={true} />
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement utility to create and populate region
       await act(async () => {
@@ -120,12 +129,15 @@ describe('DatePicker Accessibility Announcements', () => {
     test('should announce custom message with NVDA optimizations', async () => {
       const customMessage = 'Custom navigation instructions for screen readers';
       const { container } = render(
-        <DayjsPicker announceArrowKeyNavigation={customMessage} />
+        <DayjsPicker announceArrowKeyNavigation={customMessage} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement utility to create and populate region
       await act(async () => {
@@ -143,12 +155,15 @@ describe('DatePicker Accessibility Announcements', () => {
 
     test('should handle NVDA-optimized timing and cleanup', async () => {
       const { container } = render(
-        <DayjsPicker announceArrowKeyNavigation={true} />
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement with NVDA-optimized delay
       await act(async () => {
@@ -159,10 +174,10 @@ describe('DatePicker Accessibility Announcements', () => {
       const announcementDiv = document.querySelector('[aria-live="assertive"]') as HTMLElement;
       expect(announcementDiv).toBeInTheDocument();
 
-      // Should not throw errors when timer executes
+      // Should not throw errors when timer executes (including the 1500ms trap delay)
       expect(() => {
         act(() => {
-          jest.advanceTimersByTime(1000);
+          jest.advanceTimersByTime(2000);
         });
       }).not.toThrow();
     });
@@ -189,6 +204,9 @@ describe('DatePicker Accessibility Announcements', () => {
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement with NVDA-optimized delay
       await act(async () => {
@@ -227,12 +245,15 @@ describe('DatePicker Accessibility Announcements', () => {
   describe('NVDA-optimized cleanup and edge cases', () => {
     test('should cleanup announcement utility when component unmounts', async () => {
       const { container, unmount } = render(
-        <DayjsPicker announceArrowKeyNavigation={true} />
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement utility to create region
       await act(async () => {
@@ -242,13 +263,13 @@ describe('DatePicker Accessibility Announcements', () => {
       // Should have announcement region
       expect(document.querySelector('[aria-live="assertive"]')).toBeInTheDocument();
 
-      // Unmount before any pending timers complete
+      // Unmount before any pending timers complete (before the 1500ms trap delay)
       unmount();
 
       // Should not throw any errors when timers execute
       expect(() => {
         act(() => {
-          jest.advanceTimersByTime(1000);
+          jest.advanceTimersByTime(2000);
         });
       }).not.toThrow();
     });
@@ -284,12 +305,15 @@ describe('DatePicker Accessibility Announcements', () => {
   describe('NVDA-optimized accessibility attributes', () => {
     test('should have correct ARIA attributes for NVDA compatibility', async () => {
       const { container } = render(
-        <DayjsPicker announceArrowKeyNavigation={true} />
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
       );
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
+
+      // Simulate TAB key press to trigger announcement
+      fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
       // Wait for announcement region to be created and populated
       await act(async () => {

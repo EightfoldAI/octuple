@@ -2066,12 +2066,15 @@ describe('Picker.Range', () => {
 
       it('should create NVDA-optimized announcement region when announceArrowKeyNavigation is true', async () => {
         const { container } = render(
-          <DayjsRangePicker announceArrowKeyNavigation={true} />
+          <DayjsRangePicker announceArrowKeyNavigation={true} trapFocus={true} />
         );
 
         const input = container.querySelector('input')!;
         fireEvent.mouseDown(input);
         fireEvent.click(input);
+
+        // Simulate TAB key press to trigger announcement
+        fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
         // Wait for announcement utility to create region and populate content
         await act(async () => {
@@ -2090,12 +2093,15 @@ describe('Picker.Range', () => {
         const customMessage =
           'Navigate using arrow keys for better accessibility';
         const { container } = render(
-          <DayjsRangePicker announceArrowKeyNavigation={customMessage} />
+          <DayjsRangePicker announceArrowKeyNavigation={customMessage} trapFocus={true} />
         );
 
         const input = container.querySelector('input')!;
         fireEvent.mouseDown(input);
         fireEvent.click(input);
+
+        // Simulate TAB key press to trigger announcement
+        fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
         // Wait for announcement utility to create region and populate content
         await act(async () => {
@@ -2177,6 +2183,9 @@ describe('Picker.Range', () => {
         fireEvent.mouseDown(input);
         fireEvent.click(input);
 
+        // Simulate TAB key press to trigger announcement
+        fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
+
         // Wait for announcement utility to create region
         await act(async () => {
           jest.advanceTimersByTime(200);
@@ -2201,12 +2210,15 @@ describe('Picker.Range', () => {
       it('should support custom announcement messages', async () => {
         const customMessage = 'Use arrow keys to navigate range calendar';
         const { container } = render(
-          <DayjsRangePicker announceArrowKeyNavigation={customMessage} />
+          <DayjsRangePicker announceArrowKeyNavigation={customMessage} trapFocus={true} />
         );
 
         const input = container.querySelector('input')!;
         fireEvent.mouseDown(input);
         fireEvent.click(input);
+
+        // Simulate TAB key press to trigger announcement
+        fireEvent.keyDown(input, { key: 'Tab', code: 'Tab', keyCode: 9 });
 
         // Wait for announcement utility to create region and populate content
         await act(async () => {
