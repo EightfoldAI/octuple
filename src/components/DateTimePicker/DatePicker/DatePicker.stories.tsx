@@ -582,7 +582,7 @@ const Accessibility_Announcement_Story: ComponentStory<typeof DatePicker> = (
                 console.log(values, formatString);
               }}
               trapFocus
-              announceArrowKeyNavigation
+              announceArrowKeyNavigation={true}
             />
           </Stack>
         </div>
