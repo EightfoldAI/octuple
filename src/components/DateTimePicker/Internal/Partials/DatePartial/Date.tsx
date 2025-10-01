@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { DatePartialProps } from './Date.types';
 import { mergeClasses } from '../../../../../shared/utilities';
 import DateBody from './DateBody';
@@ -24,6 +24,10 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
     size = DatePickerSize.Medium,
     value,
     viewDate,
+    visible,
+    trap,
+    announceArrowKeyNavigation,
+    locale,
   } = props;
 
   operationRef.current = {
@@ -59,6 +63,22 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
     onPartialChange(null, newDate);
   };
 
+  const announcementRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (announcementRef.current) {
+      if (trap && visible && announceArrowKeyNavigation) {
+        announcementRef.current.textContent =
+          announceArrowKeyNavigation === true
+            ? locale?.arrowKeyNavigationText
+            : announceArrowKeyNavigation;
+      } else {
+        announcementRef.current.textContent = '';
+      }
+    }
+  }, [trap]);
+
   return (
     <div
       className={mergeClasses([
@@ -66,6 +86,11 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
         { [styles.pickerDatePartialActive]: active },
       ])}
     >
+      <div
+        ref={announcementRef}
+        className={styles.srOnly}
+        aria-live="polite"
+      ></div>
       <DateHeader
         {...props}
         value={value}
