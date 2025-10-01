@@ -262,6 +262,122 @@ describe('DatePicker Accessibility Announcements', () => {
     });
   });
 
+  describe('announcement content verification', () => {
+    test('should populate default locale text when trap is activated', () => {
+      const { container } = render(
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should have content
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      expect(announcementDiv).toBeInTheDocument();
+      expect(announcementDiv.textContent).toBeTruthy();
+      expect(announcementDiv.textContent).toContain('arrow');
+    });
+
+    test('should populate custom message when trap is activated', () => {
+      const customMessage = 'Custom navigation instructions for screen readers';
+      const { container } = render(
+        <DayjsPicker
+          announceArrowKeyNavigation={customMessage}
+          trapFocus={true}
+        />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should have custom message
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      expect(announcementDiv).toBeInTheDocument();
+      expect(announcementDiv.textContent).toBe(customMessage);
+    });
+
+    test('should clear content when trap is deactivated', () => {
+      const { container } = render(
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      expect(announcementDiv.textContent).toBeTruthy();
+
+      // Deactivate trap by pressing Escape
+      fireEvent.keyDown(input, { key: 'Escape' });
+
+      // Content should be cleared
+      expect(announcementDiv.textContent).toBe('');
+    });
+
+    test('should not populate content without trapFocus enabled', () => {
+      const { container } = render(
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={false} />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Try to trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should remain empty since trapFocus is false
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
+    });
+
+    test('should not populate content when announceArrowKeyNavigation is not provided', () => {
+      const { container } = render(<DayjsPicker trapFocus={true} />);
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should remain empty
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
+    });
+  });
+
   describe('integration with existing DatePicker functionality', () => {
     test('should not interfere with normal picker operation', () => {
       const onChange = jest.fn();

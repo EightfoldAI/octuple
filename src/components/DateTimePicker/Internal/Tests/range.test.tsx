@@ -2185,5 +2185,148 @@ describe('Picker.Range', () => {
         expect(announcementDiv).toBeInTheDocument();
       });
     });
+
+    describe('announcement content verification', () => {
+      it('should populate default locale text when trap is activated in range picker', () => {
+        const { container } = render(
+          <DayjsRangePicker
+            announceArrowKeyNavigation={true}
+            trapFocus={true}
+          />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+        fireEvent.focus(input);
+
+        // Trigger trap by pressing Tab key
+        fireEvent.keyDown(input, { key: 'Tab' });
+
+        // Range picker may have multiple announcement divs (one per panel)
+        const announcementDivs = document.querySelectorAll(
+          '[aria-live="polite"]'
+        );
+        expect(announcementDivs.length).toBeGreaterThan(0);
+
+        // At least one should have content with 'arrow'
+        const hasArrowContent = Array.from(announcementDivs).some(
+          (div) => div.textContent && div.textContent.includes('arrow')
+        );
+        expect(hasArrowContent).toBe(true);
+      });
+
+      it('should populate custom message in range picker when trap is activated', () => {
+        const customMessage =
+          'Use arrow keys to navigate the range calendar picker';
+        const { container } = render(
+          <DayjsRangePicker
+            announceArrowKeyNavigation={customMessage}
+            trapFocus={true}
+          />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+        fireEvent.focus(input);
+
+        // Trigger trap by pressing Tab key
+        fireEvent.keyDown(input, { key: 'Tab' });
+
+        // Range picker may have multiple announcement divs
+        const announcementDivs = document.querySelectorAll(
+          '[aria-live="polite"]'
+        );
+        expect(announcementDivs.length).toBeGreaterThan(0);
+
+        // At least one should have the custom message
+        const hasCustomMessage = Array.from(announcementDivs).some(
+          (div) => div.textContent === customMessage
+        );
+        expect(hasCustomMessage).toBe(true);
+      });
+
+      it('should clear content when range picker trap is deactivated', () => {
+        const { container } = render(
+          <DayjsRangePicker
+            announceArrowKeyNavigation={true}
+            trapFocus={true}
+          />
+        );
+
+        const input = container.querySelector('input')!;
+        fireEvent.mouseDown(input);
+        fireEvent.click(input);
+        fireEvent.focus(input);
+
+        // Trigger trap by pressing Tab key
+        fireEvent.keyDown(input, { key: 'Tab' });
+
+        const announcementDivs = document.querySelectorAll(
+          '[aria-live="polite"]'
+        );
+
+        // Verify at least one has content initially
+        const hasContent = Array.from(announcementDivs).some(
+          (div) => div.textContent && div.textContent.length > 0
+        );
+        expect(hasContent).toBe(true);
+
+        // Deactivate trap by pressing Escape
+        fireEvent.keyDown(input, { key: 'Escape' });
+
+        // All announcement divs should be cleared
+        const allCleared = Array.from(announcementDivs).every(
+          (div) => div.textContent === ''
+        );
+        expect(allCleared).toBe(true);
+      });
+
+      it('should handle announcements for both start and end inputs in range picker', () => {
+        const customMessage = 'Range picker navigation';
+        const { container } = render(
+          <DayjsRangePicker
+            announceArrowKeyNavigation={customMessage}
+            trapFocus={true}
+          />
+        );
+
+        const inputs = container.querySelectorAll('input');
+        expect(inputs).toHaveLength(2);
+
+        // Test first input
+        fireEvent.mouseDown(inputs[0]);
+        fireEvent.click(inputs[0]);
+        fireEvent.focus(inputs[0]);
+        fireEvent.keyDown(inputs[0], { key: 'Tab' });
+
+        let announcementDivs = document.querySelectorAll(
+          '[aria-live="polite"]'
+        );
+        expect(announcementDivs.length).toBeGreaterThan(0);
+
+        // At least one should have custom message
+        let hasMessage = Array.from(announcementDivs).some(
+          (div) => div.textContent === customMessage
+        );
+        expect(hasMessage).toBe(true);
+
+        // Close picker
+        fireEvent.keyDown(inputs[0], { key: 'Escape' });
+
+        // Test second input
+        fireEvent.mouseDown(inputs[1]);
+        fireEvent.click(inputs[1]);
+        fireEvent.focus(inputs[1]);
+        fireEvent.keyDown(inputs[1], { key: 'Tab' });
+
+        announcementDivs = document.querySelectorAll('[aria-live="polite"]');
+        hasMessage = Array.from(announcementDivs).some(
+          (div) => div.textContent === customMessage
+        );
+        expect(hasMessage).toBe(true);
+      });
+    });
   });
 });
