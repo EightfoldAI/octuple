@@ -32,6 +32,7 @@ const locale: Locale = {
   nextAriaLabel: 'Следваща година',
   superPrevAriaLabel: 'Предишна година',
   superNextAriaLabel: 'Следваща година',
+  arrowKeyNavigationText: 'Използвайте стрелки за навигация в календар',
 };
 
 export default locale;

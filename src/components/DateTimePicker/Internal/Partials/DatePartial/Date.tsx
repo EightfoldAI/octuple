@@ -77,7 +77,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
         announcementRef.current.textContent = '';
       }
     }
-  }, [trap]);
+  }, [trap, visible, announceArrowKeyNavigation]);
 
   return (
     <div

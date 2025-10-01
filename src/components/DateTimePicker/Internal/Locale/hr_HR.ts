@@ -34,6 +34,8 @@ const locale: Locale = {
   nextAriaLabel: 'Sljedeća godina',
   superPrevAriaLabel: 'Prethodna godina',
   superNextAriaLabel: 'Sljedeća godina',
+  arrowKeyNavigationText:
+    'Koristite tipke sa strelicama za navigaciju po kalendaru',
 };
 
 export default locale;

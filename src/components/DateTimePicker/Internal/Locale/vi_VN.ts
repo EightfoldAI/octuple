@@ -32,6 +32,7 @@ const locale: Locale = {
   nextAriaLabel: 'Năm sau',
   superPrevAriaLabel: 'Năm trước',
   superNextAriaLabel: 'Năm sau',
+  arrowKeyNavigationText: 'Sử dụng phím mũi tên để điều hướng lịch',
 };
 
 export default locale;

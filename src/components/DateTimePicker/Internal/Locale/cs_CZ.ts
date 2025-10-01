@@ -33,6 +33,7 @@ const locale: Locale = {
   nextAriaLabel: 'Následující rok',
   superPrevAriaLabel: 'Předchozí rok',
   superNextAriaLabel: 'Následující rok',
+  arrowKeyNavigationText: 'Použijte šipky pro navigaci v kalendáři',
 };
 
 export default locale;

@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: 'Következő év',
   superPrevAriaLabel: 'Előző év',
   superNextAriaLabel: 'Következő év',
+  arrowKeyNavigationText:
+    'Használja a nyílbillentyűket a naptárban való navigáláshoz',
 };
 
 export default locale;

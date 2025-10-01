@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: 'Próximo ano',
   superPrevAriaLabel: 'Ano anterior',
   superNextAriaLabel: 'Próximo ano',
+  arrowKeyNavigationText:
+    'Gebruik de pijltjestoetsen om door de kalender te navigeren',
 };
 
 export default locale;
