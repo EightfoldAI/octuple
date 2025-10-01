@@ -32,7 +32,7 @@ describe('DatePicker Accessibility Announcements', () => {
     jest.useRealTimers();
     // Clean up any announcement divs
     const announcements = document.querySelectorAll('[aria-live="polite"]');
-    announcements.forEach(el => el.remove());
+    announcements.forEach((el) => el.remove());
   });
 
   describe('announceArrowKeyNavigation prop', () => {
@@ -44,9 +44,11 @@ describe('DatePicker Accessibility Announcements', () => {
       fireEvent.mouseDown(input);
       fireEvent.click(input);
 
-      // Should not have any announcement div
+      // Announcement div may exist but should be empty
       const announcementDiv = document.querySelector('[aria-live="polite"]');
-      expect(announcementDiv).toBeNull();
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
     });
 
     test('should render announcement div when announceArrowKeyNavigation is true', () => {
@@ -61,12 +63,12 @@ describe('DatePicker Accessibility Announcements', () => {
       // Should have announcement div (look in document since popup is in Portal)
       const announcementDiv = document.querySelector('[aria-live="polite"]');
       expect(announcementDiv).toBeInTheDocument();
-      expect(announcementDiv).toHaveAttribute('aria-atomic', 'true');
       expect(announcementDiv).toHaveClass('sr-only');
     });
 
     test('should render announcement div when announceArrowKeyNavigation is a custom string', () => {
-      const customMessage = 'Navigate using arrow keys for better accessibility';
+      const customMessage =
+        'Navigate using arrow keys for better accessibility';
       const { container } = render(
         <DayjsPicker announceArrowKeyNavigation={customMessage} />
       );
@@ -92,10 +94,11 @@ describe('DatePicker Accessibility Announcements', () => {
       fireEvent.click(input);
 
       // Should have announcement div with correct attributes
-      const announcementDiv = document.querySelector('[aria-live="polite"]') as HTMLElement;
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
       expect(announcementDiv).toBeInTheDocument();
       expect(announcementDiv).toHaveAttribute('aria-live', 'polite');
-      expect(announcementDiv).toHaveAttribute('aria-atomic', 'true');
     });
 
     test('should announce custom message when announceArrowKeyNavigation is a string', () => {
@@ -109,10 +112,11 @@ describe('DatePicker Accessibility Announcements', () => {
       fireEvent.click(input);
 
       // Should have announcement div with correct attributes
-      const announcementDiv = document.querySelector('[aria-live="polite"]') as HTMLElement;
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
       expect(announcementDiv).toBeInTheDocument();
       expect(announcementDiv).toHaveAttribute('aria-live', 'polite');
-      expect(announcementDiv).toHaveAttribute('aria-atomic', 'true');
     });
 
     test('should handle timer cleanup after 1 second', () => {
@@ -125,7 +129,9 @@ describe('DatePicker Accessibility Announcements', () => {
       fireEvent.click(input);
 
       // Should have announcement div
-      const announcementDiv = document.querySelector('[aria-live="polite"]') as HTMLElement;
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
       expect(announcementDiv).toBeInTheDocument();
 
       // Should not throw errors when timer executes
@@ -144,8 +150,10 @@ describe('DatePicker Accessibility Announcements', () => {
       // Don't open the picker
       const announcementDiv = document.querySelector('[aria-live="polite"]');
 
-      // Should not have announcement div since picker isn't open
-      expect(announcementDiv).toBeNull();
+      // Announcement div may exist but should be empty when picker is closed
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
     });
   });
 
@@ -160,30 +168,36 @@ describe('DatePicker Accessibility Announcements', () => {
       fireEvent.click(input);
 
       // Should have announcement div
-      const announcementDiv = document.querySelector('[aria-live="polite"]') as HTMLElement;
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
       expect(announcementDiv).toBeInTheDocument();
       expect(announcementDiv).toHaveAttribute('aria-live', 'polite');
 
       // Focus trap container should be present
-      const focusTrapContainer = document.querySelector('[data-testid="picker-dialog"]');
+      const focusTrapContainer = document.querySelector(
+        '[data-testid="picker-dialog"]'
+      );
       expect(focusTrapContainer).toBeInTheDocument();
     });
 
     test('should work when only trapFocus is enabled without announcement', () => {
-      const { container } = render(
-        <DayjsPicker trapFocus={true} />
-      );
+      const { container } = render(<DayjsPicker trapFocus={true} />);
 
       const input = container.querySelector('input')!;
       fireEvent.mouseDown(input);
       fireEvent.click(input);
 
-      // Should not have announcement div
+      // Announcement div may exist but should be empty
       const announcementDiv = document.querySelector('[aria-live="polite"]');
-      expect(announcementDiv).toBeNull();
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
 
       // Focus trap should still work
-      const focusTrapContainer = document.querySelector('[data-testid="picker-dialog"]');
+      const focusTrapContainer = document.querySelector(
+        '[data-testid="picker-dialog"]'
+      );
       expect(focusTrapContainer).toBeInTheDocument();
     });
   });
@@ -244,8 +258,123 @@ describe('DatePicker Accessibility Announcements', () => {
 
       const announcementDiv = document.querySelector('[aria-live="polite"]');
       expect(announcementDiv).toHaveAttribute('aria-live', 'polite');
-      expect(announcementDiv).toHaveAttribute('aria-atomic', 'true');
       expect(announcementDiv).toHaveClass('sr-only');
+    });
+  });
+
+  describe('announcement content verification', () => {
+    test('should populate default locale text when trap is activated', () => {
+      const { container } = render(
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should have content
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      expect(announcementDiv).toBeInTheDocument();
+      expect(announcementDiv.textContent).toBeTruthy();
+      expect(announcementDiv.textContent).toContain('arrow');
+    });
+
+    test('should populate custom message when trap is activated', () => {
+      const customMessage = 'Custom navigation instructions for screen readers';
+      const { container } = render(
+        <DayjsPicker
+          announceArrowKeyNavigation={customMessage}
+          trapFocus={true}
+        />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should have custom message
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      expect(announcementDiv).toBeInTheDocument();
+      expect(announcementDiv.textContent).toBe(customMessage);
+    });
+
+    test('should clear content when trap is deactivated', () => {
+      const { container } = render(
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={true} />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      expect(announcementDiv.textContent).toBeTruthy();
+
+      // Deactivate trap by pressing Escape
+      fireEvent.keyDown(input, { key: 'Escape' });
+
+      // Content should be cleared
+      expect(announcementDiv.textContent).toBe('');
+    });
+
+    test('should not populate content without trapFocus enabled', () => {
+      const { container } = render(
+        <DayjsPicker announceArrowKeyNavigation={true} trapFocus={false} />
+      );
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Try to trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should remain empty since trapFocus is false
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
+    });
+
+    test('should not populate content when announceArrowKeyNavigation is not provided', () => {
+      const { container } = render(<DayjsPicker trapFocus={true} />);
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.focus(input);
+
+      // Trigger trap by pressing Tab key
+      fireEvent.keyDown(input, { key: 'Tab' });
+
+      // Announcement div should remain empty
+      const announcementDiv = document.querySelector(
+        '[aria-live="polite"]'
+      ) as HTMLElement;
+      if (announcementDiv) {
+        expect(announcementDiv.textContent).toBe('');
+      }
     });
   });
 

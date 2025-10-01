@@ -32,6 +32,8 @@ const locale: Locale = {
   nextAriaLabel: 'Anul următor',
   superPrevAriaLabel: 'Anul precedent',
   superNextAriaLabel: 'Anul următor',
+  arrowKeyNavigationText:
+    'Utilizați tastele săgeți pentru a naviga în calendar',
 };
 
 export default locale;

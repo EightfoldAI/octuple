@@ -81,6 +81,9 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     todayActive,
     todayText,
     value,
+    visible,
+    trap,
+    announceArrowKeyNavigation,
   } = props as MergedPickerPartialProps<DateType>;
   const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
   const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -282,6 +285,9 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     sourceMode,
     onPartialChange: onInternalPartialChange,
     disabledDate,
+    visible,
+    trap,
+    announceArrowKeyNavigation,
   };
   delete pickerProps.onChange;
   delete pickerProps.onSelect;

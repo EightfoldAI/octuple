@@ -34,6 +34,7 @@ const locale: Locale = {
   nextAriaLabel: 'שנה הבאה',
   superPrevAriaLabel: 'שנה קודמת',
   superNextAriaLabel: 'שנה הבאה',
+  arrowKeyNavigationText: 'השתמש במקשי החצים כדי לנווט בלוח השנה',
 };
 
 export default locale;

@@ -33,6 +33,8 @@ const locale: Locale = {
   nextAriaLabel: 'Nächstes Jahr',
   superPrevAriaLabel: 'Vorheriges Jahr',
   superNextAriaLabel: 'Nächstes Jahr',
+  arrowKeyNavigationText:
+    'Verwenden Sie Pfeiltasten zum Navigieren im Kalender',
 };
 
 export default locale;

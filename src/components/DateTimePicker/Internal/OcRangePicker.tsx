@@ -675,7 +675,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   const [
     startInputProps,
-    { focused: startFocused, typing: startTyping, trap, setTrap },
+    {
+      focused: startFocused,
+      typing: startTyping,
+      trap: startTrap,
+      setTrap: startSetTrap,
+    },
   ] = usePickerInput({
     ...getSharedInputHookProps(0, resetStartText),
     open: startOpen,
@@ -683,13 +688,20 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     ...sharedPickerInput,
   });
 
-  const [endInputProps, { focused: endFocused, typing: endTyping }] =
-    usePickerInput({
-      ...getSharedInputHookProps(1, resetEndText),
-      open: endOpen,
-      value: endText,
-      ...sharedPickerInput,
-    });
+  const [
+    endInputProps,
+    {
+      focused: endFocused,
+      typing: endTyping,
+      trap: endTrap,
+      setTrap: endSetTrap,
+    },
+  ] = usePickerInput({
+    ...getSharedInputHookProps(1, resetEndText),
+    open: endOpen,
+    value: endText,
+    ...sharedPickerInput,
+  });
 
   const onPickerClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     // When click inside the picker & outside the picker's input elements
@@ -837,119 +849,92 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         });
     }
 
-    const navigationAnnouncement = announceArrowKeyNavigation ? (
-      <div className={styles.srOnly} aria-live="polite" aria-atomic="true">
-        {announceArrowKeyNavigation === true
-          ? locale?.arrowKeyNavigationText
-          : announceArrowKeyNavigation}
-      </div>
-    ) : null;
+    const isTrapped: boolean = partialPosition === 'left' ? startTrap : endTrap;
 
     const partialContent = (
-      <>
-        {navigationAnnouncement}
-        <OcPickerPartial<DateType>
-          {...(props as any)}
-          {...partialProps}
-          dateRender={partialDateRender}
-          nowButtonProps={nowButtonProps}
-          okButtonProps={okButtonProps}
-          showOk={showOk}
-          showNow={showNow}
-          showTime={partialShowTime}
-          showToday={showToday}
-          todayButtonProps={todayButtonProps}
-          todayActive={todayActive}
-          mode={mergedModes[mergedActivePickerIndex]}
-          generateConfig={generateConfig}
-          style={undefined}
-          direction={direction}
-          disabledDate={
-            mergedActivePickerIndex === 0 ? disabledStartDate : disabledEndDate
-          }
-          disabledTime={(date: DateType) => {
-            if (disabledTime) {
-              return disabledTime(
-                date,
-                mergedActivePickerIndex === 0 ? 'start' : 'end'
-              );
-            }
-            return false;
-          }}
-          classNames={mergeClasses([
-            {
-              [styles.pickerPartialFocused]:
-                mergedActivePickerIndex === 0 ? !startTyping : !endTyping,
-            },
-          ])}
-          value={getValue(selectedValue, mergedActivePickerIndex)}
-          locale={locale}
-          tabIndex={-1}
-          onPartialChange={(date: DateType, newMode: PartialMode) => {
-            // clear hover value when partial change
-            if (mergedActivePickerIndex === 0) {
-              onStartLeave(true);
-            }
-            if (mergedActivePickerIndex === 1) {
-              onEndLeave(true);
-            }
-            triggerModesChange(
-              updateValues(mergedModes, newMode, mergedActivePickerIndex),
-              updateValues(selectedValue, date, mergedActivePickerIndex)
+      <OcPickerPartial<DateType>
+        {...(props as any)}
+        {...partialProps}
+        dateRender={partialDateRender}
+        nowButtonProps={nowButtonProps}
+        okButtonProps={okButtonProps}
+        showOk={showOk}
+        showNow={showNow}
+        showTime={partialShowTime}
+        showToday={showToday}
+        todayButtonProps={todayButtonProps}
+        todayActive={todayActive}
+        mode={mergedModes[mergedActivePickerIndex]}
+        generateConfig={generateConfig}
+        style={undefined}
+        direction={direction}
+        disabledDate={
+          mergedActivePickerIndex === 0 ? disabledStartDate : disabledEndDate
+        }
+        disabledTime={(date: DateType) => {
+          if (disabledTime) {
+            return disabledTime(
+              date,
+              mergedActivePickerIndex === 0 ? 'start' : 'end'
             );
-
-            let viewDate = date;
-            if (
-              partialPosition === 'right' &&
-              mergedModes[mergedActivePickerIndex] === newMode
-            ) {
-              viewDate = getClosingViewDate(
-                viewDate,
-                newMode as OcPickerMode,
-                generateConfig,
-                -1
-              );
-            }
-            setViewDate(viewDate, mergedActivePickerIndex);
-          }}
-          nowText={nowText}
-          okText={okText}
-          todayText={todayText}
-          onOk={null}
-          onSelect={undefined}
-          onChange={undefined}
-          defaultValue={
-            mergedActivePickerIndex === 0
-              ? getValue(selectedValue, 1)
-              : getValue(selectedValue, 0)
           }
-          size={size}
-        />
-      </>
+          return false;
+        }}
+        classNames={mergeClasses([
+          {
+            [styles.pickerPartialFocused]:
+              mergedActivePickerIndex === 0 ? !startTyping : !endTyping,
+          },
+        ])}
+        value={getValue(selectedValue, mergedActivePickerIndex)}
+        locale={locale}
+        tabIndex={-1}
+        onPartialChange={(date: DateType, newMode: PartialMode) => {
+          // clear hover value when partial change
+          if (mergedActivePickerIndex === 0) {
+            onStartLeave(true);
+          }
+          if (mergedActivePickerIndex === 1) {
+            onEndLeave(true);
+          }
+          triggerModesChange(
+            updateValues(mergedModes, newMode, mergedActivePickerIndex),
+            updateValues(selectedValue, date, mergedActivePickerIndex)
+          );
+
+          let viewDate = date;
+          if (
+            partialPosition === 'right' &&
+            mergedModes[mergedActivePickerIndex] === newMode
+          ) {
+            viewDate = getClosingViewDate(
+              viewDate,
+              newMode as OcPickerMode,
+              generateConfig,
+              -1
+            );
+          }
+          setViewDate(viewDate, mergedActivePickerIndex);
+        }}
+        nowText={nowText}
+        okText={okText}
+        todayText={todayText}
+        onOk={null}
+        onSelect={undefined}
+        onChange={undefined}
+        defaultValue={
+          mergedActivePickerIndex === 0
+            ? getValue(selectedValue, 1)
+            : getValue(selectedValue, 0)
+        }
+        size={size}
+        visible={mergedOpen}
+        trap={isTrapped}
+        announceArrowKeyNavigation={announceArrowKeyNavigation}
+      />
     );
 
-    const partial: JSX.Element = trapFocus ? (
-      <FocusTrap
-        data-testid="picker-dialog"
-        role="dialog"
-        aria-modal="true"
-        id="dp-dialog-1"
-        trap={trap}
-        onMouseDown={(e) => {
-          e.preventDefault();
-        }}
-        onKeyDown={(event) => {
-          if (event.key === 'Escape') {
-            triggerOpen(false, mergedActivePickerIndex, 'cancel');
-            setTrap(false);
-          }
-        }}
-      >
-        {partialContent}
-      </FocusTrap>
-    ) : (
-      partialContent
-    );
+    const partial: JSX.Element = partialContent;
 
     return (
       <RangeContext.Provider
@@ -1119,7 +1104,41 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     );
   }
 
-  const rangePartial: JSX.Element = (
+  const rangePartial: JSX.Element = trapFocus ? (
+    <FocusTrap
+      data-testid="picker-dialog"
+      role="dialog"
+      aria-modal="true"
+      id="dp-dialog-1"
+      aria-labelledby="dp-dialog-1-label"
+      trap={startTrap || endTrap}
+      onMouseDown={(e) => {
+        e.preventDefault();
+      }}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') {
+          triggerOpen(false, mergedActivePickerIndex, 'cancel');
+          startSetTrap(false);
+          endSetTrap(false);
+        }
+      }}
+    >
+      <div
+        className={mergeClasses([
+          styles.pickerRangeWrapper,
+          `picker-${picker}-range-wrapper`,
+        ])}
+        style={{ minWidth: popupMinWidth }}
+      >
+        <div
+          ref={arrowRef}
+          className={triggerStyles.pickerRangeArrow}
+          style={arrowPositionStyle}
+        />
+        {renderPartials()}
+      </div>
+    </FocusTrap>
+  ) : (
     <div
       className={mergeClasses([
         styles.pickerRangeWrapper,
@@ -1127,11 +1146,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       ])}
       style={{ minWidth: popupMinWidth }}
     >
-      <div
-        ref={arrowRef}
-        className={triggerStyles.pickerRangeArrow}
-        style={arrowPositionStyle}
-      />
       {renderPartials()}
     </div>
   );
@@ -1279,7 +1293,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         hideRanges: true,
         onSelect: onContextSelect,
         open: mergedOpen,
-        trapFocus: trapFocus && trap,
+        trapFocus: trapFocus && (startTrap || endTrap),
       }}
     >
       <OcPickerTrigger

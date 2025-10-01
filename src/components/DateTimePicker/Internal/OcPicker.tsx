@@ -364,22 +364,15 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         onPartialChange?.(viewDate, mode);
       }}
       size={size}
+      visible={mergedOpen}
+      trap={trap}
+      announceArrowKeyNavigation={announceArrowKeyNavigation}
     />
   );
 
   if (partialRender) {
     partialNode = partialRender(partialNode);
   }
-
-  const navigationAnnouncement = announceArrowKeyNavigation ? (
-    <div
-      className={styles.srOnly}
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      {announceArrowKeyNavigation === true ? locale?.arrowKeyNavigationText : announceArrowKeyNavigation}
-    </div>
-  ) : null;
 
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
@@ -399,10 +392,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         }
       }}
     >
-      <>
-        {navigationAnnouncement}
-        {partialNode}
-      </>
+      {partialNode}
     </FocusTrap>
   ) : (
     <div
@@ -411,7 +401,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         e.preventDefault();
       }}
     >
-      {navigationAnnouncement}
       {partialNode}
     </div>
   );

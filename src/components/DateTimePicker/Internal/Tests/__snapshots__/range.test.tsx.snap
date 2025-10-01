@@ -2695,68 +2695,6 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "picker-range-arrow",
-                    "style": "left: 0px;",
-                  },
-                  "children": Array [],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {
-                      "class": "picker-partial-container",
-                      "style": "margin-left: 0px;",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "Light",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "h1",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "style": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "style": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "style": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "style": undefined,
-                  },
-                },
-                Node {
-                  "attribs": Object {
                     "class": "picker-partial-container",
                     "style": "margin-left: 0px;",
                   },
@@ -2786,27 +2724,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": null,
                   "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "picker-range-arrow",
-                      "style": "left: 0px;",
-                    },
-                    "children": Array [],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "style": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "style": undefined,
-                    },
-                  },
+                  "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
@@ -2889,68 +2807,6 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "picker-range-arrow",
-                        "style": "left: 0px;",
-                      },
-                      "children": Array [],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {
-                          "class": "picker-partial-container",
-                          "style": "margin-left: 0px;",
-                        },
-                        "children": Array [
-                          Node {
-                            "attribs": Object {},
-                            "children": Array [
-                              Node {
-                                "data": "Light",
-                                "next": null,
-                                "parent": [Circular],
-                                "prev": null,
-                                "type": "text",
-                              },
-                            ],
-                            "name": "h1",
-                            "namespace": "http://www.w3.org/1999/xhtml",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "style": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "style": undefined,
-                        },
-                      },
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "style": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "style": undefined,
-                      },
-                    },
-                    Node {
-                      "attribs": Object {
                         "class": "picker-partial-container",
                         "style": "margin-left: 0px;",
                       },
@@ -2980,27 +2836,7 @@ LoadedCheerio {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": null,
                       "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "picker-range-arrow",
-                          "style": "left: 0px;",
-                        },
-                        "children": Array [],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "style": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "style": undefined,
-                        },
-                      },
+                      "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
@@ -3086,68 +2922,6 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "picker-range-arrow",
-                  "style": "left: 0px;",
-                },
-                "children": Array [],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {
-                    "class": "picker-partial-container",
-                    "style": "margin-left: 0px;",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "Light",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "h1",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "style": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "style": undefined,
-                  },
-                },
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                  "style": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                  "style": undefined,
-                },
-              },
-              Node {
-                "attribs": Object {
                   "class": "picker-partial-container",
                   "style": "margin-left: 0px;",
                 },
@@ -3177,27 +2951,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "picker-range-arrow",
-                    "style": "left: 0px;",
-                  },
-                  "children": Array [],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "style": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "style": undefined,
-                  },
-                },
+                "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,

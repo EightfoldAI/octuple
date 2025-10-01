@@ -31,6 +31,8 @@ const locale: Locale = {
   nextAriaLabel: 'अगला साल',
   superPrevAriaLabel: 'पिछला साल',
   superNextAriaLabel: 'अगला साल',
+  arrowKeyNavigationText:
+    'कैलेंडर को नेविगेट करने के लिए तीर कुंजियों का उपयोग करें',
 };
 
 export default locale;

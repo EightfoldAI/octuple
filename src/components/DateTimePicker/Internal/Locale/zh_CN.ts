@@ -33,6 +33,7 @@ const locale: Locale = {
   nextAriaLabel: '下一年',
   superPrevAriaLabel: '上一年',
   superNextAriaLabel: '下一年',
+  arrowKeyNavigationText: '使用箭头键导航日历',
 };
 
 export default locale;

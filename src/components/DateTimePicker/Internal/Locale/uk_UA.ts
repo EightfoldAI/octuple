@@ -35,6 +35,8 @@ const locale: Locale = {
   nextAriaLabel: 'Наступний рік',
   superPrevAriaLabel: 'Попередній рік',
   superNextAriaLabel: 'Наступний рік',
+  arrowKeyNavigationText:
+    'Використовуйте клавіші зі стрілками для навігації календарем',
 };
 
 export default locale;

@@ -32,6 +32,8 @@ const locale: Locale = {
   nextAriaLabel: 'తదుపరి సంవత్సరం',
   superPrevAriaLabel: 'మునుపటి సంవత్సరం',
   superNextAriaLabel: 'తదుపరి సంవత్సరం',
+  arrowKeyNavigationText:
+    'క్యాలెండర్‌ను నావిగేట్ చేయడానికి బాణం కీలను ఉపయోగించండి',
 };
 
 export default locale;
