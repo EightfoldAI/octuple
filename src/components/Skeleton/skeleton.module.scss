@@ -9,6 +9,7 @@ $skeleton-wave-animation: wave 1.6s linear 0.5s infinite;
 
 .skeleton {
   background: var(--skeleton-background-color);
+  forced-color-adjust: none; /* prevents system from overriding */
 
   &.pulse {
     animation: $skeleton-pulse-animation;
@@ -29,6 +30,7 @@ $skeleton-wave-animation: wave 1.6s linear 0.5s infinite;
       left: 0;
       right: 0;
       top: 0;
+      forced-color-adjust: none; /* prevents system from overriding */
     }
   }
 

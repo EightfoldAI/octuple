@@ -1323,6 +1323,7 @@
   --tab-hover-label: var(--primary-color);
   --tab-hover-background: transparent;
   --tab-indicator-color: var(--primary-secondary-color);
+  --tab-indicator-height: 2px;
   --tab-small-active-background: transparent;
   --tab-small-hover-background: transparent;
   --tab-pill-border-radius: var(--border-radius-xl);
@@ -1919,6 +1920,11 @@
   --avatar-round-border-radius: 50%;
   --avatar-status-item-background: var(--background-color);
   --avatar-status-item-border-radius: 999px;
+  --avatar-border-width: 0;
+  --avatar-border-style: none;
+  --avatar-border-color: transparent;
+  --avatar-border: var(--avatar-border-width) var(--avatar-border-style)
+    var(--avatar-border-color);
   // ------ Avatar theme ------
 
   // ------ Card theme ------
@@ -2050,6 +2056,11 @@
 
   // ------ Dropdown theme ------
   --dropdown-background-color: var(--background-color);
+  --dropdown-border-width: 0;
+  --dropdown-border-style: none;
+  --dropdown-border-color: transparent;
+  --dropdown-border: var(--dropdown-border-width) var(--dropdown-border-style)
+    var(--dropdown-border-color);
   // ------ Dropdown theme ------
 
   // ------ Skeleton theme ------
@@ -2176,6 +2187,11 @@
   --pill-medium-size-border-radius: 6px;
   --pill-small-size-border-radius: var(--border-radius-s);
   --pill-xsmall-size-border-radius: var(--border-radius-s);
+  --pill-border-width: 0;
+  --pill-border-style: none;
+  --pill-border-color: transparent;
+  --pill-border: var(--pill-border-width) var(--pill-border-style)
+    var(--pill-border-color);
   // ------ Pill theme ------
 
   // ------ Match Score theme ------
@@ -2691,4 +2707,24 @@
   --menu-item-neutral-active-background-color: var(--grey-background2-color);
   --menu-item-sub-text-color: var(--grey-tertiary-color);
   // ------ Menu theme ------
+
+  // ------ Dialog theme ------
+  --dialog-border-width: 0;
+  --dialog-border-style: none;
+  --dialog-border-color: transparent;
+  --dialog-border: var(--dialog-border-width) var(--dialog-border-style)
+    var(--dialog-border-color);
+  // ------ Dialog theme ------
+
+  // ------ Snackbar theme ------
+  --snackbar-border-width: 0;
+  --snackbar-border-style: none;
+  --snackbar-border-color: transparent;
+  --snackbar-border: var(--snackbar-border-width) var(--snackbar-border-style)
+    var(--snackbar-border-color);
+  // ------ Snackbar theme ------
+
+  // ------ Loader theme ------
+  --loader-dot-color: var(--primary-color);
+  // ------ Loader theme ------
 }

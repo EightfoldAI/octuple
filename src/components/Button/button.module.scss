@@ -1356,6 +1356,9 @@
   --color: var(--button-neutral-text-color);
   color: var(--color);
   background: var(--bg);
+  border-width: var(--button-neutral-border-width);
+  border-style: var(--button-neutral-border-style);
+  border-color: var(--button-neutral-border-color);
 
   .loader-dot {
     background: var(--color);
@@ -1554,6 +1557,9 @@
   --color: var(--button-two-state-text-color);
   background: var(--bg);
   color: var(--color);
+  border-width: var(--button-two-state-border-width);
+  border-style: var(--button-two-state-border-style);
+  border-color: var(--button-two-state-border-color);
 
   .loader {
     background: var(--bg);

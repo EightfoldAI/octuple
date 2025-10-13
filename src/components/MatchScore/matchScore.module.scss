@@ -24,6 +24,7 @@ $indicator-size: $space-s;
     border-radius: 50%;
     margin-top: $space-xxxs;
     margin-right: $space-xxs;
+    forced-color-adjust: none; /* prevents system from overriding */
 
     &.full {
       background: var(--match-score-background-color);

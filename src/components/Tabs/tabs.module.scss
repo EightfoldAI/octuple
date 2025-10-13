@@ -59,11 +59,12 @@
     .tab-indicator {
       position: absolute;
       z-index: 1;
-      height: $space-xxxs;
+      height: var(--tab-indicator-height);
       bottom: 0;
       width: calc(100% - #{$space-xl});
       background: var(--tab-indicator-color);
       border-radius: $space-xxs $space-xxs 0 0;
+      forced-color-adjust: none; /* prevents system from overriding */
     }
 
     .label {

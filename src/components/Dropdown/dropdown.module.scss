@@ -34,6 +34,7 @@
   z-index: $z-index-400;
   max-height: min(45vh, 600px);
   overflow-y: auto;
+  border: var(--dropdown-border);
 
   &.open {
     animation-name: slideUpIn;

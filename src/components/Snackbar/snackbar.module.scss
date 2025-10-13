@@ -9,6 +9,7 @@
     forwards;
   margin-bottom: $space-s;
   background-color: var(--white-color);
+  border: var(--snackbar-border);
 
   .content-wrapper {
     display: flex;

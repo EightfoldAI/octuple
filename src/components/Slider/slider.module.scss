@@ -71,6 +71,7 @@ $small-min-label-text-only-offset-with-steps: 8px;
   font-family: var(--font-stack-full);
   height: $medium-slider-height + $medium-label-height;
   position: relative;
+  forced-color-adjust: none; /* prevents system from overriding */
 
   .slider {
     position: relative;
@@ -177,6 +178,7 @@ $small-min-label-text-only-offset-with-steps: 8px;
     position: absolute;
     top: $medium-rail-top;
     width: 100%;
+    forced-color-adjust: none; /* prevents system from overriding */
   }
 
   // The slider rail needs to be 2px thinner than the track to prevent layered border-radius flicker.

@@ -1,0 +1,836 @@
+// Accessibility Contrast Theme
+// This theme responds to Windows contrast modes using CSS media queries
+// Defaults to _default-theme.scss values when no preference is detected
+// Covers all 49 themed components in the Octuple design system
+
+// ------ Increased Contrast Mode ------
+// Activated when user enables "Increase contrast" in Windows or macOS
+@media (prefers-contrast: more), (forced-colors: active) {
+  :root {
+    // ===== FOUNDATION COLORS =====
+
+    // Base Text colors - Maximum contrast
+    --text-primary-color: #000000;
+    --text-secondary-color: #343c4c; // grey-color-80
+    --text-tertiary-color: #4f5666; // grey-color-70
+    --text-inverse-color: #ffffff;
+    --info-color: #343c4c;
+
+    // Background - Pure white for maximum contrast
+    --background-color: #ffffff;
+    --white-color: #ffffff;
+    --black-color: #000000;
+
+    // Border colors - Darker, more visible
+    --border-color: #4f5666;
+    --horizontal-rule-color: #69717f;
+
+    // Primary colors - Use darkest variants for high contrast
+    --primary-color: #002a47; // color-90
+    --primary-secondary-color: #054d7b; // color-80
+    --primary-tertiary-color: #146da6; // color-70
+    --primary-background1-color: #ebf7ff; // Maintain light backgrounds
+    --primary-background2-color: #bce4ff;
+    --primary-background3-color: #8ed0fa;
+
+    // Accent colors - Enhanced contrast
+    --accent-color: #00333b; // color-90
+    --accent-secondary-color: #025966; // color-80
+    --accent-tertiary-color: #0b7b8b; // color-70
+    --accent-background1-color: #ebfdff;
+    --accent-background2-color: #b0f3fe;
+    --accent-background3-color: #7be4f4;
+
+    // Disruptive colors - Higher contrast for critical actions
+    --disruptive-color: #3b1010; // color-90
+    --disruptive-secondary-color: #6c2222; // color-80
+    --disruptive-tertiary-color: #993838; // color-70
+    --disruptive-background1-color: #ffefef;
+    --disruptive-background2-color: #ffc6c6;
+    --disruptive-background3-color: #ffa3a3;
+
+    // Grey colors - Darker for better visibility
+    --grey-color: #1a212e; // color-90
+    --grey-secondary-color: #343c4c; // color-80
+    --grey-tertiary-color: #4f5666; // color-70
+    --grey-background1-color: #f6f7f8;
+    --grey-background2-color: #d9dce1;
+    --grey-background3-color: #bdc1c9;
+
+    // Validation colors - Enhanced visibility
+    --success-color: #0e2e26; // green-color-90
+    --success-background-color: #f0fefa;
+    --success-border-color: #2b715f; // green-color-70
+    --success-active-color: #030a08;
+    --success-hover-color: #1b5143;
+
+    --warning-color: #3b2600; // orange-color-90
+    --warning-background-color: #fff8eb;
+    --warning-border-color: #9d6309; // orange-color-70
+    --warning-active-color: #0a0700;
+    --warning-hover-color: #6c4500;
+
+    --error-color: #3b1010; // red-color-90
+    --error-background-color: #ffefef;
+    --error-border-color: #993838; // red-color-70
+    --error-active-color: #0a0202;
+    --error-hover-color: #6c2222;
+
+    // ===== FOCUS INDICATORS =====
+    --focus-visible-color: #2b3271; // blueviolet-color-80 - Darker for high contrast
+    --focus-visible-shadow-color: #2b3271;
+    --focus-visible-shadow-width: 3px; // Thicker for better visibility
+    --focus-visible-box-shadow: 0 0 0 3px #2b3271;
+    --focus-visible-outline-width: 3px;
+    --focus-visible-outline-style: solid;
+    --focus-visible-outline: 3px solid #2b3271;
+
+    // ===== LINKS =====
+    --anchor-color: #002a47; // primary-color-90
+    --anchor-active-color: #000000;
+    --anchor-hover-color: #054d7b; // primary-color-80
+    --anchor-visited-color: #5d2156; // violet-color-80
+    --anchor-disruptive-color: #3b1010;
+    --anchor-neutral-color: #343c4c;
+    --anchor-primary-color: #002a47;
+    --anchor-secondary-color: #1a212e;
+
+    // ===== INPUT COMPONENTS =====
+    --input-border-color: #4f5666; // Darker, more visible
+    --input-border-color-active: #1a212e; // Very dark on focus
+    --input-border-color-hover: #343c4c;
+    --input-border-color-underline-active: #054d7b;
+    --input-background-color: #ffffff;
+    --input-text-color: #000000;
+    --input-placeholder-text-color: #343c4c;
+    --input-readonly-background-color: #f6f7f8;
+    --input-readonly-border-color: #4f5666;
+    --input-readonly-text-color: #000000;
+    --input-disabled-text-color: #4f5666;
+    --input-disabled-placeholder-text-color: #69717f;
+    --input-success-border-color: #0e2e26;
+    --input-warning-border-color: #3b2600;
+    --input-error-border-color: #3b1010;
+    --input-highlight-border-color: #146da6;
+
+    // ===== BUTTONS =====
+    // Default Button
+    --button-default-text-color: #002a47;
+    --button-default-background-color: #ebf7ff;
+    --button-default-border-width: 1px;
+    --button-default-border-style: solid;
+    --button-default-border-color: #146da6;
+    --button-default-hover-text-color: #002a47;
+    --button-default-hover-background-color: #ffffff;
+    --button-default-hover-border-color: #054d7b;
+    --button-default-active-text-color: #002a47;
+    --button-default-active-background-color: #bce4ff;
+    --button-default-active-border-color: #002a47;
+    --button-default-split-divider-color: #054d7b;
+
+    // Default Disruptive Button
+    --button-default-disruptive-text-color: #6c2222;
+    --button-default-disruptive-background-color: #ffefef;
+    --button-default-disruptive-border-width: 1px;
+    --button-default-disruptive-border-style: solid;
+    --button-default-disruptive-border-color: #993838;
+    --button-default-disruptive-hover-text-color: #6c2222;
+    --button-default-disruptive-hover-background-color: #ffffff;
+    --button-default-disruptive-hover-border-color: #6c2222;
+    --button-default-disruptive-active-text-color: #3b1010;
+    --button-default-disruptive-active-background-color: #ffc6c6;
+    --button-default-disruptive-active-border-color: #3b1010;
+
+    // Neutral Button
+    --button-neutral-text-color: #1a212e;
+    --button-neutral-background-color: #f6f7f8;
+    --button-neutral-border-width: 1px;
+    --button-neutral-border-style: solid;
+    --button-neutral-border-color: #4f5666;
+    --button-neutral-counter-default-text-color: #1a212e;
+    --button-neutral-hover-text-color: #1a212e;
+    --button-neutral-hover-background-color: #ffffff;
+    --button-neutral-hover-border-color: #343c4c;
+    --button-neutral-active-text-color: #1a212e;
+    --button-neutral-active-background-color: #d9dce1;
+    --button-neutral-active-border-color: #1a212e;
+
+    // Primary Button
+    --button-primary-text-color: #002a47;
+    --button-primary-background-color: #b0f3fe;
+    --button-primary-border-width: 1px;
+    --button-primary-border-style: solid;
+    --button-primary-border-color: #0b7b8b;
+    --button-primary-hover-text-color: #002a47;
+    --button-primary-hover-background-color: #ebfdff;
+    --button-primary-hover-border-color: #025966;
+    --button-primary-active-text-color: #002a47;
+    --button-primary-active-background-color: #7be4f4;
+    --button-primary-active-border-color: #00333b;
+
+    // Primary Disruptive Button
+    --button-primary-disruptive-text-color: #3b1010;
+    --button-primary-disruptive-background-color: #ffc6c6;
+    --button-primary-disruptive-border-width: 1px;
+    --button-primary-disruptive-border-style: solid;
+    --button-primary-disruptive-border-color: #993838;
+    --button-primary-disruptive-hover-text-color: #3b1010;
+    --button-primary-disruptive-hover-background-color: #ffefef;
+    --button-primary-disruptive-hover-border-color: #6c2222;
+    --button-primary-disruptive-active-text-color: #3b1010;
+    --button-primary-disruptive-active-background-color: #ffa3a3;
+    --button-primary-disruptive-active-border-color: #3b1010;
+
+    // Secondary Button
+    --button-secondary-text-color: #002a47;
+    --button-secondary-background-color: #ffffff;
+    --button-secondary-border-width: 1px;
+    --button-secondary-border-style: solid;
+    --button-secondary-border-color: #054d7b;
+    --button-secondary-hover-text-color: #002a47;
+    --button-secondary-hover-border-color: #002a47;
+    --button-secondary-active-text-color: #002a47;
+    --button-secondary-active-border-color: #000000;
+
+    // Secondary Disruptive Button
+    --button-secondary-disruptive-text-color: #3b1010;
+    --button-secondary-disruptive-background-color: #ffffff;
+    --button-secondary-disruptive-border-width: 1px;
+    --button-secondary-disruptive-border-style: solid;
+    --button-secondary-disruptive-border-color: #6c2222;
+    --button-secondary-disruptive-hover-text-color: #3b1010;
+    --button-secondary-disruptive-hover-border-color: #3b1010;
+    --button-secondary-disruptive-active-border-color: #3b1010;
+
+    // System UI Button
+    --button-system-ui-text-color: #1a212e;
+    --button-system-ui-background-color: #ffffff;
+    --button-system-ui-counter-default-text-color: #1a212e;
+
+    // Two State Button
+    --button-two-state-text-color: #1a212e;
+
+    // AI Agent Button
+    --button-ai-agent-text-color: #2b3271; // Maintain blueviolet
+    --button-ai-agent-focus-visible-outline-color: #2b3271;
+
+    // Button Counter
+    --button-counter-default-text-color: #1a212e;
+
+    // ===== NAVIGATION COMPONENTS =====
+    // Tabs
+    --tab-label: #343c4c;
+    --tab-pill-border-color: #d9dce1;
+    --tab-pill-active-border-color: #146da6;
+    --tab-pill-label: #343c4c;
+    --tab-inverse-pill-label: #ffffff;
+    --tab-inverse-pill-active-background: #ffffff;
+    --tab-inverse-pill-active-border-color: #ffffff;
+    --tab-underline: #4f5666; // More visible
+    --tab-indicator-color: #054d7b; // Darker indicator for high contrast
+    --tab-indicator-height: 4px;
+
+    // Stat Tab
+    --stat-tab-label-color: #343c4c;
+    --stat-tab-background-color: #ffffff;
+    --stat-tab-border-color: #ffffff;
+    --stat-tab-active-border-color: #4f5666;
+    --stat-tab-hover-border-color: #d9dce1;
+
+    // Navbar
+    --navbar-text-color: #343c4c;
+    --navbar-border-bottom: 1px solid #d9dce1;
+
+    // Menu
+    --menu-item-background-hover-color: #f6f7f8;
+    --menu-item-background-active-color: #ebf7ff;
+    --menu-item-text-color: #000000;
+
+    // Pagination
+    --pagination-active-background-color: #002a47;
+    --pagination-active-text-color: #ffffff;
+
+    // ===== DATA DISPLAY COMPONENTS =====
+    // Table
+    --table-background-color: #ffffff;
+    --table-foreground-color: #000000;
+    --table-background-alternate-color: #f6f7f8;
+    --table-border-color: #4f5666; // More visible borders
+    --table-header-background-color: #ffffff;
+    --table-header-foreground-color: #4f5666;
+    --table-header-icon-color: #4f5666;
+    --table-header-icon-hover-color: #002a47;
+    --table-header-cell-split-color: #d9dce1;
+    --table-row-hover-background-color: #ebfdff;
+    --table-row-selected-background-color: #f6f7f8;
+    --table-row-selected-hover-background-color: #ebfdff;
+    --table-row-selected-foregroud-color: #000000;
+    --table-footer-background-color: #ffffff;
+    --table-footer-foreground-color: #000000;
+
+    // Picker (Date/Time)
+    --picker-background-color: #ffffff;
+    --picker-foreground-color: #343c4c;
+    --picker-border-color: #4f5666;
+    --picker-border-color-active: #1a212e;
+    --picker-cell-background-color: #ffffff;
+    --picker-cell-background-color-active: #b0f3fe;
+    --picker-cell-background-color-hover: #ebf7ff;
+    --picker-cell-border-color-active: #146da6;
+    --picker-cell-border-color-hover: #146da6;
+    --picker-cell-foreground-color: #4f5666;
+    --picker-cell-foreground-color-active: #002a47;
+    --picker-cell-foreground-color-hover: #002a47;
+    --picker-cell-today-background-color: #bce4ff;
+    --picker-cell-today-foreground-color: #002a47;
+    --picker-input-background-color: #ffffff;
+    --picker-input-border-color-active: #1a212e;
+    --picker-input-foreground-color: #000000;
+    --picker-input-placeholder-color: #4f5666;
+    --picker-input-clear-icon-color: #4f5666;
+
+    // Card
+    --card-background-color: #ffffff;
+    --card-border-color: #4f5666;
+    --card-text-color: #000000;
+
+    // Avatar
+    --avatar-status-item-background: #ffffff;
+    --avatar-border-color: #4f5666; // Visible border for contrast
+    --avatar-border-width: 1px;
+    --avatar-border-style: solid;
+    --avatar-text-color: #ffffff; // White text on colored backgrounds
+
+    // Badge
+    --badge-text-color: #1a212e;
+    --badge-background-color: #d9dce1;
+
+    // Empty State
+    --empty-svg-accent-20-color: #b0f3fe;
+    --empty-svg-primary-10-color: #ebf7ff;
+    --empty-svg-primary-30-color: #8ed0fa;
+    --empty-svg-white-color: #ffffff;
+
+    // Skill
+    --skill-background-color: #ffffff;
+    --skill-active-background-color: #d9dce1;
+    --skill-hover-background-color: #f6f7f8;
+    --skill-border-color: #4f5666;
+    --skill-label-color: #343c4c;
+    --skill-active-label-color: #000000;
+    --skill-hover-label-color: #000000;
+
+    // Match Score
+    --match-score-background-color: #146da6;
+    --match-score-text-color: #054d7b;
+
+    // ===== FEEDBACK COMPONENTS =====
+    // Tooltip
+    --tooltip-background-color-dark: #1a212e;
+    --tooltip-background-color-light: #ffffff;
+    --tooltip-border-color-dark: #69717f;
+    --tooltip-border-color-light: #4f5666;
+    --tooltip-text-color-dark: #ffffff;
+    --tooltip-text-color-light: #000000;
+
+    // Message Bar
+    --message-bar-background-color: #ffffff;
+    --message-bar-text-color: #000000;
+    --message-bar-disruptive-color: #6c2222;
+    --message-bar-neutral-color: #343c4c;
+    --message-bar-positive-color: #2b715f;
+    --message-bar-warning-color: #9d6309;
+
+    // Info Bar
+    --info-bar-text-color: #343c4c;
+    --info-bar-button-hover-background-color: #ffffff;
+
+    // Progress
+    --progress-border-color: #146da6;
+    --progress-complete-background-color: #146da6;
+    --progress-incomplete-background-color: #ebf7ff;
+    --progress-text-color: #000000;
+    --progress-error-background-color: #3b1010;
+    --progress-error-border-color: #3b1010;
+    --progress-error-text-color: #3b1010;
+    --progress-success-background-color: #0e2e26;
+    --progress-success-border-color: #0e2e26;
+    --progress-success-text-color: #0e2e26;
+
+    // Spinner
+    --spinner-color: #002a47;
+
+    // Skeleton
+    --skeleton-background-color: #f6f7f8;
+    --skeleton-shimmer-color: #d9dce1;
+
+    // Accordion
+    --accordion-body-background-color: #ffffff;
+    --accordion-body-text-color: #000000;
+    --accordion-border-color: #4f5666;
+    --accordion-summary-background-color: #ffffff;
+    --accordion-summary-background-hover-color: #f6f7f8;
+    --accordion-summary-text-color: #000000;
+    --accordion-summary-text-hover-color: #000000;
+
+    // Stepper/Timeline
+    --step-default-active-background-color: #b0f3fe;
+    --step-default-active-border-color: #0b7b8b;
+    --step-default-active-icon-color: #002a47;
+    --step-default-background-color: #ffffff;
+    --step-default-border-color: #0b7b8b;
+    --step-default-icon-color: #002a47;
+    --step-timeline-active-background-color: #bce4ff;
+    --step-timeline-active-border-color: #146da6;
+    --step-timeline-active-icon-color: #002a47;
+    --step-timeline-background-color: #ebf7ff;
+    --step-timeline-border-color: #ebf7ff;
+    --step-timeline-icon-color: #054d7b;
+
+    // Persistent Bar
+    --persistent-bar-background-color: #ffffff;
+    --persistent-bar-border-color: #4f5666;
+    --persistent-bar-primary-text-color: #000000;
+    --persistent-bar-secondary-text-color: #000000;
+
+    // ===== FORM CONTROLS =====
+    // Checkbox
+    --check-box-background-color: transparent;
+    --check-box-active-background-color: #7be4f4;
+    --check-box-hover-background-color: #ebfdff;
+    --check-box-checked-background-color: #7be4f4;
+    --check-box-border-color: #343c4c;
+    --check-box-active-border-color: #025966;
+    --check-box-hover-border-color: #025966;
+    --check-box-checked-border-color: #025966;
+    --check-box-checked-checkmark-color: #00333b;
+
+    // Toggle Switch
+    --toggle-switch-background-color: #d9dce1;
+    --toggle-switch-checked-background-color: #0b7b8b;
+    --toggle-switch-border-color: #4f5666;
+    --toggle-switch-checked-border-color: #025966;
+    --toggle-switch-thumb-color: #ffffff;
+
+    // Radio Button
+    --radio-button-background-color: transparent;
+    --radio-button-checked-background-color: transparent;
+    --radio-button-border-color: #343c4c;
+    --radio-button-checked-border-color: #025966;
+    --radio-button-pip-color: #025966;
+    --radio-button-pill-container-background-color: #ffffff;
+    --radio-button-pill-container-active-background-color: #ebfdff;
+    --radio-button-pill-container-text-color: #343c4c;
+    --radio-button-pill-container-active-text-color: #002a47;
+
+    // ===== LAYOUT COMPONENTS =====
+    // Dropdown
+    --dropdown-background-color: #ffffff;
+    --dropdown-border-color: #4f5666; // Visible border
+    --dropdown-border-width: 1px;
+    --dropdown-border-style: solid;
+
+    // Dialog
+    --dialog-background-color: #ffffff;
+    --dialog-border-color: #4f5666; // Visible border
+    --dialog-border-width: 1px;
+    --dialog-border-style: solid;
+    --dialog-overlay-background-color: rgba(0, 0, 0, 0.6); // Darker overlay
+
+    // Snackbar
+    --snackbar-border-color: #4f5666; // Visible border
+    --snackbar-border-width: 1px;
+    --snackbar-border-style: solid;
+
+    // Slider
+    --slider-rail-background-color: #ebfdff;
+    --slider-rail-border-color: #146da6;
+    --slider-thumb-color: #b0f3fe;
+    --slider-track-background-color: #146da6;
+    --slider-track-border-color: #146da6;
+    --slider-extremity-text-color: #4f5666;
+    --slider-value-text-color: #343c4c;
+
+    // Pill
+    --pill-background-color: #d9dce1;
+    --pill-text-color: #1a212e;
+    --pill-border-width: 1px;
+    --pill-border-style: solid;
+    --pill-border-color: #4f5666;
+
+    // Highlight Box
+    --highlight-background-color: #fdfeeb;
+    --highlight-border-color: #e2e575;
+    --highlight-foreground-color: #525400;
+
+    // Form
+    --form-label-color: #000000;
+    --form-error-color: #3b1010;
+
+    // Panel
+    --panel-outline: 1px solid #d9dce1;
+
+    // Loader
+    --loader-dot-color: #fff;
+  }
+}
+
+// ------ Reduced Contrast Mode ------
+// Activated when user prefers reduced contrast for light sensitivity
+@media (prefers-contrast: less), (forced-colors: active) {
+  :root {
+    // ===== FOUNDATION COLORS =====
+
+    // Base Text colors - Softer, less harsh
+    --text-primary-color: #4f5666; // grey-color-70
+    --text-secondary-color: #69717f; // grey-color-60
+    --text-tertiary-color: #858b98; // grey-color-50
+    --text-inverse-color: red;
+    --info-color: #69717f;
+
+    // Background - Slightly off-white to reduce glare
+    --background-color: #f6f7f8;
+    --white-color: #ffffff;
+    --black-color: #000000;
+
+    // Border colors - Softer
+    --border-color: #d9dce1;
+    --horizontal-rule-color: #a1a6b1;
+
+    // Primary colors - Use lighter shades
+    --primary-color: #146da6; // color-70
+    --primary-secondary-color: #2c8cc9; // color-60
+    --primary-tertiary-color: #47a4df; // color-50
+    --primary-background1-color: #ebf7ff;
+    --primary-background2-color: #bce4ff;
+    --primary-background3-color: #8ed0fa;
+
+    // Accent colors - Softer
+    --accent-color: #0b7b8b; // color-70
+    --accent-secondary-color: #1999ac; // color-60
+    --accent-tertiary-color: #2db3c7; // color-50
+    --accent-background1-color: #ebfdff;
+    --accent-background2-color: #b0f3fe;
+    --accent-background3-color: #7be4f4;
+
+    // Disruptive colors - Less aggressive
+    --disruptive-color: #993838; // color-70
+    --disruptive-secondary-color: #c15151; // color-60
+    --disruptive-tertiary-color: #e46f6f; // color-50
+    --disruptive-background1-color: #ffefef;
+    --disruptive-background2-color: #ffc6c6;
+    --disruptive-background3-color: #ffa3a3;
+
+    // Grey colors - Lighter
+    --grey-color: #4f5666; // color-70
+    --grey-secondary-color: #69717f; // color-60
+    --grey-tertiary-color: #858b98; // color-50
+    --grey-background1-color: #f6f7f8;
+    --grey-background2-color: #d9dce1;
+    --grey-background3-color: #bdc1c9;
+
+    // Validation colors - Softer but recognizable
+    --success-color: #2b715f; // green-color-70
+    --success-background-color: #f0fefa;
+    --success-border-color: #3d8f79; // green-color-60
+    --success-active-color: #1b5143;
+    --success-hover-color: #3d8f79;
+
+    --warning-color: #9d6309; // orange-color-70
+    --warning-background-color: #fff8eb;
+    --warning-border-color: #c97e19; // orange-color-60
+    --warning-active-color: #6c4500;
+    --warning-hover-color: #ce811a;
+
+    --error-color: #993838; // red-color-70
+    --error-background-color: #ffefef;
+    --error-border-color: #c15151; // red-color-60
+    --error-active-color: #6c2222;
+    --error-hover-color: #c45353;
+
+    // ===== FOCUS INDICATORS =====
+    --focus-visible-color: #5962b7; // blueviolet-color-60 - Softer for reduced contrast
+    --focus-visible-shadow-color: #5962b7;
+    --focus-visible-shadow-width: 2px; // Standard width
+    --focus-visible-box-shadow: 0 0 0 2px #5962b7;
+    --focus-visible-outline-width: 2px;
+    --focus-visible-outline-style: solid;
+    --focus-visible-outline: 2px solid #5962b7;
+
+    // ===== LINKS =====
+    --anchor-color: #2c8cc9;
+    --anchor-active-color: #146da6;
+    --anchor-hover-color: #47a4df;
+    --anchor-visited-color: #7e3a77; // Softer violet
+    --anchor-disruptive-color: #993838;
+    --anchor-neutral-color: #69717f;
+    --anchor-primary-color: #2c8cc9;
+    --anchor-secondary-color: #4f5666;
+
+    // ===== INPUT COMPONENTS =====
+    --input-border-color: #bdc1c9; // Softer borders
+    --input-border-color-active: #69717f;
+    --input-border-color-hover: #858b98;
+    --input-border-color-underline-active: #2c8cc9;
+    --input-background-color: #f6f7f8;
+    --input-text-color: #4f5666;
+    --input-placeholder-text-color: #69717f;
+    --input-readonly-background-color: #f6f7f8;
+    --input-readonly-border-color: #bdc1c9;
+    --input-readonly-text-color: #4f5666;
+    --input-disabled-text-color: #858b98;
+    --input-disabled-placeholder-text-color: #a1a6b1;
+    --input-success-border-color: #2b715f;
+    --input-warning-border-color: #9d6309;
+    --input-error-border-color: #993838;
+    --input-highlight-border-color: #47a4df;
+
+    // ===== BUTTONS =====
+    // Default Button
+    --button-default-text-color: #146da6;
+    --button-default-background-color: #ebf7ff;
+    --button-default-border-width: 1px;
+    --button-default-border-style: solid;
+    --button-default-border-color: #47a4df;
+    --button-default-hover-text-color: #146da6;
+    --button-default-hover-background-color: #f6f7f8;
+    --button-default-hover-border-color: #2c8cc9;
+    --button-default-active-text-color: #146da6;
+    --button-default-active-background-color: #bce4ff;
+    --button-default-active-border-color: #146da6;
+
+    // Default Disruptive Button
+    --button-default-disruptive-text-color: #c15151;
+    --button-default-disruptive-background-color: #ffefef;
+    --button-default-disruptive-border-width: 1px;
+    --button-default-disruptive-border-style: solid;
+    --button-default-disruptive-border-color: #e46f6f;
+    --button-default-disruptive-hover-text-color: #c15151;
+    --button-default-disruptive-hover-background-color: #f6f7f8;
+    --button-default-disruptive-hover-border-color: #c15151;
+    --button-default-disruptive-active-border-color: #993838;
+
+    // Neutral Button
+    --button-neutral-text-color: #4f5666;
+    --button-neutral-background-color: #f6f7f8;
+    --button-neutral-border-width: 1px;
+    --button-neutral-border-style: solid;
+    --button-neutral-border-color: #858b98;
+    --button-neutral-hover-background-color: #f6f7f8;
+    --button-neutral-hover-border-color: #69717f;
+    --button-neutral-active-border-color: #4f5666;
+
+    // Primary Button
+    --button-primary-text-color: #146da6;
+    --button-primary-background-color: #b0f3fe;
+    --button-primary-border-width: 1px;
+    --button-primary-border-style: solid;
+    --button-primary-border-color: #2db3c7;
+    --button-primary-hover-background-color: #ebfdff;
+    --button-primary-hover-border-color: #1999ac;
+    --button-primary-active-border-color: #0b7b8b;
+
+    // Primary Disruptive Button
+    --button-primary-disruptive-text-color: #993838;
+    --button-primary-disruptive-background-color: #ffc6c6;
+    --button-primary-disruptive-border-width: 1px;
+    --button-primary-disruptive-border-style: solid;
+    --button-primary-disruptive-border-color: #e46f6f;
+    --button-primary-disruptive-hover-border-color: #c15151;
+    --button-primary-disruptive-active-border-color: #993838;
+
+    // Secondary Button
+    --button-secondary-text-color: #146da6;
+    --button-secondary-border-width: 1px;
+    --button-secondary-border-style: solid;
+    --button-secondary-border-color: #2c8cc9;
+    --button-secondary-hover-border-color: #47a4df;
+    --button-secondary-active-border-color: #146da6;
+
+    // Secondary Disruptive Button
+    --button-secondary-disruptive-text-color: #993838;
+    --button-secondary-disruptive-border-width: 1px;
+    --button-secondary-disruptive-border-style: solid;
+    --button-secondary-disruptive-border-color: #c15151;
+    --button-secondary-disruptive-hover-border-color: #e46f6f;
+    --button-secondary-disruptive-active-border-color: #993838;
+
+    // System UI Button
+    --button-system-ui-text-color: #4f5666;
+
+    // Two State Button
+    --button-two-state-text-color: #4f5666;
+    --button-two-state-border-width: 1px;
+    --button-two-state-border-style: solid;
+    --button-two-state-border-color: #858b98;
+
+    // AI Agent Button
+    --button-ai-agent-text-color: #414996;
+
+    // ===== NAVIGATION COMPONENTS =====
+    // Tabs
+    --tab-label: #69717f;
+    --tab-pill-border-color: #d9dce1;
+    --tab-pill-active-border-color: #47a4df;
+    --tab-underline: #d9dce1;
+    --tab-indicator-color: #000; // Softer indicator for reduced contrast
+    --tab-indicator-height: 4px;
+
+    // Stat Tab
+    --stat-tab-label-color: #69717f;
+    --stat-tab-border-color: #f6f7f8;
+    --stat-tab-active-border-color: #858b98;
+    --stat-tab-hover-border-color: #d9dce1;
+
+    // Navbar
+    --navbar-text-color: #69717f;
+    --navbar-border-bottom: 1px solid #d9dce1;
+
+    // ===== DATA DISPLAY COMPONENTS =====
+    // Table
+    --table-background-color: #f6f7f8;
+    --table-foreground-color: #4f5666;
+    --table-border-color: #d9dce1; // Softer borders
+    --table-header-foreground-color: #858b98;
+    --table-header-icon-color: #858b98;
+    --table-header-icon-hover-color: #146da6;
+    --table-row-hover-background-color: #ebfdff;
+    --table-row-selected-background-color: #f6f7f8;
+
+    // Picker
+    --picker-background-color: #f6f7f8;
+    --picker-foreground-color: #69717f;
+    --picker-border-color: #bdc1c9;
+    --picker-border-color-active: #69717f;
+    --picker-cell-foreground-color: #858b98;
+    --picker-cell-foreground-color-active: #146da6;
+    --picker-cell-foreground-color-hover: #146da6;
+
+    // Avatar
+    --avatar-border-color: #d9dce1; // Softer border
+    --avatar-border-width: 1px;
+    --avatar-border-style: solid;
+    --avatar-text-color: #ffffff; // White text on colored backgrounds
+
+    // Card
+    --card-background-color: #f6f7f8;
+    --card-border-color: #d9dce1;
+
+    // Badge
+    --badge-text-color: #4f5666;
+
+    // Match Score
+    --match-score-background-color: #47a4df;
+    --match-score-text-color: #2c8cc9;
+
+    // ===== FEEDBACK COMPONENTS =====
+    // Tooltip
+    --tooltip-background-color-dark: #4f5666;
+    --tooltip-border-color-dark: #a1a6b1;
+    --tooltip-border-color-light: #858b98;
+    --tooltip-text-color-light: #4f5666;
+
+    // Message Bar
+    --message-bar-text-color: #4f5666;
+    --message-bar-disruptive-color: #c15151;
+    --message-bar-neutral-color: #69717f;
+    --message-bar-positive-color: #2b715f;
+    --message-bar-warning-color: #9d6309;
+
+    // Info Bar
+    --info-bar-text-color: #69717f;
+
+    // Progress
+    --progress-border-color: #47a4df;
+    --progress-complete-background-color: #47a4df;
+    --progress-error-background-color: #993838;
+    --progress-success-background-color: #2b715f;
+
+    // Spinner
+    --spinner-color: #146da6;
+
+    // Skeleton
+    --skeleton-background-color: #f6f7f8;
+    --skeleton-shimmer-color: #d9dce1;
+
+    // Accordion
+    --accordion-border-color: #d9dce1;
+    --accordion-summary-background-hover-color: #f6f7f8;
+
+    // Stepper/Timeline
+    --step-default-active-border-color: #2db3c7;
+    --step-default-border-color: #2db3c7;
+    --step-timeline-active-border-color: #47a4df;
+    --step-timeline-icon-color: #2c8cc9;
+
+    // Persistent Bar
+    --persistent-bar-border-color: #d9dce1;
+
+    // ===== FORM CONTROLS =====
+    // Checkbox
+    --check-box-border-color: #69717f;
+    --check-box-active-border-color: #1999ac;
+    --check-box-hover-border-color: #1999ac;
+    --check-box-checked-border-color: #1999ac;
+    --check-box-checked-checkmark-color: #0b7b8b;
+
+    // Toggle Switch
+    --toggle-switch-background-color: #d9dce1;
+    --toggle-switch-checked-background-color: #2db3c7;
+    --toggle-switch-border-color: #858b98;
+    --toggle-switch-checked-border-color: #1999ac;
+
+    // Radio Button
+    --radio-button-border-color: #69717f;
+    --radio-button-checked-border-color: #1999ac;
+    --radio-button-pip-color: #1999ac;
+    --radio-button-pill-container-text-color: #69717f;
+    --radio-button-pill-container-active-text-color: #146da6;
+
+    // ===== LAYOUT COMPONENTS =====
+    // Dropdown
+    --dropdown-background-color: #f6f7f8;
+    --dropdown-border-color: #d9dce1; // Softer border
+    --dropdown-border-width: 1px;
+    --dropdown-border-style: solid;
+
+    // Dialog
+    --dialog-background-color: #f6f7f8;
+    --dialog-border-color: #d9dce1; // Softer border
+    --dialog-border-width: 1px;
+    --dialog-border-style: solid;
+    --dialog-overlay-background-color: rgba(0, 0, 0, 0.4); // Lighter overlay
+
+    // Snackbar
+    --snackbar-border-color: #bdc1c9; // Softer border
+    --snackbar-border-width: 1px;
+    --snackbar-border-style: solid;
+
+    // Slider
+    --slider-rail-border-color: #47a4df;
+    --slider-track-background-color: #47a4df;
+    --slider-track-border-color: #47a4df;
+    --slider-extremity-text-color: #858b98;
+    --slider-value-text-color: #69717f;
+
+    // Pill
+    --pill-background-color: #d9dce1;
+    --pill-text-color: #4f5666;
+    --pill-border-width: 1px;
+    --pill-border-style: solid;
+    --pill-border-color: #bdc1c9;
+
+    // Highlight Box
+    --highlight-foreground-color: #6d6f00;
+
+    // Form
+    --form-label-color: #4f5666;
+    --form-error-color: #993838;
+
+    // Panel
+    --panel-outline: 1px solid #d9dce1;
+
+    // Loader
+    --loader-dot-color: #000;
+  }
+}

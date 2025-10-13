@@ -110,6 +110,7 @@
 .image-style,
 .avatar-img-wrapper {
   border-radius: var(--avatar-border-radius);
+  border: var(--avatar-border);
   position: relative;
 
   &.round {

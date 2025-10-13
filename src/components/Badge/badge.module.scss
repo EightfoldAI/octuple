@@ -9,6 +9,7 @@
   padding: 0 $space-xxs;
   width: fit-content;
   height: fit-content;
+  forced-color-adjust: none; /* prevents system from overriding */
 
   &-large {
     border-radius: calc(var(--badge-border-radius) + 2px);

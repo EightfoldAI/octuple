@@ -11,6 +11,7 @@
   width: fit-content;
   display: flex;
   align-items: center;
+  border: var(--pill-border);
 
   .label {
     font-family: var(--font-stack-full);

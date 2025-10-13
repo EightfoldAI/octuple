@@ -17,6 +17,7 @@
     box-shadow: $shadow-panel-right;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     overflow: auto;
+    outline: var(--panel-outline);
 
     &.left,
     &.right {
