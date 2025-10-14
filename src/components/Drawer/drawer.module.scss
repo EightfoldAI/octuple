@@ -179,6 +179,7 @@ $handle_height: 40px;
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow) inset;
+      @include focus-visible-forced-colors();
     }
   }
 }

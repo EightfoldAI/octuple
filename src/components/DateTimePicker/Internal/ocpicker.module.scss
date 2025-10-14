@@ -2864,12 +2864,14 @@
     &-focused {
       border-color: transparent;
       box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
     }
 
     &-partial {
       &-focused {
         border-color: transparent;
         box-shadow: var(--focus-visible-box-shadow), $picker-box-shadow;
+        @include focus-visible-forced-colors();
       }
     }
   }

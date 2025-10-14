@@ -93,6 +93,7 @@
     &:focus-visible {
       box-shadow: inset var(--focus-visible-box-shadow);
       outline: none;
+      @include focus-visible-forced-colors();
     }
 
     &-rtl {
@@ -1181,6 +1182,7 @@
       &.focus-visible,
       &:focus-visible {
         box-shadow: var(--focus-visible-box-shadow);
+        @include focus-visible-forced-colors();
       }
     }
   }

@@ -11,6 +11,7 @@
     &:focus-visible {
       outline: none;
       box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
     }
 
     &.disabled {
@@ -65,6 +66,7 @@
   .dropdown-wrapper {
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
     }
   }
 }

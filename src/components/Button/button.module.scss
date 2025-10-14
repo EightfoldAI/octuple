@@ -1898,6 +1898,7 @@
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
 
       &.drop-shadow {
         box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;

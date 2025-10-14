@@ -391,3 +391,11 @@
 
   /* END Responsive Styles */
 }
+
+@mixin focus-visible-forced-colors() {
+  @media (forced-colors: active) {
+    outline: var(--focus-visible-outline);
+    // Ensure outline is on top
+    z-index: 1;
+  }
+}
