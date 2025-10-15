@@ -88,6 +88,10 @@
       display: flex;
       justify-content: space-between;
 
+      @media (forced-colors: active) {
+        border-bottom: solid 1px var(--border-color);
+      }
+
       &-button {
         margin-right: $space-m;
       }
@@ -194,6 +198,10 @@
     justify-content: space-between;
     align-items: center;
     background: $eightfold-logo-gradient-dark;
+
+    @media (forced-colors: active) {
+      border-bottom: solid 1px var(--border-color);
+    }
 
     .header-title {
       @include octuple-h4();

@@ -92,6 +92,15 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
   &.drop-shadow {
     .arrow {
       box-shadow: $tooltip-arrow-shadow;
+      @media (forced-colors: active) {
+        border-color: CanvasText;
+        border-style: solid;
+        border-width: 1px;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        forced-color-adjust: none; /* optional - preserve color */
+        background: Canvas;
+      }
     }
   }
 
