@@ -206,6 +206,9 @@
     --button-system-ui-text-color: #1a212e;
     --button-system-ui-background-color: #ffffff;
     --button-system-ui-counter-default-text-color: #1a212e;
+    --button-system-ui-border-width: 1px;
+    --button-system-ui-border-style: solid;
+    --button-system-ui-border-color: #4f5666;
 
     // Two State Button
     --button-two-state-text-color: #1a212e;
@@ -213,6 +216,9 @@
     // AI Agent Button
     --button-ai-agent-text-color: #2b3271; // Maintain blueviolet
     --button-ai-agent-focus-visible-outline-color: #2b3271;
+    --button-ai-agent-border-width: 1px;
+    --button-ai-agent-border-style: solid;
+    --button-ai-agent-border-color: #47a4df;
 
     // Button Counter
     --button-counter-default-text-color: #1a212e;
@@ -657,6 +663,9 @@
 
     // System UI Button
     --button-system-ui-text-color: #4f5666;
+    --button-system-ui-border-width: 1px;
+    --button-system-ui-border-style: solid;
+    --button-system-ui-border-color: #858b98;
 
     // Two State Button
     --button-two-state-text-color: #4f5666;
@@ -666,6 +675,9 @@
 
     // AI Agent Button
     --button-ai-agent-text-color: #414996;
+    --button-ai-agent-border-width: 1px;
+    --button-ai-agent-border-style: solid;
+    --button-ai-agent-border-color: #47a4df;
 
     // ===== NAVIGATION COMPONENTS =====
     // Tabs
