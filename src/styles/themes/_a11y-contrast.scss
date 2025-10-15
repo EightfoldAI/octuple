@@ -227,7 +227,7 @@
     --tab-inverse-pill-active-background: #ffffff;
     --tab-inverse-pill-active-border-color: #ffffff;
     --tab-underline: #4f5666; // More visible
-    --tab-indicator-color: #054d7b; // Darker indicator for high contrast
+    --tab-indicator-color: CanvasText; // Darker indicator for high contrast
     --tab-indicator-height: 4px;
 
     // Stat Tab
@@ -471,7 +471,7 @@
     --panel-outline: 1px solid #d9dce1;
 
     // Loader
-    --loader-dot-color: #fff;
+    --loader-dot-color: CanvasText;
   }
 }
 
@@ -673,7 +673,7 @@
     --tab-pill-border-color: #d9dce1;
     --tab-pill-active-border-color: #47a4df;
     --tab-underline: #d9dce1;
-    --tab-indicator-color: #000; // Softer indicator for reduced contrast
+    --tab-indicator-color: CanvasText; // Softer indicator for reduced contrast
     --tab-indicator-height: 4px;
 
     // Stat Tab
@@ -831,6 +831,6 @@
     --panel-outline: 1px solid #d9dce1;
 
     // Loader
-    --loader-dot-color: #000;
+    --loader-dot-color: CanvasText;
   }
 }
