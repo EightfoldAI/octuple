@@ -193,6 +193,17 @@ export interface StepperProps
    */
   onChange?: OnChangeHandler;
   /**
+   * Reference to an array of section elements to scroll to when step navigation occurs.
+   * When provided, automatic scroll and focus behavior is enabled.
+   */
+  sectionRefs?: React.MutableRefObject<HTMLElement[]>;
+  /**
+   * Offset to adjust the section index calculation.
+   * Useful when there are additional sections before the step sections.
+   * @default 0
+   */
+  sectionIndexOffset?: number;
+  /**
    * The Stepper is read only.
    * @default true
    */
