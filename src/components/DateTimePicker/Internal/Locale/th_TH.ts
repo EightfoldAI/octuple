@@ -34,6 +34,7 @@ const locale: Locale = {
   nextAriaLabel: 'ปีถัดไป',
   superPrevAriaLabel: 'ปีก่อนหน้า',
   superNextAriaLabel: 'ปีถัดไป',
+  arrowKeyNavigationText: 'ใช้ปุ่มลูกศรเพื่อนำทางในปฏิทิน',
 };
 
 export default locale;

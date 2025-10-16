@@ -338,6 +338,20 @@ export type PartialSharedProps<DateType> = {
    * The partial view date value.
    */
   viewDate: DateType;
+  /**
+   * The partial is trapped.
+   */
+  trap?: boolean;
+  /**
+   * The partial is visible.
+   */
+  visible?: boolean;
+  /**
+   * Announces arrow key navigation instructions when the picker opens.
+   * When true, uses default locale text. When string, uses custom message.
+   * @default false
+   */
+  announceArrowKeyNavigation?: boolean | string;
 };
 
 export type DisabledTimes = {
@@ -525,6 +539,20 @@ export type OcPickerPartialSharedProps<DateType> = {
    * Do not use in production.
    */
   onPickerValueChange?: (date: DateType) => void;
+  /**
+   * The partial is visible.
+   */
+  visible?: boolean;
+  /**
+   * The partial is trapped.
+   */
+  trap?: boolean;
+  /**
+   * Announces arrow key navigation instructions when the picker opens.
+   * When true, uses default locale text. When string, uses custom message.
+   * @default false
+   */
+  announceArrowKeyNavigation?: boolean | string;
 };
 
 export type OcPickerPartialBaseProps<DateType> = {

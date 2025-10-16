@@ -33,6 +33,7 @@ const locale: Locale = {
   nextAriaLabel: '다음 해',
   superPrevAriaLabel: '이전 해',
   superNextAriaLabel: '다음 해',
+  arrowKeyNavigationText: '화살표 키를 사용하여 달력을 탐색하세요',
 };
 
 export default locale;

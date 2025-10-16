@@ -33,6 +33,7 @@ const locale: Locale = {
   nextAriaLabel: 'Nästa år',
   superPrevAriaLabel: 'Föregående år',
   superNextAriaLabel: 'Nästa år',
+  arrowKeyNavigationText: 'Använd piltangenterna för att navigera i kalendern',
 };
 
 export default locale;

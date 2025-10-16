@@ -32,6 +32,7 @@ const locale: Locale = {
   nextAriaLabel: 'السنة القادمة',
   superPrevAriaLabel: 'السنة السابقة',
   superNextAriaLabel: 'السنة القادمة',
+  arrowKeyNavigationText: 'استخدم أزرار الأسهم للتنقل في التقويم',
 };
 
 export default locale;

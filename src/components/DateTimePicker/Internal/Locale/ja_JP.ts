@@ -33,6 +33,7 @@ const locale: Locale = {
   nextAriaLabel: '来年',
   superPrevAriaLabel: '前年',
   superNextAriaLabel: '来年',
+  arrowKeyNavigationText: '矢印キーを使用してカレンダーをナビゲートします',
 };
 
 export default locale;

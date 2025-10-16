@@ -34,6 +34,7 @@ const locale: Locale = {
   nextAriaLabel: 'Ane pwochèn',
   superPrevAriaLabel: 'Ane pase',
   superNextAriaLabel: 'Ane pwochèn',
+  arrowKeyNavigationText: 'Sèvi ak kle flèch yo pou navige nan kalandriye a',
 };
 
 export default locale;

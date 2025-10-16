@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.21](https://github.com/EightfoldAI/octuple/compare/v2.53.20...v2.53.21) (2025-10-01)
+
+### Features
+
+- allow passing titleClassNames to Empty component ([#1038](https://github.com/EightfoldAI/octuple/issues/1038)) ([cd3241c](https://github.com/EightfoldAI/octuple/commits/cd3241cd9bdc0c52f28acf671d798fae8b2f1b96))
+
+### Bug Fixes
+
+- **Avatar:** respect tabIndex prop and remove Avatar from default tab order ([#1037](https://github.com/EightfoldAI/octuple/issues/1037)) ([43253ab](https://github.com/EightfoldAI/octuple/commits/43253ab9978597d0bf19415cb75a27637b46f0be))
+- **DatePicker:** announcement for navigation of DatePicker on NVDA ([#1040](https://github.com/EightfoldAI/octuple/issues/1040)) ([1c89aa3](https://github.com/EightfoldAI/octuple/commits/1c89aa37a733ce9ba4a93fb951235c6758d1017a))
+
 ### [2.53.20](https://github.com/EightfoldAI/octuple/compare/v2.53.19...v2.53.20) (2025-09-19)
 
 ### Features

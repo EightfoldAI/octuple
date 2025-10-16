@@ -33,6 +33,7 @@ const locale: Locale = {
   nextAriaLabel: 'Sonraki yıl',
   superPrevAriaLabel: 'Önceki yıl',
   superNextAriaLabel: 'Sonraki yıl',
+  arrowKeyNavigationText: 'Takvimde gezinmek için ok tuşlarını kullanın',
 };
 
 export default locale;
