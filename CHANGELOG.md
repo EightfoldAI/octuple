@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.54.0](https://github.com/EightfoldAI/octuple/compare/v2.53.21...v2.54.0) (2025-10-16)
+
+### Features
+
+- add low/high contrast themes ([#1041](https://github.com/EightfoldAI/octuple/issues/1041)) ([61556d4](https://github.com/EightfoldAI/octuple/commits/61556d469fd07bb1d08a5b011af8b8fbaace0d25))
+
 ### [2.53.21](https://github.com/EightfoldAI/octuple/compare/v2.53.20...v2.53.21) (2025-10-01)
 
 ### Features
