@@ -2,6 +2,7 @@
   @include reset-component();
 
   display: inline-block;
+  forced-color-adjust: none; /* prevents system from overriding */
 
   &-line {
     font-size: $text-font-size-2;

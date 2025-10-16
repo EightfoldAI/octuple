@@ -17,6 +17,7 @@
     box-shadow: $shadow-panel-right;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     overflow: auto;
+    outline: var(--panel-outline);
 
     &.left,
     &.right {
@@ -86,6 +87,10 @@
       top: 0;
       display: flex;
       justify-content: space-between;
+
+      @media (forced-colors: active) {
+        border-bottom: solid 1px var(--border-color);
+      }
 
       &-button {
         margin-right: $space-m;
@@ -193,6 +198,10 @@
     justify-content: space-between;
     align-items: center;
     background: $eightfold-logo-gradient-dark;
+
+    @media (forced-colors: active) {
+      border-bottom: solid 1px var(--border-color);
+    }
 
     .header-title {
       @include octuple-h4();

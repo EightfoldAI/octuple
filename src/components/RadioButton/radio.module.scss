@@ -551,6 +551,7 @@
       background: var(--radio-button-pill-container-active-background-color);
       box-shadow: var(--focus-visible-box-shadow);
       color: var(--radio-button-pill-container-active-text-color);
+      @include focus-visible-forced-colors();
 
       input[type='radio'] {
         &:checked {

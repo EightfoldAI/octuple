@@ -3,9 +3,10 @@
 
   .dot {
     --translate: -2px;
-    background: var(--primary-color);
+    background: var(--loader-dot-color);
     border-radius: 50%;
     margin: 0 $space-xxxs;
+    forced-color-adjust: none; /* prevents system from overriding */
 
     &.small {
       width: 4px;

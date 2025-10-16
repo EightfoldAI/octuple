@@ -934,6 +934,7 @@
       background: var(--check-box-pill-container-active-background-color);
       box-shadow: var(--focus-visible-box-shadow);
       color: var(--check-box-pill-container-active-text-color);
+      @include focus-visible-forced-colors();
 
       input[type='checkbox'] {
         &:checked {

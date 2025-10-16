@@ -109,6 +109,7 @@
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
       text-decoration: underline;
+      @include focus-visible-forced-colors();
     }
   }
 }

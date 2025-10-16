@@ -110,6 +110,7 @@
 .image-style,
 .avatar-img-wrapper {
   border-radius: var(--avatar-border-radius);
+  border: var(--avatar-border);
   position: relative;
 
   &.round {
@@ -133,6 +134,7 @@
   .wrapper-style {
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
     }
   }
 }

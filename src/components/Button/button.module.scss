@@ -415,6 +415,10 @@
 
   &.ai-agent {
     color: var(--button-ai-agent-text-color);
+    border-width: var(--button-ai-agent-border-width);
+    border-style: var(--button-ai-agent-border-style);
+    border-color: var(--button-ai-agent-border-color);
+
     &.focus-visible,
     &:focus-visible {
       outline: 2px solid var(--button-ai-agent-focus-visible-outline-color);
@@ -1356,6 +1360,9 @@
   --color: var(--button-neutral-text-color);
   color: var(--color);
   background: var(--bg);
+  border-width: var(--button-neutral-border-width);
+  border-style: var(--button-neutral-border-style);
+  border-color: var(--button-neutral-border-color);
 
   .loader-dot {
     background: var(--color);
@@ -1380,6 +1387,9 @@
   --bg: var(--button-system-ui-background-color);
   --color: var(--button-system-ui-text-color);
   color: var(--color);
+  border-width: var(--button-system-ui-border-width);
+  border-style: var(--button-system-ui-border-style);
+  border-color: var(--button-system-ui-border-color);
 
   .loader-dot {
     background: var(--color);
@@ -1554,6 +1564,9 @@
   --color: var(--button-two-state-text-color);
   background: var(--bg);
   color: var(--color);
+  border-width: var(--button-two-state-border-width);
+  border-style: var(--button-two-state-border-style);
+  border-color: var(--button-two-state-border-color);
 
   .loader {
     background: var(--bg);
@@ -1892,6 +1905,7 @@
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
 
       &.drop-shadow {
         box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
