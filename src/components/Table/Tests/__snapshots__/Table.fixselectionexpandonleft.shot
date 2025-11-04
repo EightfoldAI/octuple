@@ -15,6 +15,8 @@ LoadedCheerio {
           Node {
             "attribs": Object {
               "class": "table-container table-container-horizontally-scrollable",
+              "role": "region",
+              "tabindex": "0",
             },
             "children": Array [
               Node {
@@ -17410,9 +17412,13 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
             },
           },
         ],
