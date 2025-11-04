@@ -784,6 +784,10 @@ function OcTable<RecordType extends DefaultRecordType>(
             styles.tableContainer,
             { [styles.tableContainerHorizontallyScrollable]: horizontalScroll },
           ])}
+          {...(horizontalScroll && {
+            role: 'region',
+            tabIndex: 0,
+          })}
         >
           {groupTableNode}
         </div>
