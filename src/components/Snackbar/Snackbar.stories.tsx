@@ -183,14 +183,14 @@ const snackArgs: Object = {
 
 Default.args = {
   ...snackArgs,
-  duration: 100000,
+  duration: 3000,
 };
 
 Basic.args = {
   ...snackArgs,
   content: 'Body 2 is used in this snackbar.',
   closable: false,
-  duration: 100000,
+  duration: 3000,
 };
 
 Closable.args = {
