@@ -46,13 +46,6 @@ export interface SnackbarContainerProps {
    * be rendered
    */
   parent?: HTMLElement;
-  /**
-   * DOM position for the snackbar container
-   * 'start' - Insert at the beginning of parent (better for tab order)
-   * 'end' - Insert at the end of parent (default)
-   * @default 'end'
-   */
-  domPosition?: 'start' | 'end';
 }
 
 export type VoidFunction = () => void;

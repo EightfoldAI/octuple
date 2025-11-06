@@ -15,7 +15,6 @@ import styles from './snackbar.module.scss';
 
 export const SnackbarContainer: FC<SnackbarContainerProps> = ({
   parent = typeof document !== 'undefined' ? document.body : null,
-  domPosition = 'end',
 }) => {
   const [snacks, setSnacks] = useState<SnackbarProps[]>([]);
   const closeButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
@@ -192,7 +191,6 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
   return (
     <Portal
       getContainer={() => parent}
-      insertPosition={domPosition === 'start' ? 'prepend' : 'append'}
     >
       {getSnackContainers()}
     </Portal>
