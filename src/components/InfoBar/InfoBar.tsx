@@ -174,7 +174,6 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 {closable && (
                   <Button
                     ariaLabel={closeButtonAriaLabelText}
-                    aria-describedby={contentId}
                     iconProps={{ path: closeIcon }}
                     onClick={onClose}
                     shape={ButtonShape.Round}
