@@ -9,16 +9,17 @@ import { useMergedRefs } from '../../hooks/useMergedRefs';
 import styles from './snackbar.module.scss';
 
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
-  ({ classNames, moveFocusToSnackbar, ...rest }, parentRef) => {
+  ({ classNames, moveFocusToSnackbar, closeButtonRef, ...rest }, parentRef) => {
     const snackbarClasses = mergeClasses([styles.snackbar, classNames]);
     const snackbarRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergedRefs(parentRef, snackbarRef);
 
     return (
       <InfoBar
-        role="status"
+        role="alert"
         ref={mergedRef}
         moveFocusToSnackbar={moveFocusToSnackbar}
+        closeButtonRef={closeButtonRef}
         {...rest}
         classNames={snackbarClasses}
         contentClassNames={styles.content}
