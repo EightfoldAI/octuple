@@ -3,6 +3,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import {
   SnackbarContainerProps,
+  SnackbarLocale,
   SnackbarPosition,
   SnackbarProps,
 } from './Snackbar.types';
@@ -10,15 +11,27 @@ import { Portal } from '../Portal';
 import { Snackbar } from './Snackbar';
 import { eat, SNACK_EVENTS } from './snack';
 import { canUseDocElement, mergeClasses } from '../../shared/utilities';
+import enUS from './Locale/en_US';
+import { useLocaleReceiver } from '../../locale';
 
 import styles from './snackbar.module.scss';
 
 export const SnackbarContainer: FC<SnackbarContainerProps> = ({
   parent = typeof document !== 'undefined' ? document.body : null,
+  locale = enUS,
 }) => {
   const [snacks, setSnacks] = useState<SnackbarProps[]>([]);
   const closeButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const firstTabPressedRef = useRef<boolean>(false);
+
+  const [snackbarLocale] = useLocaleReceiver('Snackbar');
+  let mergedLocale: SnackbarLocale;
+
+  if (locale) {
+    mergedLocale = locale;
+  } else {
+    mergedLocale = snackbarLocale || locale;
+  }
 
   const addSnack = (e: CustomEvent<SnackbarProps>): void => {
     setSnacks((s) => [...s, e.detail]);
@@ -131,7 +144,7 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
       return (
         <div
           role="region"
-          aria-label="Notifications"
+          aria-label={mergedLocale.lang!.notificationsRegionAriaLabelText}
           key={position}
           className={mergeClasses([
             styles.snackbarContainer,
@@ -162,7 +175,9 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
                     closableSnacks[currentIndex + 1] ||
                     closableSnacks[currentIndex - 1];
                   if (nextSnack) {
-                    const nextButton = closeButtonRefs.current.get(nextSnack.id!);
+                    const nextButton = closeButtonRefs.current.get(
+                      nextSnack.id!
+                    );
                     nextButton?.focus();
                   }
                 }
@@ -188,11 +203,5 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
       );
     });
 
-  return (
-    <Portal
-      getContainer={() => parent}
-    >
-      {getSnackContainers()}
-    </Portal>
-  );
+  return <Portal getContainer={() => parent}>{getSnackContainers()}</Portal>;
 };
