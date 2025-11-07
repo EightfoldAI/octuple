@@ -22,7 +22,6 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
 }) => {
   const [snacks, setSnacks] = useState<SnackbarProps[]>([]);
   const closeButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
-  const firstTabPressedRef = useRef<boolean>(false);
 
   const [snackbarLocale] = useLocaleReceiver('Snackbar');
   let mergedLocale: SnackbarLocale;
@@ -62,11 +61,10 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
         return;
       }
 
-      // First tab interception
-      if (e.key === 'Tab' && !firstTabPressedRef.current) {
+      // Handle tab interception
+      if (e.key === 'Tab') {
         e.preventDefault();
-        firstTabPressedRef.current = true;
-        // Focus the first closable snackbar's close button
+        // Move focus to the first closable snackbar's close button
         const firstSnack = closableSnacks[0];
         const firstButton = closeButtonRefs.current.get(firstSnack.id!);
         firstButton?.focus();
@@ -108,14 +106,6 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
         document.removeEventListener('keydown', handleKeyDown);
       }
     };
-  }, [snacks]);
-
-  // Reset firstTabPressed when no closable snacks exist
-  useEffect(() => {
-    const closableSnacks = snacks.filter((snack) => snack.closable);
-    if (closableSnacks.length === 0) {
-      firstTabPressedRef.current = false;
-    }
   }, [snacks]);
 
   const positionToClassMap: Record<SnackbarPosition, string> = {
