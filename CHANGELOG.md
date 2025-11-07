@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.54.2](https://github.com/EightfoldAI/octuple/compare/v2.54.1...v2.54.2) (2025-11-07)
+
+### Bug Fixes
+
+- **snackbar:** always tab to snackbar if active ([#1044](https://github.com/EightfoldAI/octuple/issues/1044)) ([14a0c22](https://github.com/EightfoldAI/octuple/commits/14a0c223203d21735fd07b29d29b0364c5038806))
+
 ### [2.54.1](https://github.com/EightfoldAI/octuple/compare/v2.54.0...v2.54.1) (2025-11-06)
 
 ### Features
