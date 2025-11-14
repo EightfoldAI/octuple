@@ -239,20 +239,12 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
 
         sectionElement.scrollIntoView({ behavior: 'smooth' });
 
-        let scrollTimeout: ReturnType<typeof setTimeout>;
-
-        const handleScroll = () => {
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            const firstInput = sectionElement.querySelector(
-              'input, textarea, select, [tabindex="0"]'
-            ) as HTMLElement;
-            firstInput?.focus();
-            window.removeEventListener('scroll', handleScroll);
-          }, 100);
-        };
-
-        window.addEventListener('scroll', handleScroll);
+        setTimeout(() => {
+          const firstInput = sectionElement.querySelector(
+            'input, textarea, select, [tabindex="0"]'
+          ) as HTMLElement;
+          firstInput?.focus();
+        }, 100);
       },
       [sectionRefs, sectionIndexOffset]
     );
@@ -652,6 +644,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 ])}
                                 tabIndex={0}
                                 role="button"
+                                aria-label={`Navigate to step ${index + 1}`}
+                                onClick={() => scrollToSectionAndFocus(index)}
                                 onKeyDown={(event) =>
                                   handleStepContentKeyDown(event, index)
                                 }
@@ -708,6 +702,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                               ])}
                               tabIndex={0}
                               role="button"
+                              aria-label={`Navigate to step ${index + 1}`}
+                              onClick={() => scrollToSectionAndFocus(index)}
                               onKeyDown={(event) =>
                                 handleStepContentKeyDown(event, index)
                               }
@@ -843,6 +839,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 ])}
                                 tabIndex={0}
                                 role="button"
+                                aria-label={`Navigate to step ${index + 1}`}
+                                onClick={() => scrollToSectionAndFocus(index)}
                                 onKeyDown={(event) =>
                                   handleStepContentKeyDown(event, index)
                                 }
