@@ -4,6 +4,7 @@ import styles from '../empty.module.scss';
 export const DefaultTasksCompleteImg = (): JSX.Element => {
   return (
     <svg
+      aria-hidden="true"
       className={'tasks-complete-image-default'}
       fill="none"
       height="184"

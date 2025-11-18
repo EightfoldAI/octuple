@@ -4,6 +4,7 @@ import styles from '../empty.module.scss';
 export const DefaultEmptyMessagesImg = (): JSX.Element => {
   return (
     <svg
+      aria-hidden="true"
       className={'empty-messages-image-default'}
       fill="none"
       height="184"
