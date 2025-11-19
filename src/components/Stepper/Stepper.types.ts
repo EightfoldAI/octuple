@@ -105,6 +105,11 @@ export interface Step extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
    */
   index?: StepIndex;
   /**
+   * ID of the section element to scroll to when this step is clicked.
+   * When provided, clicking this step will scroll to the element with this ID.
+   */
+  sectionId?: string;
+  /**
    * The Stepper custom `Node` button aria label string.
    * Used when `variant` is StepperVariant.Timeline.
    * @default 'Node'
@@ -193,17 +198,6 @@ export interface StepperProps
    */
   onChange?: OnChangeHandler;
   /**
-   * Reference to an array of section elements to scroll to when step navigation occurs.
-   * When provided, automatic scroll and focus behavior is enabled.
-   */
-  sectionRefs?: React.MutableRefObject<HTMLElement[]>;
-  /**
-   * Offset to adjust the section index calculation.
-   * Useful when there are additional sections before the step sections.
-   * @default 0
-   */
-  sectionIndexOffset?: number;
-  /**
    * The Stepper is read only.
    * @default true
    */
@@ -218,6 +212,13 @@ export interface StepperProps
    * Whether the Stepper is scrollable.
    */
   scrollable?: boolean;
+  /**
+   * Enable scroll-to-section and focus functionality when steps are clicked.
+   * When true, clicking a step will scroll to the corresponding section and focus the first interactive element.
+   * Requires each step to have a `sectionId` property.
+   * @default false
+   */
+  scrollableSection?: boolean;
   /**
    * The Stepper `Scroll down` button aria label string.
    * @default 'Scroll down'
