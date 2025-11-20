@@ -129,7 +129,7 @@ export interface TabsContextProps {
   variant?: TabVariant;
   /** 
   Whether to enable arrow key navigation between tabs
-  @default false
+  @default true
   */
   enableArrowNav?: boolean;
 }
@@ -229,7 +229,7 @@ export interface ITabsContext {
   handleKeyDown?: (event: React.KeyboardEvent, tabIndex: number) => void;
   /** 
   Whether to enable arrow key navigation between tabs
-  @default false
+  @default true
   */
   enableArrowNav?: boolean;
   /** 
@@ -296,7 +296,7 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   ariaControls?: string;
   /** 
   Whether to enable arrow key navigation between tabs
-  @default false
+  @default true
   */
   enableArrowNav?: boolean;
   /*

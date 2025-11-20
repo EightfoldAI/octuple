@@ -180,7 +180,7 @@ const tabsArgs: Object = {
   variant: TabVariant.default,
   size: TabSize.Medium,
   underlined: false,
-  enableArrowNav: false,
+  enableArrowNav: true,
   children: tabs.map((tab) => <Tab key={tab.value} {...tab} />),
   style: {},
 };
