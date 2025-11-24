@@ -30,7 +30,7 @@ import LocaleReceiver, {
 } from '../LocaleProvider/LocaleReceiver';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses, SELECTORS, focusable } from '../../shared/utilities';
 import enUS from './Locale/en_US';
 
 import styles from './stepper.module.scss';
@@ -241,11 +241,17 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         sectionElement.scrollIntoView({ behavior: 'smooth' });
 
         setTimeout(() => {
-          const firstFocusable = sectionElement.querySelector(
-            'input, textarea, select, [tabindex="0"]'
-          ) as HTMLElement;
+          const focusableElements = Array.from(
+            sectionElement.querySelectorAll(SELECTORS)
+          ).filter((el: HTMLElement) => focusable(el));
 
-          firstFocusable?.focus();
+          const firstFocusable = focusableElements[0] as HTMLElement;
+
+          if (firstFocusable) {
+            firstFocusable.focus();
+          } else {
+            sectionElement.focus();
+          }
         }, 100);
       },
       [scrollableSection]
