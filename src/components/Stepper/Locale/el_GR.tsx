@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Κύλιση προς τα αριστερά',
     scrollRightAriaLabelText: 'Κύλιση προς τα δεξιά',
     scrollUpAriaLabelText: 'Κύλιση προς τα επάνω',
+    navigateToStepAriaLabelText: 'Πλοήγηση στο βήμα',
   },
 };
 

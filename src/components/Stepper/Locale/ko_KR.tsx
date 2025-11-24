@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: '왼쪽으로 스크롤',
     scrollRightAriaLabelText: '오른쪽으로 스크롤',
     scrollUpAriaLabelText: '위로 스크롤',
+    navigateToStepAriaLabelText: '단계로 이동',
   },
 };
 

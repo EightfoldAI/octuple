@@ -71,6 +71,10 @@ type Locale = {
    * The Stepper `Scroll up` button aria label string.
    */
   scrollUpAriaLabelText?: string;
+  /**
+   * The Stepper `Navigate to step` aria label string.
+   */
+  navigateToStepAriaLabelText?: string;
 };
 
 export type StepperLocale = {
@@ -218,7 +222,7 @@ export interface StepperProps
    * Requires each step to have a `sectionId` property.
    * @default false
    */
-  scrollableSection?: boolean;
+  enableScrollToSection?: boolean;
   /**
    * The Stepper `Scroll down` button aria label string.
    * @default 'Scroll down'
@@ -239,6 +243,11 @@ export interface StepperProps
    * @default 'Scroll up'
    */
   scrollUpAriaLabelText?: string;
+  /**
+   * The Stepper `Navigate to step` aria label string.
+   * @default 'Navigate to step'
+   */
+  navigateToStepAriaLabelText?: string;
   /**
    * Show active step index.
    * Use when step is an icon, but an index is desired for the active step.

@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Bläddra åt vänster',
     scrollRightAriaLabelText: 'Bläddra åt höger',
     scrollUpAriaLabelText: 'Rulla uppåt',
+    navigateToStepAriaLabelText: 'Navigera till steg',
   },
 };
 

@@ -35,6 +35,8 @@ import enUS from './Locale/en_US';
 
 import styles from './stepper.module.scss';
 
+let scrollFocusTimeout: ReturnType<typeof setTimeout>;
+
 export const Stepper: FC<StepperProps> = React.forwardRef(
   (props: StepperProps, ref: Ref<HTMLDivElement>) => {
     const {
@@ -55,11 +57,12 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       readonly = true,
       required = false,
       scrollable,
-      scrollableSection = false,
+      enableScrollToSection = false,
       scrollDownAriaLabelText: defaultScrollDownAriaLabelText,
       scrollLeftAriaLabelText: defaultScrollLeftAriaLabelText,
       scrollRightAriaLabelText: defaultScrollRightAriaLabelText,
       scrollUpAriaLabelText: defaultScrollUpAriaLabelText,
+      navigateToStepAriaLabelText: defaultNavigateToStepAriaLabelText,
       showActiveStepIndex,
       size = StepperSize.Medium,
       status,
@@ -91,7 +94,6 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       ? props.scrollable
       : _scrollable;
 
-    console.log(steps, 'steps');
     useEffect(() => {
       setCurrentActiveStep(index);
     }, [index]);
@@ -124,6 +126,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
     const [scrollUpAriaLabelText, setScrollUpAriaLabelText] = useState<string>(
       defaultScrollUpAriaLabelText
     );
+    const [navigateToStepAriaLabelText, setNavigateToStepAriaLabelText] =
+      useState<string>(defaultNavigateToStepAriaLabelText);
 
     // Locs: if the prop isn't provided use the loc defaults.
     // If the mergedLocale is changed, update.
@@ -152,6 +156,11 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         props.scrollUpAriaLabelText
           ? props.scrollUpAriaLabelText
           : mergedLocale.lang!.scrollUpAriaLabelText
+      );
+      setNavigateToStepAriaLabelText(
+        props.navigateToStepAriaLabelText
+          ? props.navigateToStepAriaLabelText
+          : mergedLocale.lang!.navigateToStepAriaLabelText
       );
     }, [mergedLocale]);
 
@@ -230,7 +239,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
 
     const scrollToSectionAndFocus = useCallback(
       (targetSectionId: string) => {
-        if (!scrollableSection || !targetSectionId) return;
+        if (!enableScrollToSection || !targetSectionId) return;
 
         const sectionElement = document.getElementById(
           targetSectionId
@@ -240,21 +249,23 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
 
         sectionElement.scrollIntoView({ behavior: 'smooth' });
 
-        setTimeout(() => {
+        if (scrollFocusTimeout) {
+          clearTimeout(scrollFocusTimeout);
+        }
+
+        scrollFocusTimeout = setTimeout(() => {
           const focusableElements = Array.from(
             sectionElement.querySelectorAll(SELECTORS)
           ).filter((el: HTMLElement) => focusable(el));
 
-          const firstFocusable = focusableElements[0] as HTMLElement;
-
-          if (firstFocusable) {
-            firstFocusable.focus();
+          if (focusableElements.length > 0) {
+            (focusableElements[0] as HTMLElement).focus();
           } else {
             sectionElement.focus();
           }
         }, 100);
       },
-      [scrollableSection]
+      [enableScrollToSection]
     );
 
     const handleStepContentKeyDown = (
@@ -651,15 +662,23 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                   (styles as any)[`${combinedStepSize}`],
                                 ])}
                                 role="button"
-                                aria-label={`Navigate to step ${index + 1}`}
-                                onClick={() =>
-                                  scrollToSectionAndFocus(step.sectionId)
+                                aria-label={`${navigateToStepAriaLabelText} ${
+                                  index + 1
+                                }`}
+                                onClick={
+                                  enableScrollToSection
+                                    ? () =>
+                                        scrollToSectionAndFocus(step.sectionId)
+                                    : undefined
                                 }
-                                onKeyDown={(event) =>
-                                  handleStepContentKeyDown(
-                                    event,
-                                    step.sectionId
-                                  )
+                                onKeyDown={
+                                  enableScrollToSection
+                                    ? (event) =>
+                                        handleStepContentKeyDown(
+                                          event,
+                                          step.sectionId
+                                        )
+                                    : undefined
                                 }
                               >
                                 {step.content}
@@ -713,12 +732,23 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 (styles as any)[`${combinedStepSize}`],
                               ])}
                               role="button"
-                              aria-label={`Navigate to step ${index + 1}`}
-                              onClick={() =>
-                                scrollToSectionAndFocus(step.sectionId)
+                              aria-label={`${navigateToStepAriaLabelText} ${
+                                index + 1
+                              }`}
+                              onClick={
+                                enableScrollToSection
+                                  ? () =>
+                                      scrollToSectionAndFocus(step.sectionId)
+                                  : undefined
                               }
-                              onKeyDown={(event) =>
-                                handleStepContentKeyDown(event, step.sectionId)
+                              onKeyDown={
+                                enableScrollToSection
+                                  ? (event) =>
+                                      handleStepContentKeyDown(
+                                        event,
+                                        step.sectionId
+                                      )
+                                  : undefined
                               }
                             >
                               {step.content}
@@ -851,15 +881,23 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                   (styles as any)[`${combinedStepSize}`],
                                 ])}
                                 role="button"
-                                aria-label={`Navigate to step ${index + 1}`}
-                                onClick={() =>
-                                  scrollToSectionAndFocus(step.sectionId)
+                                aria-label={`${navigateToStepAriaLabelText} ${
+                                  index + 1
+                                }`}
+                                onClick={
+                                  enableScrollToSection
+                                    ? () =>
+                                        scrollToSectionAndFocus(step.sectionId)
+                                    : undefined
                                 }
-                                onKeyDown={(event) =>
-                                  handleStepContentKeyDown(
-                                    event,
-                                    step.sectionId
-                                  )
+                                onKeyDown={
+                                  enableScrollToSection
+                                    ? (event) =>
+                                        handleStepContentKeyDown(
+                                          event,
+                                          step.sectionId
+                                        )
+                                    : undefined
                                 }
                               >
                                 {step.content}

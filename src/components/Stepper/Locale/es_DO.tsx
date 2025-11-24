@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Desplácese hacia la izquierda',
     scrollRightAriaLabelText: 'Desplácese hacia la derecha',
     scrollUpAriaLabelText: 'Desplácese hacia arriba',
+    navigateToStepAriaLabelText: 'Navegar al paso',
   },
 };
 

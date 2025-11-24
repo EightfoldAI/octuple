@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'ఎడమవైపు స్క్రోల్ చేయండి',
     scrollRightAriaLabelText: 'కుడివైపు స్క్రోల్ చేయండి',
     scrollUpAriaLabelText: 'పైకి స్క్రోల్ చేయండి',
+    navigateToStepAriaLabelText: 'దశకు వెళ్లండి',
   },
 };
 

@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Posuňte se doleva',
     scrollRightAriaLabelText: 'Posuňte se doprava',
     scrollUpAriaLabelText: 'Posunout nahoru',
+    navigateToStepAriaLabelText: 'Přejít na krok',
   },
 };
 

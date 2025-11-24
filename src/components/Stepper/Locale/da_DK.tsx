@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Rul til venstre',
     scrollRightAriaLabelText: 'Rul til højre',
     scrollUpAriaLabelText: 'Rul op',
+    navigateToStepAriaLabelText: 'Naviger til trin',
   },
 };
 
