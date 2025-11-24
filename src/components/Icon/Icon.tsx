@@ -43,7 +43,7 @@ export const Icon: FC<IconProps> = ({
       size={size}
       color={color}
       icon={icomoonIconName}
-      role="presentation"
+      role={iconRole}
     />
   ) : (
     <MdiIcon
