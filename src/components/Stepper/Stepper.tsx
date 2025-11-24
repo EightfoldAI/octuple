@@ -661,25 +661,19 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                   styles.contentInner,
                                   (styles as any)[`${combinedStepSize}`],
                                 ])}
-                                role="button"
-                                aria-label={`${navigateToStepAriaLabelText} ${
-                                  index + 1
-                                }`}
-                                onClick={
-                                  enableScrollToSection
-                                    ? () =>
-                                        scrollToSectionAndFocus(step.sectionId)
-                                    : undefined
-                                }
-                                onKeyDown={
-                                  enableScrollToSection
-                                    ? (event) =>
-                                        handleStepContentKeyDown(
-                                          event,
-                                          step.sectionId
-                                        )
-                                    : undefined
-                                }
+                                {...(enableScrollToSection && {
+                                  role: 'button',
+                                  'aria-label': `${navigateToStepAriaLabelText} ${
+                                    index + 1
+                                  }`,
+                                  onClick: () =>
+                                    scrollToSectionAndFocus(step.sectionId),
+                                  onKeyDown: (event) =>
+                                    handleStepContentKeyDown(
+                                      event,
+                                      step.sectionId
+                                    ),
+                                })}
                               >
                                 {step.content}
                               </div>
@@ -731,25 +725,19 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 styles.contentInner,
                                 (styles as any)[`${combinedStepSize}`],
                               ])}
-                              role="button"
-                              aria-label={`${navigateToStepAriaLabelText} ${
-                                index + 1
-                              }`}
-                              onClick={
-                                enableScrollToSection
-                                  ? () =>
-                                      scrollToSectionAndFocus(step.sectionId)
-                                  : undefined
-                              }
-                              onKeyDown={
-                                enableScrollToSection
-                                  ? (event) =>
-                                      handleStepContentKeyDown(
-                                        event,
-                                        step.sectionId
-                                      )
-                                  : undefined
-                              }
+                              {...(enableScrollToSection && {
+                                role: 'button',
+                                'aria-label': `${navigateToStepAriaLabelText} ${
+                                  index + 1
+                                }`,
+                                onClick: () =>
+                                  scrollToSectionAndFocus(step.sectionId),
+                                onKeyDown: (event) =>
+                                  handleStepContentKeyDown(
+                                    event,
+                                    step.sectionId
+                                  ),
+                              })}
                             >
                               {step.content}
                             </div>
@@ -880,25 +868,19 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                   styles.contentInner,
                                   (styles as any)[`${combinedStepSize}`],
                                 ])}
-                                role="button"
-                                aria-label={`${navigateToStepAriaLabelText} ${
-                                  index + 1
-                                }`}
-                                onClick={
-                                  enableScrollToSection
-                                    ? () =>
-                                        scrollToSectionAndFocus(step.sectionId)
-                                    : undefined
-                                }
-                                onKeyDown={
-                                  enableScrollToSection
-                                    ? (event) =>
-                                        handleStepContentKeyDown(
-                                          event,
-                                          step.sectionId
-                                        )
-                                    : undefined
-                                }
+                                {...(enableScrollToSection && {
+                                  role: 'button',
+                                  'aria-label': `${navigateToStepAriaLabelText} ${
+                                    index + 1
+                                  }`,
+                                  onClick: () =>
+                                    scrollToSectionAndFocus(step.sectionId),
+                                  onKeyDown: (event) =>
+                                    handleStepContentKeyDown(
+                                      event,
+                                      step.sectionId
+                                    ),
+                                })}
                               >
                                 {step.content}
                               </div>
