@@ -156,7 +156,7 @@ exports[`Menu Menu is large 1`] = `
             <div
               aria-label="Radio Group"
               class="radio-group vertical radio-group-large"
-              role="group"
+              role="radiogroup"
             >
               <div
                 class="selector selector-large"
@@ -402,7 +402,7 @@ exports[`Menu Menu is medium 1`] = `
             <div
               aria-label="Radio Group"
               class="radio-group vertical radio-group-medium"
-              role="group"
+              role="radiogroup"
             >
               <div
                 class="selector selector-medium"
@@ -648,7 +648,7 @@ exports[`Menu Menu is small 1`] = `
             <div
               aria-label="Radio Group"
               class="radio-group vertical radio-group-small"
-              role="group"
+              role="radiogroup"
             >
               <div
                 class="selector selector-small"
