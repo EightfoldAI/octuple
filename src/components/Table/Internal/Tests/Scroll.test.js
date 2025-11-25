@@ -50,6 +50,46 @@ describe('Table.Scroll', () => {
     expect(wrapper.find('.table-body').props().style.overflow).toEqual('auto');
   });
 
+  it('renders with accessibility attributes when horizontally scrollable', () => {
+    const wrapper = mount(createTable({ scroll: { x: 200 } }));
+    const tableContainer = wrapper.find('.table-container').at(0);
+
+    expect(tableContainer.prop('role')).toBe('region');
+    expect(tableContainer.prop('tabIndex')).toBe(0);
+  });
+
+  it('does not render accessibility attributes when not horizontally scrollable', () => {
+    const wrapper = mount(createTable({ scroll: { y: 200 } }));
+    const tableContainer = wrapper.find('.table-container').at(0);
+
+    expect(tableContainer.prop('role')).toBeUndefined();
+    expect(tableContainer.prop('tabIndex')).toBeUndefined();
+  });
+
+  it('does not render accessibility attributes when no scroll prop', () => {
+    const wrapper = mount(createTable());
+    const tableContainer = wrapper.find('.table-container').at(0);
+
+    expect(tableContainer.prop('role')).toBeUndefined();
+    expect(tableContainer.prop('tabIndex')).toBeUndefined();
+  });
+
+  it('renders with accessibility attributes when scroll.x is true', () => {
+    const wrapper = mount(createTable({ scroll: { x: true } }));
+    const tableContainer = wrapper.find('.table-container').at(0);
+
+    expect(tableContainer.prop('role')).toBe('region');
+    expect(tableContainer.prop('tabIndex')).toBe(0);
+  });
+
+  it('renders with accessibility attributes when both scroll.x and scroll.y are set', () => {
+    const wrapper = mount(createTable({ scroll: { x: 200, y: 200 } }));
+    const tableContainer = wrapper.find('.table-container').at(0);
+
+    expect(tableContainer.prop('role')).toBe('region');
+    expect(tableContainer.prop('tabIndex')).toBe(0);
+  });
+
   it('fire scroll event', () => {
     jest.useFakeTimers();
     let scrollLeft = 0;
