@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: '左にスクロール',
     scrollRightAriaLabelText: '右にスクロール',
     scrollUpAriaLabelText: '上にスクロール',
+    navigateToStepAriaLabelText: 'ステップに移動',
   },
 };
 

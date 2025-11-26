@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Woulo kite',
     scrollRightAriaLabelText: 'Woulo liv',
     scrollUpAriaLabelText: 'Defile moute',
+    navigateToStepAriaLabelText: 'Navige nan etap la',
   },
 };
 

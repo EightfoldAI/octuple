@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Cuộn sang trái',
     scrollRightAriaLabelText: 'Cuộn sang phải',
     scrollUpAriaLabelText: 'Cuộn lên',
+    navigateToStepAriaLabelText: 'Điều hướng đến bước',
   },
 };
 
