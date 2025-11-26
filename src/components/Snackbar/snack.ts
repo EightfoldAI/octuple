@@ -65,7 +65,6 @@ export const eat = (snackId: string): void => {
   }
 
   activeSnacksCount--;
-
   // Only return focus when all snacks are closed
   if (activeSnacksCount === 0 && elementToFocus) {
     elementToFocus.focus();
