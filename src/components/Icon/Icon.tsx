@@ -11,7 +11,7 @@ import styles from './icon.module.scss';
 import { useConfig } from '../ConfigProvider';
 
 export const Icon: FC<IconProps> = ({
-  ariaHidden = true,
+  ariaHidden = false,
   classNames,
   color,
   description,
