@@ -7,7 +7,6 @@ exports[`MessageBar MessageBar is Disruptive 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
       role="presentation"
     >
@@ -47,7 +46,6 @@ exports[`MessageBar MessageBar is Neutral 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
       role="presentation"
     >
@@ -87,7 +85,6 @@ exports[`MessageBar MessageBar is Positive 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
       role="presentation"
     >
@@ -127,7 +124,6 @@ exports[`MessageBar MessageBar is Warning 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
       role="presentation"
     >
@@ -167,7 +163,6 @@ exports[`MessageBar Renders a custom icon when the icon prop uses a custom icon 
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
       role="presentation"
     >
@@ -207,7 +202,6 @@ exports[`MessageBar Renders without crashing 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
       role="presentation"
     >

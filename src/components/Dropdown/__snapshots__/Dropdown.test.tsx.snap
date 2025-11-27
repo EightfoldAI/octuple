@@ -18,7 +18,6 @@ exports[`Dropdown Should render a dropdown button 1`] = `
     >
       <span>
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >

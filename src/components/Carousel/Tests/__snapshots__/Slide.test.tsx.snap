@@ -16,7 +16,6 @@ exports[`Slide loads and displays Carousel component 1`] = `
         class="pagination-button pagination-previous button button-neutral button-medium icon-left"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
@@ -84,7 +83,6 @@ exports[`Slide loads and displays Carousel component 1`] = `
         class="pagination-button pagination-next button button-neutral button-medium icon-left"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
@@ -126,7 +124,6 @@ exports[`Slide loads and displays Carousel component 1`] = `
       class="carousel-previous button button-secondary button-large icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -148,7 +145,6 @@ exports[`Slide loads and displays Carousel component 1`] = `
       class="carousel-next button button-secondary button-large icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >

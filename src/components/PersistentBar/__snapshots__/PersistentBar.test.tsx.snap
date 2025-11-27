@@ -119,7 +119,6 @@ exports[`PersistentBar PersistentBar is topBarWithText 1`] = `
         class="icon-button button button-system-ui button-medium round-shape icon-left"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
