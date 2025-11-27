@@ -355,7 +355,6 @@ exports[`Progress render out-of-range progress 1`] = `
       class="extremity-label min-label progress-text"
     >
       <span
-        aria-hidden="false"
         class="progress-icon icon-wrapper"
         role="presentation"
       >
@@ -409,7 +408,6 @@ exports[`Progress render out-of-range progress with info 1`] = `
       class="extremity-label min-label progress-text"
     >
       <span
-        aria-hidden="false"
         class="progress-icon icon-wrapper"
         role="presentation"
       >

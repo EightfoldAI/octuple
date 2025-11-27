@@ -594,7 +594,6 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
         style="margin-top: 20px;"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
           style="color: rgb(255, 255, 255);"
@@ -720,7 +719,6 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
               data-testid="highlight-button-test"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
                 role="presentation"
               >
@@ -1560,7 +1558,6 @@ exports[`SkillBlock Skill is a default block with custom iconProps 1`] = `
         class="block-start"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
@@ -1919,7 +1916,6 @@ exports[`SkillBlock Skill is a default block with customButtonProps 1`] = `
               data-testid="test-custom-button"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
                 role="presentation"
               >
@@ -2068,7 +2064,6 @@ exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
             >
               <span>
                 <span
-                  aria-hidden="false"
                   class="icon icon-wrapper"
                   role="presentation"
                 >
@@ -2222,7 +2217,6 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
               data-testid="test-highlight-button"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
                 role="presentation"
               >
@@ -2784,7 +2778,6 @@ exports[`SkillBlock Skill is a highlight block 1`] = `
         class="block-start"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
@@ -2914,7 +2907,6 @@ exports[`SkillBlock Skill is a match block 1`] = `
         class="block-start"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
@@ -4280,7 +4272,6 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
                 tabindex="0"
               >
                 <span
-                  aria-hidden="false"
                   class="icon icon-wrapper"
                   role="presentation"
                 >

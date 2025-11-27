@@ -70,7 +70,6 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -108,7 +107,6 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -183,7 +181,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -222,7 +219,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -261,7 +257,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -300,7 +295,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -339,7 +333,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -378,7 +371,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
             </a>
           </div>
           <span
-            aria-hidden="false"
             class="icon-wrapper"
             role="presentation"
           >
@@ -471,7 +463,6 @@ exports[`Breadcrumb should support custom attribute 1`] = `
           </a>
         </div>
         <span
-          aria-hidden="false"
           class="icon-wrapper"
           role="presentation"
         >

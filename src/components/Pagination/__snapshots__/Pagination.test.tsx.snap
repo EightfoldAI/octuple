@@ -14,7 +14,6 @@ exports[`Pagination Pagination should render as dots 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -110,7 +109,6 @@ exports[`Pagination Pagination should render as dots 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -144,7 +142,6 @@ exports[`Pagination Pagination should render as simplified 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -183,7 +180,6 @@ exports[`Pagination Pagination should render as simplified 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -217,7 +213,6 @@ exports[`Pagination Pagination should render normally 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -313,7 +308,6 @@ exports[`Pagination Pagination should render normally 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -358,7 +352,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
         >
           <span>
             <span
-              aria-hidden="false"
               class="icon icon-wrapper"
               role="presentation"
             >
@@ -393,7 +386,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
       class="pagination-button pagination-previous button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -476,7 +468,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -545,7 +536,6 @@ exports[`Pagination Pagination should render with some elements 1`] = `
       class="pagination-button pagination-previous button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -711,7 +701,6 @@ exports[`Pagination Pagination should render with some elements 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
