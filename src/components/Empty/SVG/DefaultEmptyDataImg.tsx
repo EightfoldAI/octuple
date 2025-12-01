@@ -11,6 +11,7 @@ export const DefaultEmptyDataImg = (): JSX.Element => {
       width="200"
       viewBox="0 0 200 184"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
       <path
         className={styles.primaryColor10}

@@ -3,7 +3,6 @@
 exports[`Spinner Renders without crashing 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="spinner my-spinner-class icon-wrapper"
     role="presentation"
   >

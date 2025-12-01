@@ -27,7 +27,6 @@ export const Icon: FC<IconProps> = ({
   vertical,
   'data-test-id': dataTestId,
   icomoonIconName,
-  iconRole = 'presentation',
 }) => {
   const { icomoonIconSet } = useConfig();
 
@@ -43,7 +42,6 @@ export const Icon: FC<IconProps> = ({
       size={size}
       color={color}
       icon={icomoonIconName}
-      role="presentation"
     />
   ) : (
     <MdiIcon
@@ -57,18 +55,17 @@ export const Icon: FC<IconProps> = ({
       vertical={vertical}
       spin={spin}
       // @ts-ignore
-      role={iconRole}
     />
   );
 
   return (
     <span
       data-test-id={dataTestId}
-      aria-hidden={ariaHidden}
       className={iconClassNames}
       id={id}
       role={role}
       style={style ? style : null}
+      {...(ariaHidden === true ? { 'aria-hidden': true } : {})}
     >
       {iconComponent}
     </span>

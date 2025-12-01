@@ -15,7 +15,6 @@ exports[`Pill Pill should render as closable 1`] = `
       class="close-button button button-default button-small pill-shape icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
         role="presentation"
       >
@@ -80,7 +79,6 @@ exports[`Pill Pill should render with button 1`] = `
     >
       <span>
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
           role="presentation"
         >
@@ -112,7 +110,6 @@ exports[`Pill Pill should render with icon 1`] = `
     class="tag-pills blue medium read-only"
   >
     <span
-      aria-hidden="false"
       class="icon icon-start icon-wrapper"
       role="presentation"
     >
@@ -147,7 +144,6 @@ exports[`Pill Pill should render with icon to the end of its label 1`] = `
       A pill with icon
     </span>
     <span
-      aria-hidden="false"
       class="icon icon-end icon-wrapper"
       role="presentation"
     >

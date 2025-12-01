@@ -48,7 +48,6 @@ exports[`Menu Menu is large 1`] = `
               type="button"
             >
               <span
-                aria-hidden="false"
                 class="icon-wrapper"
                 role="presentation"
               >
@@ -294,7 +293,6 @@ exports[`Menu Menu is medium 1`] = `
               type="button"
             >
               <span
-                aria-hidden="false"
                 class="icon-wrapper"
                 role="presentation"
               >
@@ -540,7 +538,6 @@ exports[`Menu Menu is small 1`] = `
               type="button"
             >
               <span
-                aria-hidden="false"
                 class="icon-wrapper"
                 role="presentation"
               >
