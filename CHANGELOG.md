@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.54.3](https://github.com/EightfoldAI/octuple/compare/v2.54.2...v2.54.3) (2025-12-01)
+
+### Features
+
+- **RadioGroup:** add 'radiogroup' role ([#1050](https://github.com/EightfoldAI/octuple/issues/1050)) ([f172dcd](https://github.com/EightfoldAI/octuple/commits/f172dcdb1065572d6a4afa5dc6f4329b5c6b991f))
+- **tabs:** update Tabs components and fix snapshot ([#1047](https://github.com/EightfoldAI/octuple/issues/1047)) ([5bdda68](https://github.com/EightfoldAI/octuple/commits/5bdda68d1c8c3bd44031ad2eb1144cbe72dcc106))
+
+### Bug Fixes
+
+- accessibility fix for adding appropriate role for image ([#1051](https://github.com/EightfoldAI/octuple/issues/1051)) ([5565553](https://github.com/EightfoldAI/octuple/commits/5565553a0b8b8eaa11722de860c29f7218233e46))
+- **ENG-167534:** add aria-hidden to SVG elements for WCAG compliance ([#1048](https://github.com/EightfoldAI/octuple/issues/1048)) ([45b758b](https://github.com/EightfoldAI/octuple/commits/45b758b498c0ecfc4361d986aaa16d52e49537c9))
+
 ### [2.54.2](https://github.com/EightfoldAI/octuple/compare/v2.54.1...v2.54.2) (2025-11-07)
 
 ### Bug Fixes
