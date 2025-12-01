@@ -104,7 +104,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     return (
       <RadioGroupProvider onChange={onChange} value={value}>
         <div
-          role={items.length > 1 ? 'group' : undefined}
+          role={items.length > 1 ? 'radiogroup' : undefined}
           className={radioGroupClasses}
           style={style}
           ref={ref}

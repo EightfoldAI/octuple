@@ -64,7 +64,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -106,7 +106,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -149,7 +149,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -250,7 +250,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -292,7 +292,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -335,7 +335,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -436,7 +436,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -478,7 +478,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -521,7 +521,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -622,7 +622,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -664,7 +664,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -707,7 +707,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -3663,7 +3663,7 @@ exports[`Tabs tabs alignIcon end 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="label"
@@ -3705,7 +3705,7 @@ exports[`Tabs tabs alignIcon end 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="label"
@@ -3748,7 +3748,7 @@ exports[`Tabs tabs alignIcon end 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="label"
@@ -3850,7 +3850,7 @@ exports[`Tabs tabs alignIcon start 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -3892,7 +3892,7 @@ exports[`Tabs tabs alignIcon start 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -3935,7 +3935,7 @@ exports[`Tabs tabs alignIcon start 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -4042,7 +4042,7 @@ exports[`Tabs tabs badgeContent 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -4089,7 +4089,7 @@ exports[`Tabs tabs badgeContent 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -4137,7 +4137,7 @@ exports[`Tabs tabs badgeContent 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -4243,7 +4243,7 @@ exports[`Tabs tabs snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -4285,7 +4285,7 @@ exports[`Tabs tabs snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"
@@ -4328,7 +4328,7 @@ exports[`Tabs tabs snapshot 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="tab"
-      tabIndex={0}
+      tabIndex={-1}
     >
       <span
         className="icon start icon-wrapper"

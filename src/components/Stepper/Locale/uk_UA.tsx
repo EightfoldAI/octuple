@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Прокручування вліво',
     scrollRightAriaLabelText: 'Прокручування вправо',
     scrollUpAriaLabelText: 'Прокручування вгору',
+    navigateToStepAriaLabelText: 'Перейти до кроку',
   },
 };
 

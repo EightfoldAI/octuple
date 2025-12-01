@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'גלילה שמאלה',
     scrollRightAriaLabelText: 'גלילה ימינה',
     scrollUpAriaLabelText: 'גלילה למעלה',
+    navigateToStepAriaLabelText: 'נווט לשלב',
   },
 };
 

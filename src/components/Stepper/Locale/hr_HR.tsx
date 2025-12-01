@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Pomicanje ulijevo',
     scrollRightAriaLabelText: 'Pomicanje udesno',
     scrollUpAriaLabelText: 'Pomicanje prema gore',
+    navigateToStepAriaLabelText: 'Idite na korak',
   },
 };
 

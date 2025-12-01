@@ -4,6 +4,7 @@ import styles from '../empty.module.scss';
 export const DefaultEmptyDataImg = (): JSX.Element => {
   return (
     <svg
+      aria-hidden="true"
       className={'empty-data-image-default'}
       fill="none"
       height="184"

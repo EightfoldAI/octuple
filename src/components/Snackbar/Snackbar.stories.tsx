@@ -197,9 +197,6 @@ Closable.args = {
   ...snackArgs,
   id: undefined,
   closable: true,
-  closeButtonProps: {
-    ariaLabel: 'Close',
-  },
 };
 
 With_Action.args = {

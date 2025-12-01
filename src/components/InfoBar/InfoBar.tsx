@@ -14,6 +14,7 @@ import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
 import enUS from './Locale/en_US';
+import { useMergedRefs } from '../../hooks/useMergedRefs';
 
 import styles from './infoBar.module.scss';
 import themedComponentStyles from './infoBar.theme.module.scss';
@@ -28,6 +29,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       closable,
       closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
       closeButtonProps,
+      closeButtonRef: externalCloseButtonRef,
       closeIcon = IconName.mdiClose,
       configContextProps = {
         noGradientContext: false,
@@ -35,6 +37,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       },
       content,
       contentClassNames,
+      contentId,
       contentWrapperClassNames,
       gradient = false,
       icon,
@@ -50,7 +53,11 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       moveFocusToSnackbar = false,
       ...rest
     } = props;
-    const closeButtonRef = useRef<HTMLButtonElement>(null);
+    const internalCloseButtonRef = useRef<HTMLButtonElement>(null);
+    const closeButtonRef = useMergedRefs(
+      internalCloseButtonRef,
+      externalCloseButtonRef
+    );
 
     const contextualGradient: Gradient = useContext(GradientContext);
     const mergedGradient: boolean = configContextProps.noGradientContext
@@ -84,14 +91,6 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
           : mergedLocale.lang!.closeButtonAriaLabelText
       );
     }, [mergedLocale]);
-
-    useEffect(() => {
-      setTimeout(() => {
-        if (ref && 'current' in ref && moveFocusToSnackbar && closable) {
-          ref.current.focus();
-        }
-      }, 0);
-    }, [ref]);
 
     const infoBarClassNames: string = mergeClasses([
       styles.infoBar,
@@ -142,6 +141,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 ref={ref}
                 style={style}
                 role={role}
+                aria-describedby={contentId}
               >
                 <Icon
                   path={getIconName()}
@@ -154,7 +154,9 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                     contentWrapperClassNames,
                   ])}
                 >
-                  <div className={messageClasses}>{content}</div>
+                  <div className={messageClasses} id={contentId}>
+                    {content}
+                  </div>
                   {actionButtonProps && (
                     <Button
                       buttonWidth={ButtonWidth.fitContent}
