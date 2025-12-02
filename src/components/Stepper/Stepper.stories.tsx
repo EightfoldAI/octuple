@@ -201,10 +201,6 @@ const stepperArgs: Object = {
 Default_Horizontal_Small.args = {
   ...stepperArgs,
   size: StepperSize.Small,
-  stepsContainerProps: {
-    tabIndex: -1,
-  },
-  announceScrollButtonDisabled: true,
 };
 
 Default_Horizontal_Small_Required.args = {
@@ -217,6 +213,9 @@ Default_Horizontal_Small_Read_Only.args = {
   ...stepperArgs,
   readonly: true,
   size: StepperSize.Small,
+  stepsContainerProps: {
+    tabIndex: -1,
+  },
 };
 
 Default_Horizontal_Medium.args = {
