@@ -150,6 +150,25 @@ export interface Step extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
   themeContainerId?: string;
 }
 
+export type StepsContainerProps = {
+  /**
+   * The tab index of the steps container.
+   */
+  tabIndex?: number;
+  /**
+   * The class names of the steps container.
+   */
+  classNames?: string;
+  /**
+   * The on scroll event handler.
+   */
+  onScroll?: (event: React.UIEvent<HTMLDivElement>) => void;
+  /**
+   * The data test id of the steps container.
+   */
+  'data-test-id'?: string;
+};
+
 export interface StepperProps
   extends Omit<OcBaseProps<HTMLDivElement>, 'onChange'> {
   /**
@@ -292,8 +311,8 @@ export interface StepperProps
    */
   scrollToActiveStep?: boolean;
   /**
-   * HTML attributes to be applied to the steps container div.
-   * Supports all standard HTML div attributes including aria-* props.
+   * Props to be applied to the steps container div.
+   * Supports tabIndex, classNames, and onScroll event handler.
    */
-  stepsContainerProps?: React.HTMLAttributes<HTMLDivElement>;
+  stepsContainerProps?: StepsContainerProps;
 }

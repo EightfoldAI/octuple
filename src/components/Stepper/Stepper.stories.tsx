@@ -215,6 +215,7 @@ Default_Horizontal_Small_Read_Only.args = {
   size: StepperSize.Small,
   stepsContainerProps: {
     tabIndex: -1,
+    classNames: 'my-stepper-container-readonly',
   },
 };
 
