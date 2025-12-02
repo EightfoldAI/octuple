@@ -291,4 +291,9 @@ export interface StepperProps
    * @default false
    */
   scrollToActiveStep?: boolean;
+  /**
+   * HTML attributes to be applied to the steps container div.
+   * Supports all standard HTML div attributes including aria-* props.
+   */
+  stepsContainerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
