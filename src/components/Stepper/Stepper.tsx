@@ -74,6 +74,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       width,
       'data-test-id': dataTestId,
       scrollToActiveStep,
+      stepsContainerProps = {},
       ...rest
     } = props;
     const htmlDir: string = useCanvasDirection();
@@ -572,10 +573,17 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                   />
                 )}
                 <div
-                  className={styles.stepsContainer}
-                  onScroll={handleScroll}
+                  className={mergeClasses([
+                    styles.stepsContainer,
+                    stepsContainerProps?.classNames,
+                  ])}
+                  onScroll={(e) => {
+                    handleScroll();
+                    stepsContainerProps?.onScroll?.(e);
+                  }}
                   ref={stepsContainerRef}
                   tabIndex={mergedScrollable ? 0 : null}
+                  {...stepsContainerProps}
                 >
                   <ul className={styles.steps} ref={stepsRef}>
                     {steps.map((step: Step, index: number) => {
