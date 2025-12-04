@@ -69,12 +69,17 @@ const dropdownProps: object = {
   portal: false,
 };
 
-const DropdownComponent = (): JSX.Element => {
+const DropdownComponent = ({
+  trapFocus,
+}: {
+  trapFocus?: boolean;
+}): JSX.Element => {
   const [visible, setVisibility] = useState(false);
 
   return (
     <Dropdown
       {...dropdownProps}
+      trapFocus={trapFocus}
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
     >
       <Button
@@ -572,5 +577,44 @@ describe('Dropdown', () => {
     // Verify dropdown remains open
     expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
     expect(screen.getByText('User profile 1')).toBeVisible();
+  });
+
+  test('Allows focus cycling when trapFocus prop is enabled', async () => {
+    const { getByTestId } = render(<DropdownComponent trapFocus />);
+    const referenceElement = getByTestId('dropdown-reference');
+
+    // Click to open dropdown
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+
+    // Wait for menu to be visible
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+
+    // Tab to third (last) menu item
+    act(() => {
+      userEvent.tab();
+      userEvent.tab();
+    });
+
+    // Verify last menu item is focused
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 3').matches(':focus')).toBe(true)
+    );
+
+    // Cycle focus back to first menu item
+    act(() => {
+      userEvent.tab();
+    });
+
+    // Verify dropdown remains open and first menu item is focused
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
   });
 });

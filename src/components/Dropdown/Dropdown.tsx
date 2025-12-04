@@ -72,6 +72,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         showDropdown,
         style,
         tabIndex = 0,
+        trapFocus = false,
         trigger = 'click',
         visible,
         width,
@@ -296,19 +297,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
-        if (event?.key === eventKeys.TAB) {
+        // Let FloatingFocusManager handle Tab/Shift+Tab when trapping focus.
+        // Only perform custom Tab-handling when trapFocus is false.
+        if (!trapFocus && event?.key === eventKeys.TAB) {
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (!refs.floating.current.matches(':focus-within')) {
-              toggle(false)(event);
-            }
-          }, NO_ANIMATION_DURATION);
-        }
-        if (event?.key === eventKeys.TAB && event.shiftKey) {
-          timeout && clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            if (!refs.floating.current.matches(':focus-within')) {
-              toggle(toggleDropdownOnShiftTab)(event);
+              const value = event.shiftKey ? toggleDropdownOnShiftTab : false;
+              toggle(value)(event);
             }
           }, NO_ANIMATION_DURATION);
         }
@@ -399,10 +395,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           <FloatingFocusManager
             context={context}
             key={dropdownId}
-            modal={false}
-            order={['reference', 'content']}
+            modal={trapFocus}
+            visuallyHiddenDismiss={trapFocus}
+            order={trapFocus ? undefined : ['reference', 'content']}
             initialFocus={-1}
-            returnFocus={false}
+            returnFocus={trapFocus}
           >
             <div
               ref={refs.setFloating}

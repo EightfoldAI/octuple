@@ -150,6 +150,11 @@ export interface DropdownProps {
    */
   tabIndex?: number;
   /**
+   * If focus should be trapped within the dropdown when visible
+   * @default false
+   */
+  trapFocus?: boolean;
+  /**
    * The trigger mode that opens the dropdown
    * @default 'click'
    */
