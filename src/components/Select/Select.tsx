@@ -53,6 +53,7 @@ import {
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
+import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
 
 import styles from './select.module.scss';
 import themedComponentStyles from './select.theme.module.scss';
@@ -179,6 +180,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const mergedTheme: OcThemeName = configContextProps.noThemeContext
       ? theme
       : contextualTheme || theme;
+
+    // Locale
+    const [selectLocale] = useLocaleReceiver('Select');
 
     const firstRender: React.MutableRefObject<boolean> = useRef(true);
 
@@ -693,9 +697,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
           classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
           role: 'option',
           'aria-selected': opt.selected,
-          'aria-label': opt.selected
-            ? `${opt.text}, currently selected option`
-            : opt.text,
+          'aria-label':
+            opt.selected && selectLocale?.lang?.currentlySelectedText
+              ? `${opt.text}, ${selectLocale.lang.currentlySelectedText}`
+              : opt.text,
         })
       );
       if (filteredOptions.length > 0) {
