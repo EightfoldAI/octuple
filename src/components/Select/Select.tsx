@@ -693,6 +693,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
           classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
           role: 'option',
           'aria-selected': opt.selected,
+          'aria-label': opt.selected
+            ? `${opt.text}, currently selected option`
+            : opt.text,
         })
       );
       if (filteredOptions.length > 0) {
