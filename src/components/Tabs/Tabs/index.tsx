@@ -24,11 +24,14 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
       value,
       variant,
       enableArrowNav = true,
+      asNavigation = false,
+      navigationLabel,
     } = props;
     const { configContextProps, ...restProps } = props;
     return (
       <TabsProvider
         alignIcon={alignIcon}
+        children={children}
         colorInvert={colorInvert}
         configContextProps={configContextProps}
         direction={direction}
@@ -44,6 +47,8 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
         value={value}
         variant={variant}
         enableArrowNav={enableArrowNav}
+        asNavigation={asNavigation}
+        navigationLabel={navigationLabel}
       >
         <AnimatedTabs {...restProps} ref={ref}>
           {children}

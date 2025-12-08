@@ -28,9 +28,10 @@ export const Tab: FC<TabProps> = React.forwardRef(
       value,
       ariaControls,
       index = 0,
+      href,
       ...rest
     },
-    ref: Ref<HTMLButtonElement>
+    ref: Ref<HTMLButtonElement | HTMLAnchorElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
     const tabRef = useRef(null);
@@ -48,6 +49,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       registerTab,
       theme,
       disabledTabIndexes,
+      asNavigation,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -151,29 +153,71 @@ export const Tab: FC<TabProps> = React.forwardRef(
       return index === leastActiveIndex ? 0 : -1;
     };
 
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+      onTabClick(value, e);
+      
+      // For navigation mode with href, handle focus after navigation
+      if (asNavigation && href) {
+        e.preventDefault();
+        const targetId = href.replace('#', '');
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          // Scroll to the target element
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Set focus on the target element
+          if (targetElement.tabIndex === -1 || !targetElement.hasAttribute('tabindex')) {
+            targetElement.setAttribute('tabindex', '-1');
+          }
+          targetElement.focus();
+        }
+      }
+    };
+
+    // Determine if we should render as a link
+    const isLink = asNavigation || !!href;
+    const Element = isLink ? 'a' : 'button';
+
+    // Build props based on element type
+    const elementProps: any = {
+      ...rest,
+      ref: combinedRef,
+      className: tabClassNames,
+      'aria-label': ariaLabel,
+      onClick: handleClick,
+      onKeyDown: handleTabKeyDown,
+      tabIndex: getTabIndex(),
+      'data-index': index,
+      'data-value': value,
+    };
+
+    if (isLink) {
+      // Link-specific props
+      elementProps.href = href || '#';
+      elementProps.role = 'link';
+      elementProps['aria-current'] = isActive ? 'location' : undefined;
+      if (disabled) {
+        elementProps['aria-disabled'] = true;
+        elementProps.onClick = (e: React.MouseEvent<HTMLElement>) => e.preventDefault();
+      }
+    } else {
+      // Button-specific props
+      elementProps['aria-controls'] = ariaControls;
+      elementProps['aria-selected'] = isActive;
+      elementProps.role = 'tab';
+      elementProps.disabled = disabled;
+    }
+
     return (
-      <button
-        {...rest}
-        aria-controls={ariaControls}
-        ref={combinedRef}
-        className={tabClassNames}
-        aria-label={ariaLabel}
-        aria-selected={isActive}
-        role="tab"
-        disabled={disabled}
-        onClick={(e) => onTabClick(value, e)}
-        onKeyDown={handleTabKeyDown}
-        tabIndex={getTabIndex()}
-        data-index={index}
-        data-value={value}
-      >
+      <Element {...elementProps}>
         {alignIcon === TabIconAlign.Start && getIcon()}
         {getLabel()}
         {getTabIndicator()}
         {getBadge()}
         {alignIcon === TabIconAlign.End && getIcon()}
         {getLoader()}
-      </button>
+      </Element>
     );
   }
 );

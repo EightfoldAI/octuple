@@ -132,6 +132,15 @@ export interface TabsContextProps {
   @default true
   */
   enableArrowNav?: boolean;
+  /**
+   * Render tabs as navigation with semantic HTML.
+   * @default false
+   */
+  asNavigation?: boolean;
+  /**
+   * Aria-label for the navigation element.
+   */
+  navigationLabel?: string;
 }
 
 export interface ITabsContext {
@@ -242,6 +251,15 @@ export interface ITabsContext {
   This may be different from the active tab when navigating with keyboard.
   */
   focusedTabIndex?: number | null;
+  /**
+   * Render tabs as navigation with semantic HTML.
+   * @default false
+   */
+  asNavigation?: boolean;
+  /**
+   * Aria-label for the navigation element.
+   */
+  navigationLabel?: string;
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
@@ -305,6 +323,11 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   @internal
   */
   index?: number;
+  /**
+   * The href attribute for the tab link when rendering as navigation.
+   * When provided, the tab will render as an anchor tag instead of a button.
+   */
+  href?: string;
 }
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
@@ -483,6 +506,19 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    @default []
    */
   disabledTabIndexes?: number[];
+  /**
+   * Render tabs as navigation with semantic HTML.
+   * When true, renders as <nav> with <a> links instead of <div> with <button> tabs.
+   * Removes ARIA tab roles and uses link semantics for better accessibility.
+   * @default false
+   */
+  asNavigation?: boolean;
+  /**
+   * Aria-label for the navigation element.
+   * Required when asNavigation is true for accessibility.
+   * Describes the purpose of this navigation without using the word "navigation".
+   */
+  navigationLabel?: string;
 }
 
 export interface TabsTheme {
