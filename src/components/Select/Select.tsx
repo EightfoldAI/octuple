@@ -198,6 +198,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
       return (options || []).filter((option: SelectOption) => option.selected);
     };
 
+    const getAriaLabelForOption = (opt: SelectOption): string => {
+      return opt.selected && selectLocale?.lang?.currentlySelectedText
+        ? `${opt.text}, ${selectLocale.lang.currentlySelectedText}`
+        : opt.text;
+    };
+
     const { count, filled, width } = useMaxVisibleSections(
       inputRef,
       pillRefs,
@@ -697,10 +703,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
           role: 'option',
           'aria-selected': opt.selected,
-          'aria-label':
-            opt.selected && selectLocale?.lang?.currentlySelectedText
-              ? `${opt.text}, ${selectLocale.lang.currentlySelectedText}`
-              : opt.text,
+          'aria-label': getAriaLabelForOption(opt),
         })
       );
       if (filteredOptions.length > 0) {
