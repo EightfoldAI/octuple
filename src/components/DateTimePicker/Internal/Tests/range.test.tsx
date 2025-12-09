@@ -20,7 +20,12 @@ import {
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
 import { ButtonVariant } from '../../../Button';
-import { createEvent, fireEvent, render } from '@testing-library/react';
+import {
+  createEvent,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -2039,6 +2044,13 @@ describe('Picker.Range', () => {
   });
 
   describe('accessibility features', () => {
+    afterEach(() => {
+      // Clean up any announcement divs to prevent test interference
+      document
+        .querySelectorAll('[aria-live="polite"]')
+        .forEach((el) => el.remove());
+    });
+
     describe('announceArrowKeyNavigation prop', () => {
       it('should not render announcement div when announceArrowKeyNavigation is false/undefined', () => {
         const { container } = render(<DayjsRangePicker />);
@@ -2247,7 +2259,12 @@ describe('Picker.Range', () => {
         expect(hasCustomMessage).toBe(true);
       });
 
-      it('should clear content when range picker trap is deactivated', () => {
+      it('should clear content when range picker trap is deactivated', async () => {
+        // Clean up any existing announcement divs from previous tests
+        document
+          .querySelectorAll('[aria-live="polite"]')
+          .forEach((el) => el.remove());
+
         const { container } = render(
           <DayjsRangePicker
             announceArrowKeyNavigation={true}
@@ -2263,24 +2280,30 @@ describe('Picker.Range', () => {
         // Trigger trap by pressing Tab key
         fireEvent.keyDown(input, { key: 'Tab' });
 
-        const announcementDivs = document.querySelectorAll(
-          '[aria-live="polite"]'
-        );
-
-        // Verify at least one has content initially
-        const hasContent = Array.from(announcementDivs).some(
-          (div) => div.textContent && div.textContent.length > 0
-        );
-        expect(hasContent).toBe(true);
+        // Wait for announcement divs to be populated
+        await waitFor(() => {
+          const announcementDivs = document.querySelectorAll(
+            '[aria-live="polite"]'
+          );
+          const hasContent = Array.from(announcementDivs).some(
+            (div) => div.textContent && div.textContent.length > 0
+          );
+          expect(hasContent).toBe(true);
+        });
 
         // Deactivate trap by pressing Escape
         fireEvent.keyDown(input, { key: 'Escape' });
 
-        // All announcement divs should be cleared
-        const allCleared = Array.from(announcementDivs).every(
-          (div) => div.textContent === ''
-        );
-        expect(allCleared).toBe(true);
+        // Wait for all announcement divs to be cleared
+        await waitFor(() => {
+          const announcementDivs = document.querySelectorAll(
+            '[aria-live="polite"]'
+          );
+          const allCleared = Array.from(announcementDivs).every(
+            (div) => div.textContent === ''
+          );
+          expect(allCleared).toBe(true);
+        });
       });
 
       it('should handle announcements for both start and end inputs in range picker', () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import type { BodyOperationRef } from './Time.types';
 import { TimePartialProps } from './Time.types';
 import { mergeClasses } from '../../../../../shared/utilities';
@@ -15,16 +15,20 @@ const countBoolean = (boolList: (boolean | undefined)[]): number =>
 function TimePartial<DateType>(props: TimePartialProps<DateType>) {
   const {
     active,
+    announceArrowKeyNavigation,
     format = 'HH:mm:ss',
     generateConfig,
+    locale,
     onSelect,
     operationRef,
     showHour,
     showMinute,
     showSecond,
     size = DatePickerSize.Medium,
+    trap,
     use12Hours = false,
     value,
+    visible,
   } = props;
   const bodyOperationRef: React.MutableRefObject<BodyOperationRef> =
     React.useRef<BodyOperationRef>();
@@ -63,6 +67,32 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
     },
   };
 
+  const announcementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (announcementRef.current) {
+      if (trap && visible && announceArrowKeyNavigation) {
+        announcementRef.current.textContent =
+          announceArrowKeyNavigation === true
+            ? locale?.arrowKeyNavigationText || ''
+            : announceArrowKeyNavigation;
+      } else {
+        announcementRef.current.textContent = '';
+      }
+    }
+  }, [trap, visible, announceArrowKeyNavigation]);
+
+  useEffect(() => {
+    if (announcementRef.current && value && visible) {
+      const hour = generateConfig.getHour(value);
+      const minute = generateConfig.getMinute(value);
+      const timeString = `${hour.toString().padStart(2, '0')}:${minute
+        .toString()
+        .padStart(2, '0')}`;
+      announcementRef.current.textContent = `Selected time ${timeString}`;
+    }
+  }, [value, visible]);
+
   return (
     <div
       className={mergeClasses([
@@ -70,6 +100,7 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
         { [styles.pickerTimePartialActive]: active },
       ])}
     >
+      <div ref={announcementRef} className={styles.srOnly} aria-live="polite" />
       <TimeHeader {...props} format={format} size={size} />
       <TimeBody
         {...props}

@@ -48,7 +48,9 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
 
   for (let i: number = 0; i < WEEK_DAY_COUNT; i += 1) {
     headerCells.push(
-      <th key={i}>{weekDaysLocale[(i + weekFirstDay) % WEEK_DAY_COUNT]}</th>
+      <th key={i} role="columnheader" scope="col">
+        {weekDaysLocale[(i + weekFirstDay) % WEEK_DAY_COUNT]}
+      </th>
     );
   }
 
