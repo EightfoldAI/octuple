@@ -127,9 +127,39 @@ export const Tab = React.forwardRef<
     const getLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} />;
 
+    const handleNavigation = (e: React.UIEvent<HTMLElement>) => {
+      if (!useNavigationMode || !href) return;
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+
+      if (
+        !targetElementRef.current ||
+        targetElementRef.current.id !== targetId
+      ) {
+        targetElementRef.current =
+          tabRef.current?.ownerDocument?.getElementById(targetId) || null;
+      }
+
+      const targetElement = targetElementRef.current;
+      if (!targetElement) return;
+
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (
+        targetElement.tabIndex === -1 ||
+        !targetElement.hasAttribute('tabindex')
+      ) {
+        targetElement.setAttribute('tabindex', '-1');
+      }
+      targetElement.focus();
+    };
+
     const handleTabKeyDown = (
       e: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
     ) => {
+      if (e.key === 'Enter') {
+        handleNavigation(e);
+      }
       if (enableArrowNav && index !== undefined) {
         handleKeyDown?.(e as React.KeyboardEvent<HTMLButtonElement>, index);
       }
@@ -161,34 +191,7 @@ export const Tab = React.forwardRef<
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
       onTabClick(value, e);
-
-      // For navigation mode with href, handle focus after navigation
-      if (useNavigationMode && href) {
-        e.preventDefault();
-        const targetId = href.replace('#', '');
-
-        if (
-          !targetElementRef.current ||
-          targetElementRef.current.id !== targetId
-        ) {
-          targetElementRef.current =
-            tabRef.current?.ownerDocument?.getElementById(targetId) || null;
-        }
-
-        const targetElement = targetElementRef.current;
-
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-          if (
-            targetElement.tabIndex === -1 ||
-            !targetElement.hasAttribute('tabindex')
-          ) {
-            targetElement.setAttribute('tabindex', '-1');
-          }
-          targetElement.focus();
-        }
-      }
+      handleNavigation(e);
     };
 
     const isLink = useNavigationMode || !!href;
