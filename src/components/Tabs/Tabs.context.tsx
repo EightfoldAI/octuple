@@ -37,7 +37,7 @@ const TabsProvider = ({
   value,
   enableArrowNav = true,
   variant = TabVariant.default,
-  asNavigation = false,
+  useNavigationMode = false,
   navigationLabel,
 }: TabsContextProps) => {
   const [currentActiveTab, setCurrentActiveTab] = useState(value);
@@ -185,7 +185,7 @@ const TabsProvider = ({
         enableArrowNav,
         disabledTabIndexes,
         focusedTabIndex,
-        asNavigation,
+        useNavigationMode,
         navigationLabel,
       }}
     >

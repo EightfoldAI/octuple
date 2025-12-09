@@ -136,7 +136,7 @@ export interface TabsContextProps {
    * Render tabs as navigation with semantic HTML.
    * @default false
    */
-  asNavigation?: boolean;
+  useNavigationMode?: boolean;
   /**
    * Aria-label for the navigation element.
    */
@@ -255,7 +255,7 @@ export interface ITabsContext {
    * Render tabs as navigation with semantic HTML.
    * @default false
    */
-  asNavigation?: boolean;
+  useNavigationMode?: boolean;
   /**
    * Aria-label for the navigation element.
    */
@@ -512,10 +512,10 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    * Removes ARIA tab roles and uses link semantics for better accessibility.
    * @default false
    */
-  asNavigation?: boolean;
+  useNavigationMode?: boolean;
   /**
    * Aria-label for the navigation element.
-   * Required when asNavigation is true for accessibility.
+   * Required when useNavigationMode is true for accessibility.
    * Describes the purpose of this navigation without using the word "navigation".
    */
   navigationLabel?: string;

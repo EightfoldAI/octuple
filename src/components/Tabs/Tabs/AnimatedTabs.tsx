@@ -39,7 +39,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       theme,
       themeContainerId,
       registerTablist,
-      asNavigation,
+      useNavigationMode,
       navigationLabel,
     } = useTabs();
 
@@ -93,8 +93,8 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       return child;
     });
 
-    const Element = asNavigation ? 'nav' : 'div';
-    const ariaProps = asNavigation
+    const Element = useNavigationMode ? 'nav' : 'div';
+    const ariaProps = useNavigationMode
       ? { 'aria-label': navigationLabel }
       : { role: 'tablist' };
 

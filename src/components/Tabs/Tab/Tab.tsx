@@ -35,6 +35,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
   ) => {
     const htmlDir: string = useCanvasDirection();
     const tabRef = useRef(null);
+    const targetElementRef = useRef<HTMLElement | null>(null);
     const combinedRef = useMergedRefs(ref, tabRef);
 
     const {
@@ -49,7 +50,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       registerTab,
       theme,
       disabledTabIndexes,
-      asNavigation,
+      useNavigationMode,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -155,19 +156,30 @@ export const Tab: FC<TabProps> = React.forwardRef(
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
       onTabClick(value, e);
-      
+
       // For navigation mode with href, handle focus after navigation
-      if (asNavigation && href) {
+      if (useNavigationMode && href) {
         e.preventDefault();
         const targetId = href.replace('#', '');
-        const targetElement = document.getElementById(targetId);
-        
+
+        if (
+          !targetElementRef.current ||
+          targetElementRef.current.id !== targetId
+        ) {
+          targetElementRef.current =
+            tabRef.current?.ownerDocument?.getElementById(targetId) || null;
+        }
+
+        const targetElement = targetElementRef.current;
+
         if (targetElement) {
           // Scroll to the target element
           targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          
           // Set focus on the target element
-          if (targetElement.tabIndex === -1 || !targetElement.hasAttribute('tabindex')) {
+          if (
+            targetElement.tabIndex === -1 ||
+            !targetElement.hasAttribute('tabindex')
+          ) {
             targetElement.setAttribute('tabindex', '-1');
           }
           targetElement.focus();
@@ -176,7 +188,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
     };
 
     // Determine if we should render as a link
-    const isLink = asNavigation || !!href;
+    const isLink = useNavigationMode || !!href;
     const Element = isLink ? 'a' : 'button';
 
     // Build props based on element type
@@ -199,7 +211,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
       elementProps['aria-current'] = isActive ? 'location' : undefined;
       if (disabled) {
         elementProps['aria-disabled'] = true;
-        elementProps.onClick = (e: React.MouseEvent<HTMLElement>) => e.preventDefault();
+        elementProps.onClick = (e: React.MouseEvent<HTMLElement>) =>
+          e.preventDefault();
       }
     } else {
       // Button-specific props
