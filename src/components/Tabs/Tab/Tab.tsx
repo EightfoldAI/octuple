@@ -15,7 +15,10 @@ import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import styles from '../tabs.module.scss';
 
-export const Tab: FC<TabProps> = React.forwardRef(
+export const Tab = React.forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  TabProps
+>(
   (
     {
       ariaLabel,
@@ -31,7 +34,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       href,
       ...rest
     },
-    ref: Ref<HTMLButtonElement | HTMLAnchorElement>
+    ref
   ) => {
     const htmlDir: string = useCanvasDirection();
     const tabRef = useRef(null);
@@ -124,9 +127,11 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const getLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} />;
 
-    const handleTabKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    const handleTabKeyDown = (
+      e: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
+    ) => {
       if (enableArrowNav && index !== undefined) {
-        handleKeyDown?.(e, index);
+        handleKeyDown?.(e as React.KeyboardEvent<HTMLButtonElement>, index);
       }
     };
 
@@ -173,9 +178,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
         const targetElement = targetElementRef.current;
 
         if (targetElement) {
-          // Scroll to the target element
           targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Set focus on the target element
+
           if (
             targetElement.tabIndex === -1 ||
             !targetElement.hasAttribute('tabindex')
@@ -187,50 +191,61 @@ export const Tab: FC<TabProps> = React.forwardRef(
       }
     };
 
-    // Determine if we should render as a link
     const isLink = useNavigationMode || !!href;
-    const Element = isLink ? 'a' : 'button';
 
-    // Build props based on element type
-    const elementProps: any = {
-      ...rest,
+    const commonProps = {
       ref: combinedRef,
       className: tabClassNames,
       'aria-label': ariaLabel,
-      onClick: handleClick,
       onKeyDown: handleTabKeyDown,
       tabIndex: getTabIndex(),
       'data-index': index,
       'data-value': value,
     };
 
-    if (isLink) {
-      // Link-specific props
-      elementProps.href = href || '#';
-      elementProps.role = 'link';
-      elementProps['aria-current'] = isActive ? 'location' : undefined;
-      if (disabled) {
-        elementProps['aria-disabled'] = true;
-        elementProps.onClick = (e: React.MouseEvent<HTMLElement>) =>
-          e.preventDefault();
-      }
-    } else {
-      // Button-specific props
-      elementProps['aria-controls'] = ariaControls;
-      elementProps['aria-selected'] = isActive;
-      elementProps.role = 'tab';
-      elementProps.disabled = disabled;
-    }
-
-    return (
-      <Element {...elementProps}>
+    const tabContent = (
+      <>
         {alignIcon === TabIconAlign.Start && getIcon()}
         {getLabel()}
         {getTabIndicator()}
         {getBadge()}
         {alignIcon === TabIconAlign.End && getIcon()}
         {getLoader()}
-      </Element>
+      </>
+    );
+
+    if (isLink) {
+      return (
+        <a
+          {...(rest as unknown as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          {...commonProps}
+          href={href || '#'}
+          role="link"
+          aria-current={isActive ? 'location' : undefined}
+          aria-disabled={disabled ? true : undefined}
+          onClick={
+            disabled
+              ? (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
+              : handleClick
+          }
+        >
+          {tabContent}
+        </a>
+      );
+    }
+
+    return (
+      <button
+        {...(rest as unknown as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+        {...commonProps}
+        aria-controls={ariaControls}
+        aria-selected={isActive}
+        role="tab"
+        disabled={disabled}
+        onClick={handleClick}
+      >
+        {tabContent}
+      </button>
     );
   }
 );
