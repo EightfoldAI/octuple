@@ -74,6 +74,23 @@ export interface MenuProps
    * @default MenuVariant.neutral
    */
   variant?: MenuVariant;
+  /**
+   * The role attribute for menu item list item wrappers (li elements).
+   * Applied to all menu items if not specified on individual items.
+   * @default 'presentation'
+   */
+  menuItemRole?: string;
+  /**
+   * The role attribute for menu item button elements.
+   * Applied to all menu items if not specified on individual items.
+   * @default undefined (uses item's role prop)
+   */
+  menuButtonRole?: string;
+  /**
+   * Whether to inject the default role into the menu item button elements.
+   * @default true
+   */
+  menuButtonHasRole?: boolean;
 }
 
 export interface DropdownMenuProps extends MenuProps {
