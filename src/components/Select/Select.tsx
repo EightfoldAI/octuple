@@ -699,14 +699,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
         menuButtonRole,
         menuButtonHasRole,
         ...restMenuProps
-      } = menuProps as any;
+      } = menuProps;
 
       const filteredOptions = (options || []).filter(
         (opt: SelectOption) => !opt.hideOption
       );
       const updatedItems: SelectOption[] = filteredOptions.map(
         ({ hideOption, role: optRole, ...opt }) => {
-          const item: any = {
+          const item: SelectOption = {
             ...opt,
             classNames: mergeClasses([
               { [styles.selectedOption]: opt.selected },
