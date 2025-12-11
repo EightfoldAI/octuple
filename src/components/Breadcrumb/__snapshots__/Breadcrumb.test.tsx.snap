@@ -132,7 +132,7 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
             id="tooltip--wrapper"
           >
             <span
-              aria-current="location"
+              aria-current="page"
               class="breadcrumb-link my-breadcrumb-links-class breadcrumb-link-read-only tooltip-reference"
               data-reference-id="tooltip--reference"
               id="tooltip--reference"
