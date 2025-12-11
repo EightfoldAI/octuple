@@ -15,7 +15,6 @@ const countBoolean = (boolList: (boolean | undefined)[]): number =>
 function TimePartial<DateType>(props: TimePartialProps<DateType>) {
   const {
     active,
-    announceArrowKeyNavigation,
     format = 'HH:mm:ss',
     generateConfig,
     locale,
@@ -71,27 +70,18 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
 
   useEffect(() => {
     if (announcementRef.current) {
-      if (trap && visible && announceArrowKeyNavigation) {
-        announcementRef.current.textContent =
-          announceArrowKeyNavigation === true
-            ? locale?.arrowKeyNavigationText || ''
-            : announceArrowKeyNavigation;
+      if (value && visible && trap !== false) {
+        const hour = generateConfig.getHour(value);
+        const minute = generateConfig.getMinute(value);
+        const timeString = `${hour.toString().padStart(2, '0')}:${minute
+          .toString()
+          .padStart(2, '0')}`;
+        announcementRef.current.textContent = `Selected time ${timeString}`;
       } else {
         announcementRef.current.textContent = '';
       }
     }
-  }, [trap, visible, announceArrowKeyNavigation]);
-
-  useEffect(() => {
-    if (announcementRef.current && value && visible) {
-      const hour = generateConfig.getHour(value);
-      const minute = generateConfig.getMinute(value);
-      const timeString = `${hour.toString().padStart(2, '0')}:${minute
-        .toString()
-        .padStart(2, '0')}`;
-      announcementRef.current.textContent = `Selected time ${timeString}`;
-    }
-  }, [value, visible]);
+  }, [trap, visible, value, generateConfig]);
 
   return (
     <div
