@@ -15,7 +15,10 @@ import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import styles from '../tabs.module.scss';
 
-export const Tab: FC<TabProps> = React.forwardRef(
+export const Tab = React.forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  TabProps
+>(
   (
     {
       ariaLabel,
@@ -28,12 +31,14 @@ export const Tab: FC<TabProps> = React.forwardRef(
       value,
       ariaControls,
       index = 0,
+      href,
       ...rest
     },
-    ref: Ref<HTMLButtonElement>
+    ref
   ) => {
     const htmlDir: string = useCanvasDirection();
     const tabRef = useRef(null);
+    const targetElementRef = useRef<HTMLElement | null>(null);
     const combinedRef = useMergedRefs(ref, tabRef);
 
     const {
@@ -48,6 +53,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       registerTab,
       theme,
       disabledTabIndexes,
+      useNavigationMode,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -121,9 +127,41 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const getLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} />;
 
-    const handleTabKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    const handleNavigation = (e: React.UIEvent<HTMLElement>) => {
+      if (!useNavigationMode || !href) return;
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+
+      if (
+        !targetElementRef.current ||
+        targetElementRef.current.id !== targetId
+      ) {
+        targetElementRef.current =
+          tabRef.current?.ownerDocument?.getElementById(targetId) || null;
+      }
+
+      const targetElement = targetElementRef.current;
+      if (!targetElement) return;
+
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (
+        targetElement.tabIndex === -1 ||
+        !targetElement.hasAttribute('tabindex')
+      ) {
+        targetElement.setAttribute('tabindex', '-1');
+      }
+      targetElement.focus();
+    };
+
+    const handleTabKeyDown = (
+      e: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
+    ) => {
+      if (e.key === 'Enter') {
+        handleNavigation(e);
+      }
       if (enableArrowNav && index !== undefined) {
-        handleKeyDown?.(e, index);
+        handleKeyDown?.(e as React.KeyboardEvent<HTMLButtonElement>, index);
       }
     };
 
@@ -151,28 +189,65 @@ export const Tab: FC<TabProps> = React.forwardRef(
       return index === leastActiveIndex ? 0 : -1;
     };
 
-    return (
-      <button
-        {...rest}
-        aria-controls={ariaControls}
-        ref={combinedRef}
-        className={tabClassNames}
-        aria-label={ariaLabel}
-        aria-selected={isActive}
-        role="tab"
-        disabled={disabled}
-        onClick={(e) => onTabClick(value, e)}
-        onKeyDown={handleTabKeyDown}
-        tabIndex={getTabIndex()}
-        data-index={index}
-        data-value={value}
-      >
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+      onTabClick(value, e);
+      handleNavigation(e);
+    };
+
+    const isLink = useNavigationMode || !!href;
+
+    const commonProps = {
+      ref: combinedRef,
+      className: tabClassNames,
+      'aria-label': ariaLabel,
+      onKeyDown: handleTabKeyDown,
+      tabIndex: getTabIndex(),
+      'data-index': index,
+      'data-value': value,
+    };
+
+    const tabContent = (
+      <>
         {alignIcon === TabIconAlign.Start && getIcon()}
         {getLabel()}
         {getTabIndicator()}
         {getBadge()}
         {alignIcon === TabIconAlign.End && getIcon()}
         {getLoader()}
+      </>
+    );
+
+    if (isLink) {
+      return (
+        <a
+          {...(rest as unknown as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          {...commonProps}
+          href={href || '#'}
+          role="link"
+          aria-current={isActive ? 'location' : undefined}
+          aria-disabled={disabled ? true : undefined}
+          onClick={
+            disabled
+              ? (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
+              : handleClick
+          }
+        >
+          {tabContent}
+        </a>
+      );
+    }
+
+    return (
+      <button
+        {...(rest as unknown as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+        {...commonProps}
+        aria-controls={ariaControls}
+        aria-selected={isActive}
+        role="tab"
+        disabled={disabled}
+        onClick={handleClick}
+      >
+        {tabContent}
       </button>
     );
   }
