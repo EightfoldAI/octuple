@@ -39,6 +39,8 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       theme,
       themeContainerId,
       registerTablist,
+      useNavigationMode,
+      navigationLabel,
     } = useTabs();
 
     const tablistRef = useRef(null);
@@ -91,6 +93,11 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       return child;
     });
 
+    const Element = useNavigationMode ? 'nav' : 'div';
+    const ariaProps = useNavigationMode
+      ? { 'aria-label': navigationLabel }
+      : { role: 'tablist' };
+
     return (
       <Flipper flipKey={currentActiveTab}>
         <ThemeContextProvider
@@ -98,15 +105,15 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
           componentClassName={themedComponentStyles.theme}
           theme={mergedTheme}
         >
-          <div
+          <Element
             {...rest}
+            {...ariaProps}
             ref={combinedRef}
-            role="tablist"
             className={tabClassNames}
             style={style}
           >
             {childrenWithIndex}
-          </div>
+          </Element>
         </ThemeContextProvider>
       </Flipper>
     );
