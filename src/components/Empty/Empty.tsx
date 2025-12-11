@@ -39,6 +39,14 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
     },
     ref: Ref<HTMLDivElement>
   ) => {
+    // TODO: Remove headingLevel prop once usage in vscode has been removed.
+    // This is a temporary measure to warn developers of the deprecation.
+    if (process.env.NODE_ENV !== 'production' && headingLevel != null) {
+      console.warn(
+        '"headingLevel" is deprecated and will be removed in a future version.'
+      );
+    }
+
     const htmlDir: string = useCanvasDirection();
 
     const getDefaultImage = (mode: EmptyMode): JSX.Element => {
@@ -89,13 +97,9 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
           {imageNode}
         </div>
         {title && (
-          <h2
-            className={mergeClasses([styles.emptyTitle, titleClassNames])}
-            role="heading"
-            aria-level={headingLevel || 2}
-          >
+          <div className={mergeClasses([styles.emptyTitle, titleClassNames])}>
             {title}
-          </h2>
+          </div>
         )}
         {description && (
           <div
