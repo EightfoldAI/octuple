@@ -573,4 +573,24 @@ describe('Dropdown', () => {
     expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
     expect(screen.getByText('User profile 1')).toBeVisible();
   });
+
+  // Verify that overlay container is not focusable by default
+  test('Overlay container is not focusable by default', async () => {
+    const { getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+
+    // Click to open dropdown
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+
+    // Wait for menu to be visible
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    const dropdownWrapper = document.querySelector(
+      '.dropdown-wrapper'
+    ) as HTMLElement;
+
+    expect(dropdownWrapper.getAttribute('tabindex')).toBe('-1');
+  });
 });

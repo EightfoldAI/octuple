@@ -75,7 +75,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         trigger = 'click',
         visible,
         width,
-        overlayTabIndex = 0,
+        // Overlay should not be focusable by default to prevent issues with expected tab order
+        overlayTabIndex = -1,
         overlayProps,
         toggleDropdownOnShiftTab = true,
       },
