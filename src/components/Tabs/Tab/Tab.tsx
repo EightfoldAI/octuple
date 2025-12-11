@@ -15,10 +15,7 @@ import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import styles from '../tabs.module.scss';
 
-export const Tab = React.forwardRef<
-  HTMLButtonElement | HTMLAnchorElement,
-  TabProps
->(
+export const Tab: FC<TabProps> = React.forwardRef(
   (
     {
       ariaLabel,
@@ -31,14 +28,12 @@ export const Tab = React.forwardRef<
       value,
       ariaControls,
       index = 0,
-      href,
       ...rest
     },
-    ref
+    ref: Ref<HTMLButtonElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
     const tabRef = useRef(null);
-    const targetElementRef = useRef<HTMLElement | null>(null);
     const combinedRef = useMergedRefs(ref, tabRef);
 
     const {
@@ -53,7 +48,6 @@ export const Tab = React.forwardRef<
       registerTab,
       theme,
       disabledTabIndexes,
-      useNavigationMode,
     } = useTabs();
 
     const iconExists: boolean = !!icon;
@@ -127,41 +121,9 @@ export const Tab = React.forwardRef<
     const getLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} />;
 
-    const handleNavigation = (e: React.UIEvent<HTMLElement>) => {
-      if (!useNavigationMode || !href) return;
-      e.preventDefault();
-      const targetId = href.replace('#', '');
-
-      if (
-        !targetElementRef.current ||
-        targetElementRef.current.id !== targetId
-      ) {
-        targetElementRef.current =
-          tabRef.current?.ownerDocument?.getElementById(targetId) || null;
-      }
-
-      const targetElement = targetElementRef.current;
-      if (!targetElement) return;
-
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      if (
-        targetElement.tabIndex === -1 ||
-        !targetElement.hasAttribute('tabindex')
-      ) {
-        targetElement.setAttribute('tabindex', '-1');
-      }
-      targetElement.focus();
-    };
-
-    const handleTabKeyDown = (
-      e: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
-    ) => {
-      if (e.key === 'Enter') {
-        handleNavigation(e);
-      }
+    const handleTabKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
       if (enableArrowNav && index !== undefined) {
-        handleKeyDown?.(e as React.KeyboardEvent<HTMLButtonElement>, index);
+        handleKeyDown?.(e, index);
       }
     };
 
@@ -189,65 +151,28 @@ export const Tab = React.forwardRef<
       return index === leastActiveIndex ? 0 : -1;
     };
 
-    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-      onTabClick(value, e);
-      handleNavigation(e);
-    };
-
-    const isLink = useNavigationMode || !!href;
-
-    const commonProps = {
-      ref: combinedRef,
-      className: tabClassNames,
-      'aria-label': ariaLabel,
-      onKeyDown: handleTabKeyDown,
-      tabIndex: getTabIndex(),
-      'data-index': index,
-      'data-value': value,
-    };
-
-    const tabContent = (
-      <>
+    return (
+      <button
+        {...rest}
+        aria-controls={ariaControls}
+        ref={combinedRef}
+        className={tabClassNames}
+        aria-label={ariaLabel}
+        aria-selected={isActive}
+        role="tab"
+        disabled={disabled}
+        onClick={(e) => onTabClick(value, e)}
+        onKeyDown={handleTabKeyDown}
+        tabIndex={getTabIndex()}
+        data-index={index}
+        data-value={value}
+      >
         {alignIcon === TabIconAlign.Start && getIcon()}
         {getLabel()}
         {getTabIndicator()}
         {getBadge()}
         {alignIcon === TabIconAlign.End && getIcon()}
         {getLoader()}
-      </>
-    );
-
-    if (isLink) {
-      return (
-        <a
-          {...(rest as unknown as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-          {...commonProps}
-          href={href || '#'}
-          role="link"
-          aria-current={isActive ? 'location' : undefined}
-          aria-disabled={disabled ? true : undefined}
-          onClick={
-            disabled
-              ? (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
-              : handleClick
-          }
-        >
-          {tabContent}
-        </a>
-      );
-    }
-
-    return (
-      <button
-        {...(rest as unknown as React.ButtonHTMLAttributes<HTMLButtonElement>)}
-        {...commonProps}
-        aria-controls={ariaControls}
-        aria-selected={isActive}
-        role="tab"
-        disabled={disabled}
-        onClick={handleClick}
-      >
-        {tabContent}
       </button>
     );
   }
