@@ -31,7 +31,6 @@ export const Tabs: FC<TabsProps> = React.forwardRef(
     return (
       <TabsProvider
         alignIcon={alignIcon}
-        children={children}
         colorInvert={colorInvert}
         configContextProps={configContextProps}
         direction={direction}

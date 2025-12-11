@@ -39,8 +39,8 @@
 
       // Remove outline when clicked with mouse, but keep it for keyboard navigation
       &:focus:not(:focus-visible) {
-        box-shadow: none !important;
-        outline: none !important;
+        box-shadow: none;
+        outline: none;
       }
     }
 
@@ -64,8 +64,8 @@
       transition: transform $motion-duration-fast $motion-easing-easeout 0s;
 
       &[href] :focus:not(:focus-visible) {
-        box-shadow: none !important;
-        outline: none !important;
+        box-shadow: none;
+        outline: none;
       }
     }
 
