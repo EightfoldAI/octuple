@@ -103,10 +103,10 @@ export default function PartialBody<DateType>({
 
   return (
     <div className={pickerBodyClassNames}>
-      <table className={styles.pickerContent}>
+      <table role="grid" className={styles.pickerContent} aria-readonly="true">
         {headerCells && (
           <thead>
-            <tr>{headerCells}</tr>
+            <tr role="row">{headerCells}</tr>
           </thead>
         )}
         <tbody>{rows}</tbody>
@@ -148,7 +148,11 @@ function PickerCell<DateType>({
 
   return (
     <td
+      role="gridcell"
       title={title}
+      aria-disabled={disabled}
+      aria-selected={isCellFocused}
+      tabIndex={isCellFocused ? 0 : -1}
       className={mergeClasses([
         styles.pickerCell,
         { [styles.pickerCellDisabled]: disabled },

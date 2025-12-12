@@ -396,6 +396,8 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     </FocusTrap>
   ) : (
     <div
+      role="dialog"
+      aria-modal="true"
       className={styles.pickerPartialContainer}
       onMouseDown={(e) => {
         e.preventDefault();

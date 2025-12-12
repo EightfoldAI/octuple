@@ -79,6 +79,22 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
     }
   }, [trap, visible, announceArrowKeyNavigation]);
 
+  useEffect(() => {
+    if (announcementRef.current && value && visible) {
+      const dateString = generateConfig.locale.format(
+        locale?.locale,
+        value,
+        locale?.dateFormat || 'MMMM D, YYYY'
+      );
+      const dayOfWeek = generateConfig.locale.format(
+        locale?.locale,
+        value,
+        'dddd'
+      );
+      announcementRef.current.textContent = `${dayOfWeek}, ${dateString}`;
+    }
+  }, [value, visible]);
+
   return (
     <div
       className={mergeClasses([

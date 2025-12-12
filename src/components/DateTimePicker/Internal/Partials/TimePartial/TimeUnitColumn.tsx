@@ -42,6 +42,7 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
 
   return (
     <ul
+      role="listbox"
       className={mergeClasses([
         styles.pickerTimePartialColumn,
         { [styles.pickerTimePartialColumnActive]: active },
@@ -60,6 +61,10 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
             ref={(element) => {
               liRefs.current.set(unit.value, element);
             }}
+            role="option"
+            aria-selected={value === unit.value}
+            aria-disabled={unit.disabled}
+            tabIndex={value === unit.value ? 0 : -1}
             className={mergeClasses([
               'picker-time-partial-cell',
               {

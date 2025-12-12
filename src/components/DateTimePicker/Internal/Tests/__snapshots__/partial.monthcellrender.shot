@@ -10,7 +10,10 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-01",
             },
             "children": Array [
@@ -26,7 +29,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-02",
               },
               "children": Array [
@@ -42,7 +48,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-03",
                 },
                 "children": Array [
@@ -61,11 +70,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -73,11 +88,17 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -85,17 +106,26 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-02",
             },
             "children": Array [
@@ -111,7 +141,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-03",
               },
               "children": Array [
@@ -130,18 +163,27 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-01",
               },
               "children": Array [
@@ -160,27 +202,42 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-03",
             },
             "children": Array [
@@ -198,7 +255,10 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-02",
               },
               "children": Array [
@@ -216,7 +276,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-01",
                 },
                 "children": Array [
@@ -235,31 +298,49 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
@@ -271,7 +352,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-04",
               },
               "children": Array [
@@ -287,7 +371,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-05",
                 },
                 "children": Array [
@@ -303,7 +390,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-06",
                   },
                   "children": Array [
@@ -322,11 +412,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -334,11 +430,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -346,17 +448,26 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-05",
               },
               "children": Array [
@@ -372,7 +483,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-06",
                 },
                 "children": Array [
@@ -391,18 +505,27 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-04",
                 },
                 "children": Array [
@@ -421,27 +544,42 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-06",
               },
               "children": Array [
@@ -459,7 +597,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-05",
                 },
                 "children": Array [
@@ -477,7 +618,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-04",
                   },
                   "children": Array [
@@ -496,31 +640,49 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -532,7 +694,10 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-07",
                 },
                 "children": Array [
@@ -548,7 +713,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-08",
                   },
                   "children": Array [
@@ -564,7 +732,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-09",
                     },
                     "children": Array [
@@ -583,11 +754,17 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
@@ -595,11 +772,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -607,17 +790,26 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-08",
                 },
                 "children": Array [
@@ -633,7 +825,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-09",
                   },
                   "children": Array [
@@ -652,18 +847,27 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-07",
                   },
                   "children": Array [
@@ -682,27 +886,42 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-09",
                 },
                 "children": Array [
@@ -720,7 +939,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-08",
                   },
                   "children": Array [
@@ -738,7 +960,10 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-07",
                     },
                     "children": Array [
@@ -757,31 +982,49 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -793,7 +1036,10 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-10",
                   },
                   "children": Array [
@@ -809,7 +1055,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-11",
                     },
                     "children": Array [
@@ -825,7 +1074,10 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
+                        "aria-disabled": "false",
                         "class": "picker-cell picker-cell-in-view",
+                        "role": "gridcell",
+                        "tabindex": "-1",
                         "title": "1990-12",
                       },
                       "children": Array [
@@ -844,11 +1096,17 @@ LoadedCheerio {
                       "prev": [Circular],
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                     },
@@ -856,11 +1114,17 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
@@ -868,17 +1132,26 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-11",
                   },
                   "children": Array [
@@ -894,7 +1167,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-12",
                     },
                     "children": Array [
@@ -913,18 +1189,27 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-10",
                     },
                     "children": Array [
@@ -943,27 +1228,42 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-12",
                   },
                   "children": Array [
@@ -981,7 +1281,10 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-11",
                     },
                     "children": Array [
@@ -999,7 +1302,10 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-disabled": "false",
                         "class": "picker-cell picker-cell-in-view",
+                        "role": "gridcell",
+                        "tabindex": "-1",
                         "title": "1990-10",
                       },
                       "children": Array [
@@ -1018,31 +1324,49 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -1079,7 +1403,10 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-04",
             },
             "children": Array [
@@ -1095,7 +1422,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-05",
               },
               "children": Array [
@@ -1111,7 +1441,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-06",
                 },
                 "children": Array [
@@ -1130,11 +1463,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -1142,11 +1481,17 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -1154,17 +1499,26 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-05",
             },
             "children": Array [
@@ -1180,7 +1534,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-06",
               },
               "children": Array [
@@ -1199,18 +1556,27 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-04",
               },
               "children": Array [
@@ -1229,27 +1595,42 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-06",
             },
             "children": Array [
@@ -1267,7 +1648,10 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-05",
               },
               "children": Array [
@@ -1285,7 +1669,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-04",
                 },
                 "children": Array [
@@ -1304,31 +1691,49 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
@@ -1340,7 +1745,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-07",
               },
               "children": Array [
@@ -1356,7 +1764,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-08",
                 },
                 "children": Array [
@@ -1372,7 +1783,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-09",
                   },
                   "children": Array [
@@ -1391,11 +1805,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -1403,11 +1823,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -1415,17 +1841,26 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-08",
               },
               "children": Array [
@@ -1441,7 +1876,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-09",
                 },
                 "children": Array [
@@ -1460,18 +1898,27 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-07",
                 },
                 "children": Array [
@@ -1490,27 +1937,42 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-09",
               },
               "children": Array [
@@ -1528,7 +1990,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-08",
                 },
                 "children": Array [
@@ -1546,7 +2011,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-07",
                   },
                   "children": Array [
@@ -1565,31 +2033,49 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -1601,7 +2087,10 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-10",
                 },
                 "children": Array [
@@ -1617,7 +2106,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-11",
                   },
                   "children": Array [
@@ -1633,7 +2125,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-12",
                     },
                     "children": Array [
@@ -1652,11 +2147,17 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
@@ -1664,11 +2165,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -1676,17 +2183,26 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-11",
                 },
                 "children": Array [
@@ -1702,7 +2218,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-12",
                   },
                   "children": Array [
@@ -1721,18 +2240,27 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-10",
                   },
                   "children": Array [
@@ -1751,27 +2279,42 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-12",
                 },
                 "children": Array [
@@ -1789,7 +2332,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-11",
                   },
                   "children": Array [
@@ -1807,7 +2353,10 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-10",
                     },
                     "children": Array [
@@ -1826,31 +2375,49 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -1876,7 +2443,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-01",
               },
               "children": Array [
@@ -1892,7 +2462,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-02",
                 },
                 "children": Array [
@@ -1908,7 +2481,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-03",
                   },
                   "children": Array [
@@ -1927,11 +2503,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -1939,11 +2521,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -1951,17 +2539,26 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-02",
               },
               "children": Array [
@@ -1977,7 +2574,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-03",
                 },
                 "children": Array [
@@ -1996,18 +2596,27 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-01",
                 },
                 "children": Array [
@@ -2026,27 +2635,42 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-03",
               },
               "children": Array [
@@ -2064,7 +2688,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-02",
                 },
                 "children": Array [
@@ -2082,7 +2709,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-01",
                   },
                   "children": Array [
@@ -2101,31 +2731,49 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -2148,7 +2796,10 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-07",
             },
             "children": Array [
@@ -2164,7 +2815,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-08",
               },
               "children": Array [
@@ -2180,7 +2834,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-09",
                 },
                 "children": Array [
@@ -2199,11 +2856,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -2211,11 +2874,17 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -2223,17 +2892,26 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-08",
             },
             "children": Array [
@@ -2249,7 +2927,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-09",
               },
               "children": Array [
@@ -2268,18 +2949,27 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-07",
               },
               "children": Array [
@@ -2298,27 +2988,42 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-09",
             },
             "children": Array [
@@ -2336,7 +3041,10 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-08",
               },
               "children": Array [
@@ -2354,7 +3062,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-07",
                 },
                 "children": Array [
@@ -2373,31 +3084,49 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
@@ -2409,7 +3138,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-10",
               },
               "children": Array [
@@ -2425,7 +3157,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-11",
                 },
                 "children": Array [
@@ -2441,7 +3176,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-12",
                   },
                   "children": Array [
@@ -2460,11 +3198,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -2472,11 +3216,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -2484,17 +3234,26 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-11",
               },
               "children": Array [
@@ -2510,7 +3269,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-12",
                 },
                 "children": Array [
@@ -2529,18 +3291,27 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-10",
                 },
                 "children": Array [
@@ -2559,27 +3330,42 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-12",
               },
               "children": Array [
@@ -2597,7 +3383,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-11",
                 },
                 "children": Array [
@@ -2615,7 +3404,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-10",
                   },
                   "children": Array [
@@ -2634,31 +3426,49 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -2678,7 +3488,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-04",
               },
               "children": Array [
@@ -2694,7 +3507,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-05",
                 },
                 "children": Array [
@@ -2710,7 +3526,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-06",
                   },
                   "children": Array [
@@ -2729,11 +3548,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -2741,11 +3566,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -2753,17 +3584,26 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-05",
               },
               "children": Array [
@@ -2779,7 +3619,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-06",
                 },
                 "children": Array [
@@ -2798,18 +3641,27 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-04",
                 },
                 "children": Array [
@@ -2828,27 +3680,42 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-06",
               },
               "children": Array [
@@ -2866,7 +3733,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-05",
                 },
                 "children": Array [
@@ -2884,7 +3754,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-04",
                   },
                   "children": Array [
@@ -2903,31 +3776,49 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -2941,7 +3832,10 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-01",
                 },
                 "children": Array [
@@ -2957,7 +3851,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-02",
                   },
                   "children": Array [
@@ -2973,7 +3870,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-03",
                     },
                     "children": Array [
@@ -2992,11 +3892,17 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
@@ -3004,11 +3910,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -3016,17 +3928,26 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-02",
                 },
                 "children": Array [
@@ -3042,7 +3963,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-03",
                   },
                   "children": Array [
@@ -3061,18 +3985,27 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-01",
                   },
                   "children": Array [
@@ -3091,27 +4024,42 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-03",
                 },
                 "children": Array [
@@ -3129,7 +4077,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-02",
                   },
                   "children": Array [
@@ -3147,7 +4098,10 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-01",
                     },
                     "children": Array [
@@ -3166,31 +4120,49 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -3217,7 +4189,10 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-10",
             },
             "children": Array [
@@ -3233,7 +4208,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-11",
               },
               "children": Array [
@@ -3249,7 +4227,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-12",
                 },
                 "children": Array [
@@ -3268,11 +4249,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -3280,11 +4267,17 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -3292,17 +4285,26 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-11",
             },
             "children": Array [
@@ -3318,7 +4320,10 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-12",
               },
               "children": Array [
@@ -3337,18 +4342,27 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-10",
               },
               "children": Array [
@@ -3367,27 +4381,42 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
           Node {
             "attribs": Object {
+              "aria-disabled": "false",
               "class": "picker-cell picker-cell-in-view",
+              "role": "gridcell",
+              "tabindex": "-1",
               "title": "1990-12",
             },
             "children": Array [
@@ -3405,7 +4434,10 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-11",
               },
               "children": Array [
@@ -3423,7 +4455,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-10",
                 },
                 "children": Array [
@@ -3442,31 +4477,49 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
               "class": undefined,
+              "role": undefined,
+              "tabindex": undefined,
               "title": undefined,
             },
           },
@@ -3480,7 +4533,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-07",
               },
               "children": Array [
@@ -3496,7 +4552,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-08",
                 },
                 "children": Array [
@@ -3512,7 +4571,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-09",
                   },
                   "children": Array [
@@ -3531,11 +4593,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -3543,11 +4611,17 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -3555,17 +4629,26 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-08",
               },
               "children": Array [
@@ -3581,7 +4664,10 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-09",
                 },
                 "children": Array [
@@ -3600,18 +4686,27 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-07",
                 },
                 "children": Array [
@@ -3630,27 +4725,42 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
             Node {
               "attribs": Object {
+                "aria-disabled": "false",
                 "class": "picker-cell picker-cell-in-view",
+                "role": "gridcell",
+                "tabindex": "-1",
                 "title": "1990-09",
               },
               "children": Array [
@@ -3668,7 +4778,10 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-08",
                 },
                 "children": Array [
@@ -3686,7 +4799,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-07",
                   },
                   "children": Array [
@@ -3705,31 +4821,49 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
                 "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
                 "title": undefined,
               },
             },
@@ -3743,7 +4877,10 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-04",
                 },
                 "children": Array [
@@ -3759,7 +4896,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-05",
                   },
                   "children": Array [
@@ -3775,7 +4915,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-06",
                     },
                     "children": Array [
@@ -3794,11 +4937,17 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
@@ -3806,11 +4955,17 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
@@ -3818,17 +4973,26 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-05",
                 },
                 "children": Array [
@@ -3844,7 +5008,10 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-06",
                   },
                   "children": Array [
@@ -3863,18 +5030,27 @@ LoadedCheerio {
                   "prev": [Circular],
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-04",
                   },
                   "children": Array [
@@ -3893,27 +5069,42 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
               Node {
                 "attribs": Object {
+                  "aria-disabled": "false",
                   "class": "picker-cell picker-cell-in-view",
+                  "role": "gridcell",
+                  "tabindex": "-1",
                   "title": "1990-06",
                 },
                 "children": Array [
@@ -3931,7 +5122,10 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-05",
                   },
                   "children": Array [
@@ -3949,7 +5143,10 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-04",
                     },
                     "children": Array [
@@ -3968,31 +5165,49 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
                   "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
                   "title": undefined,
                 },
               },
@@ -4006,7 +5221,10 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-01",
                   },
                   "children": Array [
@@ -4022,7 +5240,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-02",
                     },
                     "children": Array [
@@ -4038,7 +5259,10 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
+                        "aria-disabled": "false",
                         "class": "picker-cell picker-cell-in-view",
+                        "role": "gridcell",
+                        "tabindex": "-1",
                         "title": "1990-03",
                       },
                       "children": Array [
@@ -4057,11 +5281,17 @@ LoadedCheerio {
                       "prev": [Circular],
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                     },
@@ -4069,11 +5299,17 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
@@ -4081,17 +5317,26 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-02",
                   },
                   "children": Array [
@@ -4107,7 +5352,10 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-03",
                     },
                     "children": Array [
@@ -4126,18 +5374,27 @@ LoadedCheerio {
                     "prev": [Circular],
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-01",
                     },
                     "children": Array [
@@ -4156,27 +5413,42 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
                 Node {
                   "attribs": Object {
+                    "aria-disabled": "false",
                     "class": "picker-cell picker-cell-in-view",
+                    "role": "gridcell",
+                    "tabindex": "-1",
                     "title": "1990-03",
                   },
                   "children": Array [
@@ -4194,7 +5466,10 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-disabled": "false",
                       "class": "picker-cell picker-cell-in-view",
+                      "role": "gridcell",
+                      "tabindex": "-1",
                       "title": "1990-02",
                     },
                     "children": Array [
@@ -4212,7 +5487,10 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-disabled": "false",
                         "class": "picker-cell picker-cell-in-view",
+                        "role": "gridcell",
+                        "tabindex": "-1",
                         "title": "1990-01",
                       },
                       "children": Array [
@@ -4231,31 +5509,49 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-disabled": undefined,
                         "class": undefined,
+                        "role": undefined,
+                        "tabindex": undefined,
                         "title": undefined,
                       },
                     },
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-disabled": undefined,
                       "class": undefined,
+                      "role": undefined,
+                      "tabindex": undefined,
                       "title": undefined,
                     },
                   },
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-disabled": undefined,
                     "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
                     "title": undefined,
                   },
                 },
