@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.54.6](https://github.com/EightfoldAI/octuple/compare/v2.54.5...v2.54.6) (2025-12-11)
+
+### Features
+
+- **Dropdown, Select:** Add Tab key handling and menu role configuration for improved accessibility ([#1060](https://github.com/EightfoldAI/octuple/issues/1060)) ([7841989](https://github.com/EightfoldAI/octuple/commits/784198974e7f2e4217caeb690b67a9464628402a))
+
+### Bug Fixes
+
+- **Select:** accessibility fix included aria-label for the selected option ([#1058](https://github.com/EightfoldAI/octuple/issues/1058)) ([c3138f4](https://github.com/EightfoldAI/octuple/commits/c3138f46413995988a9c30aebb5106fd2102d413))
+
 ### [2.54.5](https://github.com/EightfoldAI/octuple/compare/v2.54.4...v2.54.5) (2025-12-04)
 
 ### [2.54.4](https://github.com/EightfoldAI/octuple/compare/v2.54.3...v2.54.4) (2025-12-01)

@@ -734,11 +734,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           <Menu
             id={selectMenuId?.current}
             {...restMenuProps}
-            itemProps={
-              menuItemRole
-                ? { role: menuItemRole, ...restMenuProps.itemProps }
-                : restMenuProps.itemProps
-            }
+            itemProps={menuItemRole ? { role: menuItemRole } : undefined}
             items={updatedItems}
             onChange={(value) => {
               const option = updatedItems.find(

@@ -27,23 +27,6 @@
     position: relative;
     transition: background-color $motion-duration-fast $motion-easing-easeout 0s;
 
-    &[href] {
-      text-decoration: none;
-
-      &:hover,
-      &:focus,
-      &:active,
-      &:visited {
-        text-decoration: none;
-      }
-
-      // Remove outline when clicked with mouse, but keep it for keyboard navigation
-      &:focus:not(:focus-visible) {
-        box-shadow: none;
-        outline: none;
-      }
-    }
-
     &:first-child {
       padding-left: 0;
       .tab-indicator {
@@ -62,11 +45,6 @@
       color: var(--tab-active-label);
       background-color: var(--tab-active-background);
       transition: transform $motion-duration-fast $motion-easing-easeout 0s;
-
-      &[href] :focus:not(:focus-visible) {
-        box-shadow: none;
-        outline: none;
-      }
     }
 
     &:disabled {
