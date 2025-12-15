@@ -53,7 +53,6 @@ import {
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
-import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
 
 import styles from './select.module.scss';
 import themedComponentStyles from './select.theme.module.scss';
@@ -181,9 +180,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ? theme
       : contextualTheme || theme;
 
-    // Locale
-    const [selectLocale] = useLocaleReceiver('Select');
-
     const firstRender: React.MutableRefObject<boolean> = useRef(true);
 
     const prevDropdownVisible: boolean = usePreviousState(dropdownVisible);
@@ -196,12 +192,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const getSelectedOptions = (): SelectOption['value'][] => {
       return (options || []).filter((option: SelectOption) => option.selected);
-    };
-
-    const getAriaLabelForOption = (opt: SelectOption): string => {
-      return opt.selected && selectLocale?.lang?.currentlySelectedText
-        ? `${opt.text}, ${selectLocale.lang.currentlySelectedText}`
-        : opt.text;
     };
 
     const { count, filled, width } = useMaxVisibleSections(
@@ -713,7 +703,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ]),
             listItemRole: menuItemRole,
             'aria-selected': opt.selected,
-            'aria-label': getAriaLabelForOption(opt),
           };
 
           if (menuButtonHasRole === true) {

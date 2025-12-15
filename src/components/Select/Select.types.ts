@@ -26,13 +26,6 @@ export enum SelectSize {
   Small = 'small',
 }
 
-export interface SelectLocale {
-  lang: {
-    locale: string;
-    currentlySelectedText: string;
-  };
-}
-
 export interface SelectOption extends MenuItemButtonProps {
   /**
    * Hide the select option.
