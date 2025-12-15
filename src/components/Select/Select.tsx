@@ -53,6 +53,7 @@ import {
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
+import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
 
 import styles from './select.module.scss';
 import themedComponentStyles from './select.theme.module.scss';
@@ -180,6 +181,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ? theme
       : contextualTheme || theme;
 
+    // Locale
+    const [selectLocale] = useLocaleReceiver('Select');
+
     const firstRender: React.MutableRefObject<boolean> = useRef(true);
 
     const prevDropdownVisible: boolean = usePreviousState(dropdownVisible);
@@ -192,6 +196,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const getSelectedOptions = (): SelectOption['value'][] => {
       return (options || []).filter((option: SelectOption) => option.selected);
+    };
+
+    const getAriaLabelForOption = (opt: SelectOption): string => {
+      return opt.selected && selectLocale?.lang?.currentlySelectedText
+        ? `${opt.text}, ${selectLocale.lang.currentlySelectedText}`
+        : opt.text;
     };
 
     const { count, filled, width } = useMaxVisibleSections(
@@ -684,22 +694,47 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }: {
       options: SelectOption[];
     }): JSX.Element => {
+      const {
+        menuItemRole,
+        menuButtonRole,
+        menuButtonHasRole,
+        ...restMenuProps
+      } = menuProps;
+
       const filteredOptions = (options || []).filter(
         (opt: SelectOption) => !opt.hideOption
       );
       const updatedItems: SelectOption[] = filteredOptions.map(
-        ({ hideOption, ...opt }) => ({
-          ...opt,
-          classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
-          role: 'option',
-          'aria-selected': opt.selected,
-        })
+        ({ hideOption, role: optRole, ...opt }) => {
+          const item: SelectOption = {
+            ...opt,
+            classNames: mergeClasses([
+              { [styles.selectedOption]: opt.selected },
+            ]),
+            listItemRole: menuItemRole,
+            'aria-selected': opt.selected,
+            'aria-label': getAriaLabelForOption(opt),
+          };
+
+          if (menuButtonHasRole === true) {
+            item.role = menuButtonRole ?? optRole ?? 'option';
+          } else if (menuButtonHasRole === false) {
+            // Don't set role property - this will allow MenuItemButton to use its default or no role
+            // We need to explicitly set it to null to remove it
+            item.role = null;
+          } else {
+            item.role = optRole ?? 'option';
+          }
+
+          return item;
+        }
       );
       if (filteredOptions.length > 0) {
         return (
           <Menu
             id={selectMenuId?.current}
-            {...menuProps}
+            {...restMenuProps}
+            itemProps={menuItemRole ? { role: menuItemRole } : undefined}
             items={updatedItems}
             onChange={(value) => {
               const option = updatedItems.find(
