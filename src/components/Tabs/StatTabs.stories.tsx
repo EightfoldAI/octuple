@@ -95,6 +95,7 @@ const statTabs = [1, 2, 3, 4].map((i) => ({
   status: i === 3 ? ('success' as StatValidationStatus) : '',
   value: `tab${i}`,
   interactive: false,
+  readOnly: true,
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -204,13 +205,13 @@ const tabsArgs: Object = {
   readOnly: false,
   size: TabSize.Medium,
   style: {},
-  interactive: false,
 };
 
 Stat_Medium.args = {
   ...tabsArgs,
   lineClamp: 2,
   maxWidth: 240,
+  interactive: false,
 };
 
 Stat_Small.args = {
