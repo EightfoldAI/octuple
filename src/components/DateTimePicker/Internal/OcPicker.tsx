@@ -13,6 +13,7 @@ import {
   OcPickerTimeProps,
 } from './OcPicker.types';
 import { mergeClasses } from '../../../shared/utilities';
+import visuallyHidden from '../../../shared/utilities/visuallyHidden';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import OcPickerPartial from './OcPickerPartial';
@@ -64,6 +65,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     generateConfig,
     getPopupContainer,
     id,
+    label,
     inputReadOnly,
     inputRender,
     locale,
@@ -536,6 +538,11 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
           onContextMenu={onContextMenu}
           onClick={onClick}
         >
+          {(label || placeholder) && id && (
+            <label htmlFor={id} style={visuallyHidden}>
+              {label || placeholder}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,

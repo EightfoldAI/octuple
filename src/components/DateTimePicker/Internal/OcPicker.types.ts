@@ -732,6 +732,11 @@ export type OcPickerSharedProps<DateType> = {
    */
   id?: string;
   /**
+   * The hidden label text for accessibility.
+   * When provided, a visually hidden label will be associated with the input.
+   */
+  label?: string;
+  /**
    * Make input readOnly to avoid popup keyboard in mobile.
    */
   inputReadOnly?: boolean;

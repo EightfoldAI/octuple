@@ -5,6 +5,7 @@ import {
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../../shared/utilities';
+import visuallyHidden from '../../../shared/utilities/visuallyHidden';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import type {
@@ -1355,6 +1356,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           onMouseUp={onMouseUp}
           {...getDataOrAriaProps(props)}
         >
+          {(startDateInputAriaLabel || getValue(placeholder, 0)) && id && (
+            <label htmlFor={id} style={visuallyHidden}>
+              {startDateInputAriaLabel || getValue(placeholder, 0)}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,
@@ -1405,6 +1411,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           <div className={'picker-range-separator'} ref={separatorRef}>
             {separator}
           </div>
+          {(endDateInputAriaLabel || getValue(placeholder, 1)) && id && (
+            <label htmlFor={`${id}-end`} style={visuallyHidden}>
+              {endDateInputAriaLabel || getValue(placeholder, 1)}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,
@@ -1422,6 +1433,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           >
             <input
               disabled={mergedDisabled[1]}
+              id={id ? `${id}-end` : undefined}
               aria-label={endDateInputAriaLabel}
               readOnly={
                 mergedReadonly[1] ||
