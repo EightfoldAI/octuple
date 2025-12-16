@@ -893,6 +893,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
       updateLayout();
     }, [dropdownWidth, selectWidth]);
 
+    const shouldShowDropdown =
+      dropdownVisible &&
+      (showEmptyDropdown ||
+        isLoading ||
+        searchQuery?.length > 0 ||
+        options?.length > 0);
+
     return (
       <ResizeObserver onResize={updateLayout}>
         <ThemeContextProvider
@@ -922,13 +929,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
               overlay={isLoading ? spinner : <OptionMenu options={options} />}
               showDropdown={showDropdown}
-              visible={
-                dropdownVisible &&
-                (showEmptyDropdown ||
-                  isLoading ||
-                  searchQuery?.length > 0 ||
-                  options?.length > 0)
-              }
+              visible={shouldShowDropdown}
               ref={dropdownRef}
               role={null}
             >
@@ -939,7 +940,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   ref={inputRef}
                   aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
-                  aria-expanded={dropdownVisible}
+                  aria-expanded={shouldShowDropdown}
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}
