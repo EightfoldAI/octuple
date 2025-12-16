@@ -360,6 +360,12 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
    * Theme of the stat tab.
    */
   theme?: StatThemeName;
+  /**
+   * Whether the stat tab is interactive.
+   * When false, renders as a div instead of a button and removes interactive attributes.
+   * @default true
+   */
+  interactive?: boolean;
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {

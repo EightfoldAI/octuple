@@ -41,6 +41,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
       status,
       theme,
       value,
+      interactive = true,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
@@ -135,6 +136,41 @@ export const Stat: FC<StatProps> = React.forwardRef(
       [TabSize.XSmall, ButtonSize.Small],
     ]);
 
+    const content = (
+      <Stack
+        direction="horizontal"
+        fullWidth
+        flexGap={tabSizeToGapMap.get(size)}
+        justify="center"
+        align="center"
+      >
+        {getIcon()}
+        <Stack direction="vertical" fullWidth>
+          {getLabel()}
+          <span className={styles.label}>
+            {getRatioA()} {getRatioB()}
+          </span>
+          {getLoader()}
+        </Stack>
+        {!!buttonProps && (
+          <Button size={tabSizeToButtonSizeMap.get(size)} {...buttonProps} />
+        )}
+      </Stack>
+    );
+
+    if (!interactive) {
+      return (
+        <div
+          {...rest}
+          ref={ref}
+          className={tabClassName}
+          style={{ ...rest.style, maxWidth }}
+        >
+          {content}
+        </div>
+      );
+    }
+
     return (
       <button
         {...rest}
@@ -147,25 +183,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
         onClick={!readOnly ? (e) => onTabClick(value, e) : null}
         style={{ ...rest.style, maxWidth }}
       >
-        <Stack
-          direction="horizontal"
-          fullWidth
-          flexGap={tabSizeToGapMap.get(size)}
-          justify="center"
-          align="center"
-        >
-          {getIcon()}
-          <Stack direction="vertical" fullWidth>
-            {getLabel()}
-            <span className={styles.label}>
-              {getRatioA()} {getRatioB()}
-            </span>
-            {getLoader()}
-          </Stack>
-          {!!buttonProps && (
-            <Button size={tabSizeToButtonSizeMap.get(size)} {...buttonProps} />
-          )}
-        </Stack>
+        {content}
       </button>
     );
   }
