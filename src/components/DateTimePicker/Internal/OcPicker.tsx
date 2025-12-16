@@ -110,6 +110,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const inputRef: React.MutableRefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
 
+  const closedByEscRef: React.MutableRefObject<boolean> =
+    useRef<boolean>(false);
+
   const needConfirmButton: boolean =
     (picker === 'date' && !!showTime) || picker === 'time';
 
@@ -274,11 +277,17 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     onFocus,
     onBlur: onInternalBlur,
     changeOnBlur,
+    closedByEscRef,
   });
 
   // Close should sync back with text value
   useEffect((): void => {
     if (!mergedOpen) {
+      if (closedByEscRef.current) {
+        closedByEscRef.current = false;
+        return;
+      }
+
       setSelectedValue(mergedValue);
 
       if (!valueTexts.length || valueTexts[0] === '') {

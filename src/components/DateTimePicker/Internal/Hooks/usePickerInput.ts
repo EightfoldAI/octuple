@@ -22,6 +22,7 @@ export default function usePickerInput({
   onFocus,
   onBlur,
   changeOnBlur,
+  closedByEscRef,
 }: {
   trapFocus?: boolean;
   open: boolean;
@@ -39,6 +40,7 @@ export default function usePickerInput({
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   changeOnBlur?: boolean;
+  closedByEscRef?: React.MutableRefObject<boolean>;
 }): [
   React.DOMAttributes<HTMLInputElement>,
   {
@@ -115,9 +117,12 @@ export default function usePickerInput({
         }
 
         case eventKeys.ESCAPE: {
+          if (closedByEscRef) {
+            closedByEscRef.current = true;
+          }
           updateFocusTrap(false);
           setTyping(true);
-          onCancel();
+          triggerOpen(false);
           return;
         }
       }

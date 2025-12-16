@@ -723,7 +723,7 @@ describe('Picker.Keyboard', () => {
         .first()
         .simulate('change', { target: { value: '2000-01-01' } });
       wrapper.keyDown(eventKeys.ESCAPE);
-      expect(wrapper.find('input').first().props().value).toEqual('');
+      expect(wrapper.find('input').first().props().value).toEqual('2000-01-01');
     });
 
     it('move based on current date on first keyboard event', () => {

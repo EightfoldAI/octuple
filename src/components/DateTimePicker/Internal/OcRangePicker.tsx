@@ -220,7 +220,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   const closedByEscRef: React.MutableRefObject<boolean> =
     useRef<boolean>(false);
-
   const formatList: (string | CustomFormat<DateType>)[] = toArray(
     getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
   );
@@ -342,17 +341,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       mergedReadonly,
       onOpenChange
     );
-
-  useEffect(() => {
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && mergedOpen) {
-        closedByEscRef.current = true;
-      }
-    };
-
-    document.addEventListener('keydown', handleEscKey);
-    return () => document.removeEventListener('keydown', handleEscKey);
-  }, [mergedOpen]);
 
   const startOpen: boolean = mergedOpen && mergedActivePickerIndex === 0;
   const endOpen: boolean = mergedOpen && mergedActivePickerIndex === 1;
@@ -700,6 +688,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     open: startOpen,
     value: startText,
     ...sharedPickerInput,
+    closedByEscRef,
   });
 
   const [
@@ -715,6 +704,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     open: endOpen,
     value: endText,
     ...sharedPickerInput,
+    closedByEscRef,
   });
 
   const onPickerClick = (e: React.MouseEvent<HTMLDivElement>): void => {
