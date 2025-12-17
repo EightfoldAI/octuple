@@ -33,7 +33,7 @@ import getDataOrAriaProps, {
   toArray,
   getValue,
   updateValues,
-  useMergedId,
+  getDatePickerId,
 } from './Utils/miscUtil';
 import {
   getDefaultFormat,
@@ -225,7 +225,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   );
 
   // Generate unique ID if not provided
-  const mergedId: string = useMergedId(id, 'range-picker-');
+  const datePickerId: string = id || getDatePickerId();
 
   // Operation ref
   const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
@@ -1361,7 +1361,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           {...getDataOrAriaProps(props)}
         >
           {(startDateInputAriaLabel || getValue(placeholder, 0)) && (
-            <label htmlFor={mergedId} style={visuallyHidden}>
+            <label htmlFor={datePickerId} style={visuallyHidden}>
               {startDateInputAriaLabel || getValue(placeholder, 0)}
             </label>
           )}
@@ -1387,7 +1387,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                   : null
               }
               disabled={mergedDisabled[0]}
-              id={mergedId}
+              id={datePickerId}
               aria-label={startDateInputAriaLabel}
               readOnly={
                 mergedReadonly[0] ||
@@ -1416,7 +1416,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
             {separator}
           </div>
           {(endDateInputAriaLabel || getValue(placeholder, 1)) && (
-            <label htmlFor={`${mergedId}-end`} style={visuallyHidden}>
+            <label htmlFor={`${datePickerId}-end`} style={visuallyHidden}>
               {endDateInputAriaLabel || getValue(placeholder, 1)}
             </label>
           )}
@@ -1437,7 +1437,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           >
             <input
               disabled={mergedDisabled[1]}
-              id={`${mergedId}-end`}
+              id={`${datePickerId}-end`}
               aria-label={endDateInputAriaLabel}
               readOnly={
                 mergedReadonly[1] ||

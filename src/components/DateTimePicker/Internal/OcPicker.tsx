@@ -19,7 +19,7 @@ import { useMergedState } from '../../../hooks/useMergedState';
 import OcPickerPartial from './OcPickerPartial';
 import OcPickerTrigger from './OcPickerTrigger';
 import { formatValue, isEqual, parseValue } from './Utils/dateUtil';
-import getDataOrAriaProps, { toArray, useMergedId } from './Utils/miscUtil';
+import getDataOrAriaProps, { getDatePickerId, toArray } from './Utils/miscUtil';
 import type { ContextOperationRefProps } from './PartialContext';
 import PartialContext from './PartialContext';
 import type { OcPickerMode } from './OcPicker.types';
@@ -120,7 +120,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   );
 
   // Generate unique ID if not provided
-  const mergedId: string = useMergedId(id, 'picker-');
+  const datePickerId: string = id || getDatePickerId();
 
   const partialDivRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
@@ -454,7 +454,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     'aria-expanded': mergedOpen,
     'aria-haspopup': 'dialog',
     'aria-controls': 'dp-dialog-1',
-    id: mergedId,
+    id: datePickerId,
     tabIndex,
     disabled,
     readOnly:
@@ -542,7 +542,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
           onClick={onClick}
         >
           {(label || placeholder) && (
-            <label htmlFor={mergedId} style={visuallyHidden}>
+            <label htmlFor={datePickerId} style={visuallyHidden}>
               {label || placeholder}
             </label>
           )}
