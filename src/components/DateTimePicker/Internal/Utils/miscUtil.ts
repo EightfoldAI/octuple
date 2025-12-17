@@ -1,3 +1,17 @@
+import { useMemo } from 'react';
+import { uniqueId } from '../../../../shared/utilities';
+
+/**
+ * Generates a merged ID for picker components.
+ * Uses the provided ID if available, otherwise generates a unique ID.
+ * @param id - Optional ID prop
+ * @param prefix - Prefix for generated unique ID (default: 'picker-')
+ * @returns A string ID that is always defined
+ */
+export function useMergedId(id?: string, prefix: string = 'picker-'): string {
+  return useMemo(() => id || uniqueId(prefix), [id, prefix]);
+}
+
 export function leftPad(
   str: string | number,
   length: number,
