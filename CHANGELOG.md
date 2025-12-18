@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.54.8](https://github.com/EightfoldAI/octuple/compare/v2.54.7...v2.54.8) (2025-12-18)
+
+### Features
+
+- **Date:** added sr-only labels for date time picker ([#1071](https://github.com/EightfoldAI/octuple/issues/1071)) ([f8df410](https://github.com/EightfoldAI/octuple/commits/f8df410067fe14a5c50807eaf8781ebeb5782330))
+- **Stat, Tab:** exposes interactive prop to handle ally issues ([#1069](https://github.com/EightfoldAI/octuple/issues/1069)) ([57eadbf](https://github.com/EightfoldAI/octuple/commits/57eadbf31ba78b33f9f30f3e37e5de4bbc9730f3))
+
+### Bug Fixes
+
+- move role and aria-modal attrs to panel element, add aria-label ([#1074](https://github.com/EightfoldAI/octuple/issues/1074)) ([b974b03](https://github.com/EightfoldAI/octuple/commits/b974b03c9c9605d65633ea68f4947354cc67aa5e))
+- non-interactive icon button should be disabled and hidden from AT ([#1073](https://github.com/EightfoldAI/octuple/issues/1073)) ([4300183](https://github.com/EightfoldAI/octuple/commits/4300183f9f0f8c31d6c9b311f70f4a740be6e36c))
+
 ### [2.54.7](https://github.com/EightfoldAI/octuple/compare/v2.54.6...v2.54.7) (2025-12-15)
 
 ### Features
