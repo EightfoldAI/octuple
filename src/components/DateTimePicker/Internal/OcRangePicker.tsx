@@ -5,6 +5,7 @@ import {
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../../shared/utilities';
+import visuallyHidden from '../../../shared/utilities/visuallyHidden';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import type {
@@ -32,6 +33,7 @@ import getDataOrAriaProps, {
   toArray,
   getValue,
   updateValues,
+  getDatePickerId,
 } from './Utils/miscUtil';
 import {
   getDefaultFormat,
@@ -221,6 +223,9 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   const formatList: (string | CustomFormat<DateType>)[] = toArray(
     getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
   );
+
+  // Generate unique ID if not provided
+  const datePickerId: string = id || getDatePickerId();
 
   // Operation ref
   const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
@@ -1355,6 +1360,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           onMouseUp={onMouseUp}
           {...getDataOrAriaProps(props)}
         >
+          {(startDateInputAriaLabel || getValue(placeholder, 0)) && (
+            <label htmlFor={datePickerId} style={visuallyHidden}>
+              {startDateInputAriaLabel || getValue(placeholder, 0)}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,
@@ -1377,7 +1387,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                   : null
               }
               disabled={mergedDisabled[0]}
-              id={id}
+              id={datePickerId}
               aria-label={startDateInputAriaLabel}
               readOnly={
                 mergedReadonly[0] ||
@@ -1405,6 +1415,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           <div className={'picker-range-separator'} ref={separatorRef}>
             {separator}
           </div>
+          {(endDateInputAriaLabel || getValue(placeholder, 1)) && (
+            <label htmlFor={`${datePickerId}-end`} style={visuallyHidden}>
+              {endDateInputAriaLabel || getValue(placeholder, 1)}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,
@@ -1422,6 +1437,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           >
             <input
               disabled={mergedDisabled[1]}
+              id={`${datePickerId}-end`}
               aria-label={endDateInputAriaLabel}
               readOnly={
                 mergedReadonly[1] ||
