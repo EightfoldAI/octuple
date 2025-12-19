@@ -365,8 +365,10 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           className: referenceWrapperClasses,
           'aria-controls': dropdownId,
           'aria-expanded': mergedVisible,
-          'aria-haspopup': child.props.role !== 'combobox' ? true : undefined,
-          role: 'button',
+          'aria-haspopup':
+            child.props?.['aria-haspopup'] ??
+            (child.props.role !== 'combobox' ? true : undefined),
+          role: child.props?.role || 'button',
           tabIndex: tabIndex,
         });
       };
