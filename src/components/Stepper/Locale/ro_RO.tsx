@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Derulați la stânga',
     scrollRightAriaLabelText: 'Derulați la dreapta',
     scrollUpAriaLabelText: 'Derulați în sus',
+    navigateToStepAriaLabelText: 'Navighează la pas',
   },
 };
 

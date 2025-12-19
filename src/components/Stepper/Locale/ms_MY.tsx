@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Skrol ke kiri',
     scrollRightAriaLabelText: 'Skrol ke kanan',
     scrollUpAriaLabelText: 'Skrol ke atas',
+    navigateToStepAriaLabelText: 'Navigasi ke langkah',
   },
 };
 

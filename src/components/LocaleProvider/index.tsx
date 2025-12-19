@@ -14,6 +14,7 @@ import type { StepperLocale } from '../Stepper';
 import type { TableLocale } from '../Table/Table.types';
 import type { UploadLocale } from '../Upload/Upload.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
+import type { SnackbarLocale } from '../Snackbar/Snackbar.types';
 import LocaleContext from './Context';
 
 export interface Locale {
@@ -36,6 +37,7 @@ export interface Locale {
   Table?: TableLocale;
   TimePicker?: Record<string, any>;
   Upload?: UploadLocale;
+  Snackbar?: SnackbarLocale;
 }
 
 export interface LocaleProviderProps {

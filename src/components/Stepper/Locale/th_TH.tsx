@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'เลื่อนไปทางซ้าย',
     scrollRightAriaLabelText: 'เลื่อนไปทางขวา',
     scrollUpAriaLabelText: 'เลื่อนขึ้น',
+    navigateToStepAriaLabelText: 'นำทางไปยังขั้นตอน',
   },
 };
 

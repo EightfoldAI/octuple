@@ -76,6 +76,11 @@ export interface InfoBarsProps
    */
   contentClassNames?: string;
   /**
+   * ID attribute for the content element.
+   * Useful for aria-describedby references.
+   */
+  contentId?: string;
+  /**
    * Custom classes of the content wrapper.
    */
   contentWrapperClassNames?: string;
@@ -132,4 +137,8 @@ export interface InfoBarsProps
    * @default false
    */
   moveFocusToSnackbar?: boolean;
+  /**
+   * Ref for the close button element
+   */
+  closeButtonRef?: React.Ref<HTMLButtonElement>;
 }

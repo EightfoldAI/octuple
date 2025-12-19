@@ -3,6 +3,7 @@
 import React, {
   FC,
   Ref,
+  useCallback,
   useContext,
   useEffect,
   useLayoutEffect,
@@ -29,10 +30,12 @@ import LocaleReceiver, {
 } from '../LocaleProvider/LocaleReceiver';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses, SELECTORS, focusable } from '../../shared/utilities';
 import enUS from './Locale/en_US';
 
 import styles from './stepper.module.scss';
+
+let scrollFocusTimeout: ReturnType<typeof setTimeout>;
 
 export const Stepper: FC<StepperProps> = React.forwardRef(
   (props: StepperProps, ref: Ref<HTMLDivElement>) => {
@@ -54,10 +57,12 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       readonly = true,
       required = false,
       scrollable,
+      enableScrollToSection = false,
       scrollDownAriaLabelText: defaultScrollDownAriaLabelText,
       scrollLeftAriaLabelText: defaultScrollLeftAriaLabelText,
       scrollRightAriaLabelText: defaultScrollRightAriaLabelText,
       scrollUpAriaLabelText: defaultScrollUpAriaLabelText,
+      navigateToStepAriaLabelText: defaultNavigateToStepAriaLabelText,
       showActiveStepIndex,
       size = StepperSize.Medium,
       status,
@@ -69,6 +74,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       width,
       'data-test-id': dataTestId,
       scrollToActiveStep,
+      stepsContainerProps = {},
       ...rest
     } = props;
     const htmlDir: string = useCanvasDirection();
@@ -121,6 +127,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
     const [scrollUpAriaLabelText, setScrollUpAriaLabelText] = useState<string>(
       defaultScrollUpAriaLabelText
     );
+    const [navigateToStepAriaLabelText, setNavigateToStepAriaLabelText] =
+      useState<string>(defaultNavigateToStepAriaLabelText);
 
     // Locs: if the prop isn't provided use the loc defaults.
     // If the mergedLocale is changed, update.
@@ -149,6 +157,11 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         props.scrollUpAriaLabelText
           ? props.scrollUpAriaLabelText
           : mergedLocale.lang!.scrollUpAriaLabelText
+      );
+      setNavigateToStepAriaLabelText(
+        props.navigateToStepAriaLabelText
+          ? props.navigateToStepAriaLabelText
+          : mergedLocale.lang!.navigateToStepAriaLabelText
       );
     }, [mergedLocale]);
 
@@ -223,6 +236,47 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
     ): void => {
       setCurrentActiveStep(index);
       onChange?.(index, event);
+    };
+
+    const scrollToSectionAndFocus = useCallback(
+      (targetSectionId: string) => {
+        if (!enableScrollToSection || !targetSectionId) return;
+
+        const sectionElement = document.getElementById(
+          targetSectionId
+        ) as HTMLElement;
+
+        if (!sectionElement) return;
+
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
+
+        if (scrollFocusTimeout) {
+          clearTimeout(scrollFocusTimeout);
+        }
+
+        scrollFocusTimeout = setTimeout(() => {
+          const focusableElements = Array.from(
+            sectionElement.querySelectorAll(SELECTORS)
+          ).filter((el: HTMLElement) => focusable(el));
+
+          if (focusableElements.length > 0) {
+            (focusableElements[0] as HTMLElement).focus();
+          } else {
+            sectionElement.focus();
+          }
+        }, 100);
+      },
+      [enableScrollToSection]
+    );
+
+    const handleStepContentKeyDown = (
+      event: React.KeyboardEvent<HTMLElement>,
+      targetSectionId: string
+    ): void => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        scrollToSectionAndFocus(targetSectionId);
+      }
     };
 
     const handleScroll = (): void => {
@@ -519,10 +573,17 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                   />
                 )}
                 <div
-                  className={styles.stepsContainer}
-                  onScroll={handleScroll}
+                  className={mergeClasses([
+                    styles.stepsContainer,
+                    stepsContainerProps?.classNames,
+                  ])}
+                  onScroll={(e) => {
+                    handleScroll();
+                    stepsContainerProps?.onScroll?.(e);
+                  }}
                   ref={stepsContainerRef}
                   tabIndex={mergedScrollable ? 0 : null}
+                  {...stepsContainerProps}
                 >
                   <ul className={styles.steps} ref={stepsRef}>
                     {steps.map((step: Step, index: number) => {
@@ -608,6 +669,19 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                   styles.contentInner,
                                   (styles as any)[`${combinedStepSize}`],
                                 ])}
+                                {...(enableScrollToSection && {
+                                  role: 'button',
+                                  'aria-label': `${navigateToStepAriaLabelText} ${
+                                    index + 1
+                                  }`,
+                                  onClick: () =>
+                                    scrollToSectionAndFocus(step.sectionId),
+                                  onKeyDown: (event) =>
+                                    handleStepContentKeyDown(
+                                      event,
+                                      step.sectionId
+                                    ),
+                                })}
                               >
                                 {step.content}
                               </div>
@@ -659,6 +733,19 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 styles.contentInner,
                                 (styles as any)[`${combinedStepSize}`],
                               ])}
+                              {...(enableScrollToSection && {
+                                role: 'button',
+                                'aria-label': `${navigateToStepAriaLabelText} ${
+                                  index + 1
+                                }`,
+                                onClick: () =>
+                                  scrollToSectionAndFocus(step.sectionId),
+                                onKeyDown: (event) =>
+                                  handleStepContentKeyDown(
+                                    event,
+                                    step.sectionId
+                                  ),
+                              })}
                             >
                               {step.content}
                             </div>
@@ -789,6 +876,19 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                   styles.contentInner,
                                   (styles as any)[`${combinedStepSize}`],
                                 ])}
+                                {...(enableScrollToSection && {
+                                  role: 'button',
+                                  'aria-label': `${navigateToStepAriaLabelText} ${
+                                    index + 1
+                                  }`,
+                                  onClick: () =>
+                                    scrollToSectionAndFocus(step.sectionId),
+                                  onKeyDown: (event) =>
+                                    handleStepContentKeyDown(
+                                      event,
+                                      step.sectionId
+                                    ),
+                                })}
                               >
                                 {step.content}
                               </div>
@@ -802,7 +902,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             size === StepperSize.Small &&
                             layout === 'horizontal' && (
                               <hr
-                                aria-hidden='true'
+                                aria-hidden="true"
                                 className={mergeClasses([
                                   styles.separator,
                                   {
@@ -824,7 +924,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                           <li className={styles.step}>
                             {layout === 'vertical' && (
                               <hr
-                                role='presentation'
+                                role="presentation"
                                 className={mergeClasses([
                                   innerSeparatorClassNames,
                                   (styles as any)[`${step.size}`],
@@ -835,7 +935,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             )}
                             {size !== StepperSize.Small && (
                               <hr
-                                role='presentation'
+                                role="presentation"
                                 className={mergeClasses([
                                   innerSeparatorClassNames,
                                   (styles as any)[`${step.size}`],

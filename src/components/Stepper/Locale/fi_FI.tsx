@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Vieritä vasemmalle',
     scrollRightAriaLabelText: 'Vieritä oikealle',
     scrollUpAriaLabelText: 'Vieritä ylös',
+    navigateToStepAriaLabelText: 'Siirry vaiheeseen',
   },
 };
 

@@ -71,6 +71,10 @@ type Locale = {
    * The Stepper `Scroll up` button aria label string.
    */
   scrollUpAriaLabelText?: string;
+  /**
+   * The Stepper `Navigate to step` aria label string.
+   */
+  navigateToStepAriaLabelText?: string;
 };
 
 export type StepperLocale = {
@@ -104,6 +108,11 @@ export interface Step extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
    * The Step index.
    */
   index?: StepIndex;
+  /**
+   * ID of the section element to scroll to when this step is clicked.
+   * When provided, clicking this step will scroll to the element with this ID.
+   */
+  sectionId?: string;
   /**
    * The Stepper custom `Node` button aria label string.
    * Used when `variant` is StepperVariant.Timeline.
@@ -140,6 +149,25 @@ export interface Step extends Omit<OcBaseProps<HTMLDivElement>, 'content'> {
    */
   themeContainerId?: string;
 }
+
+export type StepsContainerProps = {
+  /**
+   * The tab index of the steps container.
+   */
+  tabIndex?: number;
+  /**
+   * The class names of the steps container.
+   */
+  classNames?: string;
+  /**
+   * The on scroll event handler.
+   */
+  onScroll?: (event: React.UIEvent<HTMLDivElement>) => void;
+  /**
+   * The data test id of the steps container.
+   */
+  'data-test-id'?: string;
+};
 
 export interface StepperProps
   extends Omit<OcBaseProps<HTMLDivElement>, 'onChange'> {
@@ -208,6 +236,13 @@ export interface StepperProps
    */
   scrollable?: boolean;
   /**
+   * Enable scroll-to-section and focus functionality when steps are clicked.
+   * When true, clicking a step will scroll to the corresponding section and focus the first interactive element.
+   * Requires each step to have a `sectionId` property.
+   * @default false
+   */
+  enableScrollToSection?: boolean;
+  /**
    * The Stepper `Scroll down` button aria label string.
    * @default 'Scroll down'
    */
@@ -227,6 +262,11 @@ export interface StepperProps
    * @default 'Scroll up'
    */
   scrollUpAriaLabelText?: string;
+  /**
+   * The Stepper `Navigate to step` aria label string.
+   * @default 'Navigate to step'
+   */
+  navigateToStepAriaLabelText?: string;
   /**
    * Show active step index.
    * Use when step is an icon, but an index is desired for the active step.
@@ -270,4 +310,9 @@ export interface StepperProps
    * @default false
    */
   scrollToActiveStep?: boolean;
+  /**
+   * Props to be applied to the steps container div.
+   * Supports tabIndex, classNames, and onScroll event handler.
+   */
+  stepsContainerProps?: StepsContainerProps;
 }

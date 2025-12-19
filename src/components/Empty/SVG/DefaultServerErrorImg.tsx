@@ -4,6 +4,7 @@ import styles from '../empty.module.scss';
 export const DefaultServerErrorImg = (): JSX.Element => {
   return (
     <svg
+      aria-hidden="true"
       className={'server-error-image-default'}
       fill="none"
       height="185"

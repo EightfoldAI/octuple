@@ -35,7 +35,7 @@ const TabsProvider = ({
   themeContainerId,
   statgrouptheme,
   value,
-  enableArrowNav = false,
+  enableArrowNav = true,
   variant = TabVariant.default,
 }: TabsContextProps) => {
   const [currentActiveTab, setCurrentActiveTab] = useState(value);

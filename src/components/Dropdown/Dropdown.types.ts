@@ -169,7 +169,7 @@ export interface DropdownProps {
   /**
    * The props of the overlay
    */
-  overlayProps?: HTMLDivElement;
+  overlayProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export type DropdownRef = {

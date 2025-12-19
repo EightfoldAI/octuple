@@ -684,22 +684,46 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }: {
       options: SelectOption[];
     }): JSX.Element => {
+      const {
+        menuItemRole,
+        menuButtonRole,
+        menuButtonHasRole,
+        ...restMenuProps
+      } = menuProps;
+
       const filteredOptions = (options || []).filter(
         (opt: SelectOption) => !opt.hideOption
       );
       const updatedItems: SelectOption[] = filteredOptions.map(
-        ({ hideOption, ...opt }) => ({
-          ...opt,
-          classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
-          role: 'option',
-          'aria-selected': opt.selected,
-        })
+        ({ hideOption, role: optRole, ...opt }) => {
+          const item: SelectOption = {
+            ...opt,
+            classNames: mergeClasses([
+              { [styles.selectedOption]: opt.selected },
+            ]),
+            listItemRole: menuItemRole,
+            'aria-selected': opt.selected,
+          };
+
+          if (menuButtonHasRole === true) {
+            item.role = menuButtonRole ?? optRole ?? 'option';
+          } else if (menuButtonHasRole === false) {
+            // Don't set role property - this will allow MenuItemButton to use its default or no role
+            // We need to explicitly set it to null to remove it
+            item.role = null;
+          } else {
+            item.role = optRole ?? 'option';
+          }
+
+          return item;
+        }
       );
       if (filteredOptions.length > 0) {
         return (
           <Menu
             id={selectMenuId?.current}
-            {...menuProps}
+            {...restMenuProps}
+            itemProps={menuItemRole ? { role: menuItemRole } : undefined}
             items={updatedItems}
             onChange={(value) => {
               const option = updatedItems.find(

@@ -11,6 +11,25 @@ export type SnackbarPosition =
 
 export type SnackbarType = InfoBarType;
 
+type Locale = {
+  /**
+   * The Snackbar locale.
+   */
+  locale: string;
+  /**
+   * The Snackbar `Close notification` Button aria label string.
+   */
+  closeButtonAriaLabelText?: string;
+  /**
+   * The Snackbar `Notifications` region aria label string.
+   */
+  notificationsRegionAriaLabelText?: string;
+};
+
+export type SnackbarLocale = {
+  lang: Locale;
+};
+
 export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
   /**
    * Content of the snackbar
@@ -38,6 +57,11 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
    * Element to focus when the snackbar is closed
    */
   lastFocusableElement?: HTMLElement;
+  /**
+   * The Snackbar locale.
+   * @default 'en_US'
+   */
+  locale?: SnackbarLocale;
 }
 
 export interface SnackbarContainerProps {
@@ -46,6 +70,11 @@ export interface SnackbarContainerProps {
    * be rendered
    */
   parent?: HTMLElement;
+  /**
+   * The Snackbar locale.
+   * @default 'en_US'
+   */
+  locale?: SnackbarLocale;
 }
 
 export type VoidFunction = () => void;

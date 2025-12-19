@@ -3,7 +3,6 @@
 exports[`Icon Icon is large 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="icon-wrapper"
     role="presentation"
   >
@@ -24,7 +23,6 @@ exports[`Icon Icon is large 1`] = `
 exports[`Icon Icon is medium 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="icon-wrapper"
     role="presentation"
   >
@@ -45,7 +43,6 @@ exports[`Icon Icon is medium 1`] = `
 exports[`Icon Icon is small 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="icon-wrapper"
     role="presentation"
   >
@@ -66,7 +63,6 @@ exports[`Icon Icon is small 1`] = `
 exports[`Icon Icon is xsmall 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="icon-wrapper"
     role="presentation"
   >
@@ -87,7 +83,6 @@ exports[`Icon Icon is xsmall 1`] = `
 exports[`Icon Renders with the correct color 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="icon-wrapper"
     role="presentation"
   >
@@ -108,7 +103,6 @@ exports[`Icon Renders with the correct color 1`] = `
 exports[`Icon Renders without crashing 1`] = `
 <div>
   <span
-    aria-hidden="false"
     class="icon-wrapper"
     role="presentation"
   >

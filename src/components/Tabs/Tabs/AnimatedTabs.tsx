@@ -27,7 +27,8 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
       style,
       underlined = false,
       variant = TabVariant.default,
-      enableArrowNav = false,
+      enableArrowNav = true,
+      interactive = true,
       ...rest
     },
     ref: Ref<HTMLDivElement>
@@ -101,7 +102,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
           <div
             {...rest}
             ref={combinedRef}
-            role="tablist"
+            {...(interactive && { role: 'tablist' })}
             className={tabClassNames}
             style={style}
           >

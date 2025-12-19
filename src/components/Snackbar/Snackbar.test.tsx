@@ -7,6 +7,7 @@ import {
   fireEvent,
   render,
   RenderResult,
+  waitFor,
 } from '@testing-library/react';
 import { IconName } from '../Icon';
 
@@ -202,5 +203,78 @@ describe('Snackbar', () => {
     fireEvent(actionButton, event);
     expect(onClick).toBeCalled();
     expect(wrapper.queryByText(content)).toBe(null);
+  });
+
+  describe('Accessibility improvements', () => {
+    test('notification container should not have tabIndex', async () => {
+      act(() => {
+        snack.serve({
+          content,
+          closable: true,
+        });
+      });
+
+      // Use queryByRole which has built-in waiting
+      const notification = await wrapper.findByRole('alert');
+      expect(notification).toBeTruthy();
+      // Verify it doesn't have tabindex attribute
+      expect(notification.hasAttribute('tabindex')).toBe(false);
+    });
+
+    test('should not auto-focus snackbar on appearance', () => {
+      const focusedElementBefore = document.activeElement;
+
+      act(() => {
+        snack.serve({
+          content,
+          closable: true,
+        });
+      });
+
+      jest.runAllTimers();
+
+      // Focus should not have moved to the snackbar
+      expect(document.activeElement).toBe(focusedElementBefore);
+    });
+
+    test('close button should have descriptive aria-label', () => {
+      act(() => {
+        snack.serve({
+          content,
+          closable: true,
+        });
+      });
+
+      const closeButton = wrapper.getByRole('button', {
+        name: /close notification/i,
+      });
+      expect(closeButton).toBeTruthy();
+    });
+
+    test('notifications should be wrapped in role="region"', () => {
+      act(() => {
+        snack.serve({
+          content,
+        });
+      });
+
+      const regions = wrapper.getAllByRole('region', {
+        name: /notifications/i,
+      });
+      expect(regions).toBeTruthy();
+      expect(regions.length).toBe(6);
+    });
+
+    test('non-closable snackbar should have role="alert"', () => {
+      act(() => {
+        snack.serve({
+          content,
+          closable: false,
+        });
+      });
+
+      const alert = wrapper.queryByRole('alert');
+      expect(alert).toBeTruthy();
+    });
   });
 });
