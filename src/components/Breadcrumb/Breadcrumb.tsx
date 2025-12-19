@@ -219,7 +219,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                     {...item.tooltipprops}
                   >
                     <span
-                      aria-current={item.ariaCurrent ? 'location' : null}
+                      aria-current={item.ariaCurrent ? 'page' : null}
                       className={mergeClasses([
                         linkClasses,
                         styles.breadcrumbLinkReadOnly,
@@ -249,7 +249,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = React.forwardRef(
                       item.children
                     ) : (
                       <Link
-                        aria-current={item.ariaCurrent ? 'location' : null}
+                        aria-current={item.ariaCurrent ? 'page' : null}
                         variant="primary"
                         {...item}
                         classNames={mergeClasses([

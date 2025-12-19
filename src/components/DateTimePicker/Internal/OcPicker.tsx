@@ -13,12 +13,13 @@ import {
   OcPickerTimeProps,
 } from './OcPicker.types';
 import { mergeClasses } from '../../../shared/utilities';
+import visuallyHidden from '../../../shared/utilities/visuallyHidden';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import OcPickerPartial from './OcPickerPartial';
 import OcPickerTrigger from './OcPickerTrigger';
 import { formatValue, isEqual, parseValue } from './Utils/dateUtil';
-import getDataOrAriaProps, { toArray } from './Utils/miscUtil';
+import getDataOrAriaProps, { getDatePickerId, toArray } from './Utils/miscUtil';
 import type { ContextOperationRefProps } from './PartialContext';
 import PartialContext from './PartialContext';
 import type { OcPickerMode } from './OcPicker.types';
@@ -64,6 +65,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     generateConfig,
     getPopupContainer,
     id,
+    label,
     inputReadOnly,
     inputRender,
     locale,
@@ -119,6 +121,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const formatList: (string | CustomFormat<DateType>)[] = toArray(
     getDefaultFormat(format, picker, showTime, use12Hours)
   );
+
+  // Generate unique ID if not provided
+  const datePickerId: string = id || getDatePickerId();
 
   const partialDivRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
@@ -458,7 +463,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     'aria-expanded': mergedOpen,
     'aria-haspopup': 'dialog',
     'aria-controls': 'dp-dialog-1',
-    id,
+    id: datePickerId,
     tabIndex,
     disabled,
     readOnly:
@@ -545,6 +550,11 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
           onContextMenu={onContextMenu}
           onClick={onClick}
         >
+          {(label || placeholder) && (
+            <label htmlFor={datePickerId} style={visuallyHidden}>
+              {label || placeholder}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,

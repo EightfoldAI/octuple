@@ -37,6 +37,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       variant = MenuVariant.neutral,
       wrap = false,
       menuRenderer,
+      listItemRole,
       ...rest
     },
     ref: React.ForwardedRef<HTMLButtonElement>
@@ -176,7 +177,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
     };
 
     return (
-      <li className={menuItemClassNames} role="presentation">
+      <li className={menuItemClassNames} role={listItemRole ?? 'presentation'}>
         {renderedItem()}
       </li>
     );

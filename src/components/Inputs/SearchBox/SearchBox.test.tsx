@@ -29,6 +29,14 @@ describe('SearchBox', () => {
     expect(wrapper.containsMatchingElement(<SearchBox />)).toEqual(true);
   });
 
+  test('Text input default non-interactive icon button renders as disabled and with aria-hidden', () => {
+    const wrapper = mount(<SearchBox />);
+    const button = wrapper.find('button');
+    expect(button.prop('disabled')).toBe(true);
+    expect(button.prop('aria-hidden')).toBe(true);
+    expect(button.prop('aria-label')).toBeUndefined();
+  });
+
   test('Text input is readonly', () => {
     const { container } = render(
       <SearchBox readonly defaultValue="Test value" />

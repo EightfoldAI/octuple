@@ -199,4 +199,24 @@ describe('Breadcrumb', () => {
     expect(container.querySelector('.breadcrumb')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
+
+  test('should set aria-current="page" for the current breadcrumb', async () => {
+    const { container } = render(
+      <Breadcrumb
+        {...breadcrumbArgs}
+        links={[
+          { title: 'Home', url: '#' },
+          { title: 'Section', url: '#' },
+          {
+            title: 'Current Page',
+            url: '#',
+            ariaCurrent: true,
+            readonly: true,
+          },
+        ]}
+      />
+    );
+    const currentCrumb = container.querySelectorAll('.breadcrumb-link')[2];
+    expect(currentCrumb.getAttribute('aria-current')).toBe('page');
+  });
 });
