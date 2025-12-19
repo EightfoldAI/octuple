@@ -220,6 +220,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   const arrowRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
 
+  const closedByEscRef: React.MutableRefObject<boolean> =
+    useRef<boolean>(false);
   const formatList: (string | CustomFormat<DateType>)[] = toArray(
     getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
   );
@@ -691,6 +693,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     open: startOpen,
     value: startText,
     ...sharedPickerInput,
+    closedByEscRef,
   });
 
   const [
@@ -706,6 +709,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     open: endOpen,
     value: endText,
     ...sharedPickerInput,
+    closedByEscRef,
   });
 
   const onPickerClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -760,6 +764,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   useEffect(() => {
     if (!mergedOpen) {
+      if (closedByEscRef.current) {
+        closedByEscRef.current = false;
+        return;
+      }
       setSelectedValue(mergedValue);
 
       if (!startValueTexts.length || startValueTexts[0] === '') {
