@@ -7,14 +7,7 @@ import styles from '../menuItem.module.scss';
 
 export const MenuItemCustom: FC<MenuItemCustomProps> = forwardRef(
   (
-    {
-      classNames,
-      index,
-      onChange,
-      size = MenuSize.medium,
-      role = 'presentation',
-      ...item
-    },
+    { classNames, index, onChange, size = MenuSize.medium, role = 'presentation', ...item },
     ref: React.ForwardedRef<any>
   ) => {
     const menuItemClassNames: string = mergeClasses([
