@@ -60,6 +60,9 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
             ref={(element) => {
               liRefs.current.set(unit.value, element);
             }}
+            role="option"
+            aria-selected={value === unit.value}
+            aria-disabled={unit.disabled}
             className={mergeClasses([
               'picker-time-partial-cell',
               {

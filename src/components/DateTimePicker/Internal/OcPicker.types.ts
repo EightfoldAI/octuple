@@ -553,6 +553,10 @@ export type OcPickerPartialSharedProps<DateType> = {
    * @default false
    */
   announceArrowKeyNavigation?: boolean | string;
+  /**
+   * The listbox ID for time picker accessibility.
+   */
+  listboxId?: string;
 };
 
 export type OcPickerPartialBaseProps<DateType> = {
