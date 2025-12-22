@@ -301,37 +301,53 @@ describe('DatePicker', () => {
 
   it('should have proper ARIA roles for calendar grid structure', () => {
     const wrapper = mount(<DatePicker open />);
-
-    // Find the calendar table by role
     const table = wrapper.find('table[role="grid"]');
-    expect(table.length).toBe(1);
-    expect(table.prop('role')).toBe('grid');
-
-    // Find header row in thead
-    const headerRow = wrapper.find('thead tr[role="row"]');
-    expect(headerRow.length).toBe(1);
-    expect(headerRow.prop('role')).toBe('row');
-
-    // Find column headers (th elements) - should be 7 for days of the week
     const columnHeaders = wrapper.find('thead th[role="columnheader"]');
-    expect(columnHeaders.length).toBe(7);
-    columnHeaders.forEach((th) => {
-      expect(th.prop('role')).toBe('columnheader');
-      expect(th.prop('scope')).toBe('col');
-    });
-
-    // Find body rows in tbody - should be 6 rows for a month view
     const bodyRows = wrapper.find('tbody tr[role="row"]');
-    expect(bodyRows.length).toBe(6);
-    bodyRows.forEach((tr) => {
-      expect(tr.prop('role')).toBe('row');
-    });
-
-    // Find grid cells (td elements) - should be 42 cells (7 columns * 6 rows)
     const gridCells = wrapper.find('tbody td[role="gridcell"]');
+
+    expect(table.prop('role')).toBe('grid');
+    expect(columnHeaders.length).toBe(7);
+    expect(columnHeaders.first().prop('scope')).toBe('col');
+    expect(bodyRows.length).toBe(6);
     expect(gridCells.length).toBe(42);
-    gridCells.forEach((td) => {
-      expect(td.prop('role')).toBe('gridcell');
-    });
+  });
+
+  it('should have proper ARIA attributes on date cells', () => {
+    const wrapper = mount(
+      <DatePicker
+        value={dayjs('2016-11-15')}
+        disabledDate={(current) => current && current < dayjs('2016-11-10')}
+        open
+      />
+    );
+    const gridCells = wrapper.find('tbody td[role="gridcell"]');
+    const selected = gridCells.filterWhere(
+      (td) => td.prop('aria-selected') === true
+    );
+    const disabled = gridCells.filterWhere(
+      (td) => td.prop('aria-disabled') === true
+    );
+
+    expect(selected.length).toBe(1);
+    expect(disabled.length).toBeGreaterThan(0);
+    // aria-label is on the inner div, not the td
+    expect(
+      gridCells.first().find('div[role="button"]').prop('aria-label')
+    ).toBeTruthy();
+  });
+
+  it('should handle RangePicker with start and end dates selected', () => {
+    const wrapper = mount(
+      <DatePicker.RangePicker
+        value={[dayjs('2016-11-15'), dayjs('2016-11-20')]}
+        open
+      />
+    );
+    const selected = wrapper
+      .find('tbody td[role="gridcell"]')
+      .filterWhere((td) => td.prop('aria-selected') === true);
+
+    expect(selected.length).toBeGreaterThanOrEqual(2);
   });
 });

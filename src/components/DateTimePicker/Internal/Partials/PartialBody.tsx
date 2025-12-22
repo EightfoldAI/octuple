@@ -2,10 +2,11 @@ import React from 'react';
 import { PartialBodyProps, PickerCellProps } from './Partial.types';
 import { mergeClasses } from '../../../../shared/utilities';
 import PartialContext from '../PartialContext';
+import RangeContext from '../RangeContext';
 import { getLastDay } from '../Utils/timeUtil';
-import { getCellDateDisabled } from '../Utils/dateUtil';
+import { getCellDateDisabled, isSameDate } from '../Utils/dateUtil';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
-import { DatePickerSize } from '../OcPicker.types';
+import { DatePickerSize, NullableDateType } from '../OcPicker.types';
 
 import styles from '../ocpicker.module.scss';
 
@@ -26,6 +27,7 @@ export default function PartialBody<DateType>({
   size = DatePickerSize.Medium,
   titleCell,
   getCellProps,
+  value,
 }: PartialBodyProps<DateType>) {
   const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
   const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -71,6 +73,7 @@ export default function PartialBody<DateType>({
           onDateMouseLeave={onDateMouseLeave}
           getCellNode={getCellNode}
           getCellProps={getCellProps}
+          value={value}
         />
       );
     }
@@ -128,9 +131,11 @@ function PickerCell<DateType>({
   onDateMouseLeave,
   getCellNode,
   getCellProps,
+  value,
 }: PickerCellProps<DateType>) {
   const buttonRef = React.useRef<HTMLDivElement>(null);
   const { isCellFocused, buttonProps = {} } = getCellProps?.(currentDate) ?? {};
+  const { rangedValue } = React.useContext(RangeContext);
 
   React.useEffect(() => {
     if (buttonRef.current && isCellFocused) {
@@ -146,10 +151,23 @@ function PickerCell<DateType>({
     onSelect(currentDate);
   }
 
+  // Determine if this date is selected
+  // Check single value first, then check range values (start and end)
+  const isSelected: boolean = !!(
+    (value && isSameDate(generateConfig, value, currentDate)) ||
+    (rangedValue &&
+      rangedValue[0] &&
+      isSameDate(generateConfig, rangedValue[0], currentDate)) ||
+    (rangedValue &&
+      rangedValue[1] &&
+      isSameDate(generateConfig, rangedValue[1], currentDate))
+  );
+
   return (
     <td
       role="gridcell"
       title={title}
+      aria-selected={isSelected}
       className={mergeClasses([
         styles.pickerCell,
         { [styles.pickerCellDisabled]: disabled },
@@ -181,6 +199,7 @@ function PickerCell<DateType>({
           onDateMouseLeave(currentDate);
         }
       }}
+      {...(disabled && { 'aria-disabled': true })}
     >
       {getCellNode ? (
         getCellNode(currentDate)

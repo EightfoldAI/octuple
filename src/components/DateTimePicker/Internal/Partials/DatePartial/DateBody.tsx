@@ -100,6 +100,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
       headerCells={headerCells}
       size={size}
       getCellProps={getCellProps}
+      value={value}
     />
   );
 }
