@@ -1420,7 +1420,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               aria-label={
                 startDateInputAriaLabel ||
                 getValue(placeholder, 0) ||
-                (isTimePicker ? 'Start time picker' : 'Start date picker')
+                (isTimePicker ? locale.timeSelect : locale.dateSelect)
               }
               readOnly={
                 mergedReadonly[0] ||
@@ -1475,7 +1475,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               aria-label={
                 endDateInputAriaLabel ||
                 getValue(placeholder, 1) ||
-                (isTimePicker ? 'End time picker' : 'End date picker')
+                (isTimePicker ? locale.timeSelect : locale.dateSelect)
               }
               readOnly={
                 mergedReadonly[1] ||

@@ -275,14 +275,11 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     }
   );
 
-  // Generate listbox ID if not provided (fallback for direct usage)
-  const finalListboxId: string = listboxId || uniqueId('time-picker-listbox-');
-
   return (
     <div
       className={styles.pickerContent}
       role="listbox"
-      id={finalListboxId}
+      id={listboxId || uniqueId('time-picker-listbox-')}
       tabIndex={0}
     >
       {columns.map(({ node }) => node)}

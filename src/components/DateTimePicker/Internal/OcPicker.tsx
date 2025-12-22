@@ -396,7 +396,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
-      role={isTimePicker ? undefined : 'dialog'}
+      {...(!isTimePicker && { role: 'dialog' })}
       aria-modal={isTimePicker ? undefined : 'true'}
       id={isTimePicker ? undefined : 'dp-dialog-1'}
       trap={trap}
@@ -473,7 +473,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     'aria-haspopup': popupRole,
     'aria-controls': mergedOpen ? popupId : undefined,
     'aria-label':
-      label || placeholder || (isTimePicker ? 'Time picker' : 'Date picker'),
+      label ||
+      placeholder ||
+      (isTimePicker ? locale.timeSelect : locale.dateSelect),
     id: datePickerId,
     tabIndex,
     disabled,
