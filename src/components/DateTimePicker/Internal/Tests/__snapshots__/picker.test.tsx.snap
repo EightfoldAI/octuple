@@ -9,9 +9,9 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "aria-controls": "dp-dialog-1",
           "aria-expanded": "false",
           "aria-haspopup": "dialog",
+          "aria-label": "Date picker",
           "autocomplete": "off",
           "id": "date-picker-",
           "readonly": "",
@@ -103,9 +103,9 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
-          "aria-controls": undefined,
           "aria-expanded": undefined,
           "aria-haspopup": undefined,
+          "aria-label": undefined,
           "autocomplete": undefined,
           "id": undefined,
           "readonly": undefined,
@@ -115,9 +115,9 @@ LoadedCheerio {
           "value": undefined,
         },
         "x-attribsPrefix": Object {
-          "aria-controls": undefined,
           "aria-expanded": undefined,
           "aria-haspopup": undefined,
+          "aria-label": undefined,
           "autocomplete": undefined,
           "id": undefined,
           "readonly": undefined,
@@ -196,9 +196,9 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "aria-controls": "dp-dialog-1",
             "aria-expanded": "false",
             "aria-haspopup": "dialog",
+            "aria-label": "Date picker",
             "autocomplete": "off",
             "id": "date-picker-",
             "readonly": "",
@@ -215,9 +215,9 @@ LoadedCheerio {
           "prev": null,
           "type": "tag",
           "x-attribsNamespace": Object {
-            "aria-controls": undefined,
             "aria-expanded": undefined,
             "aria-haspopup": undefined,
+            "aria-label": undefined,
             "autocomplete": undefined,
             "id": undefined,
             "readonly": undefined,
@@ -227,9 +227,9 @@ LoadedCheerio {
             "value": undefined,
           },
           "x-attribsPrefix": Object {
-            "aria-controls": undefined,
             "aria-expanded": undefined,
             "aria-haspopup": undefined,
+            "aria-label": undefined,
             "autocomplete": undefined,
             "id": undefined,
             "readonly": undefined,
@@ -306,9 +306,9 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "aria-controls": "dp-dialog-1",
               "aria-expanded": "false",
               "aria-haspopup": "dialog",
+              "aria-label": "Date picker",
               "autocomplete": "off",
               "id": "date-picker-",
               "readonly": "",
@@ -325,9 +325,9 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "readonly": undefined,
@@ -337,9 +337,9 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "readonly": undefined,
@@ -484,9 +484,9 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "aria-controls": "dp-dialog-1",
           "aria-expanded": "false",
           "aria-haspopup": "dialog",
+          "aria-label": "Date picker",
           "autocomplete": "off",
           "id": "date-picker-",
           "readonly": "",
@@ -503,9 +503,9 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
-          "aria-controls": undefined,
           "aria-expanded": undefined,
           "aria-haspopup": undefined,
+          "aria-label": undefined,
           "autocomplete": undefined,
           "id": undefined,
           "readonly": undefined,
@@ -515,9 +515,9 @@ LoadedCheerio {
           "value": undefined,
         },
         "x-attribsPrefix": Object {
-          "aria-controls": undefined,
           "aria-expanded": undefined,
           "aria-haspopup": undefined,
+          "aria-label": undefined,
           "autocomplete": undefined,
           "id": undefined,
           "readonly": undefined,
@@ -652,6 +652,7 @@ LoadedCheerio {
               "aria-controls": "dp-dialog-1",
               "aria-expanded": "true",
               "aria-haspopup": "dialog",
+              "aria-label": "Date picker",
               "autocomplete": "off",
               "id": "date-picker-",
               "readonly": "",
@@ -671,6 +672,7 @@ LoadedCheerio {
               "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "readonly": undefined,
@@ -683,6 +685,7 @@ LoadedCheerio {
               "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "readonly": undefined,
@@ -1007,6 +1010,7 @@ LoadedCheerio {
                     "aria-controls": "dp-dialog-1",
                     "aria-expanded": "true",
                     "aria-haspopup": "dialog",
+                    "aria-label": "Date picker",
                     "autocomplete": "off",
                     "id": "date-picker-",
                     "readonly": "",
@@ -1026,6 +1030,7 @@ LoadedCheerio {
                     "aria-controls": undefined,
                     "aria-expanded": undefined,
                     "aria-haspopup": undefined,
+                    "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
                     "readonly": undefined,
@@ -1038,6 +1043,7 @@ LoadedCheerio {
                     "aria-controls": undefined,
                     "aria-expanded": undefined,
                     "aria-haspopup": undefined,
+                    "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
                     "readonly": undefined,
@@ -1098,6 +1104,7 @@ LoadedCheerio {
                 "aria-controls": "dp-dialog-1",
                 "aria-expanded": "true",
                 "aria-haspopup": "dialog",
+                "aria-label": "Date picker",
                 "autocomplete": "off",
                 "id": "date-picker-",
                 "readonly": "",
@@ -1117,6 +1124,7 @@ LoadedCheerio {
                 "aria-controls": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
+                "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
                 "readonly": undefined,
@@ -1129,6 +1137,7 @@ LoadedCheerio {
                 "aria-controls": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
+                "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
                 "readonly": undefined,
@@ -1279,7 +1288,6 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "dp-dialog-1",
               "aria-expanded": "false",
               "aria-haspopup": "dialog",
               "aria-label": "3334",
@@ -1300,7 +1308,6 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
               "aria-label": undefined,
@@ -1314,7 +1321,6 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
               "aria-label": undefined,
@@ -1464,9 +1470,9 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "dp-dialog-1",
               "aria-expanded": "false",
               "aria-haspopup": "dialog",
+              "aria-label": "Date picker",
               "autocomplete": "off",
               "id": "date-picker-",
               "readonly": "",
@@ -1483,9 +1489,9 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "readonly": undefined,
@@ -1495,9 +1501,9 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "readonly": undefined,
