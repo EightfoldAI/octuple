@@ -396,10 +396,12 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
-      {...(!isTimePicker && { role: 'dialog' })}
       {...(isTimePicker && { id: listboxId })}
-      {...(!isTimePicker && { 'aria-modal': 'true' })}
-      {...(!isTimePicker && { 'aria-labelledby': 'dp-dialog-1-label' })}
+      {...(!isTimePicker && {
+        role: 'dialog',
+        'aria-modal': 'true',
+        'aria-labelledby': 'dp-dialog-1-label',
+      })}
       trap={trap}
       className={styles.pickerPartialContainer}
       onMouseDown={(e) => {
