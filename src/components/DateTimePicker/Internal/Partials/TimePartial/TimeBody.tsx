@@ -7,6 +7,7 @@ import { leftPad } from '../../Utils/miscUtil';
 import { setTime as utilSetTime } from '../../Utils/timeUtil';
 import { DisabledTimes } from '../../OcPicker.types';
 import { DatePickerSize } from '../../OcPicker.types';
+import { uniqueId } from '../../../../../shared/utilities';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -53,6 +54,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     size = DatePickerSize.Medium,
     use12Hours,
     value,
+    listboxId,
   } = props;
 
   const columns: {
@@ -274,7 +276,12 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
   );
 
   return (
-    <div className={styles.pickerContent}>
+    <div
+      className={styles.pickerContent}
+      role="listbox"
+      id={listboxId || uniqueId('time-picker-listbox-')}
+      tabIndex={0}
+    >
       {columns.map(({ node }) => node)}
     </div>
   );
