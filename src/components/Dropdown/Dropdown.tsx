@@ -405,8 +405,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           >
             <div
               ref={refs.setFloating}
-              // @ts-expect-error - This is a valid CSSProperties object
-              style={dropdownStyles}
+              style={dropdownStyles as React.CSSProperties}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
               onClick={

@@ -30,9 +30,9 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "dp-dialog-1",
                 "aria-expanded": "false",
                 "aria-haspopup": "dialog",
+                "aria-label": "Select week",
                 "autocomplete": "off",
                 "id": "date-picker-",
                 "placeholder": "Select week",
@@ -228,9 +228,9 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
-                "aria-controls": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
+                "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
                 "placeholder": undefined,
@@ -241,9 +241,9 @@ LoadedCheerio {
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
-                "aria-controls": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
+                "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
                 "placeholder": undefined,
@@ -426,9 +426,9 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "dp-dialog-1",
                   "aria-expanded": "false",
                   "aria-haspopup": "dialog",
+                  "aria-label": "Select week",
                   "autocomplete": "off",
                   "id": "date-picker-",
                   "placeholder": "Select week",
@@ -446,9 +446,9 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
-                  "aria-controls": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
+                  "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
                   "placeholder": undefined,
@@ -459,9 +459,9 @@ LoadedCheerio {
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
-                  "aria-controls": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
+                  "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
                   "placeholder": undefined,
@@ -640,9 +640,9 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "dp-dialog-1",
                     "aria-expanded": "false",
                     "aria-haspopup": "dialog",
+                    "aria-label": "Select week",
                     "autocomplete": "off",
                     "id": "date-picker-",
                     "placeholder": "Select week",
@@ -660,9 +660,9 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
-                    "aria-controls": undefined,
                     "aria-expanded": undefined,
                     "aria-haspopup": undefined,
+                    "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
                     "placeholder": undefined,
@@ -673,9 +673,9 @@ LoadedCheerio {
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
-                    "aria-controls": undefined,
                     "aria-expanded": undefined,
                     "aria-haspopup": undefined,
+                    "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
                     "placeholder": undefined,
@@ -739,9 +739,9 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "dp-dialog-1",
               "aria-expanded": "false",
               "aria-haspopup": "dialog",
+              "aria-label": "Select week",
               "autocomplete": "off",
               "id": "date-picker-",
               "placeholder": "Select week",
@@ -937,9 +937,9 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "placeholder": undefined,
@@ -950,9 +950,9 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
-              "aria-controls": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
+              "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
               "placeholder": undefined,
@@ -1135,9 +1135,9 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "dp-dialog-1",
                 "aria-expanded": "false",
                 "aria-haspopup": "dialog",
+                "aria-label": "Select week",
                 "autocomplete": "off",
                 "id": "date-picker-",
                 "placeholder": "Select week",
@@ -1155,9 +1155,9 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
-                "aria-controls": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
+                "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
                 "placeholder": undefined,
@@ -1168,9 +1168,9 @@ LoadedCheerio {
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
-                "aria-controls": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
+                "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
                 "placeholder": undefined,
@@ -1349,9 +1349,9 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "dp-dialog-1",
                   "aria-expanded": "false",
                   "aria-haspopup": "dialog",
+                  "aria-label": "Select week",
                   "autocomplete": "off",
                   "id": "date-picker-",
                   "placeholder": "Select week",
@@ -1369,9 +1369,9 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
-                  "aria-controls": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
+                  "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
                   "placeholder": undefined,
@@ -1382,9 +1382,9 @@ LoadedCheerio {
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
-                  "aria-controls": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
+                  "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
                   "placeholder": undefined,

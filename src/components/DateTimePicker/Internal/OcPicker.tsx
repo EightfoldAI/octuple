@@ -124,6 +124,10 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
 
   // Generate unique ID if not provided
   const datePickerId: string = id || getDatePickerId();
+  // Check if this is a time picker
+  const isTimePicker: boolean = picker === 'time';
+  // Generate listbox ID for time picker
+  const listboxId: string = `${datePickerId}-listbox`;
 
   const partialDivRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
@@ -381,6 +385,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       visible={mergedOpen}
       trap={trap}
       announceArrowKeyNavigation={announceArrowKeyNavigation}
+      {...(isTimePicker && { listboxId })}
     />
   );
 
@@ -391,9 +396,12 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const partial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
-      role="dialog"
-      aria-modal="true"
-      id="dp-dialog-1"
+      {...(isTimePicker && { id: listboxId })}
+      {...(!isTimePicker && {
+        role: 'dialog',
+        'aria-modal': 'true',
+        'aria-labelledby': 'dp-dialog-1-label',
+      })}
       trap={trap}
       className={styles.pickerPartialContainer}
       onMouseDown={(e) => {
@@ -458,11 +466,19 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     );
   }
 
+  // For time picker, use listbox role; for others, use dialog
+  const popupRole: 'listbox' | 'dialog' = isTimePicker ? 'listbox' : 'dialog';
+  const popupId: string = isTimePicker ? listboxId : 'dp-dialog-1';
+
   const mergedInputProps: React.InputHTMLAttributes<HTMLInputElement> = {
     role: 'combobox',
     'aria-expanded': mergedOpen,
-    'aria-haspopup': 'dialog',
-    'aria-controls': 'dp-dialog-1',
+    'aria-haspopup': popupRole,
+    ...(mergedOpen && { 'aria-controls': popupId }),
+    'aria-label':
+      label ||
+      placeholder ||
+      (isTimePicker ? locale.timeSelect : locale.dateSelect),
     id: datePickerId,
     tabIndex,
     disabled,
