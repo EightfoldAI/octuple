@@ -208,7 +208,6 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             name={name}
             type={'checkbox'}
             value={value}
-            readOnly={!toggle}
             role={toggle ? 'switch' : 'checkbox'}
             {...rest}
           />
