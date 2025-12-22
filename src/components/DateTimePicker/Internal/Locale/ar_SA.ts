@@ -33,6 +33,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'السنة السابقة',
   superNextAriaLabel: 'السنة القادمة',
   arrowKeyNavigationText: 'استخدم أزرار الأسهم للتنقل في التقويم',
+  hourLabel: 'ساعات',
+  minuteLabel: 'دقائق',
+  secondLabel: 'ثواني',
+  ampmLabel: 'ص/م',
 };
 
 export default locale;

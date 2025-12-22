@@ -35,6 +35,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'ปีก่อนหน้า',
   superNextAriaLabel: 'ปีถัดไป',
   arrowKeyNavigationText: 'ใช้ปุ่มลูกศรเพื่อนำทางในปฏิทิน',
+  hourLabel: 'ชั่วโมง',
+  minuteLabel: 'นาที',
+  secondLabel: 'วินาที',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

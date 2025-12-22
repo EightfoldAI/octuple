@@ -55,6 +55,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     use12Hours,
     value,
     listboxId,
+    locale,
   } = props;
 
   const columns: {
@@ -234,7 +235,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(isPM, num, minute, second), 'mouse');
     },
-    'Hours'
+    locale?.hourLabel || 'Hours'
   );
 
   // Minute
@@ -246,7 +247,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(isPM, hour, num, second), 'mouse');
     },
-    'Minutes'
+    locale?.minuteLabel || 'Minutes'
   );
 
   // Second
@@ -258,7 +259,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(isPM, hour, minute, num), 'mouse');
     },
-    'Seconds'
+    locale?.secondLabel || 'Seconds'
   );
 
   // 12 Hours
@@ -278,7 +279,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(!!num, hour, minute, second), 'mouse');
     },
-    'AM/PM'
+    locale?.ampmLabel || 'AM/PM'
   );
 
   return (
