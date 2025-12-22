@@ -350,4 +350,22 @@ describe('DatePicker', () => {
 
     expect(selected.length).toBeGreaterThanOrEqual(2);
   });
+
+  it('should set tabIndex to -1 for non-selected and non-today dates', () => {
+    // Test case where a date is neither selected nor today
+    // This covers the else branch in useCellProps where tabIndex is -1
+    const wrapper = mount(<DatePicker value={dayjs('2016-11-15')} open />);
+    const gridCells = wrapper.find('tbody td[role="gridcell"]');
+    // Find a cell that is not the selected date (2016-11-15) and not today (2016-11-22)
+    const nonSelectedCell = gridCells
+      .filterWhere((td) => {
+        const ariaSelected = td.prop('aria-selected');
+        return ariaSelected === false;
+      })
+      .first();
+
+    // Verify that non-selected, non-today cells have tabIndex -1
+    const buttonDiv = nonSelectedCell.find('div[role="button"]');
+    expect(buttonDiv.prop('tabIndex')).toBe(-1);
+  });
 });
