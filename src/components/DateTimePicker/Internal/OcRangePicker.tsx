@@ -947,7 +947,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         visible={mergedOpen}
         trap={isTrapped}
         announceArrowKeyNavigation={announceArrowKeyNavigation}
-        listboxId={isTimePicker ? listboxId : undefined}
+        {...(isTimePicker && { listboxId })}
       />
     );
 
@@ -1124,10 +1124,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   const rangePartial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
-      role={isTimePicker ? undefined : 'dialog'}
-      aria-modal={isTimePicker ? undefined : 'true'}
-      id={isTimePicker ? undefined : 'dp-dialog-1'}
-      aria-labelledby={isTimePicker ? undefined : 'dp-dialog-1-label'}
+      {...(!isTimePicker && { role: 'dialog' })}
+      {...(isTimePicker && { id: 'dp-dialog-1' })}
+      {...(!isTimePicker && { 'aria-modal': 'true' })}
+      {...(!isTimePicker && { 'aria-labelledby': 'dp-dialog-1-label' })}
       trap={startTrap || endTrap}
       onMouseDown={(e) => {
         e.preventDefault();
@@ -1225,12 +1225,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   // Individual input props for aria attributes
   const startInputAriaProps = {
     'aria-expanded': startOpen,
-    'aria-controls': startOpen ? popupId : undefined,
+    ...(startOpen && { 'aria-controls': popupId }),
   };
 
   const endInputAriaProps = {
     'aria-expanded': endOpen,
-    'aria-controls': endOpen ? popupId : undefined,
+    ...(endOpen && { 'aria-controls': popupId }),
   };
 
   let activeBarLeft: number = 0;

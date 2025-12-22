@@ -385,7 +385,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       visible={mergedOpen}
       trap={trap}
       announceArrowKeyNavigation={announceArrowKeyNavigation}
-      listboxId={isTimePicker ? listboxId : undefined}
+      {...(isTimePicker && { listboxId })}
     />
   );
 
@@ -397,8 +397,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     <FocusTrap
       data-testid="picker-dialog"
       {...(!isTimePicker && { role: 'dialog' })}
-      aria-modal={isTimePicker ? undefined : 'true'}
-      id={isTimePicker ? undefined : 'dp-dialog-1'}
+      {...(isTimePicker && { id: listboxId })}
+      {...(!isTimePicker && { 'aria-modal': 'true' })}
+      {...(!isTimePicker && { 'aria-labelledby': 'dp-dialog-1-label' })}
       trap={trap}
       className={styles.pickerPartialContainer}
       onMouseDown={(e) => {
@@ -471,7 +472,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     role: 'combobox',
     'aria-expanded': mergedOpen,
     'aria-haspopup': popupRole,
-    'aria-controls': mergedOpen ? popupId : undefined,
+    ...(mergedOpen && { 'aria-controls': popupId }),
     'aria-label':
       label ||
       placeholder ||
