@@ -89,13 +89,9 @@ export const Empty: FC<EmptyProps> = React.forwardRef(
           {imageNode}
         </div>
         {title && (
-          <h2
-            className={mergeClasses([styles.emptyTitle, titleClassNames])}
-            role="heading"
-            aria-level={headingLevel || 2}
-          >
+          <div className={mergeClasses([styles.emptyTitle, titleClassNames])}>
             {title}
-          </h2>
+          </div>
         )}
         {description && (
           <div
