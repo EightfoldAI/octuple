@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.55.0](https://github.com/EightfoldAI/octuple/compare/v2.54.8...v2.55.0) (2025-12-22)
+
+### Features
+
+- **fixes:** a11y fixes for some octuple components ([#1076](https://github.com/EightfoldAI/octuple/issues/1076)) ([7c65ee1](https://github.com/EightfoldAI/octuple/commits/7c65ee17be62b5eb68cfe2725d3ef56dd0b3225d))
+- **Table:** Add aria-attributes for NVDA if table is horizontally scrollable ([#1042](https://github.com/EightfoldAI/octuple/issues/1042)) ([8214fbb](https://github.com/EightfoldAI/octuple/commits/8214fbbad7fa4a4d6a9912fbc9305242b2f091f0))
+
+### Bug Fixes
+
+- **a11y:** Add ARIA listbox support to TimePicker ([#1077](https://github.com/EightfoldAI/octuple/issues/1077)) ([2baf48e](https://github.com/EightfoldAI/octuple/commits/2baf48e6445a2dec7e14dab347c32c92fc6d132c))
+- correct type for overlayProps prop on Dropdown ([#1075](https://github.com/EightfoldAI/octuple/issues/1075)) ([e0fe076](https://github.com/EightfoldAI/octuple/commits/e0fe0765b92aef8eef18eb93b74589281e0d106d))
+- **Datepicker:** prevent input from clearing on escape key press ([#1070](https://github.com/EightfoldAI/octuple/issues/1070)) ([9057eed](https://github.com/EightfoldAI/octuple/commits/9057eed44ace126abb55c42c1ef2f991015ed182))
+- remove inappropriate h2 element from Empty component ([#1067](https://github.com/EightfoldAI/octuple/issues/1067)) ([ea2edc6](https://github.com/EightfoldAI/octuple/commits/ea2edc6966555c1db401ddae533d524e753b0428))
+
 ### [2.54.8](https://github.com/EightfoldAI/octuple/compare/v2.54.7...v2.54.8) (2025-12-18)
 
 ### Features
