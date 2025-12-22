@@ -205,7 +205,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     node: React.ReactElement,
     columnValue: number,
     units: Unit[],
-    onColumnSelect: (diff: number) => void
+    onColumnSelect: (diff: number) => void,
+    ariaLabel?: string
   ): void {
     if (condition !== false) {
       columns.push({
@@ -215,6 +216,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
           onSelect: onColumnSelect,
           units,
           hideDisabledOptions,
+          ariaLabel,
         }),
         onSelect: onColumnSelect,
         value: columnValue,
@@ -231,7 +233,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     hours,
     (num: number): void => {
       onSelect(setTime(isPM, num, minute, second), 'mouse');
-    }
+    },
+    'Hours'
   );
 
   // Minute
@@ -242,7 +245,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     minutes,
     (num: number): void => {
       onSelect(setTime(isPM, hour, num, second), 'mouse');
-    }
+    },
+    'Minutes'
   );
 
   // Second
@@ -253,7 +257,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     seconds,
     (num: number): void => {
       onSelect(setTime(isPM, hour, minute, num), 'mouse');
-    }
+    },
+    'Seconds'
   );
 
   // 12 Hours
@@ -272,7 +277,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     ],
     (num: number): void => {
       onSelect(setTime(!!num, hour, minute, second), 'mouse');
-    }
+    },
+    'AM/PM'
   );
 
   return (
