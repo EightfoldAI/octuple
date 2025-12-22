@@ -298,4 +298,40 @@ describe('DatePicker', () => {
       popupAlignDefault(['br', 'tr'], [0, -4])
     );
   });
+
+  it('should have proper ARIA roles for calendar grid structure', () => {
+    const wrapper = mount(<DatePicker open />);
+
+    // Find the calendar table by role
+    const table = wrapper.find('table[role="grid"]');
+    expect(table.length).toBe(1);
+    expect(table.prop('role')).toBe('grid');
+
+    // Find header row in thead
+    const headerRow = wrapper.find('thead tr[role="row"]');
+    expect(headerRow.length).toBe(1);
+    expect(headerRow.prop('role')).toBe('row');
+
+    // Find column headers (th elements) - should be 7 for days of the week
+    const columnHeaders = wrapper.find('thead th[role="columnheader"]');
+    expect(columnHeaders.length).toBe(7);
+    columnHeaders.forEach((th) => {
+      expect(th.prop('role')).toBe('columnheader');
+      expect(th.prop('scope')).toBe('col');
+    });
+
+    // Find body rows in tbody - should be 6 rows for a month view
+    const bodyRows = wrapper.find('tbody tr[role="row"]');
+    expect(bodyRows.length).toBe(6);
+    bodyRows.forEach((tr) => {
+      expect(tr.prop('role')).toBe('row');
+    });
+
+    // Find grid cells (td elements) - should be 42 cells (7 columns * 6 rows)
+    const gridCells = wrapper.find('tbody td[role="gridcell"]');
+    expect(gridCells.length).toBe(42);
+    gridCells.forEach((td) => {
+      expect(td.prop('role')).toBe('gridcell');
+    });
+  });
 });

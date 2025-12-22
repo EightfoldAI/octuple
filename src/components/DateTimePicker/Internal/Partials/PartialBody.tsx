@@ -76,7 +76,7 @@ export default function PartialBody<DateType>({
     }
 
     rows.push(
-      <tr key={i} className={rowClassNames?.(rowStartDate!)}>
+      <tr key={i} role="row" className={rowClassNames?.(rowStartDate!)}>
         {row}
       </tr>
     );
@@ -103,10 +103,10 @@ export default function PartialBody<DateType>({
 
   return (
     <div className={pickerBodyClassNames}>
-      <table className={styles.pickerContent}>
+      <table role="grid" className={styles.pickerContent}>
         {headerCells && (
           <thead>
-            <tr>{headerCells}</tr>
+            <tr role="row">{headerCells}</tr>
           </thead>
         )}
         <tbody>{rows}</tbody>
@@ -148,6 +148,7 @@ function PickerCell<DateType>({
 
   return (
     <td
+      role="gridcell"
       title={title}
       className={mergeClasses([
         styles.pickerCell,
