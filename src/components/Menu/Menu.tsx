@@ -81,6 +81,7 @@ export const Menu: FC<MenuProps> = ({
       onClick={onChange}
       onChange={onChange}
       type={item.type ?? MenuItemType.button}
+      {...itemProps}
       {...item}
     />
   );
