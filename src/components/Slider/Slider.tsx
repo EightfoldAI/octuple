@@ -724,6 +724,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         includedStart,
         max: mergedMax,
         min: mergedMin,
+        readOnly,
         step: mergedStep,
       }),
       [
@@ -734,6 +735,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         includedStart,
         mergedMax,
         mergedMin,
+        readOnly,
         mergedStep,
       ]
     );
