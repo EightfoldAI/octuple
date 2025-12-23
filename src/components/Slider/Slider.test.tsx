@@ -404,4 +404,37 @@ describe('Slider', () => {
     ).toHaveLength(5);
     expect(container2.getElementsByClassName('active')).toHaveLength(3);
   });
+
+  test('should set tabIndex=-1 on markers when slider is readonly', () => {
+    const marks = { 0: '0', 50: '50', 100: '100' };
+    const { container } = render(<Slider marks={marks} value={50} readOnly />);
+    const markElements = container.getElementsByClassName('slider-mark-text');
+    
+    expect(markElements).toHaveLength(3);
+    Array.from(markElements).forEach((mark) => {
+      expect(mark.getAttribute('tabindex')).toBe('-1');
+    });
+  });
+
+  test('should set tabIndex=-1 on markers when slider is disabled', () => {
+    const marks = { 0: '0', 50: '50', 100: '100' };
+    const { container } = render(<Slider marks={marks} value={50} disabled />);
+    const markElements = container.getElementsByClassName('slider-mark-text');
+    
+    expect(markElements).toHaveLength(3);
+    Array.from(markElements).forEach((mark) => {
+      expect(mark.getAttribute('tabindex')).toBe('-1');
+    });
+  });
+
+  test('should not set tabIndex on markers when slider is interactive', () => {
+    const marks = { 0: '0', 50: '50', 100: '100' };
+    const { container } = render(<Slider marks={marks} value={50} />);
+    const markElements = container.getElementsByClassName('slider-mark-text');
+    
+    expect(markElements).toHaveLength(3);
+    Array.from(markElements).forEach((mark) => {
+      expect(mark.getAttribute('tabindex')).toBeNull();
+    });
+  });
 });
