@@ -35,6 +35,10 @@ const locale: Locale = {
   superNextAriaLabel: 'Nächstes Jahr',
   arrowKeyNavigationText:
     'Verwenden Sie Pfeiltasten zum Navigieren im Kalender',
+  hourLabel: 'Stunden',
+  minuteLabel: 'Minuten',
+  secondLabel: 'Sekunden',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

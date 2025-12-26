@@ -7,7 +7,8 @@ import PartialContext from '../../PartialContext';
 import styles from '../../ocpicker.module.scss';
 
 function TimeUnitColumn(props: TimeUnitColumnProps) {
-  const { active, hideDisabledOptions, onSelect, units, value } = props;
+  const { active, ariaLabel, hideDisabledOptions, onSelect, units, value } =
+    props;
   const { open } = React.useContext(PartialContext);
 
   const ulRef: React.MutableRefObject<HTMLUListElement> =
@@ -48,6 +49,7 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
       ])}
       ref={ulRef}
       style={{ position: 'relative' }}
+      aria-label={ariaLabel}
     >
       {units!.map((unit: Unit) => {
         if (hideDisabledOptions && unit.disabled) {

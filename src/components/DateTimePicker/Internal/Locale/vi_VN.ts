@@ -33,6 +33,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'Năm trước',
   superNextAriaLabel: 'Năm sau',
   arrowKeyNavigationText: 'Sử dụng phím mũi tên để điều hướng lịch',
+  hourLabel: 'Giờ',
+  minuteLabel: 'Phút',
+  secondLabel: 'Giây',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

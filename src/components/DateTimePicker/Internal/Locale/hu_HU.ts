@@ -35,6 +35,10 @@ const locale: Locale = {
   superNextAriaLabel: 'Következő év',
   arrowKeyNavigationText:
     'Használja a nyílbillentyűket a naptárban való navigáláshoz',
+  hourLabel: 'Órák',
+  minuteLabel: 'Percek',
+  secondLabel: 'Másodpercek',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

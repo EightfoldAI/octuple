@@ -298,4 +298,74 @@ describe('DatePicker', () => {
       popupAlignDefault(['br', 'tr'], [0, -4])
     );
   });
+
+  it('should have proper ARIA roles for calendar grid structure', () => {
+    const wrapper = mount(<DatePicker open />);
+    const table = wrapper.find('table[role="grid"]');
+    const columnHeaders = wrapper.find('thead th[role="columnheader"]');
+    const bodyRows = wrapper.find('tbody tr[role="row"]');
+    const gridCells = wrapper.find('tbody td[role="gridcell"]');
+
+    expect(table.prop('role')).toBe('grid');
+    expect(columnHeaders.length).toBe(7);
+    expect(columnHeaders.first().prop('scope')).toBe('col');
+    expect(bodyRows.length).toBe(6);
+    expect(gridCells.length).toBe(42);
+  });
+
+  it('should have proper ARIA attributes on date cells', () => {
+    const wrapper = mount(
+      <DatePicker
+        value={dayjs('2016-11-15')}
+        disabledDate={(current) => current && current < dayjs('2016-11-10')}
+        open
+      />
+    );
+    const gridCells = wrapper.find('tbody td[role="gridcell"]');
+    const selected = gridCells.filterWhere(
+      (td) => td.prop('aria-selected') === true
+    );
+    const disabled = gridCells.filterWhere(
+      (td) => td.prop('aria-disabled') === true
+    );
+
+    expect(selected.length).toBe(1);
+    expect(disabled.length).toBeGreaterThan(0);
+    // aria-label is on the inner div, not the td
+    expect(
+      gridCells.first().find('div[role="button"]').prop('aria-label')
+    ).toBeTruthy();
+  });
+
+  it('should handle RangePicker with start and end dates selected', () => {
+    const wrapper = mount(
+      <DatePicker.RangePicker
+        value={[dayjs('2016-11-15'), dayjs('2016-11-20')]}
+        open
+      />
+    );
+    const selected = wrapper
+      .find('tbody td[role="gridcell"]')
+      .filterWhere((td) => td.prop('aria-selected') === true);
+
+    expect(selected.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('should set tabIndex to -1 for non-selected and non-today dates', () => {
+    // Test case where a date is neither selected nor today
+    // This covers the else branch in useCellProps where tabIndex is -1
+    const wrapper = mount(<DatePicker value={dayjs('2016-11-15')} open />);
+    const gridCells = wrapper.find('tbody td[role="gridcell"]');
+    // Find a cell that is not the selected date (2016-11-15) and not today (2016-11-22)
+    const nonSelectedCell = gridCells
+      .filterWhere((td) => {
+        const ariaSelected = td.prop('aria-selected');
+        return ariaSelected === false;
+      })
+      .first();
+
+    // Verify that non-selected, non-today cells have tabIndex -1
+    const buttonDiv = nonSelectedCell.find('div[role="button"]');
+    expect(buttonDiv.prop('tabIndex')).toBe(-1);
+  });
 });

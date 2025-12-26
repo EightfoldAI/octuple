@@ -34,6 +34,10 @@ const locale: Locale = {
   superNextAriaLabel: 'తదుపరి సంవత్సరం',
   arrowKeyNavigationText:
     'క్యాలెండర్‌ను నావిగేట్ చేయడానికి బాణం కీలను ఉపయోగించండి',
+  hourLabel: 'గంటలు',
+  minuteLabel: 'నిమిషాలు',
+  secondLabel: 'సెకన్లు',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

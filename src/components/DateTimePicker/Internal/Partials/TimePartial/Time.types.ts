@@ -31,6 +31,10 @@ export type TimeUnitColumnProps = {
    */
   active?: boolean;
   /**
+   * ARIA label for the time column (e.g., "Hours", "Minutes", "Seconds", "AM/PM").
+   */
+  ariaLabel?: string;
+  /**
    * Whether the time unit has disabled options.
    */
   hideDisabledOptions?: boolean;
