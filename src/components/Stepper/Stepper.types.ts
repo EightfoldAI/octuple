@@ -193,6 +193,12 @@ export interface StepperProps
    */
   gradient?: boolean;
   /**
+   * Enable fullwidth mode to evenly distribute steps across the full width of the container.
+   * Works in horizontal layout with medium size (small size always uses fullwidth).
+   * @default false
+   */
+  fullwidth?: boolean;
+  /**
    * The Stepper height.
    * Use when layout is `vertical`.
    */

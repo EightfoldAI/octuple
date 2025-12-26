@@ -175,4 +175,29 @@ describe('Stepper', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  test('Stepper is fullwidth', () => {
+    const wrapper = mount(
+      <Stepper
+        {...stepperArgs}
+        size={StepperSize.Medium}
+        steps={defaultWorkflow}
+        fullwidth
+      />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  test('Stepper is fullwidth and scrollable', () => {
+    const wrapper = mount(
+      <Stepper
+        {...stepperArgs}
+        size={StepperSize.Medium}
+        steps={defaultWorkflow}
+        fullwidth
+        scrollable
+      />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

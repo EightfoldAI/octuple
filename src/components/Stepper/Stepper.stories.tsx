@@ -74,6 +74,9 @@ export default {
     required: {
       control: 'boolean',
     },
+    fullwidth: {
+      control: 'boolean',
+    },
     scrollable: {
       control: 'boolean',
     },
@@ -150,6 +153,7 @@ export const Default_Horizontal_Small = Stepper_Story.bind({});
 export const Default_Horizontal_Small_Required = Stepper_Story.bind({});
 export const Default_Horizontal_Small_Read_Only = Stepper_Story.bind({});
 export const Default_Horizontal_Medium = Stepper_Story.bind({});
+export const Default_Horizontal_Medium_Fullwidth = Stepper_Story.bind({});
 export const Default_Horizontal_Medium_Required = Stepper_Story.bind({});
 export const Default_Horizontal_Medium_Read_Only = Stepper_Story.bind({});
 export const Default_Horizontal_Medium_Active_Scroll = Stepper_Story.bind({});
@@ -167,6 +171,7 @@ export const __namedExportsOrder = [
   'Default_Horizontal_Small_Required',
   'Default_Horizontal_Small_Read_Only',
   'Default_Horizontal_Medium',
+  'Default_Horizontal_Medium_Fullwidth',
   'Default_Horizontal_Medium_Required',
   'Default_Horizontal_Medium_Read_Only',
   'Default_Horizontal_Medium_Active_Scroll',
@@ -221,6 +226,11 @@ Default_Horizontal_Small_Read_Only.args = {
 
 Default_Horizontal_Medium.args = {
   ...stepperArgs,
+};
+
+Default_Horizontal_Medium_Fullwidth.args = {
+  ...stepperArgs,
+  fullwidth: true,
 };
 
 Default_Horizontal_Medium_Required.args = {

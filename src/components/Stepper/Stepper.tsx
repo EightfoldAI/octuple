@@ -48,6 +48,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         noThemeContext: false,
       },
       gradient = false,
+      fullwidth = false,
       height,
       index = 0,
       layout = 'horizontal',
@@ -184,6 +185,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         [styles.small]: size === StepperSize.Small,
         [styles.vertical]: layout === 'vertical',
         [styles.stepperRtl]: htmlDir === 'rtl',
+        [styles.fullwidth]: fullwidth,
       },
       classNames,
     ]);
