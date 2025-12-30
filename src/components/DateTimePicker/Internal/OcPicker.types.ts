@@ -153,6 +153,22 @@ export type Locale = {
    * The arrow key navigation announcement text.
    */
   arrowKeyNavigationText?: string;
+  /**
+   * The time picker hour column label.
+   */
+  hourLabel?: string;
+  /**
+   * The time picker minute column label.
+   */
+  minuteLabel?: string;
+  /**
+   * The time picker second column label.
+   */
+  secondLabel?: string;
+  /**
+   * The time picker AM/PM column label.
+   */
+  ampmLabel?: string;
 };
 
 export type PartialMode =

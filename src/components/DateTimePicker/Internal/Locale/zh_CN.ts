@@ -34,6 +34,10 @@ const locale: Locale = {
   superPrevAriaLabel: '上一年',
   superNextAriaLabel: '下一年',
   arrowKeyNavigationText: '使用箭头键导航日历',
+  hourLabel: '小时',
+  minuteLabel: '分钟',
+  secondLabel: '秒',
+  ampmLabel: '上午/下午',
 };
 
 export default locale;

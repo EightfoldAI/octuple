@@ -34,6 +34,10 @@ const locale: Locale = {
   superNextAriaLabel: 'Anul următor',
   arrowKeyNavigationText:
     'Utilizați tastele săgeți pentru a naviga în calendar',
+  hourLabel: 'Ore',
+  minuteLabel: 'Minute',
+  secondLabel: 'Secunde',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

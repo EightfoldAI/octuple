@@ -35,6 +35,10 @@ const locale: Locale = {
   superNextAriaLabel: 'Tahun depan',
   arrowKeyNavigationText:
     'Gunakan kekunci anak panah untuk menavigasi kalendar',
+  hourLabel: 'Jam',
+  minuteLabel: 'Minit',
+  secondLabel: 'Saat',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;
