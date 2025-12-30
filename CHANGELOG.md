@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.56.0](https://github.com/EightfoldAI/octuple/compare/v2.55.0...v2.56.0) (2025-12-30)
+
+### Features
+
+- **DateTimePicker:** Add WCAG 2.1 AA accessibility improvements for DatePicker and TimePicker components ([#1078](https://github.com/EightfoldAI/octuple/issues/1078)) ([4ac663a](https://github.com/EightfoldAI/octuple/commits/4ac663abf8f281a5a882bebe6fd7b81323777de4))
+- **Stepper:** add fullwidth mode for evenly distributed steps in horizontal layout ([#1081](https://github.com/EightfoldAI/octuple/issues/1081)) ([450fe5b](https://github.com/EightfoldAI/octuple/commits/450fe5b0828c8c9989dcc0ce38efee3e72df0834))
+
+### Bug Fixes
+
+- ensure Menu passes itemProps down to MenuItems ([#1079](https://github.com/EightfoldAI/octuple/issues/1079)) ([44d5885](https://github.com/EightfoldAI/octuple/commits/44d5885a60f391572664dd69d032ba2a79b9a288))
+- update Dropdown props to allow consumer to correctly implement a11y patterns ([#1080](https://github.com/EightfoldAI/octuple/issues/1080)) ([73816e8](https://github.com/EightfoldAI/octuple/commits/73816e8f025e2cdf704c199adc662c7373c0fa4a))
+
 ## [2.55.0](https://github.com/EightfoldAI/octuple/compare/v2.54.8...v2.55.0) (2025-12-22)
 
 ### Features
