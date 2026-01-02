@@ -8,14 +8,8 @@ import styles from '../slider.module.scss';
 
 export default function Mark(props: MarkProps) {
   const { children, classNames, onClick, style, value } = props;
-  const {
-    direction,
-    included,
-    includedEnd,
-    includedStart,
-    min,
-    max,
-  } = React.useContext(SliderContext);
+  const { direction, included, includedEnd, includedStart, min, max } =
+    React.useContext(SliderContext);
 
   const positionStyle = getDirectionStyle(direction, value, min, max);
 
