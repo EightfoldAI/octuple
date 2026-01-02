@@ -54,7 +54,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         closeOnDropdownClick = true,
         closeOnReferenceClick = true,
         closeOnOutsideClick = true,
-        closeOnTab = true,
+        shouldCloseOnTab = true,
         disabled,
         dropdownClassNames,
         dropdownStyle,
@@ -297,7 +297,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
-        if (event?.key === eventKeys.TAB && mergedVisible && closeOnTab) {
+        if (event?.key === eventKeys.TAB && mergedVisible && shouldCloseOnTab) {
           toggle(false)(event);
         }
         if (
@@ -340,7 +340,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         }
 
         if (event?.key === eventKeys.TAB && mergedVisible && !event.shiftKey) {
-          if (closeOnTab) {
+          if (shouldCloseOnTab) {
             toggle(false)(event);
           } else {
             timeout && clearTimeout(timeout);
