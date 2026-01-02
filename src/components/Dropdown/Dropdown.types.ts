@@ -55,6 +55,7 @@ export interface DropdownProps {
   /**
    * If the dropdown is disabled or not
    */
+  closeOnTab?: boolean;
   disabled?: boolean;
   /**
    * Custom dropdown class names
