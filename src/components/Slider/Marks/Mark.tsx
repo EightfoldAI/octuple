@@ -10,13 +10,11 @@ export default function Mark(props: MarkProps) {
   const { children, classNames, onClick, style, value } = props;
   const {
     direction,
-    disabled,
     included,
     includedEnd,
     includedStart,
     min,
     max,
-    readOnly,
   } = React.useContext(SliderContext);
 
   const positionStyle = getDirectionStyle(direction, value, min, max);
@@ -35,7 +33,6 @@ export default function Mark(props: MarkProps) {
         ...positionStyle,
         ...style,
       }}
-      tabIndex={readOnly || disabled ? -1 : undefined}
       onMouseDown={(e) => {
         e.stopPropagation();
       }}
