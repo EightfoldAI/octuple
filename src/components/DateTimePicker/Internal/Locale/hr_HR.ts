@@ -36,6 +36,10 @@ const locale: Locale = {
   superNextAriaLabel: 'Sljedeća godina',
   arrowKeyNavigationText:
     'Koristite tipke sa strelicama za navigaciju po kalendaru',
+  hourLabel: 'Sati',
+  minuteLabel: 'Minute',
+  secondLabel: 'Sekunde',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

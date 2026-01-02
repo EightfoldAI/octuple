@@ -49,6 +49,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       actionButtonOneProps,
       actionButtonTwoProps,
       actionButtonThreeProps,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
       autoFocus = true,
       bodyClassNames,
       bodyPadding = true,
@@ -379,8 +381,6 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                       skipFocusableSelectorsFromIndex
                     }
                     trap={visible && focusTrap}
-                    role="dialog"
-                    aria-modal={true}
                     {...rest}
                     ref={containerRef}
                     classNames={panelBackdropClasses}
@@ -396,6 +396,10 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     >
                       <div
                         ref={panelRef}
+                        role="dialog"
+                        aria-modal={true}
+                        aria-label={ariaLabel}
+                        aria-labelledby={ariaLabelledBy}
                         className={panelClasses}
                         onClick={stopPropagation}
                         style={getPanelStyle()}

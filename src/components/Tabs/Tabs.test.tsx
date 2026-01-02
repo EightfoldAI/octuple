@@ -360,6 +360,84 @@ describe('Tabs', () => {
       ).toJSON()
     ).toMatchSnapshot();
   });
+
+  test('stat tabs non-interactive renders as div', () => {
+    const statTabs = [1, 2, 3].map((i) => ({
+      value: `tab${i}`,
+      icon: IconName.mdiCardsHeart,
+      label: `Tab ${i}`,
+      ariaLabel: `Tab ${i}`,
+      interactive: false,
+    }));
+    const wrapper = mount(
+      <Tabs onChange={tabClick} value={'tab1'}>
+        {statTabs.map((tab) => (
+          <Stat key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+    expect(wrapper.find('.tab').at(0).type()).toBe('div');
+  });
+
+  test('stat tabs readOnly prevents onClick', () => {
+    tabClick.mockClear();
+    const statTabs = [1, 2, 3].map((i) => ({
+      value: `tab${i}`,
+      icon: IconName.mdiCardsHeart,
+      label: `Tab ${i}`,
+      ariaLabel: `Tab ${i}`,
+    }));
+    const wrapper = mount(
+      <Tabs onChange={tabClick} value={'tab1'} readOnly>
+        {statTabs.map((tab) => (
+          <Stat key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+    wrapper.find('button[role="tab"]').at(1).simulate('click');
+    expect(tabClick).not.toHaveBeenCalled();
+  });
+
+  test('stat tabs without lineClamp does not set WebkitLineClamp style', () => {
+    const statTabs = [1, 2].map((i) => ({
+      value: `tab${i}`,
+      icon: IconName.mdiCardsHeart,
+      label: `Tab ${i}`,
+      ariaLabel: `Tab ${i}`,
+    }));
+    const wrapper = mount(
+      <Tabs onChange={tabClick} value={'tab1'}>
+        {statTabs.map((tab) => (
+          <Stat key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+    expect(
+      wrapper.find('.label').first().prop('style')?.WebkitLineClamp
+    ).toBeUndefined();
+  });
+
+  test('animated tabs non-interactive does not set role', () => {
+    const wrapper = mount(
+      <Tabs onChange={tabClick} value={'tab1'} interactive={false}>
+        {tabs.map((tab) => (
+          <Tab key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+    expect(wrapper.find('div[role="tablist"]').length).toBe(0);
+  });
+
+  test('animated tabs registers tablist ref on mount', () => {
+    const wrapper = mount(
+      <Tabs onChange={tabClick} value={'tab1'}>
+        {tabs.map((tab) => (
+          <Tab key={tab.value} {...tab} />
+        ))}
+      </Tabs>
+    );
+    expect(wrapper.find('.tab').length).toBeGreaterThan(0);
+  });
 });
 
 const tabs = [

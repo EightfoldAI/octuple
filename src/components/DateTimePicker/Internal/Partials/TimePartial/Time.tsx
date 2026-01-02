@@ -25,6 +25,7 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
     size = DatePickerSize.Medium,
     use12Hours = false,
     value,
+    listboxId,
   } = props;
   const bodyOperationRef: React.MutableRefObject<BodyOperationRef> =
     React.useRef<BodyOperationRef>();
@@ -76,6 +77,7 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
         activeColumnIndex={activeColumnIndex}
         operationRef={bodyOperationRef}
         size={size}
+        listboxId={listboxId}
       />
     </div>
   );

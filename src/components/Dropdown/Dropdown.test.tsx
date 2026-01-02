@@ -153,6 +153,24 @@ const ExternalElementDropdownComponent = (): JSX.Element => {
   );
 };
 
+const ComplexDropdownWithAriaHaspopupComponent = (): JSX.Element => {
+  const buttonRef: React.MutableRefObject<HTMLButtonElement> =
+    useRef<HTMLButtonElement>(null);
+
+  return (
+    <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue="true">
+      <div>
+        <Button
+          ref={buttonRef}
+          data-testid="test-button-id"
+          text="Test button"
+          aria-haspopup="listbox"
+        />
+      </div>
+    </Dropdown>
+  );
+};
+
 const filterOverlay1 = () => (
   <List<User>
     items={sampleList}
@@ -574,7 +592,6 @@ describe('Dropdown', () => {
     expect(screen.getByText('User profile 1')).toBeVisible();
   });
 
-  // Verify that overlay container is not focusable by default
   test('Overlay container is not focusable by default', async () => {
     const { getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
@@ -592,5 +609,14 @@ describe('Dropdown', () => {
     ) as HTMLElement;
 
     expect(dropdownWrapper.getAttribute('tabindex')).toBe('-1');
+  });
+
+  test('Should respect the existing aria-haspopup attribute on the reference element', async () => {
+    const { getByTestId } = render(
+      <ComplexDropdownWithAriaHaspopupComponent />
+    );
+    const referenceElement = getByTestId('test-button-id');
+
+    expect(referenceElement.getAttribute('aria-haspopup')).toBe('listbox');
   });
 });

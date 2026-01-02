@@ -34,6 +34,10 @@ const locale: Locale = {
   superPrevAriaLabel: '이전 해',
   superNextAriaLabel: '다음 해',
   arrowKeyNavigationText: '화살표 키를 사용하여 달력을 탐색하세요',
+  hourLabel: '시간',
+  minuteLabel: '분',
+  secondLabel: '초',
+  ampmLabel: '오전/오후',
 };
 
 export default locale;

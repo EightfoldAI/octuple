@@ -35,6 +35,10 @@ const locale: Locale = {
   superNextAriaLabel: 'Próximo ano',
   arrowKeyNavigationText:
     'Gebruik de pijltjestoetsen om door de kalender te navigeren',
+  hourLabel: 'Uren',
+  minuteLabel: 'Minuten',
+  secondLabel: 'Seconden',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

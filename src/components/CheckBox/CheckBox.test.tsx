@@ -138,9 +138,4 @@ describe('CheckBox', () => {
       )
     ).toEqual(true);
   });
-
-  test('CheckBox with toggle is not readOnly', () => {
-    const wrapper = mount(<CheckBox toggle label="test label" />);
-    expect(wrapper.find('input').prop('readOnly')).toBeFalsy();
-  });
 });

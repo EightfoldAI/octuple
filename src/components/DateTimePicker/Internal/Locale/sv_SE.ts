@@ -34,6 +34,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'Föregående år',
   superNextAriaLabel: 'Nästa år',
   arrowKeyNavigationText: 'Använd piltangenterna för att navigera i kalendern',
+  hourLabel: 'Timmar',
+  minuteLabel: 'Minuter',
+  secondLabel: 'Sekunder',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

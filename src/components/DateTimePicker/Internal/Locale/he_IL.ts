@@ -35,6 +35,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'שנה קודמת',
   superNextAriaLabel: 'שנה הבאה',
   arrowKeyNavigationText: 'השתמש במקשי החצים כדי לנווט בלוח השנה',
+  hourLabel: 'שעות',
+  minuteLabel: 'דקות',
+  secondLabel: 'שניות',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

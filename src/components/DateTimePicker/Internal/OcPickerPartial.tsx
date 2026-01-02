@@ -84,6 +84,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     visible,
     trap,
     announceArrowKeyNavigation,
+    listboxId,
   } = props as MergedPickerPartialProps<DateType>;
   const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
   const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -369,6 +370,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             triggerSelect(date, type);
           }}
           size={size}
+          listboxId={props.listboxId}
         />
       );
       break;

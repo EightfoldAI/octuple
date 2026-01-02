@@ -33,6 +33,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'Предишна година',
   superNextAriaLabel: 'Следваща година',
   arrowKeyNavigationText: 'Използвайте стрелки за навигация в календар',
+  hourLabel: 'Часове',
+  minuteLabel: 'Минути',
+  secondLabel: 'Секунди',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

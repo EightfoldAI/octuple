@@ -9,7 +9,6 @@ import InfoBar from '../InfoBar/Locale/de_DE';
 import Pagination from '../Pagination/Locale/de_DE';
 import Panel from '../Panel/Locale/de_DE';
 import PersistentBar from '../PersistentBar/Locale/de_DE';
-import Select from '../Select/Locale/de_DE';
 import Stepper from '../Stepper/Locale/de_DE';
 import Table from '../Table/Locale/de_DE';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/de_DE';
@@ -80,7 +79,6 @@ const localeValues: Locale = {
   Pagination,
   Panel,
   PersistentBar,
-  Select,
   Stepper,
   Table,
   TimePicker,

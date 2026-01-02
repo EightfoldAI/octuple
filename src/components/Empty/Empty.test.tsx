@@ -18,6 +18,16 @@ describe('Empty', () => {
     expect(wrapper.containsMatchingElement(<Empty />)).toEqual(true);
   });
 
+  test('empty renders title and description', () => {
+    const titleText = 'No Data Available';
+    const descriptionText = 'Please check back later.';
+    const wrapper = mount(
+      <Empty title={titleText} description={descriptionText} />
+    );
+    expect(wrapper.text()).toContain(titleText);
+    expect(wrapper.text()).toContain(descriptionText);
+  });
+
   test('empty includes the description class name', () => {
     const { container } = render(
       <Empty description="Test" descriptionClassNames="description-class" />

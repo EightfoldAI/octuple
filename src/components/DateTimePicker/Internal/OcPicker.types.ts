@@ -153,6 +153,22 @@ export type Locale = {
    * The arrow key navigation announcement text.
    */
   arrowKeyNavigationText?: string;
+  /**
+   * The time picker hour column label.
+   */
+  hourLabel?: string;
+  /**
+   * The time picker minute column label.
+   */
+  minuteLabel?: string;
+  /**
+   * The time picker second column label.
+   */
+  secondLabel?: string;
+  /**
+   * The time picker AM/PM column label.
+   */
+  ampmLabel?: string;
 };
 
 export type PartialMode =
@@ -553,6 +569,10 @@ export type OcPickerPartialSharedProps<DateType> = {
    * @default false
    */
   announceArrowKeyNavigation?: boolean | string;
+  /**
+   * The listbox ID for time picker accessibility.
+   */
+  listboxId?: string;
 };
 
 export type OcPickerPartialBaseProps<DateType> = {
@@ -731,6 +751,11 @@ export type OcPickerSharedProps<DateType> = {
    * The picker id.
    */
   id?: string;
+  /**
+   * The hidden label text for accessibility.
+   * When provided, a visually hidden label will be associated with the input.
+   */
+  label?: string;
   /**
    * Make input readOnly to avoid popup keyboard in mobile.
    */

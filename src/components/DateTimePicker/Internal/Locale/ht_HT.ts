@@ -35,6 +35,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'Ane pase',
   superNextAriaLabel: 'Ane pwochèn',
   arrowKeyNavigationText: 'Sèvi ak kle flèch yo pou navige nan kalandriye a',
+  hourLabel: 'Orè',
+  minuteLabel: 'Minit',
+  secondLabel: 'Segonn',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;
