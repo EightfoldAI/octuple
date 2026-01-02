@@ -54,7 +54,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         closeOnDropdownClick = true,
         closeOnReferenceClick = true,
         closeOnOutsideClick = true,
-        shouldCloseOnTab = true,
+        shouldCloseOnTab = false,
         disabled,
         dropdownClassNames,
         dropdownStyle,
