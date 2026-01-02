@@ -140,7 +140,7 @@ const ListItem = React.forwardRef(
               size !== UploadSize.Small &&
               maxCount === 1
                 ? null
-                : removeFileText,
+                : `${removeFileText} file ${file.name}`,
             classNames: mergeClasses([styles.iconDelete]),
             disruptive: true,
             htmlType: removeIconButtonType,

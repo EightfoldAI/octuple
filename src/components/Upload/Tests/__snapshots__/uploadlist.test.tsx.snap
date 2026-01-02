@@ -149,7 +149,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file foo.png"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -251,7 +251,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file not-image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -314,7 +314,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -387,7 +387,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file not-image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -460,7 +460,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file not-image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -523,7 +523,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -586,7 +586,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -649,7 +649,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -712,7 +712,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -775,7 +775,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -838,7 +838,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -949,7 +949,7 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -1034,7 +1034,7 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
               </button>
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -1145,7 +1145,7 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
             >
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
@@ -1230,7 +1230,7 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
               </button>
               <button
                 aria-disabled="false"
-                aria-label="Delete"
+                aria-label="Delete file image"
                 class="icon-delete button button-default button-disruptive button-medium round-shape icon-left"
                 type="button"
               >
