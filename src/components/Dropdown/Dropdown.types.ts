@@ -53,6 +53,11 @@ export interface DropdownProps {
    */
   closeOnOutsideClick?: boolean;
   /**
+   * Should close dropdown on tab key
+   * @default false
+   */
+  shouldCloseOnTab?: boolean;
+  /**
    * If the dropdown is disabled or not
    */
   disabled?: boolean;
