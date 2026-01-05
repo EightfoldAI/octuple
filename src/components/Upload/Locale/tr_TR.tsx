@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: 'Resmi Düzenle',
     previewFileText: 'Önizleme dosyası',
     removeFileText: 'Silmek',
+    removeFileAriaLabelText: 'Silmek dosya ${filename}',
     replaceFileText: 'Değiştirmek',
     rotateLeftButtonAriaLabelText: 'Sola döndür',
     rotateRightButtonAriaLabelText: 'Sağa döndür',

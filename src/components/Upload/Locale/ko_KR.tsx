@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: '이미지 편집',
     previewFileText: '파일 미리보기',
     removeFileText: '삭제',
+    removeFileAriaLabelText: '삭제 파일 ${filename}',
     replaceFileText: '갈다',
     rotateLeftButtonAriaLabelText: '왼쪽으로 회전',
     rotateRightButtonAriaLabelText: '오른쪽으로 회전',
