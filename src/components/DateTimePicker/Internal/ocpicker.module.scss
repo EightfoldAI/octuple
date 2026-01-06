@@ -1852,6 +1852,10 @@
     &:hover {
       color: var(--picker-input-clear-icon-color-active);
     }
+
+    &:focus {
+      opacity: 1;
+    }
   }
 
   &-range {

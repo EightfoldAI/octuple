@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import { eventKeys } from '../../../shared/utilities/eventKeys';
 import {
   mergeClasses,
   requestAnimationFrameWrapper,
@@ -1182,6 +1183,44 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         !mergedDisabled[1] &&
         !mergedReadonly[1]))
   ) {
+    const handleClearClick = (
+      e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+    ): void => {
+      e.preventDefault();
+      e.stopPropagation();
+      let values = mergedValue;
+
+      if (!mergedDisabled[0] && !mergedReadonly[0]) {
+        values = updateValues(values, null, 0);
+      }
+      if (!mergedDisabled[1] && !mergedReadonly[1]) {
+        values = updateValues(values, null, 1);
+      }
+
+      triggerChange(values, null);
+      triggerOpen(false, mergedActivePickerIndex, 'clear');
+    };
+
+    const handleClearKeyDown = (
+      e: React.KeyboardEvent<HTMLSpanElement>
+    ): void => {
+      if (e.key === eventKeys.ENTER || e.key === eventKeys.SPACE) {
+        e.preventDefault();
+        e.stopPropagation();
+        let values = mergedValue;
+
+        if (!mergedDisabled[0] && !mergedReadonly[0]) {
+          values = updateValues(values, null, 0);
+        }
+        if (!mergedDisabled[1] && !mergedReadonly[1]) {
+          values = updateValues(values, null, 1);
+        }
+
+        triggerChange(values, null);
+        triggerOpen(false, mergedActivePickerIndex, 'clear');
+      }
+    };
+
     clearNode = (
       <span
         aria-label={clearIconAriaLabelText}
@@ -1189,23 +1228,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           e.preventDefault();
           e.stopPropagation();
         }}
-        onMouseUp={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-          e.preventDefault();
-          e.stopPropagation();
-          let values = mergedValue;
-
-          if (!mergedDisabled[0] && !mergedReadonly[0]) {
-            values = updateValues(values, null, 0);
-          }
-          if (!mergedDisabled[1] && !mergedReadonly[1]) {
-            values = updateValues(values, null, 1);
-          }
-
-          triggerChange(values, null);
-          triggerOpen(false, mergedActivePickerIndex, 'clear');
-        }}
+        onMouseUp={handleClearClick}
+        onKeyDown={handleClearKeyDown}
         className={styles.pickerClear}
         role="button"
+        tabIndex={0}
       >
         {clearIcon || <span className={styles.pickerClearBtn} />}
       </span>
