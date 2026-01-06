@@ -144,8 +144,6 @@ export const Tab: FC<TabProps> = React.forwardRef(
       while (disabledTabIndexes.includes(leastActiveIndex)) {
         leastActiveIndex++;
       }
-      console.log('disabledTabIndexes>> :', disabledTabIndexes);
-      console.log('leastActiveIndex>> :', leastActiveIndex);
 
       // Return 0 for the least enabled index, -1 for others
       return index === leastActiveIndex ? 0 : -1;
