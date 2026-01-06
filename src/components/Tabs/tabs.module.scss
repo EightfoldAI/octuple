@@ -14,6 +14,23 @@
     flex-direction: column;
   }
 
+  // Target first tab whether it's a direct child or wrapped in dropdown
+  > :first-child .tab,
+  >.tab:first-child {
+    padding-left: 0;
+
+    .tab-indicator {
+      width: calc(100% - $space-xl / 2);
+    }
+  }
+
+  // RTL first child handling - works for both direct and wrapped tabs
+  > :first-child .tab-rtl,
+  >.tab-rtl:first-child {
+    padding-left: $space-m;
+    padding-right: 0;
+  }
+
   .tab {
     align-items: center;
     border: none;
@@ -26,13 +43,6 @@
     padding: $space-s $space-m;
     position: relative;
     transition: background-color $motion-duration-fast $motion-easing-easeout 0s;
-
-    &:first-child {
-      padding-left: 0;
-      .tab-indicator {
-        width: calc(100% - $space-xl / 2);
-      }
-    }
 
     &:hover,
     &:focus {
@@ -105,11 +115,7 @@
       @include focus-visible-forced-colors();
     }
 
-    &-rtl {
-      &:first-child {
-        padding-left: $space-m;
-        padding-right: 0;
-      }
+        &-rtl {
 
       .tab-indicator {
         border-radius: $space-xxs 0 0 $space-xxs;
@@ -1199,5 +1205,12 @@
         @include focus-visible-forced-colors();
       }
     }
+  }
+}
+
+.menuOuterButton {
+  &:focus-visible {
+    box-shadow: var(--focus-visible-box-shadow);
+    @include focus-visible-forced-colors();
   }
 }

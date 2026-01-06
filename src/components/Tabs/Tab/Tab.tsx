@@ -268,6 +268,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
           closeOnReferenceClick={false}
           ariaHaspopupValue="menu"
           role="menu"
+          initialFocus
+          offset={-0.5}
         >
           {React.cloneElement(tabButton, {
             'aria-controls': dropdownId,
