@@ -190,22 +190,6 @@ export const Tab: FC<TabProps> = React.forwardRef(
       );
     };
 
-    const getAriaAttributes = () => {
-      const baseAttrs: React.ButtonHTMLAttributes<HTMLButtonElement> = {
-        'aria-controls': hasDropdown
-          ? `${ariaControls || `tab-dropdown-${value}`}`
-          : ariaControls,
-        'aria-label': ariaLabel,
-        'aria-selected': isActive,
-      };
-
-      if (hasDropdown) {
-        baseAttrs['aria-expanded'] = dropdownVisible;
-        baseAttrs['aria-haspopup'] = 'menu';
-      }
-
-      return baseAttrs;
-    };
 
     const getTabIndex = () => {
       const isActiveTabIndex = isActive ? 0 : -1;
@@ -232,7 +216,17 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const tabButton = (
       <button
         {...rest}
-        {...getAriaAttributes()}
+        aria-controls={
+          hasDropdown
+            ? `${ariaControls || `tab-dropdown-${value}`}`
+            : ariaControls
+        }
+        aria-label={ariaLabel}
+        aria-selected={isActive}
+        {...(hasDropdown && {
+          'aria-expanded': dropdownVisible,
+          'aria-haspopup': 'menu',
+        })}
         ref={combinedRef}
         className={tabClassNames}
         role="tab"
