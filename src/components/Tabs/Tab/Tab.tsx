@@ -1,16 +1,24 @@
 'use client';
 
-import React, { FC, Ref, useEffect, useRef } from 'react';
+import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
-import { TabIconAlign, TabProps, TabSize, TabVariant } from '../Tabs.types';
+import {
+  TabIconAlign,
+  TabProps,
+  TabSize,
+  TabVariant,
+} from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
 
-import { Icon, IconSize } from '../../Icon';
+import { Icon, IconSize, IconName } from '../../Icon';
 import { ThemeNames, useConfig } from '../../ConfigProvider';
 import { Badge } from '../../Badge';
 import { Loader } from '../../Loader';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
+import { Dropdown } from '../../Dropdown';
+import { Menu, MenuSize } from '../../Menu';
+import { MenuItemType } from '../../Menu/MenuItem/MenuItem.types';
 
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import styles from '../tabs.module.scss';
@@ -28,6 +36,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
       value,
       ariaControls,
       index = 0,
+      dropdownItems,
+      dropdownPlacement = 'bottom-start',
       ...rest
     },
     ref: Ref<HTMLButtonElement>
@@ -35,6 +45,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const htmlDir: string = useCanvasDirection();
     const tabRef = useRef(null);
     const combinedRef = useMergedRefs(ref, tabRef);
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const hasDropdown = !!dropdownItems && dropdownItems.length > 0;
 
     const {
       alignIcon,
@@ -52,7 +64,11 @@ export const Tab: FC<TabProps> = React.forwardRef(
 
     const iconExists: boolean = !!icon;
     const labelExists: boolean = !!label;
-    const isActive: boolean = value === currentActiveTab;
+    // Tab is active if its value matches currentActiveTab OR if any of its dropdown items matches
+    const isActive: boolean =
+      value === currentActiveTab ||
+      (hasDropdown &&
+        !!dropdownItems?.some((item) => item.value === currentActiveTab));
 
     const { registeredTheme: { light = false } = {} } = useConfig();
 
@@ -121,10 +137,73 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const getLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} />;
 
+    const getChevronIcon = (): JSX.Element =>
+      hasDropdown && (
+        <Icon
+          path={IconName.mdiChevronDown}
+          classNames={mergeClasses([
+            (styles as any).dropdownChevron,
+            { [(styles as any).dropdownChevronOpen]: dropdownVisible },
+          ])}
+          size={IconSize.Small}
+        />
+      );
+
     const handleTabKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
       if (enableArrowNav && index !== undefined) {
         handleKeyDown?.(e, index);
       }
+    };
+
+    const handleTabClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      onTabClick(value, e);
+    };
+
+    const handleDropdownItemClick = (itemValue: string) => {
+      onTabClick(itemValue, {
+        currentTarget: tabRef.current,
+      } as React.MouseEvent<HTMLElement>);
+      setDropdownVisible(false);
+    };
+
+    const getDropdownOverlay = (): JSX.Element => {
+      if (!hasDropdown) return null;
+
+      const menuItems = dropdownItems.map((item) => ({
+        text: item.label,
+        value: item.value,
+        disabled: item.disabled,
+        iconProps: item.icon ? { path: item.icon } : undefined,
+        type: MenuItemType.button,
+        ariaLabel: item.ariaLabel || item.label,
+        role: 'menuitem',
+      }));
+
+      return (
+        <Menu
+          items={menuItems}
+          onChange={handleDropdownItemClick}
+          role="menu"
+          size={MenuSize.medium}
+        />
+      );
+    };
+
+    const getAriaAttributes = () => {
+      const baseAttrs: React.ButtonHTMLAttributes<HTMLButtonElement> = {
+        'aria-controls': hasDropdown
+          ? `${ariaControls || `tab-dropdown-${value}`}`
+          : ariaControls,
+        'aria-label': ariaLabel,
+        'aria-selected': isActive,
+      };
+
+      if (hasDropdown) {
+        baseAttrs['aria-expanded'] = dropdownVisible;
+        baseAttrs['aria-haspopup'] = 'menu';
+      }
+
+      return baseAttrs;
     };
 
     const getTabIndex = () => {
@@ -149,17 +228,15 @@ export const Tab: FC<TabProps> = React.forwardRef(
       return index === leastActiveIndex ? 0 : -1;
     };
 
-    return (
+    const tabButton = (
       <button
         {...rest}
-        aria-controls={ariaControls}
+        {...getAriaAttributes()}
         ref={combinedRef}
         className={tabClassNames}
-        aria-label={ariaLabel}
-        aria-selected={isActive}
         role="tab"
         disabled={disabled}
-        onClick={(e) => onTabClick(value, e)}
+        onClick={handleTabClick}
         onKeyDown={handleTabKeyDown}
         tabIndex={getTabIndex()}
         data-index={index}
@@ -170,8 +247,36 @@ export const Tab: FC<TabProps> = React.forwardRef(
         {getTabIndicator()}
         {getBadge()}
         {alignIcon === TabIconAlign.End && getIcon()}
+        {getChevronIcon()}
         {getLoader()}
       </button>
     );
+
+    if (hasDropdown) {
+      const dropdownId = `tab-dropdown-${value}`;
+      return (
+        <Dropdown
+          overlay={getDropdownOverlay()}
+          placement={dropdownPlacement}
+          trigger="hover"
+          visible={dropdownVisible}
+          onVisibleChange={(visible) => {
+            setDropdownVisible(visible);
+          }}
+          closeOnDropdownClick={true}
+          closeOnOutsideClick={true}
+          closeOnReferenceClick={false}
+          ariaHaspopupValue="menu"
+          role="menu"
+        >
+          {React.cloneElement(tabButton, {
+            'aria-controls': dropdownId,
+            onClick: handleTabClick,
+          })}
+        </Dropdown>
+      );
+    }
+
+    return tabButton;
   }
 );

@@ -99,6 +99,34 @@ const iconLabelTabs = [1, 2, 3, 4].map((i) => ({
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
+const dropdownTabs = [
+  {
+    value: 'tab1',
+    label: 'Tab 1',
+    ariaLabel: 'Tab 1',
+  },
+  {
+    value: 'tab2',
+    label: 'Tab 2',
+    ariaLabel: 'Tab 2',
+    dropdownItems: [
+      { value: 'tab2-1', label: 'Sub Tab 2-1', ariaLabel: 'Sub Tab 2-1' },
+      { value: 'tab2-2', label: 'Sub Tab 2-2', ariaLabel: 'Sub Tab 2-2' },
+      { value: 'tab2-3', label: 'Sub Tab 2-3', ariaLabel: 'Sub Tab 2-3', disabled: true },
+    ],
+  },
+  {
+    value: 'tab3',
+    label: 'Tab 3',
+    ariaLabel: 'Tab 3',
+  },
+  {
+    value: 'tab4',
+    label: 'Tab 4',
+    ariaLabel: 'Tab 4',
+  },
+];
+
 const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
   value: `tab${i}`,
   label: `Tab ${i}`,
@@ -149,6 +177,7 @@ export const Pill_Default = Tabs_Story.bind({});
 export const Pill_With_Badge = Tabs_Story.bind({});
 export const Pill_Icon = Tabs_Story.bind({});
 export const Pill_Icon_Label = Tabs_Story.bind({});
+export const With_Dropdown = Tabs_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
@@ -167,6 +196,7 @@ export const __namedExportsOrder = [
   'Pill_With_Badge',
   'Pill_Icon',
   'Pill_Icon_Label',
+  'With_Dropdown',
 ];
 
 const tabsArgs: Object = {
@@ -261,4 +291,9 @@ Pill_Icon_Label.args = {
   colorInvert: false,
   variant: TabVariant.pill,
   children: iconLabelTabs.map((tab) => <Tab key={tab.value} {...tab} />),
+};
+
+With_Dropdown.args = {
+  ...tabsArgs,
+  children: dropdownTabs.map((tab) => <Tab key={tab.value} {...tab} />),
 };

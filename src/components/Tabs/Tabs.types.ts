@@ -6,6 +6,7 @@ import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
 import { Value } from '../ConfigProvider';
 import { InputStatus } from '../../shared/utilities';
+import { Placement } from '@floating-ui/react';
 
 export type SelectTabEvent<E = HTMLElement> =
   | React.MouseEvent<E>
@@ -28,6 +29,14 @@ export enum TabSize {
 }
 
 export type TabValue = string;
+
+export type TabDropdownItem = {
+  value: TabValue;
+  label: string;
+  ariaLabel?: string;
+  disabled?: boolean;
+  icon?: IconName;
+};
 
 export enum TabVariant {
   default = 'default',
@@ -305,6 +314,16 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   @internal
   */
   index?: number;
+  /**
+   * Array of dropdown menu items to display when tab has dropdown functionality
+   * Dropdown opens on hover
+   */
+  dropdownItems?: TabDropdownItem[];
+  /**
+   * Placement of the dropdown menu
+   * @default 'bottom-start'
+   */
+  dropdownPlacement?: Placement;
 }
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {

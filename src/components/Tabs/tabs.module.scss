@@ -88,6 +88,15 @@
       }
     }
 
+    .dropdownChevron {
+      margin-left: $space-xs;
+      transition: transform $motion-duration-fast $motion-easing-easeout 0s;
+
+      &.dropdownChevronOpen {
+        transform: rotate(180deg);
+      }
+    }
+
     // Hides the browser default keyboard focus-visible styles.
     // Use the ConfigProvider instead.
     &:focus-visible {
@@ -121,6 +130,11 @@
           margin-left: $space-xs;
           margin-right: unset;
         }
+      }
+
+      .dropdownChevron {
+        margin-left: unset;
+        margin-right: $space-xs;
       }
     }
   }
