@@ -3,7 +3,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import { create } from 'react-test-renderer';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Stat, Tabs, Tab, TabSize, TabVariant, TabIconAlign } from './';
+import { Stat, Tabs, Tab, TabSize, TabVariant, TabIconAlign, TabVariantType } from './';
 import { ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
@@ -961,6 +961,7 @@ describe('Tabs internal logic edge cases', () => {
         value: 'tab2',
         label: 'Tab 2',
         ariaLabel: 'Tab 2',
+        variant: TabVariantType.dropdown,
         dropdownItems: [
           { value: 'tab2-1', label: 'Sub Tab 2-1', ariaLabel: 'Sub Tab 2-1' },
           { value: 'tab2-2', label: 'Sub Tab 2-2', ariaLabel: 'Sub Tab 2-2' },

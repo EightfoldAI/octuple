@@ -7,6 +7,7 @@ import {
   TabProps,
   TabSize,
   TabVariant,
+  TabVariantType,
 } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
@@ -36,6 +37,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       value,
       ariaControls,
       index = 0,
+      variant: tabVariant = TabVariantType.default,
       dropdownItems,
       dropdownPlacement = 'bottom-start',
       ...rest
@@ -46,7 +48,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
     const tabRef = useRef(null);
     const combinedRef = useMergedRefs(ref, tabRef);
     const [dropdownVisible, setDropdownVisible] = useState(false);
-    const hasDropdown = !!dropdownItems && dropdownItems.length > 0;
+    const hasDropdown = tabVariant === TabVariantType.dropdown;
 
     const {
       alignIcon,
@@ -67,8 +69,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
     // Tab is active if its value matches currentActiveTab OR if any of its dropdown items matches
     const isActive: boolean =
       value === currentActiveTab ||
-      (hasDropdown &&
-        !!dropdownItems?.some((item) => item.value === currentActiveTab));
+      (hasDropdown && dropdownItems?.some((item) => item.value === currentActiveTab));
 
     const { registeredTheme: { light = false } = {} } = useConfig();
 

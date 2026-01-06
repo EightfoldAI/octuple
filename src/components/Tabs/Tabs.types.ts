@@ -30,6 +30,11 @@ export enum TabSize {
 
 export type TabValue = string;
 
+export enum TabVariantType {
+  default = 'default',
+  dropdown = 'dropdown',
+}
+
 export type TabDropdownItem = {
   value: TabValue;
   label: string;
@@ -315,7 +320,12 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   */
   index?: number;
   /**
-   * Array of dropdown menu items to display when tab has dropdown functionality
+   * Variant of the tab
+   * @default 'default'
+   */
+  variant?: TabVariantType;
+  /**
+   * Array of dropdown menu items to display when variant is 'dropdown'
    * Dropdown opens on hover
    */
   dropdownItems?: TabDropdownItem[];

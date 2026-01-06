@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tabs, Tab, TabIconAlign, TabSize, TabVariant } from './';
+import { Tabs, Tab, TabIconAlign, TabSize, TabVariant, TabVariantType } from './';
 import { IconName } from '../Icon';
 
 export default {
@@ -109,6 +109,7 @@ const dropdownTabs = [
     value: 'tab2',
     label: 'Tab 2',
     ariaLabel: 'Tab 2',
+    variant: TabVariantType.dropdown,
     dropdownItems: [
       { value: 'tab2-1', label: 'Sub Tab 2-1', ariaLabel: 'Sub Tab 2-1' },
       { value: 'tab2-2', label: 'Sub Tab 2-2', ariaLabel: 'Sub Tab 2-2' },
