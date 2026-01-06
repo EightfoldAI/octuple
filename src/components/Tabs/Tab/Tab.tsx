@@ -39,7 +39,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
       index = 0,
       variant: tabVariant = TabVariantType.default,
       dropdownItems,
-      dropdownPlacement = 'bottom-start',
+      dropdownProps,
       ...rest
     },
     ref: Ref<HTMLButtonElement>
@@ -252,7 +252,6 @@ export const Tab: FC<TabProps> = React.forwardRef(
       return (
         <Dropdown
           overlay={getDropdownOverlay()}
-          placement={dropdownPlacement}
           trigger="hover"
           visible={dropdownVisible}
           onVisibleChange={(visible) => {
@@ -265,6 +264,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
           role="menu"
           initialFocus
           offset={-0.5}
+          {...dropdownProps}
         >
           {React.cloneElement(tabButton, {
             'aria-controls': dropdownId,

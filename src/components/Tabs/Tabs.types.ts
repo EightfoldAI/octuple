@@ -330,10 +330,19 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
    */
   dropdownItems?: TabDropdownItem[];
   /**
-   * Placement of the dropdown menu
-   * @default 'bottom-start'
+   * Props for the dropdown component when variant is 'dropdown'
    */
-  dropdownPlacement?: Placement;
+  dropdownProps?: {
+    /**
+     * Placement of the dropdown menu
+     */
+    placement?: Placement;
+    /**
+     * The trigger mode that opens the dropdown
+     * @default 'hover'
+     */
+    trigger?: 'click' | 'hover' | 'contextmenu';
+  };
 }
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
