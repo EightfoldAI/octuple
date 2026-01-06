@@ -53,6 +53,7 @@ LoadedCheerio {
             "attribs": Object {
               "class": "picker-clear",
               "role": "button",
+              "tabindex": "0",
             },
             "children": Array [
               Node {
@@ -83,10 +84,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "class": undefined,
               "role": undefined,
+              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "role": undefined,
+              "tabindex": undefined,
             },
           },
           "parent": [Circular],
@@ -157,6 +160,7 @@ LoadedCheerio {
           "attribs": Object {
             "class": "picker-clear",
             "role": "button",
+            "tabindex": "0",
           },
           "children": Array [
             Node {
@@ -187,10 +191,12 @@ LoadedCheerio {
           "x-attribsNamespace": Object {
             "class": undefined,
             "role": undefined,
+            "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "role": undefined,
+            "tabindex": undefined,
           },
         },
         "parent": [Circular],
@@ -251,6 +257,7 @@ LoadedCheerio {
         "attribs": Object {
           "class": "picker-clear",
           "role": "button",
+          "tabindex": "0",
         },
         "children": Array [
           Node {
@@ -361,10 +368,12 @@ LoadedCheerio {
         "x-attribsNamespace": Object {
           "class": undefined,
           "role": undefined,
+          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "role": undefined,
+          "tabindex": undefined,
         },
       },
     ],

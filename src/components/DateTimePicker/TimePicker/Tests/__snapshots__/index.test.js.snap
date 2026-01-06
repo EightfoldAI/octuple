@@ -871,6 +871,7 @@ LoadedCheerio {
                     "aria-label": "Clear",
                     "class": "picker-clear",
                     "role": "button",
+                    "tabindex": "0",
                   },
                   "children": Array [
                     Node {
@@ -952,11 +953,13 @@ LoadedCheerio {
                     "aria-label": undefined,
                     "class": undefined,
                     "role": undefined,
+                    "tabindex": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-label": undefined,
                     "class": undefined,
                     "role": undefined,
+                    "tabindex": undefined,
                   },
                 },
                 "parent": [Circular],
@@ -1080,6 +1083,7 @@ LoadedCheerio {
                   "aria-label": "Clear",
                   "class": "picker-clear",
                   "role": "button",
+                  "tabindex": "0",
                 },
                 "children": Array [
                   Node {
@@ -1161,11 +1165,13 @@ LoadedCheerio {
                   "aria-label": undefined,
                   "class": undefined,
                   "role": undefined,
+                  "tabindex": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "aria-label": undefined,
                   "class": undefined,
                   "role": undefined,
+                  "tabindex": undefined,
                 },
               },
               "parent": [Circular],
@@ -1230,6 +1236,7 @@ LoadedCheerio {
                 "aria-label": "Clear",
                 "class": "picker-clear",
                 "role": "button",
+                "tabindex": "0",
               },
               "children": Array [
                 Node {
@@ -1444,11 +1451,13 @@ LoadedCheerio {
                 "aria-label": undefined,
                 "class": undefined,
                 "role": undefined,
+                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "aria-label": undefined,
                 "class": undefined,
                 "role": undefined,
+                "tabindex": undefined,
               },
             },
           ],
@@ -1580,6 +1589,7 @@ LoadedCheerio {
                   "aria-label": "Clear",
                   "class": "picker-clear",
                   "role": "button",
+                  "tabindex": "0",
                 },
                 "children": Array [
                   Node {
@@ -1661,11 +1671,13 @@ LoadedCheerio {
                   "aria-label": undefined,
                   "class": undefined,
                   "role": undefined,
+                  "tabindex": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "aria-label": undefined,
                   "class": undefined,
                   "role": undefined,
+                  "tabindex": undefined,
                 },
               },
               "parent": [Circular],
@@ -1789,6 +1801,7 @@ LoadedCheerio {
                 "aria-label": "Clear",
                 "class": "picker-clear",
                 "role": "button",
+                "tabindex": "0",
               },
               "children": Array [
                 Node {
@@ -1870,11 +1883,13 @@ LoadedCheerio {
                 "aria-label": undefined,
                 "class": undefined,
                 "role": undefined,
+                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "aria-label": undefined,
                 "class": undefined,
                 "role": undefined,
+                "tabindex": undefined,
               },
             },
             "parent": [Circular],
@@ -1939,6 +1954,7 @@ LoadedCheerio {
               "aria-label": "Clear",
               "class": "picker-clear",
               "role": "button",
+              "tabindex": "0",
             },
             "children": Array [
               Node {
@@ -2153,11 +2169,13 @@ LoadedCheerio {
               "aria-label": undefined,
               "class": undefined,
               "role": undefined,
+              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "aria-label": undefined,
               "class": undefined,
               "role": undefined,
+              "tabindex": undefined,
             },
           },
         ],
