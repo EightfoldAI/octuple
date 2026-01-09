@@ -986,7 +986,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                       type="range"
                       readOnly={readOnly}
                       step={mergedStep}
-                      tabIndex={readOnly ? -1 : 0}
+                      tabIndex={readOnly ? -1 : undefined}
                       value={val}
                     />
                   </Tooltip>
