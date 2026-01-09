@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.1](https://github.com/EightfoldAI/octuple/compare/v2.56.0...v2.56.1) (2026-01-05)
+
+### Bug Fixes
+
+- **datepicker:** accessibility fix for announcing error message on invalid date enter ([#1085](https://github.com/EightfoldAI/octuple/issues/1085)) ([55a8bf6](https://github.com/EightfoldAI/octuple/commits/55a8bf68ab574f6f33e80b0d8fbcb74fa3e0aa02))
+- **dropddown:** accessibility fix for dropdown options via Tab and arrow keys ([#1084](https://github.com/EightfoldAI/octuple/issues/1084)) ([8becfac](https://github.com/EightfoldAI/octuple/commits/8becfac099dbecfce1d9ede04e4251f1f58818db))
+- **uploads:** update delete buttons’ aria-labels to provide more cont… ([#1083](https://github.com/EightfoldAI/octuple/issues/1083)) ([458e5dd](https://github.com/EightfoldAI/octuple/commits/458e5dd956cc9700eb625073079f6dc4b0474f68))
+
 ## [2.56.0](https://github.com/EightfoldAI/octuple/compare/v2.55.0...v2.56.0) (2025-12-30)
 
 ### Features

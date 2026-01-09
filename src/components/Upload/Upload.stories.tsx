@@ -402,7 +402,7 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<typeof Upload> = (
     name: 'file',
     multiple: true,
     action: 'https://run.mocky.io/v3/0ef2249d-ccd9-4032-be61-e853a549ef61',
-    listType: 'picture',
+    listType: 'picture-card',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
