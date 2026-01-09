@@ -654,10 +654,16 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     },
     onSubmit: (): boolean => {
-      if (hasInvalidInputRef.current[index]) {
-        setSelectedValue(updateValues(selectedValue, null, index));
+      // For date picker without time: if input is invalid, retain focus without clearing
+      // This allows the user to correct their input
+      if (
+        hasInvalidInputRef.current[index] &&
+        picker === 'date' &&
+        !showTime &&
+        !getValue(selectedValue, index)
+      ) {
+        // Keep focus on the current input without clearing - user can correct the invalid date
         requestAnimationFrame(() => {
-          index === 0 ? resetStartText() : resetEndText();
           (index === 0 ? startInputRef : endInputRef).current?.focus();
         });
 
