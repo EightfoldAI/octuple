@@ -1036,6 +1036,12 @@ export type OcRangePickerSharedProps<DateType> = {
    */
   dateRender?: RangeDateRender<DateType>;
   /**
+   * When enabled, if the user enters an invalid date, focus remains on the input
+   * allowing them to correct it. Only applies to date pickers without time.
+   * @default false
+   */
+  shouldRetainFocus?: boolean;
+  /**
    * The default date.
    */
   defaultValue?: RangeValue<DateType>;
