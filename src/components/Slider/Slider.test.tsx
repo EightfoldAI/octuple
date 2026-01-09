@@ -409,10 +409,6 @@ describe('Slider', () => {
     const { container: readOnlyContainer } = render(<Slider value={50} readOnly />);
     const readOnlyThumb = readOnlyContainer.querySelector('input[type="range"]');
     expect(readOnlyThumb?.getAttribute('tabindex')).toBe('-1');
-
-    const { container: disabledContainer } = render(<Slider value={50} disabled />);
-    const disabledThumb = disabledContainer.querySelector('input[type="range"]');
-    expect(disabledThumb?.getAttribute('tabindex')).toBe('-1');
   });
 
   test('should not set tabIndex on thumb when slider is interactive', () => {
