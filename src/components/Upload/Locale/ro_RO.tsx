@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: 'Editați imaginea',
     previewFileText: 'Previzualizați fișierul',
     removeFileText: 'Șterge',
+    removeFileAriaLabelText: 'Șterge fișierul ${filename}',
     replaceFileText: 'Înlocuiți',
     rotateLeftButtonAriaLabelText: 'Rotiți la stânga',
     rotateRightButtonAriaLabelText: 'Rotiți la dreapta',

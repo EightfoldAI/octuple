@@ -1745,4 +1745,47 @@ describe('Upload List', () => {
 
     jest.useRealTimers();
   });
+
+  test('remove button should have aria-label with filename', () => {
+    const list = [
+      {
+        uid: '-1',
+        name: 'example.pdf',
+        status: 'done',
+        url: 'https://example.com/file.pdf',
+      },
+      {
+        uid: '-2',
+        name: 'test-image.png',
+        status: 'done',
+        url: 'https://example.com/image.png',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        defaultFileList={list as UploadProps['defaultFileList']}
+        listType="text"
+      >
+        <button type="button">upload</button>
+      </Upload>
+    );
+
+    const removeButtons = wrapper.querySelectorAll('.icon-delete');
+    expect(removeButtons.length).toBe(2);
+
+    // Check first file
+    const firstButton = removeButtons[0] as HTMLElement;
+    expect(firstButton.getAttribute('aria-label')).toBe(
+      'Delete file example.pdf'
+    );
+
+    // Check second file
+    const secondButton = removeButtons[1] as HTMLElement;
+    expect(secondButton.getAttribute('aria-label')).toBe(
+      'Delete file test-image.png'
+    );
+
+    unmount();
+  });
 });
