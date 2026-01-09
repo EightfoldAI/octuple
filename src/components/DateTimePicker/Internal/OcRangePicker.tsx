@@ -226,6 +226,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
   );
 
+  const hasInvalidInputRef = useRef<[boolean, boolean]>([false, false]);
+
   // Generate unique ID if not provided
   const datePickerId: string = id || getDatePickerId();
   // Generate listbox ID for time picker
@@ -523,6 +525,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       index === 0 ? disabledStartDate : disabledEndDate;
 
     if (inputDate && !disabledFunc(inputDate)) {
+      hasInvalidInputRef.current[index] = false;
       let normalizedInputDate: DateType = inputDate;
 
       // Normalize times when showTime is false
@@ -536,6 +539,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
       setSelectedValue(updateValues(selectedValue, normalizedInputDate, index));
       setViewDate(normalizedInputDate, index);
+    } else {
+      hasInvalidInputRef.current[index] = true;
     }
   };
 
@@ -649,6 +654,21 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     },
     onSubmit: (): boolean => {
+      // For date picker without time: if input is invalid, retain focus without clearing
+      // This allows the user to correct their input
+      if (
+        hasInvalidInputRef.current[index] &&
+        picker === 'date' &&
+        !showTime &&
+        !getValue(selectedValue, index)
+      ) {
+        // Keep focus on the current input without clearing - user can correct the invalid date
+        requestAnimationFrame(() => {
+          (index === 0 ? startInputRef : endInputRef).current?.focus();
+        });
+
+        return false;
+      }
       if (
         // When user typing disabledDate with keyboard and enter, this value will be empty
         !selectedValue ||
