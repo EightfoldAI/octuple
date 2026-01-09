@@ -179,7 +179,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     readonly,
     readonlyIcon,
     renderExtraFooter,
-    shouldRetainFocus = false,
+    retainFocusOnInvalidDate = false,
     separator = ',',
     shape = DatePickerShape.Rectangle,
     showOk = true,
@@ -655,10 +655,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     },
     onSubmit: (): boolean => {
-      // When shouldRetainFocus is enabled for date picker without time:
+      // When retainFocusOnInvalidDate is enabled for date picker without time:
       // if input is invalid, retain focus without clearing - allows user to correct their input
       if (
-        shouldRetainFocus &&
+        retainFocusOnInvalidDate &&
         picker === 'date' &&
         !showTime &&
         hasInvalidInputRef.current[index] &&

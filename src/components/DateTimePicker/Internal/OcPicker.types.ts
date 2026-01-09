@@ -1040,7 +1040,7 @@ export type OcRangePickerSharedProps<DateType> = {
    * allowing them to correct it. Only applies to date pickers without time.
    * @default false
    */
-  shouldRetainFocus?: boolean;
+  retainFocusOnInvalidDate?: boolean;
   /**
    * The default date.
    */
