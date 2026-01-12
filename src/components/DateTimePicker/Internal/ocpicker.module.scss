@@ -1853,12 +1853,6 @@
       color: var(--picker-input-clear-icon-color-active);
     }
 
-    &:focus {
-      opacity: 1;
-      box-shadow: var(--focus-visible-box-shadow);
-      @include focus-visible-forced-colors();
-    }
-
     &:focus-visible {
       opacity: 1;
       box-shadow: var(--focus-visible-box-shadow);
