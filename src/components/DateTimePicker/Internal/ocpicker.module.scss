@@ -1855,6 +1855,14 @@
 
     &:focus {
       opacity: 1;
+      box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
+    }
+
+    &:focus-visible {
+      opacity: 1;
+      box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
     }
   }
 
