@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.2](https://github.com/EightfoldAI/octuple/compare/v2.56.1...v2.56.2) (2026-01-09)
+
+### Bug Fixes
+
+- **datepicker:** retaining focus on startDate when invalid date is entered without clearing input ([#1088](https://github.com/EightfoldAI/octuple/issues/1088)) ([4ace02a](https://github.com/EightfoldAI/octuple/commits/4ace02a8b7e04a35ef53fa9183c60aa764473671))
+
 ### [2.56.1](https://github.com/EightfoldAI/octuple/compare/v2.56.0...v2.56.1) (2026-01-05)
 
 ### Bug Fixes
