@@ -1852,6 +1852,12 @@
     &:hover {
       color: var(--picker-input-clear-icon-color-active);
     }
+
+    &:focus-visible {
+      opacity: 1;
+      box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
+    }
   }
 
   &-range {

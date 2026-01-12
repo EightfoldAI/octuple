@@ -12,6 +12,7 @@ import {
   OcPickerRefConfig,
   OcPickerTimeProps,
 } from './OcPicker.types';
+import { eventKeys } from '../../../shared/utilities/eventKeys';
 import { mergeClasses } from '../../../shared/utilities';
 import visuallyHidden from '../../../shared/utilities/visuallyHidden';
 import { FocusTrap } from '../../../shared/FocusTrap';
@@ -245,6 +246,26 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     onBlur?.(e);
   };
 
+  const handleClearClick = (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+    e.stopPropagation();
+    triggerChange(null);
+    triggerOpen(false);
+  };
+
+  const handleClearKeyDown = (
+    e: React.KeyboardEvent<HTMLSpanElement>
+  ): void => {
+    if (e.key === eventKeys.ENTER || e.key === eventKeys.SPACE) {
+      e.preventDefault();
+      e.stopPropagation();
+      triggerChange(null);
+      triggerOpen(false);
+    }
+  };
+
   const [inputProps, { focused, typing, trap, setTrap }] = usePickerInput({
     trapFocus,
     blurToCancel: needConfirmButton,
@@ -452,14 +473,11 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
           e.preventDefault();
           e.stopPropagation();
         }}
-        onMouseUp={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-          e.preventDefault();
-          e.stopPropagation();
-          triggerChange(null);
-          triggerOpen(false);
-        }}
+        onMouseUp={handleClearClick}
+        onKeyDown={handleClearKeyDown}
         className={styles.pickerClear}
         role="button"
+        tabIndex={0}
       >
         {clearIcon || <span className={styles.pickerClearBtn} />}
       </span>
