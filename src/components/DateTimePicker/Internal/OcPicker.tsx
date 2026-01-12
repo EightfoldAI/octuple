@@ -246,6 +246,26 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     onBlur?.(e);
   };
 
+  const handleClearClick = (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+    e.stopPropagation();
+    triggerChange(null);
+    triggerOpen(false);
+  };
+
+  const handleClearKeyDown = (
+    e: React.KeyboardEvent<HTMLSpanElement>
+  ): void => {
+    if (e.key === eventKeys.ENTER || e.key === eventKeys.SPACE) {
+      e.preventDefault();
+      e.stopPropagation();
+      triggerChange(null);
+      triggerOpen(false);
+    }
+  };
+
   const [inputProps, { focused, typing, trap, setTrap }] = usePickerInput({
     trapFocus,
     blurToCancel: needConfirmButton,
@@ -446,26 +466,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
 
   let clearNode: React.ReactNode;
   if (allowClear && mergedValue && !disabled && !readonly) {
-    const handleClearClick = (
-      e: React.MouseEvent<HTMLSpanElement, MouseEvent>
-    ): void => {
-      e.preventDefault();
-      e.stopPropagation();
-      triggerChange(null);
-      triggerOpen(false);
-    };
-
-    const handleClearKeyDown = (
-      e: React.KeyboardEvent<HTMLSpanElement>
-    ): void => {
-      if (e.key === eventKeys.ENTER || e.key === eventKeys.SPACE) {
-        e.preventDefault();
-        e.stopPropagation();
-        triggerChange(null);
-        triggerOpen(false);
-      }
-    };
-
     clearNode = (
       <span
         aria-label={clearIconAriaLabelText}
