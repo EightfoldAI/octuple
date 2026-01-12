@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.56.1",
+  "version": "2.56.2",
   "license": "MIT",
   "description": "Eightfold Octuple Design System Component Library",
   "sideEffects": [
