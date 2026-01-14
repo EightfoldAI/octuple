@@ -12,6 +12,20 @@ const Foo: FC = () => {
   );
 };
 
+const Bar: FC = () => {
+  useFocusVisibleClassName(true, document.getElementById('testDiv'));
+  return <div>Content</div>;
+};
+
+const Baz: FC = () => {
+  return (
+    <div id="testDiv" data-testid="testDiv">
+      <Bar />
+      <Bar />
+    </div>
+  );
+};
+
 describe('useFocusVisibleClassName', () => {
   it('initializes with no className', () => {
     render(<Foo />);
@@ -36,5 +50,11 @@ describe('useFocusVisibleClassName', () => {
     render(<Foo />);
     fireEvent.mouseMove(screen.getByTestId('testDiv'), { MouseEvent });
     expect(screen.getByTestId('testDiv')).not.toHaveClass('focus-visible');
+  });
+
+  it('uses className when keyboard is active, even with multiple hooks active', () => {
+    render(<Baz />);
+    fireEvent.keyDown(screen.getByTestId('testDiv'), { KeyboardEvent });
+    expect(screen.getByTestId('testDiv')).toHaveClass('focus-visible');
   });
 });
