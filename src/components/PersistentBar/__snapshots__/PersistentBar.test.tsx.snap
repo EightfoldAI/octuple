@@ -147,23 +147,21 @@ exports[`PersistentBar PersistentBar is topBarWithText 1`] = `
         role="navigation"
       >
         <span />
-        <ul
+        <div
           class="pager page-tracker"
         >
-          <li>
-            <span>
-              1
-            </span>
-             
-            <span>
-              of
-            </span>
-             
-            <span>
-              1
-            </span>
-          </li>
-        </ul>
+          <span>
+            1
+          </span>
+           
+          <span>
+            of
+          </span>
+           
+          <span>
+            1
+          </span>
+        </div>
       </div>
     </div>
   </div>
