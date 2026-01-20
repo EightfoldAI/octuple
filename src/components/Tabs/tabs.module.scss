@@ -1207,10 +1207,3 @@
     }
   }
 }
-
-.menuOuterButton {
-  &:focus-visible {
-    box-shadow: var(--focus-visible-box-shadow);
-    @include focus-visible-forced-colors();
-  }
-}
