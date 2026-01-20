@@ -35,7 +35,7 @@ export enum TabVariantType {
   dropdown = 'dropdown',
 }
 
-export type TabDropdownItem = {
+export interface TabDropdownItem {
   value: TabValue;
   label: string;
   ariaLabel?: string;
