@@ -143,8 +143,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
         <Icon
           path={IconName.mdiChevronDown}
           classNames={mergeClasses([
-            (styles as any).dropdownChevron,
-            { [(styles as any).dropdownChevronOpen]: dropdownVisible },
+            styles.dropdownChevron,
+            { [styles.dropdownChevronOpen]: dropdownVisible },
           ])}
           size={IconSize.Small}
         />
