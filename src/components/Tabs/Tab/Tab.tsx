@@ -251,12 +251,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
       const dropdownId = `tab-dropdown-${value}`;
       return (
         <Dropdown
-          overlay={getDropdownOverlay()}
           trigger="hover"
           visible={dropdownVisible}
-          onVisibleChange={(visible) => {
-            setDropdownVisible(visible);
-          }}
           closeOnDropdownClick={true}
           closeOnOutsideClick={true}
           closeOnReferenceClick={false}
@@ -265,6 +261,11 @@ export const Tab: FC<TabProps> = React.forwardRef(
           initialFocus
           offset={-0.5}
           {...dropdownProps}
+          overlay={getDropdownOverlay()}
+          onVisibleChange={(visible) => {
+            setDropdownVisible(visible);
+            dropdownProps?.onVisibleChange?.(visible);
+          }}
         >
           {React.cloneElement(tabButton, {
             'aria-controls': dropdownId,

@@ -6,7 +6,7 @@ import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
 import { Value } from '../ConfigProvider';
 import { InputStatus } from '../../shared/utilities';
-import { Placement } from '@floating-ui/react';
+import { DropdownProps } from '../Dropdown';
 
 export type SelectTabEvent<E = HTMLElement> =
   | React.MouseEvent<E>
@@ -332,17 +332,7 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   /**
    * Props for the dropdown component when variant is 'dropdown'
    */
-  dropdownProps?: {
-    /**
-     * Placement of the dropdown menu
-     */
-    placement?: Placement;
-    /**
-     * The trigger mode that opens the dropdown
-     * @default 'hover'
-     */
-    trigger?: 'click' | 'hover' | 'contextmenu';
-  };
+  dropdownProps?: Omit<DropdownProps, 'overlay'>;
 }
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
