@@ -115,8 +115,7 @@
       @include focus-visible-forced-colors();
     }
 
-        &-rtl {
-
+    &-rtl {
       .tab-indicator {
         border-radius: $space-xxs 0 0 $space-xxs;
       }
