@@ -1,6 +1,7 @@
 import type {
   DatePickerShape,
   DatePickerSize,
+  Locale,
   PartialSharedProps,
 } from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
@@ -18,6 +19,10 @@ export type YearHeaderProps<DateType> = {
    * Generates the configured dates.
    */
   generateConfig: GenerateConfig<DateType>;
+  /**
+   * The DatePicker locale.
+   */
+  locale: Locale;
   /**
    * Callback executed onNextDecades event.
    */
