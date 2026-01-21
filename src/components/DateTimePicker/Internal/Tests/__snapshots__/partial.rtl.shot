@@ -21,6 +21,7 @@ LoadedCheerio {
               Node {
                 "attribs": Object {
                   "aria-disabled": "false",
+                  "aria-label": "Previous year (Control + left)",
                   "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                   "data-testid": "picker-header-super-prev-btn",
                 },
@@ -155,6 +156,7 @@ LoadedCheerio {
                   "next": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
+                      "aria-label": "Next year (Control + right)",
                       "class": "picker-header-super-next-btn button button-system-ui button-medium round-shape icon-left",
                       "data-testid": "picker-header-super-next-btn",
                     },
@@ -236,11 +238,13 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
@@ -260,11 +264,13 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "aria-disabled": undefined,
+                  "aria-label": undefined,
                   "class": undefined,
                   "data-testid": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "aria-disabled": undefined,
+                  "aria-label": undefined,
                   "class": undefined,
                   "data-testid": undefined,
                 },
@@ -328,6 +334,7 @@ LoadedCheerio {
                 "next": Node {
                   "attribs": Object {
                     "aria-disabled": "false",
+                    "aria-label": "Next year (Control + right)",
                     "class": "picker-header-super-next-btn button button-system-ui button-medium round-shape icon-left",
                     "data-testid": "picker-header-super-next-btn",
                   },
@@ -409,11 +416,13 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
@@ -422,6 +431,7 @@ LoadedCheerio {
                 "prev": Node {
                   "attribs": Object {
                     "aria-disabled": "false",
+                    "aria-label": "Previous year (Control + left)",
                     "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                     "data-testid": "picker-header-super-prev-btn",
                   },
@@ -503,11 +513,13 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
@@ -523,6 +535,7 @@ LoadedCheerio {
               Node {
                 "attribs": Object {
                   "aria-disabled": "false",
+                  "aria-label": "Next year (Control + right)",
                   "class": "picker-header-super-next-btn button button-system-ui button-medium round-shape icon-left",
                   "data-testid": "picker-header-super-next-btn",
                 },
@@ -661,6 +674,7 @@ LoadedCheerio {
                   "prev": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
+                      "aria-label": "Previous year (Control + left)",
                       "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                       "data-testid": "picker-header-super-prev-btn",
                     },
@@ -742,11 +756,13 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
@@ -762,11 +778,13 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "aria-disabled": undefined,
+                  "aria-label": undefined,
                   "class": undefined,
                   "data-testid": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "aria-disabled": undefined,
+                  "aria-label": undefined,
                   "class": undefined,
                   "data-testid": undefined,
                 },
@@ -17699,6 +17717,7 @@ LoadedCheerio {
                 Node {
                   "attribs": Object {
                     "aria-disabled": "false",
+                    "aria-label": "Previous year (Control + left)",
                     "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                     "data-testid": "picker-header-super-prev-btn",
                   },
@@ -17833,6 +17852,7 @@ LoadedCheerio {
                     "next": Node {
                       "attribs": Object {
                         "aria-disabled": "false",
+                        "aria-label": "Next year (Control + right)",
                         "class": "picker-header-super-next-btn button button-system-ui button-medium round-shape icon-left",
                         "data-testid": "picker-header-super-next-btn",
                       },
@@ -17914,11 +17934,13 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                         "data-testid": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                         "data-testid": undefined,
                       },
@@ -17938,11 +17960,13 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
@@ -18006,6 +18030,7 @@ LoadedCheerio {
                   "next": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
+                      "aria-label": "Next year (Control + right)",
                       "class": "picker-header-super-next-btn button button-system-ui button-medium round-shape icon-left",
                       "data-testid": "picker-header-super-next-btn",
                     },
@@ -18087,11 +18112,13 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
@@ -18100,6 +18127,7 @@ LoadedCheerio {
                   "prev": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
+                      "aria-label": "Previous year (Control + left)",
                       "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                       "data-testid": "picker-header-super-prev-btn",
                     },
@@ -18181,11 +18209,13 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-disabled": undefined,
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
                     },
@@ -18201,6 +18231,7 @@ LoadedCheerio {
                 Node {
                   "attribs": Object {
                     "aria-disabled": "false",
+                    "aria-label": "Next year (Control + right)",
                     "class": "picker-header-super-next-btn button button-system-ui button-medium round-shape icon-left",
                     "data-testid": "picker-header-super-next-btn",
                   },
@@ -18339,6 +18370,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "aria-disabled": "false",
+                        "aria-label": "Previous year (Control + left)",
                         "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                         "data-testid": "picker-header-super-prev-btn",
                       },
@@ -18420,11 +18452,13 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                         "data-testid": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "aria-disabled": undefined,
+                        "aria-label": undefined,
                         "class": undefined,
                         "data-testid": undefined,
                       },
@@ -18440,11 +18474,13 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-disabled": undefined,
+                    "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
                   },

@@ -36,6 +36,8 @@ function MonthHeader<DateType>(props: MonthHeaderProps<DateType>) {
   return (
     <Header
       {...props}
+      superPrevAriaLabel={locale.previousYear}
+      superNextAriaLabel={locale.nextYear}
       onSuperPrev={onPrevYear}
       onSuperNext={onNextYear}
       size={size}
