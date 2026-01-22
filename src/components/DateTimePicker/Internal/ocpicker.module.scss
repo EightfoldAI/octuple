@@ -10,6 +10,10 @@
   display: inline-flex;
   font-family: var(--font-stack-full);
   position: relative;
+  
+  .pickerLabel {
+    position: relative;
+  }
 
   &-readonly {
     background: var(--grey-background1-color);
