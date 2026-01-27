@@ -102,7 +102,7 @@ export type Locale = {
    */
   dateTimeFormat: string;
   /**
-   * The picker `Last year (Control + left)` text.
+   * The picker `Previous year (Control + left)` text.
    */
   previousYear: string;
   /**
@@ -110,7 +110,7 @@ export type Locale = {
    */
   nextYear: string;
   /**
-   * The picker `Last decade` text.
+   * The picker `Previous decade` text.
    */
   previousDecade: string;
   /**
@@ -118,7 +118,7 @@ export type Locale = {
    */
   nextDecade: string;
   /**
-   * The picker `Last century` text.
+   * The picker `Previous century` text.
    */
   previousCentury: string;
   /**

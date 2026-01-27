@@ -9,6 +9,10 @@
   border-radius: $picker-border-radius;
   display: inline-flex;
   font-family: var(--font-stack-full);
+  
+  .pickerLabel {
+    position: relative;
+  }
 
   &-readonly {
     background: var(--grey-background1-color);
@@ -1851,6 +1855,12 @@
 
     &:hover {
       color: var(--picker-input-clear-icon-color-active);
+    }
+
+    &:focus-visible {
+      opacity: 1;
+      box-shadow: var(--focus-visible-box-shadow);
+      @include focus-visible-forced-colors();
     }
   }
 

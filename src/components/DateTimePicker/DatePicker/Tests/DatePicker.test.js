@@ -337,6 +337,30 @@ describe('DatePicker', () => {
     ).toBeTruthy();
   });
 
+  it('should have proper ARIA labels on the header buttons', () => {
+    const wrapper = mount(<DatePicker open />);
+    const superPrevButton = wrapper.find(
+      'button[data-testid="picker-header-super-prev-btn"]'
+    );
+    const prevButton = wrapper.find(
+      'button[data-testid="picker-header-prev-btn"]'
+    );
+    const nextButton = wrapper.find(
+      'button[data-testid="picker-header-next-btn"]'
+    );
+    const superNextButton = wrapper.find(
+      'button[data-testid="picker-header-super-next-btn"]'
+    );
+    expect(superPrevButton.prop('aria-label')).toBe(
+      'Previous year (Control + left)'
+    );
+    expect(prevButton.prop('aria-label')).toBe('Previous month (PageUp)');
+    expect(nextButton.prop('aria-label')).toBe('Next month (PageDown)');
+    expect(superNextButton.prop('aria-label')).toBe(
+      'Next year (Control + right)'
+    );
+  });
+
   it('should handle RangePicker with start and end dates selected', () => {
     const wrapper = mount(
       <DatePicker.RangePicker
