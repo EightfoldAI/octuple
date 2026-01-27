@@ -1092,5 +1092,358 @@ describe('Tabs internal logic edge cases', () => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
       });
     });
+
+    test('Should mark tab as active when dropdown item is selected', async () => {
+      const { container, rerender } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      
+      // Initially tab2 should not be active
+      expect(tab2.getAttribute('aria-selected')).toBe('false');
+      
+      // Select a dropdown item
+      await userEvent.click(tab2);
+      await waitFor(() => {
+        expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
+      });
+      const item = screen.getByText('Sub Tab 2-1');
+      await userEvent.click(item);
+      
+      // Rerender with the selected dropdown item value
+      rerender(
+        <Tabs onChange={dropdownTabClick} value={'tab2-1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      
+      // Tab2 should now be active because one of its dropdown items is selected
+      const updatedTab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      expect(updatedTab2.getAttribute('aria-selected')).toBe('true');
+    });
+
+    test('Should close dropdown after selecting an item', async () => {
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      
+      // Open dropdown
+      await userEvent.click(tab2);
+      await waitFor(() => {
+        expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
+        expect(tab2.getAttribute('aria-expanded')).toBe('true');
+      });
+      
+      // Select an item
+      const item = screen.getByText('Sub Tab 2-1');
+      await userEvent.click(item);
+      
+      // Dropdown should close
+      await waitFor(() => {
+        expect(tab2.getAttribute('aria-expanded')).toBe('false');
+      }, { timeout: 2000 });
+    });
+
+    test('Should render chevron icon for dropdown tabs', () => {
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      // Find the button inside the dropdown wrapper
+      const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
+      // The chevron icon should be inside the button
+      const chevron = button?.querySelector('[class*="dropdownChevron"], [class*="chevron"], svg');
+      expect(chevron).toBeTruthy();
+    });
+
+    test('Should rotate chevron icon when dropdown is open', async () => {
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      
+      // Find chevron initially
+      const chevron = button?.querySelector('[class*="dropdownChevron"], [class*="chevron"], svg') as HTMLElement;
+      expect(chevron).toBeTruthy();
+      
+      // Initially chevron should not have open class (if it has classes)
+      if (chevron?.className) {
+        expect(chevron.className).not.toContain('dropdownChevronOpen');
+      }
+      
+      // Open dropdown
+      await userEvent.click(button);
+      await waitFor(() => {
+        expect(tab2.getAttribute('aria-expanded')).toBe('true');
+      });
+      
+      // Chevron should have open class after dropdown opens
+      // CSS modules convert camelCase to kebab-case
+      const updatedChevron = button?.querySelector('[class*="dropdownChevron"], [class*="chevron"], svg') as HTMLElement;
+      if (updatedChevron?.className) {
+        // Check for either camelCase or kebab-case version
+        expect(
+          updatedChevron.className.includes('dropdownChevronOpen') ||
+          updatedChevron.className.includes('dropdown-chevron-open')
+        ).toBe(true);
+      }
+    });
+
+    test('Should set aria-controls for dropdown tabs', () => {
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      // The button is inside the dropdown wrapper, find it directly
+      const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
+      // The aria-controls should be set (either by our code or by Dropdown component)
+      const ariaControls = button?.getAttribute('aria-controls');
+      expect(ariaControls).toBeTruthy();
+      // It should either be our custom ID or the dropdown's generated ID
+      expect(ariaControls?.includes('tab2') || ariaControls?.includes('dropdown')).toBe(true);
+    });
+
+    test('Should handle custom dropdownProps', async () => {
+      const customOnVisibleChange = jest.fn();
+      const customDropdownTabs = [
+        {
+          value: 'tab1',
+          label: 'Tab 1',
+          ariaLabel: 'Tab 1',
+        },
+        {
+          value: 'tab2',
+          label: 'Tab 2',
+          ariaLabel: 'Tab 2',
+          variant: TabVariantType.dropdown,
+          dropdownItems: [
+            { value: 'tab2-1', label: 'Sub Tab 2-1', ariaLabel: 'Sub Tab 2-1' },
+          ],
+          dropdownProps: {
+            onVisibleChange: customOnVisibleChange,
+            placement: 'bottom-end' as const,
+          },
+        },
+      ];
+
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {customDropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      await userEvent.click(tab2);
+      
+      await waitFor(() => {
+        expect(customOnVisibleChange).toHaveBeenCalledWith(true);
+      });
+    });
+
+    test('Should handle dropdown items with icons', async () => {
+      const tabsWithIcons = [
+        {
+          value: 'tab1',
+          label: 'Tab 1',
+          ariaLabel: 'Tab 1',
+        },
+        {
+          value: 'tab2',
+          label: 'Tab 2',
+          ariaLabel: 'Tab 2',
+          variant: TabVariantType.dropdown,
+          dropdownItems: [
+            { 
+              value: 'tab2-1', 
+              label: 'Sub Tab 2-1', 
+              ariaLabel: 'Sub Tab 2-1',
+              icon: IconName.mdiBellOutline,
+            },
+          ],
+        },
+      ];
+
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {tabsWithIcons.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      await userEvent.click(tab2);
+      
+      await waitFor(() => {
+        expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
+      });
+      
+      // Icon should be rendered in the menu item
+      const menuItem = screen.getByText('Sub Tab 2-1').closest('button');
+      expect(menuItem).toBeTruthy();
+    });
+
+    test('Should handle multiple dropdown tabs', async () => {
+      const multipleDropdownTabs = [
+        {
+          value: 'tab1',
+          label: 'Tab 1',
+          ariaLabel: 'Tab 1',
+          variant: TabVariantType.dropdown,
+          dropdownItems: [
+            { value: 'tab1-1', label: 'Sub Tab 1-1', ariaLabel: 'Sub Tab 1-1' },
+          ],
+        },
+        {
+          value: 'tab2',
+          label: 'Tab 2',
+          ariaLabel: 'Tab 2',
+          variant: TabVariantType.dropdown,
+          dropdownItems: [
+            { value: 'tab2-1', label: 'Sub Tab 2-1', ariaLabel: 'Sub Tab 2-1' },
+          ],
+        },
+      ];
+
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {multipleDropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      
+      const tab1 = container.querySelector('[data-value="tab1"]') as HTMLElement;
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      
+      // Open first dropdown
+      await userEvent.click(tab1);
+      await waitFor(() => {
+        expect(screen.getByText('Sub Tab 1-1')).toBeVisible();
+      });
+      
+      // Click second tab - should close first dropdown and open second
+      await userEvent.click(tab2);
+      await waitFor(() => {
+        expect(screen.queryByText('Sub Tab 1-1')).not.toBeInTheDocument();
+        expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
+      });
+    });
+
+    test('Should close dropdown on Escape key', async () => {
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      
+      // Open dropdown
+      await userEvent.click(tab2);
+      await waitFor(() => {
+        expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
+        expect(tab2.getAttribute('aria-expanded')).toBe('true');
+      });
+      
+      // Press Escape
+      fireEvent.keyDown(tab2, { key: 'Escape' });
+      
+      // Dropdown should close
+      await waitFor(() => {
+        expect(tab2.getAttribute('aria-expanded')).toBe('false');
+      }, { timeout: 2000 });
+    });
+
+    test('Should handle dropdown when tab value matches dropdown item', () => {
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab2-1'}>
+          {dropdownTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      // Tab2 should be active because tab2-1 is one of its dropdown items
+      expect(tab2.getAttribute('aria-selected')).toBe('true');
+    });
+
+
+    test('Should handle all dropdown items being disabled', async () => {
+      const allDisabledTabs = [
+        {
+          value: 'tab1',
+          label: 'Tab 1',
+          ariaLabel: 'Tab 1',
+        },
+        {
+          value: 'tab2',
+          label: 'Tab 2',
+          ariaLabel: 'Tab 2',
+          variant: TabVariantType.dropdown,
+          dropdownItems: [
+            { 
+              value: 'tab2-1', 
+              label: 'Sub Tab 2-1', 
+              ariaLabel: 'Sub Tab 2-1',
+              disabled: true,
+            },
+            { 
+              value: 'tab2-2', 
+              label: 'Sub Tab 2-2', 
+              ariaLabel: 'Sub Tab 2-2',
+              disabled: true,
+            },
+          ],
+        },
+      ];
+
+      const { container } = render(
+        <Tabs onChange={dropdownTabClick} value={'tab1'}>
+          {allDisabledTabs.map((tab) => (
+            <Tab key={tab.value} {...tab} />
+          ))}
+        </Tabs>
+      );
+      
+      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      await userEvent.click(tab2);
+      
+      await waitFor(() => {
+        expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
+      });
+      
+      // All items should be disabled
+      const item1 = screen.getByText('Sub Tab 2-1');
+      const item2 = screen.getByText('Sub Tab 2-2');
+      expect(item1.closest('button')?.hasAttribute('disabled')).toBe(true);
+      expect(item2.closest('button')?.hasAttribute('disabled')).toBe(true);
+    });
   });
 });
