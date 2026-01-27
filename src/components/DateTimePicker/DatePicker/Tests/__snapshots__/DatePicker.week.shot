@@ -9,19 +9,40 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "for": "date-picker-",
-          "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+          "class": "picker-label",
         },
         "children": Array [
           Node {
-            "data": "Select week",
+            "attribs": Object {
+              "for": "date-picker-",
+              "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+            },
+            "children": Array [
+              Node {
+                "data": "Select week",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "label",
+            "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
             "prev": null,
-            "type": "text",
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "for": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "for": undefined,
+              "style": undefined,
+            },
           },
         ],
-        "name": "label",
+        "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
@@ -724,12 +745,10 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
-          "for": undefined,
-          "style": undefined,
+          "class": undefined,
         },
         "x-attribsPrefix": Object {
-          "for": undefined,
-          "style": undefined,
+          "class": undefined,
         },
       },
       Node {
@@ -1422,31 +1441,50 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "for": "date-picker-",
-            "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+            "class": "picker-label",
           },
           "children": Array [
             Node {
-              "data": "Select week",
+              "attribs": Object {
+                "for": "date-picker-",
+                "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+              },
+              "children": Array [
+                Node {
+                  "data": "Select week",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "label",
+              "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
               "prev": null,
-              "type": "text",
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "for": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "for": undefined,
+                "style": undefined,
+              },
             },
           ],
-          "name": "label",
+          "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
           "parent": [Circular],
           "prev": null,
           "type": "tag",
           "x-attribsNamespace": Object {
-            "for": undefined,
-            "style": undefined,
+            "class": undefined,
           },
           "x-attribsPrefix": Object {
-            "for": undefined,
-            "style": undefined,
+            "class": undefined,
           },
         },
         "type": "tag",
