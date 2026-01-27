@@ -262,6 +262,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
           offset={-0.5}
           {...dropdownProps}
           overlay={getDropdownOverlay()}
+          referenceOnClick={handleTabClick}
           onVisibleChange={(visible) => {
             setDropdownVisible(visible);
             dropdownProps?.onVisibleChange?.(visible);

@@ -8,6 +8,7 @@ import { ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -1012,7 +1013,7 @@ describe('Tabs internal logic edge cases', () => {
       });
     });
 
-    test('Should select tab on click', () => {
+    test('Should select tab on click', async () => {
       const { container } = render(
         <Tabs onChange={dropdownTabClick} value={'tab1'}>
           {dropdownTabs.map((tab) => (
@@ -1021,7 +1022,7 @@ describe('Tabs internal logic edge cases', () => {
         </Tabs>
       );
       const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      userEvent.click(tab2);
+      await userEvent.click(tab2);
       expect(dropdownTabClick).toHaveBeenCalledWith('tab2', expect.any(Object));
     });
 
@@ -1034,12 +1035,12 @@ describe('Tabs internal logic edge cases', () => {
         </Tabs>
       );
       const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      userEvent.click(tab2);
+      await userEvent.click(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
       });
       const item = screen.getByText('Sub Tab 2-1');
-      userEvent.click(item);
+      await userEvent.click(item);
       expect(dropdownTabClick).toHaveBeenCalledWith('tab2-1', expect.any(Object));
     });
 
@@ -1052,7 +1053,7 @@ describe('Tabs internal logic edge cases', () => {
         </Tabs>
       );
       const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      userEvent.click(tab2);
+      await userEvent.click(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-3')).toBeVisible();
       });
@@ -1070,7 +1071,7 @@ describe('Tabs internal logic edge cases', () => {
       );
       const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
       expect(tab2.getAttribute('aria-expanded')).toBe('false');
-      userEvent.click(tab2);
+      await userEvent.click(tab2);
       await waitFor(() => {
         expect(tab2.getAttribute('aria-expanded')).toBe('true');
       });
