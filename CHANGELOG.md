@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.4](https://github.com/EightfoldAI/octuple/compare/v2.56.2...v2.56.4) (2026-02-03)
+
+### Features
+
+- **Tabs:** Add dropdown in tab ([#1087](https://github.com/EightfoldAI/octuple/issues/1087)) ([8c80566](https://github.com/EightfoldAI/octuple/commits/8c80566931163e9c39ff9186fd7e720ed3f17383))
+
+### Bug Fixes
+
+- Add keyboard accessibility to DatePicker clear button (ENG-164575) ([#1086](https://github.com/EightfoldAI/octuple/issues/1086)) ([ec8e6a7](https://github.com/EightfoldAI/octuple/commits/ec8e6a7b11fc8894102be4129be6282ad319d332))
+- **DatePicker:** Added position relative to picker so that the visually hidden label ([#1094](https://github.com/EightfoldAI/octuple/issues/1094)) ([e366426](https://github.com/EightfoldAI/octuple/commits/e366426f246d28bedcaa88a9edbd552ff74a3c64))
+- **Pager:** remove list semantics for simplified version of Pager ([#1091](https://github.com/EightfoldAI/octuple/issues/1091)) ([ea2c89f](https://github.com/EightfoldAI/octuple/commits/ea2c89f6e16d95e2ccc02263b005255584d8d99f))
+- prevent slider thumbs from being keyboard focusable when readonly or disabled ([#1082](https://github.com/EightfoldAI/octuple/issues/1082)) ([0e49d47](https://github.com/EightfoldAI/octuple/commits/0e49d4735cc4a2788939e385c5095242bdbc0f60))
+- **useFocusVisibleClassName:** prevent class removal when multiple hooks active ([#1090](https://github.com/EightfoldAI/octuple/issues/1090)) ([756e151](https://github.com/EightfoldAI/octuple/commits/756e1511e5d994f08ff817b84d0ade68432cbbcb))
+
 ### [2.56.3](https://github.com/EightfoldAI/octuple/compare/v2.56.2...v2.56.3) (2026-01-27)
 
 ### Bug Fixes
