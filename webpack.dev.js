@@ -9,16 +9,29 @@ module.exports = (_, argv) => {
   const commonConfig = WebpackCommonConfig(_, argv);
   return {
     ...commonConfig,
+    mode: 'development',
+    stats: {
+      preset: 'minimal',
+      moduleTrace: false,
+      errorDetails: false,
+    },
     plugins: [
       ...commonConfig.plugins,
       new webpack.DefinePlugin({
         VERSION: JSON.stringify(require('./package.json').version),
       }),
-      new BundleAnalyzerPlugin({
-        options: {
-          generateStatsFile: true,
-        },
-      }),
+      ...(process.env.ANALYZE ? [
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          openAnalyzer: true,
+        }),
+      ] : []),
     ],
+    optimization: {
+      ...commonConfig.optimization,
+      removeAvailableModules: false,
+      removeEmptyChunks: false,
+      splitChunks: false,
+    },
   };
 };

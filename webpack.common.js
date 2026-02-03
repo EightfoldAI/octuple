@@ -8,11 +8,26 @@ module.exports = (_, { mode }) => ({
     octuple: [path.resolve(__dirname, 'src/octuple.ts')],
     locale: [path.resolve(__dirname, 'src/locale.ts')],
   },
+  cache: {
+    type: 'filesystem',
+    cacheDirectory: path.resolve(__dirname, '.webpack-cache'),
+    buildDependencies: {
+      config: [__filename],
+    },
+  },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: mode === 'development',
+              experimentalWatchApi: true,
+            },
+          },
+        ],
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src'),
       },
@@ -45,13 +60,30 @@ module.exports = (_, { mode }) => ({
     ],
   },
   optimization: {
+    moduleIds: 'deterministic',
+    splitChunks: mode === 'development' ? false : {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
     minimizer: [
       new TerserPlugin({
+        parallel: true,
         terserOptions: {
           keep_fnames: true,
+          compress: {
+            drop_console: mode === 'production',
+          },
         },
       }),
-      new CssMinimizerPlugin(),
+      new CssMinimizerPlugin({
+        parallel: true,
+      }),
     ],
   },
   plugins: [
@@ -61,8 +93,12 @@ module.exports = (_, { mode }) => ({
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss'],
+    symlinks: false,
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
-  devtool: 'source-map',
+  devtool: mode === 'development' ? 'eval-cheap-module-source-map' : 'source-map',
   output: {
     path: path.join(__dirname, 'lib'),
     library: 'Octuple',
