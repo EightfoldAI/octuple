@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.3](https://github.com/EightfoldAI/octuple/compare/v2.56.2...v2.56.3) (2026-01-27)
+
+### Bug Fixes
+
+- **DatePicker:** Added position relative to picker so that the visually hidden label ([#1094](https://github.com/EightfoldAI/octuple/issues/1094)) ([ad9f66c](https://github.com/EightfoldAI/octuple/commits/ad9f66cf10bc3e27dcf0c32d65987feb054a404f))
+
 ### [2.56.2](https://github.com/EightfoldAI/octuple/compare/v2.56.1...v2.56.2) (2026-01-09)
 
 ### Bug Fixes
