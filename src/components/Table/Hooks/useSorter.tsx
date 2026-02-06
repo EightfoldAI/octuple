@@ -129,6 +129,9 @@ function injectSorter<RecordType>(
   defaultSortDirections: SortOrder[],
   triggerAscText: string,
   triggerDescText: string,
+  sortedAscendingText: string,
+  sortedDescendingText: string,
+  notSortedText: string,
   tableShowSorterDefaultIcon?: boolean,
   tableShowSorterTooltip?: boolean | TooltipProps,
   pos?: string
@@ -174,6 +177,16 @@ function injectSorter<RecordType>(
           { [styles.tableColumnSort]: sorterOrder },
         ]),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
+          let sortStatusText = '';
+          if (column.headerLabel) {
+            if (sorterOrder === 'ascend') {
+              sortStatusText = `${column.headerLabel}, ${sortedAscendingText}`;
+            } else if (sorterOrder === 'descend') {
+              sortStatusText = `${column.headerLabel}, ${sortedDescendingText}`;
+            } else {
+              sortStatusText = `${column.headerLabel}, ${notSortedText}`;
+            }
+          }
           const renderSortTitle = (
             <div
               className={styles.tableColumnSorters}
@@ -198,6 +211,7 @@ function injectSorter<RecordType>(
               tabIndex={0}
               role="button"
               data-sort-order={sorterOrder}
+              {...(sortStatusText ? { 'aria-label': sortStatusText } : {})}
             >
               <span className={styles.tableColumnTitle}>
                 {renderColumnTitle(column.title, renderProps)}
@@ -219,6 +233,15 @@ function injectSorter<RecordType>(
                     getSortIcon(IconName.mdiArrowUpDown)}
                 </span>
               </span>
+              {sortStatusText && (
+                <span
+                  aria-live="polite"
+                  aria-atomic="true"
+                  className={styles.tableColumnSorterScreenReaderOnly}
+                >
+                  {sortStatusText}
+                </span>
+              )}
             </div>
           );
           return showSorterTooltip ? (
@@ -267,6 +290,9 @@ function injectSorter<RecordType>(
           defaultSortDirections,
           triggerAscText,
           triggerDescText,
+          sortedAscendingText,
+          sortedDescendingText,
+          notSortedText,
           tableShowSorterDefaultIcon,
           tableShowSorterTooltip,
           columnPos
@@ -380,6 +406,9 @@ interface SorterConfig<RecordType> {
   sortDirections: SortOrder[];
   triggerAscText: string;
   triggerDescText: string;
+  sortedAscendingText: string;
+  sortedDescendingText: string;
+  notSortedText: string;
   showSorterDefaultIcon?: boolean;
   showSorterTooltip?: boolean | TooltipProps;
 }
@@ -391,6 +420,9 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   triggerAscText,
   triggerDescText,
+  sortedAscendingText,
+  sortedDescendingText,
+  notSortedText,
   showSorterDefaultIcon,
   showSorterTooltip,
 }: SorterConfig<RecordType>): [
@@ -494,6 +526,9 @@ export default function useFilterSorter<RecordType>({
       sortDirections,
       triggerAscText,
       triggerDescText,
+      sortedAscendingText,
+      sortedDescendingText,
+      notSortedText,
       showSorterDefaultIcon,
       showSorterTooltip
     );
