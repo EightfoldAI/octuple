@@ -243,6 +243,11 @@ function InternalTable<RecordType extends object = any>(
   const [cancelSortText, setCancelSortText] = useState<string>(
     defaultCancelSortText
   );
+  const [sortedAscendingText, setSortedAscendingText] =
+    useState<string>('sorted ascending');
+  const [sortedDescendingText, setSortedDescendingText] =
+    useState<string>('sorted descending');
+  const [notSortedText, setNotSortedText] = useState<string>('not sorted');
   const [scrollLeftAriaLabelText, setScrollLeftAriaLabel] = useState<string>(
     defaultScrollLeftAriaLabelText
   );
@@ -332,6 +337,13 @@ function InternalTable<RecordType extends object = any>(
         ? props.cancelSortText
         : mergedLocale.lang!.cancelSortText
     );
+    setSortedAscendingText(
+      mergedLocale.lang!.sortedAscendingText || 'sorted ascending'
+    );
+    setSortedDescendingText(
+      mergedLocale.lang!.sortedDescendingText || 'sorted descending'
+    );
+    setNotSortedText(mergedLocale.lang!.notSortedText || 'not sorted');
     setScrollLeftAriaLabel(
       props.scrollLeftAriaLabelText ??
         mergedLocale.lang!.scrollLeftAriaLabelText
@@ -436,6 +448,9 @@ function InternalTable<RecordType extends object = any>(
       sortDirections: sortDirections || ['ascend', 'descend'],
       triggerAscText,
       triggerDescText,
+      sortedAscendingText,
+      sortedDescendingText,
+      notSortedText,
       showSorterDefaultIcon,
       showSorterTooltip,
     });
