@@ -584,11 +584,13 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
           onContextMenu={onContextMenu}
           onClick={onClick}
         >
-          {(label || placeholder) && (
-            <label htmlFor={datePickerId} style={visuallyHidden}>
-              {label || placeholder}
-            </label>
-          )}
+          <div className={styles.pickerLabel}>
+            {(label || placeholder) && (
+              <label htmlFor={datePickerId} style={visuallyHidden}>
+                {label || placeholder}
+              </label>
+            )}
+          </div>
           <div
             className={mergeClasses([
               styles.pickerInput,
