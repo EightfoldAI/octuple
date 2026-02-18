@@ -1,60 +1,159 @@
-import { renderHook } from '@testing-library/react-hooks';
-import '@testing-library/jest-dom/extend-expect';
-import MatchMediaMock from 'jest-matchmedia-mock';
+import { renderHook, act } from '@testing-library/react-hooks';
 import { Breakpoints, useMatchMedia } from './useMatchMedia';
 
-let matchMedia: any;
+type ChangeListener = (event: { matches: boolean }) => void;
+
+let listeners: ChangeListener[];
+let currentMatches: boolean;
+
+const createMockMediaQueryList = (matches: boolean, media = '') =>
+  ({
+    matches,
+    media,
+    onchange: null,
+    addEventListener: jest.fn((_event: string, listener: ChangeListener) => {
+      listeners.push(listener);
+    }),
+    removeEventListener: jest.fn((_event: string, listener: ChangeListener) => {
+      listeners = listeners.filter((l) => l !== listener);
+    }),
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  } as unknown as MediaQueryList);
+
+beforeEach(() => {
+  listeners = [];
+  currentMatches = false;
+
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn((query: string) =>
+      createMockMediaQueryList(currentMatches, query)
+    ),
+  });
+});
 
 describe('useMatchMedia', () => {
-  afterEach(() => {
-    matchMedia.clear();
-  });
-  beforeAll(() => {
-    matchMedia = new MatchMediaMock();
-    jest.useFakeTimers();
-  });
-  it('is extra large screen', async () => {
-    const { result } = renderHook(() => useMatchMedia(Breakpoints.XLarge));
-    const largeMq = result.current;
-    window.resizeTo(1920, 1080);
-    setTimeout(() => {
-      expect(largeMq).toBe(true);
-    }, 10);
-  });
-
-  it('is large screen', async () => {
+  it('returns true on first render when breakpoint matches', () => {
+    currentMatches = true;
     const { result } = renderHook(() => useMatchMedia(Breakpoints.Large));
-    const largeMq = result.current;
-    window.resizeTo(1366, 768);
-    setTimeout(() => {
-      expect(largeMq).toBe(true);
-    }, 10);
+    expect(result.current).toBe(true);
   });
 
-  it('is medium screen', () => {
-    window.resizeTo(1024, 768);
-    const { result } = renderHook(() => useMatchMedia(Breakpoints.Medium));
-    const mediumMq = result.current;
-    setTimeout(() => {
-      expect(mediumMq).toBe(true);
-    }, 10);
+  it('returns false on first render when breakpoint does not match', () => {
+    currentMatches = false;
+    const { result } = renderHook(() => useMatchMedia(Breakpoints.Large));
+    expect(result.current).toBe(false);
   });
 
-  it('is small screen', () => {
-    window.resizeTo(640, 480);
-    const { result } = renderHook(() => useMatchMedia(Breakpoints.Small));
-    const smallMq = result.current;
-    setTimeout(() => {
-      expect(smallMq).toBe(true);
-    }, 10);
+  it('calls window.matchMedia with the correct breakpoint query', () => {
+    renderHook(() => useMatchMedia(Breakpoints.Medium));
+    expect(window.matchMedia).toHaveBeenCalledWith(Breakpoints.Medium);
   });
 
-  it('is extra small screen', () => {
-    window.resizeTo(320, 480);
-    const { result } = renderHook(() => useMatchMedia(Breakpoints.XSmall));
-    const xSmallMq = result.current;
-    setTimeout(() => {
-      expect(xSmallMq).toBe(true);
-    }, 10);
+  it('updates when the media query change event fires', () => {
+    currentMatches = false;
+    const { result } = renderHook(() => useMatchMedia(Breakpoints.Large));
+    expect(result.current).toBe(false);
+
+    act(() => {
+      listeners.forEach((listener) => listener({ matches: true }));
+    });
+
+    expect(result.current).toBe(true);
+  });
+
+  it('updates from true to false when viewport shrinks below breakpoint', () => {
+    currentMatches = true;
+    const { result } = renderHook(() => useMatchMedia(Breakpoints.Large));
+    expect(result.current).toBe(true);
+
+    act(() => {
+      listeners.forEach((listener) => listener({ matches: false }));
+    });
+
+    expect(result.current).toBe(false);
+  });
+
+  it('registers a change event listener on mount', () => {
+    renderHook(() => useMatchMedia(Breakpoints.Small));
+
+    const results = (window.matchMedia as jest.Mock).mock.results;
+    const effectMql = results[results.length - 1]?.value;
+    expect(effectMql.addEventListener).toHaveBeenCalledWith(
+      'change',
+      expect.any(Function)
+    );
+  });
+
+  it('removes the change event listener on unmount', () => {
+    const { unmount } = renderHook(() => useMatchMedia(Breakpoints.Small));
+
+    const results = (window.matchMedia as jest.Mock).mock.results;
+    const effectMql = results[results.length - 1]?.value;
+    unmount();
+
+    expect(effectMql.removeEventListener).toHaveBeenCalledWith(
+      'change',
+      expect.any(Function)
+    );
+  });
+
+  it('re-subscribes when the breakpoint prop changes', () => {
+    currentMatches = false;
+    const { rerender } = renderHook(
+      ({ bp }: { bp: Breakpoints }) => useMatchMedia(bp),
+      { initialProps: { bp: Breakpoints.Small } }
+    );
+
+    const results = (window.matchMedia as jest.Mock).mock.results;
+    const firstEffectMql = results[results.length - 1]?.value;
+
+    currentMatches = true;
+    rerender({ bp: Breakpoints.Large });
+
+    expect(firstEffectMql.removeEventListener).toHaveBeenCalled();
+    expect(window.matchMedia).toHaveBeenCalledWith(Breakpoints.Large);
+  });
+
+  it.each<[string, Breakpoints]>([
+    ['XLarge', Breakpoints.XLarge],
+    ['Large', Breakpoints.Large],
+    ['Medium', Breakpoints.Medium],
+    ['Small', Breakpoints.Small],
+    ['XSmall', Breakpoints.XSmall],
+  ])('works with %s breakpoint', (_name, breakpoint) => {
+    currentMatches = true;
+    const { result } = renderHook(() => useMatchMedia(breakpoint));
+    expect(result.current).toBe(true);
+  });
+
+  it('falls back to addListener/removeListener when addEventListener is not available', () => {
+    const addListener = jest.fn();
+    const removeListener = jest.fn();
+
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn(
+        () =>
+          ({
+            matches: false,
+            media: '',
+            onchange: null,
+            addEventListener: undefined,
+            removeEventListener: undefined,
+            addListener,
+            removeListener,
+            dispatchEvent: jest.fn(),
+          } as unknown as MediaQueryList)
+      ),
+    });
+
+    const { unmount } = renderHook(() => useMatchMedia(Breakpoints.Small));
+    expect(addListener).toHaveBeenCalledWith(expect.any(Function));
+
+    unmount();
+    expect(removeListener).toHaveBeenCalledWith(expect.any(Function));
   });
 });
