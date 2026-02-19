@@ -79,6 +79,18 @@ export type Locale = {
    */
   cancelSortText?: string;
   /**
+   * The Table `sorted ascending` string for screen reader announcements.
+   */
+  sortedAscendingText?: string;
+  /**
+   * The Table `sorted descending` string for screen reader announcements.
+   */
+  sortedDescendingText?: string;
+  /**
+   * The Table `not sorted` string for screen reader announcements.
+   */
+  notSortedText?: string;
+  /**
    * The Table `Scroll right` string
    */
   scrollRightAriaLabelText?: string;

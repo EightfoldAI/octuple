@@ -124,6 +124,9 @@ function InternalTable<RecordType extends object = any>(
     triggerDescText: defaultTriggerDescText,
     onRowHoverEnter,
     onRowHoverLeave,
+    sortedAscendingText: defaultSortedAscendingText,
+    sortedDescendingText: defaultSortedDescendingText,
+    notSortedText: defaultNotSortedText,
   } = props;
 
   const baseColumns: ColumnsType<RecordType> = useMemo(
@@ -243,6 +246,14 @@ function InternalTable<RecordType extends object = any>(
   const [cancelSortText, setCancelSortText] = useState<string>(
     defaultCancelSortText
   );
+  const [sortedAscendingText, setSortedAscendingText] = useState<string>(
+    defaultSortedAscendingText
+  );
+  const [sortedDescendingText, setSortedDescendingText] = useState<string>(
+    defaultSortedDescendingText
+  );
+  const [notSortedText, setNotSortedText] =
+    useState<string>(defaultNotSortedText);
   const [scrollLeftAriaLabelText, setScrollLeftAriaLabel] = useState<string>(
     defaultScrollLeftAriaLabelText
   );
@@ -332,6 +343,13 @@ function InternalTable<RecordType extends object = any>(
         ? props.cancelSortText
         : mergedLocale.lang!.cancelSortText
     );
+    setSortedAscendingText(
+      props.sortedAscendingText ?? mergedLocale.lang?.sortedAscendingText
+    );
+    setSortedDescendingText(
+      props.sortedDescendingText ?? mergedLocale.lang?.sortedDescendingText
+    );
+    setNotSortedText(props.notSortedText ?? mergedLocale.lang?.notSortedText);
     setScrollLeftAriaLabel(
       props.scrollLeftAriaLabelText ??
         mergedLocale.lang!.scrollLeftAriaLabelText
@@ -436,6 +454,9 @@ function InternalTable<RecordType extends object = any>(
       sortDirections: sortDirections || ['ascend', 'descend'],
       triggerAscText,
       triggerDescText,
+      sortedAscendingText,
+      sortedDescendingText,
+      notSortedText,
       showSorterDefaultIcon,
       showSorterTooltip,
     });
