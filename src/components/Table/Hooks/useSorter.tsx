@@ -207,7 +207,6 @@ function injectSorter<RecordType>(
               tabIndex={0}
               role="button"
               data-sort-order={sorterOrder}
-              {...(sortStatusText ? { 'aria-label': sortStatusText } : {})}
             >
               <span className={styles.tableColumnTitle}>
                 {renderColumnTitle(column.title, renderProps)}
