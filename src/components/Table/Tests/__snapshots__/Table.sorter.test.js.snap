@@ -51,15 +51,7 @@ LoadedCheerio {
                           "attribs": Object {
                             "class": "table-column-sorter-screen-reader-only",
                           },
-                          "children": Array [
-                            Node {
-                              "data": "not sorted",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
+                          "children": Array [],
                           "name": "span",
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
@@ -192,15 +184,7 @@ LoadedCheerio {
                         "attribs": Object {
                           "class": "table-column-sorter-screen-reader-only",
                         },
-                        "children": Array [
-                          Node {
-                            "data": "not sorted",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
+                        "children": Array [],
                         "name": "span",
                         "namespace": "http://www.w3.org/1999/xhtml",
                         "next": Node {
@@ -445,15 +429,7 @@ LoadedCheerio {
                           "attribs": Object {
                             "class": "table-column-sorter-screen-reader-only",
                           },
-                          "children": Array [
-                            Node {
-                              "data": "not sorted",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
+                          "children": Array [],
                           "name": "span",
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": [Circular],
@@ -3415,15 +3391,7 @@ LoadedCheerio {
                                                   "attribs": Object {
                                                     "class": "table-column-sorter-screen-reader-only",
                                                   },
-                                                  "children": Array [
-                                                    Node {
-                                                      "data": "not sorted",
-                                                      "next": null,
-                                                      "parent": [Circular],
-                                                      "prev": null,
-                                                      "type": "text",
-                                                    },
-                                                  ],
+                                                  "children": Array [],
                                                   "name": "span",
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
@@ -3556,15 +3524,7 @@ LoadedCheerio {
                                                 "attribs": Object {
                                                   "class": "table-column-sorter-screen-reader-only",
                                                 },
-                                                "children": Array [
-                                                  Node {
-                                                    "data": "not sorted",
-                                                    "next": null,
-                                                    "parent": [Circular],
-                                                    "prev": null,
-                                                    "type": "text",
-                                                  },
-                                                ],
+                                                "children": Array [],
                                                 "name": "span",
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
@@ -3809,15 +3769,7 @@ LoadedCheerio {
                                                   "attribs": Object {
                                                     "class": "table-column-sorter-screen-reader-only",
                                                   },
-                                                  "children": Array [
-                                                    Node {
-                                                      "data": "not sorted",
-                                                      "next": null,
-                                                      "parent": [Circular],
-                                                      "prev": null,
-                                                      "type": "text",
-                                                    },
-                                                  ],
+                                                  "children": Array [],
                                                   "name": "span",
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": [Circular],
@@ -4773,15 +4725,7 @@ LoadedCheerio {
                                                 "attribs": Object {
                                                   "class": "table-column-sorter-screen-reader-only",
                                                 },
-                                                "children": Array [
-                                                  Node {
-                                                    "data": "not sorted",
-                                                    "next": null,
-                                                    "parent": [Circular],
-                                                    "prev": null,
-                                                    "type": "text",
-                                                  },
-                                                ],
+                                                "children": Array [],
                                                 "name": "span",
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
@@ -4914,15 +4858,7 @@ LoadedCheerio {
                                               "attribs": Object {
                                                 "class": "table-column-sorter-screen-reader-only",
                                               },
-                                              "children": Array [
-                                                Node {
-                                                  "data": "not sorted",
-                                                  "next": null,
-                                                  "parent": [Circular],
-                                                  "prev": null,
-                                                  "type": "text",
-                                                },
-                                              ],
+                                              "children": Array [],
                                               "name": "span",
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
@@ -5167,15 +5103,7 @@ LoadedCheerio {
                                                 "attribs": Object {
                                                   "class": "table-column-sorter-screen-reader-only",
                                                 },
-                                                "children": Array [
-                                                  Node {
-                                                    "data": "not sorted",
-                                                    "next": null,
-                                                    "parent": [Circular],
-                                                    "prev": null,
-                                                    "type": "text",
-                                                  },
-                                                ],
+                                                "children": Array [],
                                                 "name": "span",
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": [Circular],
@@ -6902,15 +6830,7 @@ LoadedCheerio {
                                                   "attribs": Object {
                                                     "class": "table-column-sorter-screen-reader-only",
                                                   },
-                                                  "children": Array [
-                                                    Node {
-                                                      "data": "not sorted",
-                                                      "next": null,
-                                                      "parent": [Circular],
-                                                      "prev": null,
-                                                      "type": "text",
-                                                    },
-                                                  ],
+                                                  "children": Array [],
                                                   "name": "span",
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
@@ -7043,15 +6963,7 @@ LoadedCheerio {
                                                 "attribs": Object {
                                                   "class": "table-column-sorter-screen-reader-only",
                                                 },
-                                                "children": Array [
-                                                  Node {
-                                                    "data": "not sorted",
-                                                    "next": null,
-                                                    "parent": [Circular],
-                                                    "prev": null,
-                                                    "type": "text",
-                                                  },
-                                                ],
+                                                "children": Array [],
                                                 "name": "span",
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
@@ -7296,15 +7208,7 @@ LoadedCheerio {
                                                   "attribs": Object {
                                                     "class": "table-column-sorter-screen-reader-only",
                                                   },
-                                                  "children": Array [
-                                                    Node {
-                                                      "data": "not sorted",
-                                                      "next": null,
-                                                      "parent": [Circular],
-                                                      "prev": null,
-                                                      "type": "text",
-                                                    },
-                                                  ],
+                                                  "children": Array [],
                                                   "name": "span",
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": [Circular],
