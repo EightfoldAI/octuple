@@ -124,6 +124,9 @@ function InternalTable<RecordType extends object = any>(
     triggerDescText: defaultTriggerDescText,
     onRowHoverEnter,
     onRowHoverLeave,
+    sortedAscendingText: defaultSortedAscendingText,
+    sortedDescendingText: defaultSortedDescendingText,
+    notSortedText: defaultNotSortedText,
   } = props;
 
   const baseColumns: ColumnsType<RecordType> = useMemo(
@@ -243,11 +246,14 @@ function InternalTable<RecordType extends object = any>(
   const [cancelSortText, setCancelSortText] = useState<string>(
     defaultCancelSortText
   );
-  const [sortedAscendingText, setSortedAscendingText] =
-    useState<string>('sorted ascending');
-  const [sortedDescendingText, setSortedDescendingText] =
-    useState<string>('sorted descending');
-  const [notSortedText, setNotSortedText] = useState<string>('not sorted');
+  const [sortedAscendingText, setSortedAscendingText] = useState<string>(
+    defaultSortedAscendingText
+  );
+  const [sortedDescendingText, setSortedDescendingText] = useState<string>(
+    defaultSortedDescendingText
+  );
+  const [notSortedText, setNotSortedText] =
+    useState<string>(defaultNotSortedText);
   const [scrollLeftAriaLabelText, setScrollLeftAriaLabel] = useState<string>(
     defaultScrollLeftAriaLabelText
   );
@@ -338,12 +344,12 @@ function InternalTable<RecordType extends object = any>(
         : mergedLocale.lang!.cancelSortText
     );
     setSortedAscendingText(
-      mergedLocale.lang!.sortedAscendingText || 'sorted ascending'
+      props.sortedAscendingText ?? mergedLocale.lang?.sortedAscendingText
     );
     setSortedDescendingText(
-      mergedLocale.lang!.sortedDescendingText || 'sorted descending'
+      props.sortedDescendingText ?? mergedLocale.lang?.sortedDescendingText
     );
-    setNotSortedText(mergedLocale.lang!.notSortedText || 'not sorted');
+    setNotSortedText(props.notSortedText ?? mergedLocale.lang?.notSortedText);
     setScrollLeftAriaLabel(
       props.scrollLeftAriaLabelText ??
         mergedLocale.lang!.scrollLeftAriaLabelText

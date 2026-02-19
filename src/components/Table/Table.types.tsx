@@ -580,6 +580,21 @@ export interface TableProps<RecordType>
    */
   triggerDescText?: string;
   /**
+   * The Table sorted ascending label (e.g. for tooltip/aria).
+   * Uses locale value when not provided.
+   */
+  sortedAscendingText?: string;
+  /**
+   * The Table sorted descending label (e.g. for tooltip/aria).
+   * Uses locale value when not provided.
+   */
+  sortedDescendingText?: string;
+  /**
+   * The Table not sorted label (e.g. for tooltip/aria).
+   * Uses locale value when not provided.
+   */
+  notSortedText?: string;
+  /**
    * Callback fired on row hover enter
    * @param index - Index of the row element
    * @param rowKey - Unique row identifier
