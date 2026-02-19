@@ -177,12 +177,6 @@ export interface ColumnType<RecordType>
    */
   sortOrder?: SortOrder;
   /**
-   * Accessible name for the column header used in sort announcements.
-   * When provided, screen readers will announce sort state changes
-   * (e.g., "Days Open, sorted ascending").
-   */
-  headerLabel?: string;
-  /**
    * The Column title.
    */
   title?: ColumnTitle<RecordType>;

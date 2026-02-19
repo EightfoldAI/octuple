@@ -25,6 +25,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-label": "not sorted",
                       "class": "table-column-sorters tooltip-reference",
                       "data-reference-id": "sortTip-reference",
                       "id": "sortTip-reference",
@@ -39,6 +40,162 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "Name",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Node {
+                          "attribs": Object {
+                            "class": "table-column-sorter-screen-reader-only",
+                          },
+                          "children": Array [
+                            Node {
+                              "data": "not sorted",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Node {
+                            "attribs": Object {
+                              "class": "table-column-sorter",
+                            },
+                            "children": Array [
+                              Node {
+                                "attribs": Object {
+                                  "class": "table-column-sorter-inner",
+                                },
+                                "children": Array [
+                                  Node {
+                                    "attribs": Object {
+                                      "class": "icon-wrapper",
+                                      "role": "presentation",
+                                    },
+                                    "children": Array [
+                                      Node {
+                                        "attribs": Object {
+                                          "role": "presentation",
+                                          "style": "width:16px;height:16px",
+                                          "viewBox": "0 0 24 24",
+                                        },
+                                        "children": Array [
+                                          Node {
+                                            "attribs": Object {
+                                              "d": "M17.45,17.55L12,23L6.55,17.55L7.96,16.14L11,19.17V4.83L7.96,7.86L6.55,6.45L12,1L17.45,6.45L16.04,7.86L13,4.83V19.17L16.04,16.14L17.45,17.55Z",
+                                              "style": "fill:currentColor",
+                                            },
+                                            "children": Array [],
+                                            "name": "path",
+                                            "namespace": "http://www.w3.org/2000/svg",
+                                            "next": null,
+                                            "parent": [Circular],
+                                            "prev": null,
+                                            "type": "tag",
+                                            "x-attribsNamespace": Object {
+                                              "d": undefined,
+                                              "style": undefined,
+                                            },
+                                            "x-attribsPrefix": Object {
+                                              "d": undefined,
+                                              "style": undefined,
+                                            },
+                                          },
+                                        ],
+                                        "name": "svg",
+                                        "namespace": "http://www.w3.org/2000/svg",
+                                        "next": null,
+                                        "parent": [Circular],
+                                        "prev": null,
+                                        "type": "tag",
+                                        "x-attribsNamespace": Object {
+                                          "role": undefined,
+                                          "style": undefined,
+                                          "viewBox": undefined,
+                                        },
+                                        "x-attribsPrefix": Object {
+                                          "role": undefined,
+                                          "style": undefined,
+                                          "viewBox": undefined,
+                                        },
+                                      },
+                                    ],
+                                    "name": "span",
+                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                    "next": null,
+                                    "parent": [Circular],
+                                    "prev": null,
+                                    "type": "tag",
+                                    "x-attribsNamespace": Object {
+                                      "class": undefined,
+                                      "role": undefined,
+                                    },
+                                    "x-attribsPrefix": Object {
+                                      "class": undefined,
+                                      "role": undefined,
+                                    },
+                                  },
+                                ],
+                                "name": "span",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      Node {
+                        "attribs": Object {
+                          "class": "table-column-sorter-screen-reader-only",
+                        },
+                        "children": Array [
+                          Node {
+                            "data": "not sorted",
                             "next": null,
                             "parent": [Circular],
                             "prev": null,
@@ -154,7 +311,32 @@ LoadedCheerio {
                           },
                         },
                         "parent": [Circular],
-                        "prev": null,
+                        "prev": Node {
+                          "attribs": Object {
+                            "class": "table-column-title",
+                          },
+                          "children": Array [
+                            Node {
+                              "data": "Name",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
@@ -262,11 +444,11 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "table-column-title",
+                            "class": "table-column-sorter-screen-reader-only",
                           },
                           "children": Array [
                             Node {
-                              "data": "Name",
+                              "data": "not sorted",
                               "next": null,
                               "parent": [Circular],
                               "prev": null,
@@ -277,7 +459,32 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": [Circular],
                           "parent": [Circular],
-                          "prev": null,
+                          "prev": Node {
+                            "attribs": Object {
+                              "class": "table-column-title",
+                            },
+                            "children": Array [
+                              Node {
+                                "data": "Name",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
@@ -302,6 +509,7 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-reference-id": undefined,
                       "id": undefined,
@@ -309,6 +517,7 @@ LoadedCheerio {
                       "tabindex": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-label": undefined,
                       "class": undefined,
                       "data-reference-id": undefined,
                       "id": undefined,
@@ -3183,6 +3392,7 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
+                                              "aria-label": "not sorted",
                                               "class": "table-column-sorters tooltip-reference",
                                               "data-reference-id": "sortTip-reference",
                                               "id": "sortTip-reference",
@@ -3197,6 +3407,162 @@ LoadedCheerio {
                                                 "children": Array [
                                                   Node {
                                                     "data": "Name",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter-screen-reader-only",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "not sorted",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-sorter",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "attribs": Object {
+                                                          "class": "table-column-sorter-inner",
+                                                        },
+                                                        "children": Array [
+                                                          Node {
+                                                            "attribs": Object {
+                                                              "class": "icon-wrapper",
+                                                              "role": "presentation",
+                                                            },
+                                                            "children": Array [
+                                                              Node {
+                                                                "attribs": Object {
+                                                                  "role": "presentation",
+                                                                  "style": "width:16px;height:16px",
+                                                                  "viewBox": "0 0 24 24",
+                                                                },
+                                                                "children": Array [
+                                                                  Node {
+                                                                    "attribs": Object {
+                                                                      "d": "M17.45,17.55L12,23L6.55,17.55L7.96,16.14L11,19.17V4.83L7.96,7.86L6.55,6.45L12,1L17.45,6.45L16.04,7.86L13,4.83V19.17L16.04,16.14L17.45,17.55Z",
+                                                                      "style": "fill:currentColor",
+                                                                    },
+                                                                    "children": Array [],
+                                                                    "name": "path",
+                                                                    "namespace": "http://www.w3.org/2000/svg",
+                                                                    "next": null,
+                                                                    "parent": [Circular],
+                                                                    "prev": null,
+                                                                    "type": "tag",
+                                                                    "x-attribsNamespace": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                    "x-attribsPrefix": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                  },
+                                                                ],
+                                                                "name": "svg",
+                                                                "namespace": "http://www.w3.org/2000/svg",
+                                                                "next": null,
+                                                                "parent": [Circular],
+                                                                "prev": null,
+                                                                "type": "tag",
+                                                                "x-attribsNamespace": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                                "x-attribsPrefix": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                              },
+                                                            ],
+                                                            "name": "span",
+                                                            "namespace": "http://www.w3.org/1999/xhtml",
+                                                            "next": null,
+                                                            "parent": [Circular],
+                                                            "prev": null,
+                                                            "type": "tag",
+                                                            "x-attribsNamespace": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                            "x-attribsPrefix": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                          },
+                                                        ],
+                                                        "name": "span",
+                                                        "namespace": "http://www.w3.org/1999/xhtml",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "tag",
+                                                        "x-attribsNamespace": Object {
+                                                          "class": undefined,
+                                                        },
+                                                        "x-attribsPrefix": Object {
+                                                          "class": undefined,
+                                                        },
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": [Circular],
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "not sorted",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -3312,7 +3678,32 @@ LoadedCheerio {
                                                   },
                                                 },
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Name",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -3420,11 +3811,11 @@ LoadedCheerio {
                                                 "parent": [Circular],
                                                 "prev": Node {
                                                   "attribs": Object {
-                                                    "class": "table-column-title",
+                                                    "class": "table-column-sorter-screen-reader-only",
                                                   },
                                                   "children": Array [
                                                     Node {
-                                                      "data": "Name",
+                                                      "data": "not sorted",
                                                       "next": null,
                                                       "parent": [Circular],
                                                       "prev": null,
@@ -3435,7 +3826,32 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": [Circular],
                                                   "parent": [Circular],
-                                                  "prev": null,
+                                                  "prev": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-title",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "data": "Name",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "text",
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": [Circular],
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
                                                   "type": "tag",
                                                   "x-attribsNamespace": Object {
                                                     "class": undefined,
@@ -3460,6 +3876,7 @@ LoadedCheerio {
                                             "prev": null,
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "id": undefined,
@@ -3467,6 +3884,7 @@ LoadedCheerio {
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "id": undefined,
@@ -4335,6 +4753,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
+                                            "aria-label": "not sorted",
                                             "class": "table-column-sorters tooltip-reference",
                                             "data-reference-id": "sortTip-reference",
                                             "id": "sortTip-reference",
@@ -4349,6 +4768,162 @@ LoadedCheerio {
                                               "children": Array [
                                                 Node {
                                                   "data": "Name",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "text",
+                                                },
+                                              ],
+                                              "name": "span",
+                                              "namespace": "http://www.w3.org/1999/xhtml",
+                                              "next": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "not sorted",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "attribs": Object {
+                                                        "class": "table-column-sorter-inner",
+                                                      },
+                                                      "children": Array [
+                                                        Node {
+                                                          "attribs": Object {
+                                                            "class": "icon-wrapper",
+                                                            "role": "presentation",
+                                                          },
+                                                          "children": Array [
+                                                            Node {
+                                                              "attribs": Object {
+                                                                "role": "presentation",
+                                                                "style": "width:16px;height:16px",
+                                                                "viewBox": "0 0 24 24",
+                                                              },
+                                                              "children": Array [
+                                                                Node {
+                                                                  "attribs": Object {
+                                                                    "d": "M17.45,17.55L12,23L6.55,17.55L7.96,16.14L11,19.17V4.83L7.96,7.86L6.55,6.45L12,1L17.45,6.45L16.04,7.86L13,4.83V19.17L16.04,16.14L17.45,17.55Z",
+                                                                    "style": "fill:currentColor",
+                                                                  },
+                                                                  "children": Array [],
+                                                                  "name": "path",
+                                                                  "namespace": "http://www.w3.org/2000/svg",
+                                                                  "next": null,
+                                                                  "parent": [Circular],
+                                                                  "prev": null,
+                                                                  "type": "tag",
+                                                                  "x-attribsNamespace": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                  "x-attribsPrefix": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                },
+                                                              ],
+                                                              "name": "svg",
+                                                              "namespace": "http://www.w3.org/2000/svg",
+                                                              "next": null,
+                                                              "parent": [Circular],
+                                                              "prev": null,
+                                                              "type": "tag",
+                                                              "x-attribsNamespace": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                              "x-attribsPrefix": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                            },
+                                                          ],
+                                                          "name": "span",
+                                                          "namespace": "http://www.w3.org/1999/xhtml",
+                                                          "next": null,
+                                                          "parent": [Circular],
+                                                          "prev": null,
+                                                          "type": "tag",
+                                                          "x-attribsNamespace": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                          "x-attribsPrefix": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                        },
+                                                      ],
+                                                      "name": "span",
+                                                      "namespace": "http://www.w3.org/1999/xhtml",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "tag",
+                                                      "x-attribsNamespace": Object {
+                                                        "class": undefined,
+                                                      },
+                                                      "x-attribsPrefix": Object {
+                                                        "class": undefined,
+                                                      },
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": [Circular],
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              "parent": [Circular],
+                                              "prev": null,
+                                              "type": "tag",
+                                              "x-attribsNamespace": Object {
+                                                "class": undefined,
+                                              },
+                                              "x-attribsPrefix": Object {
+                                                "class": undefined,
+                                              },
+                                            },
+                                            Node {
+                                              "attribs": Object {
+                                                "class": "table-column-sorter-screen-reader-only",
+                                              },
+                                              "children": Array [
+                                                Node {
+                                                  "data": "not sorted",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -4464,7 +5039,32 @@ LoadedCheerio {
                                                 },
                                               },
                                               "parent": [Circular],
-                                              "prev": null,
+                                              "prev": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-title",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "Name",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": [Circular],
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "class": undefined,
@@ -4572,11 +5172,11 @@ LoadedCheerio {
                                               "parent": [Circular],
                                               "prev": Node {
                                                 "attribs": Object {
-                                                  "class": "table-column-title",
+                                                  "class": "table-column-sorter-screen-reader-only",
                                                 },
                                                 "children": Array [
                                                   Node {
-                                                    "data": "Name",
+                                                    "data": "not sorted",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -4587,7 +5187,32 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": [Circular],
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Name",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -4612,6 +5237,7 @@ LoadedCheerio {
                                           "prev": null,
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "id": undefined,
@@ -4619,6 +5245,7 @@ LoadedCheerio {
                                             "tabindex": undefined,
                                           },
                                           "x-attribsPrefix": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "id": undefined,
@@ -6258,6 +6885,7 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
+                                              "aria-label": "not sorted",
                                               "class": "table-column-sorters tooltip-reference",
                                               "data-reference-id": "sortTip-reference",
                                               "id": "sortTip-reference",
@@ -6272,6 +6900,162 @@ LoadedCheerio {
                                                 "children": Array [
                                                   Node {
                                                     "data": "Name",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter-screen-reader-only",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "not sorted",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-sorter",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "attribs": Object {
+                                                          "class": "table-column-sorter-inner",
+                                                        },
+                                                        "children": Array [
+                                                          Node {
+                                                            "attribs": Object {
+                                                              "class": "icon-wrapper",
+                                                              "role": "presentation",
+                                                            },
+                                                            "children": Array [
+                                                              Node {
+                                                                "attribs": Object {
+                                                                  "role": "presentation",
+                                                                  "style": "width:16px;height:16px",
+                                                                  "viewBox": "0 0 24 24",
+                                                                },
+                                                                "children": Array [
+                                                                  Node {
+                                                                    "attribs": Object {
+                                                                      "d": "M17.45,17.55L12,23L6.55,17.55L7.96,16.14L11,19.17V4.83L7.96,7.86L6.55,6.45L12,1L17.45,6.45L16.04,7.86L13,4.83V19.17L16.04,16.14L17.45,17.55Z",
+                                                                      "style": "fill:currentColor",
+                                                                    },
+                                                                    "children": Array [],
+                                                                    "name": "path",
+                                                                    "namespace": "http://www.w3.org/2000/svg",
+                                                                    "next": null,
+                                                                    "parent": [Circular],
+                                                                    "prev": null,
+                                                                    "type": "tag",
+                                                                    "x-attribsNamespace": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                    "x-attribsPrefix": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                  },
+                                                                ],
+                                                                "name": "svg",
+                                                                "namespace": "http://www.w3.org/2000/svg",
+                                                                "next": null,
+                                                                "parent": [Circular],
+                                                                "prev": null,
+                                                                "type": "tag",
+                                                                "x-attribsNamespace": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                                "x-attribsPrefix": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                              },
+                                                            ],
+                                                            "name": "span",
+                                                            "namespace": "http://www.w3.org/1999/xhtml",
+                                                            "next": null,
+                                                            "parent": [Circular],
+                                                            "prev": null,
+                                                            "type": "tag",
+                                                            "x-attribsNamespace": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                            "x-attribsPrefix": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                          },
+                                                        ],
+                                                        "name": "span",
+                                                        "namespace": "http://www.w3.org/1999/xhtml",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "tag",
+                                                        "x-attribsNamespace": Object {
+                                                          "class": undefined,
+                                                        },
+                                                        "x-attribsPrefix": Object {
+                                                          "class": undefined,
+                                                        },
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": [Circular],
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "not sorted",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -6387,7 +7171,32 @@ LoadedCheerio {
                                                   },
                                                 },
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Name",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -6495,11 +7304,11 @@ LoadedCheerio {
                                                 "parent": [Circular],
                                                 "prev": Node {
                                                   "attribs": Object {
-                                                    "class": "table-column-title",
+                                                    "class": "table-column-sorter-screen-reader-only",
                                                   },
                                                   "children": Array [
                                                     Node {
-                                                      "data": "Name",
+                                                      "data": "not sorted",
                                                       "next": null,
                                                       "parent": [Circular],
                                                       "prev": null,
@@ -6510,7 +7319,32 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": [Circular],
                                                   "parent": [Circular],
-                                                  "prev": null,
+                                                  "prev": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-title",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "data": "Name",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "text",
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": [Circular],
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
                                                   "type": "tag",
                                                   "x-attribsNamespace": Object {
                                                     "class": undefined,
@@ -6535,6 +7369,7 @@ LoadedCheerio {
                                             "prev": null,
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "id": undefined,
@@ -6542,6 +7377,7 @@ LoadedCheerio {
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "id": undefined,
@@ -6846,6 +7682,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
+                                            "aria-label": "sorted ascending",
                                             "class": "table-column-sorters tooltip-reference",
                                             "data-reference-id": "sortTip-reference",
                                             "data-sort-order": "ascend",
@@ -6861,6 +7698,162 @@ LoadedCheerio {
                                               "children": Array [
                                                 Node {
                                                   "data": "Age",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "text",
+                                                },
+                                              ],
+                                              "name": "span",
+                                              "namespace": "http://www.w3.org/1999/xhtml",
+                                              "next": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "sorted ascending",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter table-column-sorter-up",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "attribs": Object {
+                                                        "class": "table-column-sorter-inner",
+                                                      },
+                                                      "children": Array [
+                                                        Node {
+                                                          "attribs": Object {
+                                                            "class": "icon-wrapper",
+                                                            "role": "presentation",
+                                                          },
+                                                          "children": Array [
+                                                            Node {
+                                                              "attribs": Object {
+                                                                "role": "presentation",
+                                                                "style": "width: 16px; height: 16px;",
+                                                                "viewBox": "0 0 24 24",
+                                                              },
+                                                              "children": Array [
+                                                                Node {
+                                                                  "attribs": Object {
+                                                                    "d": "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z",
+                                                                    "style": "fill: currentColor;",
+                                                                  },
+                                                                  "children": Array [],
+                                                                  "name": "path",
+                                                                  "namespace": "http://www.w3.org/2000/svg",
+                                                                  "next": null,
+                                                                  "parent": [Circular],
+                                                                  "prev": null,
+                                                                  "type": "tag",
+                                                                  "x-attribsNamespace": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                  "x-attribsPrefix": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                },
+                                                              ],
+                                                              "name": "svg",
+                                                              "namespace": "http://www.w3.org/2000/svg",
+                                                              "next": null,
+                                                              "parent": [Circular],
+                                                              "prev": null,
+                                                              "type": "tag",
+                                                              "x-attribsNamespace": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                              "x-attribsPrefix": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                            },
+                                                          ],
+                                                          "name": "span",
+                                                          "namespace": "http://www.w3.org/1999/xhtml",
+                                                          "next": null,
+                                                          "parent": [Circular],
+                                                          "prev": null,
+                                                          "type": "tag",
+                                                          "x-attribsNamespace": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                          "x-attribsPrefix": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                        },
+                                                      ],
+                                                      "name": "span",
+                                                      "namespace": "http://www.w3.org/1999/xhtml",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "tag",
+                                                      "x-attribsNamespace": Object {
+                                                        "class": undefined,
+                                                      },
+                                                      "x-attribsPrefix": Object {
+                                                        "class": undefined,
+                                                      },
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": [Circular],
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              "parent": [Circular],
+                                              "prev": null,
+                                              "type": "tag",
+                                              "x-attribsNamespace": Object {
+                                                "class": undefined,
+                                              },
+                                              "x-attribsPrefix": Object {
+                                                "class": undefined,
+                                              },
+                                            },
+                                            Node {
+                                              "attribs": Object {
+                                                "class": "table-column-sorter-screen-reader-only",
+                                              },
+                                              "children": Array [
+                                                Node {
+                                                  "data": "sorted ascending",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -6976,7 +7969,32 @@ LoadedCheerio {
                                                 },
                                               },
                                               "parent": [Circular],
-                                              "prev": null,
+                                              "prev": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-title",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "Age",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": [Circular],
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "class": undefined,
@@ -7084,11 +8102,11 @@ LoadedCheerio {
                                               "parent": [Circular],
                                               "prev": Node {
                                                 "attribs": Object {
-                                                  "class": "table-column-title",
+                                                  "class": "table-column-sorter-screen-reader-only",
                                                 },
                                                 "children": Array [
                                                   Node {
-                                                    "data": "Age",
+                                                    "data": "sorted ascending",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -7099,7 +8117,32 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": [Circular],
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Age",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -7124,6 +8167,7 @@ LoadedCheerio {
                                           "prev": null,
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "data-sort-order": undefined,
@@ -7132,6 +8176,7 @@ LoadedCheerio {
                                             "tabindex": undefined,
                                           },
                                           "x-attribsPrefix": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "data-sort-order": undefined,
@@ -7293,6 +8338,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "attribs": Object {
+                                          "aria-label": "sorted ascending",
                                           "class": "table-column-sorters tooltip-reference",
                                           "data-reference-id": "sortTip-reference",
                                           "data-sort-order": "ascend",
@@ -7308,6 +8354,162 @@ LoadedCheerio {
                                             "children": Array [
                                               Node {
                                                 "data": "Age",
+                                                "next": null,
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "text",
+                                              },
+                                            ],
+                                            "name": "span",
+                                            "namespace": "http://www.w3.org/1999/xhtml",
+                                            "next": Node {
+                                              "attribs": Object {
+                                                "class": "table-column-sorter-screen-reader-only",
+                                              },
+                                              "children": Array [
+                                                Node {
+                                                  "data": "sorted ascending",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "text",
+                                                },
+                                              ],
+                                              "name": "span",
+                                              "namespace": "http://www.w3.org/1999/xhtml",
+                                              "next": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter table-column-sorter-up",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-sorter-inner",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "attribs": Object {
+                                                          "class": "icon-wrapper",
+                                                          "role": "presentation",
+                                                        },
+                                                        "children": Array [
+                                                          Node {
+                                                            "attribs": Object {
+                                                              "role": "presentation",
+                                                              "style": "width: 16px; height: 16px;",
+                                                              "viewBox": "0 0 24 24",
+                                                            },
+                                                            "children": Array [
+                                                              Node {
+                                                                "attribs": Object {
+                                                                  "d": "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z",
+                                                                  "style": "fill: currentColor;",
+                                                                },
+                                                                "children": Array [],
+                                                                "name": "path",
+                                                                "namespace": "http://www.w3.org/2000/svg",
+                                                                "next": null,
+                                                                "parent": [Circular],
+                                                                "prev": null,
+                                                                "type": "tag",
+                                                                "x-attribsNamespace": Object {
+                                                                  "d": undefined,
+                                                                  "style": undefined,
+                                                                },
+                                                                "x-attribsPrefix": Object {
+                                                                  "d": undefined,
+                                                                  "style": undefined,
+                                                                },
+                                                              },
+                                                            ],
+                                                            "name": "svg",
+                                                            "namespace": "http://www.w3.org/2000/svg",
+                                                            "next": null,
+                                                            "parent": [Circular],
+                                                            "prev": null,
+                                                            "type": "tag",
+                                                            "x-attribsNamespace": Object {
+                                                              "role": undefined,
+                                                              "style": undefined,
+                                                              "viewBox": undefined,
+                                                            },
+                                                            "x-attribsPrefix": Object {
+                                                              "role": undefined,
+                                                              "style": undefined,
+                                                              "viewBox": undefined,
+                                                            },
+                                                          },
+                                                        ],
+                                                        "name": "span",
+                                                        "namespace": "http://www.w3.org/1999/xhtml",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "tag",
+                                                        "x-attribsNamespace": Object {
+                                                          "class": undefined,
+                                                          "role": undefined,
+                                                        },
+                                                        "x-attribsPrefix": Object {
+                                                          "class": undefined,
+                                                          "role": undefined,
+                                                        },
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": null,
+                                                "parent": [Circular],
+                                                "prev": [Circular],
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              "parent": [Circular],
+                                              "prev": [Circular],
+                                              "type": "tag",
+                                              "x-attribsNamespace": Object {
+                                                "class": undefined,
+                                              },
+                                              "x-attribsPrefix": Object {
+                                                "class": undefined,
+                                              },
+                                            },
+                                            "parent": [Circular],
+                                            "prev": null,
+                                            "type": "tag",
+                                            "x-attribsNamespace": Object {
+                                              "class": undefined,
+                                            },
+                                            "x-attribsPrefix": Object {
+                                              "class": undefined,
+                                            },
+                                          },
+                                          Node {
+                                            "attribs": Object {
+                                              "class": "table-column-sorter-screen-reader-only",
+                                            },
+                                            "children": Array [
+                                              Node {
+                                                "data": "sorted ascending",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,
@@ -7423,7 +8625,32 @@ LoadedCheerio {
                                               },
                                             },
                                             "parent": [Circular],
-                                            "prev": null,
+                                            "prev": Node {
+                                              "attribs": Object {
+                                                "class": "table-column-title",
+                                              },
+                                              "children": Array [
+                                                Node {
+                                                  "data": "Age",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "text",
+                                                },
+                                              ],
+                                              "name": "span",
+                                              "namespace": "http://www.w3.org/1999/xhtml",
+                                              "next": [Circular],
+                                              "parent": [Circular],
+                                              "prev": null,
+                                              "type": "tag",
+                                              "x-attribsNamespace": Object {
+                                                "class": undefined,
+                                              },
+                                              "x-attribsPrefix": Object {
+                                                "class": undefined,
+                                              },
+                                            },
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
@@ -7531,11 +8758,11 @@ LoadedCheerio {
                                             "parent": [Circular],
                                             "prev": Node {
                                               "attribs": Object {
-                                                "class": "table-column-title",
+                                                "class": "table-column-sorter-screen-reader-only",
                                               },
                                               "children": Array [
                                                 Node {
-                                                  "data": "Age",
+                                                  "data": "sorted ascending",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -7546,7 +8773,32 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": [Circular],
                                               "parent": [Circular],
-                                              "prev": null,
+                                              "prev": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-title",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "Age",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": [Circular],
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "class": undefined,
@@ -7571,6 +8823,7 @@ LoadedCheerio {
                                         "prev": null,
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
+                                          "aria-label": undefined,
                                           "class": undefined,
                                           "data-reference-id": undefined,
                                           "data-sort-order": undefined,
@@ -7579,6 +8832,7 @@ LoadedCheerio {
                                           "tabindex": undefined,
                                         },
                                         "x-attribsPrefix": Object {
+                                          "aria-label": undefined,
                                           "class": undefined,
                                           "data-reference-id": undefined,
                                           "data-sort-order": undefined,
@@ -7803,6 +9057,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
+                                            "aria-label": "sorted ascending",
                                             "class": "table-column-sorters tooltip-reference",
                                             "data-reference-id": "sortTip-reference",
                                             "data-sort-order": "ascend",
@@ -7818,6 +9073,162 @@ LoadedCheerio {
                                               "children": Array [
                                                 Node {
                                                   "data": "Age",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "text",
+                                                },
+                                              ],
+                                              "name": "span",
+                                              "namespace": "http://www.w3.org/1999/xhtml",
+                                              "next": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "sorted ascending",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter table-column-sorter-up",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "attribs": Object {
+                                                        "class": "table-column-sorter-inner",
+                                                      },
+                                                      "children": Array [
+                                                        Node {
+                                                          "attribs": Object {
+                                                            "class": "icon-wrapper",
+                                                            "role": "presentation",
+                                                          },
+                                                          "children": Array [
+                                                            Node {
+                                                              "attribs": Object {
+                                                                "role": "presentation",
+                                                                "style": "width: 16px; height: 16px;",
+                                                                "viewBox": "0 0 24 24",
+                                                              },
+                                                              "children": Array [
+                                                                Node {
+                                                                  "attribs": Object {
+                                                                    "d": "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z",
+                                                                    "style": "fill: currentColor;",
+                                                                  },
+                                                                  "children": Array [],
+                                                                  "name": "path",
+                                                                  "namespace": "http://www.w3.org/2000/svg",
+                                                                  "next": null,
+                                                                  "parent": [Circular],
+                                                                  "prev": null,
+                                                                  "type": "tag",
+                                                                  "x-attribsNamespace": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                  "x-attribsPrefix": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                },
+                                                              ],
+                                                              "name": "svg",
+                                                              "namespace": "http://www.w3.org/2000/svg",
+                                                              "next": null,
+                                                              "parent": [Circular],
+                                                              "prev": null,
+                                                              "type": "tag",
+                                                              "x-attribsNamespace": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                              "x-attribsPrefix": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                            },
+                                                          ],
+                                                          "name": "span",
+                                                          "namespace": "http://www.w3.org/1999/xhtml",
+                                                          "next": null,
+                                                          "parent": [Circular],
+                                                          "prev": null,
+                                                          "type": "tag",
+                                                          "x-attribsNamespace": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                          "x-attribsPrefix": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                        },
+                                                      ],
+                                                      "name": "span",
+                                                      "namespace": "http://www.w3.org/1999/xhtml",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "tag",
+                                                      "x-attribsNamespace": Object {
+                                                        "class": undefined,
+                                                      },
+                                                      "x-attribsPrefix": Object {
+                                                        "class": undefined,
+                                                      },
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": [Circular],
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              "parent": [Circular],
+                                              "prev": null,
+                                              "type": "tag",
+                                              "x-attribsNamespace": Object {
+                                                "class": undefined,
+                                              },
+                                              "x-attribsPrefix": Object {
+                                                "class": undefined,
+                                              },
+                                            },
+                                            Node {
+                                              "attribs": Object {
+                                                "class": "table-column-sorter-screen-reader-only",
+                                              },
+                                              "children": Array [
+                                                Node {
+                                                  "data": "sorted ascending",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -7933,7 +9344,32 @@ LoadedCheerio {
                                                 },
                                               },
                                               "parent": [Circular],
-                                              "prev": null,
+                                              "prev": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-title",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "Age",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": [Circular],
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "class": undefined,
@@ -8041,11 +9477,11 @@ LoadedCheerio {
                                               "parent": [Circular],
                                               "prev": Node {
                                                 "attribs": Object {
-                                                  "class": "table-column-title",
+                                                  "class": "table-column-sorter-screen-reader-only",
                                                 },
                                                 "children": Array [
                                                   Node {
-                                                    "data": "Age",
+                                                    "data": "sorted ascending",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -8056,7 +9492,32 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": [Circular],
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Age",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -8081,6 +9542,7 @@ LoadedCheerio {
                                           "prev": null,
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "data-sort-order": undefined,
@@ -8089,6 +9551,7 @@ LoadedCheerio {
                                             "tabindex": undefined,
                                           },
                                           "x-attribsPrefix": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "data-sort-order": undefined,
@@ -8698,6 +10161,7 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
+                                              "aria-label": "sorted ascending",
                                               "class": "table-column-sorters tooltip-reference",
                                               "data-reference-id": "sortTip-reference",
                                               "data-sort-order": "ascend",
@@ -8713,6 +10177,162 @@ LoadedCheerio {
                                                 "children": Array [
                                                   Node {
                                                     "data": "Age",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter-screen-reader-only",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "sorted ascending",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-sorter table-column-sorter-up",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "attribs": Object {
+                                                          "class": "table-column-sorter-inner",
+                                                        },
+                                                        "children": Array [
+                                                          Node {
+                                                            "attribs": Object {
+                                                              "class": "icon-wrapper",
+                                                              "role": "presentation",
+                                                            },
+                                                            "children": Array [
+                                                              Node {
+                                                                "attribs": Object {
+                                                                  "role": "presentation",
+                                                                  "style": "width: 16px; height: 16px;",
+                                                                  "viewBox": "0 0 24 24",
+                                                                },
+                                                                "children": Array [
+                                                                  Node {
+                                                                    "attribs": Object {
+                                                                      "d": "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z",
+                                                                      "style": "fill: currentColor;",
+                                                                    },
+                                                                    "children": Array [],
+                                                                    "name": "path",
+                                                                    "namespace": "http://www.w3.org/2000/svg",
+                                                                    "next": null,
+                                                                    "parent": [Circular],
+                                                                    "prev": null,
+                                                                    "type": "tag",
+                                                                    "x-attribsNamespace": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                    "x-attribsPrefix": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                  },
+                                                                ],
+                                                                "name": "svg",
+                                                                "namespace": "http://www.w3.org/2000/svg",
+                                                                "next": null,
+                                                                "parent": [Circular],
+                                                                "prev": null,
+                                                                "type": "tag",
+                                                                "x-attribsNamespace": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                                "x-attribsPrefix": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                              },
+                                                            ],
+                                                            "name": "span",
+                                                            "namespace": "http://www.w3.org/1999/xhtml",
+                                                            "next": null,
+                                                            "parent": [Circular],
+                                                            "prev": null,
+                                                            "type": "tag",
+                                                            "x-attribsNamespace": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                            "x-attribsPrefix": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                          },
+                                                        ],
+                                                        "name": "span",
+                                                        "namespace": "http://www.w3.org/1999/xhtml",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "tag",
+                                                        "x-attribsNamespace": Object {
+                                                          "class": undefined,
+                                                        },
+                                                        "x-attribsPrefix": Object {
+                                                          "class": undefined,
+                                                        },
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": [Circular],
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "sorted ascending",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -8828,7 +10448,32 @@ LoadedCheerio {
                                                   },
                                                 },
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Age",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -8936,11 +10581,11 @@ LoadedCheerio {
                                                 "parent": [Circular],
                                                 "prev": Node {
                                                   "attribs": Object {
-                                                    "class": "table-column-title",
+                                                    "class": "table-column-sorter-screen-reader-only",
                                                   },
                                                   "children": Array [
                                                     Node {
-                                                      "data": "Age",
+                                                      "data": "sorted ascending",
                                                       "next": null,
                                                       "parent": [Circular],
                                                       "prev": null,
@@ -8951,7 +10596,32 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": [Circular],
                                                   "parent": [Circular],
-                                                  "prev": null,
+                                                  "prev": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-title",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "data": "Age",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "text",
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": [Circular],
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
                                                   "type": "tag",
                                                   "x-attribsNamespace": Object {
                                                     "class": undefined,
@@ -8976,6 +10646,7 @@ LoadedCheerio {
                                             "prev": null,
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "data-sort-order": undefined,
@@ -8984,6 +10655,7 @@ LoadedCheerio {
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "data-sort-order": undefined,
@@ -9145,6 +10817,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "attribs": Object {
+                                            "aria-label": "sorted ascending",
                                             "class": "table-column-sorters tooltip-reference",
                                             "data-reference-id": "sortTip-reference",
                                             "data-sort-order": "ascend",
@@ -9160,6 +10833,162 @@ LoadedCheerio {
                                               "children": Array [
                                                 Node {
                                                   "data": "Age",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "text",
+                                                },
+                                              ],
+                                              "name": "span",
+                                              "namespace": "http://www.w3.org/1999/xhtml",
+                                              "next": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "sorted ascending",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter table-column-sorter-up",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "attribs": Object {
+                                                        "class": "table-column-sorter-inner",
+                                                      },
+                                                      "children": Array [
+                                                        Node {
+                                                          "attribs": Object {
+                                                            "class": "icon-wrapper",
+                                                            "role": "presentation",
+                                                          },
+                                                          "children": Array [
+                                                            Node {
+                                                              "attribs": Object {
+                                                                "role": "presentation",
+                                                                "style": "width: 16px; height: 16px;",
+                                                                "viewBox": "0 0 24 24",
+                                                              },
+                                                              "children": Array [
+                                                                Node {
+                                                                  "attribs": Object {
+                                                                    "d": "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z",
+                                                                    "style": "fill: currentColor;",
+                                                                  },
+                                                                  "children": Array [],
+                                                                  "name": "path",
+                                                                  "namespace": "http://www.w3.org/2000/svg",
+                                                                  "next": null,
+                                                                  "parent": [Circular],
+                                                                  "prev": null,
+                                                                  "type": "tag",
+                                                                  "x-attribsNamespace": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                  "x-attribsPrefix": Object {
+                                                                    "d": undefined,
+                                                                    "style": undefined,
+                                                                  },
+                                                                },
+                                                              ],
+                                                              "name": "svg",
+                                                              "namespace": "http://www.w3.org/2000/svg",
+                                                              "next": null,
+                                                              "parent": [Circular],
+                                                              "prev": null,
+                                                              "type": "tag",
+                                                              "x-attribsNamespace": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                              "x-attribsPrefix": Object {
+                                                                "role": undefined,
+                                                                "style": undefined,
+                                                                "viewBox": undefined,
+                                                              },
+                                                            },
+                                                          ],
+                                                          "name": "span",
+                                                          "namespace": "http://www.w3.org/1999/xhtml",
+                                                          "next": null,
+                                                          "parent": [Circular],
+                                                          "prev": null,
+                                                          "type": "tag",
+                                                          "x-attribsNamespace": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                          "x-attribsPrefix": Object {
+                                                            "class": undefined,
+                                                            "role": undefined,
+                                                          },
+                                                        },
+                                                      ],
+                                                      "name": "span",
+                                                      "namespace": "http://www.w3.org/1999/xhtml",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "tag",
+                                                      "x-attribsNamespace": Object {
+                                                        "class": undefined,
+                                                      },
+                                                      "x-attribsPrefix": Object {
+                                                        "class": undefined,
+                                                      },
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": null,
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": [Circular],
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              "parent": [Circular],
+                                              "prev": null,
+                                              "type": "tag",
+                                              "x-attribsNamespace": Object {
+                                                "class": undefined,
+                                              },
+                                              "x-attribsPrefix": Object {
+                                                "class": undefined,
+                                              },
+                                            },
+                                            Node {
+                                              "attribs": Object {
+                                                "class": "table-column-sorter-screen-reader-only",
+                                              },
+                                              "children": Array [
+                                                Node {
+                                                  "data": "sorted ascending",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -9275,7 +11104,32 @@ LoadedCheerio {
                                                 },
                                               },
                                               "parent": [Circular],
-                                              "prev": null,
+                                              "prev": Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-title",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "Age",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": [Circular],
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "class": undefined,
@@ -9383,11 +11237,11 @@ LoadedCheerio {
                                               "parent": [Circular],
                                               "prev": Node {
                                                 "attribs": Object {
-                                                  "class": "table-column-title",
+                                                  "class": "table-column-sorter-screen-reader-only",
                                                 },
                                                 "children": Array [
                                                   Node {
-                                                    "data": "Age",
+                                                    "data": "sorted ascending",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -9398,7 +11252,32 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": [Circular],
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Age",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -9423,6 +11302,7 @@ LoadedCheerio {
                                           "prev": null,
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "data-sort-order": undefined,
@@ -9431,6 +11311,7 @@ LoadedCheerio {
                                             "tabindex": undefined,
                                           },
                                           "x-attribsPrefix": Object {
+                                            "aria-label": undefined,
                                             "class": undefined,
                                             "data-reference-id": undefined,
                                             "data-sort-order": undefined,
@@ -9655,6 +11536,7 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "attribs": Object {
+                                              "aria-label": "sorted ascending",
                                               "class": "table-column-sorters tooltip-reference",
                                               "data-reference-id": "sortTip-reference",
                                               "data-sort-order": "ascend",
@@ -9670,6 +11552,162 @@ LoadedCheerio {
                                                 "children": Array [
                                                   Node {
                                                     "data": "Age",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "name": "span",
+                                                "namespace": "http://www.w3.org/1999/xhtml",
+                                                "next": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-sorter-screen-reader-only",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "sorted ascending",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-sorter table-column-sorter-up",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "attribs": Object {
+                                                          "class": "table-column-sorter-inner",
+                                                        },
+                                                        "children": Array [
+                                                          Node {
+                                                            "attribs": Object {
+                                                              "class": "icon-wrapper",
+                                                              "role": "presentation",
+                                                            },
+                                                            "children": Array [
+                                                              Node {
+                                                                "attribs": Object {
+                                                                  "role": "presentation",
+                                                                  "style": "width: 16px; height: 16px;",
+                                                                  "viewBox": "0 0 24 24",
+                                                                },
+                                                                "children": Array [
+                                                                  Node {
+                                                                    "attribs": Object {
+                                                                      "d": "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z",
+                                                                      "style": "fill: currentColor;",
+                                                                    },
+                                                                    "children": Array [],
+                                                                    "name": "path",
+                                                                    "namespace": "http://www.w3.org/2000/svg",
+                                                                    "next": null,
+                                                                    "parent": [Circular],
+                                                                    "prev": null,
+                                                                    "type": "tag",
+                                                                    "x-attribsNamespace": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                    "x-attribsPrefix": Object {
+                                                                      "d": undefined,
+                                                                      "style": undefined,
+                                                                    },
+                                                                  },
+                                                                ],
+                                                                "name": "svg",
+                                                                "namespace": "http://www.w3.org/2000/svg",
+                                                                "next": null,
+                                                                "parent": [Circular],
+                                                                "prev": null,
+                                                                "type": "tag",
+                                                                "x-attribsNamespace": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                                "x-attribsPrefix": Object {
+                                                                  "role": undefined,
+                                                                  "style": undefined,
+                                                                  "viewBox": undefined,
+                                                                },
+                                                              },
+                                                            ],
+                                                            "name": "span",
+                                                            "namespace": "http://www.w3.org/1999/xhtml",
+                                                            "next": null,
+                                                            "parent": [Circular],
+                                                            "prev": null,
+                                                            "type": "tag",
+                                                            "x-attribsNamespace": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                            "x-attribsPrefix": Object {
+                                                              "class": undefined,
+                                                              "role": undefined,
+                                                            },
+                                                          },
+                                                        ],
+                                                        "name": "span",
+                                                        "namespace": "http://www.w3.org/1999/xhtml",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "tag",
+                                                        "x-attribsNamespace": Object {
+                                                          "class": undefined,
+                                                        },
+                                                        "x-attribsPrefix": Object {
+                                                          "class": undefined,
+                                                        },
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": null,
+                                                    "parent": [Circular],
+                                                    "prev": [Circular],
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
+                                                  "parent": [Circular],
+                                                  "prev": [Circular],
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
+                                                "parent": [Circular],
+                                                "prev": null,
+                                                "type": "tag",
+                                                "x-attribsNamespace": Object {
+                                                  "class": undefined,
+                                                },
+                                                "x-attribsPrefix": Object {
+                                                  "class": undefined,
+                                                },
+                                              },
+                                              Node {
+                                                "attribs": Object {
+                                                  "class": "table-column-sorter-screen-reader-only",
+                                                },
+                                                "children": Array [
+                                                  Node {
+                                                    "data": "sorted ascending",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -9785,7 +11823,32 @@ LoadedCheerio {
                                                   },
                                                 },
                                                 "parent": [Circular],
-                                                "prev": null,
+                                                "prev": Node {
+                                                  "attribs": Object {
+                                                    "class": "table-column-title",
+                                                  },
+                                                  "children": Array [
+                                                    Node {
+                                                      "data": "Age",
+                                                      "next": null,
+                                                      "parent": [Circular],
+                                                      "prev": null,
+                                                      "type": "text",
+                                                    },
+                                                  ],
+                                                  "name": "span",
+                                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                                  "next": [Circular],
+                                                  "parent": [Circular],
+                                                  "prev": null,
+                                                  "type": "tag",
+                                                  "x-attribsNamespace": Object {
+                                                    "class": undefined,
+                                                  },
+                                                  "x-attribsPrefix": Object {
+                                                    "class": undefined,
+                                                  },
+                                                },
                                                 "type": "tag",
                                                 "x-attribsNamespace": Object {
                                                   "class": undefined,
@@ -9893,11 +11956,11 @@ LoadedCheerio {
                                                 "parent": [Circular],
                                                 "prev": Node {
                                                   "attribs": Object {
-                                                    "class": "table-column-title",
+                                                    "class": "table-column-sorter-screen-reader-only",
                                                   },
                                                   "children": Array [
                                                     Node {
-                                                      "data": "Age",
+                                                      "data": "sorted ascending",
                                                       "next": null,
                                                       "parent": [Circular],
                                                       "prev": null,
@@ -9908,7 +11971,32 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": [Circular],
                                                   "parent": [Circular],
-                                                  "prev": null,
+                                                  "prev": Node {
+                                                    "attribs": Object {
+                                                      "class": "table-column-title",
+                                                    },
+                                                    "children": Array [
+                                                      Node {
+                                                        "data": "Age",
+                                                        "next": null,
+                                                        "parent": [Circular],
+                                                        "prev": null,
+                                                        "type": "text",
+                                                      },
+                                                    ],
+                                                    "name": "span",
+                                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                                    "next": [Circular],
+                                                    "parent": [Circular],
+                                                    "prev": null,
+                                                    "type": "tag",
+                                                    "x-attribsNamespace": Object {
+                                                      "class": undefined,
+                                                    },
+                                                    "x-attribsPrefix": Object {
+                                                      "class": undefined,
+                                                    },
+                                                  },
                                                   "type": "tag",
                                                   "x-attribsNamespace": Object {
                                                     "class": undefined,
@@ -9933,6 +12021,7 @@ LoadedCheerio {
                                             "prev": null,
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "data-sort-order": undefined,
@@ -9941,6 +12030,7 @@ LoadedCheerio {
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
+                                              "aria-label": undefined,
                                               "class": undefined,
                                               "data-reference-id": undefined,
                                               "data-sort-order": undefined,

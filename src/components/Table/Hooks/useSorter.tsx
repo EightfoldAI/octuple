@@ -177,16 +177,12 @@ function injectSorter<RecordType>(
           { [styles.tableColumnSort]: sorterOrder },
         ]),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
-          let sortStatusText = '';
-          if (column.headerLabel) {
-            if (sorterOrder === 'ascend') {
-              sortStatusText = `${column.headerLabel}, ${sortedAscendingText}`;
-            } else if (sorterOrder === 'descend') {
-              sortStatusText = `${column.headerLabel}, ${sortedDescendingText}`;
-            } else {
-              sortStatusText = `${column.headerLabel}, ${notSortedText}`;
-            }
-          }
+          const sortStatusText =
+            sorterOrder === 'ascend'
+              ? sortedAscendingText
+              : sorterOrder === 'descend'
+              ? sortedDescendingText
+              : notSortedText;
           const renderSortTitle = (
             <div
               className={styles.tableColumnSorters}
@@ -216,6 +212,9 @@ function injectSorter<RecordType>(
               <span className={styles.tableColumnTitle}>
                 {renderColumnTitle(column.title, renderProps)}
               </span>
+              <span className={styles.tableColumnSorterScreenReaderOnly}>
+                {sortStatusText}
+              </span>
               <span
                 className={mergeClasses([
                   styles.tableColumnSorter,
@@ -233,15 +232,6 @@ function injectSorter<RecordType>(
                     getSortIcon(IconName.mdiArrowUpDown)}
                 </span>
               </span>
-              {sortStatusText && (
-                <span
-                  aria-live="polite"
-                  aria-atomic="true"
-                  className={styles.tableColumnSorterScreenReaderOnly}
-                >
-                  {sortStatusText}
-                </span>
-              )}
             </div>
           );
           return showSorterTooltip ? (
