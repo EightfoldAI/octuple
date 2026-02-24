@@ -14,18 +14,37 @@ export const useMaxVisibleSections = (
     width: 0,
     count: 0,
     filled: false,
+    maxPillWidth: 144,
   });
 
   const computeVisibleSections = () => {
+    const selectedItemsLength = itemsRef.current?.filter(Boolean)?.length;
+    if (selectedItemsLength === 0) return;
+    const containerWidth =
+      containerRef.current?.getBoundingClientRect().width ?? 0;
+    const firstItemWidth =
+      itemsRef.current?.[0]?.getBoundingClientRect().width ?? extraItemWidth;
+
+    const isSingleItem = selectedItemsLength === 1;
+    const isNarrowContainer = isSingleItem
+      ? containerWidth <= 210
+      : containerWidth <= 350;
+
+    const updatedExtraItemWidth = isSingleItem
+      ? 40
+      : isNarrowContainer
+      ? containerWidth * 0.45
+      : firstItemWidth + 24;
+    const maxPillWidth = isNarrowContainer ? 100 : 144;
     const availableWidth: number =
-      (containerRef.current?.getBoundingClientRect().width - extraItemWidth) *
-      linesToShow;
+      (containerWidth - updatedExtraItemWidth) * linesToShow;
     const sections = itemsRef.current?.reduce(
       (
         acc: {
           width: number;
           count: number;
           filled: boolean;
+          maxPillWidth: number;
         },
         ref: HTMLElement
       ) => {
@@ -45,6 +64,7 @@ export const useMaxVisibleSections = (
         width: 0,
         count: 0,
         filled: false,
+        maxPillWidth: maxPillWidth,
       }
     );
     setMaxSections(sections);

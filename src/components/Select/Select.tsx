@@ -194,10 +194,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
       return (options || []).filter((option: SelectOption) => option.selected);
     };
 
-    const { count, filled, width } = useMaxVisibleSections(
+    const { count, filled, width, maxPillWidth } = useMaxVisibleSections(
       inputRef,
       pillRefs,
-      168,
+      144,
       8,
       1,
       getSelectedOptionValues().length
@@ -591,6 +591,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             type={readonly ? PillType.default : PillType.closable}
             style={{
               visibility: index < count ? 'visible' : 'hidden',
+              maxWidth: `${maxPillWidth}px`,
             }}
             {...pillProps}
           />
