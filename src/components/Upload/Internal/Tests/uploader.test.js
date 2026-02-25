@@ -337,6 +337,44 @@ describe('uploader', () => {
         }, 2000);
       }, 100);
     });
+
+    it('Enter key triggers file input click', () => {
+      const wrapper = mount(<Uploader {...props} />);
+      const input = wrapper.find('input').first();
+      const clickSpy = jest.spyOn(input.getDOMNode(), 'click');
+
+      wrapper.find('span').simulate('keyDown', { key: 'Enter' });
+
+      expect(clickSpy).toHaveBeenCalled();
+      clickSpy.mockRestore();
+      wrapper.unmount();
+    });
+
+    it('Space key triggers file input click', () => {
+      const wrapper = mount(<Uploader {...props} />);
+      const input = wrapper.find('input').first();
+      const clickSpy = jest.spyOn(input.getDOMNode(), 'click');
+
+      wrapper.find('span').simulate('keyDown', { key: ' ' });
+
+      expect(clickSpy).toHaveBeenCalled();
+      clickSpy.mockRestore();
+      wrapper.unmount();
+    });
+
+    it('other keys do not trigger file input click', () => {
+      const wrapper = mount(<Uploader {...props} />);
+      const input = wrapper.find('input').first();
+      const clickSpy = jest.spyOn(input.getDOMNode(), 'click');
+
+      wrapper.find('span').simulate('keyDown', { key: 'Tab' });
+      wrapper.find('span').simulate('keyDown', { key: 'Escape' });
+      wrapper.find('span').simulate('keyDown', { key: 'a' });
+
+      expect(clickSpy).not.toHaveBeenCalled();
+      clickSpy.mockRestore();
+      wrapper.unmount();
+    });
   });
 
   describe('directory uploader', () => {
