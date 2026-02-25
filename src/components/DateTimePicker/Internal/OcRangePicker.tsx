@@ -1147,6 +1147,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   const rangePartial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
+      firstFocusableSelector={'[data-testid="picker-header-super-prev-btn"]'}
       {...(!isTimePicker && { role: 'dialog' })}
       {...(isTimePicker && { id: 'dp-dialog-1' })}
       {...(!isTimePicker && { 'aria-modal': 'true' })}

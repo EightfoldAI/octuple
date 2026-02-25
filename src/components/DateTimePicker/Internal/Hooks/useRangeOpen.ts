@@ -115,6 +115,13 @@ export default function useRangeOpen(
           });
         } else {
           setMergedOpen(false);
+          requestAnimationFrameWrapper(() => {
+            const ref =
+              index === 0 || index === 1
+                ? [startInputRef, endInputRef][index]
+                : null;
+            ref?.current?.focus();
+          });
         }
       } else {
         setMergedOpen(false);
