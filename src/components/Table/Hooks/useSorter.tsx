@@ -129,6 +129,9 @@ function injectSorter<RecordType>(
   defaultSortDirections: SortOrder[],
   triggerAscText: string,
   triggerDescText: string,
+  sortedAscendingText: string,
+  sortedDescendingText: string,
+  notSortedText: string,
   tableShowSorterDefaultIcon?: boolean,
   tableShowSorterTooltip?: boolean | TooltipProps,
   pos?: string
@@ -174,6 +177,12 @@ function injectSorter<RecordType>(
           { [styles.tableColumnSort]: sorterOrder },
         ]),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
+          const sortStatusText =
+            sorterOrder === 'ascend'
+              ? sortedAscendingText
+              : sorterOrder === 'descend'
+              ? sortedDescendingText
+              : notSortedText;
           const renderSortTitle = (
             <div
               className={styles.tableColumnSorters}
@@ -201,6 +210,9 @@ function injectSorter<RecordType>(
             >
               <span className={styles.tableColumnTitle}>
                 {renderColumnTitle(column.title, renderProps)}
+              </span>
+              <span className={styles.tableColumnSorterScreenReaderOnly}>
+                {sortStatusText}
               </span>
               <span
                 className={mergeClasses([
@@ -267,6 +279,9 @@ function injectSorter<RecordType>(
           defaultSortDirections,
           triggerAscText,
           triggerDescText,
+          sortedAscendingText,
+          sortedDescendingText,
+          notSortedText,
           tableShowSorterDefaultIcon,
           tableShowSorterTooltip,
           columnPos
@@ -380,6 +395,9 @@ interface SorterConfig<RecordType> {
   sortDirections: SortOrder[];
   triggerAscText: string;
   triggerDescText: string;
+  sortedAscendingText: string;
+  sortedDescendingText: string;
+  notSortedText: string;
   showSorterDefaultIcon?: boolean;
   showSorterTooltip?: boolean | TooltipProps;
 }
@@ -391,6 +409,9 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   triggerAscText,
   triggerDescText,
+  sortedAscendingText,
+  sortedDescendingText,
+  notSortedText,
   showSorterDefaultIcon,
   showSorterTooltip,
 }: SorterConfig<RecordType>): [
@@ -494,6 +515,9 @@ export default function useFilterSorter<RecordType>({
       sortDirections,
       triggerAscText,
       triggerDescText,
+      sortedAscendingText,
+      sortedDescendingText,
+      notSortedText,
       showSorterDefaultIcon,
       showSorterTooltip
     );
