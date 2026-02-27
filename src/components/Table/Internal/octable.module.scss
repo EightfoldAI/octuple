@@ -348,6 +348,10 @@
     border-top-right-radius: $table-border-radius;
   }
 
+  &-caption {
+    visibility: hidden;
+  }
+
   &-footer {
     background: var(--table-footer-background-color);
     color: var(--table-footer-foreground-color);

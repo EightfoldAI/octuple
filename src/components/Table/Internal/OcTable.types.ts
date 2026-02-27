@@ -507,6 +507,20 @@ export interface OcTableProps<RecordType = unknown> {
    */
   bordered?: boolean;
   /**
+   * The Table caption content.
+   * Renders a native HTML caption element for accessibility.
+   */
+  caption?: React.ReactNode;
+  /**
+   * The custom class name of the Table caption.
+   */
+  captionClassName?: string;
+  /**
+   * The Table caption position.
+   * @default 'top'
+   */
+  captionSide?: 'top' | 'bottom';
+  /**
    * The Table custom class names.
    */
   classNames?: string;
