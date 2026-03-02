@@ -653,6 +653,90 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
+          "class": "picker-label",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "aria-controls": "dp-dialog-1",
+                "aria-expanded": "true",
+                "aria-haspopup": "dialog",
+                "aria-label": "select date",
+                "autocomplete": "off",
+                "id": "date-picker-",
+                "readonly": "",
+                "role": "combobox",
+                "size": "12",
+                "title": "",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-controls": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-controls": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
           "class": "picker-input",
         },
         "children": Array [
@@ -709,7 +793,24 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
-        "prev": null,
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-label",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
@@ -1011,6 +1112,90 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "class": "picker-label",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-input",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "aria-controls": "dp-dialog-1",
+                      "aria-expanded": "true",
+                      "aria-haspopup": "dialog",
+                      "aria-label": "select date",
+                      "autocomplete": "off",
+                      "id": "date-picker-",
+                      "readonly": "",
+                      "role": "combobox",
+                      "size": "12",
+                      "title": "",
+                      "value": "",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-controls": undefined,
+                      "aria-expanded": undefined,
+                      "aria-haspopup": undefined,
+                      "aria-label": undefined,
+                      "autocomplete": undefined,
+                      "id": undefined,
+                      "readonly": undefined,
+                      "role": undefined,
+                      "size": undefined,
+                      "title": undefined,
+                      "value": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-controls": undefined,
+                      "aria-expanded": undefined,
+                      "aria-haspopup": undefined,
+                      "aria-label": undefined,
+                      "autocomplete": undefined,
+                      "id": undefined,
+                      "readonly": undefined,
+                      "role": undefined,
+                      "size": undefined,
+                      "title": undefined,
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
                 "class": "picker-input",
               },
               "children": Array [
@@ -1067,7 +1252,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-label",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -1103,6 +1305,90 @@ LoadedCheerio {
         "class": "picker",
       },
       "children": Array [
+        Node {
+          "attribs": Object {
+            "class": "picker-label",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "aria-controls": "dp-dialog-1",
+                  "aria-expanded": "true",
+                  "aria-haspopup": "dialog",
+                  "aria-label": "select date",
+                  "autocomplete": "off",
+                  "id": "date-picker-",
+                  "readonly": "",
+                  "role": "combobox",
+                  "size": "12",
+                  "title": "",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-controls": undefined,
+                  "aria-expanded": undefined,
+                  "aria-haspopup": undefined,
+                  "aria-label": undefined,
+                  "autocomplete": undefined,
+                  "id": undefined,
+                  "readonly": undefined,
+                  "role": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-controls": undefined,
+                  "aria-expanded": undefined,
+                  "aria-haspopup": undefined,
+                  "aria-label": undefined,
+                  "autocomplete": undefined,
+                  "id": undefined,
+                  "readonly": undefined,
+                  "role": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         Node {
           "attribs": Object {
             "class": "picker-input",
@@ -1161,7 +1447,24 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": null,
           "parent": [Circular],
-          "prev": null,
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-label",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
@@ -1292,6 +1595,90 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
+          "class": "picker-label",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "aria-expanded": "false",
+                "aria-haspopup": "dialog",
+                "aria-label": "3334",
+                "autocomplete": "off",
+                "data-test": "233",
+                "id": "date-picker-",
+                "readonly": "",
+                "role": "search",
+                "size": "12",
+                "title": "",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "data-test": undefined,
+                "id": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "data-test": undefined,
+                "id": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
           "class": "picker-input",
         },
         "children": Array [
@@ -1348,7 +1735,24 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
-        "prev": null,
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-label",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
@@ -1474,6 +1878,87 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
+          "class": "picker-label",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "aria-expanded": "false",
+                "aria-haspopup": "dialog",
+                "aria-label": "select date",
+                "autocomplete": "off",
+                "id": "date-picker-",
+                "readonly": "",
+                "role": "combobox",
+                "size": "12",
+                "title": "",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
           "class": "picker-input",
         },
         "children": Array [
@@ -1527,7 +2012,24 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
-        "prev": null,
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-label",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
