@@ -706,7 +706,7 @@ describe('uploader', () => {
           type: 'text/plain',
         },
       ],
-      2,
+      1,
       '',
       {
         directory: false,
