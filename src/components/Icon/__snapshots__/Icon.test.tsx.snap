@@ -4,7 +4,6 @@ exports[`Icon Icon is large 1`] = `
 <div>
   <span
     class="icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"
@@ -24,7 +23,6 @@ exports[`Icon Icon is medium 1`] = `
 <div>
   <span
     class="icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"
@@ -44,7 +42,6 @@ exports[`Icon Icon is small 1`] = `
 <div>
   <span
     class="icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"
@@ -64,7 +61,6 @@ exports[`Icon Icon is xsmall 1`] = `
 <div>
   <span
     class="icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"
@@ -84,7 +80,6 @@ exports[`Icon Renders with the correct color 1`] = `
 <div>
   <span
     class="icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"
@@ -104,7 +99,6 @@ exports[`Icon Renders without crashing 1`] = `
 <div>
   <span
     class="icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"

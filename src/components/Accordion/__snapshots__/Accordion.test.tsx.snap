@@ -22,7 +22,6 @@ exports[`Accordion Accordion is large 1`] = `
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -57,7 +56,6 @@ exports[`Accordion Accordion is large 1`] = `
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -114,7 +112,6 @@ exports[`Accordion Accordion is medium 1`] = `
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -149,7 +146,6 @@ exports[`Accordion Accordion is medium 1`] = `
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -206,7 +202,6 @@ exports[`Accordion Accordion is not bordered 1`] = `
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -241,7 +236,6 @@ exports[`Accordion Accordion is not bordered 1`] = `
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -298,7 +292,6 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -333,7 +326,6 @@ exports[`Accordion Accordion is pill shaped 1`] = `
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -390,7 +382,6 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -425,7 +416,6 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -483,7 +473,6 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -549,7 +538,6 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                       >
                         <span
                           class="icon icon-wrapper"
-                          role="presentation"
                         >
                           <svg
                             role="presentation"
@@ -574,7 +562,6 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                       >
                         <span
                           class="icon icon-wrapper"
-                          role="presentation"
                         >
                           <svg
                             role="presentation"
@@ -610,7 +597,6 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
       >
         <span
           class="icon accordion-icon-button expanded-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -667,7 +653,6 @@ exports[`Accordion Renders without crashing 1`] = `
       >
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -702,7 +687,6 @@ exports[`Accordion Renders without crashing 1`] = `
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"

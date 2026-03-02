@@ -16,7 +16,6 @@ exports[`Pill Pill should render as closable 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -80,7 +79,6 @@ exports[`Pill Pill should render with button 1`] = `
       <span>
         <span
           class="icon icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -111,7 +109,6 @@ exports[`Pill Pill should render with icon 1`] = `
   >
     <span
       class="icon icon-start icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -145,7 +142,6 @@ exports[`Pill Pill should render with icon to the end of its label 1`] = `
     </span>
     <span
       class="icon icon-end icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
