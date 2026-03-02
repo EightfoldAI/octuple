@@ -36,12 +36,15 @@ export const Icon: FC<IconProps> = ({
     return null;
   }
 
+  const iconProps = ariaHidden ? { 'aria-hidden': true } : { role };
+
   const iconComponent = icomoonIconName ? (
     <IcomoonReact
       iconSet={icomoonIconSet}
       size={size}
       color={color}
       icon={icomoonIconName}
+      {...iconProps}
     />
   ) : (
     <MdiIcon
@@ -55,6 +58,7 @@ export const Icon: FC<IconProps> = ({
       vertical={vertical}
       spin={spin}
       // @ts-ignore
+      {...iconProps}
     />
   );
 
@@ -63,9 +67,7 @@ export const Icon: FC<IconProps> = ({
       data-test-id={dataTestId}
       className={iconClassNames}
       id={id}
-      role={role}
       style={style ? style : null}
-      {...(ariaHidden === true ? { 'aria-hidden': true } : {})}
     >
       {iconComponent}
     </span>
