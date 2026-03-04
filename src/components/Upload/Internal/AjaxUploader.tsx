@@ -34,10 +34,10 @@ class AjaxUploader extends Component<OcUploadProps> {
   private _isMounted: boolean;
 
   onChange = (_event: React.ChangeEvent<HTMLInputElement>): void => {
-    const { accept, directory } = this.props;
+    const { accept } = this.props;
     const { files } = _event.target;
-    const acceptedFiles = [...(files as any)].filter(
-      (file: OcFile) => !directory || attrAccept(file, accept)
+    const acceptedFiles = [...(files as any)].filter((file: OcFile) =>
+      attrAccept(file, accept)
     );
     this.uploadFiles(acceptedFiles);
     this.reset();
@@ -66,7 +66,8 @@ class AjaxUploader extends Component<OcUploadProps> {
   };
 
   onKeyDown = (_event: React.KeyboardEvent<HTMLDivElement>): void => {
-    if (_event.key === eventKeys.ENTER) {
+    if (_event.key === eventKeys.ENTER || _event.key === eventKeys.SPACE) {
+      _event.preventDefault();
       this.onClick(_event);
     }
   };
