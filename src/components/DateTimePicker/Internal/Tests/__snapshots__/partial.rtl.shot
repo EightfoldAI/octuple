@@ -24,6 +24,7 @@ LoadedCheerio {
                   "aria-label": "Previous year (Control + left)",
                   "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                   "data-testid": "picker-header-super-prev-btn",
+                  "id": "picker-prev-btn",
                 },
                 "children": Array [
                   Node {
@@ -267,12 +268,14 @@ LoadedCheerio {
                   "aria-label": undefined,
                   "class": undefined,
                   "data-testid": undefined,
+                  "id": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "aria-disabled": undefined,
                   "aria-label": undefined,
                   "class": undefined,
                   "data-testid": undefined,
+                  "id": undefined,
                 },
               },
               Node {
@@ -434,6 +437,7 @@ LoadedCheerio {
                     "aria-label": "Previous year (Control + left)",
                     "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                     "data-testid": "picker-header-super-prev-btn",
+                    "id": "picker-prev-btn",
                   },
                   "children": Array [
                     Node {
@@ -516,12 +520,14 @@ LoadedCheerio {
                     "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
+                    "id": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-disabled": undefined,
                     "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
+                    "id": undefined,
                   },
                 },
                 "type": "tag",
@@ -677,6 +683,7 @@ LoadedCheerio {
                       "aria-label": "Previous year (Control + left)",
                       "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                       "data-testid": "picker-header-super-prev-btn",
+                      "id": "picker-prev-btn",
                     },
                     "children": Array [
                       Node {
@@ -759,12 +766,14 @@ LoadedCheerio {
                       "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
+                      "id": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-disabled": undefined,
                       "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
+                      "id": undefined,
                     },
                   },
                   "type": "tag",
@@ -17720,6 +17729,7 @@ LoadedCheerio {
                     "aria-label": "Previous year (Control + left)",
                     "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                     "data-testid": "picker-header-super-prev-btn",
+                    "id": "picker-prev-btn",
                   },
                   "children": Array [
                     Node {
@@ -17963,12 +17973,14 @@ LoadedCheerio {
                     "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
+                    "id": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "aria-disabled": undefined,
                     "aria-label": undefined,
                     "class": undefined,
                     "data-testid": undefined,
+                    "id": undefined,
                   },
                 },
                 Node {
@@ -18130,6 +18142,7 @@ LoadedCheerio {
                       "aria-label": "Previous year (Control + left)",
                       "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                       "data-testid": "picker-header-super-prev-btn",
+                      "id": "picker-prev-btn",
                     },
                     "children": Array [
                       Node {
@@ -18212,12 +18225,14 @@ LoadedCheerio {
                       "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
+                      "id": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "aria-disabled": undefined,
                       "aria-label": undefined,
                       "class": undefined,
                       "data-testid": undefined,
+                      "id": undefined,
                     },
                   },
                   "type": "tag",
@@ -18373,6 +18388,7 @@ LoadedCheerio {
                         "aria-label": "Previous year (Control + left)",
                         "class": "picker-header-super-prev-btn button button-system-ui button-medium round-shape icon-left",
                         "data-testid": "picker-header-super-prev-btn",
+                        "id": "picker-prev-btn",
                       },
                       "children": Array [
                         Node {
@@ -18455,12 +18471,14 @@ LoadedCheerio {
                         "aria-label": undefined,
                         "class": undefined,
                         "data-testid": undefined,
+                        "id": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "aria-disabled": undefined,
                         "aria-label": undefined,
                         "class": undefined,
                         "data-testid": undefined,
+                        "id": undefined,
                       },
                     },
                     "type": "tag",
