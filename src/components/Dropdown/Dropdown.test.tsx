@@ -13,7 +13,7 @@ import { Icon, IconName } from '../Icon';
 import { List } from '../List';
 import { Stack } from '../Stack';
 import { TextInput } from '../Inputs';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
@@ -611,6 +611,44 @@ describe('Dropdown', () => {
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
     expect(nextFocusable).toHaveFocus();
     expect(referenceElement).not.toHaveFocus();
+  });
+
+  test('Focuses the first focusable element when dropdown is opened with Arrow Down from reference', async () => {
+    const mockEventKeys = {
+      ARROWDOWN: 'ArrowDown',
+    };
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.type(referenceElement, mockEventKeys.ARROWDOWN);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('User profile 1')).toHaveFocus();
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+  });
+
+  test('Focuses the last focusable element when dropdown is opened with Arrow Up from reference', async () => {
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    const lastOverlayItem = () => screen.getByTestId('User profile 3');
+    act(() => {
+      referenceElement.focus();
+    });
+    act(() => {
+      fireEvent.keyDown(referenceElement, { key: 'ArrowUp', code: 'ArrowUp' });
+    });
+    await waitFor(() => screen.getByText('User profile 3'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+    await waitFor(
+      () => expect(lastOverlayItem().matches(':focus')).toBe(true),
+      { timeout: 1000, interval: 50 }
+    );
+    expect(lastOverlayItem()).toHaveFocus();
   });
 
   test('Allows tabbing into submenu after click', async () => {

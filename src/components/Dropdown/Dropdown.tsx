@@ -112,6 +112,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         useRef<NodeJS.Timer>(null);
       const closedByTabRef: React.MutableRefObject<boolean> =
         useRef<boolean>(false);
+      const focusLastOnOpenRef: React.MutableRefObject<boolean> =
+        useRef<boolean>(false);
 
       const getFocusableItems = (): HTMLElement[] => {
         if (!refs.floating.current) return [];
@@ -126,6 +128,21 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (focusableItems.length === 0) return;
 
         const elementToFocus: HTMLElement = focusableItems[0];
+        clearInterval(intervalRef?.current);
+        intervalRef.current = setInterval((): void => {
+          elementToFocus.focus();
+          if (document.activeElement === elementToFocus) {
+            clearInterval(intervalRef?.current);
+          }
+        }, ANIMATION_DURATION);
+      };
+
+      const focusLastElement = (): void => {
+        const focusableItems: HTMLElement[] = getFocusableItems();
+        if (focusableItems.length === 0) return;
+
+        const elementToFocus: HTMLElement =
+          focusableItems[focusableItems.length - 1];
         clearInterval(intervalRef?.current);
         intervalRef.current = setInterval((): void => {
           elementToFocus.focus();
@@ -255,10 +272,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           return;
         }
         referenceOnKeydown?.(event);
+
+        const key = event.key;
+        const isReferenceFocused = document.activeElement === event.target;
+
         if (
-          (event?.key === eventKeys.ENTER || event?.key === eventKeys.SPACE) &&
-          canUseDocElement() &&
-          document.activeElement === event.target
+          (key === eventKeys.ENTER || key === eventKeys.SPACE) &&
+          isReferenceFocused &&
+          canUseDocElement()
         ) {
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
@@ -270,30 +291,31 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           }, ANIMATION_DURATION);
         }
         if (
-          event?.key === eventKeys.ARROWDOWN &&
-          document.activeElement === event.target &&
+          key === eventKeys.ARROWDOWN &&
+          isReferenceFocused &&
           !mergedVisible
         ) {
-          event?.preventDefault();
+          event.preventDefault();
           toggle(true)(event);
         }
-        if (
-          event?.key === eventKeys.ARROWUP &&
-          document.activeElement === event.target &&
-          mergedVisible
-        ) {
-          event?.preventDefault();
+        if (key === eventKeys.ARROWUP && isReferenceFocused) {
+          event.preventDefault();
+          if (mergedVisible) {
+            toggle(false)(event);
+          } else {
+            focusLastOnOpenRef.current = true;
+            toggle(true)(event);
+          }
+        }
+        if (key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
-        if (event?.key === eventKeys.ESCAPE) {
-          toggle(false)(event);
-        }
-        if (event?.key === eventKeys.TAB && mergedVisible && shouldCloseOnTab) {
+        if (key === eventKeys.TAB && mergedVisible && shouldCloseOnTab) {
           closedByTabRef.current = true;
           toggle(false)(event);
         }
         if (
-          event?.key === eventKeys.TAB &&
+          key === eventKeys.TAB &&
           event.shiftKey &&
           !(event.target as HTMLElement).matches(':focus-within')
         ) {
@@ -427,9 +449,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       };
 
       useEffect(() => {
-        // If the dropdown is opened, focus on the first focusable element
+        // If the dropdown is opened, focus first or last focusable element
         if (initialFocus && mergedVisible) {
-          focusFirstElement();
+          if (focusLastOnOpenRef.current) {
+            focusLastOnOpenRef.current = false;
+            focusLastElement();
+          } else {
+            focusFirstElement();
+          }
         }
         if (mergedVisible) return;
         // If the dropdown just closed and user tabbed out, clear the ref and leave focus where it is;
