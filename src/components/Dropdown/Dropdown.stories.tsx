@@ -516,7 +516,6 @@ const dropdownArgs: Object = {
     role: 'listbox',
     'aria-label': 'Dropdown overlay',
   },
-  toggleDropdownOnShiftTab: true,
 };
 
 Dropdown_Button.args = {
@@ -525,6 +524,7 @@ Dropdown_Button.args = {
 
 Dropdown_Button_KeyboardFocus.args = {
   ...dropdownArgs,
+  shouldCloseOnTab: true,
 };
 
 Dropdown_Div.args = {

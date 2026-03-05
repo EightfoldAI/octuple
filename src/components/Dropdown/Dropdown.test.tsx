@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Dropdown } from './';
+import { Dropdown, ANIMATION_DURATION } from './';
 import {
   Button,
   ButtonIconAlign,
@@ -114,6 +114,52 @@ const DropdownWithNextFocusable = (): JSX.Element => {
       </Dropdown>
       <Button data-testid="next-focusable" text="Next focusable" />
     </>
+  );
+};
+
+const DropdownWithToggleOnShiftTab = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <Dropdown
+      {...dropdownProps}
+      toggleDropdownOnShiftTab={true}
+      onVisibleChange={(isVisible) => setVisibility(isVisible)}
+    >
+      <Button
+        alignIcon={ButtonIconAlign.Right}
+        text={'Dropdown menu test'}
+        iconProps={{
+          path: IconName.mdiChevronDown,
+          rotate: visible ? 180 : 0,
+        }}
+        id="test-button-id"
+        data-testid="dropdown-reference"
+      />
+    </Dropdown>
+  );
+};
+
+const DropdownWithInitialFocusFalse = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <Dropdown
+      {...dropdownProps}
+      initialFocus={false}
+      onVisibleChange={(isVisible) => setVisibility(isVisible)}
+    >
+      <Button
+        alignIcon={ButtonIconAlign.Right}
+        text={'Dropdown menu test'}
+        iconProps={{
+          path: IconName.mdiChevronDown,
+          rotate: visible ? 180 : 0,
+        }}
+        id="test-button-id"
+        data-testid="dropdown-reference"
+      />
+    </Dropdown>
   );
 };
 
@@ -588,7 +634,149 @@ describe('Dropdown', () => {
     expect(referenceElement).toHaveFocus();
   });
 
-  test('Focuses the next focusable element when dropdown is closed by Tab', async () => {
+  test('Closes dropdown when Shift+Tab is pressed from first focusable element in overlay', async () => {
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    const option1 = screen.getByTestId('User profile 1');
+    act(() => {
+      fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
+      // JSDOM does not move focus on Tab/Shift+Tab. Simulate the browser moving focus
+      // so the component's deferred hasFocusWithin(floating) check sees focus left the overlay.
+      referenceElement.focus();
+    });
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, 20);
+        })
+    );
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(referenceElement).toHaveFocus();
+  });
+
+  test('With shouldCloseOnTab, Shift+Tab from overlay closes dropdown and returns focus to trigger', async () => {
+    const { container, getByTestId } = render(<DropdownWithNextFocusable />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    const option1 = screen.getByTestId('User profile 1');
+    act(() => {
+      fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
+      referenceElement.focus();
+    });
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, ANIMATION_DURATION + 50);
+        })
+    );
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(referenceElement).toHaveFocus();
+  });
+
+  test('With toggleDropdownOnShiftTab, dropdown stays open when focus leaves overlay via Shift+Tab', async () => {
+    const { container, getByTestId } = render(<DropdownWithToggleOnShiftTab />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    const option1 = screen.getByTestId('User profile 1');
+    act(() => {
+      fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
+      referenceElement.focus();
+    });
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, 20);
+        })
+    );
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+    expect(screen.getByText('User profile 1')).toBeInTheDocument();
+  });
+
+  test('With shouldCloseOnTab, Tab from reference while dropdown is open closes and does not refocus reference', async () => {
+    const { container, getByTestId } = render(<DropdownWithNextFocusable />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    referenceElement.focus();
+    act(() => {
+      fireEvent.keyDown(referenceElement, { key: 'Tab', code: 'Tab' });
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(referenceElement).not.toHaveFocus();
+  });
+
+  test('With initialFocus false, opening dropdown does not move focus to overlay', async () => {
+    const { getByTestId } = render(<DropdownWithInitialFocusFalse />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(false);
+    expect(referenceElement).toHaveFocus();
+  });
+
+  test('Closes dropdown when Shift+Tab is pressed on reference while dropdown is open', async () => {
+    const { container, getByTestId } = render(
+      <DropdownWithInitialFocusFalse />
+    );
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    act(() => {
+      fireEvent.keyDown(referenceElement, {
+        key: 'Tab',
+        code: 'Tab',
+        shiftKey: true,
+      });
+    });
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, 20);
+        })
+    );
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+  });
+
+  test('Focuses the next focusable element on the page when dropdown is closed by Tab', async () => {
     const { container, getByTestId } = render(<DropdownWithNextFocusable />);
     const referenceElement = getByTestId('dropdown-reference');
     const nextFocusable = getByTestId('next-focusable');
