@@ -110,20 +110,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       const intervalRef: React.MutableRefObject<NodeJS.Timer> =
         useRef<NodeJS.Timer>(null);
-
-      const firstFocusableElement = (): HTMLElement => {
-        const getFocusableElements = (): HTMLElement[] => {
-          return [
-            ...(refs.floating?.current.querySelectorAll(
-              SELECTORS
-            ) as unknown as HTMLElement[]),
-          ].filter((el: HTMLElement) => focusable(el));
-        };
-        const focusableElements: HTMLElement[] = refs.floating?.current
-          ? getFocusableElements?.()
-          : null;
-        return focusableElements?.[0];
-      };
+      const closedByTabRef: React.MutableRefObject<boolean> =
+        useRef<boolean>(false);
 
       const getFocusableItems = (): HTMLElement[] => {
         if (!refs.floating.current) return [];
@@ -134,10 +122,13 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       };
 
       const focusFirstElement = (): void => {
-        const elementToFocus: HTMLElement = firstFocusableElement?.();
+        const focusableItems: HTMLElement[] = getFocusableItems();
+        if (focusableItems.length === 0) return;
+
+        const elementToFocus: HTMLElement = focusableItems[0];
         clearInterval(intervalRef?.current);
         intervalRef.current = setInterval((): void => {
-          elementToFocus?.focus();
+          elementToFocus.focus();
           if (document.activeElement === elementToFocus) {
             clearInterval(intervalRef?.current);
           }
@@ -298,6 +289,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           toggle(false)(event);
         }
         if (event?.key === eventKeys.TAB && mergedVisible && shouldCloseOnTab) {
+          closedByTabRef.current = true;
           toggle(false)(event);
         }
         if (
@@ -305,6 +297,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           event.shiftKey &&
           !(event.target as HTMLElement).matches(':focus-within')
         ) {
+          closedByTabRef.current = true;
           toggle(false)(event);
         }
       };
@@ -341,6 +334,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
         if (event?.key === eventKeys.TAB && mergedVisible && !event.shiftKey) {
           if (shouldCloseOnTab) {
+            closedByTabRef.current = true;
             toggle(false)(event);
           } else {
             timeout && clearTimeout(timeout);
@@ -349,6 +343,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 refs.floating.current &&
                 !refs.floating.current.contains(document.activeElement)
               ) {
+                closedByTabRef.current = true;
                 toggle(false)(event);
               }
             }, NO_ANIMATION_DURATION);
@@ -358,6 +353,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
             if (!refs.floating.current.matches(':focus-within')) {
+              if (!toggleDropdownOnShiftTab) {
+                closedByTabRef.current = true;
+              }
               toggle(toggleDropdownOnShiftTab)(event);
             }
           }, NO_ANIMATION_DURATION);
@@ -429,16 +427,22 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       };
 
       useEffect(() => {
+        // If the dropdown is opened, focus on the first focusable element
         if (initialFocus && mergedVisible) {
           focusFirstElement();
         }
-        if (!mergedVisible && previouslyClosing) {
+        if (mergedVisible) return;
+        // If the dropdown just closed and user tabbed out, clear the ref and leave focus where it is;
+        // otherwise return focus to the trigger (Escape, click outside).
+        clearInterval(intervalRef?.current);
+        if (!previouslyClosing) return;
+
+        if (closedByTabRef.current) {
+          closedByTabRef.current = false;
+        } else {
           const referenceElement: HTMLElement =
             document.getElementById(dropdownReferenceId);
           referenceElement?.focus();
-        }
-        if (!mergedVisible) {
-          clearInterval(intervalRef?.current);
         }
       }, [
         dropdownReferenceId,

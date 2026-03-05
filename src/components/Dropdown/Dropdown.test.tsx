@@ -91,6 +91,32 @@ const DropdownComponent = (): JSX.Element => {
   );
 };
 
+const DropdownWithNextFocusable = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <>
+      <Dropdown
+        {...dropdownProps}
+        shouldCloseOnTab={true}
+        onVisibleChange={(isVisible) => setVisibility(isVisible)}
+      >
+        <Button
+          alignIcon={ButtonIconAlign.Right}
+          text={'Dropdown menu test'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+            rotate: visible ? 180 : 0,
+          }}
+          id="test-button-id"
+          data-testid="dropdown-reference"
+        />
+      </Dropdown>
+      <Button data-testid="next-focusable" text="Next focusable" />
+    </>
+  );
+};
+
 const ComplexDropdownComponent = (): JSX.Element => {
   const inputRef: React.MutableRefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
@@ -541,7 +567,7 @@ describe('Dropdown', () => {
     expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true);
   });
 
-  test('Focuses the reference element when not visible', async () => {
+  test('Focuses the reference element when dropdown is closed by Escape key', async () => {
     const mockEventKeys = {
       ESCAPE: 'Escape',
     };
@@ -560,6 +586,31 @@ describe('Dropdown', () => {
     );
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
     expect(referenceElement).toHaveFocus();
+  });
+
+  test('Focuses the next focusable element when dropdown is closed by Tab', async () => {
+    const { container, getByTestId } = render(<DropdownWithNextFocusable />);
+    const referenceElement = getByTestId('dropdown-reference');
+    const nextFocusable = getByTestId('next-focusable');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    act(() => {
+      // Tab through the three overlay items to reach the next focusable on the page
+      userEvent.tab();
+      userEvent.tab();
+      userEvent.tab();
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(nextFocusable).toHaveFocus();
+    expect(referenceElement).not.toHaveFocus();
   });
 
   test('Allows tabbing into submenu after click', async () => {
