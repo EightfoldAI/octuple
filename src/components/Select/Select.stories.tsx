@@ -1,6 +1,7 @@
 import React, { FC, useState, useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { OcThemeName } from '../ConfigProvider';
+import { Stories } from '@storybook/addon-docs';
+import { ConfigProvider, OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { Select } from './';
 import {
@@ -9,7 +10,7 @@ import {
   SelectShape,
   SelectSize,
 } from './Select.types';
-import { Stories } from '@storybook/addon-docs';
+import { canUseDocElement } from '../../shared/utilities';
 
 const defaultOptions: SelectOption[] = [
   {
@@ -132,7 +133,16 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Wrapper: FC<SelectProps> = ({ children }) => {
-  return <div style={{ marginTop: 80 }}>{children}</div>;
+  return (
+    <ConfigProvider
+      focusVisibleOptions={{
+        focusVisible: true,
+        focusVisibleElement: canUseDocElement() ? document.body : undefined,
+      }}
+    >
+      <div style={{ marginTop: 80 }}>{children}</div>
+    </ConfigProvider>
+  );
 };
 
 const DynamicSelect: FC<SelectProps> = (args) => {
@@ -165,18 +175,31 @@ const DynamicSelect: FC<SelectProps> = (args) => {
 };
 
 const Basic_Story: ComponentStory<typeof Select> = (args) => {
+  const selectComponent = <Select {...args} />;
   if (args.multiple) {
-    return (
-      <Wrapper>
-        <Select {...args} />
-      </Wrapper>
-    );
+    return <Wrapper>{selectComponent}</Wrapper>;
   }
-  return <Select {...args} />;
+  return (
+    <ConfigProvider
+      focusVisibleOptions={{
+        focusVisible: true,
+        focusVisibleElement: canUseDocElement() ? document.body : undefined,
+      }}
+    >
+      {selectComponent}
+    </ConfigProvider>
+  );
 };
 
 const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
-  <DynamicSelect {...args} />
+  <ConfigProvider
+    focusVisibleOptions={{
+      focusVisible: true,
+      focusVisibleElement: canUseDocElement() ? document.body : undefined,
+    }}
+  >
+    <DynamicSelect {...args} />
+  </ConfigProvider>
 );
 
 export type SelectStory = ComponentStory<React.FC<SelectProps>>;
