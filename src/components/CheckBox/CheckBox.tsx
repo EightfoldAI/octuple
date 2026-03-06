@@ -208,7 +208,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             name={name}
             type={'checkbox'}
             value={value}
-            role={toggle ? 'switch' : 'checkbox'}
+            role={toggle ? 'switch' : undefined}
             {...rest}
           />
           <label htmlFor={checkBoxId.current} className={labelClassNames}>
