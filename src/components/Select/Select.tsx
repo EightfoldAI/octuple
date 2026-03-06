@@ -592,6 +592,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
             style={{
               visibility: index < count ? 'visible' : 'hidden',
             }}
+            closeButtonProps={
+              pillProps.closeButtonProps ?? {
+                getAriaLabel: (label: string) => `Remove ${label}`,
+              }
+            }
             {...pillProps}
           />
         );

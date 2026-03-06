@@ -333,11 +333,6 @@ Multiple.args = {
     ...Basic.args.textInputProps,
     clearable: true,
   },
-  pillProps: {
-    closeButtonProps: {
-      getAriaLabel: (label: string) => `Remove ${label}`,
-    },
-  },
   style: {
     width: '100%',
   },
