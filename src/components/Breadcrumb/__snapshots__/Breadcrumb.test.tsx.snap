@@ -71,7 +71,6 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -108,7 +107,6 @@ exports[`Breadcrumb Crumb should use custom links 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -182,7 +180,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -220,7 +217,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -258,7 +254,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -296,7 +291,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -334,7 +328,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -372,7 +365,6 @@ exports[`Breadcrumb Renders without crashing 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -464,7 +456,6 @@ exports[`Breadcrumb should support custom attribute 1`] = `
         </div>
         <span
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"

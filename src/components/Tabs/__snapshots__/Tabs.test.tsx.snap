@@ -20,7 +20,6 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -68,7 +67,6 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -110,7 +108,6 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -153,7 +150,6 @@ exports[`Tabs pill tabs large snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -206,7 +202,6 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -254,7 +249,6 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -296,7 +290,6 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -339,7 +332,6 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -392,7 +384,6 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -440,7 +431,6 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -482,7 +472,6 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -525,7 +514,6 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -578,7 +566,6 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -626,7 +613,6 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -668,7 +654,6 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -711,7 +696,6 @@ exports[`Tabs pill tabs small snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -778,7 +762,6 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -854,7 +837,6 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -930,7 +912,6 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1007,7 +988,6 @@ exports[`Tabs stat tabs medium horizontal maxWidth lineClamp snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1094,7 +1074,6 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1166,7 +1145,6 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1238,7 +1216,6 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1311,7 +1288,6 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1394,7 +1370,6 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1466,7 +1441,6 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1538,7 +1512,6 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1611,7 +1584,6 @@ exports[`Tabs stat tabs medium vertical fullWidth snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1694,7 +1666,6 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1766,7 +1737,6 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1838,7 +1808,6 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1911,7 +1880,6 @@ exports[`Tabs stat tabs medium vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -1994,7 +1962,6 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2066,7 +2033,6 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2138,7 +2104,6 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2211,7 +2176,6 @@ exports[`Tabs stat tabs small snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2294,7 +2258,6 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2366,7 +2329,6 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2438,7 +2400,6 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2511,7 +2472,6 @@ exports[`Tabs stat tabs small vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2594,7 +2554,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2649,7 +2608,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
         >
           <span
             className="icon icon-wrapper"
-            role="presentation"
             style={null}
           >
             <svg
@@ -2700,7 +2658,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2755,7 +2712,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
         >
           <span
             className="icon icon-wrapper"
-            role="presentation"
             style={null}
           >
             <svg
@@ -2806,7 +2762,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2861,7 +2816,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
         >
           <span
             className="icon icon-wrapper"
-            role="presentation"
             style={null}
           >
             <svg
@@ -2913,7 +2867,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -2968,7 +2921,6 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
         >
           <span
             className="icon icon-wrapper"
-            role="presentation"
             style={null}
           >
             <svg
@@ -3030,7 +2982,6 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3102,7 +3053,6 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3174,7 +3124,6 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3247,7 +3196,6 @@ exports[`Tabs stat tabs xsmall snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3330,7 +3278,6 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3402,7 +3349,6 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3474,7 +3420,6 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3547,7 +3492,6 @@ exports[`Tabs stat tabs xsmall vertical snapshot 1`] = `
       >
         <span
           className="icon icon-wrapper"
-          role="presentation"
           style={null}
         >
           <svg
@@ -3630,7 +3574,6 @@ exports[`Tabs tabs alignIcon end 1`] = `
       />
       <span
         className="icon end icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3672,7 +3615,6 @@ exports[`Tabs tabs alignIcon end 1`] = `
       </span>
       <span
         className="icon end icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3714,7 +3656,6 @@ exports[`Tabs tabs alignIcon end 1`] = `
       </span>
       <span
         className="icon end icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3757,7 +3698,6 @@ exports[`Tabs tabs alignIcon end 1`] = `
       </span>
       <span
         className="icon end icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3806,7 +3746,6 @@ exports[`Tabs tabs alignIcon start 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3854,7 +3793,6 @@ exports[`Tabs tabs alignIcon start 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3896,7 +3834,6 @@ exports[`Tabs tabs alignIcon start 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3939,7 +3876,6 @@ exports[`Tabs tabs alignIcon start 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -3993,7 +3929,6 @@ exports[`Tabs tabs badgeContent 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4046,7 +3981,6 @@ exports[`Tabs tabs badgeContent 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4093,7 +4027,6 @@ exports[`Tabs tabs badgeContent 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4141,7 +4074,6 @@ exports[`Tabs tabs badgeContent 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4199,7 +4131,6 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4247,7 +4178,6 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4289,7 +4219,6 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg
@@ -4332,7 +4261,6 @@ exports[`Tabs tabs snapshot 1`] = `
     >
       <span
         className="icon start icon-wrapper"
-        role="presentation"
         style={null}
       >
         <svg

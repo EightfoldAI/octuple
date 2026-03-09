@@ -49,7 +49,6 @@ exports[`Menu Menu is large 1`] = `
             >
               <span
                 class="icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -294,7 +293,6 @@ exports[`Menu Menu is medium 1`] = `
             >
               <span
                 class="icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -539,7 +537,6 @@ exports[`Menu Menu is small 1`] = `
             >
               <span
                 class="icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"

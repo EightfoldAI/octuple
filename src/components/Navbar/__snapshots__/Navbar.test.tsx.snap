@@ -52,7 +52,6 @@ exports[`Navbar Navbar matches custom theme 1`] = `
           </div>
           <span
             class="icon-wrapper"
-            role="presentation"
           >
             <svg
               role="presentation"
@@ -126,7 +125,6 @@ exports[`Navbar Renders without crashing 1`] = `
             </div>
             <span
               class="icon-wrapper"
-              role="presentation"
             >
               <svg
                 role="presentation"
