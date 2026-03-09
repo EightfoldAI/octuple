@@ -49,7 +49,6 @@ export const Header = ({
       {onSuperPrev && (
         <SystemUIButton
           data-testid={'picker-header-super-prev-btn'}
-          id="picker-prev-btn"
           ariaLabel={superPrevAriaLabel}
           classNames={'picker-header-super-prev-btn'}
           iconProps={{
