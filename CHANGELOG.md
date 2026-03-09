@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.5](https://github.com/EightfoldAI/octuple/compare/v2.56.4...v2.56.5) (2026-03-09)
+
+### Bug Fixes
+
+- remove redundant role on input[type=checkbox] ([#1095](https://github.com/EightfoldAI/octuple/issues/1095)) ([b3648b0](https://github.com/EightfoldAI/octuple/commits/b3648b03eafe3e8d361afee95deeccd7061a3a16))
+- **Select:** Improve keyboard focus management and accessibility ([#1103](https://github.com/EightfoldAI/octuple/issues/1103)) ([2f3ca31](https://github.com/EightfoldAI/octuple/commits/2f3ca31b0f5bc5f28481621519c76d82323e0d13))
+- **Table:** accessibility fix to announce sorting order for table header ([#1097](https://github.com/EightfoldAI/octuple/issues/1097)) ([2515912](https://github.com/EightfoldAI/octuple/commits/25159123f0087ec1806cdc161c28ed327fa01521))
+- **Upload:** always apply accept filter in onChange handler ([#1102](https://github.com/EightfoldAI/octuple/issues/1102)) ([18c8795](https://github.com/EightfoldAI/octuple/commits/18c8795d1e1d0944a73829f401d70bb5c90d455b))
+- **useMatchMedia:** set initial state correctly ([#1098](https://github.com/EightfoldAI/octuple/issues/1098)) ([8f02c72](https://github.com/EightfoldAI/octuple/commits/8f02c725157e3272a147453af9caf75c86f8d7bd))
+
 ### [2.56.4](https://github.com/EightfoldAI/octuple/compare/v2.56.2...v2.56.4) (2026-02-03)
 
 ### Features
