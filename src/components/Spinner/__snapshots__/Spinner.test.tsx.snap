@@ -4,7 +4,6 @@ exports[`Spinner Renders without crashing 1`] = `
 <div>
   <span
     class="spinner my-spinner-class icon-wrapper"
-    role="presentation"
   >
     <svg
       role="presentation"

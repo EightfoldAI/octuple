@@ -112,7 +112,6 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             >
               <span
                 class="upload-spin-icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -155,7 +154,6 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -223,7 +221,6 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <span
                 class="icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -257,7 +254,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -320,7 +316,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -359,7 +354,6 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <span
                 class="icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -393,7 +387,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -432,7 +425,6 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <span
                 class="icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -466,7 +458,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -529,7 +520,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -592,7 +582,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -655,7 +644,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -718,7 +706,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -781,7 +768,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -844,7 +830,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -909,7 +894,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
             >
               <span
                 class="upload-spin-icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -955,7 +939,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -1018,7 +1001,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -1040,7 +1022,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -1105,7 +1086,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
             >
               <span
                 class="upload-spin-icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -1151,7 +1131,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -1214,7 +1193,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -1236,7 +1214,6 @@ exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`
               >
                 <span
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -1301,7 +1278,6 @@ exports[`Upload List should support showRemoveIconButton, showReplaceButton, and
             >
               <span
                 class="upload-spin-icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"

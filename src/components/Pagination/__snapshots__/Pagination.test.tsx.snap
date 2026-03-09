@@ -15,7 +15,6 @@ exports[`Pagination Pagination should render as dots 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -110,7 +109,6 @@ exports[`Pagination Pagination should render as dots 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -143,7 +141,6 @@ exports[`Pagination Pagination should render as simplified 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -179,7 +176,6 @@ exports[`Pagination Pagination should render as simplified 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -212,7 +208,6 @@ exports[`Pagination Pagination should render normally 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -307,7 +302,6 @@ exports[`Pagination Pagination should render normally 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -351,7 +345,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
           <span>
             <span
               class="icon icon-wrapper"
-              role="presentation"
             >
               <svg
                 role="presentation"
@@ -385,7 +378,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -467,7 +459,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -535,7 +526,6 @@ exports[`Pagination Pagination should render with some elements 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -700,7 +690,6 @@ exports[`Pagination Pagination should render with some elements 1`] = `
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -769,7 +758,6 @@ exports[`Pagination Pagination with simplified Pager should not use list semanti
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -805,7 +793,6 @@ exports[`Pagination Pagination with simplified Pager should not use list semanti
     >
       <span
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
