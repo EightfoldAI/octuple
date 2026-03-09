@@ -172,7 +172,7 @@ export interface SelectProps
    * The Pill props. Applicable in case of multiple: true.
    * @default {}
    */
-  pillProps?: PillProps;
+  pillProps?: Omit<PillProps, 'label' | 'onClose'>;
   /**
    * The Select input is readonly.
    * @default false

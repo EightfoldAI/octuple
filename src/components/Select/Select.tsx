@@ -586,12 +586,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
               }
             }}
             size={selectSizeToPillSizeMap.get(size)}
-            tabIndex={0}
+            tabIndex={-1}
             theme={'blueGreen'}
             type={readonly ? PillType.default : PillType.closable}
             style={{
               visibility: index < count ? 'visible' : 'hidden',
             }}
+            closeButtonProps={
+              pillProps.closeButtonProps ?? {
+                getAriaLabel: (label: string) => `Remove ${label}`,
+              }
+            }
             {...pillProps}
           />
         );
@@ -798,10 +803,27 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const handleInputKeyDown = (
       event: React.KeyboardEvent<HTMLInputElement>
     ): void => {
-      onKeyDown?.(event);
       if (mergedDisabled) {
         return;
       }
+
+      // Handle Octuple's internal keyboard navigation FIRST
+      // before calling consumer's handler
+
+      // Enter: Open dropdown if closed (a11y compliant)
+      // When open, Menu component handles Enter for option selection
+      if (
+        event?.key === eventKeys.ENTER &&
+        document.activeElement === event.target &&
+        !dropdownVisible
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        setDropdownVisibility(true);
+      }
+
+      // Arrow Down: For filterable selects, move focus into dropdown options
+      // Non-filterable selects are handled by Dropdown component natively
       if (
         filterable &&
         event?.key === eventKeys.ARROWDOWN &&
@@ -809,6 +831,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ) {
         dropdownRef.current?.focusFirstElement?.();
       }
+
+      // Call consumer's onKeyDown handler after internal handling
+      onKeyDown?.(event);
     };
 
     const clearButtonClassNames: string = mergeClasses([
