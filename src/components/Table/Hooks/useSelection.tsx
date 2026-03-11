@@ -459,6 +459,8 @@ export default function useSelection<RecordType>(
               onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                 if (e.key === 'Enter') {
                   e.preventDefault();
+                  e.stopPropagation();
+                  // onSelectAllChange does not use event; same behavior as Space/click
                   onSelectAllChange();
                 }
               }}
@@ -530,6 +532,8 @@ export default function useSelection<RecordType>(
                   if (e.key === 'Enter') {
                     e.preventDefault();
                     e.stopPropagation();
+                    // Use .click() to delegate to the existing onChange handler;
+                    // this ensures shiftKey is false and avoids unintended range selection.
                     (e.target as HTMLInputElement).click();
                   }
                 }}

@@ -132,8 +132,13 @@ describe('Table.rowSelection', () => {
       const inputEl = firstRowCheckbox.getDOMNode();
       const clickSpy = jest.spyOn(inputEl, 'click');
 
+      expect(getSelections(wrapper)).toEqual([]);
+
       firstRowCheckbox.simulate('keydown', { key: eventKeys.ENTER });
       expect(clickSpy).toHaveBeenCalled();
+      // In jsdom, programmatic .click() may not fire React's change; simulate it to verify selection state
+      firstRowCheckbox.simulate('change', { target: { checked: true } });
+      expect(getSelections(wrapper)).toEqual([0]);
 
       clickSpy.mockRestore();
     });
