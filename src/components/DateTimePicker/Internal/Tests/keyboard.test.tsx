@@ -334,10 +334,13 @@ describe('Picker.Keyboard', () => {
     expect(onChange).not.toHaveBeenCalled();
   });
 
-  it('any key to open', () => {
+  it('any key to open', async () => {
     const wrapper = mount(<DayjsPicker />);
     wrapper.keyDown(eventKeys.KEYA);
-    expect(wrapper.isOpen()).toBeTruthy();
+    await waitFor(() => {
+      wrapper.update();
+      expect(wrapper.isOpen()).toBeTruthy();
+    });
   });
 
   it('not change focus to partial', () => {
