@@ -10,6 +10,7 @@ import {
   TwoStateButton,
 } from '../Button';
 import { CheckBox } from '../CheckBox';
+import { ConfigProvider } from '../ConfigProvider';
 import { Dropdown } from './';
 import { Icon, IconName } from '../Icon';
 import { List } from '../List';
@@ -197,6 +198,54 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
         variant={ButtonVariant.Default}
       />
     </Dropdown>
+  );
+};
+
+const Dropdown_Button_KeyboardFocus_Story: ComponentStory<typeof Dropdown> = (
+  args
+) => {
+  const [visible1, setVisibility1] = useState(false);
+  const [visible2, setVisibility2] = useState(false);
+  return (
+    <ConfigProvider
+      focusVisibleOptions={{
+        focusVisible: true,
+        focusVisibleElement: document.documentElement,
+      }}
+    >
+      <Stack direction="horizontal" flexGap="xl">
+        <Dropdown
+          {...args}
+          onVisibleChange={(isVisible) => setVisibility1(isVisible)}
+        >
+          <Button
+            alignIcon={ButtonIconAlign.Right}
+            iconProps={{
+              path: IconName.mdiChevronDown,
+              rotate: visible1 ? 180 : 0,
+            }}
+            id="dropdown-trigger-1"
+            text={'First dropdown'}
+            variant={ButtonVariant.Default}
+          />
+        </Dropdown>
+        <Dropdown
+          {...args}
+          onVisibleChange={(isVisible) => setVisibility2(isVisible)}
+        >
+          <Button
+            alignIcon={ButtonIconAlign.Right}
+            iconProps={{
+              path: IconName.mdiChevronDown,
+              rotate: visible2 ? 180 : 0,
+            }}
+            id="dropdown-trigger-2"
+            text={'Second dropdown'}
+            variant={ButtonVariant.Default}
+          />
+        </Dropdown>
+      </Stack>
+    </ConfigProvider>
   );
 };
 
@@ -428,6 +477,8 @@ const Dropdown_Advanced_Story: ComponentStory<typeof Dropdown> = (args) => {
 };
 
 export const Dropdown_Button = Dropdown_Button_Story.bind({});
+export const Dropdown_Button_KeyboardFocus =
+  Dropdown_Button_KeyboardFocus_Story.bind({});
 export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
 export const Dropdown_Div = Dropdown_Div_Story.bind({});
 export const Dropdown_External = Dropdown_External_Story.bind({});
@@ -439,6 +490,7 @@ export const Dropdown_Additional_Item = Dropdown_Button_Story.bind({});
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
 export const __namedExportsOrder = [
   'Dropdown_Button',
+  'Dropdown_Button_KeyboardFocus',
   'Dropdown_IconButton',
   'Dropdown_Div',
   'Dropdown_External',
@@ -464,11 +516,15 @@ const dropdownArgs: Object = {
     role: 'listbox',
     'aria-label': 'Dropdown overlay',
   },
-  toggleDropdownOnShiftTab: true,
 };
 
 Dropdown_Button.args = {
   ...dropdownArgs,
+};
+
+Dropdown_Button_KeyboardFocus.args = {
+  ...dropdownArgs,
+  shouldCloseOnTab: true,
 };
 
 Dropdown_Div.args = {
