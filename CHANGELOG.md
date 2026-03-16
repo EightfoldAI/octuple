@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.6](https://github.com/EightfoldAI/octuple/compare/v2.56.5...v2.56.6) (2026-03-16)
+
+### Bug Fixes
+
+- **Table:** allow row selection with Enter key in addition to Space ([#1105](https://github.com/EightfoldAI/octuple/issues/1105)) ([2b3042d](https://github.com/EightfoldAI/octuple/commits/2b3042d30927835a1510fe572b65072f851fc8f8))
+
 ### [2.56.5](https://github.com/EightfoldAI/octuple/compare/v2.56.4...v2.56.5) (2026-03-09)
 
 ### Bug Fixes
