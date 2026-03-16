@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { eventKeys } from '../../../shared/utilities';
 import Table from '../index';
 import { CheckBox } from '../../CheckBox';
 import 'jest-specific-snapshot';
@@ -107,6 +108,53 @@ describe('Table.rowSelection', () => {
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
     expect(getSelections(wrapper)).toEqual([0, 1]);
+  });
+
+  describe('Enter key selection', () => {
+    it('toggles select all when Enter is pressed on header checkbox', () => {
+      const wrapper = mount(createTable());
+      const checkboxes = wrapper.find('input');
+      const headerCheckbox = checkboxes.first();
+
+      expect(getSelections(wrapper)).toEqual([]);
+
+      headerCheckbox.simulate('keydown', { key: eventKeys.ENTER });
+      expect(getSelections(wrapper)).toEqual([0, 1]);
+
+      headerCheckbox.simulate('keydown', { key: eventKeys.ENTER });
+      expect(getSelections(wrapper)).toEqual([]);
+    });
+
+    it('toggles row selection when Enter is pressed on row checkbox', () => {
+      const wrapper = mount(createTable());
+      const checkboxes = wrapper.find('input');
+      const firstRowCheckbox = checkboxes.at(1);
+      const inputEl = firstRowCheckbox.getDOMNode();
+      const clickSpy = jest.spyOn(inputEl, 'click');
+
+      expect(getSelections(wrapper)).toEqual([]);
+
+      firstRowCheckbox.simulate('keydown', { key: eventKeys.ENTER });
+      expect(clickSpy).toHaveBeenCalled();
+      // In jsdom, programmatic .click() may not fire React's change; simulate it to verify selection state
+      firstRowCheckbox.simulate('change', { target: { checked: true } });
+      expect(getSelections(wrapper)).toEqual([0]);
+
+      clickSpy.mockRestore();
+    });
+
+    it('selects row when Enter is pressed on radio button', () => {
+      const wrapper = mount(
+        createTable({ rowSelection: { type: 'radio' } })
+      );
+      const inputs = wrapper.find('input');
+      const firstRowRadio = inputs.at(0);
+
+      expect(getSelections(wrapper)).toEqual([]);
+
+      firstRowRadio.simulate('keydown', { key: eventKeys.ENTER });
+      expect(getSelections(wrapper)).toEqual([0]);
+    });
   });
 
   it('fires change & select events', () => {
