@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.7](https://github.com/EightfoldAI/octuple/compare/v2.56.6...v2.56.7) (2026-03-16)
+
+### Bug Fixes
+
+- **Daterange:** accessibility fix for daterange picker ([#1100](https://github.com/EightfoldAI/octuple/issues/1100)) ([734474f](https://github.com/EightfoldAI/octuple/commits/734474faa3308e71e14869219ab4cb31eb292c15))
+
 ### [2.56.6](https://github.com/EightfoldAI/octuple/compare/v2.56.5...v2.56.6) (2026-03-16)
 
 ### Bug Fixes
