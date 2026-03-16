@@ -128,7 +128,9 @@ export default function usePickerInput({
       }
 
       if (!open && ![eventKeys.SHIFTLEFT].includes(e.key)) {
-        triggerOpen(true);
+        requestAnimationFrameWrapper(() => {
+          triggerOpen(true);
+        });
       } else if (!typing) {
         // Let popup partial handle keyboard
         forwardKeyDown(e);
