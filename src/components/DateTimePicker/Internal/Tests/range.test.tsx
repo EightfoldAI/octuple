@@ -820,13 +820,19 @@ describe('Picker.Range', () => {
   });
 
   it('should close when user focus out', () => {
+    jest.useFakeTimers();
     const wrapper = mount(<DayjsRangePicker />);
     wrapper.openPicker();
     wrapper.selectCell(11);
     expect(wrapper.isOpen()).toBeTruthy();
 
     wrapper.find('input').last().simulate('blur');
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.isClosed()).toBeTruthy();
+    jest.useRealTimers();
   });
 
   it('icon', () => {
@@ -919,15 +925,14 @@ describe('Picker.Range', () => {
       act(() => {
         window.dispatchEvent(clickEvent);
         wrapper.find('input').first().simulate('blur');
+        jest.runAllTimers();
       });
+      wrapper.update();
       const next = onOpenChange.mock.calls.length;
 
       // Maybe not good since onOpenChange trigger twice
       expect(current < next).toBeTruthy();
     }
-    act(() => {
-      jest.runAllTimers();
-    });
     jest.useRealTimers();
   });
 
@@ -1326,6 +1331,7 @@ describe('Picker.Range', () => {
   });
 
   it('format', () => {
+    jest.useFakeTimers();
     const wrapper = mount(
       <DayjsRangePicker
         format={['YYYYMMDD', 'YYYY-MM-DD']}
@@ -1344,6 +1350,10 @@ describe('Picker.Range', () => {
         },
       });
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
 
     // end date
     wrapper.openPicker(1);
@@ -1356,9 +1366,14 @@ describe('Picker.Range', () => {
         },
       });
     wrapper.closePicker(1);
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
 
     expect(wrapper.find('input').first().prop('value')).toEqual('19890903');
     expect(wrapper.find('input').last().prop('value')).toEqual('19901128');
+    jest.useRealTimers();
   });
 
   it('custom format', () => {
@@ -1402,6 +1417,7 @@ describe('Picker.Range', () => {
 
   describe('auto open', () => {
     it('empty: start -> end -> close', () => {
+      jest.useFakeTimers();
       const wrapper = mount(<DayjsRangePicker />);
 
       wrapper.openPicker(0);
@@ -1412,11 +1428,17 @@ describe('Picker.Range', () => {
       wrapper.openPicker(1);
       wrapper.inputValue('1991-01-01');
       wrapper.closePicker(1);
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
       expect(wrapper.isClosed()).toBeTruthy();
+      jest.useRealTimers();
     });
 
     describe('valued: start -> end -> close', () => {
       it('in range', () => {
+        jest.useFakeTimers();
         const wrapper = mount(
           <DayjsRangePicker
             defaultValue={[getDayjs('1989-01-01'), getDayjs('1990-01-01')]}
@@ -1431,10 +1453,16 @@ describe('Picker.Range', () => {
         wrapper.openPicker(1);
         wrapper.inputValue('1990-12-23');
         wrapper.closePicker(1);
+        act(() => {
+          jest.runAllTimers();
+        });
+        wrapper.update();
         expect(wrapper.isClosed()).toBeTruthy();
+        jest.useRealTimers();
       });
 
       it('new start is after end', () => {
+        jest.useFakeTimers();
         const wrapper = mount(
           <DayjsRangePicker
             defaultValue={[getDayjs('1989-01-10'), getDayjs('1989-01-15')]}
@@ -1449,11 +1477,17 @@ describe('Picker.Range', () => {
         wrapper.openPicker(1);
         wrapper.inputValue('1989-01-25');
         wrapper.closePicker(1);
+        act(() => {
+          jest.runAllTimers();
+        });
+        wrapper.update();
         expect(wrapper.isClosed()).toBeTruthy();
+        jest.useRealTimers();
       });
     });
 
     it('empty: end -> start -> close', () => {
+      jest.useFakeTimers();
       const wrapper = mount(<DayjsRangePicker />);
 
       wrapper.openPicker(1);
@@ -1464,11 +1498,17 @@ describe('Picker.Range', () => {
       wrapper.openPicker(0);
       wrapper.inputValue('1989-01-01');
       wrapper.closePicker(0);
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
       expect(wrapper.isClosed()).toBeTruthy();
+      jest.useRealTimers();
     });
 
     describe('valued: end -> start -> close', () => {
       it('in range', () => {
+        jest.useFakeTimers();
         const wrapper = mount(
           <DayjsRangePicker
             defaultValue={[getDayjs('1989-01-01'), getDayjs('1990-01-01')]}
@@ -1483,10 +1523,16 @@ describe('Picker.Range', () => {
         wrapper.openPicker(0);
         wrapper.inputValue('1989-01-01');
         wrapper.closePicker(0);
+        act(() => {
+          jest.runAllTimers();
+        });
+        wrapper.update();
         expect(wrapper.isClosed()).toBeTruthy();
+        jest.useRealTimers();
       });
 
       it('new end is before start', () => {
+        jest.useFakeTimers();
         const wrapper = mount(
           <DayjsRangePicker
             defaultValue={[getDayjs('1989-01-10'), getDayjs('1989-01-15')]}
@@ -1502,11 +1548,17 @@ describe('Picker.Range', () => {
         expect(wrapper.isOpen()).toBeTruthy();
         wrapper.inputValue('1989-01-01');
         wrapper.closePicker(0);
+        act(() => {
+          jest.runAllTimers();
+        });
+        wrapper.update();
         expect(wrapper.isClosed()).toBeTruthy();
+        jest.useRealTimers();
       });
     });
 
     it('not change: start not to end', () => {
+      jest.useFakeTimers();
       const wrapper = mount(
         <DayjsRangePicker
           defaultValue={[getDayjs('1989-01-01'), getDayjs('1990-01-01')]}
@@ -1515,7 +1567,12 @@ describe('Picker.Range', () => {
       );
       wrapper.openPicker(0);
       wrapper.closePicker(0);
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
       expect(wrapper.isClosed()).toBeTruthy();
+      jest.useRealTimers();
     });
   });
 
