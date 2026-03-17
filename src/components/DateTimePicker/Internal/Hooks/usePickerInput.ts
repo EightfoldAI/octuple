@@ -171,11 +171,20 @@ export default function usePickerInput({
           }
         }, 0);
       } else if (open) {
-        triggerOpen(false);
-
-        if (valueChangedRef.current) {
-          onSubmit();
-        }
+        setTimeout(() => {
+          if (canUseDocElement()) {
+            let { activeElement } = document;
+            while (activeElement && activeElement.shadowRoot) {
+              activeElement = activeElement.shadowRoot.activeElement;
+            }
+            if (isClickOutside(activeElement)) {
+              triggerOpen(false);
+              if (valueChangedRef.current) {
+                onSubmit();
+              }
+            }
+          }
+        }, 0);
       }
       setFocused(false);
 

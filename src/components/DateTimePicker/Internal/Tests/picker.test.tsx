@@ -209,6 +209,7 @@ describe('Picker.Basic', () => {
 
   describe('open', () => {
     it('should work', () => {
+      jest.useFakeTimers();
       const onOpenChange = jest.fn();
       const wrapper = mount(<DayjsPicker onOpenChange={onOpenChange} />);
 
@@ -218,8 +219,13 @@ describe('Picker.Basic', () => {
       onOpenChange.mockReset();
 
       wrapper.closePicker();
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
       expect(wrapper.isClosed()).toBeTruthy();
       expect(onOpenChange).toHaveBeenCalledWith(false);
+      jest.useRealTimers();
     });
 
     it('controlled', () => {
@@ -718,6 +724,7 @@ describe('Picker.Basic', () => {
   });
 
   it('blur should reset invalidate text', () => {
+    jest.useFakeTimers();
     const wrapper = mount(<DayjsPicker />);
     wrapper.openPicker();
     wrapper.find('input').simulate('change', {
@@ -726,7 +733,12 @@ describe('Picker.Basic', () => {
       },
     });
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.find('input').props().value).toEqual('');
+    jest.useRealTimers();
   });
 
   it('should render correctly in rtl', () => {
@@ -778,6 +790,7 @@ describe('Picker.Basic', () => {
   });
 
   it('close to reset', () => {
+    jest.useFakeTimers();
     const wrapper = mount(
       <DayjsPicker defaultValue={getDayjs('2000-01-01')} />
     );
@@ -791,7 +804,12 @@ describe('Picker.Basic', () => {
     expect(wrapper.find('input').props().value).toEqual('aaaaa');
 
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.find('input').props().value).toEqual('2000-01-01');
+    jest.useRealTimers();
   });
 
   it('switch picker should change format', () => {
@@ -881,6 +899,7 @@ describe('Picker.Basic', () => {
   });
 
   it('format', () => {
+    jest.useFakeTimers();
     const wrapper = mount(<DayjsPicker format={['YYYYMMDD', 'YYYY-MM-DD']} />);
     wrapper.openPicker();
     wrapper.find('input').simulate('change', {
@@ -889,7 +908,12 @@ describe('Picker.Basic', () => {
       },
     });
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.find('input').prop('value')).toEqual('20000101');
+    jest.useRealTimers();
   });
 
   it('custom format', () => {
