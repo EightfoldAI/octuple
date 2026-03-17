@@ -420,6 +420,34 @@ describe('Picker.Basic', () => {
       expect(onBlur).toHaveBeenCalled();
       expect(wrapper.find('.picker-focused').length).toBeFalsy();
     });
+
+    it('focus returns to input after selecting a date', () => {
+      const inputFocusSpy = jest.spyOn(HTMLInputElement.prototype, 'focus');
+      const wrapper = mount(<DayjsPicker />);
+      wrapper.openPicker();
+      wrapper.selectCell(11);
+      expect(inputFocusSpy).toHaveBeenCalled();
+      expect(wrapper.find('input').prop('value')).toEqual('1990-09-11');
+      inputFocusSpy.mockRestore();
+    });
+  });
+
+  describe('deferred blur', () => {
+    it('keeps popup open when focus moves into popup after blur', () => {
+      jest.useFakeTimers();
+      const wrapper = mount(<DayjsPicker />);
+      wrapper.openPicker();
+      wrapper.find('input').simulate('blur');
+      const dayCellButton = document.querySelector('.picker-cell-inner');
+      expect(dayCellButton).toBeTruthy();
+      (dayCellButton as HTMLElement).focus();
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
+      expect(wrapper.isOpen()).toBeTruthy();
+      jest.useRealTimers();
+    });
   });
 
   it('block native mouseDown in partial to prevent focus changed', () => {
