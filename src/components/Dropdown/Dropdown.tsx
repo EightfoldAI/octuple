@@ -275,6 +275,13 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         height: height ?? '',
       };
 
+      const handleDropdownClick = (event: React.MouseEvent): void => {
+        if (!closeOnDropdownClick) return;
+        focusTargetAfterCloseRef.current = () =>
+          document.getElementById(dropdownReferenceId) as HTMLElement | null;
+        toggle(false, showDropdown)(event);
+      };
+
       const handleReferenceClick = (event: React.MouseEvent): void => {
         event.stopPropagation();
         if (disabled) {
@@ -376,6 +383,17 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             prev?.focus();
             return;
           }
+        }
+
+        if (
+          closeOnDropdownClick &&
+          !event.defaultPrevented &&
+          (event.key === eventKeys.ENTER || event.key === eventKeys.SPACE)
+        ) {
+          focusTargetAfterCloseRef.current = () =>
+            document.getElementById(dropdownReferenceId) as HTMLElement | null;
+          toggle(false, showDropdown)(event);
+          return;
         }
 
         if (event.key === eventKeys.ESCAPE) {
@@ -542,9 +560,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               style={dropdownStyles as React.CSSProperties}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
-              onClick={
-                closeOnDropdownClick ? toggle(false, showDropdown) : null
-              }
+              onClick={handleDropdownClick}
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
