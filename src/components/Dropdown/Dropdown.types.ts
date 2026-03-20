@@ -96,8 +96,10 @@ export interface DropdownProps {
    */
   onVisibleChange?: (visible: boolean) => void;
   /**
-   * If the dropdown should be shown when the user presses the shift + tab key
-   * @default true
+   * When false (default), the dropdown closes when focus leaves the overlay via Shift+Tab (recommended for a11y).
+   * When true, the dropdown remains open.
+   * @default false
+   * @deprecated Passing true is deprecated; prefer the default. Support for true may be removed in the future.
    */
   toggleDropdownOnShiftTab?: boolean;
   /**

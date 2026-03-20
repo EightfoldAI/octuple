@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Dropdown } from './';
+import { Dropdown, ANIMATION_DURATION } from './';
 import {
   Button,
   ButtonIconAlign,
@@ -13,7 +13,7 @@ import { Icon, IconName } from '../Icon';
 import { List } from '../List';
 import { Stack } from '../Stack';
 import { TextInput } from '../Inputs';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
@@ -31,6 +31,12 @@ const sampleList: User[] = [1, 2, 3].map((i) => ({
   name: `User profile ${i}`,
   icon: IconName.mdiAccount,
 }));
+
+const MOCK_EVENT_KEYS = {
+  ARROWDOWN: 'ArrowDown',
+  ARROWUP: 'ArrowUp',
+  TAB: 'Tab',
+} as const;
 
 const Overlay = () => (
   <List<User>
@@ -75,6 +81,78 @@ const DropdownComponent = (): JSX.Element => {
   return (
     <Dropdown
       {...dropdownProps}
+      onVisibleChange={(isVisible) => setVisibility(isVisible)}
+    >
+      <Button
+        alignIcon={ButtonIconAlign.Right}
+        text={'Dropdown menu test'}
+        iconProps={{
+          path: IconName.mdiChevronDown,
+          rotate: visible ? 180 : 0,
+        }}
+        id="test-button-id"
+        data-testid="dropdown-reference"
+      />
+    </Dropdown>
+  );
+};
+
+const DropdownWithNextFocusable = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <>
+      <Dropdown
+        {...dropdownProps}
+        shouldCloseOnTab={true}
+        onVisibleChange={(isVisible) => setVisibility(isVisible)}
+      >
+        <Button
+          alignIcon={ButtonIconAlign.Right}
+          text={'Dropdown menu test'}
+          iconProps={{
+            path: IconName.mdiChevronDown,
+            rotate: visible ? 180 : 0,
+          }}
+          id="test-button-id"
+          data-testid="dropdown-reference"
+        />
+      </Dropdown>
+      <Button data-testid="next-focusable" text="Next focusable" />
+    </>
+  );
+};
+
+const DropdownWithToggleOnShiftTab = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <Dropdown
+      {...dropdownProps}
+      toggleDropdownOnShiftTab={true}
+      onVisibleChange={(isVisible) => setVisibility(isVisible)}
+    >
+      <Button
+        alignIcon={ButtonIconAlign.Right}
+        text={'Dropdown menu test'}
+        iconProps={{
+          path: IconName.mdiChevronDown,
+          rotate: visible ? 180 : 0,
+        }}
+        id="test-button-id"
+        data-testid="dropdown-reference"
+      />
+    </Dropdown>
+  );
+};
+
+const DropdownWithInitialFocusFalse = (): JSX.Element => {
+  const [visible, setVisibility] = useState(false);
+
+  return (
+    <Dropdown
+      {...dropdownProps}
+      initialFocus={false}
       onVisibleChange={(isVisible) => setVisibility(isVisible)}
     >
       <Button
@@ -507,20 +585,16 @@ describe('Dropdown', () => {
   });
 
   test('Handles reference element arrow key events correctly', async () => {
-    const mockEventKeys = {
-      ARROWDOWN: 'ArrowDown',
-      ARROWUP: 'ArrowUp',
-    };
     const { container, getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.ARROWDOWN);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.ARROWDOWN);
     });
     await waitFor(() => screen.getByText('User profile 1'));
     const option1 = screen.getByText('User profile 1');
     expect(option1).toBeTruthy();
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.ARROWUP);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.ARROWUP);
     });
     await waitFor(() =>
       expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
@@ -538,13 +612,9 @@ describe('Dropdown', () => {
     await waitFor(() =>
       expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
     );
-    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true);
   });
 
-  test('Focuses the reference element when not visible', async () => {
-    const mockEventKeys = {
-      ESCAPE: 'Escape',
-    };
+  test('Focuses the reference element when dropdown is closed by Escape key', async () => {
     const { container, getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
     act(() => {
@@ -553,8 +623,75 @@ describe('Dropdown', () => {
     await waitFor(() => screen.getByText('User profile 1'));
     const option1 = screen.getByText('User profile 1');
     act(() => {
-      userEvent.type(option1, mockEventKeys.ESCAPE);
+      userEvent.type(option1, '{escape}');
     });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    await waitFor(() => expect(referenceElement).toHaveFocus());
+  });
+
+  test('Focuses the reference element when controlled dropdown is closed by Escape key', async () => {
+    const ControlledDropdown = () => {
+      const [open, setOpen] = React.useState(false);
+      return (
+        <Dropdown
+          overlay={<Overlay />}
+          visible={open}
+          onVisibleChange={setOpen}
+        >
+          <button data-testid="dropdown-reference" type="button">
+            Trigger
+          </button>
+        </Dropdown>
+      );
+    };
+
+    const { container, getByTestId } = render(<ControlledDropdown />);
+    const referenceElement = getByTestId('dropdown-reference');
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    const option1 = screen.getByText('User profile 1');
+    act(() => {
+      userEvent.type(option1, '{escape}');
+    });
+
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    await waitFor(() => expect(referenceElement).toHaveFocus());
+  });
+
+  test('Closes dropdown when Shift+Tab is pressed from first focusable element in overlay', async () => {
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    const option1 = screen.getByTestId('User profile 1');
+    act(() => {
+      fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
+      // JSDOM does not move focus on Tab/Shift+Tab. Simulate the browser moving focus
+      // so the component's deferred hasFocusWithin(floating) check sees focus left the overlay.
+      referenceElement.focus();
+    });
+    // Allow close animation and focus-restoration effect to run
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, 20);
+        })
+    );
     await waitFor(() =>
       expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
     );
@@ -562,10 +699,182 @@ describe('Dropdown', () => {
     expect(referenceElement).toHaveFocus();
   });
 
-  test('Allows tabbing into submenu after click', async () => {
-    const mockEventKeys = {
-      TAB: 'Tab',
-    };
+  test('With shouldCloseOnTab, Shift+Tab from overlay closes dropdown and returns focus to trigger', async () => {
+    const { container, getByTestId } = render(<DropdownWithNextFocusable />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    const option1 = screen.getByTestId('User profile 1');
+    act(() => {
+      fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
+      referenceElement.focus();
+    });
+    // Allow close animation and focus-restoration effect to run
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, ANIMATION_DURATION + 50);
+        })
+    );
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(referenceElement).toHaveFocus();
+  });
+
+  test('With toggleDropdownOnShiftTab, dropdown stays open when focus leaves overlay via Shift+Tab', async () => {
+    const { container, getByTestId } = render(<DropdownWithToggleOnShiftTab />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    const option1 = screen.getByTestId('User profile 1');
+    act(() => {
+      fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
+      referenceElement.focus();
+    });
+    // Allow component's deferred hasFocusWithin check to run
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, 20);
+        })
+    );
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+    expect(screen.getByText('User profile 1')).toBeInTheDocument();
+  });
+
+  test('With shouldCloseOnTab, Tab from reference while dropdown is open closes and does not refocus reference', async () => {
+    const { container, getByTestId } = render(<DropdownWithNextFocusable />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    referenceElement.focus();
+    act(() => {
+      fireEvent.keyDown(referenceElement, { key: 'Tab', code: 'Tab' });
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(referenceElement).not.toHaveFocus();
+  });
+
+  test('With initialFocus false, opening dropdown does not move focus to overlay', async () => {
+    const { getByTestId } = render(<DropdownWithInitialFocusFalse />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(false);
+    expect(referenceElement).toHaveFocus();
+  });
+
+  test('Closes dropdown when Shift+Tab is pressed on reference while dropdown is open', async () => {
+    const { container, getByTestId } = render(
+      <DropdownWithInitialFocusFalse />
+    );
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    act(() => {
+      fireEvent.keyDown(referenceElement, {
+        key: 'Tab',
+        code: 'Tab',
+        shiftKey: true,
+      });
+    });
+    // Allow close animation and effect to run
+    await act(
+      async () =>
+        new Promise((resolve) => {
+          setTimeout(resolve, 20);
+        })
+    );
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+  });
+
+  test('Focuses the next focusable element on the page when dropdown is closed by Tab', async () => {
+    const { container, getByTestId } = render(<DropdownWithNextFocusable />);
+    const referenceElement = getByTestId('dropdown-reference');
+    const nextFocusable = getByTestId('next-focusable');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    act(() => {
+      // Tab through the three overlay items to reach the next focusable on the page
+      userEvent.tab();
+      userEvent.tab();
+      userEvent.tab();
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    expect(nextFocusable).toHaveFocus();
+    expect(referenceElement).not.toHaveFocus();
+  });
+
+  test('Focuses the first focusable element when dropdown is opened with Arrow Down from reference', async () => {
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.ARROWDOWN);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    await waitFor(() =>
+      expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
+    );
+    expect(screen.getByTestId('User profile 1')).toHaveFocus();
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+  });
+
+  test('Focuses the last focusable element when dropdown is opened with Arrow Up from reference', async () => {
+    const { container, getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    const lastOverlayItem = () => screen.getByTestId('User profile 3');
+    act(() => {
+      referenceElement.focus();
+    });
+    act(() => {
+      fireEvent.keyDown(referenceElement, { key: 'ArrowUp', code: 'ArrowUp' });
+    });
+    await waitFor(() => screen.getByText('User profile 3'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+    await waitFor(
+      () => expect(lastOverlayItem().matches(':focus')).toBe(true),
+      { timeout: 1000, interval: 50 }
+    );
+    expect(lastOverlayItem()).toHaveFocus();
+  });
+
+  test('Allows tabbing between overlay items after click', async () => {
     const { getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
 
@@ -584,7 +893,7 @@ describe('Dropdown', () => {
 
     // Tab to second menu item
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.TAB);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.TAB);
     });
 
     // Verify dropdown remains open

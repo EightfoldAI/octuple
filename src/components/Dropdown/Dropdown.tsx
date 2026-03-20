@@ -81,7 +81,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         // Overlay should not be focusable by default to prevent issues with expected tab order
         overlayTabIndex = -1,
         overlayProps,
-        toggleDropdownOnShiftTab = true,
+        toggleDropdownOnShiftTab = false,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -110,22 +110,42 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       const intervalRef: React.MutableRefObject<NodeJS.Timer> =
         useRef<NodeJS.Timer>(null);
+      const closedByTabRef: React.MutableRefObject<boolean> =
+        useRef<boolean>(false);
+      const focusLastOnOpenRef: React.MutableRefObject<boolean> =
+        useRef<boolean>(false);
+      const focusTargetAfterCloseRef: React.MutableRefObject<
+        (() => HTMLElement | null) | null
+      > = useRef<(() => HTMLElement | null) | null>(null);
 
-      const firstFocusableElement = (): HTMLElement => {
-        const getFocusableElements = (): HTMLElement[] => {
-          return [
-            ...(refs.floating?.current.querySelectorAll(
-              SELECTORS
-            ) as unknown as HTMLElement[]),
-          ].filter((el: HTMLElement) => focusable(el));
-        };
-        const focusableElements: HTMLElement[] = refs.floating?.current
-          ? getFocusableElements?.()
-          : null;
-        return focusableElements?.[0];
+      const hasFocusWithin = (el: HTMLElement | null): boolean => {
+        if (!el) return false;
+        try {
+          return el.matches(':focus-within');
+        } catch {
+          // JSDOM does not support :focus-within (throws SyntaxError); fallback for tests.
+          return canUseDocElement() && el.contains(document.activeElement);
+        }
       };
 
-      const getFocusableItems = (): HTMLElement[] => {
+      const getDocumentFocusableElements = (): HTMLElement[] => {
+        if (!canUseDocElement()) return [];
+        return Array.from(
+          document.querySelectorAll<HTMLElement>(SELECTORS)
+        ).filter((el) => focusable(el));
+      };
+
+      const getNextFocusableAfterReference = (): HTMLElement | null => {
+        const reference = document.getElementById(dropdownReferenceId);
+        if (!reference) return null;
+        const allFocusable = getDocumentFocusableElements();
+        const refIndex = allFocusable.indexOf(reference as HTMLElement);
+        if (refIndex === -1 || refIndex === allFocusable.length - 1)
+          return null;
+        return allFocusable[refIndex + 1] ?? null;
+      };
+
+      const getOverlayFocusableItems = (): HTMLElement[] => {
         if (!refs.floating.current) return [];
 
         return Array.from(
@@ -133,15 +153,26 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         ).filter((el) => focusable(el));
       };
 
-      const focusFirstElement = (): void => {
-        const elementToFocus: HTMLElement = firstFocusableElement?.();
+      const focusUntilActive = (elementToFocus: HTMLElement): void => {
         clearInterval(intervalRef?.current);
         intervalRef.current = setInterval((): void => {
-          elementToFocus?.focus();
+          elementToFocus.focus();
           if (document.activeElement === elementToFocus) {
             clearInterval(intervalRef?.current);
           }
         }, ANIMATION_DURATION);
+      };
+
+      const focusFirstElement = (): void => {
+        const focusableItems: HTMLElement[] = getOverlayFocusableItems();
+        if (focusableItems.length === 0) return;
+        focusUntilActive(focusableItems[0]);
+      };
+
+      const focusLastElement = (): void => {
+        const focusableItems: HTMLElement[] = getOverlayFocusableItems();
+        if (focusableItems.length === 0) return;
+        focusUntilActive(focusableItems[focusableItems.length - 1]);
       };
 
       const focusOnElement = (elementToFocus: HTMLElement): void => {
@@ -184,6 +215,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             referenceElement = document.getElementById(dropdownReferenceId);
           }
           if (closeOnOutsideClick && closeOnReferenceClick && !mergedVisible) {
+            focusTargetAfterCloseRef.current = () => referenceElement;
             toggle(false)(e);
           }
           if (
@@ -191,6 +223,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             !referenceElement.contains(e.target as Node) &&
             !mergedVisible
           ) {
+            focusTargetAfterCloseRef.current = () => referenceElement;
             toggle(false)(e);
           }
           onClickOutside?.(e);
@@ -242,6 +275,13 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         height: height ?? '',
       };
 
+      const handleDropdownClick = (event: React.MouseEvent): void => {
+        if (!closeOnDropdownClick) return;
+        focusTargetAfterCloseRef.current = () =>
+          document.getElementById(dropdownReferenceId) as HTMLElement | null;
+        toggle(false, showDropdown)(event);
+      };
+
       const handleReferenceClick = (event: React.MouseEvent): void => {
         event.stopPropagation();
         if (disabled) {
@@ -264,10 +304,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           return;
         }
         referenceOnKeydown?.(event);
+
+        const key = event.key;
+        const isReferenceFocused = document.activeElement === event.target;
+
         if (
-          (event?.key === eventKeys.ENTER || event?.key === eventKeys.SPACE) &&
-          canUseDocElement() &&
-          document.activeElement === event.target
+          (key === eventKeys.ENTER || key === eventKeys.SPACE) &&
+          isReferenceFocused &&
+          canUseDocElement()
         ) {
           timeout && clearTimeout(timeout);
           timeout = setTimeout(() => {
@@ -279,32 +323,39 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           }, ANIMATION_DURATION);
         }
         if (
-          event?.key === eventKeys.ARROWDOWN &&
-          document.activeElement === event.target &&
+          key === eventKeys.ARROWDOWN &&
+          isReferenceFocused &&
           !mergedVisible
         ) {
-          event?.preventDefault();
+          event.preventDefault();
           toggle(true)(event);
         }
+        if (key === eventKeys.ARROWUP && isReferenceFocused) {
+          event.preventDefault();
+          if (mergedVisible) {
+            toggle(false)(event);
+          } else {
+            focusLastOnOpenRef.current = true;
+            toggle(true)(event);
+          }
+        }
+        if (key === eventKeys.ESCAPE) {
+          focusTargetAfterCloseRef.current = () =>
+            document.getElementById(dropdownReferenceId) as HTMLElement | null;
+          toggle(false)(event);
+        }
         if (
-          event?.key === eventKeys.ARROWUP &&
-          document.activeElement === event.target &&
-          mergedVisible
+          key === eventKeys.TAB &&
+          !event.shiftKey &&
+          mergedVisible &&
+          shouldCloseOnTab
         ) {
-          event?.preventDefault();
+          closedByTabRef.current = true;
           toggle(false)(event);
         }
-        if (event?.key === eventKeys.ESCAPE) {
-          toggle(false)(event);
-        }
-        if (event?.key === eventKeys.TAB && mergedVisible && shouldCloseOnTab) {
-          toggle(false)(event);
-        }
-        if (
-          event?.key === eventKeys.TAB &&
-          event.shiftKey &&
-          !(event.target as HTMLElement).matches(':focus-within')
-        ) {
+        // Shift+Tab on reference while open: user is navigating away, so close the dropdown.
+        if (key === eventKeys.TAB && event.shiftKey && mergedVisible) {
+          closedByTabRef.current = true;
           toggle(false)(event);
         }
       };
@@ -314,7 +365,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           !event.defaultPrevented &&
           (event.key === eventKeys.ARROWDOWN || event.key === eventKeys.ARROWUP)
         ) {
-          const items = getFocusableItems();
+          const items = getOverlayFocusableItems();
           const currentIndex = items.indexOf(
             document.activeElement as HTMLElement
           );
@@ -334,13 +385,29 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           }
         }
 
+        if (
+          closeOnDropdownClick &&
+          !event.defaultPrevented &&
+          (event.key === eventKeys.ENTER || event.key === eventKeys.SPACE)
+        ) {
+          focusTargetAfterCloseRef.current = () =>
+            document.getElementById(dropdownReferenceId) as HTMLElement | null;
+          toggle(false, showDropdown)(event);
+          return;
+        }
+
         if (event.key === eventKeys.ESCAPE) {
+          focusTargetAfterCloseRef.current = () =>
+            document.getElementById(dropdownReferenceId) as HTMLElement | null;
           toggle(false)(event);
           return;
         }
 
         if (event?.key === eventKeys.TAB && mergedVisible && !event.shiftKey) {
           if (shouldCloseOnTab) {
+            event.preventDefault();
+            closedByTabRef.current = true;
+            focusTargetAfterCloseRef.current = getNextFocusableAfterReference;
             toggle(false)(event);
           } else {
             timeout && clearTimeout(timeout);
@@ -349,18 +416,38 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 refs.floating.current &&
                 !refs.floating.current.contains(document.activeElement)
               ) {
+                closedByTabRef.current = true;
                 toggle(false)(event);
               }
             }, NO_ANIMATION_DURATION);
           }
         }
+        // Shift+Tab: with shouldCloseOnTab, close and focus the trigger; otherwise
+        // after a short delay, if focus left the overlay, close or keep open per toggleDropdownOnShiftTab.
         if (event?.key === eventKeys.TAB && event.shiftKey && mergedVisible) {
-          timeout && clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            if (!refs.floating.current.matches(':focus-within')) {
-              toggle(toggleDropdownOnShiftTab)(event);
+          if (shouldCloseOnTab) {
+            event.preventDefault();
+            closedByTabRef.current = true;
+            focusTargetAfterCloseRef.current = () =>
+              document.getElementById(
+                dropdownReferenceId
+              ) as HTMLElement | null;
+            toggle(false)(event);
+          } else {
+            // Wait for focus to leave overlay, then close or keep open per toggleDropdownOnShiftTab
+            if (timeout) {
+              clearTimeout(timeout);
             }
-          }, NO_ANIMATION_DURATION);
+            timeout = setTimeout(() => {
+              const focusLeftOverlay = !hasFocusWithin(refs.floating.current);
+              if (!focusLeftOverlay) return;
+              const shouldRemainOpen = toggleDropdownOnShiftTab;
+              if (!shouldRemainOpen) {
+                closedByTabRef.current = true;
+              }
+              toggle(shouldRemainOpen)(event);
+            }, NO_ANIMATION_DURATION);
+          }
         }
       };
 
@@ -428,25 +515,35 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         });
       };
 
+      // Clear focus interval on unmount
       useEffect(() => {
+        return () => {
+          intervalRef.current && clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        };
+      }, []);
+
+      useEffect(() => {
+        // If the dropdown is opened, focus first or last focusable element
         if (initialFocus && mergedVisible) {
-          focusFirstElement();
+          if (focusLastOnOpenRef.current) {
+            focusLastOnOpenRef.current = false;
+            focusLastElement();
+          } else {
+            focusFirstElement();
+          }
         }
-        if (!mergedVisible && previouslyClosing) {
-          const referenceElement: HTMLElement =
-            document.getElementById(dropdownReferenceId);
-          referenceElement?.focus();
+        if (mergedVisible) return;
+        clearInterval(intervalRef?.current);
+
+        if (closedByTabRef.current) {
+          closedByTabRef.current = false;
         }
-        if (!mergedVisible) {
-          clearInterval(intervalRef?.current);
+        if (focusTargetAfterCloseRef.current) {
+          focusTargetAfterCloseRef.current?.()?.focus();
+          focusTargetAfterCloseRef.current = null;
         }
-      }, [
-        dropdownReferenceId,
-        initialFocus,
-        intervalRef,
-        mergedVisible,
-        previouslyClosing,
-      ]);
+      }, [dropdownReferenceId, initialFocus, intervalRef, mergedVisible]);
 
       const getDropdown = (): JSX.Element =>
         mergedVisible && (
@@ -463,9 +560,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               style={dropdownStyles as React.CSSProperties}
               className={dropdownClasses}
               tabIndex={overlayTabIndex}
-              onClick={
-                closeOnDropdownClick ? toggle(false, showDropdown) : null
-              }
+              onClick={handleDropdownClick}
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
               role={role}
