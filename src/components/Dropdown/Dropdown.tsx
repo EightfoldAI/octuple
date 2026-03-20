@@ -215,6 +215,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             referenceElement = document.getElementById(dropdownReferenceId);
           }
           if (closeOnOutsideClick && closeOnReferenceClick && !mergedVisible) {
+            focusTargetAfterCloseRef.current = () => referenceElement;
             toggle(false)(e);
           }
           if (
@@ -222,6 +223,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             !referenceElement.contains(e.target as Node) &&
             !mergedVisible
           ) {
+            focusTargetAfterCloseRef.current = () => referenceElement;
             toggle(false)(e);
           }
           onClickOutside?.(e);
@@ -331,6 +333,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           }
         }
         if (key === eventKeys.ESCAPE) {
+          focusTargetAfterCloseRef.current = () =>
+            document.getElementById(dropdownReferenceId) as HTMLElement | null;
           toggle(false)(event);
         }
         if (
@@ -375,6 +379,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         }
 
         if (event.key === eventKeys.ESCAPE) {
+          focusTargetAfterCloseRef.current = () =>
+            document.getElementById(dropdownReferenceId) as HTMLElement | null;
           toggle(false)(event);
           return;
         }
@@ -402,7 +408,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         // after a short delay, if focus left the overlay, close or keep open per toggleDropdownOnShiftTab.
         if (event?.key === eventKeys.TAB && event.shiftKey && mergedVisible) {
           if (shouldCloseOnTab) {
-            // Close and return focus to trigger after overlay hides
             event.preventDefault();
             closedByTabRef.current = true;
             focusTargetAfterCloseRef.current = () =>
@@ -511,28 +516,16 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           }
         }
         if (mergedVisible) return;
-        // If the dropdown just closed and user tabbed out, clear the ref and leave focus where it is;
-        // otherwise return focus to the trigger (Escape, click outside).
         clearInterval(intervalRef?.current);
-        if (!previouslyClosing) return;
 
         if (closedByTabRef.current) {
           closedByTabRef.current = false;
-          // Overlay is unmounted here; focus target is safe to resolve.
+        }
+        if (focusTargetAfterCloseRef.current) {
           focusTargetAfterCloseRef.current?.()?.focus();
           focusTargetAfterCloseRef.current = null;
-        } else {
-          const referenceElement: HTMLElement =
-            document.getElementById(dropdownReferenceId);
-          referenceElement?.focus();
         }
-      }, [
-        dropdownReferenceId,
-        initialFocus,
-        intervalRef,
-        mergedVisible,
-        previouslyClosing,
-      ]);
+      }, [dropdownReferenceId, initialFocus, intervalRef, mergedVisible]);
 
       const getDropdown = (): JSX.Element =>
         mergedVisible && (

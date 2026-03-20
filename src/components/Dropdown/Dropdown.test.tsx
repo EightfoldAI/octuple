@@ -32,6 +32,12 @@ const sampleList: User[] = [1, 2, 3].map((i) => ({
   icon: IconName.mdiAccount,
 }));
 
+const MOCK_EVENT_KEYS = {
+  ARROWDOWN: 'ArrowDown',
+  ARROWUP: 'ArrowUp',
+  TAB: 'Tab',
+} as const;
+
 const Overlay = () => (
   <List<User>
     items={sampleList}
@@ -579,20 +585,16 @@ describe('Dropdown', () => {
   });
 
   test('Handles reference element arrow key events correctly', async () => {
-    const mockEventKeys = {
-      ARROWDOWN: 'ArrowDown',
-      ARROWUP: 'ArrowUp',
-    };
     const { container, getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.ARROWDOWN);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.ARROWDOWN);
     });
     await waitFor(() => screen.getByText('User profile 1'));
     const option1 = screen.getByText('User profile 1');
     expect(option1).toBeTruthy();
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.ARROWUP);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.ARROWUP);
     });
     await waitFor(() =>
       expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
@@ -610,13 +612,9 @@ describe('Dropdown', () => {
     await waitFor(() =>
       expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true)
     );
-    expect(screen.getByTestId('User profile 1').matches(':focus')).toBe(true);
   });
 
   test('Focuses the reference element when dropdown is closed by Escape key', async () => {
-    const mockEventKeys = {
-      ESCAPE: 'Escape',
-    };
     const { container, getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
     act(() => {
@@ -625,13 +623,49 @@ describe('Dropdown', () => {
     await waitFor(() => screen.getByText('User profile 1'));
     const option1 = screen.getByText('User profile 1');
     act(() => {
-      userEvent.type(option1, mockEventKeys.ESCAPE);
+      userEvent.type(option1, '{escape}');
     });
     await waitFor(() =>
       expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
     );
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
-    expect(referenceElement).toHaveFocus();
+    await waitFor(() => expect(referenceElement).toHaveFocus());
+  });
+
+  test('Focuses the reference element when controlled dropdown is closed by Escape key', async () => {
+    const ControlledDropdown = () => {
+      const [open, setOpen] = React.useState(false);
+      return (
+        <Dropdown
+          overlay={<Overlay />}
+          visible={open}
+          onVisibleChange={setOpen}
+        >
+          <button data-testid="dropdown-reference" type="button">
+            Trigger
+          </button>
+        </Dropdown>
+      );
+    };
+
+    const { container, getByTestId } = render(<ControlledDropdown />);
+    const referenceElement = getByTestId('dropdown-reference');
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+
+    const option1 = screen.getByText('User profile 1');
+    act(() => {
+      userEvent.type(option1, '{escape}');
+    });
+
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
+    await waitFor(() => expect(referenceElement).toHaveFocus());
   });
 
   test('Closes dropdown when Shift+Tab is pressed from first focusable element in overlay', async () => {
@@ -651,6 +685,7 @@ describe('Dropdown', () => {
       // so the component's deferred hasFocusWithin(floating) check sees focus left the overlay.
       referenceElement.focus();
     });
+    // Allow close animation and focus-restoration effect to run
     await act(
       async () =>
         new Promise((resolve) => {
@@ -679,6 +714,7 @@ describe('Dropdown', () => {
       fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
       referenceElement.focus();
     });
+    // Allow close animation and focus-restoration effect to run
     await act(
       async () =>
         new Promise((resolve) => {
@@ -707,6 +743,7 @@ describe('Dropdown', () => {
       fireEvent.keyDown(option1, { key: 'Tab', code: 'Tab', shiftKey: true });
       referenceElement.focus();
     });
+    // Allow component's deferred hasFocusWithin check to run
     await act(
       async () =>
         new Promise((resolve) => {
@@ -764,6 +801,7 @@ describe('Dropdown', () => {
         shiftKey: true,
       });
     });
+    // Allow close animation and effect to run
     await act(
       async () =>
         new Promise((resolve) => {
@@ -802,13 +840,10 @@ describe('Dropdown', () => {
   });
 
   test('Focuses the first focusable element when dropdown is opened with Arrow Down from reference', async () => {
-    const mockEventKeys = {
-      ARROWDOWN: 'ArrowDown',
-    };
     const { container, getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.ARROWDOWN);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.ARROWDOWN);
     });
     await waitFor(() => screen.getByText('User profile 1'));
     await waitFor(() =>
@@ -839,10 +874,7 @@ describe('Dropdown', () => {
     expect(lastOverlayItem()).toHaveFocus();
   });
 
-  test('Allows tabbing into submenu after click', async () => {
-    const mockEventKeys = {
-      TAB: 'Tab',
-    };
+  test('Allows tabbing between overlay items after click', async () => {
     const { getByTestId } = render(<DropdownComponent />);
     const referenceElement = getByTestId('dropdown-reference');
 
@@ -861,7 +893,7 @@ describe('Dropdown', () => {
 
     // Tab to second menu item
     act(() => {
-      userEvent.type(referenceElement, mockEventKeys.TAB);
+      userEvent.type(referenceElement, MOCK_EVENT_KEYS.TAB);
     });
 
     // Verify dropdown remains open
