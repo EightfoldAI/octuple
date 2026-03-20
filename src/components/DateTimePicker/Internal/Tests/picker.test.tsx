@@ -209,6 +209,7 @@ describe('Picker.Basic', () => {
 
   describe('open', () => {
     it('should work', () => {
+      jest.useFakeTimers();
       const onOpenChange = jest.fn();
       const wrapper = mount(<DayjsPicker onOpenChange={onOpenChange} />);
 
@@ -218,8 +219,13 @@ describe('Picker.Basic', () => {
       onOpenChange.mockReset();
 
       wrapper.closePicker();
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
       expect(wrapper.isClosed()).toBeTruthy();
       expect(onOpenChange).toHaveBeenCalledWith(false);
+      jest.useRealTimers();
     });
 
     it('controlled', () => {
@@ -413,6 +419,34 @@ describe('Picker.Basic', () => {
       wrapper.find('input').simulate('blur');
       expect(onBlur).toHaveBeenCalled();
       expect(wrapper.find('.picker-focused').length).toBeFalsy();
+    });
+
+    it('focus returns to input after selecting a date', () => {
+      const inputFocusSpy = jest.spyOn(HTMLInputElement.prototype, 'focus');
+      const wrapper = mount(<DayjsPicker />);
+      wrapper.openPicker();
+      wrapper.selectCell(11);
+      expect(inputFocusSpy).toHaveBeenCalled();
+      expect(wrapper.find('input').prop('value')).toEqual('1990-09-11');
+      inputFocusSpy.mockRestore();
+    });
+  });
+
+  describe('deferred blur', () => {
+    it('keeps popup open when focus moves into popup after blur', () => {
+      jest.useFakeTimers();
+      const wrapper = mount(<DayjsPicker />);
+      wrapper.openPicker();
+      wrapper.find('input').simulate('blur');
+      const dayCellButton = document.querySelector('.picker-cell-inner');
+      expect(dayCellButton).toBeTruthy();
+      (dayCellButton as HTMLElement).focus();
+      act(() => {
+        jest.runAllTimers();
+      });
+      wrapper.update();
+      expect(wrapper.isOpen()).toBeTruthy();
+      jest.useRealTimers();
     });
   });
 
@@ -718,6 +752,7 @@ describe('Picker.Basic', () => {
   });
 
   it('blur should reset invalidate text', () => {
+    jest.useFakeTimers();
     const wrapper = mount(<DayjsPicker />);
     wrapper.openPicker();
     wrapper.find('input').simulate('change', {
@@ -726,7 +761,12 @@ describe('Picker.Basic', () => {
       },
     });
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.find('input').props().value).toEqual('');
+    jest.useRealTimers();
   });
 
   it('should render correctly in rtl', () => {
@@ -778,6 +818,7 @@ describe('Picker.Basic', () => {
   });
 
   it('close to reset', () => {
+    jest.useFakeTimers();
     const wrapper = mount(
       <DayjsPicker defaultValue={getDayjs('2000-01-01')} />
     );
@@ -791,7 +832,12 @@ describe('Picker.Basic', () => {
     expect(wrapper.find('input').props().value).toEqual('aaaaa');
 
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.find('input').props().value).toEqual('2000-01-01');
+    jest.useRealTimers();
   });
 
   it('switch picker should change format', () => {
@@ -881,6 +927,7 @@ describe('Picker.Basic', () => {
   });
 
   it('format', () => {
+    jest.useFakeTimers();
     const wrapper = mount(<DayjsPicker format={['YYYYMMDD', 'YYYY-MM-DD']} />);
     wrapper.openPicker();
     wrapper.find('input').simulate('change', {
@@ -889,7 +936,12 @@ describe('Picker.Basic', () => {
       },
     });
     wrapper.closePicker();
+    act(() => {
+      jest.runAllTimers();
+    });
+    wrapper.update();
     expect(wrapper.find('input').prop('value')).toEqual('20000101');
+    jest.useRealTimers();
   });
 
   it('custom format', () => {

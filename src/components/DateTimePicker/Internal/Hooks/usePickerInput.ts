@@ -2,7 +2,6 @@ import type * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import {
   canUseDocElement,
-  canUseDom,
   eventKeys,
   requestAnimationFrameWrapper,
 } from '../../../../shared/utilities';
@@ -158,7 +157,7 @@ export default function usePickerInput({
       }
 
       if (blurToCancel) {
-        setTimeout(() => {
+        requestAnimationFrameWrapper(() => {
           if (canUseDocElement()) {
             let { activeElement } = document;
             while (activeElement && activeElement.shadowRoot) {
@@ -169,13 +168,22 @@ export default function usePickerInput({
               onCancel();
             }
           }
-        }, 0);
+        });
       } else if (open) {
-        triggerOpen(false);
-
-        if (valueChangedRef.current) {
-          onSubmit();
-        }
+        requestAnimationFrameWrapper(() => {
+          if (canUseDocElement()) {
+            let { activeElement } = document;
+            while (activeElement && activeElement.shadowRoot) {
+              activeElement = activeElement.shadowRoot.activeElement;
+            }
+            if (isClickOutside(activeElement)) {
+              triggerOpen(false);
+              if (valueChangedRef.current) {
+                onSubmit();
+              }
+            }
+          }
+        });
       }
       setFocused(false);
 
