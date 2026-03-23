@@ -9,6 +9,7 @@ import {
   TextInputSize,
   TextInputWidth,
 } from '../index';
+import { show } from '../../Accordion/accordion.module.scss';
 
 export default {
   title: 'Input',
@@ -152,7 +153,27 @@ const Text_Input_Story: ComponentStory<typeof TextInput> = (args) => {
   );
 };
 
+const Text_Input_Number_Story: ComponentStory<typeof TextInput> = (args) => {
+  const [val, setVal] = useState(args.value);
+  return (
+    <TextInput
+      {...args}
+      htmlType="number"
+      value={val}
+      onChange={(e) => setVal(e.target.value)}
+      labelProps={{
+        labelIconButtonProps: {
+          show: true,
+          toolTipContent: 'tooltip',
+        },
+        text: 'Number',
+      }}
+    />
+  );
+};
+
 export const Text_Input = Text_Input_Story.bind({});
+export const Text_Input_Number = Text_Input_Number_Story.bind({});
 
 Text_Input.args = {
   allowDisabledFocus: false,
