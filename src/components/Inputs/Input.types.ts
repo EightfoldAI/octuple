@@ -222,7 +222,7 @@ export interface TextInputProps extends InputProps<HTMLInputElement> {
 export interface InputProps<T>
   extends Omit<
     OcBaseProps<T>,
-    'onChange' | 'onFocus' | 'onBlur' | 'onKeyDown'
+    'onChange' | 'onFocus' | 'onBlur' | 'onKeyDown' | 'role'
   > {
   /**
    * The input icon alignment.

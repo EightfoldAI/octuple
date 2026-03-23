@@ -492,8 +492,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
               id="input-"
               max="4"
               min="1"
-              role="textbox"
-              tabindex="0"
               type="number"
               value="4"
             />
@@ -723,8 +721,6 @@ exports[`Pagination Pagination should render with some elements 1`] = `
               id="input-"
               max="10"
               min="1"
-              role="textbox"
-              tabindex="0"
               type="number"
               value="5"
             />
