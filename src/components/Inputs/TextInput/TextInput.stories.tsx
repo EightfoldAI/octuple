@@ -9,7 +9,6 @@ import {
   TextInputSize,
   TextInputWidth,
 } from '../index';
-import { show } from '../../Accordion/accordion.module.scss';
 
 export default {
   title: 'Input',
