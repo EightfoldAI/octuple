@@ -14,6 +14,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
         aria-disabled="false"
         aria-label="Previous"
         class="pagination-button pagination-previous button button-neutral button-medium icon-left"
+        title="?undefined?"
       >
         <span
           class="icon icon-wrapper"
@@ -39,6 +40,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
             aria-disabled="false"
             aria-label="page 1 of 3"
             class="pagination-button active button button-neutral button-medium"
+            title="?1?"
           >
             <span
               class="button-text-medium"
@@ -53,6 +55,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
             aria-disabled="false"
             aria-label="page 2 of 3"
             class="pagination-button button button-neutral button-medium"
+            title="?2?"
           >
             <span
               class="button-text-medium"
@@ -67,6 +70,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
             aria-disabled="false"
             aria-label="page 3 of 3"
             class="pagination-button button button-neutral button-medium"
+            title="?3?"
           >
             <span
               class="button-text-medium"
@@ -80,6 +84,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
         aria-disabled="false"
         aria-label="Next"
         class="pagination-button pagination-next button button-neutral button-medium icon-left"
+        title="?undefined?"
       >
         <span
           class="icon icon-wrapper"
@@ -120,6 +125,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
       aria-disabled="false"
       aria-label="Previous"
       class="carousel-previous button button-secondary button-large icon-left"
+      title="?undefined?"
     >
       <span
         class="icon icon-wrapper"
@@ -140,6 +146,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
       aria-disabled="false"
       aria-label="Next"
       class="carousel-next button button-secondary button-large icon-left"
+      title="?undefined?"
     >
       <span
         class="icon icon-wrapper"

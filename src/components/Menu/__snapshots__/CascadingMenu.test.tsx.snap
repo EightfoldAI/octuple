@@ -10,6 +10,7 @@ exports[`Menu Should render a menu button 1`] = `
     data-testid="menu-reference"
     id="floating-ui-3"
     role="button"
+    title="?Cascading menu?"
   >
     <span
       class="button-text-medium"

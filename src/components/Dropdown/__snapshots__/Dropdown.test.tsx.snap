@@ -15,6 +15,7 @@ exports[`Dropdown Should render a dropdown button 1`] = `
       id="test-button-id"
       role="button"
       tabindex="0"
+      title="?Dropdown menu test?"
     >
       <span>
         <span

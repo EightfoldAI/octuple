@@ -716,6 +716,7 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
               aria-pressed="true"
               class="button button button-neutral button-small round-shape icon-left"
               data-testid="highlight-button-test"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"
@@ -1911,6 +1912,7 @@ exports[`SkillBlock Skill is a default block with customButtonProps 1`] = `
               aria-label="Open"
               class="button button button-neutral button-small round-shape icon-left"
               data-testid="test-custom-button"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"
@@ -2057,6 +2059,7 @@ exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
               aria-pressed="false"
               class="button button button-neutral button-small pill-shape icon-left"
               data-testid="test-endorse-button"
+              title="?undefined?"
             >
               <span>
                 <span
@@ -2210,6 +2213,7 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
               aria-pressed="false"
               class="button button button-neutral button-small round-shape icon-left"
               data-testid="test-highlight-button"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"
@@ -4262,6 +4266,7 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
                 id="dropdown-reference"
                 role="button"
                 tabindex="0"
+                title="?undefined?"
               >
                 <span
                   class="icon icon-wrapper"

@@ -53,6 +53,7 @@ exports[`Accordion Accordion is large 1`] = `
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
@@ -143,6 +144,7 @@ exports[`Accordion Accordion is medium 1`] = `
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
@@ -233,6 +235,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
@@ -323,6 +326,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
@@ -413,6 +417,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button icon-wrapper"
@@ -535,6 +540,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                         aria-disabled="false"
                         aria-label="Button 0"
                         class="button button-neutral button-medium round-shape icon-left"
+                        title="?undefined?"
                       >
                         <span
                           class="icon icon-wrapper"
@@ -559,6 +565,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                         aria-disabled="false"
                         aria-label="Button 1"
                         class="button button-secondary button-secondary-disruptive button-medium round-shape icon-left"
+                        title="?undefined?"
                       >
                         <span
                           class="icon icon-wrapper"
@@ -594,6 +601,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button expanded-icon-button icon-wrapper"
@@ -684,6 +692,7 @@ exports[`Accordion Renders without crashing 1`] = `
         data-testid="accordian-arrow-button"
         disabled=""
         tabindex="-1"
+        title="?undefined?"
       >
         <span
           class="icon accordion-icon-button icon-wrapper"

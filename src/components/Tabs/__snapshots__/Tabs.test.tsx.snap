@@ -2605,6 +2605,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
+          title="?undefined?"
         >
           <span
             className="icon icon-wrapper"
@@ -2709,6 +2710,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
+          title="?undefined?"
         >
           <span
             className="icon icon-wrapper"
@@ -2813,6 +2815,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
+          title="?undefined?"
         >
           <span
             className="icon icon-wrapper"
@@ -2918,6 +2921,7 @@ exports[`Tabs stat tabs with buttons snapshot 1`] = `
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
+          title="?undefined?"
         >
           <span
             className="icon icon-wrapper"

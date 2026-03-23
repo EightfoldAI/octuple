@@ -5,6 +5,7 @@ exports[`Button Button is default 1`] = `
   <button
     aria-disabled="false"
     class="button button-default button-medium pill-shape"
+    title="?test default?"
   >
     <span
       class="button-text-medium"
@@ -20,6 +21,7 @@ exports[`Button Button is large 1`] = `
   <button
     aria-disabled="false"
     class="button button-primary button-large pill-shape"
+    title="?test?"
   >
     <span
       class="button-text-large"
@@ -36,6 +38,7 @@ exports[`Button Button is loading 1`] = `
     aria-disabled="true"
     class="button button-primary button-medium pill-shape loading"
     disabled=""
+    title="?test?"
   >
     <span
       class="button-text-medium"
@@ -64,6 +67,7 @@ exports[`Button Button is medium 1`] = `
   <button
     aria-disabled="false"
     class="button button-primary button-medium pill-shape"
+    title="?test?"
   >
     <span
       class="button-text-medium"
@@ -79,6 +83,7 @@ exports[`Button Button is neutral 1`] = `
   <button
     aria-disabled="false"
     class="button button-neutral button-medium pill-shape"
+    title="?test neutral?"
   >
     <span
       class="button-text-medium"
@@ -94,6 +99,7 @@ exports[`Button Button is primary 1`] = `
   <button
     aria-disabled="false"
     class="button button-primary button-medium pill-shape"
+    title="?test?"
   >
     <span
       class="button-text-medium"
@@ -109,6 +115,7 @@ exports[`Button Button is secondary 1`] = `
   <button
     aria-disabled="false"
     class="button button-secondary button-medium pill-shape"
+    title="?test secondary?"
   >
     <span
       class="button-text-medium"
@@ -124,6 +131,7 @@ exports[`Button Button is small 1`] = `
   <button
     aria-disabled="false"
     class="button button-primary button-small pill-shape"
+    title="?test?"
   >
     <span
       class="button-text-small"
@@ -139,6 +147,7 @@ exports[`Button Button is system ui 1`] = `
   <button
     aria-disabled="false"
     class="button button-system-ui button-medium pill-shape"
+    title="?test system ui?"
   >
     <span
       class="button-text-medium"
@@ -156,6 +165,7 @@ exports[`Button simulate click on disabled button 1`] = `
     class="button button-primary button-medium pill-shape disabled"
     data-testid="button-3"
     disabled=""
+    title="?test Button?"
   >
     <span
       class="button-text-medium"

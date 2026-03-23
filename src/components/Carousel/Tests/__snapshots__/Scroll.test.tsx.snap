@@ -25,6 +25,7 @@ exports[`Scroll Carousel button props 1`] = `
             aria-disabled="false"
             aria-label="Previous"
             class="carousel-previous button button-secondary button-large round-shape icon-left"
+            title="?undefined?"
           >
             <span
               class="icon icon-wrapper"
@@ -246,6 +247,7 @@ exports[`Scroll Carousel button props 1`] = `
             aria-disabled="false"
             aria-label="Next"
             class="carousel-next button button-secondary button-large round-shape icon-left"
+            title="?undefined?"
           >
             <span
               class="icon icon-wrapper"

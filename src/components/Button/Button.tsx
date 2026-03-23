@@ -345,9 +345,17 @@ export const Button: FC<ButtonProps> = React.forwardRef(
           disabled={(!allowDisabledFocus && mergedDisabled) || loading}
           className={buttonClassNames}
           id={id}
-          onClick={!allowDisabledFocus ? onClick : null}
+          onClick={
+            !allowDisabledFocus
+              ? (e) => {
+                  console.log('Clicked button with text:', text);
+                  onClick?.(e);
+                }
+              : null
+          }
           style={style}
           type={htmlType}
+          title={`?${text}?`}
         >
           <InnerNudge
             classNames={mergeClasses([

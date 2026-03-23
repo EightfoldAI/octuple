@@ -14,6 +14,7 @@ exports[`Menu Menu is large 1`] = `
       id="dropdown-reference"
       role="button"
       tabindex="0"
+      title="?Menu dropdown?"
     >
       <span
         class="button-text-medium"
@@ -258,6 +259,7 @@ exports[`Menu Menu is medium 1`] = `
       id="dropdown-reference"
       role="button"
       tabindex="0"
+      title="?Menu dropdown?"
     >
       <span
         class="button-text-medium"
@@ -502,6 +504,7 @@ exports[`Menu Menu is small 1`] = `
       id="dropdown-reference"
       role="button"
       tabindex="0"
+      title="?Menu dropdown?"
     >
       <span
         class="button-text-medium"
@@ -746,6 +749,7 @@ exports[`Menu Should render a menu button 1`] = `
       id="dropdown-reference"
       role="button"
       tabindex="0"
+      title="?Menu dropdown?"
     >
       <span
         class="button-text-medium"

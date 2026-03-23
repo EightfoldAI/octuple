@@ -13,6 +13,7 @@ exports[`Pill Pill should render as closable 1`] = `
     <button
       aria-disabled="false"
       class="close-button button button-default button-small pill-shape icon-left"
+      title="?undefined?"
     >
       <span
         class="icon icon-wrapper"
@@ -75,6 +76,7 @@ exports[`Pill Pill should render with button 1`] = `
       aria-disabled="false"
       aria-label="Thumbs up"
       class="button button button-default button-small pill-shape icon-left"
+      title="?2?"
     >
       <span>
         <span

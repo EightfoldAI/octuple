@@ -267,6 +267,7 @@ exports[`SkillTag Skill is a default tag that's removable 1`] = `
               aria-disabled="false"
               class="button button button-neutral button-small round-shape icon-left"
               data-testid="test-remove-button"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"
@@ -496,6 +497,7 @@ exports[`SkillTag Skill is a default tag with customButtonProps 1`] = `
               aria-label="Open"
               class="button button button-neutral button-small round-shape icon-left"
               data-testid="test-custom-button"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"
@@ -556,6 +558,7 @@ exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
               aria-pressed="true"
               class="button button button-neutral button-small pill-shape icon-left"
               data-testid="test-endorse-button"
+              title="?undefined?"
             >
               <span>
                 <span
@@ -1516,6 +1519,7 @@ exports[`SkillTag Skill tag is closable 1`] = `
             <button
               aria-disabled="false"
               class="button button button-neutral button-small round-shape icon-left"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"
@@ -1679,6 +1683,7 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
             <button
               aria-disabled="false"
               class="button button button-neutral button-small round-shape icon-left"
+              title="?undefined?"
             >
               <span
                 class="icon icon-wrapper"

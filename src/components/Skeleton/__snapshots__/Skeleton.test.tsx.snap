@@ -8,6 +8,7 @@ exports[`Skeleton Renders without crashing 1`] = `
     <button
       aria-disabled="false"
       class="button button-default button-medium pill-shape"
+      title="?Sample button?"
     >
       <span
         class="button-text-medium"
