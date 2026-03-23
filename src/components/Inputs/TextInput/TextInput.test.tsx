@@ -29,6 +29,18 @@ describe('TextInput', () => {
     );
   });
 
+  test('Text input does not render role attribute', () => {
+    const { container } = render(<TextInput />);
+    const input = container.getElementsByTagName('input')[0];
+    expect(input.hasAttribute('role')).toBe(false);
+  });
+
+  test('Text input does not render tabindex attribute', () => {
+    const { container } = render(<TextInput />);
+    const input = container.getElementsByTagName('input')[0];
+    expect(input.hasAttribute('tabindex')).toBe(false);
+  });
+
   test('Text input is readonly', () => {
     const { container } = render(
       <TextInput readonly defaultValue="Test value" />
