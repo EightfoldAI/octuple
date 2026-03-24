@@ -536,6 +536,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       if (trapFocus) {
         setTrap(false);
       }
+      inputRef.current?.focus();
     }
   };
 
