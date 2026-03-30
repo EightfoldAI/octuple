@@ -338,8 +338,8 @@ describe('Table.Basic', () => {
       ];
 
       wrapper.find('tbody tr').forEach((tr, ri) => {
-        tr.find('td').forEach((td, di) => {
-          expect(td.text()).toEqual(targetData[ri][di]);
+        targetData[ri].forEach((expected, di) => {
+          expect(tr.childAt(di).text()).toEqual(expected);
         });
       });
     });
@@ -351,7 +351,7 @@ describe('Table.Basic', () => {
       { key: 'key1', name: 'Mia' },
     ];
     const wrapper = mount(createTable({ data: localData }));
-    expect(wrapper.find('table td').first().text()).toBe('');
+    expect(wrapper.find('tbody th').first().text()).toBe('');
   });
 
   it('renders colSpan correctly', () => {
@@ -423,7 +423,7 @@ describe('Table.Basic', () => {
         }}
       />
     );
-    const props = wrapper.find('td').props();
+    const props = wrapper.find('tbody th').props();
     expect(props.style).toEqual(expect.objectContaining({ background: 'red' }));
     expect(props.className.includes('customize-render')).toBeTruthy();
     expect(props['data-light']).toEqual('bamboo');
@@ -529,7 +529,7 @@ describe('Table.Basic', () => {
       };
       const wrapper = mount(<Test />);
       for (let i = 0; i < 10; i += 1) {
-        wrapper.find('tbody tr td').last().simulate('click');
+        wrapper.find('tbody tr th').last().simulate('click');
         expect(wrapper.find('#count').text()).toEqual(String(i + 1));
       }
     });
@@ -542,8 +542,8 @@ describe('Table.Basic', () => {
     const columns = [{ title: 'Name', dataIndex: 'name', key: 'name', onCell }];
     const wrapper = mount(createTable({ columns }));
 
-    expect(wrapper.find('tbody td')).toHaveLength(2);
-    wrapper.find('tbody td').forEach((td, index) => {
+    expect(wrapper.find('tbody th')).toHaveLength(2);
+    wrapper.find('tbody th').forEach((td, index) => {
       expect(td.props().id).toEqual(`cell-${data[index].name}`);
     });
   });
@@ -672,10 +672,10 @@ describe('Table.Basic', () => {
     expect(wrapper.find('th').at(0).props().style.textAlign).toBeFalsy();
     expect(wrapper.find('th').at(1).props().style.textAlign).toEqual('center');
     expect(
-      wrapper.find('tbody tr').first().find('td').at(0).props().style.textAlign
+      wrapper.find('tbody tr').first().find('th').at(0).props().style.textAlign
     ).toBeFalsy();
     expect(
-      wrapper.find('tbody tr').first().find('td').at(1).props().style.textAlign
+      wrapper.find('tbody tr').first().find('td').at(0).props().style.textAlign
     ).toEqual('center');
   });
 
@@ -695,7 +695,7 @@ describe('Table.Basic', () => {
       color: 'green',
       textAlign: 'center',
     });
-    expect(wrapper.find('td').first().props().style).toEqual({
+    expect(wrapper.find('tbody th').first().props().style).toEqual({
       color: 'red',
       textAlign: 'center',
     });
@@ -715,11 +715,11 @@ describe('Table.Basic', () => {
     expect(wrapper.find('th').at(0).props().style.verticalAlign).toBeFalsy();
     expect(wrapper.find('th').at(1).props().style.verticalAlign).toEqual('top');
     expect(
-      wrapper.find('tbody tr').first().find('td').at(0).props().style
+      wrapper.find('tbody tr').first().find('th').at(0).props().style
         .verticalAlign
     ).toBeFalsy();
     expect(
-      wrapper.find('tbody tr').first().find('td').at(1).props().style
+      wrapper.find('tbody tr').first().find('td').at(0).props().style
         .verticalAlign
     ).toEqual('top');
   });
@@ -740,7 +740,7 @@ describe('Table.Basic', () => {
       color: 'green',
       verticalAlign: 'top',
     });
-    expect(wrapper.find('td').first().props().style).toEqual({
+    expect(wrapper.find('tbody th').first().props().style).toEqual({
       color: 'red',
       verticalAlign: 'top',
     });
@@ -966,10 +966,10 @@ describe('Table.Basic', () => {
     }
 
     const wrapper = mount(<Test />);
-    expect(wrapper.find('td').text()).toEqual('false');
+    expect(wrapper.find('tbody th').text()).toEqual('false');
 
     wrapper.setState({ change: true });
-    expect(wrapper.find('td').text()).toEqual('true');
+    expect(wrapper.find('tbody th').text()).toEqual('true');
   });
 
   it('not crash with raw data', () => {

@@ -1292,7 +1292,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": Node {
                                         "attribs": Object {
@@ -1649,7 +1649,7 @@ LoadedCheerio {
                                             },
                                           },
                                         ],
-                                        "name": "td",
+                                        "name": "th",
                                         "namespace": "http://www.w3.org/1999/xhtml",
                                         "next": [Circular],
                                         "parent": [Circular],
@@ -1981,7 +1981,7 @@ LoadedCheerio {
                                             },
                                           },
                                         ],
-                                        "name": "td",
+                                        "name": "th",
                                         "namespace": "http://www.w3.org/1999/xhtml",
                                         "next": Node {
                                           "attribs": Object {
@@ -2338,7 +2338,7 @@ LoadedCheerio {
                                               },
                                             },
                                           ],
-                                          "name": "td",
+                                          "name": "th",
                                           "namespace": "http://www.w3.org/1999/xhtml",
                                           "next": [Circular],
                                           "parent": [Circular],
@@ -2709,7 +2709,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
@@ -3066,7 +3066,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -3398,7 +3398,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": Node {
                                         "attribs": Object {
@@ -3755,7 +3755,7 @@ LoadedCheerio {
                                             },
                                           },
                                         ],
-                                        "name": "td",
+                                        "name": "th",
                                         "namespace": "http://www.w3.org/1999/xhtml",
                                         "next": [Circular],
                                         "parent": [Circular],
@@ -4314,7 +4314,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
@@ -4671,7 +4671,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -5005,7 +5005,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": Node {
                                         "attribs": Object {
@@ -5362,7 +5362,7 @@ LoadedCheerio {
                                             },
                                           },
                                         ],
-                                        "name": "td",
+                                        "name": "th",
                                         "namespace": "http://www.w3.org/1999/xhtml",
                                         "next": [Circular],
                                         "parent": [Circular],
@@ -6881,7 +6881,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
@@ -7238,7 +7238,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -7570,7 +7570,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": Node {
                                         "attribs": Object {
@@ -7927,7 +7927,7 @@ LoadedCheerio {
                                             },
                                           },
                                         ],
-                                        "name": "td",
+                                        "name": "th",
                                         "namespace": "http://www.w3.org/1999/xhtml",
                                         "next": [Circular],
                                         "parent": [Circular],
@@ -8298,7 +8298,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
@@ -8655,7 +8655,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -8987,7 +8987,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
@@ -9344,7 +9344,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -9903,7 +9903,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
@@ -10260,7 +10260,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -10594,7 +10594,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
@@ -10951,7 +10951,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -11755,7 +11755,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
@@ -12112,7 +12112,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -12444,7 +12444,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
@@ -12801,7 +12801,7 @@ LoadedCheerio {
                                           },
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -13172,7 +13172,7 @@ LoadedCheerio {
                                     },
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
@@ -13529,7 +13529,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -13861,7 +13861,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
@@ -14218,7 +14218,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -14777,7 +14777,7 @@ LoadedCheerio {
                                     },
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
@@ -15134,7 +15134,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -15468,7 +15468,7 @@ LoadedCheerio {
                                       },
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
@@ -15825,7 +15825,7 @@ LoadedCheerio {
                                         },
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],

@@ -101,7 +101,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell",
-                                  "name": "my-body-cell",
                                 },
                                 "children": Array [
                                   Node {
@@ -112,7 +111,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": null,
                                 "parent": [Circular],
@@ -120,11 +119,9 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                               },
                             ],
@@ -140,7 +137,6 @@ LoadedCheerio {
                                 Node {
                                   "attribs": Object {
                                     "class": "table-cell",
-                                    "name": "my-body-cell",
                                   },
                                   "children": Array [
                                     Node {
@@ -151,7 +147,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": null,
                                   "parent": [Circular],
@@ -159,11 +155,9 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                   },
                                 },
                               ],
@@ -208,7 +202,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell",
-                                  "name": "my-body-cell",
                                 },
                                 "children": Array [
                                   Node {
@@ -219,7 +212,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": null,
                                 "parent": [Circular],
@@ -227,11 +220,9 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                               },
                             ],
@@ -249,7 +240,6 @@ LoadedCheerio {
                                 Node {
                                   "attribs": Object {
                                     "class": "table-cell",
-                                    "name": "my-body-cell",
                                   },
                                   "children": Array [
                                     Node {
@@ -260,7 +250,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": null,
                                   "parent": [Circular],
@@ -268,11 +258,9 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                   },
                                 },
                               ],
@@ -412,7 +400,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell",
-                                "name": "my-body-cell",
                               },
                               "children": Array [
                                 Node {
@@ -423,7 +410,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": null,
                               "parent": [Circular],
@@ -431,11 +418,9 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                             },
                           ],
@@ -451,7 +436,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell",
-                                  "name": "my-body-cell",
                                 },
                                 "children": Array [
                                   Node {
@@ -462,7 +446,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": null,
                                 "parent": [Circular],
@@ -470,11 +454,9 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                               },
                             ],
@@ -519,7 +501,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell",
-                                "name": "my-body-cell",
                               },
                               "children": Array [
                                 Node {
@@ -530,7 +511,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": null,
                               "parent": [Circular],
@@ -538,11 +519,9 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                             },
                           ],
@@ -560,7 +539,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell",
-                                  "name": "my-body-cell",
                                 },
                                 "children": Array [
                                   Node {
@@ -571,7 +549,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": null,
                                 "parent": [Circular],
@@ -579,11 +557,9 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                 },
                               },
                             ],
@@ -671,7 +647,6 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "table-cell",
-                              "name": "my-body-cell",
                             },
                             "children": Array [
                               Node {
@@ -682,7 +657,7 @@ LoadedCheerio {
                                 "type": "text",
                               },
                             ],
-                            "name": "td",
+                            "name": "th",
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": null,
                             "parent": [Circular],
@@ -690,11 +665,9 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
-                              "name": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
-                              "name": undefined,
                             },
                           },
                         ],
@@ -710,7 +683,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell",
-                                "name": "my-body-cell",
                               },
                               "children": Array [
                                 Node {
@@ -721,7 +693,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": null,
                               "parent": [Circular],
@@ -729,11 +701,9 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                             },
                           ],
@@ -778,7 +748,6 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "table-cell",
-                              "name": "my-body-cell",
                             },
                             "children": Array [
                               Node {
@@ -789,7 +758,7 @@ LoadedCheerio {
                                 "type": "text",
                               },
                             ],
-                            "name": "td",
+                            "name": "th",
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": null,
                             "parent": [Circular],
@@ -797,11 +766,9 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
-                              "name": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
-                              "name": undefined,
                             },
                           },
                         ],
@@ -819,7 +786,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell",
-                                "name": "my-body-cell",
                               },
                               "children": Array [
                                 Node {
@@ -830,7 +796,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": null,
                               "parent": [Circular],
@@ -838,11 +804,9 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                               },
                             },
                           ],

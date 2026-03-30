@@ -1134,7 +1134,6 @@ LoadedCheerio {
                                 Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -1146,7 +1145,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
@@ -1213,12 +1212,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -1274,7 +1271,6 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                      "name": "my-body-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
                                     "children": Array [
@@ -1286,7 +1282,7 @@ LoadedCheerio {
                                         "type": "text",
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -1294,12 +1290,10 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                     "x-attribsPrefix": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                   },
@@ -1353,7 +1347,6 @@ LoadedCheerio {
                                     "prev": Node {
                                       "attribs": Object {
                                         "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                        "name": "my-body-cell",
                                         "style": "position: sticky; left: 0px;",
                                       },
                                       "children": Array [
@@ -1365,7 +1358,7 @@ LoadedCheerio {
                                           "type": "text",
                                         },
                                       ],
-                                      "name": "td",
+                                      "name": "th",
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": [Circular],
                                       "parent": [Circular],
@@ -1373,12 +1366,10 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "class": undefined,
-                                        "name": undefined,
                                         "style": undefined,
                                       },
                                       "x-attribsPrefix": Object {
                                         "class": undefined,
-                                        "name": undefined,
                                         "style": undefined,
                                       },
                                     },
@@ -1446,7 +1437,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -1458,7 +1448,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
@@ -1525,12 +1515,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },
@@ -1586,7 +1574,6 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -1598,7 +1585,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -1606,12 +1593,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -1665,7 +1650,6 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                      "name": "my-body-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
                                     "children": Array [
@@ -1677,7 +1661,7 @@ LoadedCheerio {
                                         "type": "text",
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -1685,12 +1669,10 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                     "x-attribsPrefix": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                   },
@@ -2604,7 +2586,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -2616,7 +2597,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
@@ -2683,12 +2664,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },
@@ -2744,7 +2723,6 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -2756,7 +2734,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -2764,12 +2742,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -2823,7 +2799,6 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                      "name": "my-body-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
                                     "children": Array [
@@ -2835,7 +2810,7 @@ LoadedCheerio {
                                         "type": "text",
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -2843,12 +2818,10 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                     "x-attribsPrefix": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                   },
@@ -2916,7 +2889,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                "name": "my-body-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
                               "children": Array [
@@ -2928,7 +2900,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
@@ -2995,12 +2967,10 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                             },
@@ -3056,7 +3026,6 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -3068,7 +3037,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": [Circular],
                                 "parent": [Circular],
@@ -3076,12 +3045,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },
@@ -3135,7 +3102,6 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -3147,7 +3113,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -3155,12 +3121,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -4140,7 +4104,6 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -4152,7 +4115,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
@@ -4219,12 +4182,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },
@@ -4280,7 +4241,6 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -4292,7 +4252,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -4300,12 +4260,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -4359,7 +4317,6 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                      "name": "my-body-cell",
                                       "style": "position: sticky; left: 0px;",
                                     },
                                     "children": Array [
@@ -4371,7 +4328,7 @@ LoadedCheerio {
                                         "type": "text",
                                       },
                                     ],
-                                    "name": "td",
+                                    "name": "th",
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": [Circular],
                                     "parent": [Circular],
@@ -4379,12 +4336,10 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                     "x-attribsPrefix": Object {
                                       "class": undefined,
-                                      "name": undefined,
                                       "style": undefined,
                                     },
                                   },
@@ -4452,7 +4407,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                "name": "my-body-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
                               "children": Array [
@@ -4464,7 +4418,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
@@ -4531,12 +4485,10 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                             },
@@ -4592,7 +4544,6 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -4604,7 +4555,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": [Circular],
                                 "parent": [Circular],
@@ -4612,12 +4563,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },
@@ -4671,7 +4620,6 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -4683,7 +4631,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -4691,12 +4639,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -5610,7 +5556,6 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                "name": "my-body-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
                               "children": Array [
@@ -5622,7 +5567,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
@@ -5689,12 +5634,10 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                             },
@@ -5750,7 +5693,6 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -5762,7 +5704,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": [Circular],
                                 "parent": [Circular],
@@ -5770,12 +5712,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },
@@ -5829,7 +5769,6 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                    "name": "my-body-cell",
                                     "style": "position: sticky; left: 0px;",
                                   },
                                   "children": Array [
@@ -5841,7 +5780,7 @@ LoadedCheerio {
                                       "type": "text",
                                     },
                                   ],
-                                  "name": "td",
+                                  "name": "th",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": [Circular],
                                   "parent": [Circular],
@@ -5849,12 +5788,10 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                   "x-attribsPrefix": Object {
                                     "class": undefined,
-                                    "name": undefined,
                                     "style": undefined,
                                   },
                                 },
@@ -5922,7 +5859,6 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                              "name": "my-body-cell",
                               "style": "position: sticky; left: 0px;",
                             },
                             "children": Array [
@@ -5934,7 +5870,7 @@ LoadedCheerio {
                                 "type": "text",
                               },
                             ],
-                            "name": "td",
+                            "name": "th",
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
@@ -6001,12 +5937,10 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
-                              "name": undefined,
                               "style": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
-                              "name": undefined,
                               "style": undefined,
                             },
                           },
@@ -6062,7 +5996,6 @@ LoadedCheerio {
                             "prev": Node {
                               "attribs": Object {
                                 "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                "name": "my-body-cell",
                                 "style": "position: sticky; left: 0px;",
                               },
                               "children": Array [
@@ -6074,7 +6007,7 @@ LoadedCheerio {
                                   "type": "text",
                                 },
                               ],
-                              "name": "td",
+                              "name": "th",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": [Circular],
                               "parent": [Circular],
@@ -6082,12 +6015,10 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
-                                "name": undefined,
                                 "style": undefined,
                               },
                             },
@@ -6141,7 +6072,6 @@ LoadedCheerio {
                               "prev": Node {
                                 "attribs": Object {
                                   "class": "table-cell table-cell-fix-left table-cell-fix-left-last",
-                                  "name": "my-body-cell",
                                   "style": "position: sticky; left: 0px;",
                                 },
                                 "children": Array [
@@ -6153,7 +6083,7 @@ LoadedCheerio {
                                     "type": "text",
                                   },
                                 ],
-                                "name": "td",
+                                "name": "th",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": [Circular],
                                 "parent": [Circular],
@@ -6161,12 +6091,10 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                                 "x-attribsPrefix": Object {
                                   "class": undefined,
-                                  "name": undefined,
                                   "style": undefined,
                                 },
                               },

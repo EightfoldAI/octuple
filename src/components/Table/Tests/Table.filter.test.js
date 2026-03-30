@@ -395,6 +395,6 @@ describe('Table.filter', () => {
     );
 
     expect(wrapper.find('tbody tr')).toHaveLength(1);
-    expect(wrapper.find('tbody tr td').text()).toEqual('Jack');
+    expect(wrapper.find('tbody tr th').text()).toEqual('Jack');
   });
 });
