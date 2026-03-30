@@ -491,7 +491,6 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
               onMouseLeave={onMouseLeave}
               src={src}
               style={calculatedOutline}
-              tabIndex={tabIndex}
               width={size}
             />
             <AvatarStatusItems
