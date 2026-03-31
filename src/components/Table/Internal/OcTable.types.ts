@@ -519,6 +519,11 @@ export interface OcTableProps<RecordType = unknown> {
    */
   components?: TableComponents<RecordType>;
   /**
+   * The component used for the first cell in each body row.
+   * Defaults to 'td'. Pass 'th' to render row header cells.
+   */
+  rowHeaderCellComponent?: CustomizeComponent;
+  /**
    * The Table canvas direction.
    * options: 'ltr', 'rtl'
    */

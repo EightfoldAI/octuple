@@ -194,7 +194,7 @@ describe('Table.FixedColumn', () => {
       wrapper.find('thead tr th').find('.table-cell-content')
     ).toHaveLength(1);
     expect(
-      wrapper.find('tbody tr th').find('.table-cell-content')
+      wrapper.find('tbody tr td').find('.table-cell-content')
     ).toHaveLength(data.length);
   });
 

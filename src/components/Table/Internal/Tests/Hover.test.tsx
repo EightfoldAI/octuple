@@ -28,10 +28,10 @@ describe('Table.Hover', () => {
 
   it('basic', () => {
     const wrapper = mount(createTable());
-    wrapper.find('tbody th').first().simulate('mouseEnter');
+    wrapper.find('tbody td').first().simulate('mouseEnter');
     expect(wrapper.exists('.table-cell-row-hover')).toBeTruthy();
 
-    wrapper.find('tbody th').first().simulate('mouseLeave');
+    wrapper.find('tbody td').first().simulate('mouseLeave');
     expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
   });
 
@@ -49,10 +49,10 @@ describe('Table.Hover', () => {
       })
     );
 
-    wrapper.find('tbody th').first().simulate('mouseEnter');
+    wrapper.find('tbody td').first().simulate('mouseEnter');
     expect(wrapper.exists('.table-cell-row-hover')).toBeTruthy();
 
-    wrapper.find('tbody th').first().simulate('mouseLeave');
+    wrapper.find('tbody td').first().simulate('mouseLeave');
     expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
   });
 
@@ -78,21 +78,19 @@ describe('Table.Hover', () => {
       })
     );
 
-    // Merge row check (1 th + 2 td = 3)
-    expect(
-      wrapper.find('tbody th').length + wrapper.find('tbody td').length
-    ).toBe(3);
+    // Merge row check (3 td = 3)
+    expect(wrapper.find('tbody td').length).toBe(3);
 
-    // Hover 0-0 (th with rowSpan=2)
-    wrapper.find('tbody th').at(0).simulate('mouseEnter');
+    // Hover 0-0 (td with rowSpan=2)
+    wrapper.find('tbody td').at(0).simulate('mouseEnter');
     expect(wrapper.find('.table-cell-row-hover')).toHaveLength(3);
 
-    // Hover 0-1 (first td = row0,col1)
-    wrapper.find('tbody td').at(0).simulate('mouseEnter');
+    // Hover 0-1 (second td = row0,col1)
+    wrapper.find('tbody td').at(1).simulate('mouseEnter');
     expect(wrapper.find('.table-cell-row-hover')).toHaveLength(2);
 
     // Mouse leave
-    wrapper.find('tbody td').at(0).simulate('mouseLeave');
+    wrapper.find('tbody td').at(1).simulate('mouseLeave');
     expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
   });
 
@@ -119,19 +117,19 @@ describe('Table.Hover', () => {
 
       // Hover 0-0
       renderTimes = 0;
-      wrapper.find('tbody th').at(0).simulate('mouseEnter');
+      wrapper.find('tbody td').at(0).simulate('mouseEnter');
       expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
       expect(renderTimes).toBe(1);
 
       // Hover 0-1
       renderTimes = 0;
-      wrapper.find('tbody th').at(1).simulate('mouseEnter');
+      wrapper.find('tbody td').at(1).simulate('mouseEnter');
       expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
       expect(renderTimes).toBe(2);
 
       // Mouse leave
       renderTimes = 0;
-      wrapper.find('tbody th').at(1).simulate('mouseLeave');
+      wrapper.find('tbody td').at(1).simulate('mouseLeave');
       expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
       expect(renderTimes).toBe(1);
     });
@@ -156,19 +154,19 @@ describe('Table.Hover', () => {
 
       // Hover 0-0
       renderTimes = 0;
-      wrapper.find('tbody th').at(0).simulate('mouseEnter');
+      wrapper.find('tbody td').at(0).simulate('mouseEnter');
       expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
       expect(renderTimes).toBe(0);
 
       // Hover 0-1
       renderTimes = 0;
-      wrapper.find('tbody th').at(1).simulate('mouseEnter');
+      wrapper.find('tbody td').at(1).simulate('mouseEnter');
       expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
       expect(renderTimes).toBe(0);
 
       // Mouse leave
       renderTimes = 0;
-      wrapper.find('tbody th').at(1).simulate('mouseLeave');
+      wrapper.find('tbody td').at(1).simulate('mouseLeave');
       expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
       expect(renderTimes).toBe(0);
     });
