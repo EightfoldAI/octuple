@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.8](https://github.com/EightfoldAI/octuple/compare/v2.56.7...v2.56.8) (2026-03-31)
+
+### Bug Fixes
+
+- **Avatar:** remove tabIndex from img type avatar ([#1110](https://github.com/EightfoldAI/octuple/issues/1110)) ([3ab833e](https://github.com/EightfoldAI/octuple/commits/3ab833e2e299d6a8c2b5f480260fff92556618b1))
+- **Datepicker:** fix Datepicker selection behavior on iOS with VoiceOver enabled ([#1106](https://github.com/EightfoldAI/octuple/issues/1106)) ([a2f8a00](https://github.com/EightfoldAI/octuple/commits/a2f8a002581ed640ff7aa7f51c98f8d2e4803334))
+- **Dropdown:** a11y issues with keyboard behavior ([#1104](https://github.com/EightfoldAI/octuple/issues/1104)) ([d04ea06](https://github.com/EightfoldAI/octuple/commits/d04ea06ac4758dcb02eb0b45e7e26f6a2407f986))
+- **TextInput:** Omit role and remove tabindex so both are handled natively ([#1108](https://github.com/EightfoldAI/octuple/issues/1108)) ([4311894](https://github.com/EightfoldAI/octuple/commits/4311894bb9b1c47e9c38083fb849f908ab8a34fc))
+
 ### [2.56.7](https://github.com/EightfoldAI/octuple/compare/v2.56.6...v2.56.7) (2026-03-16)
 
 ### Bug Fixes
