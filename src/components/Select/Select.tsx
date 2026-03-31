@@ -141,6 +141,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
       !filterable && !multiple
     );
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
+
+    // Message text for the visually-hidden live region
+    const [liveRegionMessage, setLiveRegionMessage] = useState<string>('');
+
     const [options, setOptions] = useState<SelectOption[]>(
       (_options || []).map((option: SelectOption, index: number) => ({
         selected: false,
@@ -330,6 +334,26 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setInitialFocus(initialFocus);
       }
     }, [filterable, initialFocus]);
+
+    // Announce result count (or "no results") to screen readers via live region
+    // whenever the visible option count or dropdown visibility changes.
+    const visibleOptionsCount: number = (options || []).filter(
+      (opt: SelectOption) => !opt.hideOption
+    ).length;
+    useEffect(() => {
+      if (!dropdownVisible) return;
+      if (visibleOptionsCount > 0) {
+        setLiveRegionMessage(
+          `${visibleOptionsCount} result${
+            visibleOptionsCount !== 1 ? 's' : ''
+          } available.`
+        );
+      } else {
+        setLiveRegionMessage(
+          typeof emptyText === 'string' ? emptyText : 'No results found.'
+        );
+      }
+    }, [visibleOptionsCount, dropdownVisible]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -726,6 +750,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (filteredOptions.length > 0) {
         return (
           <Menu
+            aria-label={ariaLabel || undefined}
             id={selectMenuId?.current}
             {...restMenuProps}
             itemProps={menuItemRole ? { role: menuItemRole } : undefined}
@@ -933,6 +958,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
             id={id}
             style={style}
           >
+            {/* Visually-hidden live region: announces result counts and "no results" to screen readers */}
+            <div
+              aria-atomic="true"
+              aria-live="polite"
+              className={styles.selectLiveRegion}
+              role="status"
+            >
+              {liveRegionMessage}
+            </div>
             {/* When Dropdown is hidden, place Pills outside the reference element */}
             {!dropdownVisible && showPills() ? getPills() : null}
             <Dropdown
@@ -965,6 +999,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
                   aria-expanded={dropdownVisible}
+                  aria-haspopup="listbox"
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}

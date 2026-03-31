@@ -15,6 +15,7 @@ import styles from './list.module.scss';
 
 export const List = <T extends any>({
   additionalItem,
+  ariaLabelledBy,
   disableArrowKeys = false,
   disableKeys = false,
   items,
@@ -261,6 +262,7 @@ export const List = <T extends any>({
         <ul
           id={id}
           role={role}
+          aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
         >
@@ -272,6 +274,7 @@ export const List = <T extends any>({
         <ol
           id={id}
           role={role}
+          aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
         >

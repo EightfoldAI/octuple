@@ -339,7 +339,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
           aria-label="Selected page size"
           class="pagination-button button button-neutral button-medium icon-right"
           id="dropdown-reference"
-          role="button"
           tabindex="0"
         >
           <span>

@@ -89,7 +89,7 @@ export const Menu: FC<MenuProps> = ({
   const getHeader = (): JSX.Element =>
     header && (
       <div className={headerClassNames}>
-        <div className={styles.heading}>{header}</div>
+        <h2 className={styles.heading}>{header}</h2>
       </div>
     );
 

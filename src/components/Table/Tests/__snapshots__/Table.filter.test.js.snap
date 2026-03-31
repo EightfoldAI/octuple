@@ -78,7 +78,6 @@ LoadedCheerio {
                                                   "aria-haspopup": "true",
                                                   "class": "button button-neutral button-small pill-shape icon-left",
                                                   "id": "dropdown-reference",
-                                                  "role": "button",
                                                   "tabindex": "0",
                                                 },
                                                 "children": Array [
@@ -161,7 +160,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                                 "x-attribsPrefix": Object {
@@ -171,7 +169,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                               },
@@ -212,7 +209,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -295,7 +291,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -305,7 +300,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -1226,7 +1220,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -1309,7 +1302,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -1319,7 +1311,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -1360,7 +1351,6 @@ LoadedCheerio {
                                               "aria-haspopup": "true",
                                               "class": "button button-neutral button-small pill-shape icon-left",
                                               "id": "dropdown-reference",
-                                              "role": "button",
                                               "tabindex": "0",
                                             },
                                             "children": Array [
@@ -1443,7 +1433,6 @@ LoadedCheerio {
                                               "aria-haspopup": undefined,
                                               "class": undefined,
                                               "id": undefined,
-                                              "role": undefined,
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
@@ -1453,7 +1442,6 @@ LoadedCheerio {
                                               "aria-haspopup": undefined,
                                               "class": undefined,
                                               "id": undefined,
-                                              "role": undefined,
                                               "tabindex": undefined,
                                             },
                                           },
@@ -3145,7 +3133,6 @@ LoadedCheerio {
                                                   "aria-haspopup": "true",
                                                   "class": "button button-neutral button-small pill-shape icon-left",
                                                   "id": "dropdown-reference",
-                                                  "role": "button",
                                                   "tabindex": "0",
                                                 },
                                                 "children": Array [
@@ -3228,7 +3215,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                                 "x-attribsPrefix": Object {
@@ -3238,7 +3224,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                               },
@@ -3279,7 +3264,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -3362,7 +3346,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -3372,7 +3355,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -3728,7 +3710,6 @@ LoadedCheerio {
                                                   "aria-haspopup": "true",
                                                   "class": "button button-neutral button-small pill-shape icon-left",
                                                   "id": "dropdown-reference",
-                                                  "role": "button",
                                                   "tabindex": "0",
                                                 },
                                                 "children": Array [
@@ -3811,7 +3792,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                                 "x-attribsPrefix": Object {
@@ -3821,7 +3801,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                               },
@@ -3862,7 +3841,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -3945,7 +3923,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -3955,7 +3932,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -4876,7 +4852,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -4959,7 +4934,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -4969,7 +4943,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -5010,7 +4983,6 @@ LoadedCheerio {
                                               "aria-haspopup": "true",
                                               "class": "button button-neutral button-small pill-shape icon-left",
                                               "id": "dropdown-reference",
-                                              "role": "button",
                                               "tabindex": "0",
                                             },
                                             "children": Array [
@@ -5093,7 +5065,6 @@ LoadedCheerio {
                                               "aria-haspopup": undefined,
                                               "class": undefined,
                                               "id": undefined,
-                                              "role": undefined,
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
@@ -5103,7 +5074,6 @@ LoadedCheerio {
                                               "aria-haspopup": undefined,
                                               "class": undefined,
                                               "id": undefined,
-                                              "role": undefined,
                                               "tabindex": undefined,
                                             },
                                           },
@@ -6795,7 +6765,6 @@ LoadedCheerio {
                                                   "aria-haspopup": "true",
                                                   "class": "button button-neutral button-small pill-shape icon-left",
                                                   "id": "dropdown-reference",
-                                                  "role": "button",
                                                   "tabindex": "0",
                                                 },
                                                 "children": Array [
@@ -6878,7 +6847,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                                 "x-attribsPrefix": Object {
@@ -6888,7 +6856,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                               },
@@ -6929,7 +6896,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -7012,7 +6978,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -7022,7 +6987,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -7378,7 +7342,6 @@ LoadedCheerio {
                                                   "aria-haspopup": "true",
                                                   "class": "button button-neutral button-small pill-shape icon-left",
                                                   "id": "dropdown-reference",
-                                                  "role": "button",
                                                   "tabindex": "0",
                                                 },
                                                 "children": Array [
@@ -7461,7 +7424,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                                 "x-attribsPrefix": Object {
@@ -7471,7 +7433,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                               },
@@ -7512,7 +7473,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -7595,7 +7555,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -7605,7 +7564,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -8526,7 +8484,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -8609,7 +8566,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -8619,7 +8575,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },
@@ -8660,7 +8615,6 @@ LoadedCheerio {
                                               "aria-haspopup": "true",
                                               "class": "button button-neutral button-small pill-shape icon-left",
                                               "id": "dropdown-reference",
-                                              "role": "button",
                                               "tabindex": "0",
                                             },
                                             "children": Array [
@@ -8743,7 +8697,6 @@ LoadedCheerio {
                                               "aria-haspopup": undefined,
                                               "class": undefined,
                                               "id": undefined,
-                                              "role": undefined,
                                               "tabindex": undefined,
                                             },
                                             "x-attribsPrefix": Object {
@@ -8753,7 +8706,6 @@ LoadedCheerio {
                                               "aria-haspopup": undefined,
                                               "class": undefined,
                                               "id": undefined,
-                                              "role": undefined,
                                               "tabindex": undefined,
                                             },
                                           },
@@ -10445,7 +10397,6 @@ LoadedCheerio {
                                                   "aria-haspopup": "true",
                                                   "class": "button button-neutral button-small pill-shape icon-left",
                                                   "id": "dropdown-reference",
-                                                  "role": "button",
                                                   "tabindex": "0",
                                                 },
                                                 "children": Array [
@@ -10528,7 +10479,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                                 "x-attribsPrefix": Object {
@@ -10538,7 +10488,6 @@ LoadedCheerio {
                                                   "aria-haspopup": undefined,
                                                   "class": undefined,
                                                   "id": undefined,
-                                                  "role": undefined,
                                                   "tabindex": undefined,
                                                 },
                                               },
@@ -10579,7 +10528,6 @@ LoadedCheerio {
                                                 "aria-haspopup": "true",
                                                 "class": "button button-neutral button-small pill-shape icon-left",
                                                 "id": "dropdown-reference",
-                                                "role": "button",
                                                 "tabindex": "0",
                                               },
                                               "children": Array [
@@ -10662,7 +10610,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                               "x-attribsPrefix": Object {
@@ -10672,7 +10619,6 @@ LoadedCheerio {
                                                 "aria-haspopup": undefined,
                                                 "class": undefined,
                                                 "id": undefined,
-                                                "role": undefined,
                                                 "tabindex": undefined,
                                               },
                                             },

@@ -4260,7 +4260,6 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
                 class="button button button-neutral button-small round-shape icon-left"
                 data-testid="test-item-menu"
                 id="dropdown-reference"
-                role="button"
                 tabindex="0"
               >
                 <span

@@ -13,7 +13,6 @@ exports[`Dropdown Should render a dropdown button 1`] = `
       class="button button-default button-medium pill-shape icon-right"
       data-testid="dropdown-reference"
       id="test-button-id"
-      role="button"
       tabindex="0"
     >
       <span>
