@@ -38,6 +38,8 @@ import {
   SelectShape,
   SelectSize,
 } from './Select.types';
+import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { Tooltip, TooltipTheme } from '../Tooltip';
@@ -121,6 +123,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
     const htmlDir: string = useCanvasDirection();
+
+    const [selectLocale] = useLocaleReceiver('Select', enUS);
 
     const [dropdownWidth, setDropdownWidth] = useState(0);
     const [selectWidth, setSelectWidth] = useState(0);
@@ -343,14 +347,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
     useEffect(() => {
       if (!dropdownVisible) return;
       if (visibleOptionsCount > 0) {
-        setLiveRegionMessage(
-          `${visibleOptionsCount} result${
-            visibleOptionsCount !== 1 ? 's' : ''
-          } available.`
-        );
+        const countLabel =
+          visibleOptionsCount !== 1
+            ? selectLocale?.lang?.resultsAvailableText
+            : selectLocale?.lang?.resultAvailableText;
+        setLiveRegionMessage(`${visibleOptionsCount} ${countLabel}`);
       } else {
         setLiveRegionMessage(
-          typeof emptyText === 'string' ? emptyText : 'No results found.'
+          typeof emptyText === 'string'
+            ? emptyText
+            : selectLocale?.lang?.noResultsFoundText
         );
       }
     }, [visibleOptionsCount, dropdownVisible]);

@@ -12,6 +12,7 @@ import PersistentBar from '../PersistentBar/Locale/zh_CN';
 import Stepper from '../Stepper/Locale/zh_CN';
 import Table from '../Table/Locale/zh_CN';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/zh_CN';
+import Select from '../Select/Locale/zh_CN';
 import Upload from '../Upload/Locale/zh_CN';
 
 const typeTemplate = '${label}不是一个有效的${type}';
@@ -83,6 +84,7 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
+  Select,
   Upload,
 };
 
