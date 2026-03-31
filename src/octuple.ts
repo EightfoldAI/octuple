@@ -104,6 +104,12 @@ import { Empty, EmptyMode } from './components/Empty';
 
 import { FadeIn } from './components/FadeIn';
 
+import {
+  FilterCheckboxDropdown,
+  FilterCheckboxDropdownOption,
+  FilterCheckboxDropdownProps,
+} from './components/FilterCheckboxDropdown';
+
 import { FocusTrap, useFocusTrap } from './shared/FocusTrap';
 
 import Form, { FormInstance } from './components/Form';
@@ -425,6 +431,9 @@ export {
   ExceedUpskillingSmallImg,
   ExpandableConfig,
   FadeIn,
+  FilterCheckboxDropdown,
+  FilterCheckboxDropdownOption,
+  FilterCheckboxDropdownProps,
   FilterConfirmProps,
   FilterValue,
   FocusTrap,

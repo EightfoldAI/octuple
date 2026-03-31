@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterCheckboxDropdown renders the trigger button with the label 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <button
+      aria-controls="filter-checkbox-dropdown-panel-"
+      aria-expanded="false"
+      class="trigger"
+      type="button"
+    >
+      <span>
+        Filter
+      </span>
+      <span
+        class="chevron icon-wrapper"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
