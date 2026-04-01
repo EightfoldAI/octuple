@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.9](https://github.com/EightfoldAI/octuple/compare/v2.56.7...v2.56.9) (2026-04-01)
+
+### Bug Fixes
+
+- **Datepicker:** fix Datepicker selection behavior on iOS with VoiceOver enabled ([#1106](https://github.com/EightfoldAI/octuple/issues/1106)) ([5a35859](https://github.com/EightfoldAI/octuple/commits/5a358591d52b695ba6e1dcce3bae4e8edd35367e))
+
+### [2.56.9](https://github.com/EightfoldAI/octuple/compare/v2.56.7...v2.56.9) (2026-04-01)
+
+### Bug Fixes
+
+- **Datepicker:** fix Datepicker selection behavior on iOS with VoiceOver enabled ([#1106](https://github.com/EightfoldAI/octuple/issues/1106)) ([5a35859](https://github.com/EightfoldAI/octuple/commits/5a358591d52b695ba6e1dcce3bae4e8edd35367e))
+
+### [2.56.9](https://github.com/EightfoldAI/octuple/compare/v2.56.7...v2.56.9) (2026-04-01)
+
+### Bug Fixes
+
+- **Datepicker:** fix Datepicker selection behavior on iOS with VoiceOver enabled ([#1106](https://github.com/EightfoldAI/octuple/issues/1106)) ([5a35859](https://github.com/EightfoldAI/octuple/commits/5a358591d52b695ba6e1dcce3bae4e8edd35367e))
+
 ### [2.56.7](https://github.com/EightfoldAI/octuple/compare/v2.56.6...v2.56.7) (2026-03-16)
 
 ### Bug Fixes

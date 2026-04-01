@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.56.7",
+  "version": "2.56.9",
   "license": "MIT",
   "description": "Eightfold Octuple Design System Component Library",
   "sideEffects": [
@@ -49,7 +49,7 @@
     "lint-staged": "lint-staged",
     "release": "SKIP_TESTS=true standard-version",
     "release:minor": "SKIP_TESTS=true standard-version --release-as minor",
-    "release:patch": "SKIP_TESTS=true standard-version --release-as patch",
+    "release:patch": "SKIP_TESTS=true standard-version --release-as 2.56.9",
     "release:major": "SKIP_TESTS=true standard-version --release-as major",
     "prepublishOnly": "clean-package",
     "postpublish": "clean-package restore",
