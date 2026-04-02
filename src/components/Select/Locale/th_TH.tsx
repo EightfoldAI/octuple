@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'th_TH',
     resultAvailableText: 'ผลลัพธ์พร้อมใช้งาน',
     resultsAvailableText: 'ผลลัพธ์พร้อมใช้งาน',
-    noResultsFoundText: 'ไม่พบผลลัพธ์',
+    noResultsFoundText: 'ไม่พบผลลัพธ์สำหรับ',
   },
 };
 

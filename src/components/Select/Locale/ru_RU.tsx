@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'ru_RU',
     resultAvailableText: 'результат доступен.',
     resultsAvailableText: 'результата доступно.',
-    noResultsFoundText: 'Результаты не найдены.',
+    noResultsFoundText: 'Результаты не найдены для',
   },
 };
 

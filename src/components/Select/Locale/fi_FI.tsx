@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'fi_FI',
     resultAvailableText: 'tulos saatavilla.',
     resultsAvailableText: 'tulosta saatavilla.',
-    noResultsFoundText: 'Tuloksia ei löydy.',
+    noResultsFoundText: 'Tuloksia ei löydy haulle',
   },
 };
 

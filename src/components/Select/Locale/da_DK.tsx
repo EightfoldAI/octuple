@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'da_DK',
     resultAvailableText: 'resultat tilgængeligt.',
     resultsAvailableText: 'resultater tilgængelige.',
-    noResultsFoundText: 'Ingen resultater fundet.',
+    noResultsFoundText: 'Ingen resultater fundet for',
   },
 };
 

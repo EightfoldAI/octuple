@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'hu_HU',
     resultAvailableText: 'találat elérhető.',
     resultsAvailableText: 'találat elérhető.',
-    noResultsFoundText: 'Nincs találat.',
+    noResultsFoundText: 'Nincs találat erre:',
   },
 };
 

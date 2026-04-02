@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'cs_CZ',
     resultAvailableText: 'výsledek dostupný.',
     resultsAvailableText: 'výsledky dostupné.',
-    noResultsFoundText: 'Nebyly nalezeny žádné výsledky.',
+    noResultsFoundText: 'Nebyly nalezeny žádné výsledky pro',
   },
 };
 

@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'ja_JP',
     resultAvailableText: '件の結果があります。',
     resultsAvailableText: '件の結果があります。',
-    noResultsFoundText: '結果が見つかりません。',
+    noResultsFoundText: 'の検索結果はありません',
   },
 };
 

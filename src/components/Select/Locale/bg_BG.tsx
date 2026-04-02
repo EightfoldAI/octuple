@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'bg_BG',
     resultAvailableText: 'резултат наличен.',
     resultsAvailableText: 'резултата налични.',
-    noResultsFoundText: 'Няма намерени резултати.',
+    noResultsFoundText: 'Няма намерени резултати за',
   },
 };
 

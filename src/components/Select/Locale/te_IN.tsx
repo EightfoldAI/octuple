@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'te_IN',
     resultAvailableText: 'ఫలితం అందుబాటులో ఉంది.',
     resultsAvailableText: 'ఫలితాలు అందుబాటులో ఉన్నాయి.',
-    noResultsFoundText: 'ఫలితాలు కనుగొనబడలేదు.',
+    noResultsFoundText: 'కోసం ఫలితాలు కనుగొనబడలేదు',
   },
 };
 

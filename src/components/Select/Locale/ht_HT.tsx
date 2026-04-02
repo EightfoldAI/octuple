@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'ht_HT',
     resultAvailableText: 'rezilta disponib.',
     resultsAvailableText: 'rezilta disponib.',
-    noResultsFoundText: 'Pa gen rezilta jwenn.',
+    noResultsFoundText: 'Pa gen rezilta jwenn pou',
   },
 };
 

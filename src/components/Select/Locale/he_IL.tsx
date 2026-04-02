@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'he_IL',
     resultAvailableText: 'תוצאה זמינה.',
     resultsAvailableText: 'תוצאות זמינות.',
-    noResultsFoundText: 'לא נמצאו תוצאות.',
+    noResultsFoundText: 'לא נמצאו תוצאות עבור',
   },
 };
 

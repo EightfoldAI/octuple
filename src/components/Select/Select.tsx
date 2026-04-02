@@ -146,9 +146,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     );
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
 
-    // Message text for the visually-hidden live region
-    const [liveRegionMessage, setLiveRegionMessage] = useState<string>('');
-
     const [options, setOptions] = useState<SelectOption[]>(
       (_options || []).map((option: SelectOption, index: number) => ({
         selected: false,
@@ -339,27 +336,22 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [filterable, initialFocus]);
 
-    // Announce result count (or "no results") to screen readers via live region
-    // whenever the visible option count or dropdown visibility changes.
+    // Derive the live region message directly from current state.
     const visibleOptionsCount: number = (options || []).filter(
       (opt: SelectOption) => !opt.hideOption
     ).length;
-    useEffect(() => {
-      if (!dropdownVisible) return;
+    const liveRegionMessage = (() => {
+      if (!dropdownVisible) return '';
       if (visibleOptionsCount > 0) {
         const countLabel =
           visibleOptionsCount !== 1
             ? selectLocale?.lang?.resultsAvailableText
             : selectLocale?.lang?.resultAvailableText;
-        setLiveRegionMessage(`${visibleOptionsCount} ${countLabel}`);
-      } else {
-        setLiveRegionMessage(
-          typeof emptyText === 'string'
-            ? emptyText
-            : selectLocale?.lang?.noResultsFoundText
-        );
+        return `${visibleOptionsCount} ${countLabel}`;
       }
-    }, [visibleOptionsCount, dropdownVisible]);
+      const noResultsText = selectLocale?.lang?.noResultsFoundText;
+      return searchQuery ? `${noResultsText} ${searchQuery}` : noResultsText;
+    })();
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');

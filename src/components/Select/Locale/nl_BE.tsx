@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'nl_BE',
     resultAvailableText: 'resultaat beschikbaar.',
     resultsAvailableText: 'resultaten beschikbaar.',
-    noResultsFoundText: 'Geen resultaten gevonden.',
+    noResultsFoundText: 'Geen resultaten gevonden voor',
   },
 };
 

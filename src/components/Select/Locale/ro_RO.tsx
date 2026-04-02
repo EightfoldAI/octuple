@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'ro_RO',
     resultAvailableText: 'rezultat disponibil.',
     resultsAvailableText: 'rezultate disponibile.',
-    noResultsFoundText: 'Nu au fost găsite rezultate.',
+    noResultsFoundText: 'Nu au fost găsite rezultate pentru',
   },
 };
 

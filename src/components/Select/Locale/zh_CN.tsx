@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'zh_CN',
     resultAvailableText: '个结果可用。',
     resultsAvailableText: '个结果可用。',
-    noResultsFoundText: '未找到结果。',
+    noResultsFoundText: '未找到相关结果：',
   },
 };
 

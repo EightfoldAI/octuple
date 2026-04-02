@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'sk_SK',
     resultAvailableText: 'výsledok dostupný.',
     resultsAvailableText: 'výsledky dostupné.',
-    noResultsFoundText: 'Nenašli sa žiadne výsledky.',
+    noResultsFoundText: 'Nenašli sa žiadne výsledky pre',
   },
 };
 

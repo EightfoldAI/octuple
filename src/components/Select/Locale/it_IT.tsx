@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'it_IT',
     resultAvailableText: 'risultato disponibile.',
     resultsAvailableText: 'risultati disponibili.',
-    noResultsFoundText: 'Nessun risultato trovato.',
+    noResultsFoundText: 'Nessun risultato trovato per',
   },
 };
 

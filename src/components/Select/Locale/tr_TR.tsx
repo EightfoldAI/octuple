@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'tr_TR',
     resultAvailableText: 'sonuç mevcut.',
     resultsAvailableText: 'sonuç mevcut.',
-    noResultsFoundText: 'Sonuç bulunamadı.',
+    noResultsFoundText: 'için sonuç bulunamadı',
   },
 };
 

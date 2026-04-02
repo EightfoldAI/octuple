@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'sr_RS',
     resultAvailableText: 'резултат доступан.',
     resultsAvailableText: 'резултата доступно.',
-    noResultsFoundText: 'Нису пронађени резултати.',
+    noResultsFoundText: 'Нису пронађени резултати за',
   },
 };
 

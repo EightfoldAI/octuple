@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'hr_HR',
     resultAvailableText: 'rezultat dostupan.',
     resultsAvailableText: 'rezultata dostupno.',
-    noResultsFoundText: 'Nema pronađenih rezultata.',
+    noResultsFoundText: 'Nema pronađenih rezultata za',
   },
 };
 

@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'ar_SA',
     resultAvailableText: 'نتيجة متاحة.',
     resultsAvailableText: 'نتائج متاحة.',
-    noResultsFoundText: 'لم يتم العثور على نتائج.',
+    noResultsFoundText: 'لم يتم العثور على نتائج لـ',
   },
 };
 

@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'ms_MY',
     resultAvailableText: 'keputusan tersedia.',
     resultsAvailableText: 'keputusan tersedia.',
-    noResultsFoundText: 'Tiada keputusan ditemui.',
+    noResultsFoundText: 'Tiada keputusan ditemui untuk',
   },
 };
 

@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'sv_SE',
     resultAvailableText: 'resultat tillgängligt.',
     resultsAvailableText: 'resultat tillgängliga.',
-    noResultsFoundText: 'Inga resultat hittades.',
+    noResultsFoundText: 'Inga resultat hittades för',
   },
 };
 

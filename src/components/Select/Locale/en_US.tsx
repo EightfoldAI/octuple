@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'en_US',
     resultAvailableText: 'result available.',
     resultsAvailableText: 'results available.',
-    noResultsFoundText: 'No results found.',
+    noResultsFoundText: 'No results found for',
   },
 };
 

@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'uk_UA',
     resultAvailableText: 'результат доступний.',
     resultsAvailableText: 'результати доступні.',
-    noResultsFoundText: 'Результати не знайдено.',
+    noResultsFoundText: 'Результати не знайдено для',
   },
 };
 

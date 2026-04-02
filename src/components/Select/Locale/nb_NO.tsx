@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'nb_NO',
     resultAvailableText: 'resultat tilgjengelig.',
     resultsAvailableText: 'resultater tilgjengelig.',
-    noResultsFoundText: 'Ingen resultater funnet.',
+    noResultsFoundText: 'Ingen resultater funnet for',
   },
 };
 

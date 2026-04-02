@@ -5,7 +5,7 @@ const locale: SelectLocale = {
     locale: 'hi_IN',
     resultAvailableText: 'परिणाम उपलब्ध।',
     resultsAvailableText: 'परिणाम उपलब्ध हैं।',
-    noResultsFoundText: 'कोई परिणाम नहीं मिला।',
+    noResultsFoundText: 'के लिए कोई परिणाम नहीं मिला',
   },
 };
 
