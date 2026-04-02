@@ -4,6 +4,7 @@ import type {
   GetComponentProps,
   Key,
   GetRowKey,
+  RowHeaderCellComponent,
 } from '../OcTable.types';
 
 export interface MeasureRowProps extends Omit<MeasureCellProps, 'columnKey'> {
@@ -35,7 +36,7 @@ export interface BodyRowProps<RecordType> {
   expandedKeys: Set<Key>;
   rowComponent: CustomizeComponent;
   cellComponent: CustomizeComponent;
-  rowHeaderCellComponent?: CustomizeComponent;
+  rowHeaderCellComponent?: RowHeaderCellComponent;
   onRow: GetComponentProps<RecordType>;
   rowExpandable: (record: RecordType) => boolean;
   rowExpandDisabled?: (record: RecordType) => boolean;
@@ -75,7 +76,7 @@ export interface BodyProps<RecordType> {
   onRow: GetComponentProps<RecordType>;
   rowExpandable: (record: RecordType) => boolean;
   rowExpandDisabled?: (record: RecordType) => boolean;
-  rowHeaderCellComponent?: CustomizeComponent;
+  rowHeaderCellComponent?: RowHeaderCellComponent;
   emptyNode: React.ReactNode;
   childrenColumnName: string;
   /**
