@@ -12,7 +12,6 @@ import PersistentBar from '../PersistentBar/Locale/ht_HT';
 import Stepper from '../Stepper/Locale/ht_HT';
 import Table from '../Table/Locale/ht_HT';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ht_HT';
-import Select from '../Select/Locale/ht_HT';
 import Upload from '../Upload/Locale/ht_HT';
 
 const typeTemplate =
@@ -85,7 +84,6 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
-  Select,
   Upload,
 };
 

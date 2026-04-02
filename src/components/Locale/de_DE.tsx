@@ -12,7 +12,6 @@ import PersistentBar from '../PersistentBar/Locale/de_DE';
 import Stepper from '../Stepper/Locale/de_DE';
 import Table from '../Table/Locale/de_DE';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/de_DE';
-import Select from '../Select/Locale/de_DE';
 import Upload from '../Upload/Locale/de_DE';
 
 const typeTemplate = '${label} ist nicht gültig. ${type} erwartet';
@@ -83,7 +82,6 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
-  Select,
   Upload,
 };
 

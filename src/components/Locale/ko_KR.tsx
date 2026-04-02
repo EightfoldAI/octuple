@@ -12,7 +12,6 @@ import PersistentBar from '../PersistentBar/Locale/ko_KR';
 import Stepper from '../Stepper/Locale/ko_KR';
 import Table from '../Table/Locale/ko_KR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ko_KR';
-import Select from '../Select/Locale/ko_KR';
 import Upload from '../Upload/Locale/ko_KR';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
@@ -80,7 +79,6 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
-  Select,
   Upload,
 };
 
