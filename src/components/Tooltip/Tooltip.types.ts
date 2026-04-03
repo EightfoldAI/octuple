@@ -211,6 +211,16 @@ export interface TooltipProps
    */
   triggerAbove?: boolean;
   /**
+   * Whether to suppress aria-haspopup, aria-expanded, and aria-controls
+   * attributes on the trigger element.
+   * Use when the trigger has a non-interactive role (e.g. 'img', 'group')
+   * where these ARIA attributes are invalid.
+   * Also auto-suppressed for known non-interactive roles: img, group,
+   * presentation, none.
+   * @default false
+   */
+  suppressTriggerAria?: boolean;
+  /**
    * Determines the interaction that triggers
    * the equivalent of hover on touch interfaces.
    * @default TooltipTouchInteraction.TapAndHold

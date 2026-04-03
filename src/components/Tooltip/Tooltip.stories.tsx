@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
-import { Tooltip, TooltipTheme, TooltipTouchInteraction } from './';
+import {
+  Tooltip,
+  TooltipTheme,
+  TooltipTouchInteraction,
+  TooltipType,
+} from './';
+import { Icon, IconName, IconSize } from '../Icon';
 import { Label, LabelSize } from '../Label';
 import { Stack } from '../Stack';
 import { Truncate } from '../Truncate';
@@ -183,13 +189,39 @@ const Truncation_Detection_Story: ComponentStory<typeof Tooltip> = (args) => {
   );
 };
 
+const Suppress_Trigger_Aria_Story: ComponentStory<typeof Tooltip> = () => (
+  <Stack direction="vertical" flexGap="xl">
+    <Stack direction="vertical" flexGap="xs">
+      <p>
+        <strong>Auto-suppressed (role="img"):</strong> Popup ARIA attributes are
+        automatically omitted for non-interactive roles.
+      </p>
+      <Tooltip
+        content="Group details"
+        trigger="hover"
+        type={TooltipType.Popup}
+        suppressTriggerAria
+      >
+        <div role="img" aria-label="Status icons">
+          <Icon path={IconName.mdiCheckCircle} size={IconSize.Large} />
+        </div>
+      </Tooltip>
+    </Stack>
+  </Stack>
+);
+
 export const Basic = Tooltip_Story.bind({});
 export const Truncation_Detection = Truncation_Detection_Story.bind({});
+export const Suppress_Trigger_Aria = Suppress_Trigger_Aria_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
-export const __namedExportsOrder = ['Basic', 'Truncation_Detection'];
+export const __namedExportsOrder = [
+  'Basic',
+  'Truncation_Detection',
+  'Suppress_Trigger_Aria',
+];
 
 Basic.args = {
   offset: 8,

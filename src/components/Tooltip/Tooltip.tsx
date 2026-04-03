@@ -88,6 +88,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         tooltipStyle,
         trigger = 'hover',
         triggerAbove = false,
+        suppressTriggerAria = false,
         touchInteraction = TooltipTouchInteraction.TapAndHold,
         type = TooltipType.Default,
         visible,
@@ -427,9 +428,17 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         return node;
       };
 
+      const NON_INTERACTIVE_ROLES = ['img', 'group', 'presentation', 'none'];
+
       const getPopupReferenceElement = (
         node: React.ReactNode
       ): JSX.Element | React.ReactNode => {
+        const childRole = React.isValidElement(node)
+          ? (node as React.ReactElement<any>).props.role
+          : undefined;
+        const shouldSuppressAria =
+          suppressTriggerAria || NON_INTERACTIVE_ROLES.includes(childRole);
+
         if (React.isValidElement(node)) {
           const child = React.Children.only(node) as React.ReactElement<any>;
 
@@ -473,10 +482,13 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 toggle(true, showTooltip)(event);
               }
             },
-            'aria-controls': tooltipId?.current,
-            'aria-expanded': mergedVisible,
-            'aria-haspopup': true,
-            ...(trigger !== 'hover' && { role: 'button' }),
+            ...(!shouldSuppressAria && {
+              'aria-controls': tooltipId?.current,
+              'aria-expanded': mergedVisible,
+              'aria-haspopup': true,
+            }),
+            ...(trigger !== 'hover' &&
+              !shouldSuppressAria && { role: 'button' }),
             'data-reference-id': tooltipReferenceId?.current,
             tabIndex: `${tabIndex}`,
           };
@@ -492,9 +504,11 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         }
         return (
           <div
-            aria-controls={tooltipId?.current}
-            aria-expanded={mergedVisible}
-            aria-haspopup={true}
+            {...(!shouldSuppressAria && {
+              'aria-controls': tooltipId?.current,
+              'aria-expanded': mergedVisible,
+              'aria-haspopup': true,
+            })}
             className={!!triggerAbove ? styles.triggerAbove : ''}
             id={tooltipReferenceId?.current}
             key={tooltipId?.current}
@@ -517,7 +531,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 ? toggle(true, showTooltip)
                 : null
             }
-            {...(trigger !== 'hover' && { role: 'button' })}
+            {...(trigger !== 'hover' &&
+              !shouldSuppressAria && { role: 'button' })}
             tab-index={tabIndex}
           >
             {node}
