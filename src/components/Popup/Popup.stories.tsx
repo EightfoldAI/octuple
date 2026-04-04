@@ -115,9 +115,11 @@ const Suppress_Trigger_Aria_Auto_Story: ComponentStory<typeof Popup> = () => (
 );
 
 export const Popups = Popup_Story.bind({});
-export const Suppress_Trigger_Aria_Auto = Suppress_Trigger_Aria_Auto_Story.bind(
-  {}
-);
+export const Auto_Suppress_Trigger_Arias =
+  Suppress_Trigger_Aria_Auto_Story.bind({});
+
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Popups', 'Auto_Suppress_Trigger_Arias'];
 
 Popups.args = {
   offset: 8,
