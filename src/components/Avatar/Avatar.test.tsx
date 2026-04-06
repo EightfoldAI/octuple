@@ -161,12 +161,21 @@ describe('Avatar', () => {
     expect(wrapper.find('[tabIndex]').first().prop('tabIndex')).toBe(-1);
   });
 
-  test('Avatar with image respects custom tabIndex prop', () => {
+  test('Avatar with image does not have tabIndex', () => {
+    const wrapper = mount(
+      <Avatar src="test.jpg" alt="test">
+        AB
+      </Avatar>
+    );
+    expect(wrapper.find('img').prop('tabIndex')).toBeUndefined();
+  });
+
+  test('Avatar with image does not have tabIndex even when explicitly passed', () => {
     const wrapper = mount(
       <Avatar src="test.jpg" alt="test" tabIndex={-1}>
         AB
       </Avatar>
     );
-    expect(wrapper.find('img').prop('tabIndex')).toBe(-1);
+    expect(wrapper.find('img').prop('tabIndex')).toBeUndefined();
   });
 });

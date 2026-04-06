@@ -4,6 +4,7 @@ import styles from '../empty.module.scss';
 export const DefaultEmptyProfileImg = (): JSX.Element => {
   return (
     <svg
+      aria-hidden="true"
       className={'empty-profile-image-default'}
       fill="none"
       height="187"

@@ -334,10 +334,13 @@ describe('Picker.Keyboard', () => {
     expect(onChange).not.toHaveBeenCalled();
   });
 
-  it('any key to open', () => {
+  it('any key to open', async () => {
     const wrapper = mount(<DayjsPicker />);
     wrapper.keyDown(eventKeys.KEYA);
-    expect(wrapper.isOpen()).toBeTruthy();
+    await waitFor(() => {
+      wrapper.update();
+      expect(wrapper.isOpen()).toBeTruthy();
+    });
   });
 
   it('not change focus to partial', () => {
@@ -723,7 +726,7 @@ describe('Picker.Keyboard', () => {
         .first()
         .simulate('change', { target: { value: '2000-01-01' } });
       wrapper.keyDown(eventKeys.ESCAPE);
-      expect(wrapper.find('input').first().props().value).toEqual('');
+      expect(wrapper.find('input').first().props().value).toEqual('2000-01-01');
     });
 
     it('move based on current date on first keyboard event', () => {

@@ -586,12 +586,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
               }
             }}
             size={selectSizeToPillSizeMap.get(size)}
-            tabIndex={0}
+            tabIndex={-1}
             theme={'blueGreen'}
             type={readonly ? PillType.default : PillType.closable}
             style={{
               visibility: index < count ? 'visible' : 'hidden',
             }}
+            closeButtonProps={
+              pillProps.closeButtonProps ?? {
+                getAriaLabel: (label: string) => `Remove ${label}`,
+              }
+            }
             {...pillProps}
           />
         );
@@ -684,22 +689,46 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }: {
       options: SelectOption[];
     }): JSX.Element => {
+      const {
+        menuItemRole,
+        menuButtonRole,
+        menuButtonHasRole,
+        ...restMenuProps
+      } = menuProps;
+
       const filteredOptions = (options || []).filter(
         (opt: SelectOption) => !opt.hideOption
       );
       const updatedItems: SelectOption[] = filteredOptions.map(
-        ({ hideOption, ...opt }) => ({
-          ...opt,
-          classNames: mergeClasses([{ [styles.selectedOption]: opt.selected }]),
-          role: 'option',
-          'aria-selected': opt.selected,
-        })
+        ({ hideOption, role: optRole, ...opt }) => {
+          const item: SelectOption = {
+            ...opt,
+            classNames: mergeClasses([
+              { [styles.selectedOption]: opt.selected },
+            ]),
+            listItemRole: menuItemRole,
+            'aria-selected': opt.selected,
+          };
+
+          if (menuButtonHasRole === true) {
+            item.role = menuButtonRole ?? optRole ?? 'option';
+          } else if (menuButtonHasRole === false) {
+            // Don't set role property - this will allow MenuItemButton to use its default or no role
+            // We need to explicitly set it to null to remove it
+            item.role = null;
+          } else {
+            item.role = optRole ?? 'option';
+          }
+
+          return item;
+        }
       );
       if (filteredOptions.length > 0) {
         return (
           <Menu
             id={selectMenuId?.current}
-            {...menuProps}
+            {...restMenuProps}
+            itemProps={menuItemRole ? { role: menuItemRole } : undefined}
             items={updatedItems}
             onChange={(value) => {
               const option = updatedItems.find(
@@ -774,10 +803,27 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const handleInputKeyDown = (
       event: React.KeyboardEvent<HTMLInputElement>
     ): void => {
-      onKeyDown?.(event);
       if (mergedDisabled) {
         return;
       }
+
+      // Handle Octuple's internal keyboard navigation FIRST
+      // before calling consumer's handler
+
+      // Enter: Open dropdown if closed (a11y compliant)
+      // When open, Menu component handles Enter for option selection
+      if (
+        event?.key === eventKeys.ENTER &&
+        document.activeElement === event.target &&
+        !dropdownVisible
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        setDropdownVisibility(true);
+      }
+
+      // Arrow Down: For filterable selects, move focus into dropdown options
+      // Non-filterable selects are handled by Dropdown component natively
       if (
         filterable &&
         event?.key === eventKeys.ARROWDOWN &&
@@ -785,6 +831,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ) {
         dropdownRef.current?.focusFirstElement?.();
       }
+
+      // Call consumer's onKeyDown handler after internal handling
+      onKeyDown?.(event);
     };
 
     const clearButtonClassNames: string = mergeClasses([

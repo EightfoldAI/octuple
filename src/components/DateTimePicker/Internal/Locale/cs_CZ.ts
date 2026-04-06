@@ -34,6 +34,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'Předchozí rok',
   superNextAriaLabel: 'Následující rok',
   arrowKeyNavigationText: 'Použijte šipky pro navigaci v kalendáři',
+  hourLabel: 'Hodiny',
+  minuteLabel: 'Minuty',
+  secondLabel: 'Sekundy',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

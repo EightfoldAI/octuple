@@ -404,4 +404,16 @@ describe('Slider', () => {
     ).toHaveLength(5);
     expect(container2.getElementsByClassName('active')).toHaveLength(3);
   });
+
+  test('should set tabIndex=-1 on thumb when slider is readonly or disabled', () => {
+    const { container: readOnlyContainer } = render(<Slider value={50} readOnly />);
+    const readOnlyThumb = readOnlyContainer.querySelector('input[type="range"]');
+    expect(readOnlyThumb?.getAttribute('tabindex')).toBe('-1');
+  });
+
+  test('should not set tabIndex on thumb when slider is interactive', () => {
+    const { container } = render(<Slider value={50} />);
+    const thumb = container.querySelector('input[type="range"]');
+    expect(thumb?.getAttribute('tabindex')).toBeNull();
+  });
 });

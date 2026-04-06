@@ -27,9 +27,7 @@ exports[`Scroll Carousel button props 1`] = `
             class="carousel-previous button button-secondary button-large round-shape icon-left"
           >
             <span
-              aria-hidden="false"
               class="icon icon-wrapper"
-              role="presentation"
             >
               <svg
                 role="presentation"
@@ -250,9 +248,7 @@ exports[`Scroll Carousel button props 1`] = `
             class="carousel-next button button-secondary button-large round-shape icon-left"
           >
             <span
-              aria-hidden="false"
               class="icon icon-wrapper"
-              role="presentation"
             >
               <svg
                 role="presentation"

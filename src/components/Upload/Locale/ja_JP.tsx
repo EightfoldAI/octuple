@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: '画像の編集',
     previewFileText: 'ファイルのプレビュー',
     removeFileText: '消去',
+    removeFileAriaLabelText: '消去ファイル ${filename}',
     replaceFileText: '取り替える',
     rotateLeftButtonAriaLabelText: '左に回転',
     rotateRightButtonAriaLabelText: '右に回転',

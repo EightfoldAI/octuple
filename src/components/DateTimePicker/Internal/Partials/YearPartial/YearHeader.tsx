@@ -14,6 +14,7 @@ function YearHeader<DateType>(props: YearHeaderProps<DateType>) {
     onPrevDecade,
     size = DatePickerSize.Medium,
     viewDate,
+    locale,
   } = props;
   const { hideHeader } = React.useContext(PartialContext);
 
@@ -39,6 +40,8 @@ function YearHeader<DateType>(props: YearHeaderProps<DateType>) {
   return (
     <Header
       {...props}
+      superPrevAriaLabel={locale.previousDecade}
+      superNextAriaLabel={locale.nextDecade}
       onSuperPrev={onPrevDecade}
       onSuperNext={onNextDecade}
       size={size}

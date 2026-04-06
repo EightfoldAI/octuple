@@ -7,9 +7,7 @@ exports[`InfoBar InfoBar is Disruptive 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -42,9 +40,7 @@ exports[`InfoBar InfoBar is Neutral 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -77,9 +73,7 @@ exports[`InfoBar InfoBar is Positive 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -112,9 +106,7 @@ exports[`InfoBar InfoBar is Warning 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -147,9 +139,7 @@ exports[`InfoBar InfoBar is bordered 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -182,9 +172,7 @@ exports[`InfoBar Renders a custom icon when the icon prop uses a custom icon 1`]
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"
@@ -217,9 +205,7 @@ exports[`InfoBar Renders without crashing 1`] = `
     role="alert"
   >
     <span
-      aria-hidden="false"
       class="icon icon-wrapper"
-      role="presentation"
     >
       <svg
         role="presentation"

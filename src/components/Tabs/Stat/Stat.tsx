@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, Ref, useContext } from 'react';
+import React, { Ref, useContext } from 'react';
 import GradientContext, {
   Gradient,
 } from '../../ConfigProvider/GradientContext';
@@ -19,7 +19,10 @@ const MEDIUM_ICON_SIZE: string = '40px';
 const SMALL_ICON_SIZE: string = '32px';
 const XSMALL_ICON_SIZE: string = '24px';
 
-export const Stat: FC<StatProps> = React.forwardRef(
+export const Stat = React.forwardRef<
+  HTMLButtonElement | HTMLDivElement,
+  StatProps
+>(
   (
     {
       ariaLabel,
@@ -41,9 +44,10 @@ export const Stat: FC<StatProps> = React.forwardRef(
       status,
       theme,
       value,
+      interactive = true,
       ...rest
     },
-    ref: Ref<HTMLButtonElement>
+    ref: Ref<HTMLButtonElement | HTMLDivElement>
   ) => {
     const htmlDir: string = useCanvasDirection();
 
@@ -135,10 +139,45 @@ export const Stat: FC<StatProps> = React.forwardRef(
       [TabSize.XSmall, ButtonSize.Small],
     ]);
 
+    const content = (
+      <Stack
+        direction="horizontal"
+        fullWidth
+        flexGap={tabSizeToGapMap.get(size)}
+        justify="center"
+        align="center"
+      >
+        {getIcon()}
+        <Stack direction="vertical" fullWidth>
+          {getLabel()}
+          <span className={styles.label}>
+            {getRatioA()} {getRatioB()}
+          </span>
+          {getLoader()}
+        </Stack>
+        {!!buttonProps && (
+          <Button size={tabSizeToButtonSizeMap.get(size)} {...buttonProps} />
+        )}
+      </Stack>
+    );
+
+    if (!interactive) {
+      return (
+        <div
+          {...(rest as unknown as React.HTMLAttributes<HTMLDivElement>)}
+          ref={ref as unknown as Ref<HTMLDivElement>}
+          className={tabClassName}
+          style={{ ...rest.style, maxWidth }}
+        >
+          {content}
+        </div>
+      );
+    }
+
     return (
       <button
         {...rest}
-        ref={ref}
+        ref={ref as Ref<HTMLButtonElement>}
         className={tabClassName}
         aria-label={ariaLabel}
         aria-selected={!readOnly && isActive}
@@ -147,25 +186,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
         onClick={!readOnly ? (e) => onTabClick(value, e) : null}
         style={{ ...rest.style, maxWidth }}
       >
-        <Stack
-          direction="horizontal"
-          fullWidth
-          flexGap={tabSizeToGapMap.get(size)}
-          justify="center"
-          align="center"
-        >
-          {getIcon()}
-          <Stack direction="vertical" fullWidth>
-            {getLabel()}
-            <span className={styles.label}>
-              {getRatioA()} {getRatioB()}
-            </span>
-            {getLoader()}
-          </Stack>
-          {!!buttonProps && (
-            <Button size={tabSizeToButtonSizeMap.get(size)} {...buttonProps} />
-          )}
-        </Stack>
+        {content}
       </button>
     );
   }

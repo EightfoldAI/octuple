@@ -728,4 +728,188 @@ describe('Select', () => {
     expect(container.querySelector('.dropdown')).toBeFalsy();
     expect(select).toHaveFocus();
   });
+
+  test('Applies menuButtonRole when menuButtonHasRole is true', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        menuProps={
+          { menuButtonHasRole: true, menuButtonRole: 'menuitem' } as any
+        }
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Select test'));
+    const items = await waitFor(() => getAllByRole('menuitem'));
+    expect(items[0].getAttribute('role')).toBe('menuitem');
+  });
+
+  test('Uses default option role when menuButtonHasRole is true without menuButtonRole', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        menuProps={{ menuButtonHasRole: true } as any}
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Select test'));
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items[0].getAttribute('role')).toBe('option');
+  });
+
+  test('Removes role when menuButtonHasRole is false', async () => {
+    const { getAllByRole, getByPlaceholderText, container } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        menuProps={{ menuButtonHasRole: false } as any}
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Select test'));
+    await waitFor(() => getAllByRole('listbox'));
+    const button = container.querySelector('li button');
+    expect(button?.hasAttribute('role')).toBe(false);
+  });
+
+  test('Applies menuItemRole to list item wrappers', async () => {
+    const { getAllByRole, getByPlaceholderText, container } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        menuProps={{ menuItemRole: 'option' } as any}
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Select test'));
+    await waitFor(() => getAllByRole('listbox'));
+    expect(container.querySelector('li[role="option"]')).toBeTruthy();
+  });
+
+  test('Uses default presentation role when menuItemRole is not provided', async () => {
+    const { getAllByRole, getByPlaceholderText, container } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        menuProps={{} as any}
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Select test'));
+    await waitFor(() => getAllByRole('listbox'));
+    expect(container.querySelector('li[role="presentation"]')).toBeTruthy();
+  });
+
+  test('Combines menuButtonHasRole true with menuItemRole', async () => {
+    const { getAllByRole, getByPlaceholderText, container } = render(
+      <Select
+        options={options}
+        placeholder="Select test"
+        menuProps={
+          {
+            menuButtonHasRole: true,
+            menuButtonRole: 'menuitem',
+            menuItemRole: 'option',
+          } as any
+        }
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Select test'));
+    await waitFor(() => getAllByRole('menuitem'));
+    expect(container.querySelector('li[role="option"]')).toBeTruthy();
+  });
+
+  test('Enter key opens the dropdown', async () => {
+    const { getByPlaceholderText, getAllByRole } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const input = getByPlaceholderText('Select test') as HTMLInputElement;
+    input.focus();
+
+    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+
+    await waitFor(() => getAllByRole('listbox'));
+    const listbox = getAllByRole('listbox');
+    expect(listbox).toBeTruthy();
+  });
+
+  test('Enter key opens the dropdown in multiple mode', async () => {
+    const { getByPlaceholderText, getAllByRole } = render(
+      <Select multiple options={options} placeholder="Select test" />
+    );
+    const input = getByPlaceholderText('Select test') as HTMLInputElement;
+    input.focus();
+
+    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+
+    await waitFor(() => getAllByRole('listbox'));
+    const listbox = getAllByRole('listbox');
+    expect(listbox).toBeTruthy();
+  });
+
+  test('Enter key does not propagate to prevent cross-component focus jumps', async () => {
+    const onKeyDown = jest.fn();
+    const { getByPlaceholderText } = render(
+      <div onKeyDown={onKeyDown}>
+        <Select options={options} placeholder="Select test" />
+      </div>
+    );
+    const input = getByPlaceholderText('Select test') as HTMLInputElement;
+    input.focus();
+
+    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+
+    await sleep(100);
+    expect(onKeyDown).not.toHaveBeenCalled();
+  });
+
+  test('Focus stays within dropdown after selection in multi-select', async () => {
+    const { getByPlaceholderText, getByText, container } = render(
+      <Select multiple options={options} placeholder="Select test" />
+    );
+    const input = getByPlaceholderText('Select test') as HTMLInputElement;
+
+    fireEvent.click(input);
+    const option1 = await waitFor(() => getByText('Option 1'));
+    fireEvent.click(option1);
+
+    await waitFor(() => {
+      const pill = container.querySelector('#selectPillOption\\ 1-0');
+      expect(pill).toBeTruthy();
+    });
+
+    await sleep(300);
+
+    // Focus should remain in the dropdown menu after selection
+    const menuItem = container.querySelector('.menu-item') as HTMLElement;
+    expect(menuItem).toBeTruthy();
+  });
+
+  test('Focus returns to input when dropdown closes after multiple selections', async () => {
+    const { getByPlaceholderText, getByText, container } = render(
+      <Select multiple options={options} placeholder="Select test" />
+    );
+    const input = getByPlaceholderText('Select test') as HTMLInputElement;
+
+    fireEvent.click(input);
+    const option1 = await waitFor(() => getByText('Option 1'));
+    fireEvent.click(option1);
+    await sleep(300);
+
+    const option2 = await waitFor(() => getByText('Option 2'));
+    fireEvent.click(option2);
+
+    await waitFor(() => {
+      const pill2 = container.querySelector('#selectPillOption\\ 2-1');
+      expect(pill2).toBeTruthy();
+    });
+
+    // Close the dropdown by clicking outside
+    fireEvent.mouseDown(document.body);
+
+    // Focus should return to the input element after dropdown closes
+    await waitFor(
+      () => {
+        expect(document.activeElement).toBe(input);
+      },
+      { timeout: 1000 }
+    );
+  });
 });

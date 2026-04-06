@@ -65,6 +65,25 @@ describe('Pagination', () => {
     expect(container).toMatchSnapshot();
   });
 
+  test('Pagination with simplified Pager should not use list semantics', () => {
+    const { container } = render(
+      <Pagination
+        currentPage={1}
+        layout={[
+          PaginationLayoutOptions.Previous,
+          PaginationLayoutOptions.Pager,
+          PaginationLayoutOptions.Next,
+          PaginationLayoutOptions.Simplified,
+        ]}
+        onCurrentChange={() => {}}
+        pageSize={10}
+        total={50}
+      />
+    );
+    expect(container.getElementsByClassName('pager')[0].tagName).toBe('DIV');
+    expect(container).toMatchSnapshot();
+  });
+
   test('Pagination should render with some elements', () => {
     const { container } = render(
       <Pagination

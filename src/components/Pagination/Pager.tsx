@@ -41,7 +41,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
       visiblePagerCountSize = PaginationVisiblePagerCountSizeOptions.Large,
       ...rest
     },
-    ref: Ref<HTMLUListElement>
+    ref: Ref<HTMLDivElement | HTMLUListElement>
   ) => {
     /** Represents the number of pages from each edge of the list before we show quick buttons. */
     let edgeBufferThreshold: number = 5;
@@ -150,121 +150,116 @@ export const Pager: FC<PagerProps> = React.forwardRef(
       setPagers(getVisiblePageRange());
     }, [getVisiblePageRange]);
 
+    if (simplified) {
+      return (
+        <div
+          {...rest}
+          ref={ref as Ref<HTMLDivElement>}
+          className={mergeClasses([styles.pager, styles.pageTracker])}
+        >
+          {pageCount > 0 && (
+            <>
+              <span>{`${currentPage.toLocaleString()}`}</span>{' '}
+              {showLast && <span>{`${locale.lang!.pagerText}`}</span>}{' '}
+              {showLast && <span>{`${pageCount.toLocaleString()}`}</span>}
+            </>
+          )}
+        </div>
+      );
+    }
+
     return (
-      <ul
-        {...rest}
-        ref={ref}
-        className={mergeClasses([
-          styles.pager,
-          simplified && styles.pageTracker,
-        ])}
-      >
+      <ul {...rest} ref={ref as Ref<HTMLUListElement>} className={styles.pager}>
         {pageCount > 0 && (
           <li>
-            {!simplified ? (
-              <Button
-                aria-current={currentPage === 1}
-                classNames={mergeClasses([
-                  styles.paginationButton,
-                  { [styles.active]: currentPage === 1 },
-                ])}
-                configContextProps={configContextProps}
-                gradient={gradient}
-                shape={ButtonShape.Rectangle}
-                onClick={() => onCurrentChange(1)}
-                size={ButtonSize.Medium}
-                text={'1'.toLocaleString()}
-                theme={theme}
-                themeContainerId={themeContainerId}
-                variant={ButtonVariant.Neutral}
-                ariaLabel={
-                  locale.lang.pageSizeText +
-                  ' ' +
-                  '1'.toLocaleString() +
-                  ' ' +
-                  locale.lang.pagerText +
-                  ' ' +
-                  pageCount.toLocaleString()
-                }
-              />
-            ) : (
-              <>
-                <span>{`${currentPage.toLocaleString()}`}</span>{' '}
-                {showLast && <span>{`${locale.lang!.pagerText}`}</span>}{' '}
-                {showLast && <span>{`${pageCount.toLocaleString()}`}</span>}
-              </>
-            )}
+            <Button
+              aria-current={currentPage === 1}
+              classNames={mergeClasses([
+                styles.paginationButton,
+                { [styles.active]: currentPage === 1 },
+              ])}
+              configContextProps={configContextProps}
+              gradient={gradient}
+              shape={ButtonShape.Rectangle}
+              onClick={() => onCurrentChange(1)}
+              size={ButtonSize.Medium}
+              text={'1'.toLocaleString()}
+              theme={theme}
+              themeContainerId={themeContainerId}
+              variant={ButtonVariant.Neutral}
+              ariaLabel={
+                locale.lang.pageSizeText +
+                ' ' +
+                '1'.toLocaleString() +
+                ' ' +
+                locale.lang.pagerText +
+                ' ' +
+                pageCount.toLocaleString()
+              }
+            />
           </li>
         )}
-        {!simplified &&
-          currentPage > edgeBufferThreshold &&
-          pageCount > shortListThreshold && (
-            <li>
-              <Button
-                ariaLabel={quickPreviousIconButtonAriaLabel}
-                classNames={mergeClasses([
-                  styles.paginationButton,
-                  'quickprevious',
-                ])}
-                configContextProps={configContextProps}
-                gradient={gradient}
-                shape={ButtonShape.Rectangle}
-                iconProps={{
-                  role: 'presentation',
-                  path: _quickPreviousActive
-                    ? IconName.mdiChevronDoubleLeft
-                    : IconName.mdiDotsHorizontal,
-                }}
-                onBlur={() => setQuickPreviousActive(false)}
-                onFocus={() => setQuickPreviousActive(true)}
-                onMouseEnter={() => setQuickPreviousActive(true)}
-                onMouseLeave={() => setQuickPreviousActive(false)}
-                onClick={() =>
-                  onCurrentChange(currentPage - edgeBufferThreshold)
-                }
-                size={ButtonSize.Medium}
-                theme={theme}
-                themeContainerId={themeContainerId}
-                variant={ButtonVariant.Neutral}
-              />
-            </li>
-          )}
-        {!simplified &&
-          _pagers?.map((pager, idx) => {
-            return (
-              <li key={idx}>
-                <Button
-                  aria-current={currentPage === pager}
-                  classNames={mergeClasses([
-                    styles.paginationButton,
-                    {
-                      [styles.active]: currentPage === pager,
-                    },
-                  ])}
-                  configContextProps={configContextProps}
-                  gradient={gradient}
-                  onClick={() => onCurrentChange(pager)}
-                  shape={ButtonShape.Rectangle}
-                  size={ButtonSize.Medium}
-                  text={pager.toLocaleString()}
-                  theme={theme}
-                  themeContainerId={themeContainerId}
-                  variant={ButtonVariant.Neutral}
-                  ariaLabel={
-                    locale.lang.pageSizeText +
-                    ' ' +
-                    pager.toLocaleString() +
-                    ' ' +
-                    locale.lang.pagerText +
-                    ' ' +
-                    pageCount.toLocaleString()
-                  }
-                />
-              </li>
-            );
-          })}
-        {!simplified &&
-          currentPage < pageCount - edgeBufferThreshold &&
+        {currentPage > edgeBufferThreshold && pageCount > shortListThreshold && (
+          <li>
+            <Button
+              ariaLabel={quickPreviousIconButtonAriaLabel}
+              classNames={mergeClasses([
+                styles.paginationButton,
+                'quickprevious',
+              ])}
+              configContextProps={configContextProps}
+              gradient={gradient}
+              shape={ButtonShape.Rectangle}
+              iconProps={{
+                role: 'presentation',
+                path: _quickPreviousActive
+                  ? IconName.mdiChevronDoubleLeft
+                  : IconName.mdiDotsHorizontal,
+              }}
+              onBlur={() => setQuickPreviousActive(false)}
+              onFocus={() => setQuickPreviousActive(true)}
+              onMouseEnter={() => setQuickPreviousActive(true)}
+              onMouseLeave={() => setQuickPreviousActive(false)}
+              onClick={() => onCurrentChange(currentPage - edgeBufferThreshold)}
+              size={ButtonSize.Medium}
+              theme={theme}
+              themeContainerId={themeContainerId}
+              variant={ButtonVariant.Neutral}
+            />
+          </li>
+        )}
+        {_pagers?.map((pager, idx) => (
+          <li key={idx}>
+            <Button
+              aria-current={currentPage === pager}
+              classNames={mergeClasses([
+                styles.paginationButton,
+                {
+                  [styles.active]: currentPage === pager,
+                },
+              ])}
+              configContextProps={configContextProps}
+              gradient={gradient}
+              onClick={() => onCurrentChange(pager)}
+              shape={ButtonShape.Rectangle}
+              size={ButtonSize.Medium}
+              text={pager.toLocaleString()}
+              theme={theme}
+              themeContainerId={themeContainerId}
+              variant={ButtonVariant.Neutral}
+              ariaLabel={
+                locale.lang.pageSizeText +
+                ' ' +
+                pager.toLocaleString() +
+                ' ' +
+                locale.lang.pagerText +
+                ' ' +
+                pageCount.toLocaleString()
+              }
+            />
+          </li>
+        ))}
+        {currentPage < pageCount - edgeBufferThreshold &&
           pageCount > shortListThreshold && (
             <li>
               <Button
@@ -296,7 +291,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
               />
             </li>
           )}
-        {!simplified && pageCount > 1 && showLast && (
+        {pageCount > 1 && showLast && (
           <li>
             <Button
               aria-current={currentPage === pageCount}

@@ -2,6 +2,148 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.56.8](https://github.com/EightfoldAI/octuple/compare/v2.56.7...v2.56.8) (2026-03-31)
+
+### Bug Fixes
+
+- **Avatar:** remove tabIndex from img type avatar ([#1110](https://github.com/EightfoldAI/octuple/issues/1110)) ([3ab833e](https://github.com/EightfoldAI/octuple/commits/3ab833e2e299d6a8c2b5f480260fff92556618b1))
+- **Datepicker:** fix Datepicker selection behavior on iOS with VoiceOver enabled ([#1106](https://github.com/EightfoldAI/octuple/issues/1106)) ([a2f8a00](https://github.com/EightfoldAI/octuple/commits/a2f8a002581ed640ff7aa7f51c98f8d2e4803334))
+- **Dropdown:** a11y issues with keyboard behavior ([#1104](https://github.com/EightfoldAI/octuple/issues/1104)) ([d04ea06](https://github.com/EightfoldAI/octuple/commits/d04ea06ac4758dcb02eb0b45e7e26f6a2407f986))
+- **TextInput:** Omit role and remove tabindex so both are handled natively ([#1108](https://github.com/EightfoldAI/octuple/issues/1108)) ([4311894](https://github.com/EightfoldAI/octuple/commits/4311894bb9b1c47e9c38083fb849f908ab8a34fc))
+
+### [2.56.7](https://github.com/EightfoldAI/octuple/compare/v2.56.6...v2.56.7) (2026-03-16)
+
+### Bug Fixes
+
+- **Daterange:** accessibility fix for daterange picker ([#1100](https://github.com/EightfoldAI/octuple/issues/1100)) ([734474f](https://github.com/EightfoldAI/octuple/commits/734474faa3308e71e14869219ab4cb31eb292c15))
+
+### [2.56.6](https://github.com/EightfoldAI/octuple/compare/v2.56.5...v2.56.6) (2026-03-16)
+
+### Bug Fixes
+
+- **Table:** allow row selection with Enter key in addition to Space ([#1105](https://github.com/EightfoldAI/octuple/issues/1105)) ([2b3042d](https://github.com/EightfoldAI/octuple/commits/2b3042d30927835a1510fe572b65072f851fc8f8))
+
+### [2.56.5](https://github.com/EightfoldAI/octuple/compare/v2.56.4...v2.56.5) (2026-03-09)
+
+### Bug Fixes
+
+- remove redundant role on input[type=checkbox] ([#1095](https://github.com/EightfoldAI/octuple/issues/1095)) ([b3648b0](https://github.com/EightfoldAI/octuple/commits/b3648b03eafe3e8d361afee95deeccd7061a3a16))
+- **Select:** Improve keyboard focus management and accessibility ([#1103](https://github.com/EightfoldAI/octuple/issues/1103)) ([2f3ca31](https://github.com/EightfoldAI/octuple/commits/2f3ca31b0f5bc5f28481621519c76d82323e0d13))
+- **Table:** accessibility fix to announce sorting order for table header ([#1097](https://github.com/EightfoldAI/octuple/issues/1097)) ([2515912](https://github.com/EightfoldAI/octuple/commits/25159123f0087ec1806cdc161c28ed327fa01521))
+- **Upload:** always apply accept filter in onChange handler ([#1102](https://github.com/EightfoldAI/octuple/issues/1102)) ([18c8795](https://github.com/EightfoldAI/octuple/commits/18c8795d1e1d0944a73829f401d70bb5c90d455b))
+- **useMatchMedia:** set initial state correctly ([#1098](https://github.com/EightfoldAI/octuple/issues/1098)) ([8f02c72](https://github.com/EightfoldAI/octuple/commits/8f02c725157e3272a147453af9caf75c86f8d7bd))
+
+### [2.56.4](https://github.com/EightfoldAI/octuple/compare/v2.56.2...v2.56.4) (2026-02-03)
+
+### Features
+
+- **Tabs:** Add dropdown in tab ([#1087](https://github.com/EightfoldAI/octuple/issues/1087)) ([8c80566](https://github.com/EightfoldAI/octuple/commits/8c80566931163e9c39ff9186fd7e720ed3f17383))
+
+### Bug Fixes
+
+- Add keyboard accessibility to DatePicker clear button (ENG-164575) ([#1086](https://github.com/EightfoldAI/octuple/issues/1086)) ([ec8e6a7](https://github.com/EightfoldAI/octuple/commits/ec8e6a7b11fc8894102be4129be6282ad319d332))
+- **DatePicker:** Added position relative to picker so that the visually hidden label ([#1094](https://github.com/EightfoldAI/octuple/issues/1094)) ([e366426](https://github.com/EightfoldAI/octuple/commits/e366426f246d28bedcaa88a9edbd552ff74a3c64))
+- **Pager:** remove list semantics for simplified version of Pager ([#1091](https://github.com/EightfoldAI/octuple/issues/1091)) ([ea2c89f](https://github.com/EightfoldAI/octuple/commits/ea2c89f6e16d95e2ccc02263b005255584d8d99f))
+- prevent slider thumbs from being keyboard focusable when readonly or disabled ([#1082](https://github.com/EightfoldAI/octuple/issues/1082)) ([0e49d47](https://github.com/EightfoldAI/octuple/commits/0e49d4735cc4a2788939e385c5095242bdbc0f60))
+- **useFocusVisibleClassName:** prevent class removal when multiple hooks active ([#1090](https://github.com/EightfoldAI/octuple/issues/1090)) ([756e151](https://github.com/EightfoldAI/octuple/commits/756e1511e5d994f08ff817b84d0ade68432cbbcb))
+
+### [2.56.3](https://github.com/EightfoldAI/octuple/compare/v2.56.2...v2.56.3) (2026-01-27)
+
+### Bug Fixes
+
+- **DatePicker:** Added position relative to picker so that the visually hidden label ([#1094](https://github.com/EightfoldAI/octuple/issues/1094)) ([ad9f66c](https://github.com/EightfoldAI/octuple/commits/ad9f66cf10bc3e27dcf0c32d65987feb054a404f))
+
+### [2.56.2](https://github.com/EightfoldAI/octuple/compare/v2.56.1...v2.56.2) (2026-01-09)
+
+### Bug Fixes
+
+- **datepicker:** retaining focus on startDate when invalid date is entered without clearing input ([#1088](https://github.com/EightfoldAI/octuple/issues/1088)) ([4ace02a](https://github.com/EightfoldAI/octuple/commits/4ace02a8b7e04a35ef53fa9183c60aa764473671))
+
+### [2.56.1](https://github.com/EightfoldAI/octuple/compare/v2.56.0...v2.56.1) (2026-01-05)
+
+### Bug Fixes
+
+- **datepicker:** accessibility fix for announcing error message on invalid date enter ([#1085](https://github.com/EightfoldAI/octuple/issues/1085)) ([55a8bf6](https://github.com/EightfoldAI/octuple/commits/55a8bf68ab574f6f33e80b0d8fbcb74fa3e0aa02))
+- **dropddown:** accessibility fix for dropdown options via Tab and arrow keys ([#1084](https://github.com/EightfoldAI/octuple/issues/1084)) ([8becfac](https://github.com/EightfoldAI/octuple/commits/8becfac099dbecfce1d9ede04e4251f1f58818db))
+- **uploads:** update delete buttons’ aria-labels to provide more cont… ([#1083](https://github.com/EightfoldAI/octuple/issues/1083)) ([458e5dd](https://github.com/EightfoldAI/octuple/commits/458e5dd956cc9700eb625073079f6dc4b0474f68))
+
+## [2.56.0](https://github.com/EightfoldAI/octuple/compare/v2.55.0...v2.56.0) (2025-12-30)
+
+### Features
+
+- **DateTimePicker:** Add WCAG 2.1 AA accessibility improvements for DatePicker and TimePicker components ([#1078](https://github.com/EightfoldAI/octuple/issues/1078)) ([4ac663a](https://github.com/EightfoldAI/octuple/commits/4ac663abf8f281a5a882bebe6fd7b81323777de4))
+- **Stepper:** add fullwidth mode for evenly distributed steps in horizontal layout ([#1081](https://github.com/EightfoldAI/octuple/issues/1081)) ([450fe5b](https://github.com/EightfoldAI/octuple/commits/450fe5b0828c8c9989dcc0ce38efee3e72df0834))
+
+### Bug Fixes
+
+- ensure Menu passes itemProps down to MenuItems ([#1079](https://github.com/EightfoldAI/octuple/issues/1079)) ([44d5885](https://github.com/EightfoldAI/octuple/commits/44d5885a60f391572664dd69d032ba2a79b9a288))
+- update Dropdown props to allow consumer to correctly implement a11y patterns ([#1080](https://github.com/EightfoldAI/octuple/issues/1080)) ([73816e8](https://github.com/EightfoldAI/octuple/commits/73816e8f025e2cdf704c199adc662c7373c0fa4a))
+
+## [2.55.0](https://github.com/EightfoldAI/octuple/compare/v2.54.8...v2.55.0) (2025-12-22)
+
+### Features
+
+- **fixes:** a11y fixes for some octuple components ([#1076](https://github.com/EightfoldAI/octuple/issues/1076)) ([7c65ee1](https://github.com/EightfoldAI/octuple/commits/7c65ee17be62b5eb68cfe2725d3ef56dd0b3225d))
+- **Table:** Add aria-attributes for NVDA if table is horizontally scrollable ([#1042](https://github.com/EightfoldAI/octuple/issues/1042)) ([8214fbb](https://github.com/EightfoldAI/octuple/commits/8214fbbad7fa4a4d6a9912fbc9305242b2f091f0))
+
+### Bug Fixes
+
+- **a11y:** Add ARIA listbox support to TimePicker ([#1077](https://github.com/EightfoldAI/octuple/issues/1077)) ([2baf48e](https://github.com/EightfoldAI/octuple/commits/2baf48e6445a2dec7e14dab347c32c92fc6d132c))
+- correct type for overlayProps prop on Dropdown ([#1075](https://github.com/EightfoldAI/octuple/issues/1075)) ([e0fe076](https://github.com/EightfoldAI/octuple/commits/e0fe0765b92aef8eef18eb93b74589281e0d106d))
+- **Datepicker:** prevent input from clearing on escape key press ([#1070](https://github.com/EightfoldAI/octuple/issues/1070)) ([9057eed](https://github.com/EightfoldAI/octuple/commits/9057eed44ace126abb55c42c1ef2f991015ed182))
+- remove inappropriate h2 element from Empty component ([#1067](https://github.com/EightfoldAI/octuple/issues/1067)) ([ea2edc6](https://github.com/EightfoldAI/octuple/commits/ea2edc6966555c1db401ddae533d524e753b0428))
+
+### [2.54.8](https://github.com/EightfoldAI/octuple/compare/v2.54.7...v2.54.8) (2025-12-18)
+
+### Features
+
+- **Date:** added sr-only labels for date time picker ([#1071](https://github.com/EightfoldAI/octuple/issues/1071)) ([f8df410](https://github.com/EightfoldAI/octuple/commits/f8df410067fe14a5c50807eaf8781ebeb5782330))
+- **Stat, Tab:** exposes interactive prop to handle ally issues ([#1069](https://github.com/EightfoldAI/octuple/issues/1069)) ([57eadbf](https://github.com/EightfoldAI/octuple/commits/57eadbf31ba78b33f9f30f3e37e5de4bbc9730f3))
+
+### Bug Fixes
+
+- move role and aria-modal attrs to panel element, add aria-label ([#1074](https://github.com/EightfoldAI/octuple/issues/1074)) ([b974b03](https://github.com/EightfoldAI/octuple/commits/b974b03c9c9605d65633ea68f4947354cc67aa5e))
+- non-interactive icon button should be disabled and hidden from AT ([#1073](https://github.com/EightfoldAI/octuple/issues/1073)) ([4300183](https://github.com/EightfoldAI/octuple/commits/4300183f9f0f8c31d6c9b311f70f4a740be6e36c))
+
+### [2.54.7](https://github.com/EightfoldAI/octuple/compare/v2.54.6...v2.54.7) (2025-12-15)
+
+### Features
+
+- **Menu:** add role attributes for menu items and enhance accessibility options ([#1068](https://github.com/EightfoldAI/octuple/issues/1068)) ([3eccc7f](https://github.com/EightfoldAI/octuple/commits/3eccc7f3db4c1951772e1f8935d6994161241da8))
+
+### Bug Fixes
+
+- change default tab index of overlay container to -1; add test and update snapshots ([#1066](https://github.com/EightfoldAI/octuple/issues/1066)) ([c0388ef](https://github.com/EightfoldAI/octuple/commits/c0388ef90f94a6804e873e9288fdf765bcf25929))
+- disable readonly attr in CheckBox in case of toggle (switch) for a11y ([#1062](https://github.com/EightfoldAI/octuple/issues/1062)) ([5cf7db3](https://github.com/EightfoldAI/octuple/commits/5cf7db355edc5ad2f379f14bb90064ad56db6a62))
+- remove reference to invalid props in Select component ([#1064](https://github.com/EightfoldAI/octuple/issues/1064)) ([3db33f1](https://github.com/EightfoldAI/octuple/commits/3db33f126c79a2eeb4c43f0d3328fbae20a37d96))
+- use 'page' instead of 'location' for aria-current value; update snapshot; add test ([#1065](https://github.com/EightfoldAI/octuple/issues/1065)) ([0c1b742](https://github.com/EightfoldAI/octuple/commits/0c1b742c65e8d53286b722f332cdc9ae65d38c3f))
+
+### [2.54.6](https://github.com/EightfoldAI/octuple/compare/v2.54.5...v2.54.6) (2025-12-11)
+
+### Features
+
+- **Dropdown, Select:** Add Tab key handling and menu role configuration for improved accessibility ([#1060](https://github.com/EightfoldAI/octuple/issues/1060)) ([7841989](https://github.com/EightfoldAI/octuple/commits/784198974e7f2e4217caeb690b67a9464628402a))
+
+### Bug Fixes
+
+- **Select:** accessibility fix included aria-label for the selected option ([#1058](https://github.com/EightfoldAI/octuple/issues/1058)) ([c3138f4](https://github.com/EightfoldAI/octuple/commits/c3138f46413995988a9c30aebb5106fd2102d413))
+
+### [2.54.5](https://github.com/EightfoldAI/octuple/compare/v2.54.4...v2.54.5) (2025-12-04)
+
+### [2.54.4](https://github.com/EightfoldAI/octuple/compare/v2.54.3...v2.54.4) (2025-12-01)
+
+### [2.54.3](https://github.com/EightfoldAI/octuple/compare/v2.54.2...v2.54.3) (2025-12-01)
+
+### Features
+
+- **RadioGroup:** add 'radiogroup' role ([#1050](https://github.com/EightfoldAI/octuple/issues/1050)) ([f172dcd](https://github.com/EightfoldAI/octuple/commits/f172dcdb1065572d6a4afa5dc6f4329b5c6b991f))
+- **tabs:** update Tabs components and fix snapshot ([#1047](https://github.com/EightfoldAI/octuple/issues/1047)) ([5bdda68](https://github.com/EightfoldAI/octuple/commits/5bdda68d1c8c3bd44031ad2eb1144cbe72dcc106))
+
+### Bug Fixes
+
+- accessibility fix for adding appropriate role for image ([#1051](https://github.com/EightfoldAI/octuple/issues/1051)) ([5565553](https://github.com/EightfoldAI/octuple/commits/5565553a0b8b8eaa11722de860c29f7218233e46))
+- **ENG-167534:** add aria-hidden to SVG elements for WCAG compliance ([#1048](https://github.com/EightfoldAI/octuple/issues/1048)) ([45b758b](https://github.com/EightfoldAI/octuple/commits/45b758b498c0ecfc4361d986aaa16d52e49537c9))
+
 ### [2.54.2](https://github.com/EightfoldAI/octuple/compare/v2.54.1...v2.54.2) (2025-11-07)
 
 ### Bug Fixes

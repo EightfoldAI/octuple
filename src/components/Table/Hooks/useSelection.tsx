@@ -456,6 +456,14 @@ export default function useSelection<RecordType>(
               id="selectAllCheckBox"
               label={selectAllRowsText}
               onChange={onSelectAllChange}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  // onSelectAllChange does not use event; same behavior as Space/click
+                  onSelectAllChange();
+                }
+              }}
               disabled={flattedData.length === 0 || allDisabled}
             />
             {customizeSelections}
@@ -489,6 +497,13 @@ export default function useSelection<RecordType>(
                     triggerSingleSelection(key, true, [key], event.nativeEvent);
                   }
                 }}
+                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                  if (e.key === 'Enter' && !keySet.has(key)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    triggerSingleSelection(key, true, [key], e.nativeEvent);
+                  }
+                }}
                 onClick={(e) => e.stopPropagation()}
               />
             ),
@@ -513,6 +528,15 @@ export default function useSelection<RecordType>(
                 classNames={styles.selectionCheckbox}
                 id={`selectCheckBox-${key}`}
                 onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Use .click() to delegate to the existing onChange handler;
+                    // this ensures shiftKey is false and avoids unintended range selection.
+                    (e.target as HTMLInputElement).click();
+                  }
+                }}
                 onChange={(nativeEvent: any) => {
                   const { shiftKey } = nativeEvent;
 

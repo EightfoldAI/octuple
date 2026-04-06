@@ -27,7 +27,6 @@ export const Icon: FC<IconProps> = ({
   vertical,
   'data-test-id': dataTestId,
   icomoonIconName,
-  iconRole = 'presentation',
 }) => {
   const { icomoonIconSet } = useConfig();
 
@@ -37,13 +36,15 @@ export const Icon: FC<IconProps> = ({
     return null;
   }
 
+  const iconProps = ariaHidden ? { 'aria-hidden': true } : { role };
+
   const iconComponent = icomoonIconName ? (
     <IcomoonReact
       iconSet={icomoonIconSet}
       size={size}
       color={color}
       icon={icomoonIconName}
-      role="presentation"
+      {...iconProps}
     />
   ) : (
     <MdiIcon
@@ -57,17 +58,15 @@ export const Icon: FC<IconProps> = ({
       vertical={vertical}
       spin={spin}
       // @ts-ignore
-      role={iconRole}
+      {...iconProps}
     />
   );
 
   return (
     <span
       data-test-id={dataTestId}
-      aria-hidden={ariaHidden}
       className={iconClassNames}
       id={id}
-      role={role}
       style={style ? style : null}
     >
       {iconComponent}

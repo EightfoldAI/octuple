@@ -94,6 +94,8 @@ const statTabs = [1, 2, 3, 4].map((i) => ({
   ratioB: '(5%)',
   status: i === 3 ? ('success' as StatValidationStatus) : '',
   value: `tab${i}`,
+  interactive: false,
+  readOnly: true,
   ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -209,6 +211,7 @@ Stat_Medium.args = {
   ...tabsArgs,
   lineClamp: 2,
   maxWidth: 240,
+  interactive: false,
 };
 
 Stat_Small.args = {

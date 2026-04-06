@@ -7,6 +7,7 @@ import { leftPad } from '../../Utils/miscUtil';
 import { setTime as utilSetTime } from '../../Utils/timeUtil';
 import { DisabledTimes } from '../../OcPicker.types';
 import { DatePickerSize } from '../../OcPicker.types';
+import { uniqueId } from '../../../../../shared/utilities';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -53,6 +54,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     size = DatePickerSize.Medium,
     use12Hours,
     value,
+    listboxId,
+    locale,
   } = props;
 
   const columns: {
@@ -203,7 +206,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     node: React.ReactElement,
     columnValue: number,
     units: Unit[],
-    onColumnSelect: (diff: number) => void
+    onColumnSelect: (diff: number) => void,
+    ariaLabel?: string
   ): void {
     if (condition !== false) {
       columns.push({
@@ -213,6 +217,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
           onSelect: onColumnSelect,
           units,
           hideDisabledOptions,
+          ariaLabel,
         }),
         onSelect: onColumnSelect,
         value: columnValue,
@@ -229,7 +234,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     hours,
     (num: number): void => {
       onSelect(setTime(isPM, num, minute, second), 'mouse');
-    }
+    },
+    locale?.hourLabel || 'Hours'
   );
 
   // Minute
@@ -240,7 +246,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     minutes,
     (num: number): void => {
       onSelect(setTime(isPM, hour, num, second), 'mouse');
-    }
+    },
+    locale?.minuteLabel || 'Minutes'
   );
 
   // Second
@@ -251,7 +258,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     seconds,
     (num: number): void => {
       onSelect(setTime(isPM, hour, minute, num), 'mouse');
-    }
+    },
+    locale?.secondLabel || 'Seconds'
   );
 
   // 12 Hours
@@ -270,11 +278,17 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     ],
     (num: number): void => {
       onSelect(setTime(!!num, hour, minute, second), 'mouse');
-    }
+    },
+    locale?.ampmLabel || 'AM/PM'
   );
 
   return (
-    <div className={styles.pickerContent}>
+    <div
+      className={styles.pickerContent}
+      role="listbox"
+      id={listboxId || uniqueId('time-picker-listbox-')}
+      tabIndex={0}
+    >
       {columns.map(({ node }) => node)}
     </div>
   );

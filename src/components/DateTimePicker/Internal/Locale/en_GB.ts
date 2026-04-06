@@ -18,10 +18,10 @@ const locale: Locale = {
   nextYear: 'Next year (Control + right)',
   now: 'Now',
   ok: 'OK',
-  previousCentury: 'Last century',
-  previousDecade: 'Last decade',
+  previousCentury: 'Previous century',
+  previousDecade: 'Previous decade',
   previousMonth: 'Previous month (PageUp)',
-  previousYear: 'Last year (Control + left)',
+  previousYear: 'Previous year (Control + left)',
   timeSelect: 'Select time',
   today: 'Today',
   year: 'Year',
@@ -32,6 +32,10 @@ const locale: Locale = {
   superPrevAriaLabel: 'Previous year',
   superNextAriaLabel: 'Next year',
   arrowKeyNavigationText: 'Use arrow keys to navigate the calendar',
+  hourLabel: 'Hours',
+  minuteLabel: 'Minutes',
+  secondLabel: 'Seconds',
+  ampmLabel: 'AM/PM',
 };
 
 export default locale;

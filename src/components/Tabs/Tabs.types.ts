@@ -6,6 +6,7 @@ import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
 import { Value } from '../ConfigProvider';
 import { InputStatus } from '../../shared/utilities';
+import { DropdownProps } from '../Dropdown';
 
 export type SelectTabEvent<E = HTMLElement> =
   | React.MouseEvent<E>
@@ -28,6 +29,19 @@ export enum TabSize {
 }
 
 export type TabValue = string;
+
+export enum TabVariantType {
+  default = 'default',
+  dropdown = 'dropdown',
+}
+
+export interface TabDropdownItem {
+  value: TabValue;
+  label: string;
+  ariaLabel?: string;
+  disabled?: boolean;
+  icon?: IconName;
+};
 
 export enum TabVariant {
   default = 'default',
@@ -305,6 +319,20 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
   @internal
   */
   index?: number;
+  /**
+   * Variant of the tab
+   * @default 'default'
+   */
+  variant?: TabVariantType;
+  /**
+   * Array of dropdown menu items to display when variant is 'dropdown'
+   * Dropdown opens on hover
+   */
+  dropdownItems?: TabDropdownItem[];
+  /**
+   * Props for the dropdown component when variant is 'dropdown'
+   */
+  dropdownProps?: Omit<DropdownProps, 'overlay'>;
 }
 
 export interface StatProps extends Omit<TabProps, 'badgeContent'> {
@@ -360,6 +388,12 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
    * Theme of the stat tab.
    */
   theme?: StatThemeName;
+  /**
+   * Whether the stat tab is interactive.
+   * When false, renders as a div instead of a button and removes interactive attributes.
+   * @default true
+   */
+  interactive?: boolean;
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
@@ -483,6 +517,12 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
    @default []
    */
   disabledTabIndexes?: number[];
+  /**
+   * Whether the tabs are interactive.
+   * When false, renders as a non-interactive element, we remove the interactive role and attributes.
+   * @default true
+   */
+  interactive?: boolean;
 }
 
 export interface TabsTheme {

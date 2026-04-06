@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Faites défiler vers la gauche',
     scrollRightAriaLabelText: 'Faites défiler vers la droite',
     scrollUpAriaLabelText: 'Faites défiler vers le haut',
+    navigateToStepAriaLabelText: "Naviguer vers l'étape",
   },
 };
 

@@ -34,7 +34,13 @@ function QuarterHeader<DateType>(props: QuarterHeaderProps<DateType>) {
   }
 
   return (
-    <Header {...props} onSuperPrev={onPrevYear} onSuperNext={onNextYear}>
+    <Header
+      {...props}
+      superPrevAriaLabel={locale.previousYear}
+      superNextAriaLabel={locale.nextYear}
+      onSuperPrev={onPrevYear}
+      onSuperNext={onNextYear}
+    >
       <SystemUIButton
         classNames={'picker-year-btn'}
         onClick={onYearClick}

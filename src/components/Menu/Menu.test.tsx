@@ -137,6 +137,22 @@ const SmallMenuComponent = (): JSX.Element => {
   );
 };
 
+const ListboxMenuComponent = (): JSX.Element => {
+  const _menuProps: object = {
+    ...menuProps,
+    role: 'listbox',
+    itemProps: {
+      role: 'option',
+    },
+  };
+
+  return (
+    <Dropdown overlay={MenuOverlay(_menuProps)}>
+      <Button text="Menu dropdown" />
+    </Dropdown>
+  );
+};
+
 describe('Menu', () => {
   beforeAll(() => {
     matchMedia = new MatchMediaMock();
@@ -193,6 +209,15 @@ describe('Menu', () => {
     expect(
       (container.querySelector('.menu-container') as HTMLElement).style.color
     ).toContain('red');
+  });
+
+  test('Should support passing itemProps to menu items', async () => {
+    render(<ListboxMenuComponent />);
+    const dropdownButton = screen.getByRole('button');
+    dropdownButton.click();
+    await waitFor(() => screen.getByText('Date'));
+    const item = screen.getByRole('option', { name: /Date/ });
+    expect(item).toBeTruthy();
   });
 
   test('Menu is large', async () => {

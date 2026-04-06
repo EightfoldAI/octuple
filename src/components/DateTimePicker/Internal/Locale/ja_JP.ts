@@ -34,6 +34,10 @@ const locale: Locale = {
   superPrevAriaLabel: '前年',
   superNextAriaLabel: '来年',
   arrowKeyNavigationText: '矢印キーを使用してカレンダーをナビゲートします',
+  hourLabel: '時',
+  minuteLabel: '分',
+  secondLabel: '秒',
+  ampmLabel: '午前/午後',
 };
 
 export default locale;

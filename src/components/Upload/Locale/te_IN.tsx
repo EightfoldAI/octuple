@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: 'చిత్రాన్ని సవరించండి',
     previewFileText: 'ఫైల్ మునుజూపు',
     removeFileText: 'తొలగించు',
+    removeFileAriaLabelText: 'తొలగించు ఫైల్ ${filename}',
     replaceFileText: 'మార్పు',
     rotateLeftButtonAriaLabelText: 'ఎడమవైపు తిరుగు',
     rotateRightButtonAriaLabelText: 'కుడివైపు తిరుగు',

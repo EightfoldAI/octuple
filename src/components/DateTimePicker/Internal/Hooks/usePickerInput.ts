@@ -22,6 +22,7 @@ export default function usePickerInput({
   onFocus,
   onBlur,
   changeOnBlur,
+  closedByEscRef,
 }: {
   trapFocus?: boolean;
   open: boolean;
@@ -39,6 +40,7 @@ export default function usePickerInput({
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   changeOnBlur?: boolean;
+  closedByEscRef?: React.MutableRefObject<boolean>;
 }): [
   React.DOMAttributes<HTMLInputElement>,
   {
@@ -115,15 +117,20 @@ export default function usePickerInput({
         }
 
         case eventKeys.ESCAPE: {
+          if (closedByEscRef) {
+            closedByEscRef.current = true;
+          }
           updateFocusTrap(false);
           setTyping(true);
-          onCancel();
+          triggerOpen(false);
           return;
         }
       }
 
       if (!open && ![eventKeys.SHIFTLEFT].includes(e.key)) {
-        triggerOpen(true);
+        requestAnimationFrameWrapper(() => {
+          triggerOpen(true);
+        });
       } else if (!typing) {
         // Let popup partial handle keyboard
         forwardKeyDown(e);
@@ -151,7 +158,7 @@ export default function usePickerInput({
       }
 
       if (blurToCancel) {
-        setTimeout(() => {
+        requestAnimationFrameWrapper(() => {
           if (canUseDocElement()) {
             let { activeElement } = document;
             while (activeElement && activeElement.shadowRoot) {
@@ -162,13 +169,22 @@ export default function usePickerInput({
               onCancel();
             }
           }
-        }, 0);
+        });
       } else if (open) {
-        triggerOpen(false);
-
-        if (valueChangedRef.current) {
-          onSubmit();
-        }
+        requestAnimationFrameWrapper(() => {
+          if (canUseDocElement()) {
+            let { activeElement } = document;
+            while (activeElement && activeElement.shadowRoot) {
+              activeElement = activeElement.shadowRoot.activeElement;
+            }
+            if (isClickOutside(activeElement)) {
+              triggerOpen(false);
+              if (valueChangedRef.current) {
+                onSubmit();
+              }
+            }
+          }
+        });
       }
       setFocused(false);
 

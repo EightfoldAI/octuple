@@ -81,4 +81,45 @@ describe('TimePicker', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should have proper ARIA roles and labels for time selection', () => {
+    const wrapper = mount(
+      <TimePicker defaultValue={dayjs('2000-01-01 12:30:45')} open />
+    );
+
+    // Check that listbox role exists
+    const listbox = wrapper.find('[role="listbox"]');
+    expect(listbox.length).toBeGreaterThan(0);
+
+    // Check that option roles exist
+    const options = wrapper.find('[role="option"]');
+    expect(options.length).toBeGreaterThan(0);
+
+    // Check that time columns have aria-label
+    const timeColumns = wrapper.find('ul[aria-label]');
+    expect(timeColumns.length).toBeGreaterThan(0);
+
+    // Verify specific column labels
+    const hourColumn = wrapper.find('ul[aria-label="Hours"]');
+    const minuteColumn = wrapper.find('ul[aria-label="Minutes"]');
+    const secondColumn = wrapper.find('ul[aria-label="Seconds"]');
+
+    expect(hourColumn.length).toBeGreaterThan(0);
+    expect(minuteColumn.length).toBeGreaterThan(0);
+    expect(secondColumn.length).toBeGreaterThan(0);
+  });
+
+  it('should have proper ARIA roles and labels for 12-hour format', () => {
+    const wrapper = mount(
+      <TimePicker defaultValue={dayjs('2000-01-01 12:30:45')} use12Hours open />
+    );
+
+    // Check that listbox role exists
+    const listbox = wrapper.find('[role="listbox"]');
+    expect(listbox.length).toBeGreaterThan(0);
+
+    // Check that AM/PM column has aria-label
+    const ampmColumn = wrapper.find('ul[aria-label="AM/PM"]');
+    expect(ampmColumn.length).toBeGreaterThan(0);
+  });
 });

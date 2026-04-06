@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: 'Imaj edit',
     previewFileText: 'Dosye Preview',
     removeFileText: 'Efase',
+    removeFileAriaLabelText: 'Efase dosye ${filename}',
     replaceFileText: 'Ranplase',
     rotateLeftButtonAriaLabelText: 'Wotasyon agòch',
     rotateRightButtonAriaLabelText: 'Wotasyon dwat',

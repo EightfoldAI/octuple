@@ -14,9 +14,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -110,9 +108,7 @@ exports[`Pagination Pagination should render as dots 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -144,9 +140,7 @@ exports[`Pagination Pagination should render as simplified 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -160,32 +154,28 @@ exports[`Pagination Pagination should render as simplified 1`] = `
         </svg>
       </span>
     </button>
-    <ul
+    <div
       class="pager page-tracker"
     >
-      <li>
-        <span>
-          1
-        </span>
-         
-        <span>
-          of
-        </span>
-         
-        <span>
-          5
-        </span>
-      </li>
-    </ul>
+      <span>
+        1
+      </span>
+       
+      <span>
+        of
+      </span>
+       
+      <span>
+        5
+      </span>
+    </div>
     <button
       aria-disabled="false"
       aria-label="Next"
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -217,9 +207,7 @@ exports[`Pagination Pagination should render normally 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -313,9 +301,7 @@ exports[`Pagination Pagination should render normally 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -358,9 +344,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
         >
           <span>
             <span
-              aria-hidden="false"
               class="icon icon-wrapper"
-              role="presentation"
             >
               <svg
                 role="presentation"
@@ -393,9 +377,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
       class="pagination-button pagination-previous button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -476,9 +458,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
       disabled=""
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -512,8 +492,6 @@ exports[`Pagination Pagination should render with all elements 1`] = `
               id="input-"
               max="4"
               min="1"
-              role="textbox"
-              tabindex="0"
               type="number"
               value="4"
             />
@@ -545,9 +523,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
       class="pagination-button pagination-previous button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -711,9 +687,7 @@ exports[`Pagination Pagination should render with some elements 1`] = `
       class="pagination-button pagination-next button button-neutral button-medium icon-left"
     >
       <span
-        aria-hidden="false"
         class="icon icon-wrapper"
-        role="presentation"
       >
         <svg
           role="presentation"
@@ -747,8 +721,6 @@ exports[`Pagination Pagination should render with some elements 1`] = `
               id="input-"
               max="10"
               min="1"
-              role="textbox"
-              tabindex="0"
               type="number"
               value="5"
             />
@@ -763,6 +735,73 @@ exports[`Pagination Pagination should render with some elements 1`] = `
         </div>
       </div>
     </span>
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination with simplified Pager should not use list semantics 1`] = `
+<div>
+  <div
+    class="pagination"
+    role="navigation"
+  >
+    <span />
+    <button
+      aria-disabled="true"
+      aria-label="Previous"
+      class="pagination-button pagination-previous button button-neutral button-medium disabled icon-left"
+      disabled=""
+    >
+      <span
+        class="icon icon-wrapper"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      class="pager page-tracker"
+    >
+      <span>
+        1
+      </span>
+       
+      <span>
+        of
+      </span>
+       
+      <span>
+        5
+      </span>
+    </div>
+    <button
+      aria-disabled="false"
+      aria-label="Next"
+      class="pagination-button pagination-next button button-neutral button-medium icon-left"
+    >
+      <span
+        class="icon icon-wrapper"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </div>
 `;

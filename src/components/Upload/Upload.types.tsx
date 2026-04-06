@@ -59,6 +59,12 @@ type Locale = {
    */
   removeFileText?: string;
   /**
+   * The Upload remove file aria-label template.
+   * Use ${filename} as placeholder for the filename.
+   * @default 'Delete file ${filename}'
+   */
+  removeFileAriaLabelText?: string;
+  /**
    * The Upload 'Replace' string.
    */
   replaceFileText?: string;

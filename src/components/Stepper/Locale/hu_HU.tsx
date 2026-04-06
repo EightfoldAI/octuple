@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'Görgetés balra',
     scrollRightAriaLabelText: 'Görgetés jobbra',
     scrollUpAriaLabelText: 'Görgetés felfelé',
+    navigateToStepAriaLabelText: 'Lépésre navigálás',
   },
 };
 

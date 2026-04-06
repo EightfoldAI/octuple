@@ -2,6 +2,7 @@ import type { GenerateConfig } from '../Generate';
 import type {
   DatePickerShape,
   DatePickerSize,
+  NullableDateType,
   PartialMode,
 } from '../OcPicker.types';
 import { IconName } from '../../../Icon';
@@ -155,6 +156,10 @@ export type PartialBodyProps<DateType> = {
    *
    */
   getCellProps?: (currentDate: DateType) => CellProps;
+  /**
+   * The selected value to determine aria-selected state.
+   */
+  value?: NullableDateType<DateType>;
 };
 
 export type PickerCellProps<DateType> = {
@@ -170,4 +175,5 @@ export type PickerCellProps<DateType> = {
   onDateMouseLeave: (date: any) => void;
   getCellNode?: (date: DateType) => React.ReactNode;
   getCellProps?: (currentDate: DateType) => CellProps;
+  value?: NullableDateType<DateType>;
 };

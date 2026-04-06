@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: '向左滚动',
     scrollRightAriaLabelText: '向右滚动',
     scrollUpAriaLabelText: '向上滚动',
+    navigateToStepAriaLabelText: '导航至步骤',
   },
 };
 

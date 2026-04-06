@@ -31,6 +31,10 @@ export type TimeUnitColumnProps = {
    */
   active?: boolean;
   /**
+   * ARIA label for the time column (e.g., "Hours", "Minutes", "Seconds", "AM/PM").
+   */
+  ariaLabel?: string;
+  /**
    * Whether the time unit has disabled options.
    */
   hideDisabledOptions?: boolean;
@@ -141,6 +145,10 @@ export type TimePartialProps<DateType> = {
    * The inherited date format string.
    */
   format?: string;
+  /**
+   * The listbox ID for accessibility.
+   */
+  listboxId?: string;
 } & PartialSharedProps<DateType> &
   SharedTimeProps<DateType>;
 
@@ -204,4 +212,8 @@ export type TimeBodyProps<DateType> = {
    * The partial time value.
    */
   value?: DateType | null;
+  /**
+   * The listbox ID for accessibility.
+   */
+  listboxId?: string;
 } & SharedTimeProps<DateType>;

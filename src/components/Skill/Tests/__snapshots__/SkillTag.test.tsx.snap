@@ -269,9 +269,7 @@ exports[`SkillTag Skill is a default tag that's removable 1`] = `
               data-testid="test-remove-button"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -311,9 +309,7 @@ exports[`SkillTag Skill is a default tag with custom iconProps 1`] = `
         class="block-start"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -403,9 +399,7 @@ exports[`SkillTag Skill is a default tag with custom suffixIconProps 1`] = `
         class="block-end"
       >
         <span
-          aria-hidden="false"
           class="suffix-icon icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -504,9 +498,7 @@ exports[`SkillTag Skill is a default tag with customButtonProps 1`] = `
               data-testid="test-custom-button"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -567,9 +559,7 @@ exports[`SkillTag Skill is a default tag with endorseButtonProps 1`] = `
             >
               <span>
                 <span
-                  aria-hidden="false"
                   class="icon icon-wrapper"
-                  role="presentation"
                 >
                   <svg
                     role="presentation"
@@ -790,9 +780,7 @@ exports[`SkillTag Skill is a highlight tag 1`] = `
         class="block-start"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -862,9 +850,7 @@ exports[`SkillTag Skill is a match tag 1`] = `
         class="block-start"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -1532,9 +1518,7 @@ exports[`SkillTag Skill tag is closable 1`] = `
               class="button button button-neutral button-small round-shape icon-left"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"
@@ -1663,9 +1647,7 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
         style="margin-top: 20px;"
       >
         <span
-          aria-hidden="false"
           class="icon icon-wrapper"
-          role="presentation"
           style="color: rgb(255, 255, 255);"
         >
           <svg
@@ -1699,9 +1681,7 @@ exports[`SkillTag Skill tag uses custom props 1`] = `
               class="button button button-neutral button-small round-shape icon-left"
             >
               <span
-                aria-hidden="false"
                 class="icon icon-wrapper"
-                role="presentation"
               >
                 <svg
                   role="presentation"

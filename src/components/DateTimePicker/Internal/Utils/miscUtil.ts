@@ -1,3 +1,15 @@
+import { uniqueId } from '../../../../shared/utilities';
+
+/**
+ * Generates a unique ID for picker components.
+ * Uses the provided ID if available, otherwise generates a unique ID.
+ * @param id - Optional ID prop
+ * @returns A string ID that is always defined and unique
+ */
+export function getDatePickerId(id?: string | number): string {
+  return id ? String(id) : uniqueId('date-picker-');
+}
+
 export function leftPad(
   str: string | number,
   length: number,

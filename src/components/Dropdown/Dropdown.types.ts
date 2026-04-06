@@ -17,6 +17,12 @@ export const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
 
 export interface DropdownProps {
   /**
+   * The value of the aria-haspopup attribute to be applied to the reference element, if not already set
+   * and the role of the reference element is not 'combobox'
+   * @default 'true'
+   */
+  ariaHaspopupValue?: string;
+  /**
    * The ref of element that should implement the following props:
    * 'aria-controls', 'aria-expanded', 'aria-haspopup', 'role'
    * @default child
@@ -46,6 +52,11 @@ export interface DropdownProps {
    * @default true
    */
   closeOnOutsideClick?: boolean;
+  /**
+   * Should close dropdown on tab key
+   * @default false
+   */
+  shouldCloseOnTab?: boolean;
   /**
    * If the dropdown is disabled or not
    */
@@ -85,8 +96,10 @@ export interface DropdownProps {
    */
   onVisibleChange?: (visible: boolean) => void;
   /**
-   * If the dropdown should be shown when the user presses the shift + tab key
-   * @default true
+   * When false (default), the dropdown closes when focus leaves the overlay via Shift+Tab (recommended for a11y).
+   * When true, the dropdown remains open.
+   * @default false
+   * @deprecated Passing true is deprecated; prefer the default. Support for true may be removed in the future.
    */
   toggleDropdownOnShiftTab?: boolean;
   /**
@@ -114,6 +127,11 @@ export interface DropdownProps {
    */
   positionStrategy?: Strategy;
   /**
+   * The role to be applied to the reference element, if not already set
+   * @default 'button'
+   */
+  referenceRole?: string;
+  /**
    * Callback executed on reference element click.
    * @param event
    * @returns (event: React.MouseEvent) => void
@@ -131,9 +149,10 @@ export interface DropdownProps {
   referenceWrapperClassNames?: string;
   /**
    * The dropdown aria role.
+   * If null, the role will not be applied to the reference element.
    * @default 'listbox'
    */
-  role?: string;
+  role?: string | null;
   /**
    * Callback to control the show/hide behavior of the dropdown.
    * triggered before the visible change
@@ -169,7 +188,7 @@ export interface DropdownProps {
   /**
    * The props of the overlay
    */
-  overlayProps?: HTMLDivElement;
+  overlayProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export type DropdownRef = {

@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: 'Chỉnh sửa hình ảnh',
     previewFileText: 'Xem trước tệp',
     removeFileText: 'Xóa bỏ',
+    removeFileAriaLabelText: 'Xóa bỏ tệp ${filename}',
     replaceFileText: 'Thay thế',
     rotateLeftButtonAriaLabelText: 'Xoay trái',
     rotateRightButtonAriaLabelText: 'Xoay phải',

@@ -121,6 +121,10 @@ export interface MenuItemButtonProps
    * Display label of the menu item
    */
   text?: string;
+  /**
+   * Role for the list item (li) element
+   */
+  listItemRole?: string;
 }
 
 export interface MenuItemLinkProps

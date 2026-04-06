@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import { eventKeys } from '../../../shared/utilities/eventKeys';
 import {
   mergeClasses,
   requestAnimationFrameWrapper,
 } from '../../../shared/utilities';
+import visuallyHidden from '../../../shared/utilities/visuallyHidden';
 import { FocusTrap } from '../../../shared/FocusTrap';
 import { useMergedState } from '../../../hooks/useMergedState';
 import type {
@@ -32,6 +34,7 @@ import getDataOrAriaProps, {
   toArray,
   getValue,
   updateValues,
+  getDatePickerId,
 } from './Utils/miscUtil';
 import {
   getDefaultFormat,
@@ -177,6 +180,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     readonly,
     readonlyIcon,
     renderExtraFooter,
+    retainFocusOnInvalidDate = false,
     separator = ',',
     shape = DatePickerShape.Rectangle,
     showOk = true,
@@ -218,9 +222,19 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   const arrowRef: React.MutableRefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
 
+  const closedByEscRef: React.MutableRefObject<boolean> =
+    useRef<boolean>(false);
   const formatList: (string | CustomFormat<DateType>)[] = toArray(
     getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
   );
+
+  const hasInvalidInputRef = useRef<[boolean, boolean]>([false, false]);
+
+  // Generate unique ID if not provided
+  const datePickerId: string = id || getDatePickerId();
+  // Generate listbox ID for time picker
+  const isTimePicker: boolean = picker === 'time';
+  const listboxId: string = isTimePicker ? `${datePickerId}-listbox` : '';
 
   // Operation ref
   const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
@@ -513,6 +527,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       index === 0 ? disabledStartDate : disabledEndDate;
 
     if (inputDate && !disabledFunc(inputDate)) {
+      hasInvalidInputRef.current[index] = false;
       let normalizedInputDate: DateType = inputDate;
 
       // Normalize times when showTime is false
@@ -526,6 +541,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
       setSelectedValue(updateValues(selectedValue, normalizedInputDate, index));
       setViewDate(normalizedInputDate, index);
+    } else {
+      hasInvalidInputRef.current[index] = true;
     }
   };
 
@@ -639,6 +656,22 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
       }
     },
     onSubmit: (): boolean => {
+      // When retainFocusOnInvalidDate is enabled for date picker without time:
+      // if input is invalid, retain focus without clearing - allows user to correct their input
+      if (
+        retainFocusOnInvalidDate &&
+        picker === 'date' &&
+        !showTime &&
+        hasInvalidInputRef.current[index] &&
+        !getValue(selectedValue, index)
+      ) {
+        // Keep focus on the current input without clearing - user can correct the invalid date
+        requestAnimationFrame(() => {
+          (index === 0 ? startInputRef : endInputRef).current?.focus();
+        });
+
+        return false;
+      }
       if (
         // When user typing disabledDate with keyboard and enter, this value will be empty
         !selectedValue ||
@@ -686,6 +719,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     open: startOpen,
     value: startText,
     ...sharedPickerInput,
+    closedByEscRef,
   });
 
   const [
@@ -701,6 +735,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     open: endOpen,
     value: endText,
     ...sharedPickerInput,
+    closedByEscRef,
   });
 
   const onPickerClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -755,6 +790,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   useEffect(() => {
     if (!mergedOpen) {
+      if (closedByEscRef.current) {
+        closedByEscRef.current = false;
+        return;
+      }
       setSelectedValue(mergedValue);
 
       if (!startValueTexts.length || startValueTexts[0] === '') {
@@ -931,6 +970,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         visible={mergedOpen}
         trap={isTrapped}
         announceArrowKeyNavigation={announceArrowKeyNavigation}
+        {...(isTimePicker && { listboxId })}
       />
     );
 
@@ -1107,10 +1147,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   const rangePartial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
-      role="dialog"
-      aria-modal="true"
-      id="dp-dialog-1"
-      aria-labelledby="dp-dialog-1-label"
+      {...(!isTimePicker && { role: 'dialog' })}
+      {...(isTimePicker && { id: 'dp-dialog-1' })}
+      {...(!isTimePicker && { 'aria-modal': 'true' })}
+      {...(!isTimePicker && { 'aria-labelledby': 'dp-dialog-1-label' })}
       trap={startTrap || endTrap}
       onMouseDown={(e) => {
         e.preventDefault();
@@ -1165,6 +1205,44 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         !mergedDisabled[1] &&
         !mergedReadonly[1]))
   ) {
+    const handleClearClick = (
+      e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+    ): void => {
+      e.preventDefault();
+      e.stopPropagation();
+      let values = mergedValue;
+
+      if (!mergedDisabled[0] && !mergedReadonly[0]) {
+        values = updateValues(values, null, 0);
+      }
+      if (!mergedDisabled[1] && !mergedReadonly[1]) {
+        values = updateValues(values, null, 1);
+      }
+
+      triggerChange(values, null);
+      triggerOpen(false, mergedActivePickerIndex, 'clear');
+    };
+
+    const handleClearKeyDown = (
+      e: React.KeyboardEvent<HTMLSpanElement>
+    ): void => {
+      if (e.key === eventKeys.ENTER || e.key === eventKeys.SPACE) {
+        e.preventDefault();
+        e.stopPropagation();
+        let values = mergedValue;
+
+        if (!mergedDisabled[0] && !mergedReadonly[0]) {
+          values = updateValues(values, null, 0);
+        }
+        if (!mergedDisabled[1] && !mergedReadonly[1]) {
+          values = updateValues(values, null, 1);
+        }
+
+        triggerChange(values, null);
+        triggerOpen(false, mergedActivePickerIndex, 'clear');
+      }
+    };
+
     clearNode = (
       <span
         aria-label={clearIconAriaLabelText}
@@ -1172,31 +1250,36 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           e.preventDefault();
           e.stopPropagation();
         }}
-        onMouseUp={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-          e.preventDefault();
-          e.stopPropagation();
-          let values = mergedValue;
-
-          if (!mergedDisabled[0] && !mergedReadonly[0]) {
-            values = updateValues(values, null, 0);
-          }
-          if (!mergedDisabled[1] && !mergedReadonly[1]) {
-            values = updateValues(values, null, 1);
-          }
-
-          triggerChange(values, null);
-          triggerOpen(false, mergedActivePickerIndex, 'clear');
-        }}
+        onMouseUp={handleClearClick}
+        onKeyDown={handleClearKeyDown}
         className={styles.pickerClear}
         role="button"
+        tabIndex={0}
       >
         {clearIcon || <span className={styles.pickerClearBtn} />}
       </span>
     );
   }
 
+  // For time picker, use listbox role; for others, use dialog
+  const popupRole: 'listbox' | 'dialog' = isTimePicker ? 'listbox' : 'dialog';
+  const popupId: string = isTimePicker ? listboxId : 'dp-dialog-1';
+
   const inputSharedProps = {
     size: getInputSize(picker, formatList[0], generateConfig),
+    role: 'combobox' as const,
+    'aria-haspopup': popupRole,
+  };
+
+  // Individual input props for aria attributes
+  const startInputAriaProps = {
+    'aria-expanded': startOpen,
+    ...(startOpen && { 'aria-controls': popupId }),
+  };
+
+  const endInputAriaProps = {
+    'aria-expanded': endOpen,
+    ...(endOpen && { 'aria-controls': popupId }),
   };
 
   let activeBarLeft: number = 0;
@@ -1355,6 +1438,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           onMouseUp={onMouseUp}
           {...getDataOrAriaProps(props)}
         >
+          {(startDateInputAriaLabel || getValue(placeholder, 0)) && (
+            <label htmlFor={datePickerId} style={visuallyHidden}>
+              {startDateInputAriaLabel || getValue(placeholder, 0)}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,
@@ -1377,8 +1465,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                   : null
               }
               disabled={mergedDisabled[0]}
-              id={id}
-              aria-label={startDateInputAriaLabel}
+              id={datePickerId}
+              aria-label={
+                startDateInputAriaLabel ||
+                getValue(placeholder, 0) ||
+                (isTimePicker ? locale.timeSelect : locale.dateSelect)
+              }
               readOnly={
                 mergedReadonly[0] ||
                 (!mergedReadonly && inputReadOnly) ||
@@ -1394,6 +1486,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               ref={startInputRef}
               {...startInputProps}
               {...inputSharedProps}
+              {...startInputAriaProps}
               autoComplete={autoComplete}
             />
           </div>
@@ -1405,6 +1498,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           <div className={'picker-range-separator'} ref={separatorRef}>
             {separator}
           </div>
+          {(endDateInputAriaLabel || getValue(placeholder, 1)) && (
+            <label htmlFor={`${datePickerId}-end`} style={visuallyHidden}>
+              {endDateInputAriaLabel || getValue(placeholder, 1)}
+            </label>
+          )}
           <div
             className={mergeClasses([
               styles.pickerInput,
@@ -1422,7 +1520,12 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           >
             <input
               disabled={mergedDisabled[1]}
-              aria-label={endDateInputAriaLabel}
+              id={`${datePickerId}-end`}
+              aria-label={
+                endDateInputAriaLabel ||
+                getValue(placeholder, 1) ||
+                (isTimePicker ? locale.timeSelect : locale.dateSelect)
+              }
               readOnly={
                 mergedReadonly[1] ||
                 (!mergedReadonly && inputReadOnly) ||
@@ -1437,6 +1540,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               ref={endInputRef}
               {...endInputProps}
               {...inputSharedProps}
+              {...endInputAriaProps}
               autoComplete={autoComplete}
             />
           </div>

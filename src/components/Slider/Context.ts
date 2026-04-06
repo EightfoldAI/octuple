@@ -9,6 +9,7 @@ export interface SliderContextProps {
   includedStart: number;
   max: number;
   min: number;
+  readOnly?: boolean;
   step: number | null;
 }
 
@@ -19,6 +20,7 @@ const SliderContext = React.createContext<SliderContextProps>({
   includedStart: 0,
   max: 0,
   min: 0,
+  readOnly: false,
   step: 1,
 });
 

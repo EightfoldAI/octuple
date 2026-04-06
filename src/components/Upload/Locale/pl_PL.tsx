@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: 'Edytuj obraz',
     previewFileText: 'Podgląd pliku',
     removeFileText: 'Usuwać',
+    removeFileAriaLabelText: 'Usuwać plik ${filename}',
     replaceFileText: 'Zastąpić',
     rotateLeftButtonAriaLabelText: 'Obróć w lewo',
     rotateRightButtonAriaLabelText: 'Obróć w prawo',

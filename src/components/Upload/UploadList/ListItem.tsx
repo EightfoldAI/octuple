@@ -6,6 +6,7 @@ import Progress from '../../Progress';
 import { ButtonShape, ButtonSize, ButtonVariant } from '../../Button';
 import { Tooltip, TooltipTheme } from '../../Tooltip';
 import { canUseDom, eventKeys, mergeClasses } from '../../../shared/utilities';
+import { useLocaleReceiver } from '../../LocaleProvider/LocaleReceiver';
 
 import styles from '../upload.module.scss';
 
@@ -49,6 +50,12 @@ const ListItem = React.forwardRef(
     }: ListItemProps,
     ref: React.Ref<HTMLLIElement>
   ) => {
+    const [uploadLocale] = useLocaleReceiver('Upload');
+
+    const removeFileAriaLabelTemplate = (
+      uploadLocale?.lang?.removeFileAriaLabelText || 'Delete file ${filename}'
+    ).replace(/\$\{filename\}/g, file.name);
+
     // Status: ignore `removed` status
     const { status } = file;
     const [mergedStatus, setMergedStatus] = useState(status);
@@ -140,7 +147,7 @@ const ListItem = React.forwardRef(
               size !== UploadSize.Small &&
               maxCount === 1
                 ? null
-                : removeFileText,
+                : removeFileAriaLabelTemplate,
             classNames: mergeClasses([styles.iconDelete]),
             disruptive: true,
             htmlType: removeIconButtonType,

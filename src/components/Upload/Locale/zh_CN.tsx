@@ -13,6 +13,7 @@ const locale: UploadLocale = {
     modalTitleText: '编辑图像',
     previewFileText: '预览文件',
     removeFileText: '删除',
+    removeFileAriaLabelText: '删除文件 ${filename}',
     replaceFileText: '取代',
     rotateLeftButtonAriaLabelText: '向左旋转',
     rotateRightButtonAriaLabelText: '向右旋转',

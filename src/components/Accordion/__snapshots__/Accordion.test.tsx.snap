@@ -21,9 +21,7 @@ exports[`Accordion Accordion is large 1`] = `
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -57,9 +55,7 @@ exports[`Accordion Accordion is large 1`] = `
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -115,9 +111,7 @@ exports[`Accordion Accordion is medium 1`] = `
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -151,9 +145,7 @@ exports[`Accordion Accordion is medium 1`] = `
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -209,9 +201,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -245,9 +235,7 @@ exports[`Accordion Accordion is not bordered 1`] = `
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -303,9 +291,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -339,9 +325,7 @@ exports[`Accordion Accordion is pill shaped 1`] = `
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -397,9 +381,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -433,9 +415,7 @@ exports[`Accordion Accordion is rectangle shaped 1`] = `
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -492,9 +472,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -559,9 +537,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                         class="button button-neutral button-medium round-shape icon-left"
                       >
                         <span
-                          aria-hidden="false"
                           class="icon icon-wrapper"
-                          role="presentation"
                         >
                           <svg
                             role="presentation"
@@ -585,9 +561,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
                         class="button button-secondary button-secondary-disruptive button-medium round-shape icon-left"
                       >
                         <span
-                          aria-hidden="false"
                           class="icon icon-wrapper"
-                          role="presentation"
                         >
                           <svg
                             role="presentation"
@@ -622,9 +596,7 @@ exports[`Accordion Accordion renders custom content and its buttons are clickabl
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button expanded-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -680,9 +652,7 @@ exports[`Accordion Renders without crashing 1`] = `
         id="myAccordionId-header-content"
       >
         <span
-          aria-hidden="false"
           class="icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"
@@ -716,9 +686,7 @@ exports[`Accordion Renders without crashing 1`] = `
         tabindex="-1"
       >
         <span
-          aria-hidden="false"
           class="icon accordion-icon-button icon-wrapper"
-          role="presentation"
         >
           <svg
             role="presentation"

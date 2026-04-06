@@ -17,7 +17,9 @@ export enum Breakpoints {
  * @returns a boolean determining if the threshold viewport size has been hit.
  */
 export const useMatchMedia = (breakpoint: Breakpoints): boolean => {
-  const [threshold, setThreshold] = useState<boolean>(false);
+  const [threshold, setThreshold] = useState<boolean>(() =>
+    canUseDom() ? window.matchMedia(breakpoint).matches : false
+  );
 
   const handleMatchMedia = useCallback((e: MediaQueryListEvent) => {
     setThreshold(e.matches);

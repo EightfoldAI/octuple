@@ -32,6 +32,10 @@ export type YearHeaderProps<DateType> = {
    */
   generateConfig: GenerateConfig<DateType>;
   /**
+   * The DatePicker locale.
+   */
+  locale: Locale;
+  /**
    * Callback executed onDecadeClick event.
    */
   onDecadeClick: () => void;

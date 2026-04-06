@@ -49,6 +49,7 @@ export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
   titleClassNames?: string;
   /**
    * Optional heading level (1-6) for the title default is 2
+   * @deprecated Unused prop
    */
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 }

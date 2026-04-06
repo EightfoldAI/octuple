@@ -9,6 +9,7 @@ const locale: StepperLocale = {
     scrollLeftAriaLabelText: 'बाईं ओर स्क्रॉल करें',
     scrollRightAriaLabelText: 'दाईं ओर स्क्रॉल करें',
     scrollUpAriaLabelText: 'ऊपर स्क्रॉल करें',
+    navigateToStepAriaLabelText: 'चरण पर जाएं',
   },
 };
 

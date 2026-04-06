@@ -5,14 +5,14 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "aria-hidden": "false",
-      "aria-modal": "true",
       "class": "panel-backdrop visible",
-      "role": "dialog",
     },
     "children": Array [
       Node {
         "attribs": Object {
+          "aria-modal": "true",
           "class": "panel no-body-padding no-header-padding right medium",
+          "role": "dialog",
           "style": "transform: translateX(0px);",
         },
         "children": Array [
@@ -40,9 +40,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-hidden": "false",
                             "class": "icon icon-wrapper",
-                            "role": "presentation",
                           },
                           "children": Array [
                             Node {
@@ -99,14 +97,10 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                         },
                       ],
@@ -161,9 +155,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-hidden": "false",
                           "class": "icon icon-wrapper",
-                          "role": "presentation",
                         },
                         "children": Array [
                           Node {
@@ -220,14 +212,10 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
-                          "aria-hidden": undefined,
                           "class": undefined,
-                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
-                          "aria-hidden": undefined,
                           "class": undefined,
-                          "role": undefined,
                         },
                       },
                     ],
@@ -537,9 +525,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-hidden": "false",
                               "class": "icon icon-wrapper",
-                              "role": "presentation",
                             },
                             "children": Array [
                               Node {
@@ -596,14 +582,10 @@ LoadedCheerio {
                             "prev": null,
                             "type": "tag",
                             "x-attribsNamespace": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                           },
                         ],
@@ -658,9 +640,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-hidden": "false",
                             "class": "icon icon-wrapper",
-                            "role": "presentation",
                           },
                           "children": Array [
                             Node {
@@ -717,14 +697,10 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                         },
                       ],
@@ -917,9 +893,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "aria-hidden": "false",
                                 "class": "icon icon-wrapper",
-                                "role": "presentation",
                               },
                               "children": Array [
                                 Node {
@@ -976,14 +950,10 @@ LoadedCheerio {
                               "prev": null,
                               "type": "tag",
                               "x-attribsNamespace": Object {
-                                "aria-hidden": undefined,
                                 "class": undefined,
-                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
-                                "aria-hidden": undefined,
                                 "class": undefined,
-                                "role": undefined,
                               },
                             },
                           ],
@@ -1038,9 +1008,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-hidden": "false",
                               "class": "icon icon-wrapper",
-                              "role": "presentation",
                             },
                             "children": Array [
                               Node {
@@ -1097,14 +1065,10 @@ LoadedCheerio {
                             "prev": null,
                             "type": "tag",
                             "x-attribsNamespace": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                           },
                         ],
@@ -1188,11 +1152,15 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
+          "aria-modal": undefined,
           "class": undefined,
+          "role": undefined,
           "style": undefined,
         },
         "x-attribsPrefix": Object {
+          "aria-modal": undefined,
           "class": undefined,
+          "role": undefined,
           "style": undefined,
         },
       },
@@ -1214,15 +1182,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "aria-hidden": undefined,
-      "aria-modal": undefined,
       "class": undefined,
-      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "aria-hidden": undefined,
-      "aria-modal": undefined,
       "class": undefined,
-      "role": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -1315,14 +1279,14 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "aria-hidden": "false",
-      "aria-modal": "true",
       "class": "panel-backdrop visible",
-      "role": "dialog",
     },
     "children": Array [
       Node {
         "attribs": Object {
+          "aria-modal": "true",
           "class": "panel no-body-padding right medium",
+          "role": "dialog",
           "style": "transform: translateX(0px);",
         },
         "children": Array [
@@ -1350,9 +1314,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-hidden": "false",
                             "class": "icon icon-wrapper",
-                            "role": "presentation",
                           },
                           "children": Array [
                             Node {
@@ -1409,14 +1371,10 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                         },
                       ],
@@ -1471,9 +1429,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-hidden": "false",
                           "class": "icon icon-wrapper",
-                          "role": "presentation",
                         },
                         "children": Array [
                           Node {
@@ -1530,14 +1486,10 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
-                          "aria-hidden": undefined,
                           "class": undefined,
-                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
-                          "aria-hidden": undefined,
                           "class": undefined,
-                          "role": undefined,
                         },
                       },
                     ],
@@ -1847,9 +1799,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-hidden": "false",
                               "class": "icon icon-wrapper",
-                              "role": "presentation",
                             },
                             "children": Array [
                               Node {
@@ -1906,14 +1856,10 @@ LoadedCheerio {
                             "prev": null,
                             "type": "tag",
                             "x-attribsNamespace": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                           },
                         ],
@@ -1968,9 +1914,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-hidden": "false",
                             "class": "icon icon-wrapper",
-                            "role": "presentation",
                           },
                           "children": Array [
                             Node {
@@ -2027,14 +1971,10 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                         },
                       ],
@@ -2227,9 +2167,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "aria-hidden": "false",
                                 "class": "icon icon-wrapper",
-                                "role": "presentation",
                               },
                               "children": Array [
                                 Node {
@@ -2286,14 +2224,10 @@ LoadedCheerio {
                               "prev": null,
                               "type": "tag",
                               "x-attribsNamespace": Object {
-                                "aria-hidden": undefined,
                                 "class": undefined,
-                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
-                                "aria-hidden": undefined,
                                 "class": undefined,
-                                "role": undefined,
                               },
                             },
                           ],
@@ -2348,9 +2282,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-hidden": "false",
                               "class": "icon icon-wrapper",
-                              "role": "presentation",
                             },
                             "children": Array [
                               Node {
@@ -2407,14 +2339,10 @@ LoadedCheerio {
                             "prev": null,
                             "type": "tag",
                             "x-attribsNamespace": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                           },
                         ],
@@ -2498,11 +2426,15 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
+          "aria-modal": undefined,
           "class": undefined,
+          "role": undefined,
           "style": undefined,
         },
         "x-attribsPrefix": Object {
+          "aria-modal": undefined,
           "class": undefined,
+          "role": undefined,
           "style": undefined,
         },
       },
@@ -2524,15 +2456,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "aria-hidden": undefined,
-      "aria-modal": undefined,
       "class": undefined,
-      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "aria-hidden": undefined,
-      "aria-modal": undefined,
       "class": undefined,
-      "role": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -2625,14 +2553,14 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "aria-hidden": "false",
-      "aria-modal": "true",
       "class": "panel-backdrop visible",
-      "role": "dialog",
     },
     "children": Array [
       Node {
         "attribs": Object {
+          "aria-modal": "true",
           "class": "panel no-header-padding right medium",
+          "role": "dialog",
           "style": "transform: translateX(0px);",
         },
         "children": Array [
@@ -2660,9 +2588,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-hidden": "false",
                             "class": "icon icon-wrapper",
-                            "role": "presentation",
                           },
                           "children": Array [
                             Node {
@@ -2719,14 +2645,10 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                         },
                       ],
@@ -2781,9 +2703,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-hidden": "false",
                           "class": "icon icon-wrapper",
-                          "role": "presentation",
                         },
                         "children": Array [
                           Node {
@@ -2840,14 +2760,10 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
-                          "aria-hidden": undefined,
                           "class": undefined,
-                          "role": undefined,
                         },
                         "x-attribsPrefix": Object {
-                          "aria-hidden": undefined,
                           "class": undefined,
-                          "role": undefined,
                         },
                       },
                     ],
@@ -3157,9 +3073,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-hidden": "false",
                               "class": "icon icon-wrapper",
-                              "role": "presentation",
                             },
                             "children": Array [
                               Node {
@@ -3216,14 +3130,10 @@ LoadedCheerio {
                             "prev": null,
                             "type": "tag",
                             "x-attribsNamespace": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                           },
                         ],
@@ -3278,9 +3188,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-hidden": "false",
                             "class": "icon icon-wrapper",
-                            "role": "presentation",
                           },
                           "children": Array [
                             Node {
@@ -3337,14 +3245,10 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-hidden": undefined,
                             "class": undefined,
-                            "role": undefined,
                           },
                         },
                       ],
@@ -3537,9 +3441,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "aria-hidden": "false",
                                 "class": "icon icon-wrapper",
-                                "role": "presentation",
                               },
                               "children": Array [
                                 Node {
@@ -3596,14 +3498,10 @@ LoadedCheerio {
                               "prev": null,
                               "type": "tag",
                               "x-attribsNamespace": Object {
-                                "aria-hidden": undefined,
                                 "class": undefined,
-                                "role": undefined,
                               },
                               "x-attribsPrefix": Object {
-                                "aria-hidden": undefined,
                                 "class": undefined,
-                                "role": undefined,
                               },
                             },
                           ],
@@ -3658,9 +3556,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-hidden": "false",
                               "class": "icon icon-wrapper",
-                              "role": "presentation",
                             },
                             "children": Array [
                               Node {
@@ -3717,14 +3613,10 @@ LoadedCheerio {
                             "prev": null,
                             "type": "tag",
                             "x-attribsNamespace": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                             "x-attribsPrefix": Object {
-                              "aria-hidden": undefined,
                               "class": undefined,
-                              "role": undefined,
                             },
                           },
                         ],
@@ -3808,11 +3700,15 @@ LoadedCheerio {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
+          "aria-modal": undefined,
           "class": undefined,
+          "role": undefined,
           "style": undefined,
         },
         "x-attribsPrefix": Object {
+          "aria-modal": undefined,
           "class": undefined,
+          "role": undefined,
           "style": undefined,
         },
       },
@@ -3834,15 +3730,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "aria-hidden": undefined,
-      "aria-modal": undefined,
       "class": undefined,
-      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "aria-hidden": undefined,
-      "aria-modal": undefined,
       "class": undefined,
-      "role": undefined,
     },
   },
   "_root": LoadedCheerio {

@@ -11,11 +11,10 @@ export const useFocusVisibleClassName = (
 
   const handleFocusVisible = useCallback(
     (focusVisibleElement: HTMLElement): void => {
-      if (
-        isFocusVisible &&
-        !focusVisibleElement?.classList.contains(FOCUS_VISIBLE_CLASSNAME)
-      ) {
-        focusVisibleElement?.classList.add(FOCUS_VISIBLE_CLASSNAME);
+      if (isFocusVisible) {
+        if (!focusVisibleElement?.classList.contains(FOCUS_VISIBLE_CLASSNAME)) {
+          focusVisibleElement?.classList.add(FOCUS_VISIBLE_CLASSNAME);
+        }
       } else {
         if (focusVisibleElement?.classList.contains(FOCUS_VISIBLE_CLASSNAME)) {
           focusVisibleElement?.classList.remove(FOCUS_VISIBLE_CLASSNAME);
