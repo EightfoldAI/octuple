@@ -30,7 +30,6 @@ exports[`Navbar Navbar matches custom theme 1`] = `
         <div
           aria-controls="dropdown-"
           aria-expanded="false"
-          aria-haspopup="true"
           class="reference-wrapper"
           id="dropdown-reference"
           style="display: flex;"
@@ -101,7 +100,6 @@ exports[`Navbar Renders without crashing 1`] = `
           <div
             aria-controls="dropdown-"
             aria-expanded="false"
-            aria-haspopup="true"
             class="reference-wrapper"
             id="dropdown-reference"
             style="display: flex;"
