@@ -49,6 +49,8 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
   expandIconProps,
   fullWidth = false,
   gradient,
+  headingLevel,
+  headerWrapperClassNames,
   iconProps,
   id,
   onClick,
@@ -99,7 +101,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     expandButtonClassNames,
   ]);
 
-  return (
+  const accordionSummary = (
     <div
       className={headerClassnames}
       id={`${id}-header`}
@@ -137,6 +139,23 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         {...restExpandButtonProps}
       />
     </div>
+  );
+
+  const accordionHeaderWrapperClassNames: string = mergeClasses([
+    styles.accordionHeaderWrapper,
+    headerWrapperClassNames,
+  ]);
+
+  return headingLevel ? (
+    <span
+      role="heading"
+      aria-level={headingLevel}
+      className={accordionHeaderWrapperClassNames}
+    >
+      {accordionSummary}
+    </span>
+  ) : (
+    accordionSummary
   );
 };
 

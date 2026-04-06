@@ -170,6 +170,10 @@
     }
   }
 
+  .accordion-header-wrapper {
+    margin: unset;
+  }
+
   &.gradient {
     &.accordion-border {
       border: var(--accordion-gradient-border);
