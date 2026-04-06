@@ -29,6 +29,7 @@ function Body<RecordType>({
   onRow,
   rowExpandable,
   rowExpandDisabled,
+  rowHeaderCellComponent,
   emptyNode,
   childrenColumnName,
   onRowHoverEnter,
@@ -88,6 +89,7 @@ function Body<RecordType>({
             renderIndex={renderIndex}
             rowComponent={trComponent}
             cellComponent={tdComponent}
+            rowHeaderCellComponent={rowHeaderCellComponent}
             expandedKeys={expandedKeys}
             onRow={onRow}
             getRowKey={getRowKey}

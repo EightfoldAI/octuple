@@ -118,6 +118,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     onHeaderRow,
     transformColumns,
     rowHoverBackgroundEnabled = true,
+    rowHeaderCellComponent,
     sticky,
     headerClassName,
     onRowHoverEnter,
@@ -537,6 +538,7 @@ function OcTable<RecordType extends DefaultRecordType>(
       expandedKeys={mergedExpandedKeys}
       rowExpandable={rowExpandable}
       rowExpandDisabled={rowExpandDisabled}
+      rowHeaderCellComponent={rowHeaderCellComponent}
       getRowKey={getRowKey}
       onRow={onRow}
       emptyNode={emptyNode}

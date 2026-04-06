@@ -70,7 +70,10 @@ describe('Table.order', () => {
       })
     );
 
-    expect(wrapper.find('tr').last().find('td')).toHaveLength(3);
+    expect(
+      wrapper.find('tr').last().find('th').length +
+        wrapper.find('tr').last().find('td').length
+    ).toBe(3);
     wrapper.unmount();
   });
 });

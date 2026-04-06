@@ -13,6 +13,7 @@ export {
   TableRowSelection,
   TableSize,
 } from './Table.types';
+export { RowHeaderCellComponent } from './Internal/OcTable.types';
 export { TablePaginationConfig };
 
 export default Table;

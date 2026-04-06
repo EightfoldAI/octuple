@@ -333,7 +333,10 @@ describe('Table.Expand', () => {
       );
 
       expect(wrapper.find('.table-row-expand-icon-cell').at(0)).toBeTruthy();
-      expect(wrapper.find('tbody tr').first().find('td')).toHaveLength(3);
+      const firstBodyRow = wrapper.find('tbody tr').first();
+      expect(
+        firstBodyRow.find('th').length + firstBodyRow.find('td').length
+      ).toBe(3);
     });
   });
 

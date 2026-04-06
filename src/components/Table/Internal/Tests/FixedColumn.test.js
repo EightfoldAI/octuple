@@ -190,10 +190,12 @@ describe('Table.FixedColumn', () => {
       />
     );
 
-    expect(wrapper.find('tr th').find('.table-cell-content')).toHaveLength(1);
-    expect(wrapper.find('tr td').find('.table-cell-content')).toHaveLength(
-      data.length
-    );
+    expect(
+      wrapper.find('thead tr th').find('.table-cell-content')
+    ).toHaveLength(1);
+    expect(
+      wrapper.find('tbody tr td').find('.table-cell-content')
+    ).toHaveLength(data.length);
   });
 
   it('fixed column renders correctly RTL', () => {
