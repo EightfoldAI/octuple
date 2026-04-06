@@ -87,6 +87,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       activeDotStyle,
       allowDisabledFocus = false,
       ariaLabel,
+      ariaLabelledBy,
+      ariaValueText,
       autoFocus = false,
       classNames,
       configContextProps = {
@@ -964,6 +966,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                       ref={ref}
                       aria-disabled={mergedDisabled}
                       aria-label={ariaLabel}
+                      aria-labelledby={ariaLabelledBy}
+                      aria-valuetext={
+                        Array.isArray(ariaValueText)
+                          ? ariaValueText[index]
+                          : ariaValueText
+                      }
                       autoFocus={autoFocus && index === 0}
                       className={mergeClasses([
                         styles.thumb,
