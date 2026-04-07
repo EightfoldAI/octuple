@@ -198,6 +198,17 @@ export interface SliderInputProps
    */
   ariaLabel?: string;
   /**
+   * The Slider aria-labelledby attribute.
+   * Associates the slider with a visible label element.
+   */
+  ariaLabelledBy?: string;
+  /**
+   * The Slider aria-valuetext attribute.
+   * Provides a human-readable text alternative for the current value.
+   * For range sliders, pass an array of two strings for each thumb.
+   */
+  ariaValueText?: string | [string, string];
+  /**
    * The Slider autoFocus attribute.
    * @default false
    */
