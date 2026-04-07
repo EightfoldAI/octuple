@@ -48,6 +48,8 @@ import {
 
 import styles from './tooltip.module.scss';
 
+const NON_INTERACTIVE_ROLES = ['img', 'group', 'presentation', 'none'];
+
 export const Tooltip: FC<TooltipProps> = React.memo(
   React.forwardRef<TooltipRef, TooltipProps>(
     (
@@ -88,7 +90,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         tooltipStyle,
         trigger = 'hover',
         triggerAbove = false,
-        suppressTriggerAria = false,
+        withTriggerAria = true,
         touchInteraction = TooltipTouchInteraction.TapAndHold,
         type = TooltipType.Default,
         visible,
@@ -428,8 +430,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         return node;
       };
 
-      const NON_INTERACTIVE_ROLES = ['img', 'group', 'presentation', 'none'];
-
       const getPopupReferenceElement = (
         node: React.ReactNode
       ): JSX.Element | React.ReactNode => {
@@ -437,7 +437,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           ? (node as React.ReactElement<any>).props.role
           : undefined;
         const shouldSuppressAria =
-          suppressTriggerAria || NON_INTERACTIVE_ROLES.includes(childRole);
+          !withTriggerAria || NON_INTERACTIVE_ROLES.includes(childRole);
 
         if (React.isValidElement(node)) {
           const child = React.Children.only(node) as React.ReactElement<any>;

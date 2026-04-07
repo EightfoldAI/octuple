@@ -217,9 +217,9 @@ export interface TooltipProps
    * where these ARIA attributes are invalid.
    * Also auto-suppressed for known non-interactive roles: img, group,
    * presentation, none.
-   * @default false
+   * @default true
    */
-  suppressTriggerAria?: boolean;
+  withTriggerAria?: boolean;
   /**
    * Determines the interaction that triggers
    * the equivalent of hover on touch interfaces.

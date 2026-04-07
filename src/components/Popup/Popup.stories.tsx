@@ -104,7 +104,7 @@ const Suppress_Trigger_Aria_Auto_Story: ComponentStory<typeof Popup> = () => (
         trigger="hover"
         size={PopupSize.Medium}
         offset={8}
-        suppressTriggerAria
+        withTriggerAria={false}
       >
         <div role="img" aria-label="Status icons">
           <Icon path={IconName.mdiCheckCircle} size={IconSize.Large} />

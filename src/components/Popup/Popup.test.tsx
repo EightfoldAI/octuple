@@ -253,12 +253,12 @@ describe('Popup', () => {
     expect(trigger.getAttribute('aria-controls')).not.toBeNull();
   });
 
-  test('Popup trigger omits aria attributes when suppressTriggerAria is true', () => {
+  test('Popup trigger omits aria attributes when withTriggerAria is false', () => {
     const { container } = render(
       <Popup
         content={<div>This is a popup.</div>}
         trigger="hover"
-        suppressTriggerAria
+        withTriggerAria={false}
       >
         <div className="test-div">test</div>
       </Popup>
