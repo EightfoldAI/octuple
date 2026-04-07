@@ -75,7 +75,7 @@ exports[`Menu Menu is large 1`] = `
             class="menu-item menu-item-button large neutral disabled my-menu-item-class"
             id="listItem1-"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
           >
             <span
               class="menu-item-wrapper"
@@ -304,7 +304,7 @@ exports[`Menu Menu is medium 1`] = `
             class="menu-item menu-item-button medium neutral disabled my-menu-item-class"
             id="listItem1-"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
           >
             <span
               class="menu-item-wrapper"
@@ -533,7 +533,7 @@ exports[`Menu Menu is small 1`] = `
             class="menu-item menu-item-button small neutral disabled my-menu-item-class"
             id="listItem1-"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
           >
             <span
               class="menu-item-wrapper"

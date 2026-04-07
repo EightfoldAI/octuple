@@ -149,40 +149,12 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       if (disabled) return;
 
       const { key, currentTarget } = event;
-      const items = Array.from(
-        currentTarget.parentElement?.querySelectorAll<HTMLElement>(
-          '[role="option"], [role="menuitem"]'
-        ) ?? []
-      );
-      const currentIndex = items.indexOf(currentTarget);
-
-      switch (key) {
-        case 'ArrowDown':
-          event.preventDefault();
-          items[(currentIndex + 1) % items.length]?.focus();
-          break;
-        case 'ArrowUp':
-          event.preventDefault();
-          items[(currentIndex - 1 + items.length) % items.length]?.focus();
-          break;
-        case 'Home':
-          event.preventDefault();
-          items[0]?.focus();
-          break;
-        case 'End':
-          event.preventDefault();
-          items[items.length - 1]?.focus();
-          break;
-        case 'Enter':
-        case ' ':
-          if (!dropdownMenuItems) {
-            event.preventDefault();
-            currentTarget.click();
-          }
-          break;
-        default:
-          onKeyDown?.(event as any);
+      if ((key === 'Enter' || key === ' ') && !dropdownMenuItems) {
+        event.preventDefault();
+        currentTarget.click();
+        return;
       }
+      onKeyDown?.(event);
     };
 
     const dropdownMenuButton = (): JSX.Element => {
@@ -213,7 +185,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       <li
         className={menuItemClassNames}
         aria-disabled={disabled ? true : undefined}
-        tabIndex={active ? 0 : tabIndex}
+        tabIndex={disabled ? -1 : active ? 0 : tabIndex}
         {...rest}
         onClick={!dropdownMenuItems ? handleOnClick : undefined}
         onKeyDown={handleLiKeyDown}

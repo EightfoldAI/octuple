@@ -609,7 +609,9 @@ describe('Select', () => {
     fireEvent.keyDown(select, { key: 'Enter' });
     const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
-    expect(select).toHaveFocus();
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
   });
 
   test('Focuses the first focusable element when dropdown is visible and not filterable and initialFocus is true', async () => {
@@ -621,7 +623,9 @@ describe('Select', () => {
     fireEvent.keyDown(select, { key: 'Enter' });
     const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
-    expect(select).toHaveFocus();
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
   });
 
   test('Focuses the first focusable element when dropdown is visible and filterable and initialFocus is true', async () => {
@@ -638,11 +642,13 @@ describe('Select', () => {
     fireEvent.keyDown(select, { key: 'Enter' });
     const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
-    expect(select).toHaveFocus();
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
   });
 
-  test('Uses virtual focus (aria-activedescendant) when filterable and arrowDown is pressed', async () => {
-    const { getAllByRole, getByPlaceholderText, getByText } = render(
+  test('Focuses the first focusable element when dropdown is visible and filterable and arrowDown is pressed', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
       <Select options={options} filterable placeholder="Select test" />
     );
     const select = getByPlaceholderText('Select test');
@@ -651,8 +657,20 @@ describe('Select', () => {
     const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
     fireEvent.keyDown(select, { key: 'ArrowDown' });
-    // aria-activedescendant is set to the id of the selected option after selection,
-    // not during keyboard navigation (ArrowDown moves DOM focus via focusFirstElement).
+    await waitFor(() =>
+      expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
+    );
+  });
+
+  test('Sets aria-activedescendant to the selected option id after selection', async () => {
+    const { getAllByRole, getByPlaceholderText, getByText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.click(select);
+    const listbox = await waitFor(() => getAllByRole('option'));
+    expect(listbox).toHaveLength(options.length);
     const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
     await waitFor(() =>

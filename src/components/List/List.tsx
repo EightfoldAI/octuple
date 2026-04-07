@@ -115,6 +115,12 @@ export const List = <T extends any>({
           ) {
             const nextItem: HTMLElement | null = itemRefs.current[nextIndex];
             if (nextItem && focusable(nextItem)) {
+              // If the item itself is directly focusable (e.g. <li tabIndex={0}>),
+              // focus it directly rather than querying its parent which would
+              // overshoot to the list container and return all items.
+              if (external && nextItem.matches?.(SELECTORS)) {
+                return [nextItem];
+              }
               const nextFocusableItem: HTMLElement | null = external
                 ? nextItem.parentElement
                 : nextItem;
@@ -137,9 +143,16 @@ export const List = <T extends any>({
         event?.preventDefault();
         setFocusIndex(index);
         if (itemRefs.current[index]) {
+          const targetItem: HTMLElement | null = itemRefs.current[index];
+          // If the item itself is directly focusable (e.g. <li tabIndex={0}>),
+          // focus it directly rather than querying its parent.
+          if (external && targetItem.matches?.(SELECTORS)) {
+            targetItem.focus();
+            return;
+          }
           const item: HTMLElement | null = external
-            ? itemRefs.current[index].parentElement
-            : itemRefs.current[index];
+            ? targetItem.parentElement
+            : targetItem;
           const getFocusableElements = (): HTMLElement[] => {
             return [
               ...(item.querySelectorAll(SELECTORS) as unknown as HTMLElement[]),
