@@ -32,6 +32,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
     indent = 0,
     rowComponent: RowComponent,
     cellComponent,
+    rowHeaderCellComponent,
     childrenColumnName,
     onRowHoverEnter,
     onRowHoverLeave,
@@ -170,7 +171,11 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
               ellipsis={column.ellipsis}
               align={column.align}
               verticalAlign={column.verticalAlign}
-              component={cellComponent}
+              component={
+                colIndex === 0 && rowHeaderCellComponent
+                  ? rowHeaderCellComponent
+                  : cellComponent
+              }
               key={key}
               record={record}
               index={index}
