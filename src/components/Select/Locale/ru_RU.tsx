@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'ru_RU',
-    resultAvailableText: 'результат доступен.',
-    resultsAvailableText: 'результата доступно.',
-    noResultsFoundText: 'Результаты не найдены для',
+    resultAvailableText: 'совпадение найдено.',
+    resultsAvailableText: 'совпадения найдены.',
+    noResultsFoundText: 'Совпадений не найдено для',
   },
 };
 

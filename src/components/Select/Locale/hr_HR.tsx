@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'hr_HR',
-    resultAvailableText: 'rezultat dostupan.',
-    resultsAvailableText: 'rezultata dostupno.',
-    noResultsFoundText: 'Nema pronađenih rezultata za',
+    resultAvailableText: 'podudaranje pronađeno.',
+    resultsAvailableText: 'podudaranja pronađena.',
+    noResultsFoundText: 'Nije pronađeno podudaranje za',
   },
 };
 

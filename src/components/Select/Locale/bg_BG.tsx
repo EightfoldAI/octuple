@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'bg_BG',
-    resultAvailableText: 'резултат наличен.',
-    resultsAvailableText: 'резултата налични.',
-    noResultsFoundText: 'Няма намерени резултати за',
+    resultAvailableText: 'съвпадение намерено.',
+    resultsAvailableText: 'съвпадения намерени.',
+    noResultsFoundText: 'Няма намерено съвпадение за',
   },
 };
 

@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'tr_TR',
-    resultAvailableText: 'sonuç mevcut.',
-    resultsAvailableText: 'sonuç mevcut.',
-    noResultsFoundText: 'için sonuç bulunamadı',
+    resultAvailableText: 'eşleşme bulundu.',
+    resultsAvailableText: 'eşleşme bulundu.',
+    noResultsFoundText: 'Eşleşme bulunamadı:',
   },
 };
 

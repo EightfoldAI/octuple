@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'da_DK',
-    resultAvailableText: 'resultat tilgængeligt.',
-    resultsAvailableText: 'resultater tilgængelige.',
-    noResultsFoundText: 'Ingen resultater fundet for',
+    resultAvailableText: 'match fundet.',
+    resultsAvailableText: 'matches fundet.',
+    noResultsFoundText: 'Ingen match fundet for',
   },
 };
 

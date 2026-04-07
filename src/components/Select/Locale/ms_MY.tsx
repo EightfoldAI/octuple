@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'ms_MY',
-    resultAvailableText: 'keputusan tersedia.',
-    resultsAvailableText: 'keputusan tersedia.',
-    noResultsFoundText: 'Tiada keputusan ditemui untuk',
+    resultAvailableText: 'padanan ditemui.',
+    resultsAvailableText: 'padanan ditemui.',
+    noResultsFoundText: 'Tiada padanan ditemui untuk',
   },
 };
 

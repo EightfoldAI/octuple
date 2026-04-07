@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'ar_SA',
-    resultAvailableText: 'نتيجة متاحة.',
-    resultsAvailableText: 'نتائج متاحة.',
-    noResultsFoundText: 'لم يتم العثور على نتائج لـ',
+    resultAvailableText: 'تطابق موجود.',
+    resultsAvailableText: 'تطابقات موجودة.',
+    noResultsFoundText: 'لم يتم العثور على تطابق لـ',
   },
 };
 

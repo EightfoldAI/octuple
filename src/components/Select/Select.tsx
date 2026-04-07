@@ -5,6 +5,7 @@ import React, {
   useContext,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   Ref,
@@ -336,22 +337,31 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [filterable, initialFocus]);
 
-    // Derive the live region message directly from current state.
-    const visibleOptionsCount: number = (options || []).filter(
-      (opt: SelectOption) => !opt.hideOption
-    ).length;
-    const liveRegionMessage = (() => {
-      if (!dropdownVisible) return '';
+    // Derive the live region message, memoized to prevent spurious
+    const lastLiveRegionMessageRef = useRef<string>('');
+    const liveRegionMessage = useMemo<string>(() => {
+      if (!dropdownVisible) {
+        return lastLiveRegionMessageRef.current;
+      }
+
+      const visibleOptionsCount: number = (options || []).filter(
+        (opt: SelectOption) => !opt.hideOption
+      ).length;
+
+      let message: string;
       if (visibleOptionsCount > 0) {
         const countLabel =
           visibleOptionsCount !== 1
             ? selectLocale?.lang?.resultsAvailableText
             : selectLocale?.lang?.resultAvailableText;
-        return `${visibleOptionsCount} ${countLabel}`;
+        message = `${visibleOptionsCount} ${countLabel}`;
+      } else {
+        const noResultsText = selectLocale?.lang?.noResultsFoundText;
+        message = searchQuery ? `${noResultsText} ${searchQuery}` : '';
       }
-      const noResultsText = selectLocale?.lang?.noResultsFoundText;
-      return searchQuery ? `${noResultsText} ${searchQuery}` : noResultsText;
-    })();
+      lastLiveRegionMessageRef.current = message;
+      return message;
+    }, [dropdownVisible, options, searchQuery, selectLocale]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -997,7 +1007,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
                   aria-expanded={dropdownVisible}
-                  aria-haspopup="listbox"
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}

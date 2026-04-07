@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'te_IN',
-    resultAvailableText: 'ఫలితం అందుబాటులో ఉంది.',
-    resultsAvailableText: 'ఫలితాలు అందుబాటులో ఉన్నాయి.',
-    noResultsFoundText: 'కోసం ఫలితాలు కనుగొనబడలేదు',
+    resultAvailableText: 'సరిపోలిక కనుగొనబడింది.',
+    resultsAvailableText: 'సరిపోలికలు కనుగొనబడ్డాయి.',
+    noResultsFoundText: 'సరిపోలిక కనుగొనబడలేదు:',
   },
 };
 

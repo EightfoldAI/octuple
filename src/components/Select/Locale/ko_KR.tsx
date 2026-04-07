@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'ko_KR',
-    resultAvailableText: '개 결과 있음.',
-    resultsAvailableText: '개 결과 있음.',
-    noResultsFoundText: '에 대한 결과를 찾을 수 없습니다',
+    resultAvailableText: '개 일치 항목 찾음.',
+    resultsAvailableText: '개 일치 항목 찾음.',
+    noResultsFoundText: '일치하는 항목을 찾을 수 없습니다:',
   },
 };
 

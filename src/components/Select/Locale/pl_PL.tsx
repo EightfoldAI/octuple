@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'pl_PL',
-    resultAvailableText: 'wynik dostępny.',
-    resultsAvailableText: 'wyniki dostępne.',
-    noResultsFoundText: 'Nie znaleziono wyników dla',
+    resultAvailableText: 'dopasowanie znalezione.',
+    resultsAvailableText: 'dopasowania znalezione.',
+    noResultsFoundText: 'Nie znaleziono dopasowania dla',
   },
 };
 

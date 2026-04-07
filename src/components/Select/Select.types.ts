@@ -27,7 +27,7 @@ type SelectLang = {
    */
   resultsAvailableText?: string;
   /**
-   * Announced when no options match the current filter.
+   * Announced when no options are visible (e.g. after filtering yields zero results).
    */
   noResultsFoundText?: string;
 };

@@ -3,9 +3,9 @@ import type { SelectLocale } from '../Select.types';
 const locale: SelectLocale = {
   lang: {
     locale: 'fi_FI',
-    resultAvailableText: 'tulos saatavilla.',
-    resultsAvailableText: 'tulosta saatavilla.',
-    noResultsFoundText: 'Tuloksia ei löydy haulle',
+    resultAvailableText: 'osuma löytyi.',
+    resultsAvailableText: 'osumia löytyi.',
+    noResultsFoundText: 'Osumia ei löydy haulle',
   },
 };
 
