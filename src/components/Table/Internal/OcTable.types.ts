@@ -311,6 +311,11 @@ export type GetComponent = (
 // =================== Expand ===================
 export type ExpandableType = false | 'row' | 'nest';
 
+export enum RowHeaderCellComponent {
+  td = 'td',
+  th = 'th',
+}
+
 export type ExpandedRowRender<ValueType> = (
   record: ValueType,
   index: number,
@@ -518,6 +523,11 @@ export interface OcTableProps<RecordType = unknown> {
    * Override default Table elements.
    */
   components?: TableComponents<RecordType>;
+  /**
+   * The component used for the first cell in each body row.
+   * Defaults to 'td'. Pass 'th' to render row header cells.
+   */
+  rowHeaderCellComponent?: RowHeaderCellComponent;
   /**
    * The Table canvas direction.
    * options: 'ltr', 'rtl'
