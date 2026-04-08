@@ -51,6 +51,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-describedby": "date-picker--instructions",
                 "aria-expanded": "false",
                 "aria-haspopup": "listbox",
                 "aria-label": "Select time",
@@ -154,6 +155,7 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -167,6 +169,7 @@ LoadedCheerio {
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -257,6 +260,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-describedby": "date-picker--instructions",
                   "aria-expanded": "false",
                   "aria-haspopup": "listbox",
                   "aria-label": "Select time",
@@ -277,6 +281,7 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-describedby": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
                   "aria-label": undefined,
@@ -290,6 +295,7 @@ LoadedCheerio {
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-describedby": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
                   "aria-label": undefined,
@@ -314,7 +320,35 @@ LoadedCheerio {
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
+          "next": Node {
+            "attribs": Object {
+              "id": "date-picker--instructions",
+              "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+            },
+            "children": Array [
+              Node {
+                "data": "Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+              "style": undefined,
+            },
+          },
           "parent": [Circular],
           "prev": [Circular],
           "type": "tag",
@@ -342,6 +376,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-describedby": "date-picker--instructions",
               "aria-expanded": "false",
               "aria-haspopup": "listbox",
               "aria-label": "Select time",
@@ -445,6 +480,7 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-describedby": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
               "aria-label": undefined,
@@ -458,6 +494,7 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-describedby": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
               "aria-label": undefined,
@@ -548,6 +585,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-describedby": "date-picker--instructions",
                 "aria-expanded": "false",
                 "aria-haspopup": "listbox",
                 "aria-label": "Select time",
@@ -568,6 +606,7 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -581,6 +620,7 @@ LoadedCheerio {
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -605,7 +645,35 @@ LoadedCheerio {
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
+        "next": Node {
+          "attribs": Object {
+            "id": "date-picker--instructions",
+            "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+          },
+          "children": Array [
+            Node {
+              "data": "Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+            "style": undefined,
+          },
+        },
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
@@ -661,6 +729,368 @@ LoadedCheerio {
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "id": "date-picker--instructions",
+          "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+        },
+        "children": Array [
+          Node {
+            "data": "Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "aria-describedby": "date-picker--instructions",
+                "aria-expanded": "false",
+                "aria-haspopup": "listbox",
+                "aria-label": "Select time",
+                "autocomplete": "off",
+                "id": "date-picker-",
+                "placeholder": "Select time",
+                "readonly": "",
+                "role": "combobox",
+                "size": "10",
+                "title": "00:00:00",
+                "value": "00:00:00",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-suffix",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "class": "icon-wrapper",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "role": "presentation",
+                          "style": "width: 20px; height: 20px;",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                              "style": "fill: var(--grey-tertiary-color);",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-describedby": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-describedby": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "picker-suffix",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "icon-wrapper",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 20px; height: 20px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                            "style": "fill: var(--grey-tertiary-color);",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "aria-describedby": "date-picker--instructions",
+                  "aria-expanded": "false",
+                  "aria-haspopup": "listbox",
+                  "aria-label": "Select time",
+                  "autocomplete": "off",
+                  "id": "date-picker-",
+                  "placeholder": "Select time",
+                  "readonly": "",
+                  "role": "combobox",
+                  "size": "10",
+                  "title": "00:00:00",
+                  "value": "00:00:00",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-describedby": undefined,
+                  "aria-expanded": undefined,
+                  "aria-haspopup": undefined,
+                  "aria-label": undefined,
+                  "autocomplete": undefined,
+                  "id": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "role": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-describedby": undefined,
+                  "aria-expanded": undefined,
+                  "aria-haspopup": undefined,
+                  "aria-label": undefined,
+                  "autocomplete": undefined,
+                  "id": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "role": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-label",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "for": "date-picker-",
+                  "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+                },
+                "children": Array [
+                  Node {
+                    "data": "Select time",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "label",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "for": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "for": undefined,
+                  "style": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+          "style": undefined,
         },
       },
     ],
@@ -822,6 +1252,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-describedby": "date-picker--instructions",
                 "aria-expanded": "false",
                 "aria-haspopup": "listbox",
                 "aria-label": "Select time",
@@ -1017,6 +1448,7 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -1030,6 +1462,7 @@ LoadedCheerio {
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -1212,6 +1645,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-describedby": "date-picker--instructions",
                   "aria-expanded": "false",
                   "aria-haspopup": "listbox",
                   "aria-label": "Select time",
@@ -1232,6 +1666,7 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-describedby": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
                   "aria-label": undefined,
@@ -1245,6 +1680,7 @@ LoadedCheerio {
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-describedby": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
                   "aria-label": undefined,
@@ -1421,6 +1857,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-describedby": "date-picker--instructions",
                     "aria-expanded": "false",
                     "aria-haspopup": "listbox",
                     "aria-label": "Select time",
@@ -1441,6 +1878,7 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-describedby": undefined,
                     "aria-expanded": undefined,
                     "aria-haspopup": undefined,
                     "aria-label": undefined,
@@ -1454,6 +1892,7 @@ LoadedCheerio {
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-describedby": undefined,
                     "aria-expanded": undefined,
                     "aria-haspopup": undefined,
                     "aria-label": undefined,
@@ -1492,7 +1931,35 @@ LoadedCheerio {
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
+          "next": Node {
+            "attribs": Object {
+              "id": "date-picker--instructions",
+              "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+            },
+            "children": Array [
+              Node {
+                "data": "Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+              "style": undefined,
+            },
+          },
           "parent": [Circular],
           "prev": [Circular],
           "type": "tag",
@@ -1520,6 +1987,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-describedby": "date-picker--instructions",
               "aria-expanded": "false",
               "aria-haspopup": "listbox",
               "aria-label": "Select time",
@@ -1715,6 +2183,7 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-describedby": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
               "aria-label": undefined,
@@ -1728,6 +2197,7 @@ LoadedCheerio {
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-describedby": undefined,
               "aria-expanded": undefined,
               "aria-haspopup": undefined,
               "aria-label": undefined,
@@ -1910,6 +2380,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "aria-describedby": "date-picker--instructions",
                 "aria-expanded": "false",
                 "aria-haspopup": "listbox",
                 "aria-label": "Select time",
@@ -1930,6 +2401,7 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -1943,6 +2415,7 @@ LoadedCheerio {
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-describedby": undefined,
                 "aria-expanded": undefined,
                 "aria-haspopup": undefined,
                 "aria-label": undefined,
@@ -2119,6 +2592,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "aria-describedby": "date-picker--instructions",
                   "aria-expanded": "false",
                   "aria-haspopup": "listbox",
                   "aria-label": "Select time",
@@ -2139,6 +2613,7 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-describedby": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
                   "aria-label": undefined,
@@ -2152,6 +2627,7 @@ LoadedCheerio {
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-describedby": undefined,
                   "aria-expanded": undefined,
                   "aria-haspopup": undefined,
                   "aria-label": undefined,
@@ -2190,7 +2666,35 @@ LoadedCheerio {
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
+        "next": Node {
+          "attribs": Object {
+            "id": "date-picker--instructions",
+            "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+          },
+          "children": Array [
+            Node {
+              "data": "Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+            "style": undefined,
+          },
+        },
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
@@ -2246,6 +2750,778 @@ LoadedCheerio {
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "id": "date-picker--instructions",
+          "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+        },
+        "children": Array [
+          Node {
+            "data": "Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "aria-describedby": "date-picker--instructions",
+                "aria-expanded": "false",
+                "aria-haspopup": "listbox",
+                "aria-label": "Select time",
+                "autocomplete": "off",
+                "id": "date-picker-",
+                "placeholder": "Select time",
+                "readonly": "",
+                "role": "combobox",
+                "size": "10",
+                "title": "00:00:00",
+                "value": "00:00:00",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-suffix",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "class": "icon-wrapper",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "role": "presentation",
+                          "style": "width: 20px; height: 20px;",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                              "style": "fill: var(--grey-tertiary-color);",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "aria-label": "Clear",
+                    "class": "picker-clear",
+                    "role": "button",
+                    "tabindex": "0",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "class": "icon-wrapper",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "role": "presentation",
+                            "style": "width: 20px; height: 20px;",
+                            "viewBox": "0 0 24 24",
+                          },
+                          "children": Array [
+                            Node {
+                              "attribs": Object {
+                                "d": "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",
+                                "style": "fill: currentColor;",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "style": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "style": undefined,
+                              },
+                            },
+                          ],
+                          "name": "svg",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "role": undefined,
+                            "style": undefined,
+                            "viewBox": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "role": undefined,
+                            "style": undefined,
+                            "viewBox": undefined,
+                          },
+                        },
+                      ],
+                      "name": "span",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-label": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-label": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                    "tabindex": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-describedby": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-describedby": undefined,
+                "aria-expanded": undefined,
+                "aria-haspopup": undefined,
+                "aria-label": undefined,
+                "autocomplete": undefined,
+                "id": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "role": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "picker-suffix",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "icon-wrapper",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 20px; height: 20px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                            "style": "fill: var(--grey-tertiary-color);",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "aria-label": "Clear",
+                  "class": "picker-clear",
+                  "role": "button",
+                  "tabindex": "0",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "class": "icon-wrapper",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "role": "presentation",
+                          "style": "width: 20px; height: 20px;",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "d": "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",
+                              "style": "fill: currentColor;",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-label": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-label": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                  "tabindex": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "aria-describedby": "date-picker--instructions",
+                  "aria-expanded": "false",
+                  "aria-haspopup": "listbox",
+                  "aria-label": "Select time",
+                  "autocomplete": "off",
+                  "id": "date-picker-",
+                  "placeholder": "Select time",
+                  "readonly": "",
+                  "role": "combobox",
+                  "size": "10",
+                  "title": "00:00:00",
+                  "value": "00:00:00",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-describedby": undefined,
+                  "aria-expanded": undefined,
+                  "aria-haspopup": undefined,
+                  "aria-label": undefined,
+                  "autocomplete": undefined,
+                  "id": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "role": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-describedby": undefined,
+                  "aria-expanded": undefined,
+                  "aria-haspopup": undefined,
+                  "aria-label": undefined,
+                  "autocomplete": undefined,
+                  "id": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "role": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "aria-label": "Clear",
+                "class": "picker-clear",
+                "role": "button",
+                "tabindex": "0",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "icon-wrapper",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 20px; height: 20px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",
+                            "style": "fill: currentColor;",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-suffix",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "class": "icon-wrapper",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "role": "presentation",
+                          "style": "width: 20px; height: 20px;",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                              "style": "fill: var(--grey-tertiary-color);",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Node {
+                  "attribs": Object {
+                    "aria-describedby": "date-picker--instructions",
+                    "aria-expanded": "false",
+                    "aria-haspopup": "listbox",
+                    "aria-label": "Select time",
+                    "autocomplete": "off",
+                    "id": "date-picker-",
+                    "placeholder": "Select time",
+                    "readonly": "",
+                    "role": "combobox",
+                    "size": "10",
+                    "title": "00:00:00",
+                    "value": "00:00:00",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-describedby": undefined,
+                    "aria-expanded": undefined,
+                    "aria-haspopup": undefined,
+                    "aria-label": undefined,
+                    "autocomplete": undefined,
+                    "id": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "role": undefined,
+                    "size": undefined,
+                    "title": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-describedby": undefined,
+                    "aria-expanded": undefined,
+                    "aria-haspopup": undefined,
+                    "aria-label": undefined,
+                    "autocomplete": undefined,
+                    "id": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "role": undefined,
+                    "size": undefined,
+                    "title": undefined,
+                    "value": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "tabindex": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-label",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "for": "date-picker-",
+                  "style": "border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;",
+                },
+                "children": Array [
+                  Node {
+                    "data": "Select time",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "label",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "for": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "for": undefined,
+                  "style": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+          "style": undefined,
         },
       },
     ],
