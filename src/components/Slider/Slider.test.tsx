@@ -416,4 +416,29 @@ describe('Slider', () => {
     const thumb = container.querySelector('input[type="range"]');
     expect(thumb?.getAttribute('tabindex')).toBeNull();
   });
+
+  test('should render aria-labelledby on thumb', () => {
+    const { container } = render(
+      <Slider value={50} ariaLabelledBy="my-label-id" />
+    );
+    const thumb = container.querySelector('input[type="range"]');
+    expect(thumb?.getAttribute('aria-labelledby')).toBe('my-label-id');
+  });
+
+  test('should render aria-valuetext as string on thumb', () => {
+    const { container } = render(
+      <Slider value={50} ariaValueText="50 percent" />
+    );
+    const thumb = container.querySelector('input[type="range"]');
+    expect(thumb?.getAttribute('aria-valuetext')).toBe('50 percent');
+  });
+
+  test('should render aria-valuetext as array on range slider', () => {
+    const { container } = render(
+      <Slider value={[20, 80]} ariaValueText={['20 percent', '80 percent']} />
+    );
+    const thumbs = container.querySelectorAll('input[type="range"]');
+    expect(thumbs[0]?.getAttribute('aria-valuetext')).toBe('20 percent');
+    expect(thumbs[1]?.getAttribute('aria-valuetext')).toBe('80 percent');
+  });
 });

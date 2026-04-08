@@ -240,4 +240,46 @@ describe('Popup', () => {
     await waitFor(() => screen.getByTestId('popupPortaled-2'));
     expect(container.querySelector('.popup')).toBeTruthy();
   });
+
+  test('Popup trigger has aria-haspopup, aria-expanded, and aria-controls by default', () => {
+    const { container } = render(
+      <Popup content={<div>This is a popup.</div>} trigger="click">
+        <div className="test-div">test</div>
+      </Popup>
+    );
+    const trigger = container.querySelector('.test-div');
+    expect(trigger.getAttribute('aria-haspopup')).toBe('true');
+    expect(trigger.getAttribute('aria-expanded')).not.toBeNull();
+    expect(trigger.getAttribute('aria-controls')).not.toBeNull();
+  });
+
+  test('Popup trigger omits aria attributes when withTriggerAria is false', () => {
+    const { container } = render(
+      <Popup
+        content={<div>This is a popup.</div>}
+        trigger="hover"
+        withTriggerAria={false}
+      >
+        <div className="test-div">test</div>
+      </Popup>
+    );
+    const trigger = container.querySelector('.test-div');
+    expect(trigger.getAttribute('aria-haspopup')).toBeNull();
+    expect(trigger.getAttribute('aria-expanded')).toBeNull();
+    expect(trigger.getAttribute('aria-controls')).toBeNull();
+  });
+
+  test('Popup trigger auto-suppresses aria attributes for non-interactive roles', () => {
+    const { container } = render(
+      <Popup content={<div>This is a popup.</div>} trigger="hover">
+        <div className="test-div" role="img" aria-label="Status">
+          test
+        </div>
+      </Popup>
+    );
+    const trigger = container.querySelector('.test-div');
+    expect(trigger.getAttribute('aria-haspopup')).toBeNull();
+    expect(trigger.getAttribute('aria-expanded')).toBeNull();
+    expect(trigger.getAttribute('aria-controls')).toBeNull();
+  });
 });
