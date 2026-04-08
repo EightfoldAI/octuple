@@ -5,7 +5,7 @@ import { Button, ButtonSize, ButtonVariant } from '../Button';
 import { Icon, IconName, IconSize } from '../Icon';
 import { Link } from '../Link';
 import { Stack } from '../Stack';
-import { Popup, PopupTheme, PopupTouchInteraction } from './';
+import { Popup, PopupSize, PopupTheme, PopupTouchInteraction } from './';
 
 export default {
   title: 'Popup',
@@ -92,7 +92,34 @@ const Popup_Story: ComponentStory<typeof Popup> = (args) => {
   );
 };
 
+const Suppress_Trigger_Aria_Auto_Story: ComponentStory<typeof Popup> = () => (
+  <Stack direction="vertical" flexGap="xl">
+    <Stack direction="vertical" flexGap="xs">
+      <p>
+        <strong>Auto-suppressed (role="img"):</strong> Popup ARIA attributes are
+        automatically omitted for non-interactive roles.
+      </p>
+      <Popup
+        content={<div style={{ padding: 16 }}>Group details</div>}
+        trigger="hover"
+        size={PopupSize.Medium}
+        offset={8}
+        withTriggerAria={false}
+      >
+        <div role="img" aria-label="Status icons">
+          <Icon path={IconName.mdiCheckCircle} size={IconSize.Large} />
+        </div>
+      </Popup>
+    </Stack>
+  </Stack>
+);
+
 export const Popups = Popup_Story.bind({});
+export const Auto_Suppress_Trigger_Arias =
+  Suppress_Trigger_Aria_Auto_Story.bind({});
+
+// See https://www.npmjs.com/package/babel-plugin-named-exports-order
+export const __namedExportsOrder = ['Popups', 'Auto_Suppress_Trigger_Arias'];
 
 Popups.args = {
   offset: 8,

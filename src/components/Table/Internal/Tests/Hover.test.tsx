@@ -78,14 +78,14 @@ describe('Table.Hover', () => {
       })
     );
 
-    // Merge row check
-    expect(wrapper.find('tbody td')).toHaveLength(3);
+    // Merge row check (3 td = 3)
+    expect(wrapper.find('tbody td').length).toBe(3);
 
-    // Hover 0-0
+    // Hover 0-0 (td with rowSpan=2)
     wrapper.find('tbody td').at(0).simulate('mouseEnter');
     expect(wrapper.find('.table-cell-row-hover')).toHaveLength(3);
 
-    // Hover 0-1
+    // Hover 0-1 (second td = row0,col1)
     wrapper.find('tbody td').at(1).simulate('mouseEnter');
     expect(wrapper.find('.table-cell-row-hover')).toHaveLength(2);
 

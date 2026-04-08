@@ -16,6 +16,7 @@
         border-spacing: 0;
 
         thead tr th,
+        tbody tr th,
         tbody tr td,
         tfoot tr th,
         tfoot tr td {
@@ -52,10 +53,12 @@
         }
 
         tbody {
+          tr:not(:last-of-type) th,
           tr:not(:last-of-type) td {
             border-bottom: var(--table-border);
           }
 
+          tr:last-of-type th,
           tr:last-of-type td {
             border-bottom: none;
           }
@@ -151,6 +154,7 @@
           border-right: none;
         }
 
+        tbody tr th,
         tbody tr td,
         tfoot tr td {
           &:first-of-type {
@@ -158,7 +162,10 @@
           }
 
           border-right: var(--table-border);
+        }
 
+        tbody tr td,
+        tfoot tr td {
           &:last-of-type {
             border-right: none;
           }
@@ -184,6 +191,7 @@
         }
 
         tbody {
+          tr:not(:last-of-type) th,
           tr:not(:last-of-type) td {
             border-bottom: var(--table-border);
           }
@@ -269,6 +277,7 @@
           border-right: var(--table-border);
         }
 
+        tbody tr th,
         tbody tr td,
         tfoot tr td {
           border-left: none;
@@ -296,6 +305,7 @@
         }
 
         tbody {
+          tr th,
           tr td {
             border-bottom: none;
           }
@@ -382,6 +392,7 @@
         border-spacing: 0;
 
         thead tr th,
+        tbody tr th,
         tbody tr td,
         tfoot tr th,
         tfoot tr td {
@@ -391,6 +402,7 @@
         }
 
         thead tr th,
+        tbody tr th,
         tbody tr td,
         tfoot tr th,
         tfoot tr td {
@@ -426,6 +438,7 @@
         }
 
         tbody {
+          tr:not(:last-of-type) th,
           tr:not(:last-of-type) td {
             border-bottom: var(--table-border);
           }
@@ -518,6 +531,7 @@
         }
 
         tbody {
+          tr:not(:last-of-type) th,
           tr:not(:last-of-type) td {
             border-bottom: var(--table-border);
           }
@@ -589,6 +603,7 @@
         }
 
         tbody {
+          tr th:not(:last-of-type),
           tr td:not(:last-of-type) {
             border-right: var(--table-border);
           }

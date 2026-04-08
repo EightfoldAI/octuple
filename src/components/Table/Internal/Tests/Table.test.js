@@ -338,8 +338,8 @@ describe('Table.Basic', () => {
       ];
 
       wrapper.find('tbody tr').forEach((tr, ri) => {
-        tr.find('td').forEach((td, di) => {
-          expect(td.text()).toEqual(targetData[ri][di]);
+        targetData[ri].forEach((expected, di) => {
+          expect(tr.childAt(di).text()).toEqual(expected);
         });
       });
     });
@@ -351,7 +351,7 @@ describe('Table.Basic', () => {
       { key: 'key1', name: 'Mia' },
     ];
     const wrapper = mount(createTable({ data: localData }));
-    expect(wrapper.find('table td').first().text()).toBe('');
+    expect(wrapper.find('tbody td').first().text()).toBe('');
   });
 
   it('renders colSpan correctly', () => {
@@ -423,7 +423,7 @@ describe('Table.Basic', () => {
         }}
       />
     );
-    const props = wrapper.find('td').props();
+    const props = wrapper.find('tbody td').props();
     expect(props.style).toEqual(expect.objectContaining({ background: 'red' }));
     expect(props.className.includes('customize-render')).toBeTruthy();
     expect(props['data-light']).toEqual('bamboo');
@@ -695,7 +695,7 @@ describe('Table.Basic', () => {
       color: 'green',
       textAlign: 'center',
     });
-    expect(wrapper.find('td').first().props().style).toEqual({
+    expect(wrapper.find('tbody td').first().props().style).toEqual({
       color: 'red',
       textAlign: 'center',
     });
@@ -740,7 +740,7 @@ describe('Table.Basic', () => {
       color: 'green',
       verticalAlign: 'top',
     });
-    expect(wrapper.find('td').first().props().style).toEqual({
+    expect(wrapper.find('tbody td').first().props().style).toEqual({
       color: 'red',
       verticalAlign: 'top',
     });
@@ -966,10 +966,10 @@ describe('Table.Basic', () => {
     }
 
     const wrapper = mount(<Test />);
-    expect(wrapper.find('td').text()).toEqual('false');
+    expect(wrapper.find('tbody td').text()).toEqual('false');
 
     wrapper.setState({ change: true });
-    expect(wrapper.find('td').text()).toEqual('true');
+    expect(wrapper.find('tbody td').text()).toEqual('true');
   });
 
   it('not crash with raw data', () => {
