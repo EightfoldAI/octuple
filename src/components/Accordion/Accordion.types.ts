@@ -163,6 +163,15 @@ export interface AccordionSummaryProps
    * Whether the accordion summary is full width or not.
    */
   fullWidth?: boolean;
+  /**
+   * The heading level for the accordion header (1-6).
+   * If provided, the header will be wrapped in the corresponding h tag.
+   */
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  /**
+   * Additional class names for the header wrapper when headingLevel is provided.
+   */
+  headerWrapperClassNames?: string;
 }
 
 export interface AccordionBodyProps
