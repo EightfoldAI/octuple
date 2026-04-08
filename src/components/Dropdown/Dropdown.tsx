@@ -473,14 +473,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           const currentRole = ariaRef.current.getAttribute('role');
           const currentAriaHaspopup =
             ariaRef.current.getAttribute('aria-haspopup');
-          if (
-            !currentAriaHaspopup &&
-            (currentRole === 'combobox' || ariaHaspopupValue !== undefined)
-          ) {
-            ariaRef.current.setAttribute(
-              'aria-haspopup',
-              currentRole === 'combobox' ? 'listbox' : ariaHaspopupValue
-            );
+          if (!currentAriaHaspopup) {
+            if (currentRole === 'combobox') {
+              ariaRef.current.setAttribute('aria-haspopup', 'listbox');
+            } else if (ariaHaspopupValue !== false) {
+              ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
+            }
           }
 
           if (!ariaRef.current.hasAttribute('aria-controls')) {
@@ -514,7 +512,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           'aria-expanded': mergedVisible,
           'aria-haspopup':
             child.props?.['aria-haspopup'] ??
-            (child.props.role !== 'combobox' ? ariaHaspopupValue : undefined),
+            (child.props.role !== 'combobox' && ariaHaspopupValue !== false
+              ? ariaHaspopupValue
+              : undefined),
           role: child.props?.role || referenceRole,
           tabIndex: tabIndex,
         });
