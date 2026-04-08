@@ -66,7 +66,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     generateConfig,
     getPopupContainer,
     id,
-    inputAriaLabel,
     label,
     inputReadOnly,
     inputRender,
@@ -494,16 +493,10 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     'aria-expanded': mergedOpen,
     'aria-haspopup': popupRole,
     ...(mergedOpen && { 'aria-controls': popupId }),
-    ...(inputAriaLabel !== undefined
-      ? inputAriaLabel !== null
-        ? { 'aria-label': inputAriaLabel }
-        : {}
-      : {
-          'aria-label':
-            label ||
-            placeholder ||
-            (isTimePicker ? locale.timeSelect : locale.dateSelect),
-        }),
+    'aria-label':
+      label ||
+      placeholder ||
+      (isTimePicker ? locale.timeSelect : locale.dateSelect),
     id: datePickerId,
     tabIndex,
     disabled,

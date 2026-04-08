@@ -757,11 +757,6 @@ export type OcPickerSharedProps<DateType> = {
    */
   label?: string;
   /**
-   * Override the aria-label on the input element.
-   * Pass null to suppress the aria-label entirely (including the locale fallback).
-   */
-  inputAriaLabel?: string | null;
-  /**
    * Make input readOnly to avoid popup keyboard in mobile.
    */
   inputReadOnly?: boolean;
