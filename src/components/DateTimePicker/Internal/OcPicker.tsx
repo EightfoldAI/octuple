@@ -489,8 +489,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
   const popupRole: 'listbox' | 'dialog' = isTimePicker ? 'listbox' : 'dialog';
   const popupId: string = isTimePicker ? listboxId : 'dp-dialog-1';
 
-  const timeInstructionsId: string = `${datePickerId}-instructions`;
-
   const mergedInputProps: React.InputHTMLAttributes<HTMLInputElement> = {
     role: 'combobox',
     'aria-expanded': mergedOpen,
@@ -506,7 +504,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
             placeholder ||
             (isTimePicker ? locale.timeSelect : locale.dateSelect),
         }),
-    ...(isTimePicker && { 'aria-describedby': timeInstructionsId }),
     id: datePickerId,
     tabIndex,
     disabled,
@@ -613,12 +610,6 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
             {suffixNode}
             {clearNode}
           </div>
-          {isTimePicker && (
-            <span id={timeInstructionsId} style={visuallyHidden}>
-              {locale?.timePickerInstructions ||
-                'Use left and right arrow keys to move between columns. Use up and down arrow keys to change the selected value.'}
-            </span>
-          )}
         </div>
       </OcPickerTrigger>
     </PartialContext.Provider>

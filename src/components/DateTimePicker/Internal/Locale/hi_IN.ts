@@ -37,8 +37,6 @@ const locale: Locale = {
   minuteLabel: 'मिनट',
   secondLabel: 'सेकंड',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'कॉलम के बीच जाने के लिए बाएं और दाएं तीर कुंजियों का उपयोग करें। चयनित मान बदलने के लिए ऊपर और नीचे तीर कुंजियों का उपयोग करें।',
 };
 
 export default locale;

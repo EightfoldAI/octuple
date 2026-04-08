@@ -38,8 +38,6 @@ const locale: Locale = {
   minuteLabel: '分鐘',
   secondLabel: '秒',
   ampmLabel: '上午/下午',
-  timePickerInstructions:
-    '使用左右箭頭鍵在欄之間移動。使用上下箭頭鍵更改所選值。',
 };
 
 export default locale;

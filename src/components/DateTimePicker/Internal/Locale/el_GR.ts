@@ -39,8 +39,6 @@ const locale: Locale = {
   minuteLabel: 'Λεπτά',
   secondLabel: 'Δευτερόλεπτα',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'Χρησιμοποιήστε τα αριστερά και δεξιά πλήκτρα βέλους για να μετακινηθείτε μεταξύ στηλών. Χρησιμοποιήστε τα πλήκτρα βέλους πάνω και κάτω για να αλλάξετε την επιλεγμένη τιμή.',
 };
 
 export default locale;

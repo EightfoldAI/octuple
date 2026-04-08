@@ -41,8 +41,6 @@ const locale: Locale = {
   minuteLabel: 'Minuutit',
   secondLabel: 'Sekunnit',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'Siirry sarakkeiden välillä vasemmalla ja oikealla nuolinäppäimellä. Muuta valittua arvoa ylös- ja alaspäin nuolinäppäimillä.',
 };
 
 export default locale;

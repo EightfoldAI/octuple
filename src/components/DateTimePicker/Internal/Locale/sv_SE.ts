@@ -38,8 +38,6 @@ const locale: Locale = {
   minuteLabel: 'Minuter',
   secondLabel: 'Sekunder',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'Använd vänster och höger piltangenter för att flytta mellan kolumner. Använd upp och ned piltangenter för att ändra det valda värdet.',
 };
 
 export default locale;

@@ -38,8 +38,6 @@ const locale: Locale = {
   minuteLabel: 'Dakikalar',
   secondLabel: 'Saniyeler',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'Sütunlar arasında geçiş yapmak için sol ve sağ ok tuşlarını kullanın. Seçili değeri değiştirmek için yukarı ve aşağı ok tuşlarını kullanın.',
 };
 
 export default locale;

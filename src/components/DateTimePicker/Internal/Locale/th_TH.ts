@@ -39,8 +39,6 @@ const locale: Locale = {
   minuteLabel: 'นาที',
   secondLabel: 'วินาที',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'ใช้ปุ่มลูกศรซ้ายและขวาเพื่อเลื่อนระหว่างคอลัมน์ ใช้ปุ่มลูกศรขึ้นและลงเพื่อเปลี่ยนค่าที่เลือก',
 };
 
 export default locale;

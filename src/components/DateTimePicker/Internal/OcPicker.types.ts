@@ -169,10 +169,6 @@ export type Locale = {
    * The time picker AM/PM column label.
    */
   ampmLabel?: string;
-  /**
-   * The time picker keyboard usage instructions for screen readers.
-   */
-  timePickerInstructions?: string;
 };
 
 export type PartialMode =

@@ -39,8 +39,6 @@ const locale: Locale = {
   minuteLabel: 'Minit',
   secondLabel: 'Segonn',
   ampmLabel: 'AM/PM',
-  timePickerInstructions:
-    'Sèvi ak kle flèch gòch ak dwat pou deplase ant kolòn yo. Sèvi ak kle flèch anlè ak anba pou chanje valè ki chwazi a.',
 };
 
 export default locale;
