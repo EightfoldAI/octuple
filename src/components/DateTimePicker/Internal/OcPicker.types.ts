@@ -169,6 +169,10 @@ export type Locale = {
    * The time picker AM/PM column label.
    */
   ampmLabel?: string;
+  /**
+   * The time picker keyboard usage instructions for screen readers.
+   */
+  timePickerInstructions?: string;
 };
 
 export type PartialMode =
@@ -756,6 +760,11 @@ export type OcPickerSharedProps<DateType> = {
    * When provided, a visually hidden label will be associated with the input.
    */
   label?: string;
+  /**
+   * Override the aria-label on the input element.
+   * Pass null to suppress the aria-label entirely (including the locale fallback).
+   */
+  inputAriaLabel?: string | null;
   /**
    * Make input readOnly to avoid popup keyboard in mobile.
    */

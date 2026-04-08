@@ -39,6 +39,8 @@ const locale: Locale = {
   minuteLabel: 'Percek',
   secondLabel: 'Másodpercek',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'A bal és jobb nyílbillentyűkkel mozogjon az oszlopok között. A fel és le nyílbillentyűkkel módosítsa a kiválasztott értéket.',
 };
 
 export default locale;

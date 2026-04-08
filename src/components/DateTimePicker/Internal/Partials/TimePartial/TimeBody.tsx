@@ -63,6 +63,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     value: number;
     units: Unit[];
     onSelect: (diff: number) => void;
+    columnKey: string;
   }[] = [];
   let isPM: boolean | undefined;
   const originHour: number = value ? generateConfig.getHour(value) : -1;
@@ -207,7 +208,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     columnValue: number,
     units: Unit[],
     onColumnSelect: (diff: number) => void,
-    ariaLabel?: string
+    ariaLabel?: string,
+    columnKey?: string
   ): void {
     if (condition !== false) {
       columns.push({
@@ -218,10 +220,12 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
           units,
           hideDisabledOptions,
           ariaLabel,
+          columnKey,
         }),
         onSelect: onColumnSelect,
         value: columnValue,
         units,
+        columnKey,
       });
     }
   }
@@ -235,7 +239,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(isPM, num, minute, second), 'mouse');
     },
-    locale?.hourLabel || 'Hours'
+    locale?.hourLabel || 'Hours',
+    'hour'
   );
 
   // Minute
@@ -247,7 +252,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(isPM, hour, num, second), 'mouse');
     },
-    locale?.minuteLabel || 'Minutes'
+    locale?.minuteLabel || 'Minutes',
+    'minute'
   );
 
   // Second
@@ -259,7 +265,8 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(isPM, hour, minute, num), 'mouse');
     },
-    locale?.secondLabel || 'Seconds'
+    locale?.secondLabel || 'Seconds',
+    'second'
   );
 
   // 12 Hours
@@ -279,8 +286,20 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     (num: number): void => {
       onSelect(setTime(!!num, hour, minute, second), 'mouse');
     },
-    locale?.ampmLabel || 'AM/PM'
+    locale?.ampmLabel || 'AM/PM',
+    'ampm'
   );
+
+  const activeCol =
+    activeColumnIndex >= 0 && activeColumnIndex < columns.length
+      ? columns[activeColumnIndex]
+      : undefined;
+  const activeDescendantId: string | undefined =
+    activeCol?.columnKey &&
+    activeCol.value !== undefined &&
+    activeCol.value !== -1
+      ? `${activeCol.columnKey}-option-${activeCol.value}`
+      : undefined;
 
   return (
     <div
@@ -288,6 +307,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
       role="listbox"
       id={listboxId || uniqueId('time-picker-listbox-')}
       tabIndex={0}
+      aria-activedescendant={activeDescendantId}
     >
       {columns.map(({ node }) => node)}
     </div>

@@ -38,6 +38,8 @@ const locale: Locale = {
   minuteLabel: '分',
   secondLabel: '秒',
   ampmLabel: '午前/午後',
+  timePickerInstructions:
+    '左右の矢印キーで列を移動します。上下の矢印キーで選択した値を変更します。',
 };
 
 export default locale;

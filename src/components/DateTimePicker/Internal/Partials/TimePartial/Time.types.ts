@@ -35,6 +35,10 @@ export type TimeUnitColumnProps = {
    */
   ariaLabel?: string;
   /**
+   * Unique key for the column, used for generating stable option element IDs.
+   */
+  columnKey?: string;
+  /**
    * Whether the time unit has disabled options.
    */
   hideDisabledOptions?: boolean;

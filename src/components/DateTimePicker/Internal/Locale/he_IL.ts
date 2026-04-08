@@ -39,6 +39,8 @@ const locale: Locale = {
   minuteLabel: 'דקות',
   secondLabel: 'שניות',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'השתמש במקשי החצים שמאלה וימינה כדי לנוע בין עמודות. השתמש במקשי החצים למעלה ולמטה כדי לשנות את הערך הנבחר.',
 };
 
 export default locale;

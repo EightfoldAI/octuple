@@ -39,6 +39,8 @@ const locale: Locale = {
   minuteLabel: 'Minit',
   secondLabel: 'Saat',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'Gunakan kekunci anak panah kiri dan kanan untuk bergerak antara lajur. Gunakan kekunci anak panah atas dan bawah untuk menukar nilai yang dipilih.',
 };
 
 export default locale;

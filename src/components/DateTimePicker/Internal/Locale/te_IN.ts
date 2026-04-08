@@ -38,6 +38,8 @@ const locale: Locale = {
   minuteLabel: 'నిమిషాలు',
   secondLabel: 'సెకన్లు',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'నిలువు వరుసల మధ్య వెళ్ళడానికి ఎడమ మరియు కుడి బాణం కీలను ఉపయోగించండి. ఎంచుకున్న విలువను మార్చడానికి పైకి మరియు క్రిందికి బాణం కీలను ఉపయోగించండి.',
 };
 
 export default locale;

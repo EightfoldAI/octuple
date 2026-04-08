@@ -38,6 +38,8 @@ const locale: Locale = {
   minuteLabel: '분',
   secondLabel: '초',
   ampmLabel: '오전/오후',
+  timePickerInstructions:
+    '왼쪽 및 오른쪽 화살표 키를 사용하여 열 사이를 이동합니다. 위쪽 및 아래쪽 화살표 키를 사용하여 선택한 값을 변경합니다.',
 };
 
 export default locale;

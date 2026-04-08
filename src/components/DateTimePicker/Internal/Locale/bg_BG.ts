@@ -37,6 +37,8 @@ const locale: Locale = {
   minuteLabel: 'Минути',
   secondLabel: 'Секунди',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'Използвайте клавишите за стрелки наляво и надясно, за да се придвижите между колоните. Използвайте клавишите за стрелки нагоре и надолу, за да промените избраната стойност.',
 };
 
 export default locale;

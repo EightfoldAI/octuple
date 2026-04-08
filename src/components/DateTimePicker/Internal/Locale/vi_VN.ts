@@ -37,6 +37,8 @@ const locale: Locale = {
   minuteLabel: 'Phút',
   secondLabel: 'Giây',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'Sử dụng phím mũi tên trái và phải để di chuyển giữa các cột. Sử dụng phím mũi tên lên và xuống để thay đổi giá trị đã chọn.',
 };
 
 export default locale;

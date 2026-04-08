@@ -40,6 +40,8 @@ const locale: Locale = {
   minuteLabel: 'Minute',
   secondLabel: 'Sekunde',
   ampmLabel: 'AM/PM',
+  timePickerInstructions:
+    'Koristite tipke sa strelicama lijevo i desno za kretanje između stupaca. Koristite tipke sa strelicama gore i dolje za promjenu odabrane vrijednosti.',
 };
 
 export default locale;
