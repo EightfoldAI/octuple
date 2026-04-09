@@ -12,6 +12,7 @@ import PersistentBar from '../PersistentBar/Locale/te_IN';
 import Stepper from '../Stepper/Locale/te_IN';
 import Table from '../Table/Locale/te_IN';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/te_IN';
+import Select from '../Select/Locale/te_IN';
 import Upload from '../Upload/Locale/te_IN';
 
 const typeTemplate = '${label} సరైన ${type} కాదు';
@@ -83,6 +84,7 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
+  Select,
   Upload,
 };
 

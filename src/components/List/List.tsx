@@ -37,6 +37,7 @@ export const List = <T extends any>({
   getItem,
   id,
   applyCyclicNavigation = false,
+  'aria-label': ariaLabel,
   ...rest
 }: ListProps<T>) => {
   const htmlDir: string = useCanvasDirection();

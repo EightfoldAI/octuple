@@ -12,6 +12,7 @@ import PersistentBar from '../PersistentBar/Locale/sk_SK';
 import Stepper from '../Stepper/Locale/sk_SK';
 import Table from '../Table/Locale/sk_SK';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/sk_SK';
+import Select from '../Select/Locale/sk_SK';
 import Upload from '../Upload/Locale/sk_SK';
 
 const typeTemplate = '${label} nie je platný ${type}';
@@ -83,6 +84,7 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
+  Select,
   Upload,
 };
 

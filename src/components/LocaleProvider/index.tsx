@@ -15,6 +15,7 @@ import type { TableLocale } from '../Table/Table.types';
 import type { UploadLocale } from '../Upload/Upload.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
 import type { SnackbarLocale } from '../Snackbar/Snackbar.types';
+import type { SelectLocale } from '../Select/Select.types';
 import LocaleContext from './Context';
 
 export interface Locale {
@@ -38,6 +39,7 @@ export interface Locale {
   TimePicker?: Record<string, any>;
   Upload?: UploadLocale;
   Snackbar?: SnackbarLocale;
+  Select?: SelectLocale;
 }
 
 export interface LocaleProviderProps {

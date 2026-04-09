@@ -930,4 +930,85 @@ describe('Select', () => {
       { timeout: 1000 }
     );
   });
+
+  describe('Live region announcements', () => {
+    test('Announces result count when dropdown opens (plural)', async () => {
+      const { getByPlaceholderText, getByRole } = render(
+        <Select options={options} filterable placeholder="Select test" />
+      );
+      const input = getByPlaceholderText('Select test');
+
+      fireEvent.click(input);
+
+      await waitFor(() => {
+        expect(getByRole('status')).toHaveTextContent(
+          `${options.length} matches found.`
+        );
+      });
+    });
+
+    test('Announces singular result count when one option matches', async () => {
+      const { getByPlaceholderText, getByRole, container } = render(
+        <Select options={options} filterable placeholder="Select test" />
+      );
+      const input = getByPlaceholderText('Select test');
+      fireEvent.click(input);
+
+      fireEvent.change(container.querySelector('.select-input'), {
+        target: { value: 'Option 1' },
+      });
+
+      await waitFor(() => {
+        expect(getByRole('status')).toHaveTextContent('1 match found.');
+      });
+    });
+
+    test('Announces no-results message when filter yields zero results', async () => {
+      const { getByPlaceholderText, getByRole, container } = render(
+        <Select options={options} filterable placeholder="Select test" />
+      );
+      const input = getByPlaceholderText('Select test');
+      fireEvent.click(input);
+
+      fireEvent.change(container.querySelector('.select-input'), {
+        target: { value: 'zzz' },
+      });
+
+      await waitFor(() => {
+        expect(getByRole('status')).toHaveTextContent('No match found');
+      });
+    });
+
+    test('Does not announce when options are empty and no search query is active', async () => {
+      const { getByPlaceholderText, getByRole } = render(
+        <Select options={[]} filterable placeholder="Select test" />
+      );
+      const input = getByPlaceholderText('Select test');
+      fireEvent.click(input);
+
+      await waitFor(() => {
+        expect(getByRole('status').textContent).toBe('');
+      });
+    });
+
+    test('Retains last message in live region when dropdown closes', async () => {
+      const { getByPlaceholderText, getByRole } = render(
+        <Select options={options} filterable placeholder="Select test" />
+      );
+      const input = getByPlaceholderText('Select test');
+      fireEvent.click(input);
+
+      let lastMessage: string;
+      await waitFor(() => {
+        lastMessage = getByRole('status').textContent;
+        expect(lastMessage).not.toBe('');
+      });
+
+      fireEvent.mouseDown(document.body);
+
+      await waitFor(() => {
+        expect(getByRole('status').textContent).toBe(lastMessage);
+      });
+    });
+  });
 });
