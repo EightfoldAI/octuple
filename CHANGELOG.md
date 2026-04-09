@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.57.0](https://github.com/EightfoldAI/octuple/compare/v2.56.8...v2.57.0) (2026-04-09)
+
+### Features
+
+- **Accordion:** add heading tag ([#1117](https://github.com/EightfoldAI/octuple/issues/1117)) ([524b464](https://github.com/EightfoldAI/octuple/commits/524b464f7f4616b86f644d64fcbbb7f28cc3aea2))
+
+### Bug Fixes
+
+- **Select:** updated aria-live property for results announcement ([#1114](https://github.com/EightfoldAI/octuple/issues/1114)) ([8507930](https://github.com/EightfoldAI/octuple/commits/850793020be6a1f13ca4750679b1182d9e9048c2))
+- **Table:** add scope row and col accessibility attributes ([#1111](https://github.com/EightfoldAI/octuple/issues/1111)) ([9d2a198](https://github.com/EightfoldAI/octuple/commits/9d2a198b6a62916c932a8c149b206dc2dbbad0bd))
+- **TimePicker:** fixed timePicker announcement ([#1119](https://github.com/EightfoldAI/octuple/issues/1119)) ([a90a49b](https://github.com/EightfoldAI/octuple/commits/a90a49ba96f2c375b24cebbbab14d93a265babb5))
+
 ### [2.56.8](https://github.com/EightfoldAI/octuple/compare/v2.56.7...v2.56.8) (2026-03-31)
 
 ### Bug Fixes
