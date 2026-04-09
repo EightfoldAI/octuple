@@ -13,6 +13,29 @@ import { PillProps } from '../Pills';
 import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
 import { InputStatus } from '../../shared/utilities';
 
+type SelectLang = {
+  /**
+   * The Select locale.
+   */
+  locale: string;
+  /**
+   * Singular form appended after count, e.g. "1 result available."
+   */
+  resultAvailableText?: string;
+  /**
+   * Plural form appended after count, e.g. "3 results available."
+   */
+  resultsAvailableText?: string;
+  /**
+   * Announced when no options are visible (e.g. after filtering yields zero results).
+   */
+  noResultsFoundText?: string;
+};
+
+export type SelectLocale = {
+  lang: SelectLang;
+};
+
 export enum SelectShape {
   Rectangle = 'rectangle',
   Pill = 'pill',

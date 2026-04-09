@@ -11,6 +11,7 @@ import PersistentBar from '../PersistentBar/Locale/ms_MY';
 import Stepper from '../Stepper/Locale/ms_MY';
 import Table from '../Table/Locale/ms_MY';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ms_MY';
+import Select from '../Select/Locale/ms_MY';
 import Upload from '../Upload/Locale/ms_MY';
 
 const localeValues: Locale = {
@@ -30,6 +31,7 @@ const localeValues: Locale = {
   Stepper,
   Table,
   TimePicker,
+  Select,
   Upload,
 };
 

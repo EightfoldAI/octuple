@@ -6,6 +6,12 @@ exports[`Select Renders empty options in multiple mode without crashing 1`] = `
     class="select-wrapper select-wrapper-multiple select-medium"
   >
     <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
+    <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
@@ -79,6 +85,12 @@ exports[`Select Renders empty options in single mode without crashing 1`] = `
   <div
     class="select-wrapper select-medium"
   >
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
     <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
@@ -154,6 +166,12 @@ exports[`Select Renders null options in multiple mode without crashing 1`] = `
     class="select-wrapper select-wrapper-multiple select-medium"
   >
     <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
+    <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
@@ -227,6 +245,12 @@ exports[`Select Renders null options in single mode without crashing 1`] = `
   <div
     class="select-wrapper select-medium"
   >
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
     <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
@@ -302,6 +326,12 @@ exports[`Select Renders with default value 1`] = `
     class="select-wrapper select-medium"
   >
     <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
+    <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
@@ -375,6 +405,12 @@ exports[`Select Renders with default values when multiple 1`] = `
   <div
     class="select-wrapper select-wrapper-multiple select-medium"
   >
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
     <div
       class="multi-select-pills"
     >
@@ -518,6 +554,12 @@ exports[`Select Renders without crashing 1`] = `
     class="select-wrapper select-medium"
   >
     <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="select-live-region"
+      role="status"
+    />
+    <div
       class="select-dropdown-main-wrapper main-wrapper"
     >
       <div
@@ -591,6 +633,12 @@ exports[`Select Select is large 1`] = `
   class="select-wrapper select-large"
 >
   <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="select-live-region"
+    role="status"
+  />
+  <div
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
@@ -662,6 +710,12 @@ exports[`Select Select is medium 1`] = `
 <div
   class="select-wrapper select-medium"
 >
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="select-live-region"
+    role="status"
+  />
   <div
     class="select-dropdown-main-wrapper main-wrapper"
   >
@@ -735,6 +789,12 @@ exports[`Select Select is pill shaped 1`] = `
   class="select-wrapper select-medium"
 >
   <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="select-live-region"
+    role="status"
+  />
+  <div
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
@@ -806,6 +866,12 @@ exports[`Select Select is rectangle shaped 1`] = `
 <div
   class="select-wrapper select-medium"
 >
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="select-live-region"
+    role="status"
+  />
   <div
     class="select-dropdown-main-wrapper main-wrapper"
   >
@@ -879,6 +945,12 @@ exports[`Select Select is small 1`] = `
   class="select-wrapper select-small"
 >
   <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="select-live-region"
+    role="status"
+  />
+  <div
     class="select-dropdown-main-wrapper main-wrapper"
   >
     <div
@@ -950,6 +1022,12 @@ exports[`Select Select is underline shaped 1`] = `
 <div
   class="select-wrapper select-medium"
 >
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="select-live-region"
+    role="status"
+  />
   <div
     class="select-dropdown-main-wrapper main-wrapper"
   >
