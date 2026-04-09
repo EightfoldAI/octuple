@@ -95,6 +95,9 @@ function OcTable<RecordType extends DefaultRecordType>(
   const {
     alternateRowColor,
     bordered,
+    caption,
+    captionClassName,
+    captionSide = 'top',
     classNames,
     rowClassName,
     style,
@@ -611,6 +614,14 @@ function OcTable<RecordType extends DefaultRecordType>(
               tableLayout: mergedTableLayout,
             }}
           >
+            {caption && (
+              <caption
+                className={mergeClasses([styles.tableCaption, captionClassName])}
+                style={{ captionSide }}
+              >
+                {caption}
+              </caption>
+            )}
             {bodyColGroup}
             {bodyTable}
             {!fixFooter && summaryNode && (
@@ -720,6 +731,14 @@ function OcTable<RecordType extends DefaultRecordType>(
             tableLayout: mergedTableLayout,
           }}
         >
+          {caption && (
+            <caption
+              className={mergeClasses([styles.tableCaption, captionClassName])}
+              style={{ captionSide }}
+            >
+              {caption}
+            </caption>
+          )}
           {bodyColGroup}
           {showHeader !== false && (
             <Header {...headerProps} {...columnContext} />
