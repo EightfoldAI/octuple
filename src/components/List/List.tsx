@@ -179,6 +179,7 @@ export const List = <T extends any>({
     }
   };
 
+  const { role: itemRole, ...restItemProps } = itemProps ?? {};
   const itemClasses: string = mergeClasses([styles.listItem, itemClassNames]);
 
   const getHeader = (): JSX.Element => <>{header}</>;
@@ -192,7 +193,8 @@ export const List = <T extends any>({
     };
     return (
       <li
-        {...itemProps}
+        {...restItemProps}
+        {...(itemRole !== undefined && { role: itemRole })}
         key={getItemKey(additionalItem, additionalItemIndex)}
         className={itemClasses}
         onKeyDown={(event: React.KeyboardEvent<HTMLElement>) =>
@@ -221,7 +223,8 @@ export const List = <T extends any>({
     itemRef: (el: HTMLElement | null) => void
   ): JSX.Element => (
     <li
-      {...itemProps}
+      {...restItemProps}
+      {...(itemRole !== undefined && { role: itemRole })}
       key={getItemKey(item, index)}
       className={itemClasses}
       onKeyDown={(event: React.KeyboardEvent<HTMLElement>) =>
@@ -275,7 +278,7 @@ export const List = <T extends any>({
       {listType === 'ul' && (
         <ul
           id={id}
-          role={role}
+          {...(role !== undefined && { role })}
           aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
@@ -287,7 +290,7 @@ export const List = <T extends any>({
       {listType === 'ol' && (
         <ol
           id={id}
-          role={role}
+          {...(role !== undefined && { role })}
           aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
