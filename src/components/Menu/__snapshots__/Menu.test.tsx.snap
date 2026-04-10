@@ -31,7 +31,6 @@ exports[`Menu Menu is large 1`] = `
       >
         <ul
           class="list-container vertical"
-          role="menu"
         >
           <li
             class="menu-item menu-item-button large neutral my-menu-item-class"
@@ -134,7 +133,6 @@ exports[`Menu Menu is large 1`] = `
           </li>
           <li
             class="menu-item-custom large my-menu-item-class"
-            role="presentation"
           >
             <div
               aria-label="Radio Group"
@@ -260,7 +258,6 @@ exports[`Menu Menu is medium 1`] = `
       >
         <ul
           class="list-container vertical"
-          role="menu"
         >
           <li
             class="menu-item menu-item-button medium neutral my-menu-item-class"
@@ -363,7 +360,6 @@ exports[`Menu Menu is medium 1`] = `
           </li>
           <li
             class="menu-item-custom medium my-menu-item-class"
-            role="presentation"
           >
             <div
               aria-label="Radio Group"
@@ -489,7 +485,6 @@ exports[`Menu Menu is small 1`] = `
       >
         <ul
           class="list-container vertical"
-          role="menu"
         >
           <li
             class="menu-item menu-item-button small neutral my-menu-item-class"
@@ -592,7 +587,6 @@ exports[`Menu Menu is small 1`] = `
           </li>
           <li
             class="menu-item-custom small my-menu-item-class"
-            role="presentation"
           >
             <div
               aria-label="Radio Group"
