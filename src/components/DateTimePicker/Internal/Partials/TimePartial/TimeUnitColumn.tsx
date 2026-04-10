@@ -7,8 +7,16 @@ import PartialContext from '../../PartialContext';
 import styles from '../../ocpicker.module.scss';
 
 function TimeUnitColumn(props: TimeUnitColumnProps) {
-  const { active, ariaLabel, hideDisabledOptions, onSelect, units, value } =
-    props;
+  const {
+    active,
+    ariaLabel,
+    columnKey,
+    hideDisabledOptions,
+    onSelect,
+    units,
+    value,
+  } = props;
+
   const { open } = React.useContext(PartialContext);
 
   const ulRef: React.MutableRefObject<HTMLUListElement> =
@@ -49,6 +57,7 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
       ])}
       ref={ulRef}
       style={{ position: 'relative' }}
+      role="group"
       aria-label={ariaLabel}
     >
       {units!.map((unit: Unit) => {
@@ -56,13 +65,22 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
           return null;
         }
 
+        const optionId =
+          columnKey !== undefined
+            ? `${columnKey}-option-${unit.value}`
+            : undefined;
+
         return (
           <li
             key={unit.value}
+            id={optionId}
             ref={(element) => {
               liRefs.current.set(unit.value, element);
             }}
             role="option"
+            aria-label={
+              ariaLabel ? `${unit.label} ${ariaLabel}` : String(unit.label)
+            }
             aria-selected={value === unit.value}
             aria-disabled={unit.disabled}
             className={mergeClasses([
