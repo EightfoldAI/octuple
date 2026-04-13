@@ -27,7 +27,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       iconProps,
       onClick,
       onKeyDown,
-      role = 'menuitem',
+      role,
       secondaryButtonProps,
       size = MenuSize.medium,
       subText,

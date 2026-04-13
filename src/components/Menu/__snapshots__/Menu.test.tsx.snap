@@ -35,7 +35,6 @@ exports[`Menu Menu is large 1`] = `
           <li
             class="menu-item menu-item-button large neutral my-menu-item-class"
             id="listItem0-"
-            role="menuitem"
             tabindex="0"
           >
             <span
@@ -73,7 +72,6 @@ exports[`Menu Menu is large 1`] = `
             aria-disabled="true"
             class="menu-item menu-item-button large neutral disabled my-menu-item-class"
             id="listItem1-"
-            role="menuitem"
             tabindex="-1"
           >
             <span
@@ -262,7 +260,6 @@ exports[`Menu Menu is medium 1`] = `
           <li
             class="menu-item menu-item-button medium neutral my-menu-item-class"
             id="listItem0-"
-            role="menuitem"
             tabindex="0"
           >
             <span
@@ -300,7 +297,6 @@ exports[`Menu Menu is medium 1`] = `
             aria-disabled="true"
             class="menu-item menu-item-button medium neutral disabled my-menu-item-class"
             id="listItem1-"
-            role="menuitem"
             tabindex="-1"
           >
             <span
@@ -489,7 +485,6 @@ exports[`Menu Menu is small 1`] = `
           <li
             class="menu-item menu-item-button small neutral my-menu-item-class"
             id="listItem0-"
-            role="menuitem"
             tabindex="0"
           >
             <span
@@ -527,7 +522,6 @@ exports[`Menu Menu is small 1`] = `
             aria-disabled="true"
             class="menu-item menu-item-button small neutral disabled my-menu-item-class"
             id="listItem1-"
-            role="menuitem"
             tabindex="-1"
           >
             <span

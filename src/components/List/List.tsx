@@ -279,6 +279,7 @@ export const List = <T extends any>({
         <ul
           id={id}
           {...(role !== undefined && { role })}
+          aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
@@ -291,6 +292,7 @@ export const List = <T extends any>({
         <ol
           id={id}
           {...(role !== undefined && { role })}
+          aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
