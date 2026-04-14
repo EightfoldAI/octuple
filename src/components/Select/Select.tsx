@@ -354,7 +354,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
           visibleOptionsCount !== 1
             ? selectLocale?.lang?.resultsAvailableText
             : selectLocale?.lang?.resultAvailableText;
-        message = `${visibleOptionsCount} ${countLabel}`;
+        message = searchQuery
+          ? `${searchQuery},${visibleOptionsCount} ${countLabel}`
+          : `${visibleOptionsCount} ${countLabel}`;
       } else {
         const noResultsText = selectLocale?.lang?.noResultsFoundText;
         message = searchQuery ? `${noResultsText} ${searchQuery}` : '';
@@ -768,6 +770,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 (opt: SelectOption) => opt.value === value
               );
               currentlySelectedOption.current = option;
+              // Imperatively update aria-activedescendant so screen readers
+              // announce the selected option even when the selection is driven
+              // by a pointer event (which does not fire a focusin event).
+              if (option?.id) {
+                inputRef.current?.setAttribute(
+                  'aria-activedescendant',
+                  option.id
+                );
+              }
               toggleOption(option);
             }}
             role="listbox"
@@ -951,6 +962,50 @@ export const Select: FC<SelectProps> = React.forwardRef(
       updateLayout();
     }, [dropdownWidth, selectWidth]);
 
+    // Keep aria-activedescendant in sync with keyboard navigation without
+    // triggering React re-renders (which would cause the inline OptionMenu
+    // component to be remounted and destroy focus).
+    //
+    // Strategy: manipulate the DOM attribute directly on the underlying <input>
+    // element via inputRef.  React only reconciles attributes it knows about
+    // through JSX props; because we do NOT pass aria-activedescendant as a
+    // controlled prop we can set/remove it imperatively and React will leave it
+    // alone between renders.
+    //
+    // • When the dropdown closes: clear the attribute (per ARIA spec the
+    //   attribute must not reference an element that is not rendered).
+    // • When the dropdown opens: pre-populate with the currently selected
+    //   option's id so screen readers receive an immediate hint.
+    // • While the dropdown is open: listen for focusin on the document and
+    //   update the attribute whenever an option element (role="option") receives
+    //   focus – covers ArrowDown/Up navigation without touching Dropdown internals.
+    useEffect(() => {
+      const input = inputRef.current;
+      if (!dropdownVisible) {
+        input?.removeAttribute('aria-activedescendant');
+      }
+
+      const selected = (options || []).find(
+        (opt: SelectOption) => opt.selected && !opt.hideOption
+      );
+      if (selected?.id) {
+        input?.setAttribute('aria-activedescendant', selected.id);
+      }
+
+      const handleFocusIn = (event: FocusEvent): void => {
+        const target = event.target as HTMLElement;
+        if (target?.id && target.getAttribute('role') === 'option') {
+          input?.setAttribute('aria-activedescendant', target.id);
+        }
+      };
+
+      document.addEventListener('focusin', handleFocusIn);
+      return () => {
+        document.removeEventListener('focusin', handleFocusIn);
+      };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dropdownVisible]);
+
     return (
       <ResizeObserver onResize={updateLayout}>
         <ThemeContextProvider
@@ -1004,7 +1059,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 {dropdownVisible && showPills() ? getPills() : null}
                 <TextInput
                   ref={inputRef}
-                  aria-activedescendant={currentlySelectedOption.current?.id}
                   aria-controls={selectMenuId?.current}
                   aria-expanded={dropdownVisible}
                   configContextProps={configContextProps}
