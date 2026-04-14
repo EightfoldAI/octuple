@@ -962,23 +962,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       updateLayout();
     }, [dropdownWidth, selectWidth]);
 
-    // Keep aria-activedescendant in sync with keyboard navigation without
-    // triggering React re-renders (which would cause the inline OptionMenu
-    // component to be remounted and destroy focus).
-    //
-    // Strategy: manipulate the DOM attribute directly on the underlying <input>
-    // element via inputRef.  React only reconciles attributes it knows about
-    // through JSX props; because we do NOT pass aria-activedescendant as a
-    // controlled prop we can set/remove it imperatively and React will leave it
-    // alone between renders.
-    //
-    // • When the dropdown closes: clear the attribute (per ARIA spec the
-    //   attribute must not reference an element that is not rendered).
-    // • When the dropdown opens: pre-populate with the currently selected
-    //   option's id so screen readers receive an immediate hint.
-    // • While the dropdown is open: listen for focusin on the document and
-    //   update the attribute whenever an option element (role="option") receives
-    //   focus – covers ArrowDown/Up navigation without touching Dropdown internals.
     useEffect(() => {
       const input = inputRef.current;
       if (!dropdownVisible) {
