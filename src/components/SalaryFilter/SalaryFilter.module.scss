@@ -1,0 +1,239 @@
+// Salary Filter – Workforce Exchange
+// Uses Octuple CSS custom properties for all color/spacing tokens
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  font-family: var(--font-stack-full);
+}
+
+// ── Filter Card ────────────────────────────────────────────────
+
+.filterCard {
+  padding: 0 !important;
+}
+
+.filterInner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 16px;
+}
+
+// Header: "Pay  [Any ▼]"
+.filterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.payLabel {
+  font-size: var(--text-font-size-4, 16px);
+  font-weight: 600;
+  color: var(--text-primary-color);
+}
+
+.anySelect {
+  min-width: 110px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--grey-color-20, #e5e7eb);
+  margin: 12px 0;
+}
+
+// Quick filters section
+.quickFiltersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionLabel {
+  font-size: var(--text-font-size-2, 12px);
+  font-weight: 500;
+  color: var(--text-secondary-color, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.quickFiltersRow {
+  flex-wrap: wrap;
+  gap: 8px !important;
+}
+
+.quickFilterBtn {
+  font-size: var(--text-font-size-2, 13px) !important;
+  transition: all 0.15s ease;
+}
+
+.quickFilterBtnActive {
+  // Primary variant handles active state via ButtonVariant.Primary
+}
+
+// Custom input section
+.customSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.customRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.customLabel {
+  font-size: var(--text-font-size-3, 14px);
+  color: var(--text-primary-color);
+  white-space: nowrap;
+}
+
+.customInputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currencySign {
+  position: absolute;
+  left: 10px;
+  font-size: var(--text-font-size-3, 14px);
+  color: var(--text-secondary-color, #6b7280);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.customInput {
+  width: 80px !important;
+
+  input {
+    padding-left: 20px !important;
+  }
+}
+
+.perLabel {
+  font-size: var(--text-font-size-3, 14px);
+  color: var(--text-primary-color);
+}
+
+.periodSelect {
+  min-width: 90px;
+}
+
+// Checkboxes
+.checkboxGroup {
+  gap: 8px !important;
+}
+
+.checkbox {
+  font-size: var(--text-font-size-3, 14px);
+}
+
+// ── Results Section ────────────────────────────────────────────
+
+.resultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resultsLabel {
+  font-size: var(--text-font-size-2, 12px);
+  color: var(--text-secondary-color, #6b7280);
+  font-weight: 500;
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// ── Job Card ───────────────────────────────────────────────────
+
+.jobCard {
+  padding: 0 !important;
+}
+
+.jobCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+}
+
+.jobCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.jobCardTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jobTitle {
+  font-size: var(--text-font-size-3, 15px);
+  font-weight: 600;
+  color: var(--text-primary-color);
+}
+
+.jobMeta {
+  font-size: var(--text-font-size-2, 12px);
+  color: var(--text-secondary-color, #6b7280);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  color: var(--grey-color-40, #9ca3af);
+}
+
+.applyButton {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.jobCardBody {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.salaryText {
+  font-size: var(--text-font-size-3, 14px);
+  font-weight: 600;
+  color: var(--success-color-70, #16a34a);
+}
+
+.salaryUnlisted {
+  font-weight: 400;
+  color: var(--text-secondary-color, #6b7280);
+  font-style: italic;
+}
+
+.dividerDot {
+  color: var(--grey-color-30, #d1d5db);
+  font-size: var(--text-font-size-2, 12px);
+}
+
+.jobType {
+  font-size: var(--text-font-size-2, 13px);
+  color: var(--text-secondary-color, #6b7280);
+}
+
+.jobTag {
+  margin-left: 2px;
+}
