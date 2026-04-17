@@ -1448,7 +1448,9 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         >
           {formatHintText && (
             <span id={formatHintId} style={visuallyHidden}>
-              {`Use date format ${formatHintText}`}
+              {`${
+                locale.dateFormatHint ?? 'Use date format'
+              } ${formatHintText}`}
             </span>
           )}
           {(startDateInputAriaLabel || getValue(placeholder, 0)) && (
