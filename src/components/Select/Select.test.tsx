@@ -666,6 +666,24 @@ describe('Select', () => {
     expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
   });
 
+  test('Updates aria-activedescendant when an option receives focus via keyboard navigation', async () => {
+    // ArrowDown in a filterable select calls focusFirstElement(), which focuses
+    // the first <li role="option">, firing focusin and updating the attribute.
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    select.focus();
+    fireEvent.click(select);
+    await waitFor(() => getAllByRole('option'));
+
+    fireEvent.keyDown(select, { key: 'ArrowDown' });
+
+    await waitFor(() =>
+      expect(select.getAttribute('aria-activedescendant')).toBe('Option 1-0')
+    );
+  });
+
   test('Does not focus the first focusable element when dropdown is visible and not filterable and initialFocus is false', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
       <Select
