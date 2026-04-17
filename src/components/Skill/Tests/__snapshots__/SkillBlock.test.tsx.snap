@@ -4256,11 +4256,9 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
                 aria-controls="dropdown-"
                 aria-disabled="false"
                 aria-expanded="true"
-                aria-haspopup="true"
                 class="button button button-neutral button-small round-shape icon-left"
                 data-testid="test-item-menu"
                 id="dropdown-reference"
-                role="button"
                 tabindex="0"
               >
                 <span

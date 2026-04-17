@@ -25,6 +25,10 @@
 
     .heading {
       flex: 1;
+      font-size: $text-font-size-3 !important;
+      font-weight: $text-font-weight-semibold;
+      line-height: $text-line-height-2;
+      margin: 0;
     }
   }
 

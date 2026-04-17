@@ -9,11 +9,9 @@ exports[`Dropdown Should render a dropdown button 1`] = `
       aria-controls="dropdown-"
       aria-disabled="false"
       aria-expanded="false"
-      aria-haspopup="true"
       class="button button-default button-medium pill-shape icon-right"
       data-testid="dropdown-reference"
       id="test-button-id"
-      role="button"
       tabindex="0"
     >
       <span>

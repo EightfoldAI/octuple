@@ -26,7 +26,8 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       htmlType = 'button',
       iconProps,
       onClick,
-      role = 'menuitem',
+      onKeyDown,
+      role,
       secondaryButtonProps,
       size = MenuSize.medium,
       subText,
@@ -40,10 +41,11 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       listItemRole,
       ...rest
     },
-    ref: React.ForwardedRef<HTMLButtonElement>
+    ref: React.ForwardedRef<HTMLLIElement>
   ) => {
     const menuItemClassNames: string = mergeClasses([
       styles.menuItem,
+      styles.menuItemButton,
       {
         [styles.menuItemRtl]: direction === 'rtl',
         [styles.wrap]: !!wrap,
@@ -68,9 +70,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       },
     ]);
 
-    const handleOnClick = (
-      event: React.MouseEvent<HTMLButtonElement | MouseEvent>
-    ): void => {
+    const handleOnClick = (event: React.MouseEvent<HTMLLIElement>): void => {
       if (disabled) {
         event.preventDefault();
         return;
@@ -91,17 +91,8 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       [MenuSize.small, IconSize.Small],
     ]);
 
-    const menuButton = (isNested: boolean = false): JSX.Element => (
-      <button
-        className={styles.menuItemButton}
-        disabled={disabled}
-        tabIndex={tabIndex}
-        type={htmlType}
-        {...rest}
-        onClick={!isNested ? handleOnClick : null}
-        ref={ref}
-        role={role}
-      >
+    const menuButtonContent = (): JSX.Element => (
+      <>
         {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
         <span className={styles.menuItemWrapper}>
           <span className={styles.itemText}>
@@ -111,22 +102,22 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
           {subText && <span className={itemSubTextClassNames}>{subText}</span>}
         </span>
         {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
-      </button>
+      </>
     );
+
+    const menuButton = (isNested: boolean = false): JSX.Element => {
+      if (isNested) {
+        return (
+          <span className={styles.menuItemButton}>{menuButtonContent()}</span>
+        );
+      }
+      return menuButtonContent();
+    };
 
     const secondaryButton = (): JSX.Element => (
       <>
         <span className={styles.menuSecondaryWrapper} role={role}>
-          <button
-            className={styles.menuOuterButton}
-            disabled={disabled}
-            tabIndex={tabIndex}
-            type={htmlType}
-            {...rest}
-            onClick={handleOnClick}
-            ref={ref}
-            role={role}
-          >
+          <span className={styles.menuOuterButton}>
             {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
             <span className={styles.menuItemWrapper}>
               <span className={styles.itemText}>
@@ -134,7 +125,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
               </span>
             </span>
             {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
-          </button>
+          </span>
           <span className={styles.menuInnerButton}>
             {counter && <span>{counter}</span>}
             {secondaryButtonProps && (
@@ -151,6 +142,20 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
         {subText && <span className={itemSubTextClassNames}>{subText}</span>}
       </>
     );
+
+    const handleLiKeyDown = (
+      event: React.KeyboardEvent<HTMLLIElement>
+    ): void => {
+      if (disabled) return;
+
+      const { key, currentTarget } = event;
+      if ((key === 'Enter' || key === ' ') && !dropdownMenuItems) {
+        event.preventDefault();
+        currentTarget.click();
+        return;
+      }
+      onKeyDown?.(event);
+    };
 
     const dropdownMenuButton = (): JSX.Element => {
       if (!menuRenderer || !dropdownMenuItems) {
@@ -177,7 +182,16 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
     };
 
     return (
-      <li className={menuItemClassNames} role={listItemRole ?? 'presentation'}>
+      <li
+        className={menuItemClassNames}
+        aria-disabled={disabled ? true : undefined}
+        tabIndex={disabled ? -1 : active ? 0 : tabIndex}
+        {...rest}
+        onClick={!dropdownMenuItems ? handleOnClick : undefined}
+        onKeyDown={handleLiKeyDown}
+        ref={ref}
+        role={listItemRole ?? role}
+      >
         {renderedItem()}
       </li>
     );
