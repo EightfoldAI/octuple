@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.57.1](https://github.com/EightfoldAI/octuple/compare/v2.57.0...v2.57.1) (2026-04-20)
+
+### Bug Fixes
+
+- **Dropdown:** updated structure for dropdown menu list item ([#1113](https://github.com/EightfoldAI/octuple/issues/1113)) ([1943b74](https://github.com/EightfoldAI/octuple/commits/1943b7497304ad354750954bfd60f6d16a28baca))
+- **RangePicker:** Updated aria-describedby directly on input elements ([#1121](https://github.com/EightfoldAI/octuple/issues/1121)) ([81b3d62](https://github.com/EightfoldAI/octuple/commits/81b3d629d248ccebf132ba69c677b210c63ca2c9))
+- **Select:** accessibility fix for aria live announcement and aria property ([#1120](https://github.com/EightfoldAI/octuple/issues/1120)) ([f060588](https://github.com/EightfoldAI/octuple/commits/f06058826e7c2927426f1b5c5e3119254527317f))
+
 ## [2.57.0](https://github.com/EightfoldAI/octuple/compare/v2.56.8...v2.57.0) (2026-04-09)
 
 ### Features
