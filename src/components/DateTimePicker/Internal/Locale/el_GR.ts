@@ -39,6 +39,7 @@ const locale: Locale = {
   minuteLabel: 'Λεπτά',
   secondLabel: 'Δευτερόλεπτα',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Χρησιμοποιήστε μορφή ημερομηνίας',
 };
 
 export default locale;

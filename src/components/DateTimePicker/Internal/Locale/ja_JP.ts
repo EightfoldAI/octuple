@@ -38,6 +38,7 @@ const locale: Locale = {
   minuteLabel: '分',
   secondLabel: '秒',
   ampmLabel: '午前/午後',
+  dateFormatHint: '日付形式を使用してください',
 };
 
 export default locale;

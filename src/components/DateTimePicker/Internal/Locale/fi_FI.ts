@@ -41,6 +41,7 @@ const locale: Locale = {
   minuteLabel: 'Minuutit',
   secondLabel: 'Sekunnit',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Käytä päivämäärämuotoa',
 };
 
 export default locale;

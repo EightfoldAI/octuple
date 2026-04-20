@@ -37,6 +37,7 @@ const locale: Locale = {
   minuteLabel: 'Phút',
   secondLabel: 'Giây',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Sử dụng định dạng ngày',
 };
 
 export default locale;
