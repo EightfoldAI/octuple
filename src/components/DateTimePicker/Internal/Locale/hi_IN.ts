@@ -37,6 +37,7 @@ const locale: Locale = {
   minuteLabel: 'मिनट',
   secondLabel: 'सेकंड',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'दिनांक प्रारूप का उपयोग करें',
 };
 
 export default locale;

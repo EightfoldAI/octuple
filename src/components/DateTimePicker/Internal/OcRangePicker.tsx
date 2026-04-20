@@ -1282,6 +1282,15 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     ...(endOpen && { 'aria-controls': popupId }),
   };
 
+  const formatHintId: string = `${datePickerId}-format-hint`;
+  const formatHintText: string | null =
+    typeof formatList[0] === 'string' ? formatList[0] : null;
+  const consumerAriaDescribedBy: string | undefined =
+    getDataOrAriaProps(props)['aria-describedby'];
+  const mergedAriaDescribedBy: string = [formatHintId, consumerAriaDescribedBy]
+    .filter(Boolean)
+    .join(' ');
+
   let activeBarLeft: number = 0;
   let activeBarWidth: number = 0;
   if (
@@ -1436,8 +1445,14 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
           onMouseLeave={onMouseLeave}
           onMouseDown={onPickerMouseDown}
           onMouseUp={onMouseUp}
-          {...getDataOrAriaProps(props)}
         >
+          {formatHintText && (
+            <span id={formatHintId} style={visuallyHidden}>
+              {`${
+                locale.dateFormatHint ?? 'Use date format'
+              } ${formatHintText}`}
+            </span>
+          )}
           {(startDateInputAriaLabel || getValue(placeholder, 0)) && (
             <label htmlFor={datePickerId} style={visuallyHidden}>
               {startDateInputAriaLabel || getValue(placeholder, 0)}
@@ -1487,6 +1502,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               {...startInputProps}
               {...inputSharedProps}
               {...startInputAriaProps}
+              {...getDataOrAriaProps(props)}
+              aria-describedby={mergedAriaDescribedBy}
               autoComplete={autoComplete}
             />
           </div>
@@ -1541,6 +1558,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
               {...endInputProps}
               {...inputSharedProps}
               {...endInputAriaProps}
+              {...getDataOrAriaProps(props)}
+              aria-describedby={mergedAriaDescribedBy}
               autoComplete={autoComplete}
             />
           </div>

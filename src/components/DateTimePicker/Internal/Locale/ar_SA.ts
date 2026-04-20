@@ -37,6 +37,7 @@ const locale: Locale = {
   minuteLabel: 'دقائق',
   secondLabel: 'ثواني',
   ampmLabel: 'ص/م',
+  dateFormatHint: 'استخدم تنسيق التاريخ',
 };
 
 export default locale;

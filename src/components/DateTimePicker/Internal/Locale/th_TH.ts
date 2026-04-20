@@ -39,6 +39,7 @@ const locale: Locale = {
   minuteLabel: 'นาที',
   secondLabel: 'วินาที',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'ใช้รูปแบบวันที่',
 };
 
 export default locale;
