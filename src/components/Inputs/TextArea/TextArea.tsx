@@ -65,6 +65,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       onBlur,
       onChange,
       onClear,
+      onClose,
       onFocus,
       onKeyDown,
       onReset,
@@ -73,6 +74,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       readOnlyProps,
       required = false,
       reset = false,
+      showCloseButton = false,
       shape = TextInputShape.Rectangle,
       size = TextInputSize.Medium,
       status,
@@ -329,6 +331,23 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
               tabIndex={0}
               value={inputValue}
             />
+            {showCloseButton && !!inputValue && (
+              <button
+                aria-label="Clear"
+                className={styles.textAreaCloseButton}
+                onClick={() => {
+                  setInputValue('');
+                  onClose?.();
+                  inputField?.focus();
+                }}
+                type="button"
+              >
+                <Icon
+                  path={IconName.mdiClose}
+                  size={inputSizeToIconSizeMap.get(mergedSize)}
+                />
+              </button>
+            )}
             {enableExpand && (
               <Icon
                 classNames={styles.textAreaResizeIcon}

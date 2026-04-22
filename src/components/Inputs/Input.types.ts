@@ -164,6 +164,15 @@ export interface TextAreaProps
    */
   onClear?: () => void;
   /**
+   * Callback fired when the close button is clicked.
+   */
+  onClose?: () => void;
+  /**
+   * Shows a close button in the top-right corner of the text area.
+   * @default false
+   */
+  showCloseButton?: boolean;
+  /**
    * The text area component ref.
    */
   ref?: Ref<HTMLTextAreaElement>;
