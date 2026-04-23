@@ -1210,6 +1210,10 @@
     &.input-stretch {
       width: 100%;
     }
+
+    &.text-area-with-close-button {
+      padding-right: $space-xl;
+    }
   }
 
   .text-area-resize-icon {
@@ -1505,6 +1509,10 @@
       font-size: $text-font-size-4;
       line-height: $text-line-height-5;
       min-height: calc($text-line-height-5 + $space-xxxs + $space-xs * 2);
+
+      &.text-area-with-close-button {
+        padding-right: calc($space-xl + $space-xxs);
+      }
     }
   }
 

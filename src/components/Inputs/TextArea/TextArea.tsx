@@ -173,6 +173,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
       { [styles.readOnly]: !!readonly && !readOnlyProps?.noStyleChange },
       { ['in-form-item']: mergedFormItemInput },
+      { [styles.textAreaWithCloseButton]: showCloseButton },
       getStatusClassNames(mergedStatus, hasFeedback),
     ]);
 
