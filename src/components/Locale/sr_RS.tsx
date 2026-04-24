@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/sr_RS';
 import Table from '../Table/Locale/sr_RS';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/sr_RS';
 import Select from '../Select/Locale/sr_RS';
+import TextArea from '../Inputs/TextArea/Locale/sr_RS';
 import Upload from '../Upload/Locale/sr_RS';
 
 const typeTemplate = '${label} nije validan ${type}';
@@ -85,6 +86,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 

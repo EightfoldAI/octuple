@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/bg_BG';
 import Table from '../Table/Locale/bg_BG';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/bg_BG';
 import Select from '../Select/Locale/bg_BG';
+import TextArea from '../Inputs/TextArea/Locale/bg_BG';
 import Upload from '../Upload/Locale/bg_BG';
 
 const typeTemplate = '${label} не е валиден ${type}';
@@ -85,6 +86,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 

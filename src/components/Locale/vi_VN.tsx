@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/vi_VN';
 import Table from '../Table/Locale/vi_VN';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/vi_VN';
 import Select from '../Select/Locale/vi_VN';
+import TextArea from '../Inputs/TextArea/Locale/vi_VN';
 import Upload from '../Upload/Locale/vi_VN';
 
 const typeTemplate = '${label} không phải là một ${type} hợp lệ';
@@ -85,6 +86,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 
