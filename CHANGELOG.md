@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.57.2](https://github.com/EightfoldAI/octuple/compare/v2.57.0...v2.57.2) (2026-04-24)
+
+### Features
+
+- **TextArea:** add Clear button ([#1122](https://github.com/EightfoldAI/octuple/issues/1122)) ([622073c](https://github.com/EightfoldAI/octuple/commits/622073c992425a1d7fde24a98547026d44405a17))
+
 ## [2.57.0](https://github.com/EightfoldAI/octuple/compare/v2.56.8...v2.57.0) (2026-04-09)
 
 ### Features
