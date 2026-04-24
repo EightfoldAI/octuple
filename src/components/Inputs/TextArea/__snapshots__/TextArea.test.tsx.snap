@@ -18,9 +18,8 @@ exports[`TextArea Text area with showCloseButton and value matches snapshot 1`] 
       Hello world
     </textarea>
     <button
-      aria-label="Clear"
+      aria-label="Clear text area"
       class="text-area-close-button"
-      type="button"
     >
       <span
         class="icon-wrapper"

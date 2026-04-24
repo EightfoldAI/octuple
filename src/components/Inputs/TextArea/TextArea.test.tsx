@@ -54,7 +54,7 @@ describe('TextArea', () => {
       container
         .querySelector('.text-area-close-button')
         .getAttribute('aria-label')
-    ).toBe('Clear');
+    ).toBe('Clear text area');
   });
 
   test('Close button click clears the textarea value', () => {

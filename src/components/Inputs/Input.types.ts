@@ -144,6 +144,13 @@ export interface SearchBoxProps
   value?: string;
 }
 
+export type TextAreaLocale = {
+  lang: {
+    locale: string;
+    clearButtonAriaLabelText: string;
+  };
+};
+
 export interface TextAreaProps
   extends Omit<
     InputProps<HTMLTextAreaElement>,
@@ -154,6 +161,11 @@ export interface TextAreaProps
     | 'alignIcon'
     | 'readonly'
   > {
+  /**
+   * The text area close button aria label text.
+   * @default 'Clear text area'
+   */
+  clearButtonAriaLabel?: string;
   /**
    * The text area is expandable.
    * @default false

@@ -34,6 +34,8 @@ import {
 } from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
+import { useLocaleReceiver } from '../../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 
 import styles from '../input.module.scss';
 import themedComponentStyles from '../input.theme.module.scss';
@@ -46,6 +48,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       autoFocus = false,
       classNames,
       clear = false,
+      clearButtonAriaLabel,
       configContextProps = {
         noDisabledContext: false,
         noShapeContext: false,
@@ -95,6 +98,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
     const htmlDir: string = useCanvasDirection();
+
+    const [textAreaLocale] = useLocaleReceiver('TextArea', enUS);
 
     // TODO: Upgrade to React 18 and use the new `useId` hook.
     // This way the id will match on the server and client.
@@ -334,14 +339,16 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             />
             {showCloseButton && !!inputValue && (
               <button
-                aria-label="Clear"
+                aria-label={
+                  clearButtonAriaLabel ??
+                  textAreaLocale?.lang?.clearButtonAriaLabelText
+                }
                 className={styles.textAreaCloseButton}
                 onClick={() => {
                   setInputValue('');
                   onClose?.();
                   inputField?.focus();
                 }}
-                type="button"
               >
                 <Icon
                   path={IconName.mdiClose}

@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/es_ES';
 import Table from '../Table/Locale/es_ES';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/es_ES';
 import Select from '../Select/Locale/es_ES';
+import TextArea from '../Inputs/TextArea/Locale/es_ES';
 import Upload from '../Upload/Locale/es_ES';
 
 const typeTemplate = '${label} no es un ${type} válido';
@@ -85,6 +86,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 
