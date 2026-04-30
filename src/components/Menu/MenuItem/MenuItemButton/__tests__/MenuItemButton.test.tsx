@@ -15,7 +15,7 @@ describe('MenuItemButton', () => {
       />
     );
 
-    const button = getByRole('menuitem');
+    const button = getByRole('listitem');
     expect(button).toBeInTheDocument();
   });
 });

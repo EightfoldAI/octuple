@@ -38,6 +38,7 @@ const locale: Locale = {
   minuteLabel: 'Dakikalar',
   secondLabel: 'Saniyeler',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Tarih biçimini kullanın',
 };
 
 export default locale;

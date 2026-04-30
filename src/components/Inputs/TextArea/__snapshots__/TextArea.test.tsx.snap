@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea Text area with showCloseButton and value matches snapshot 1`] = `
+<div
+  class="input-wrapper input-medium"
+>
+  <div
+    class="text-area-group"
+  >
+    <textarea
+      aria-disabled="false"
+      class="text-area text-area-no-expand text-area-with-close-button"
+      cols="50"
+      id="snapshot-textarea"
+      rows="5"
+      tabindex="0"
+    >
+      Hello world
+    </textarea>
+    <button
+      aria-label="Clear text area"
+      class="text-area-close-button"
+    >
+      <span
+        class="icon-wrapper"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;

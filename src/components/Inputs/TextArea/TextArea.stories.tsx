@@ -74,6 +74,10 @@ export default {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
+    showCloseButton: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
     inputWidth: {
       options: [TextInputWidth.fitContent, TextInputWidth.fill],
       control: { type: 'inline-radio' },
@@ -126,7 +130,12 @@ export default {
 const Text_Area_Story: ComponentStory<typeof TextArea> = (args) => {
   const [val, setVal] = useState(args.value);
   return (
-    <TextArea {...args} value={val} onChange={(e) => setVal(e.target.value)} />
+    <TextArea
+      {...args}
+      value={val}
+      onChange={(e) => setVal(e.target.value)}
+      onClose={() => setVal('')}
+    />
   );
 };
 
@@ -169,6 +178,7 @@ Text_Area.args = {
     noStyleChange: false,
   },
   required: false,
+  showCloseButton: false,
   size: TextInputSize.Medium,
   shape: TextInputShape.Rectangle,
   style: {},

@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/ja_JP';
 import Table from '../Table/Locale/ja_JP';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ja_JP';
 import Select from '../Select/Locale/ja_JP';
+import TextArea from '../Inputs/TextArea/Locale/ja_JP';
 import Upload from '../Upload/Locale/ja_JP';
 
 const typeTemplate = '${label}は有効な${type}ではありません';
@@ -81,6 +82,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 

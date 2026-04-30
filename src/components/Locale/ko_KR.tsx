@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/ko_KR';
 import Table from '../Table/Locale/ko_KR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ko_KR';
 import Select from '../Select/Locale/ko_KR';
+import TextArea from '../Inputs/TextArea/Locale/ko_KR';
 import Upload from '../Upload/Locale/ko_KR';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
@@ -81,6 +82,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 

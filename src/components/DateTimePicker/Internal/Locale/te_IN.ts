@@ -38,6 +38,7 @@ const locale: Locale = {
   minuteLabel: 'నిమిషాలు',
   secondLabel: 'సెకన్లు',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'తేదీ ఆకృతిని ఉపయోగించండి',
 };
 
 export default locale;

@@ -12,6 +12,7 @@ import Stepper from '../Stepper/Locale/hu_HU';
 import Table from '../Table/Locale/hu_HU';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/hu_HU';
 import Select from '../Select/Locale/hu_HU';
+import TextArea from '../Inputs/TextArea/Locale/hu_HU';
 import Upload from '../Upload/Locale/hu_HU';
 
 const localeValues: Locale = {
@@ -29,6 +30,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 

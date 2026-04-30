@@ -3,7 +3,15 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import { create } from 'react-test-renderer';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Stat, Tabs, Tab, TabSize, TabVariant, TabIconAlign, TabVariantType } from './';
+import {
+  Stat,
+  Tabs,
+  Tab,
+  TabSize,
+  TabVariant,
+  TabIconAlign,
+  TabVariantType,
+} from './';
 import { ButtonShape, ButtonVariant } from '../Button';
 import { IconName } from '../Icon';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
@@ -1006,7 +1014,9 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       fireEvent.mouseEnter(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
@@ -1021,7 +1031,9 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       await userEvent.click(tab2);
       expect(dropdownTabClick).toHaveBeenCalledWith('tab2', expect.any(Object));
     });
@@ -1034,14 +1046,19 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       await userEvent.click(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
       });
       const item = screen.getByText('Sub Tab 2-1');
       await userEvent.click(item);
-      expect(dropdownTabClick).toHaveBeenCalledWith('tab2-1', expect.any(Object));
+      expect(dropdownTabClick).toHaveBeenCalledWith(
+        'tab2-1',
+        expect.any(Object)
+      );
     });
 
     test('Should not select disabled dropdown item', async () => {
@@ -1052,13 +1069,17 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       await userEvent.click(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-3')).toBeVisible();
       });
       const disabledItem = screen.getByText('Sub Tab 2-3');
-      expect(disabledItem.closest('button')?.hasAttribute('disabled')).toBe(true);
+      expect(disabledItem.closest('li')?.getAttribute('aria-disabled')).toBe(
+        'true'
+      );
     });
 
     test('Should set aria-expanded when dropdown is open', async () => {
@@ -1069,7 +1090,9 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       expect(tab2.getAttribute('aria-expanded')).toBe('false');
       await userEvent.click(tab2);
       await waitFor(() => {
@@ -1085,7 +1108,9 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       tab2.focus();
       fireEvent.keyDown(tab2, { key: 'Enter' });
       await waitFor(() => {
@@ -1101,11 +1126,13 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
+
       // Initially tab2 should not be active
       expect(tab2.getAttribute('aria-selected')).toBe('false');
-      
+
       // Select a dropdown item
       await userEvent.click(tab2);
       await waitFor(() => {
@@ -1113,7 +1140,7 @@ describe('Tabs internal logic edge cases', () => {
       });
       const item = screen.getByText('Sub Tab 2-1');
       await userEvent.click(item);
-      
+
       // Rerender with the selected dropdown item value
       rerender(
         <Tabs onChange={dropdownTabClick} value={'tab2-1'}>
@@ -1122,9 +1149,11 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      
+
       // Tab2 should now be active because one of its dropdown items is selected
-      const updatedTab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+      const updatedTab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       expect(updatedTab2.getAttribute('aria-selected')).toBe('true');
     });
 
@@ -1136,23 +1165,28 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
+
       // Open dropdown
       await userEvent.click(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
         expect(tab2.getAttribute('aria-expanded')).toBe('true');
       });
-      
+
       // Select an item
       const item = screen.getByText('Sub Tab 2-1');
       await userEvent.click(item);
-      
+
       // Dropdown should close
-      await waitFor(() => {
-        expect(tab2.getAttribute('aria-expanded')).toBe('false');
-      }, { timeout: 2000 });
+      await waitFor(
+        () => {
+          expect(tab2.getAttribute('aria-expanded')).toBe('false');
+        },
+        { timeout: 2000 }
+      );
     });
 
     test('Should render chevron icon for dropdown tabs', () => {
@@ -1164,9 +1198,13 @@ describe('Tabs internal logic edge cases', () => {
         </Tabs>
       );
       // Find the button inside the dropdown wrapper
-      const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
+      const button = container.querySelector(
+        'button[data-value="tab2"]'
+      ) as HTMLElement;
       // The chevron icon should be inside the button
-      const chevron = button?.querySelector('[class*="dropdownChevron"], [class*="chevron"], svg');
+      const chevron = button?.querySelector(
+        '[class*="dropdownChevron"], [class*="chevron"], svg'
+      );
       expect(chevron).toBeTruthy();
     });
 
@@ -1178,32 +1216,40 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      
+      const button = container.querySelector(
+        'button[data-value="tab2"]'
+      ) as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
+
       // Find chevron initially
-      const chevron = button?.querySelector('[class*="dropdownChevron"], [class*="chevron"], svg') as HTMLElement;
+      const chevron = button?.querySelector(
+        '[class*="dropdownChevron"], [class*="chevron"], svg'
+      ) as HTMLElement;
       expect(chevron).toBeTruthy();
-      
+
       // Initially chevron should not have open class (if it has classes)
       if (chevron?.className) {
         expect(chevron.className).not.toContain('dropdownChevronOpen');
       }
-      
+
       // Open dropdown
       await userEvent.click(button);
       await waitFor(() => {
         expect(tab2.getAttribute('aria-expanded')).toBe('true');
       });
-      
+
       // Chevron should have open class after dropdown opens
       // CSS modules convert camelCase to kebab-case
-      const updatedChevron = button?.querySelector('[class*="dropdownChevron"], [class*="chevron"], svg') as HTMLElement;
+      const updatedChevron = button?.querySelector(
+        '[class*="dropdownChevron"], [class*="chevron"], svg'
+      ) as HTMLElement;
       if (updatedChevron?.className) {
         // Check for either camelCase or kebab-case version
         expect(
           updatedChevron.className.includes('dropdownChevronOpen') ||
-          updatedChevron.className.includes('dropdown-chevron-open')
+            updatedChevron.className.includes('dropdown-chevron-open')
         ).toBe(true);
       }
     });
@@ -1217,12 +1263,16 @@ describe('Tabs internal logic edge cases', () => {
         </Tabs>
       );
       // The button is inside the dropdown wrapper, find it directly
-      const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
+      const button = container.querySelector(
+        'button[data-value="tab2"]'
+      ) as HTMLElement;
       // The aria-controls should be set (either by our code or by Dropdown component)
       const ariaControls = button?.getAttribute('aria-controls');
       expect(ariaControls).toBeTruthy();
       // It should either be our custom ID or the dropdown's generated ID
-      expect(ariaControls?.includes('tab2') || ariaControls?.includes('dropdown')).toBe(true);
+      expect(
+        ariaControls?.includes('tab2') || ariaControls?.includes('dropdown')
+      ).toBe(true);
     });
 
     test('Should handle custom dropdownProps', async () => {
@@ -1255,10 +1305,12 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       await userEvent.click(tab2);
-      
+
       await waitFor(() => {
         expect(customOnVisibleChange).toHaveBeenCalledWith(true);
       });
@@ -1277,9 +1329,9 @@ describe('Tabs internal logic edge cases', () => {
           ariaLabel: 'Tab 2',
           variant: TabVariantType.dropdown,
           dropdownItems: [
-            { 
-              value: 'tab2-1', 
-              label: 'Sub Tab 2-1', 
+            {
+              value: 'tab2-1',
+              label: 'Sub Tab 2-1',
               ariaLabel: 'Sub Tab 2-1',
               icon: IconName.mdiBellOutline,
             },
@@ -1294,16 +1346,18 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       await userEvent.click(tab2);
-      
+
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
       });
-      
+
       // Icon should be rendered in the menu item
-      const menuItem = screen.getByText('Sub Tab 2-1').closest('button');
+      const menuItem = screen.getByText('Sub Tab 2-1').closest('li');
       expect(menuItem).toBeTruthy();
     });
 
@@ -1336,16 +1390,20 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      
-      const tab1 = container.querySelector('[data-value="tab1"]') as HTMLElement;
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      
+
+      const tab1 = container.querySelector(
+        '[data-value="tab1"]'
+      ) as HTMLElement;
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
+
       // Open first dropdown
       await userEvent.click(tab1);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 1-1')).toBeVisible();
       });
-      
+
       // Click second tab - should close first dropdown and open second
       await userEvent.click(tab2);
       await waitFor(() => {
@@ -1362,22 +1420,27 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
-      
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
+
       // Open dropdown
       await userEvent.click(tab2);
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
         expect(tab2.getAttribute('aria-expanded')).toBe('true');
       });
-      
+
       // Press Escape
       fireEvent.keyDown(tab2, { key: 'Escape' });
-      
+
       // Dropdown should close
-      await waitFor(() => {
-        expect(tab2.getAttribute('aria-expanded')).toBe('false');
-      }, { timeout: 2000 });
+      await waitFor(
+        () => {
+          expect(tab2.getAttribute('aria-expanded')).toBe('false');
+        },
+        { timeout: 2000 }
+      );
     });
 
     test('Should handle dropdown when tab value matches dropdown item', () => {
@@ -1388,12 +1451,13 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       // Tab2 should be active because tab2-1 is one of its dropdown items
       expect(tab2.getAttribute('aria-selected')).toBe('true');
     });
-
 
     test('Should handle all dropdown items being disabled', async () => {
       const allDisabledTabs = [
@@ -1408,15 +1472,15 @@ describe('Tabs internal logic edge cases', () => {
           ariaLabel: 'Tab 2',
           variant: TabVariantType.dropdown,
           dropdownItems: [
-            { 
-              value: 'tab2-1', 
-              label: 'Sub Tab 2-1', 
+            {
+              value: 'tab2-1',
+              label: 'Sub Tab 2-1',
               ariaLabel: 'Sub Tab 2-1',
               disabled: true,
             },
-            { 
-              value: 'tab2-2', 
-              label: 'Sub Tab 2-2', 
+            {
+              value: 'tab2-2',
+              label: 'Sub Tab 2-2',
               ariaLabel: 'Sub Tab 2-2',
               disabled: true,
             },
@@ -1431,19 +1495,21 @@ describe('Tabs internal logic edge cases', () => {
           ))}
         </Tabs>
       );
-      
-      const tab2 = container.querySelector('[data-value="tab2"]') as HTMLElement;
+
+      const tab2 = container.querySelector(
+        '[data-value="tab2"]'
+      ) as HTMLElement;
       await userEvent.click(tab2);
-      
+
       await waitFor(() => {
         expect(screen.getByText('Sub Tab 2-1')).toBeVisible();
       });
-      
+
       // All items should be disabled
       const item1 = screen.getByText('Sub Tab 2-1');
       const item2 = screen.getByText('Sub Tab 2-2');
-      expect(item1.closest('button')?.hasAttribute('disabled')).toBe(true);
-      expect(item2.closest('button')?.hasAttribute('disabled')).toBe(true);
+      expect(item1.closest('li')?.getAttribute('aria-disabled')).toBe('true');
+      expect(item2.closest('li')?.getAttribute('aria-disabled')).toBe('true');
     });
   });
 });

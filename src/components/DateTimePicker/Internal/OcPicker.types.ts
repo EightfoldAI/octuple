@@ -169,6 +169,10 @@ export type Locale = {
    * The time picker AM/PM column label.
    */
   ampmLabel?: string;
+  /**
+   * The date format hint text prefix (e.g., "Use date format").
+   */
+  dateFormatHint?: string;
 };
 
 export type PartialMode =

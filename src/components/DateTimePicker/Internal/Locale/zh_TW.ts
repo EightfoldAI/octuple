@@ -38,6 +38,7 @@ const locale: Locale = {
   minuteLabel: '分鐘',
   secondLabel: '秒',
   ampmLabel: '上午/下午',
+  dateFormatHint: '使用日期格式',
 };
 
 export default locale;

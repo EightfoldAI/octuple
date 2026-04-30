@@ -1287,7 +1287,6 @@ exports[`SkillTag Skill tag has a dropdown 1`] = `
       aria-controls="dropdown-"
       aria-disabled="false"
       aria-expanded="true"
-      aria-haspopup="true"
       class="reference-wrapper skill tag bordered clickable white medium dropdown"
       data-testid="skill-tag-2"
       id="testSkill"

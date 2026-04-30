@@ -39,6 +39,7 @@ const locale: Locale = {
   minuteLabel: 'Minutos',
   secondLabel: 'Segundos',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Usar formato de fecha',
 };
 
 export default locale;

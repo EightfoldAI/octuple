@@ -39,6 +39,7 @@ const locale: Locale = {
   minuteLabel: 'דקות',
   secondLabel: 'שניות',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'השתמש בפורמט תאריך',
 };
 
 export default locale;

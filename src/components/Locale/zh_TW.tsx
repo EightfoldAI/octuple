@@ -13,6 +13,7 @@ import Stepper from '../Stepper/Locale/zh_TW';
 import Table from '../Table/Locale/zh_TW';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/zh_TW';
 import Select from '../Select/Locale/zh_TW';
+import TextArea from '../Inputs/TextArea/Locale/zh_TW';
 import Upload from '../Upload/Locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
@@ -85,6 +86,7 @@ const localeValues: Locale = {
   Table,
   TimePicker,
   Select,
+  TextArea,
   Upload,
 };
 

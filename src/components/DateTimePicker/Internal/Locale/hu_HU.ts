@@ -39,6 +39,7 @@ const locale: Locale = {
   minuteLabel: 'Percek',
   secondLabel: 'Másodpercek',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Használja a dátumformátumot',
 };
 
 export default locale;

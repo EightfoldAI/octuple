@@ -68,7 +68,7 @@ export interface MenuItemProps {
   menuRenderer?: MenuRenderFunction;
 }
 
-type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
+type NativeMenuButtonProps = Omit<OcBaseProps<HTMLLIElement>, 'children'>;
 
 export interface MenuItemButtonProps
   extends MenuItemProps,

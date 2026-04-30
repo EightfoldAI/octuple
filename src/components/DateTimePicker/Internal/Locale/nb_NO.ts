@@ -41,6 +41,7 @@ const locale: Locale = {
   minuteLabel: 'Minutter',
   secondLabel: 'Sekunder',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Bruk datoformat',
 };
 
 export default locale;

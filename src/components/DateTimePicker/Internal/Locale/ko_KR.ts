@@ -38,6 +38,7 @@ const locale: Locale = {
   minuteLabel: '분',
   secondLabel: '초',
   ampmLabel: '오전/오후',
+  dateFormatHint: '날짜 형식 사용',
 };
 
 export default locale;

@@ -78,6 +78,10 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
    */
   renderAdditionalItem?: (item: T) => ReactNode;
   /**
+   * aria-labelledby for the list element.
+   */
+  ariaLabelledBy?: string;
+  /**
    * Role of the list.
    */
   role?: string;

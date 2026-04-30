@@ -39,6 +39,7 @@ const locale: Locale = {
   minuteLabel: 'Minit',
   secondLabel: 'Saat',
   ampmLabel: 'AM/PM',
+  dateFormatHint: 'Gunakan format tarikh',
 };
 
 export default locale;
