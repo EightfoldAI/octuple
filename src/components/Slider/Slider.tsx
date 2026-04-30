@@ -49,7 +49,7 @@ import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import useOffset from './Hooks/useOffset';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses, visuallyHidden } from '../../shared/utilities';
 
 import styles from './slider.module.scss';
 import themedComponentStyles from './slider.theme.module.scss';
@@ -86,6 +86,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     {
       activeDotStyle,
       allowDisabledFocus = false,
+      ariaHandleLabels,
       ariaLabel,
       ariaLabelledBy,
       ariaValueText,
@@ -937,6 +938,17 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     }
                   }}
                 />
+                {isRange && ariaHandleLabels && id && ariaHandleLabels.map(
+                  (label: string, index: number) => (
+                    <span
+                      key={`${getIdentifier(id, index)}-handle-label`}
+                      id={`${getIdentifier(id, index)}-handle-label`}
+                      style={visuallyHidden}
+                    >
+                      {label}
+                    </span>
+                  )
+                )}
                 {values.map((val: number, index: number) => (
                   <Tooltip
                     classNames={mergeClasses([
@@ -966,7 +978,11 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                       ref={ref}
                       aria-disabled={mergedDisabled}
                       aria-label={ariaLabel}
-                      aria-labelledby={ariaLabelledBy}
+                      aria-labelledby={
+                        isRange && ariaHandleLabels && id && ariaLabelledBy
+                          ? `${ariaLabelledBy} ${getIdentifier(id, index)}-handle-label`
+                          : ariaLabelledBy
+                      }
                       aria-valuetext={
                         Array.isArray(ariaValueText)
                           ? ariaValueText[index]
