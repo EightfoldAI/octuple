@@ -86,9 +86,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     {
       activeDotStyle,
       allowDisabledFocus = false,
-      ariaHandleLabels,
       ariaLabel,
       ariaLabelledBy,
+      ariaMaxHandleLabel,
+      ariaMinHandleLabel,
       ariaValueText,
       autoFocus = false,
       classNames,
@@ -938,16 +939,23 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     }
                   }}
                 />
-                {isRange && ariaHandleLabels && id && ariaHandleLabels.map(
-                  (label: string, index: number) => (
-                    <span
-                      key={`${getIdentifier(id, index)}-handle-label`}
-                      id={`${getIdentifier(id, index)}-handle-label`}
-                      style={visuallyHidden}
-                    >
-                      {label}
-                    </span>
-                  )
+                {isRange && id && ariaMinHandleLabel && (
+                  <span
+                    key={`${getIdentifier(id, 0)}-handle-label`}
+                    id={`${getIdentifier(id, 0)}-handle-label`}
+                    style={visuallyHidden}
+                  >
+                    {ariaMinHandleLabel}
+                  </span>
+                )}
+                {isRange && id && ariaMaxHandleLabel && (
+                  <span
+                    key={`${getIdentifier(id, 1)}-handle-label`}
+                    id={`${getIdentifier(id, 1)}-handle-label`}
+                    style={visuallyHidden}
+                  >
+                    {ariaMaxHandleLabel}
+                  </span>
                 )}
                 {values.map((val: number, index: number) => (
                   <Tooltip
@@ -979,7 +987,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                       aria-disabled={mergedDisabled}
                       aria-label={ariaLabel}
                       aria-labelledby={
-                        isRange && ariaHandleLabels && id && ariaLabelledBy
+                        isRange && id && ariaLabelledBy && (index === 0 ? ariaMinHandleLabel : ariaMaxHandleLabel)
                           ? `${ariaLabelledBy} ${getIdentifier(id, index)}-handle-label`
                           : ariaLabelledBy
                       }

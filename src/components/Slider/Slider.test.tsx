@@ -442,12 +442,13 @@ describe('Slider', () => {
     expect(thumbs[1]?.getAttribute('aria-valuetext')).toBe('80 percent');
   });
 
-  test('should render hidden handle label spans for range slider with ariaHandleLabels and id', () => {
+  test('should render hidden handle label spans for range slider with ariaMinHandleLabel, ariaMaxHandleLabel and id', () => {
     const { container } = render(
       <Slider
         value={[20, 80]}
         id="test-slider"
-        ariaHandleLabels={['Lower bound', 'Upper bound']}
+        ariaMinHandleLabel="Lower bound"
+        ariaMaxHandleLabel="Upper bound"
       />
     );
     const lowerLabel = container.querySelector('#test-slider-0-handle-label');
@@ -463,7 +464,8 @@ describe('Slider', () => {
       <Slider
         value={[20, 80]}
         id="test-slider"
-        ariaHandleLabels={['Lower bound', 'Upper bound']}
+        ariaMinHandleLabel="Lower bound"
+        ariaMaxHandleLabel="Upper bound"
         ariaLabelledBy="external-label"
       />
     );
