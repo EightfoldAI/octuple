@@ -135,6 +135,7 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
         <div
           role="region"
           aria-label={mergedLocale.lang!.notificationsRegionAriaLabelText}
+          aria-hidden={positionSnacks.length === 0 || undefined}
           key={position}
           className={mergeClasses([
             styles.snackbarContainer,

@@ -258,11 +258,41 @@ describe('Snackbar', () => {
         });
       });
 
+      // Only the active position's region is accessible to screen readers;
+      // empty regions are hidden via aria-hidden.
       const regions = wrapper.getAllByRole('region', {
         name: /notifications/i,
       });
       expect(regions).toBeTruthy();
-      expect(regions.length).toBe(6);
+      expect(regions.length).toBe(1);
+    });
+
+    test('empty position regions have aria-hidden="true"', () => {
+      // Before any snack: all 6 position regions are hidden from ATs
+      const allRegions = document.querySelectorAll('[role="region"]');
+      expect(allRegions.length).toBe(6);
+      allRegions.forEach((region) => {
+        expect(region.getAttribute('aria-hidden')).toBe('true');
+      });
+    });
+
+    test('active position region does not have aria-hidden; empty positions do', () => {
+      act(() => {
+        snack.serve({ content, position: 'top-center' });
+      });
+
+      // 5 empty positions remain aria-hidden
+      const hiddenRegions = document.querySelectorAll(
+        '[role="region"][aria-hidden="true"]'
+      );
+      expect(hiddenRegions.length).toBe(5);
+
+      // The region containing the active snack is accessible
+      const visibleRegions = wrapper.getAllByRole('region', {
+        name: /notifications/i,
+      });
+      expect(visibleRegions.length).toBe(1);
+      expect(visibleRegions[0].getAttribute('aria-hidden')).toBeNull();
     });
 
     test('non-closable snackbar should have role="alert"', () => {
