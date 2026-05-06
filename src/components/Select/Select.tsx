@@ -801,7 +801,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
             role="listbox"
             id={selectMenuId.current}
             aria-label={ariaLabel || undefined}
-            className={listStyles.listContainer}
+            className={mergeClasses([
+              listStyles.listContainer,
+              listStyles.vertical,
+            ])}
           >
             {filteredOptions.map((opt, i) => {
               const tabIdx = hasSelected
@@ -842,7 +845,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     handleAccessibleListboxKeyDown(e, i, filteredOptions)
                   }
                 >
-                  <span className={menuItemStyles.label}>{opt.text}</span>
+                  <span className={menuItemStyles.menuItemWrapper}>
+                    <span className={menuItemStyles.itemText}>
+                      <span className={menuItemStyles.label}>{opt.text}</span>
+                    </span>
+                  </span>
                 </li>
               );
             })}
