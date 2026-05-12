@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.57.3](https://github.com/EightfoldAI/octuple/compare/v2.57.1...v2.57.3) (2026-05-12)
+
+### Features
+
+- **TextArea:** add Clear button ([#1122](https://github.com/EightfoldAI/octuple/issues/1122)) ([a2585d3](https://github.com/EightfoldAI/octuple/commits/a2585d30339599265499cb877d096fcafe548c25))
+
+### Bug Fixes
+
+- **Slider:** handle visually hidden labels ([#1125](https://github.com/EightfoldAI/octuple/issues/1125)) ([2b16497](https://github.com/EightfoldAI/octuple/commits/2b164970fc4d4870d4973b87080ee81b3717c184))
+- **Snackbar:** add aria-hidden to empty snackbar position regions ([#1124](https://github.com/EightfoldAI/octuple/issues/1124)) ([8d2418d](https://github.com/EightfoldAI/octuple/commits/8d2418d948f80c8063d2551cf1dadcf331cf7b8e))
+
 ### [2.57.1](https://github.com/EightfoldAI/octuple/compare/v2.57.0...v2.57.1) (2026-04-20)
 
 ### Bug Fixes
