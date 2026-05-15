@@ -49,7 +49,7 @@ import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import useOffset from './Hooks/useOffset';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { mergeClasses, visuallyHidden } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './slider.module.scss';
 import themedComponentStyles from './slider.theme.module.scss';
@@ -88,8 +88,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       allowDisabledFocus = false,
       ariaLabel,
       ariaLabelledBy,
-      ariaMaxHandleLabel,
-      ariaMinHandleLabel,
       ariaValueText,
       autoFocus = false,
       classNames,
@@ -939,24 +937,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     }
                   }}
                 />
-                {isRange && id && ariaMinHandleLabel && (
-                  <span
-                    key={`${getIdentifier(id, 0)}-handle-label`}
-                    id={`${getIdentifier(id, 0)}-handle-label`}
-                    style={visuallyHidden}
-                  >
-                    {ariaMinHandleLabel}
-                  </span>
-                )}
-                {isRange && id && ariaMaxHandleLabel && (
-                  <span
-                    key={`${getIdentifier(id, 1)}-handle-label`}
-                    id={`${getIdentifier(id, 1)}-handle-label`}
-                    style={visuallyHidden}
-                  >
-                    {ariaMaxHandleLabel}
-                  </span>
-                )}
                 {values.map((val: number, index: number) => (
                   <Tooltip
                     classNames={mergeClasses([
@@ -986,11 +966,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                       ref={ref}
                       aria-disabled={mergedDisabled}
                       aria-label={ariaLabel}
-                      aria-labelledby={
-                        isRange && id && ariaLabelledBy && (index === 0 ? ariaMinHandleLabel : ariaMaxHandleLabel)
-                          ? `${ariaLabelledBy} ${getIdentifier(id, index)}-handle-label`
-                          : ariaLabelledBy
-                      }
+                      aria-labelledby={ariaLabelledBy}
                       aria-valuetext={
                         Array.isArray(ariaValueText)
                           ? ariaValueText[index]
