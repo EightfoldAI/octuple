@@ -21,7 +21,7 @@ export interface DropdownProps {
    * and the role of the reference element is not 'combobox'
    * @default 'true'
    */
-  ariaHaspopupValue?: string | false;
+  ariaHaspopupValue?: string;
   /**
    * The ref of element that should implement the following props:
    * 'aria-controls', 'aria-expanded', 'aria-haspopup', 'role'

@@ -25,7 +25,7 @@ export const Menu: FC<MenuProps> = ({
   onCancel,
   onChange,
   onOk,
-  role,
+  role = 'menu',
   size = MenuSize.medium,
   style,
   subHeader, // TODO: Remove in v3.0.0
@@ -89,7 +89,7 @@ export const Menu: FC<MenuProps> = ({
   const getHeader = (): JSX.Element =>
     header && (
       <div className={headerClassNames}>
-        <h2 className={styles.heading}>{header}</h2>
+        <div className={styles.heading}>{header}</div>
       </div>
     );
 
