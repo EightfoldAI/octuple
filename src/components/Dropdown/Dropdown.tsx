@@ -48,7 +48,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
     (
       {
         ariaRef,
-        ariaHaspopupValue,
+        ariaHaspopupValue = 'true',
         children,
         classNames,
         closeOnDropdownClick = true,
@@ -67,10 +67,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         placement = 'bottom-start',
         portal = false,
         positionStrategy = 'absolute',
-        referenceRole,
+        referenceRole = 'button',
         referenceOnClick,
         referenceOnKeydown,
         referenceWrapperClassNames,
+        role = 'listbox',
         showDropdown,
         style,
         tabIndex = 0,
@@ -469,23 +470,19 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (ariaRef?.current) {
           ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
 
-          // Add aria-haspopup if not already set; combobox elements get 'listbox' per ARIA 1.2
+          // Only add aria-haspopup for non-combobox elements if it is not already set
           const currentRole = ariaRef.current.getAttribute('role');
           const currentAriaHaspopup =
             ariaRef.current.getAttribute('aria-haspopup');
-          if (!currentAriaHaspopup) {
-            if (currentRole === 'combobox') {
-              ariaRef.current.setAttribute('aria-haspopup', 'listbox');
-            } else if (ariaHaspopupValue !== false) {
-              ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
-            }
+          if (currentRole !== 'combobox' && !currentAriaHaspopup) {
+            ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
           }
 
           if (!ariaRef.current.hasAttribute('aria-controls')) {
             ariaRef.current.setAttribute('aria-controls', dropdownId);
           }
 
-          if (!ariaRef.current.hasAttribute('role') && referenceRole) {
+          if (!ariaRef.current.hasAttribute('role')) {
             ariaRef.current.setAttribute('role', referenceRole);
           }
 
@@ -512,9 +509,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           'aria-expanded': mergedVisible,
           'aria-haspopup':
             child.props?.['aria-haspopup'] ??
-            (child.props.role !== 'combobox' && ariaHaspopupValue !== false
-              ? ariaHaspopupValue
-              : undefined),
+            (child.props.role !== 'combobox' ? ariaHaspopupValue : undefined),
           role: child.props?.role || referenceRole,
           tabIndex: tabIndex,
         });
@@ -568,6 +563,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               onClick={handleDropdownClick}
               onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
+              role={role}
               {...overlayProps}
             >
               {overlay}

@@ -612,6 +612,7 @@ describe('Select', () => {
     await waitFor(() =>
       expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
     );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
   });
 
   test('Focuses the first focusable element when dropdown is visible and not filterable and initialFocus is true', async () => {
@@ -626,6 +627,7 @@ describe('Select', () => {
     await waitFor(() =>
       expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
     );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
   });
 
   test('Focuses the first focusable element when dropdown is visible and filterable and initialFocus is true', async () => {
@@ -645,6 +647,7 @@ describe('Select', () => {
     await waitFor(() =>
       expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
     );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
   });
 
   test('Focuses the first focusable element when dropdown is visible and filterable and arrowDown is pressed', async () => {
@@ -653,29 +656,14 @@ describe('Select', () => {
     );
     const select = getByPlaceholderText('Select test');
     select.focus();
-    fireEvent.click(select);
+    fireEvent.click(select, { key: 'Enter' });
     const listbox = await waitFor(() => getAllByRole('option'));
     expect(listbox).toHaveLength(options.length);
     fireEvent.keyDown(select, { key: 'ArrowDown' });
     await waitFor(() =>
       expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true)
     );
-  });
-
-  test('Sets aria-activedescendant to the selected option id after selection', async () => {
-    const { getAllByRole, getByPlaceholderText, getByText } = render(
-      <Select options={options} filterable placeholder="Select test" />
-    );
-    const select = getByPlaceholderText('Select test');
-    select.focus();
-    fireEvent.click(select);
-    const listbox = await waitFor(() => getAllByRole('option'));
-    expect(listbox).toHaveLength(options.length);
-    const option1 = await waitFor(() => getByText('Option 1'));
-    fireEvent.click(option1);
-    await waitFor(() =>
-      expect(select.getAttribute('aria-activedescendant')).toBe('Option 1-0')
-    );
+    expect(screen.getByTestId('option1-test-id').matches(':focus')).toBe(true);
   });
 
   test('Updates aria-activedescendant when an option receives focus via keyboard navigation', async () => {
@@ -797,11 +785,8 @@ describe('Select', () => {
     );
     fireEvent.click(getByPlaceholderText('Select test'));
     await waitFor(() => getAllByRole('listbox'));
-    // After removing the inner button, role is applied directly to the li element.
-    // With menuButtonHasRole=false the li has no role attribute.
-    const listItems = container.querySelectorAll('ul[role="listbox"] > li');
-    expect(listItems.length).toBeGreaterThan(0);
-    listItems.forEach((li) => expect(li.hasAttribute('role')).toBe(false));
+    const button = container.querySelector('li button');
+    expect(button?.hasAttribute('role')).toBe(false);
   });
 
   test('Applies menuItemRole to list item wrappers', async () => {
@@ -817,7 +802,7 @@ describe('Select', () => {
     expect(container.querySelector('li[role="option"]')).toBeTruthy();
   });
 
-  test('Uses default option role when menuItemRole is not provided', async () => {
+  test('Uses default presentation role when menuItemRole is not provided', async () => {
     const { getAllByRole, getByPlaceholderText, container } = render(
       <Select
         options={options}
@@ -827,13 +812,10 @@ describe('Select', () => {
     );
     fireEvent.click(getByPlaceholderText('Select test'));
     await waitFor(() => getAllByRole('listbox'));
-    // Without menuItemRole the li inherits the item's own role which defaults to 'option'.
-    expect(container.querySelector('li[role="option"]')).toBeTruthy();
+    expect(container.querySelector('li[role="presentation"]')).toBeTruthy();
   });
 
   test('Combines menuButtonHasRole true with menuItemRole', async () => {
-    // After removing the inner button, the li receives its role from listItemRole
-    // (menuItemRole) which takes precedence over the button's role (menuButtonRole).
     const { getAllByRole, getByPlaceholderText, container } = render(
       <Select
         options={options}
@@ -848,7 +830,7 @@ describe('Select', () => {
       />
     );
     fireEvent.click(getByPlaceholderText('Select test'));
-    await waitFor(() => getAllByRole('option'));
+    await waitFor(() => getAllByRole('menuitem'));
     expect(container.querySelector('li[role="option"]')).toBeTruthy();
   });
 

@@ -203,18 +203,6 @@ export interface SliderInputProps
    */
   ariaLabelledBy?: string;
   /**
-   * Screen-reader-only label for the max handle in a range Slider.
-   * Becomes a visually hidden <span> whose id is appended to aria-labelledby.
-   * Only used when the Slider is a range (value is an array).
-   */
-  ariaMaxHandleLabel?: string;
-  /**
-   * Screen-reader-only label for the min handle in a range Slider.
-   * Becomes a visually hidden <span> whose id is appended to aria-labelledby.
-   * Only used when the Slider is a range (value is an array).
-   */
-  ariaMinHandleLabel?: string;
-  /**
    * The Slider aria-valuetext attribute.
    * Provides a human-readable text alternative for the current value.
    * For range sliders, pass an array of two strings for each thumb.

@@ -19,9 +19,7 @@ export const ExternalListItem: FC<ExternalListItemProps> = (
     ref: itemRef,
     tabIndex: 0,
     onKeyDown: (event: KeyboardEvent) => {
-      (item.props as unknown as React.HTMLAttributes<HTMLElement>).onKeyDown?.(
-        event as unknown as React.KeyboardEvent<HTMLElement>
-      );
+      item.props.onkeydown?.(event);
       handleItemKeyDown?.(event, index, true);
     },
   });
