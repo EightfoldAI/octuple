@@ -17,6 +17,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = forwardRef(
       direction,
       disabled,
       iconProps,
+      listItemRole,
       role = 'menuitem',
       size = MenuSize.medium,
       subText,
@@ -68,7 +69,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = forwardRef(
     );
 
     return (
-      <li className={menuItemClassNames} role="presentation">
+      <li className={menuItemClassNames} role={listItemRole ?? 'presentation'}>
         <Link
           classNames={styles.menuLink}
           disabled={disabled}
