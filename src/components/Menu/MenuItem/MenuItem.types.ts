@@ -155,6 +155,10 @@ export interface MenuItemLinkProps
    * Display label of the menu item
    */
   text?: string;
+  /**
+   * Role for the list item (li) element
+   */
+  listItemRole?: string;
 }
 
 export interface MenuItemSubHeaderProps
@@ -164,6 +168,10 @@ export interface MenuItemSubHeaderProps
    * Text of the sub header
    */
   text?: string;
+  /**
+   * Role for the list item (li) element
+   */
+  listItemRole?: string;
 }
 
 export interface IMenuItemRender {
