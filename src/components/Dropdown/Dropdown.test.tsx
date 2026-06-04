@@ -249,6 +249,32 @@ const ComplexDropdownWithAriaHaspopupComponent = (): JSX.Element => {
   );
 };
 
+const ComplexDropdownWithoutAriaHaspopupComponent = (): JSX.Element => {
+  const buttonRef: React.MutableRefObject<HTMLButtonElement> =
+    useRef<HTMLButtonElement>(null);
+
+  return (
+    <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue={null}>
+      <div>
+        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+      </div>
+    </Dropdown>
+  );
+};
+
+const ComplexDropdownWithCustomAriaHaspopupComponent = (): JSX.Element => {
+  const buttonRef: React.MutableRefObject<HTMLButtonElement> =
+    useRef<HTMLButtonElement>(null);
+
+  return (
+    <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue="dialog">
+      <div>
+        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+      </div>
+    </Dropdown>
+  );
+};
+
 const filterOverlay1 = () => (
   <List<User>
     items={sampleList}
@@ -927,5 +953,25 @@ describe('Dropdown', () => {
     const referenceElement = getByTestId('test-button-id');
 
     expect(referenceElement.getAttribute('aria-haspopup')).toBe('listbox');
+  });
+
+  test('Should not set aria-haspopup on the reference element when ariaHaspopupValue is null', async () => {
+    const { getByTestId } = render(
+      <ComplexDropdownWithoutAriaHaspopupComponent />
+    );
+    const referenceElement = getByTestId('test-button-id');
+
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
+    expect(referenceElement.getAttribute('aria-controls')).toBeTruthy();
+    expect(referenceElement.hasAttribute('aria-haspopup')).toBe(false);
+  });
+
+  test('Should set aria-haspopup to the provided ariaHaspopupValue on the reference element', async () => {
+    const { getByTestId } = render(
+      <ComplexDropdownWithCustomAriaHaspopupComponent />
+    );
+    const referenceElement = getByTestId('test-button-id');
+
+    expect(referenceElement.getAttribute('aria-haspopup')).toBe('dialog');
   });
 });
