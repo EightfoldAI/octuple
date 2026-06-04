@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
 import { Select } from './';
+import { MenuItemType } from '../Menu';
 import { sleep } from '../../tests/Utilities';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -1008,6 +1009,110 @@ describe('Select', () => {
 
       await waitFor(() => {
         expect(getByRole('status').textContent).toBe(lastMessage);
+      });
+    });
+
+    describe('Grouped options with sub headers', () => {
+      const groupedOptions = [
+        { text: 'Group One', value: 'group-one', type: MenuItemType.subHeader },
+        { text: 'Apple', value: 'apple' },
+        { text: 'Banana', value: 'banana' },
+        { text: 'Group Two', value: 'group-two', type: MenuItemType.subHeader },
+        { text: 'Cherry', value: 'cherry' },
+      ];
+
+      // Keeps sub headers visible while filtering, mirroring grouped Select
+      // consumers that render persistent group labels.
+      const groupAwareFilterOption = (
+        option: { type?: MenuItemType; text?: string },
+        query: string
+      ): boolean => {
+        if (option.type === MenuItemType.subHeader) return true;
+        const q = (query || '').toLowerCase();
+        return !q || (option.text || '').toLowerCase().includes(q);
+      };
+
+      test('Excludes sub headers from announced count when dropdown opens', async () => {
+        const { getByPlaceholderText, getByRole } = render(
+          <Select
+            options={groupedOptions}
+            filterable
+            placeholder="Select test"
+          />
+        );
+        const input = getByPlaceholderText('Select test');
+        fireEvent.click(input);
+
+        await waitFor(() => {
+          expect(getByRole('status')).toHaveTextContent('3 matches found.');
+        });
+      });
+
+      test('Excludes visible sub headers from announced count while filtering', async () => {
+        const { getByPlaceholderText, getByRole, container } = render(
+          <Select
+            options={groupedOptions}
+            filterable
+            filterOption={groupAwareFilterOption}
+            placeholder="Select test"
+          />
+        );
+        const input = getByPlaceholderText('Select test');
+        fireEvent.click(input);
+
+        fireEvent.change(container.querySelector('.select-input'), {
+          target: { value: 'a' },
+        });
+
+        await waitFor(() => {
+          expect(getByRole('status')).toHaveTextContent('a,2 matches found.');
+        });
+      });
+
+      test('Announces singular count when one option matches alongside visible sub headers', async () => {
+        const { getByPlaceholderText, getByRole, container } = render(
+          <Select
+            options={groupedOptions}
+            filterable
+            filterOption={groupAwareFilterOption}
+            placeholder="Select test"
+          />
+        );
+        const input = getByPlaceholderText('Select test');
+        fireEvent.click(input);
+
+        fireEvent.change(container.querySelector('.select-input'), {
+          target: { value: 'banana' },
+        });
+
+        await waitFor(() => {
+          expect(getByRole('status')).toHaveTextContent(
+            'banana,1 match found.'
+          );
+        });
+      });
+
+      test('Announces no-results message when only sub headers remain visible', async () => {
+        const { getByPlaceholderText, getByRole, container } = render(
+          <Select
+            options={groupedOptions}
+            filterable
+            filterOption={groupAwareFilterOption}
+            placeholder="Select test"
+          />
+        );
+        const input = getByPlaceholderText('Select test');
+        fireEvent.click(input);
+
+        fireEvent.change(container.querySelector('.select-input'), {
+          target: { value: 'zzz' },
+        });
+
+        await waitFor(() => {
+          expect(getByRole('status')).toHaveTextContent(
+            'No match found for zzz'
+          );
+        });
       });
     });
   });
