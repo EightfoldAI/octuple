@@ -470,11 +470,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (ariaRef?.current) {
           ariaRef.current.setAttribute('aria-expanded', `${mergedVisible}`);
 
-          // Only add aria-haspopup for non-combobox elements if it is not already set
+          // Set aria-haspopup for non-combobox elements when a value is provided and
+          // it is not already set. A falsy ariaHaspopupValue leaves it absent.
           const currentRole = ariaRef.current.getAttribute('role');
           const currentAriaHaspopup =
             ariaRef.current.getAttribute('aria-haspopup');
-          if (currentRole !== 'combobox' && !currentAriaHaspopup) {
+          if (currentRole !== 'combobox' && !currentAriaHaspopup && ariaHaspopupValue) {
             ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
           }
 
