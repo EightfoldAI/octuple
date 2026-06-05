@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.57.5](https://github.com/EightfoldAI/octuple/compare/v2.57.4...v2.57.5) (2026-06-05)
+
+### Bug Fixes
+
+- **Dropdown:** allow null ariaHaspopupValue to omit aria-haspopup (ariaRef path) ([9f3cd58](https://github.com/EightfoldAI/octuple/commits/9f3cd588c5cd376d0d749e5d1334a7e3c61267ea))
+- **Menu:** allow listItemRole override on MenuItemLink and MenuItemSubHeader ([#1130](https://github.com/EightfoldAI/octuple/issues/1130)) ([a3cd497](https://github.com/EightfoldAI/octuple/commits/a3cd497d295685b22afaa7bd9cc2900f3e8bb612))
+
 ### [2.57.4](https://github.com/EightfoldAI/octuple/compare/v2.57.3...v2.57.4) (2026-05-15)
 
 ### [2.57.3](https://github.com/EightfoldAI/octuple/compare/v2.57.1...v2.57.3) (2026-05-12)
