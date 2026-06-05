@@ -1261,12 +1261,11 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     );
   }
 
-  // For time picker, use listbox role; for others, use dialog
-  const popupRole: 'listbox' | 'dialog' = isTimePicker ? 'listbox' : 'dialog';
   const popupId: string = isTimePicker ? listboxId : 'dp-dialog-1';
 
   const inputSharedProps = {
     size: getInputSize(picker, formatList[0], generateConfig),
+    ...(isTimePicker && { 'aria-haspopup': 'listbox' as const }),
   };
 
   // Individual input props for aria attributes
