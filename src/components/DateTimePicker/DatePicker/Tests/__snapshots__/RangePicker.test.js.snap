@@ -48,7 +48,6 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "false",
-                  "aria-haspopup": "dialog",
                   "aria-label": "Start date",
                   "autocomplete": "off",
                   "id": "date-picker-",
@@ -66,7 +65,6 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -77,7 +75,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -129,7 +126,6 @@ LoadedCheerio {
                       "attribs": Object {
                         "aria-describedby": "date-picker--format-hint",
                         "aria-expanded": "false",
-                        "aria-haspopup": "dialog",
                         "aria-label": "End date",
                         "autocomplete": "off",
                         "id": "date-picker--end",
@@ -147,7 +143,6 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "aria-describedby": undefined,
                         "aria-expanded": undefined,
-                        "aria-haspopup": undefined,
                         "aria-label": undefined,
                         "autocomplete": undefined,
                         "id": undefined,
@@ -158,7 +153,6 @@ LoadedCheerio {
                       "x-attribsPrefix": Object {
                         "aria-describedby": undefined,
                         "aria-expanded": undefined,
-                        "aria-haspopup": undefined,
                         "aria-label": undefined,
                         "autocomplete": undefined,
                         "id": undefined,
@@ -365,7 +359,6 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "false",
-                "aria-haspopup": "dialog",
                 "aria-label": "Start date",
                 "autocomplete": "off",
                 "id": "date-picker-",
@@ -383,7 +376,6 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -394,7 +386,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -446,7 +437,6 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-describedby": "date-picker--format-hint",
                       "aria-expanded": "false",
-                      "aria-haspopup": "dialog",
                       "aria-label": "End date",
                       "autocomplete": "off",
                       "id": "date-picker--end",
@@ -464,7 +454,6 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "aria-describedby": undefined,
                       "aria-expanded": undefined,
-                      "aria-haspopup": undefined,
                       "aria-label": undefined,
                       "autocomplete": undefined,
                       "id": undefined,
@@ -475,7 +464,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "aria-describedby": undefined,
                       "aria-expanded": undefined,
-                      "aria-haspopup": undefined,
                       "aria-label": undefined,
                       "autocomplete": undefined,
                       "id": undefined,
@@ -682,7 +670,6 @@ LoadedCheerio {
             "attribs": Object {
               "aria-describedby": "date-picker--format-hint",
               "aria-expanded": "false",
-              "aria-haspopup": "dialog",
               "aria-label": "Start date",
               "autocomplete": "off",
               "id": "date-picker-",
@@ -700,7 +687,6 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "aria-describedby": undefined,
               "aria-expanded": undefined,
-              "aria-haspopup": undefined,
               "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
@@ -711,7 +697,6 @@ LoadedCheerio {
             "x-attribsPrefix": Object {
               "aria-describedby": undefined,
               "aria-expanded": undefined,
-              "aria-haspopup": undefined,
               "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
@@ -763,7 +748,6 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-describedby": "date-picker--format-hint",
                     "aria-expanded": "false",
-                    "aria-haspopup": "dialog",
                     "aria-label": "End date",
                     "autocomplete": "off",
                     "id": "date-picker--end",
@@ -781,7 +765,6 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "aria-describedby": undefined,
                     "aria-expanded": undefined,
-                    "aria-haspopup": undefined,
                     "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
@@ -792,7 +775,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "aria-describedby": undefined,
                     "aria-expanded": undefined,
-                    "aria-haspopup": undefined,
                     "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
@@ -1046,7 +1028,6 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "false",
-                  "aria-haspopup": "dialog",
                   "aria-label": "End date",
                   "autocomplete": "off",
                   "id": "date-picker--end",
@@ -1064,7 +1045,6 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -1075,7 +1055,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -1223,7 +1202,6 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "false",
-                "aria-haspopup": "dialog",
                 "aria-label": "Start date",
                 "autocomplete": "off",
                 "id": "date-picker-",
@@ -1241,7 +1219,6 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -1252,7 +1229,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -1364,7 +1340,6 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "false",
-                "aria-haspopup": "dialog",
                 "aria-label": "End date",
                 "autocomplete": "off",
                 "id": "date-picker--end",
@@ -1382,7 +1357,6 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -1393,7 +1367,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -1546,7 +1519,6 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "false",
-                  "aria-haspopup": "dialog",
                   "aria-label": "Start date",
                   "autocomplete": "off",
                   "id": "date-picker-",
@@ -1564,7 +1536,6 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -1575,7 +1546,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -1681,7 +1651,6 @@ LoadedCheerio {
             "attribs": Object {
               "aria-describedby": "date-picker--format-hint",
               "aria-expanded": "false",
-              "aria-haspopup": "dialog",
               "aria-label": "End date",
               "autocomplete": "off",
               "id": "date-picker--end",
@@ -1699,7 +1668,6 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "aria-describedby": undefined,
               "aria-expanded": undefined,
-              "aria-haspopup": undefined,
               "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
@@ -1710,7 +1678,6 @@ LoadedCheerio {
             "x-attribsPrefix": Object {
               "aria-describedby": undefined,
               "aria-expanded": undefined,
-              "aria-haspopup": undefined,
               "aria-label": undefined,
               "autocomplete": undefined,
               "id": undefined,
@@ -1871,7 +1838,6 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-describedby": "date-picker--format-hint",
                     "aria-expanded": "false",
-                    "aria-haspopup": "dialog",
                     "aria-label": "Start date",
                     "autocomplete": "off",
                     "id": "date-picker-",
@@ -1889,7 +1855,6 @@ LoadedCheerio {
                   "x-attribsNamespace": Object {
                     "aria-describedby": undefined,
                     "aria-expanded": undefined,
-                    "aria-haspopup": undefined,
                     "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
@@ -1900,7 +1865,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "aria-describedby": undefined,
                     "aria-expanded": undefined,
-                    "aria-haspopup": undefined,
                     "aria-label": undefined,
                     "autocomplete": undefined,
                     "id": undefined,
@@ -2107,7 +2071,6 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "false",
-                "aria-haspopup": "dialog",
                 "aria-label": "End date",
                 "autocomplete": "off",
                 "id": "date-picker--end",
@@ -2125,7 +2088,6 @@ LoadedCheerio {
               "x-attribsNamespace": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -2136,7 +2098,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "aria-describedby": undefined,
                 "aria-expanded": undefined,
-                "aria-haspopup": undefined,
                 "aria-label": undefined,
                 "autocomplete": undefined,
                 "id": undefined,
@@ -2194,7 +2155,6 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-describedby": "date-picker--format-hint",
                       "aria-expanded": "false",
-                      "aria-haspopup": "dialog",
                       "aria-label": "Start date",
                       "autocomplete": "off",
                       "id": "date-picker-",
@@ -2212,7 +2172,6 @@ LoadedCheerio {
                     "x-attribsNamespace": Object {
                       "aria-describedby": undefined,
                       "aria-expanded": undefined,
-                      "aria-haspopup": undefined,
                       "aria-label": undefined,
                       "autocomplete": undefined,
                       "id": undefined,
@@ -2223,7 +2182,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "aria-describedby": undefined,
                       "aria-expanded": undefined,
-                      "aria-haspopup": undefined,
                       "aria-label": undefined,
                       "autocomplete": undefined,
                       "id": undefined,
@@ -2432,7 +2390,6 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "false",
-                  "aria-haspopup": "dialog",
                   "aria-label": "End date",
                   "autocomplete": "off",
                   "id": "date-picker--end",
@@ -2450,7 +2407,6 @@ LoadedCheerio {
                 "x-attribsNamespace": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -2461,7 +2417,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "aria-describedby": undefined,
                   "aria-expanded": undefined,
-                  "aria-haspopup": undefined,
                   "aria-label": undefined,
                   "autocomplete": undefined,
                   "id": undefined,
@@ -2519,7 +2474,6 @@ LoadedCheerio {
                       "attribs": Object {
                         "aria-describedby": "date-picker--format-hint",
                         "aria-expanded": "false",
-                        "aria-haspopup": "dialog",
                         "aria-label": "Start date",
                         "autocomplete": "off",
                         "id": "date-picker-",
@@ -2537,7 +2491,6 @@ LoadedCheerio {
                       "x-attribsNamespace": Object {
                         "aria-describedby": undefined,
                         "aria-expanded": undefined,
-                        "aria-haspopup": undefined,
                         "aria-label": undefined,
                         "autocomplete": undefined,
                         "id": undefined,
@@ -2548,7 +2501,6 @@ LoadedCheerio {
                       "x-attribsPrefix": Object {
                         "aria-describedby": undefined,
                         "aria-expanded": undefined,
-                        "aria-haspopup": undefined,
                         "aria-label": undefined,
                         "autocomplete": undefined,
                         "id": undefined,

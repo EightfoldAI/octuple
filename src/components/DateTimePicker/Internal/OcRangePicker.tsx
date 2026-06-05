@@ -1267,7 +1267,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
   const inputSharedProps = {
     size: getInputSize(picker, formatList[0], generateConfig),
-    'aria-haspopup': popupRole,
   };
 
   // Individual input props for aria attributes
