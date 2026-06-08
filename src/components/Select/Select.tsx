@@ -22,7 +22,7 @@ import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
 import { Dropdown, DropdownRef, NO_ANIMATION_DURATION } from '../Dropdown';
-import { Menu } from '../Menu';
+import { Menu, MenuItemType } from '../Menu';
 import {
   TextInput,
   TextInputIconAlign,
@@ -344,8 +344,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return lastLiveRegionMessageRef.current;
       }
 
+      // Sub header options are presentational group labels (role="presentation"),
+      // not selectable results, so they must not be included in the announced count.
       const visibleOptionsCount: number = (options || []).filter(
-        (opt: SelectOption) => !opt.hideOption
+        (opt: SelectOption) =>
+          !opt.hideOption && opt.type !== MenuItemType.subHeader
       ).length;
 
       let message: string;

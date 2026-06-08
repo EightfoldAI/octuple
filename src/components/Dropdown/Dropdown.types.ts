@@ -18,10 +18,13 @@ export const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
 export interface DropdownProps {
   /**
    * The value of the aria-haspopup attribute to be applied to the reference element, if not already set
-   * and the role of the reference element is not 'combobox'
+   * and the role of the reference element is not 'combobox'.
+   * Pass `null` to omit the attribute entirely — the intended way to suppress it for
+   * disclosure-style triggers whose popup is not a menu/listbox/etc. (An empty string also
+   * omits it, but that is incidental; the type intentionally does not permit `false`.)
    * @default 'true'
    */
-  ariaHaspopupValue?: string;
+  ariaHaspopupValue?: string | null;
   /**
    * The ref of element that should implement the following props:
    * 'aria-controls', 'aria-expanded', 'aria-haspopup', 'role'
