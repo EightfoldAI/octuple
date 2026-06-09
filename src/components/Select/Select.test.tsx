@@ -166,7 +166,7 @@ describe('Select', () => {
         {
           'data-testid': 'option1-test-id',
           hideOption: false,
-          id: 'Option 1-0',
+          id: 'list--option-0',
           object: undefined,
           role: 'option',
           selected: true,
@@ -199,7 +199,7 @@ describe('Select', () => {
         {
           'data-testid': 'option1-test-id',
           hideOption: false,
-          id: 'Option 1-0',
+          id: 'list--option-0',
           object: undefined,
           role: 'option',
           selected: true,
@@ -209,7 +209,7 @@ describe('Select', () => {
         {
           'data-testid': 'option2-test-id',
           hideOption: false,
-          id: 'Option 2-1',
+          id: 'list--option-1',
           object: undefined,
           role: 'option',
           selected: true,
@@ -263,7 +263,7 @@ describe('Select', () => {
         {
           'data-testid': 'option2-test-id',
           hideOption: false,
-          id: 'Option 2-1',
+          id: 'list--option-1',
           object: undefined,
           role: 'option',
           selected: true,
@@ -278,7 +278,7 @@ describe('Select', () => {
         {
           'data-testid': 'option1-test-id',
           hideOption: false,
-          id: 'Option 1-0',
+          id: 'list--option-0',
           object: undefined,
           role: 'option',
           selected: true,
@@ -323,7 +323,7 @@ describe('Select', () => {
         {
           'data-testid': 'option1-test-id',
           hideOption: false,
-          id: 'Option 1-0',
+          id: 'list--option-0',
           object: undefined,
           role: 'option',
           selected: true,
@@ -333,7 +333,7 @@ describe('Select', () => {
         {
           'data-testid': 'option2-test-id',
           hideOption: false,
-          id: 'Option 2-1',
+          id: 'list--option-1',
           object: undefined,
           role: 'option',
           selected: true,
@@ -343,7 +343,7 @@ describe('Select', () => {
         {
           'data-testid': 'option3-test-id',
           hideOption: false,
-          id: 'Option 3-2',
+          id: 'list--option-2',
           object: undefined,
           role: 'option',
           selected: true,
@@ -387,7 +387,7 @@ describe('Select', () => {
         {
           'data-testid': 'option2-test-id',
           hideOption: false,
-          id: 'Option 2-1',
+          id: 'list--option-1',
           object: undefined,
           role: 'option',
           selected: true,
@@ -681,7 +681,7 @@ describe('Select', () => {
     fireEvent.keyDown(select, { key: 'ArrowDown' });
 
     await waitFor(() =>
-      expect(select.getAttribute('aria-activedescendant')).toBe('Option 1-0')
+      expect(select.getAttribute('aria-activedescendant')).toBe('list--option-0')
     );
   });
 
@@ -890,7 +890,7 @@ describe('Select', () => {
     fireEvent.click(option1);
 
     await waitFor(() => {
-      const pill = container.querySelector('#selectPillOption\\ 1-0');
+      const pill = container.querySelector('#selectPilllist--option-0');
       expect(pill).toBeTruthy();
     });
 
@@ -916,7 +916,7 @@ describe('Select', () => {
     fireEvent.click(option2);
 
     await waitFor(() => {
-      const pill2 = container.querySelector('#selectPillOption\\ 2-1');
+      const pill2 = container.querySelector('#selectPilllist--option-1');
       expect(pill2).toBeTruthy();
     });
 

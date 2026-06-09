@@ -416,7 +416,7 @@ exports[`Select Renders with default values when multiple 1`] = `
     >
       <div
         class="tag-pills multi-select-pill blue-green medium"
-        id="selectPillOption 2-1"
+        id="selectPilllist--option-1"
         style="visibility: hidden;"
         tabindex="-1"
       >
@@ -448,7 +448,7 @@ exports[`Select Renders with default values when multiple 1`] = `
       </div>
       <div
         class="tag-pills multi-select-pill blue-green medium"
-        id="selectPillOption 3-2"
+        id="selectPilllist--option-2"
         style="visibility: hidden;"
         tabindex="-1"
       >
