@@ -70,6 +70,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       classNames,
       clear = false,
       clearable = false,
+      clearButtonAriaLabel = 'Clear selection',
       configContextProps = {
         noDisabledContext: false,
         noShapeContext: false,
@@ -151,7 +152,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       (_options || []).map((option: SelectOption, index: number) => ({
         selected: false,
         hideOption: false,
-        id: option.text + '-' + index,
+        id: `${selectMenuId.current}-option-${index}`,
         object: option.object,
         role: 'option',
         'aria-selected': option.selected,
@@ -218,7 +219,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         (_options || []).map((option: SelectOption, index: number) => ({
           selected: !!selected.find((opt) => opt.value === option.value),
           hideOption: false,
-          id: option.text + '-' + index,
+          id: `${selectMenuId.current}-option-${index}`,
           object: option.object,
           role: 'option',
           'aria-selected': option.selected,
@@ -238,7 +239,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             !!selected.find((opt) => opt.value === option.value) ||
             option.value === defaultValue,
           hideOption: false,
-          id: option.text + '-' + index,
+          id: `${selectMenuId.current}-option-${index}`,
           object: option.object,
           role: 'option',
           'aria-selected': option.selected,
@@ -869,13 +870,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setDropdownVisibility(true);
       }
 
-      // Arrow Down: For filterable selects, move focus into dropdown options
-      // Non-filterable selects are handled by Dropdown component natively
+      // Arrow Down: when the dropdown is open, move focus into its options.
+      // Applies to both filterable and non-filterable selects.
       if (
-        filterable &&
         event?.key === eventKeys.ARROWDOWN &&
-        document.activeElement === event.target
+        document.activeElement === event.target &&
+        dropdownVisible
       ) {
+        event.preventDefault();
         dropdownRef.current?.focusFirstElement?.();
       }
 
@@ -899,6 +901,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       alignIcon: TextInputIconAlign.Right,
       clearable: clearable && !readonly,
       clearButtonClassNames: clearButtonClassNames,
+      clearButtonAriaLabel,
       inputWidth: inputWidth,
       iconButtonProps: !readonly
         ? {
@@ -974,13 +977,18 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const selected = (options || []).find(
         (opt: SelectOption) => opt.selected && !opt.hideOption
       );
-      if (selected?.id) {
+      if (dropdownVisible && selected?.id) {
         input?.setAttribute('aria-activedescendant', selected.id);
       }
 
       const handleFocusIn = (event: FocusEvent): void => {
         const target = event.target as HTMLElement;
-        if (target?.id && target.getAttribute('role') === 'option') {
+        // Only this Select's own options.
+        if (
+          dropdownVisible &&
+          target?.id?.startsWith(`${selectMenuId.current}-option-`) &&
+          target.getAttribute('role') === 'option'
+        ) {
           input?.setAttribute('aria-activedescendant', target.id);
         }
       };
@@ -1081,7 +1089,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   shape={selectShapeToTextInputShapeMap.get(mergedShape)}
                   size={selectSizeToTextInputSizeMap.get(mergedSize)}
                   value={selectedOptionText}
-                  ariaLabel={ariaLabel}
+                  ariaLabel={ariaLabel ?? selectInputProps?.ariaLabel}
                 />
               </div>
             </Dropdown>

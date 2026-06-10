@@ -96,7 +96,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
       theme,
       themeContainerId,
       focusTrap = true,
-      escapeTargetSelector = '[role="listbox"], [role="menu"], [role="tooltip"], .dropdown-wrapper, .tooltip-wrapper',
+      escapeTargetSelector = '[role="listbox"], [role="menu"], [role="tooltip"], [role="combobox"][aria-expanded="true"], .dropdown-wrapper, .tooltip-wrapper',
       ...rest
     } = props;
 
