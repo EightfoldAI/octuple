@@ -70,6 +70,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       classNames,
       clear = false,
       clearable = false,
+      clearButtonAriaLabel = 'Clear selection',
       configContextProps = {
         noDisabledContext: false,
         noShapeContext: false,
@@ -900,6 +901,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       alignIcon: TextInputIconAlign.Right,
       clearable: clearable && !readonly,
       clearButtonClassNames: clearButtonClassNames,
+      clearButtonAriaLabel,
       inputWidth: inputWidth,
       iconButtonProps: !readonly
         ? {
@@ -975,13 +977,18 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const selected = (options || []).find(
         (opt: SelectOption) => opt.selected && !opt.hideOption
       );
-      if (selected?.id) {
+      if (dropdownVisible && selected?.id) {
         input?.setAttribute('aria-activedescendant', selected.id);
       }
 
       const handleFocusIn = (event: FocusEvent): void => {
         const target = event.target as HTMLElement;
-        if (target?.id && target.getAttribute('role') === 'option') {
+        // Only this Select's own options.
+        if (
+          dropdownVisible &&
+          target?.id?.startsWith(`${selectMenuId.current}-option-`) &&
+          target.getAttribute('role') === 'option'
+        ) {
           input?.setAttribute('aria-activedescendant', target.id);
         }
       };

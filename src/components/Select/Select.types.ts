@@ -91,6 +91,11 @@ export interface SelectProps
    */
   clearable?: boolean;
   /**
+   * The Select clear value button aria label.
+   * @default 'Clear selection'
+   */
+  clearButtonAriaLabel?: string;
+  /**
    * Configure how contextual props are consumed.
    */
   configContextProps?: ConfigContextProps;

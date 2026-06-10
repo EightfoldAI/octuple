@@ -685,6 +685,67 @@ describe('Select', () => {
     );
   });
 
+  test('Clear button has an accessible name', () => {
+    const { container } = render(
+      <Select
+        defaultValue="option2"
+        options={options}
+        clearable
+        placeholder="Select test"
+      />
+    );
+    const clearButton = container.querySelector('.clear-icon-button');
+    expect(clearButton).toBeTruthy();
+    expect(clearButton.getAttribute('aria-label')).toBe('Clear selection');
+  });
+
+  test('Clear button uses the provided clearButtonAriaLabel', () => {
+    const { container } = render(
+      <Select
+        defaultValue="option2"
+        options={options}
+        clearable
+        clearButtonAriaLabel="Clear priority"
+        placeholder="Select test"
+      />
+    );
+    expect(
+      container.querySelector('.clear-icon-button').getAttribute('aria-label')
+    ).toBe('Clear priority');
+  });
+
+  test('Clears aria-activedescendant after selecting and closing', async () => {
+    // Closed dropdown unmounts its options; the attribute must not point at a gone option.
+    const { getByPlaceholderText, getByText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    const option1 = await waitFor(() => getByText('Option 1'));
+    fireEvent.click(option1);
+    await waitFor(() =>
+      expect((select as HTMLInputElement).value).toBe('Option 1')
+    );
+    await waitFor(() =>
+      expect(select.getAttribute('aria-activedescendant')).toBeFalsy()
+    );
+  });
+
+  test('Does not set aria-activedescendant from an option focus while closed', () => {
+    // A closed Select must ignore option focusin (e.g. from another Select's listbox).
+    const { getByPlaceholderText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    const foreignOption = document.createElement('button');
+    foreignOption.id = 'list--option-0';
+    foreignOption.setAttribute('role', 'option');
+    document.body.appendChild(foreignOption);
+    fireEvent.focusIn(foreignOption);
+    expect(select.getAttribute('aria-activedescendant')).toBeFalsy();
+    foreignOption.remove();
+  });
+
   test('Does not focus the first focusable element when dropdown is visible and not filterable and initialFocus is false', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
       <Select
