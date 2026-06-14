@@ -192,6 +192,14 @@ export interface DropdownProps {
    * The props of the overlay
    */
   overlayProps?: React.HTMLAttributes<HTMLDivElement>;
+
+  /**
+   * When true, the dropdown will not auto-flip to the opposite side when the
+   * preferred placement overflows. Use to keep a fixed placement (e.g. anchored
+   * below a trigger toward a scrollable region).
+   * @default false
+   */
+  disableAutoFlip?: boolean;
 }
 
 export type DropdownRef = {

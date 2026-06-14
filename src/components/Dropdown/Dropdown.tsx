@@ -82,6 +82,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         overlayTabIndex = -1,
         overlayProps,
         toggleDropdownOnShiftTab = false,
+        disableAutoFlip = false,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -105,7 +106,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       const { x, y, strategy, update, refs, context } = useFloating({
         placement,
         strategy: positionStrategy,
-        middleware: [fOffset(offset), flip(), shift()],
+        middleware: [
+          fOffset(offset),
+          ...(disableAutoFlip ? [] : [flip()]),
+          shift(),
+        ],
       });
 
       const intervalRef: React.MutableRefObject<NodeJS.Timer> =
@@ -475,7 +480,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           const currentRole = ariaRef.current.getAttribute('role');
           const currentAriaHaspopup =
             ariaRef.current.getAttribute('aria-haspopup');
-          if (currentRole !== 'combobox' && !currentAriaHaspopup && ariaHaspopupValue) {
+          if (
+            currentRole !== 'combobox' &&
+            !currentAriaHaspopup &&
+            ariaHaspopupValue
+          ) {
             ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
           }
 
