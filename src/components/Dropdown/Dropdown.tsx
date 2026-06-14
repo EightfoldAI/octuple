@@ -480,11 +480,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           const currentRole = ariaRef.current.getAttribute('role');
           const currentAriaHaspopup =
             ariaRef.current.getAttribute('aria-haspopup');
-          if (
-            currentRole !== 'combobox' &&
-            !currentAriaHaspopup &&
-            ariaHaspopupValue
-          ) {
+          if (currentRole !== 'combobox' && !currentAriaHaspopup && ariaHaspopupValue) {
             ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
           }
 
