@@ -3,6 +3,8 @@ import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MenuItemButton } from '../MenuItemButton';
 import { MenuVariant } from '../../../Menu.types';
+import { MenuItemIconAlign } from '../../MenuItem.types';
+import { IconName } from '../../../../Icon';
 
 describe('MenuItemButton', () => {
   test('should render regular menuButton when dropdownMenuItems exist but menuRenderer is not provided', () => {
@@ -130,6 +132,38 @@ describe('MenuItemButton', () => {
       expect(listItem).toHaveAttribute('role', 'presentation');
       expect(listItem).toHaveClass('active');
       expect(listItem).not.toHaveClass('active-descendant');
+    });
+
+    test('renders icon (left and right), counter and subText inside the list item', () => {
+      const { getByText, rerender } = render(
+        <MenuItemButton
+          text="Apple"
+          subText="A fruit"
+          counter="3"
+          role="option"
+          id="apple-0"
+          iconProps={{ path: IconName.mdiAccount }}
+          renderAsListItem
+          variant={MenuVariant.neutral}
+        />
+      );
+      expect(getByText('Apple')).toBeInTheDocument();
+      expect(getByText('A fruit')).toBeInTheDocument();
+      expect(getByText('3')).toBeInTheDocument();
+
+      // Right-aligned icon path renders without error.
+      rerender(
+        <MenuItemButton
+          text="Apple"
+          role="option"
+          id="apple-0"
+          alignIcon={MenuItemIconAlign.Right}
+          iconProps={{ path: IconName.mdiAccount }}
+          renderAsListItem
+          variant={MenuVariant.neutral}
+        />
+      );
+      expect(getByText('Apple')).toBeInTheDocument();
     });
   });
 });

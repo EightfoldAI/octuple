@@ -1340,4 +1340,87 @@ describe('Select improvedA11y', () => {
       getAllByRole('option')[0].classList.contains('active-descendant')
     ).toBe(false);
   });
+
+  test('does not highlight, move, or select when no options are navigable (all disabled)', async () => {
+    const disabledOptions = adOptions.map((o) => ({ ...o, disabled: true }));
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={disabledOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    // The seed effect clears the highlight when nothing is navigable.
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBeFalsy()
+    );
+
+    // ArrowDown finds nothing to move to; Enter finds nothing to select.
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    fireEvent.keyDown(input, { key: 'Enter' });
+
+    expect(input.getAttribute('aria-activedescendant')).toBeFalsy();
+    expect(input.value).toBe('');
+  });
+
+  test('keeps the highlighted option when the option set grows but it stays present', async () => {
+    const { getAllByRole, getByPlaceholderText, rerender } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    const optionEls = await waitFor(() => getAllByRole('option'));
+    const firstId = optionEls[0].id;
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBe(firstId)
+    );
+
+    // The option set changes (an option is appended) but the highlighted
+    // option is still present, so the highlight is kept rather than re-seeded.
+    rerender(
+      <Select
+        improvedA11y
+        filterable
+        options={[...adOptions, { text: 'Date', value: 'date' }]}
+        placeholder="Fruit"
+      />
+    );
+    await waitFor(() => expect(getAllByRole('option')).toHaveLength(4));
+    expect(input.getAttribute('aria-activedescendant')).toBe(firstId);
+  });
+
+  test('selects without closing the dropdown on Enter in multiple mode', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        multiple
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    fireEvent.keyDown(input, { key: 'Enter' });
+
+    // Multiple-select keeps the dropdown open for further selections.
+    await waitFor(() =>
+      expect(getAllByRole('option')).toHaveLength(adOptions.length)
+    );
+  });
 });
