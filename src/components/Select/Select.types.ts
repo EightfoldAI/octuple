@@ -76,6 +76,16 @@ export interface SelectOption extends MenuItemButtonProps {
 export interface SelectProps
   extends Omit<OcBaseProps<HTMLDivElement>, 'onFocus' | 'onBlur'> {
   /**
+   * When true, renders options as `<ul role="listbox">` + `<li role="option">` with
+   * roving tabindex and arrow-key navigation so NVDA on Windows enters forms mode
+   * and passes arrow keys to JavaScript instead of intercepting them.
+   * Has no effect on visual appearance. Defaults to false to preserve existing behavior.
+   * Note: in this mode only `option.text` is rendered; `iconProps`, `subText`, and
+   * `counter` on SelectOption are not displayed.
+   * @default false
+   */
+  accessibleListbox?: boolean;
+  /**
    * Indicates the autocomplete attribute value for the Select input field.
    * @default undefined
    */

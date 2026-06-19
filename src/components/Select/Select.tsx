@@ -59,6 +59,8 @@ import {
 
 import styles from './select.module.scss';
 import themedComponentStyles from './select.theme.module.scss';
+import menuItemStyles from '../Menu/MenuItem/menuItem.module.scss';
+import listStyles from '../List/list.module.scss';
 
 const inputPaddingHorizontal: number = +styles.inputPaddingHorizontal;
 const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
@@ -66,6 +68,7 @@ const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
 export const Select: FC<SelectProps> = React.forwardRef(
   (
     {
+      accessibleListbox = false,
       autocomplete,
       classNames,
       clear = false,
@@ -141,6 +144,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const selectMenuId: React.MutableRefObject<string> = useRef<string>(
       uniqueId('list-')
     );
+    const accessibleOptionRefs = useRef<(HTMLLIElement | null)[]>([]);
 
     const [clearInput, setClearInput] = useState<boolean>(false);
     const [closeOnReferenceClick, setCloseOnReferenceClick] = useState<boolean>(
@@ -722,6 +726,57 @@ export const Select: FC<SelectProps> = React.forwardRef(
       setSelectedOptionText(selectedOption);
     };
 
+    const getAccessibleListboxItemSizeClass = (): string => {
+      if (mergedSize === SelectSize.Large) return menuItemStyles.large;
+      if (mergedSize === SelectSize.Small) return menuItemStyles.small;
+      if (mergedSize === SelectSize.Flex) {
+        if (largeScreenActive) return menuItemStyles.small;
+        if (xSmallScreenActive) return menuItemStyles.large;
+        return menuItemStyles.medium;
+      }
+      return menuItemStyles.medium;
+    };
+
+    const handleAccessibleListboxKeyDown = (
+      event: React.KeyboardEvent<HTMLLIElement>,
+      index: number,
+      visibleOptions: SelectOption[]
+    ): void => {
+      const refs = accessibleOptionRefs.current;
+      switch (event.key) {
+        case eventKeys.ARROWDOWN:
+          event.preventDefault();
+          refs[Math.min(index + 1, visibleOptions.length - 1)]?.focus();
+          break;
+        case eventKeys.ARROWUP:
+          event.preventDefault();
+          refs[Math.max(index - 1, 0)]?.focus();
+          break;
+        case eventKeys.HOME:
+          event.preventDefault();
+          refs[0]?.focus();
+          break;
+        case eventKeys.END:
+          event.preventDefault();
+          refs[visibleOptions.length - 1]?.focus();
+          break;
+        case eventKeys.ENTER:
+        case eventKeys.SPACE:
+          event.preventDefault();
+          toggleOption(visibleOptions[index]);
+          if (!multiple) {
+            setDropdownVisibility(false);
+            setTimeout(() => inputRef.current?.focus(), NO_ANIMATION_DURATION);
+          }
+          break;
+        case eventKeys.ESCAPE:
+          event.preventDefault();
+          setDropdownVisibility(false);
+          setTimeout(() => inputRef.current?.focus(), NO_ANIMATION_DURATION);
+          break;
+      }
+    };
+
     const OptionMenu = ({
       options,
     }: {
@@ -737,6 +792,75 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const filteredOptions = (options || []).filter(
         (opt: SelectOption) => !opt.hideOption
       );
+
+      if (accessibleListbox) {
+        if (filteredOptions.length === 0) {
+          return <div className={styles.selectMenuEmpty}>{emptyText}</div>;
+        }
+        const hasSelected = filteredOptions.some((o) => o.selected);
+        const sizeClass = getAccessibleListboxItemSizeClass();
+        accessibleOptionRefs.current = [];
+        return (
+          <ul
+            role="listbox"
+            id={selectMenuId.current}
+            aria-label={ariaLabel || undefined}
+            className={mergeClasses([
+              listStyles.listContainer,
+              listStyles.vertical,
+            ])}
+          >
+            {filteredOptions.map((opt, i) => {
+              const tabIdx = hasSelected
+                ? opt.selected
+                  ? 0
+                  : -1
+                : i === 0
+                ? 0
+                : -1;
+              return (
+                <li
+                  key={opt.id || String(i)}
+                  id={opt.id}
+                  role="option"
+                  aria-selected={opt.selected}
+                  tabIndex={tabIdx}
+                  className={mergeClasses([
+                    menuItemStyles.menuItem,
+                    menuItemStyles.menuItemButton,
+                    sizeClass,
+                    menuItemStyles.neutral,
+                    { [styles.selectedOption]: opt.selected },
+                  ])}
+                  ref={(el) => {
+                    accessibleOptionRefs.current[i] = el;
+                  }}
+                  onClick={() => {
+                    toggleOption(opt);
+                    if (!multiple) {
+                      setDropdownVisibility(false);
+                      setTimeout(
+                        () => inputRef.current?.focus(),
+                        NO_ANIMATION_DURATION
+                      );
+                    }
+                  }}
+                  onKeyDown={(e) =>
+                    handleAccessibleListboxKeyDown(e, i, filteredOptions)
+                  }
+                >
+                  <span className={menuItemStyles.menuItemWrapper}>
+                    <span className={menuItemStyles.itemText}>
+                      <span className={menuItemStyles.label}>{opt.text}</span>
+                    </span>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        );
+      }
+
       const updatedItems: SelectOption[] = filteredOptions.map(
         ({ hideOption, role: optRole, ...opt }) => {
           const item: SelectOption = {
@@ -1000,6 +1124,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dropdownVisible]);
 
+    useEffect(() => {
+      if (!accessibleListbox || !dropdownVisible) return;
+      setTimeout(() => {
+        const visibleOpts = (options || []).filter((o) => !o.hideOption);
+        const selIdx = visibleOpts.findIndex((o) => o.selected);
+        const idx = selIdx >= 0 ? selIdx : 0;
+        accessibleOptionRefs.current[idx]?.focus();
+      }, NO_ANIMATION_DURATION);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [accessibleListbox, dropdownVisible]);
+
     return (
       <ResizeObserver onResize={updateLayout}>
         <ThemeContextProvider
@@ -1055,6 +1190,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   ref={inputRef}
                   aria-controls={selectMenuId?.current}
                   aria-expanded={dropdownVisible}
+                  aria-haspopup={accessibleListbox ? 'listbox' : undefined}
                   configContextProps={configContextProps}
                   status={status}
                   theme={mergedTheme}
