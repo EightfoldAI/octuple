@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.57.6](https://github.com/EightfoldAI/octuple/compare/v2.57.5...v2.57.6) (2026-06-19)
+
+### Bug Fixes
+
+- **DateTimePicker:** remove incorrect combobox role and aria attribute from date range picker inputs ([#1133](https://github.com/EightfoldAI/octuple/issues/1133)) ([47ac84c](https://github.com/EightfoldAI/octuple/commits/47ac84cb9b030afd38ab65130c9414ab3eb2f417))
+
 ### [2.57.5](https://github.com/EightfoldAI/octuple/compare/v2.57.4...v2.57.5) (2026-06-05)
 
 ### Bug Fixes
