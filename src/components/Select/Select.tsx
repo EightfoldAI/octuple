@@ -115,6 +115,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       toggleButtonAriaLabel,
       'data-test-id': dataTestId,
       keepCountPillFocus = true,
+      improvedA11y = false,
       'aria-label': ariaLabel,
     },
     ref: Ref<HTMLDivElement>
@@ -163,6 +164,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [selectedOptionText, setSelectedOptionText] = useState<string>('');
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
+    const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -758,6 +760,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
             item.role = optRole ?? 'option';
           }
 
+          // Pass prop to menuItemButton option
+          if (improvedA11y) {
+            item.renderAsListItem = true;
+            item.active = opt.id === activeDescendantId;
+          }
+
           return item;
         }
       );
@@ -777,7 +785,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               // Imperatively update aria-activedescendant so screen readers
               // announce the selected option even when the selection is driven
               // by a pointer event (which does not fire a focusin event).
-              if (option?.id) {
+              if (!improvedA11y && option?.id) {
                 inputRef.current?.setAttribute(
                   'aria-activedescendant',
                   option.id
@@ -848,11 +856,93 @@ export const Select: FC<SelectProps> = React.forwardRef(
       onBlur?.(event);
     };
 
+    // Options that are allowed to be highlighted,
+    const getNavigableOptions = (): SelectOption[] =>
+      (options || []).filter(
+        (opt: SelectOption) =>
+          !opt.hideOption &&
+          opt.type !== MenuItemType.subHeader &&
+          !opt.disabled
+      );
+
+    // Move the active descendant without moving DOM focus
+    const moveActiveDescendant = (
+      direction: 'down' | 'up'
+    ): void => {
+      const navigable: SelectOption[] = getNavigableOptions();  // pickable options
+      if (navigable.length === 0) {
+        return;
+      }
+      const currentIndex: number = navigable.findIndex(
+        (opt: SelectOption) => opt.id === activeDescendantId
+      );
+      const step: number = direction === 'down' ? 1 : -1;
+      const nextIndex: number =
+        currentIndex < 0
+          ? direction === 'down'
+            ? 0
+            : navigable.length - 1
+          : (currentIndex + step + navigable.length) % navigable.length;
+      const nextId: string = navigable[nextIndex]?.id;
+      if (!nextId) {
+        return;
+      }
+      setActiveDescendantId(nextId);
+      if (canUseDocElement()) {
+        requestAnimationFrame(() => {
+          document
+            .getElementById(nextId)
+            ?.scrollIntoView?.({ block: 'nearest' }); // sync option highlight with scroll
+        });
+      }
+    };
+
+    // Select currently highlighted option (enter)
+    const selectActiveDescendant = (): boolean => {
+      const option: SelectOption = getNavigableOptions().find(
+        (opt: SelectOption) => opt.id === activeDescendantId
+      );
+      if (!option) {
+        return false;
+      }
+      currentlySelectedOption.current = option;
+
+      toggleOption(option);
+      if (!multiple) {
+        setDropdownVisibility(false);
+      }
+      return true;
+    };
+
     const handleInputKeyDown = (
       event: React.KeyboardEvent<HTMLInputElement>
     ): void => {
       if (mergedDisabled) {
         return;
+      }
+
+      // set keydown behaviors
+      if (improvedA11y && dropdownVisible) {
+        if (event?.key === eventKeys.ARROWDOWN) {
+          event.preventDefault();
+          event.stopPropagation();
+          moveActiveDescendant('down');
+          onKeyDown?.(event);
+          return;
+        }
+        if (event?.key === eventKeys.ARROWUP) {
+          event.preventDefault();
+          event.stopPropagation();
+          moveActiveDescendant('up');
+          onKeyDown?.(event);
+          return;
+        }
+        if (event?.key === eventKeys.ENTER && selectActiveDescendant()) {
+          event.preventDefault();
+          event.stopPropagation();
+          onKeyDown?.(event);
+          return;
+        }
       }
 
       // Handle Octuple's internal keyboard navigation FIRST
@@ -968,7 +1058,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       updateLayout();
     }, [dropdownWidth, selectWidth]);
 
+    const navigableOptionIds: string = getNavigableOptions()
+      .map((opt: SelectOption) => opt.id)
+      .join('|');
+
     useEffect(() => {
+      if (improvedA11y) {
+        return undefined;
+      }
       const input = inputRef.current;
       if (!dropdownVisible) {
         input?.removeAttribute('aria-activedescendant');
@@ -999,6 +1096,32 @@ export const Select: FC<SelectProps> = React.forwardRef(
       };
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dropdownVisible]);
+
+    // Active-descendant a11y pattern: seed the highlighted option
+    useEffect(() => {
+      if (!improvedA11y) {
+        return;
+      }
+      if (!dropdownVisible) {
+        setActiveDescendantId(null);
+        return;
+      }
+      const navigable: SelectOption[] = getNavigableOptions();
+      if (navigable.length === 0) {
+        setActiveDescendantId(null);
+        return;
+      }
+      setActiveDescendantId((prev: string) => {
+        if (prev && navigable.some((opt: SelectOption) => opt.id === prev)) {
+          return prev;
+        }
+        const selected: SelectOption = navigable.find(
+          (opt: SelectOption) => opt.selected
+        );
+        return (selected ?? navigable[0])?.id ?? null;
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [improvedA11y, dropdownVisible, navigableOptionIds]);
 
     return (
       <ResizeObserver onResize={updateLayout}>
@@ -1053,6 +1176,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 {dropdownVisible && showPills() ? getPills() : null}
                 <TextInput
                   ref={inputRef}
+                  aria-activedescendant={
+                    improvedA11y ? activeDescendantId ?? undefined : undefined
+                  }
                   aria-controls={selectMenuId?.current}
                   aria-expanded={dropdownVisible}
                   configContextProps={configContextProps}
