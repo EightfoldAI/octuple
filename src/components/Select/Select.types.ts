@@ -255,4 +255,17 @@ export interface SelectProps
    * @default true
    */
   keepCountPillFocus?: boolean;
+  /**
+   * Opt-in flag (provided for a safe, incremental rollout) that switches the
+   * Select to the `aria-activedescendant` listbox a11y pattern used by
+   * react-select:
+   * - Arrow Up/Down keep DOM focus on the input; the highlighted option is
+   *   tracked via the input's `aria-activedescendant` instead of moving focus
+   *   into the options. Enter selects the active option.
+   * - Each option's `id`/`role`/`aria-selected` move onto its `<li>` so the
+   *   list item itself is the listbox option (the inner `<button>` is kept).
+   * When false (default) the legacy roving-focus behavior is preserved.
+   * @default false
+   */
+  improvedA11y?: boolean;
 }

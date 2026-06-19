@@ -38,6 +38,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       wrap = false,
       menuRenderer,
       listItemRole,
+      renderAsListItem = false,
       ...rest
     },
     ref: React.ForwardedRef<HTMLButtonElement>
@@ -53,7 +54,8 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
         [styles.neutral]: variant === MenuVariant.neutral,
         [styles.primary]: variant === MenuVariant.primary,
         [styles.disruptive]: variant === MenuVariant.disruptive,
-        [styles.active]: active,
+        [styles.active]: active && !renderAsListItem,
+        [styles.activeDescendant]: active && renderAsListItem,
         [styles.disabled]: disabled,
       },
       classNames,
@@ -68,9 +70,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
       },
     ]);
 
-    const handleOnClick = (
-      event: React.MouseEvent<HTMLButtonElement | MouseEvent>
-    ): void => {
+    const handleOnClick = (event: React.MouseEvent<HTMLElement>): void => {
       if (disabled) {
         event.preventDefault();
         return;
@@ -175,6 +175,33 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
 
       return dropdownMenuItems ? dropdownMenuButton() : menuButton();
     };
+
+    if (renderAsListItem) {
+      const { id: optionId, 'aria-selected': optionAriaSelected } = rest;
+      return (
+        <li
+          className={menuItemClassNames}
+          role={role}
+          id={optionId}
+          aria-selected={optionAriaSelected}
+          onClick={handleOnClick}
+        >
+          <span className={styles.menuItemButton}>
+            {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
+            <span className={styles.menuItemWrapper}>
+              <span className={styles.itemText}>
+                <span className={styles.label}>{text}</span>
+                {counter && <span>{counter}</span>}
+              </span>
+              {subText && (
+                <span className={itemSubTextClassNames}>{subText}</span>
+              )}
+            </span>
+            {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
+          </span>
+        </li>
+      );
+    }
 
     return (
       <li className={menuItemClassNames} role={listItemRole ?? 'presentation'}>

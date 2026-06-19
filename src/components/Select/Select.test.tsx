@@ -1178,3 +1178,166 @@ describe('Select', () => {
     });
   });
 });
+
+describe('Select improvedA11y', () => {
+  let matchMediaAd: any;
+
+  beforeAll(() => {
+    matchMediaAd = new MatchMediaMock();
+  });
+
+  afterEach(() => {
+    matchMediaAd.clear();
+  });
+
+  const adOptions = [
+    { text: 'Apple', value: 'apple' },
+    { text: 'Banana', value: 'banana' },
+    { text: 'Cherry', value: 'cherry' },
+  ];
+
+  test('moves id/role/aria-selected onto the <li> and drops the inner button', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit');
+    fireEvent.click(input);
+    const optionEls = await waitFor(() => getAllByRole('option'));
+    expect(optionEls).toHaveLength(adOptions.length);
+    optionEls.forEach((el: HTMLElement) => {
+      // The list item itself is the option; the inner button is removed.
+      expect(el.tagName).toBe('LI');
+      expect(el.hasAttribute('id')).toBe(true);
+      expect(el.hasAttribute('aria-selected')).toBe(true);
+      expect(el.querySelector('button')).toBeNull();
+    });
+  });
+
+  test('keeps focus on the input and moves aria-activedescendant on ArrowDown/ArrowUp', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    const optionEls = await waitFor(() => getAllByRole('option'));
+    const [first, second] = optionEls;
+
+    // Opening highlights the first option.
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBe(first.id)
+    );
+
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBe(second.id)
+    );
+    // Focus never moved into the listbox.
+    expect(document.activeElement).toBe(input);
+
+    fireEvent.keyDown(input, { key: 'ArrowUp' });
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBe(first.id)
+    );
+    expect(document.activeElement).toBe(input);
+  });
+
+  test('selects the highlighted option on Enter', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    fireEvent.keyDown(input, { key: 'ArrowDown' }); // move to second option
+    fireEvent.keyDown(input, { key: 'Enter' });
+
+    await waitFor(() => expect(input.value).toBe('Banana'));
+  });
+
+  test('clears aria-activedescendant when the dropdown closes', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBeTruthy()
+    );
+
+    // Selecting a single value closes the dropdown.
+    fireEvent.keyDown(input, { key: 'Enter' });
+    await waitFor(() =>
+      expect(input.getAttribute('aria-activedescendant')).toBeFalsy()
+    );
+  });
+
+  test('still renders a focusable button option when the flag is off', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select filterable options={adOptions} placeholder="Fruit" />
+    );
+    const input = getByPlaceholderText('Fruit');
+    fireEvent.click(input);
+    const optionEls = await waitFor(() => getAllByRole('option'));
+    // Legacy behavior: role="option" lives on an inner <button>.
+    expect(optionEls[0].tagName).toBe('BUTTON');
+  });
+
+  test('highlights the active option with the focus border, not a fill', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    // On open the first option shows the focus border, not a background fill.
+    await waitFor(() =>
+      expect(
+        getAllByRole('option')[0].classList.contains('active-descendant')
+      ).toBe(true)
+    );
+    expect(getAllByRole('option')[0].classList.contains('active')).toBe(false);
+
+    // Arrow Down moves the border to the next option.
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    await waitFor(() =>
+      expect(
+        getAllByRole('option')[1].classList.contains('active-descendant')
+      ).toBe(true)
+    );
+    expect(
+      getAllByRole('option')[0].classList.contains('active-descendant')
+    ).toBe(false);
+  });
+});
