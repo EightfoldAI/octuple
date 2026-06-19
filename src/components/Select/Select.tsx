@@ -1097,9 +1097,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dropdownVisible]);
 
-    // Active-descendant a11y pattern: seed the highlighted option when the
-    // dropdown opens (the selected option, else the first), keep it valid as
-    // the option set changes, and clear it when the dropdown closes.
+    // Active-descendant a11y pattern: seed the highlighted option
     useEffect(() => {
       if (!improvedA11y) {
         return;
