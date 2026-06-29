@@ -739,6 +739,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const filteredOptions = (options || []).filter(
         (opt: SelectOption) => !opt.hideOption
       );
+      const optionCount: number = filteredOptions.filter(
+        (opt: SelectOption) => opt.type !== MenuItemType.subHeader
+      ).length;
+      let groupLabelId: string | undefined;
+      let position: number = 0;
       const updatedItems: SelectOption[] = filteredOptions.map(
         ({ hideOption, role: optRole, ...opt }) => {
           const item: SelectOption = {
@@ -760,10 +765,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
             item.role = optRole ?? 'option';
           }
 
-          // Pass prop to menuItemButton option
           if (improvedA11y) {
-            item.renderAsListItem = true;
-            item.active = opt.id === activeDescendantId;
+            if (opt.type === MenuItemType.subHeader) {
+              // Sub headers are group labels, not selectable options.
+              item.role = undefined;
+              item['aria-selected'] = undefined;
+              groupLabelId = item.id;
+            } else {
+              item.renderAsListItem = true;
+              item.active = opt.id === activeDescendantId;
+              item['aria-setsize'] = optionCount;
+              item['aria-posinset'] = ++position;
+              item['aria-describedby'] = groupLabelId;
+            }
           }
 
           return item;
