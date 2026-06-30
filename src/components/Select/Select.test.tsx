@@ -1218,6 +1218,36 @@ describe('Select improvedA11y', () => {
     });
   });
 
+  test('groups options under sub headers with set size and position info', async () => {
+    const groupedOptions = [
+      { text: 'With HRIS', value: '__hris__', type: MenuItemType.subHeader },
+      { text: 'Apple', value: 'apple' },
+      { text: 'Others', value: '__others__', type: MenuItemType.subHeader },
+      { text: 'Banana', value: 'banana' },
+    ];
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={groupedOptions}
+        placeholder="Fruit"
+      />
+    );
+    fireEvent.click(getByPlaceholderText('Fruit'));
+    const optionEls = await waitFor(() => getAllByRole('option'));
+
+    // Sub headers are presentational group labels, not selectable options.
+    expect(optionEls).toHaveLength(2);
+    expect(optionEls[0]).toHaveAttribute('aria-setsize', '2');
+    expect(optionEls[0]).toHaveAttribute('aria-posinset', '1');
+    expect(optionEls[1]).toHaveAttribute('aria-posinset', '2');
+
+    // Each option references its group label via aria-describedby.
+    const describedBy = optionEls[0].getAttribute('aria-describedby');
+    expect(describedBy).toBeTruthy();
+    expect(document.getElementById(describedBy)?.textContent).toBe('With HRIS');
+  });
+
   test('keeps focus on the input and moves aria-activedescendant on ArrowDown/ArrowUp', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
       <Select
