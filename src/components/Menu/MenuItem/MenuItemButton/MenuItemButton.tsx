@@ -177,13 +177,22 @@ export const MenuItemButton: FC<MenuItemButtonProps> = forwardRef(
     };
 
     if (renderAsListItem) {
-      const { id: optionId, 'aria-selected': optionAriaSelected } = rest;
+      const {
+        id: optionId,
+        'aria-selected': ariaSelected,
+        'aria-setsize': ariaSetSize,
+        'aria-posinset': ariaPosInSet,
+        'aria-describedby': ariaDescribedBy,
+      } = rest;
       return (
         <li
           className={menuItemClassNames}
           role={role}
           id={optionId}
-          aria-selected={optionAriaSelected}
+          aria-selected={ariaSelected}
+          aria-setsize={ariaSetSize}
+          aria-posinset={ariaPosInSet}
+          aria-describedby={ariaDescribedBy}
           onClick={handleOnClick}
         >
           <span className={styles.menuItemButton}>
