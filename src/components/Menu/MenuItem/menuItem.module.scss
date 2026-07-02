@@ -161,6 +161,11 @@
     }
   }
 
+  &.active-descendant {
+    box-shadow: var(--focus-visible-box-shadow);
+    @include focus-visible-forced-colors();
+  }
+
   &.disabled {
     cursor: not-allowed;
     opacity: $disabled-alpha-value;

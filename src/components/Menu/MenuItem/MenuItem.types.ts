@@ -125,6 +125,15 @@ export interface MenuItemButtonProps
    * Role for the list item (li) element
    */
   listItemRole?: string;
+  /**
+   * When true, render the option as a single `<li role="option">` that carries
+   * the option's identity attributes (`id`, `role`, `aria-selected`) directly.
+   * The inner `<button>` is removed and its content moves into a presentational
+   * `<span>`, so DOM focus can stay on the combobox input. Used by Select's
+   * `aria-activedescendant` a11y pattern (`improvedA11y`).
+   * @default false
+   */
+  renderAsListItem?: boolean;
 }
 
 export interface MenuItemLinkProps

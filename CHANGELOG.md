@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.57.7](https://github.com/EightfoldAI/octuple/compare/v2.57.6...v2.57.7) (2026-07-02)
+
+### Bug Fixes
+
+- **Select:** announce option groups and positions in improvedA11y listbox ([f8bec0a](https://github.com/EightfoldAI/octuple/commits/f8bec0aa5a2898c13396c32fae1a1d9f312c3aa8))
+
+### [2.57.6](https://github.com/EightfoldAI/octuple/compare/v2.57.5...v2.57.6) (2026-06-19)
+
+### Bug Fixes
+
+- **DateTimePicker:** remove incorrect combobox role and aria attribute from date range picker inputs ([#1133](https://github.com/EightfoldAI/octuple/issues/1133)) ([47ac84c](https://github.com/EightfoldAI/octuple/commits/47ac84cb9b030afd38ab65130c9414ab3eb2f417))
+
 ### [2.57.5](https://github.com/EightfoldAI/octuple/compare/v2.57.4...v2.57.5) (2026-06-05)
 
 ### Bug Fixes
