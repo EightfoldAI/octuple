@@ -200,6 +200,16 @@ export interface DropdownProps {
    * @default false
    */
   disableAutoFlip?: boolean;
+
+  /**
+   * When true, the dropdown does not reposition when an ancestor of the reference
+   * or floating element scrolls, or when the overlay content changes size while
+   * open — it stays where it opened. Element resize and layout-shift tracking via
+   * autoUpdate are unaffected. Use alongside disableAutoFlip when the reference is
+   * inside a container that scrolls out from under a fixed-placement dropdown.
+   * @default false
+   */
+  disableReferenceTrackingOnScroll?: boolean;
 }
 
 export type DropdownRef = {

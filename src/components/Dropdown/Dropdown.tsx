@@ -83,6 +83,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         overlayProps,
         toggleDropdownOnShiftTab = false,
         disableAutoFlip = false,
+        disableReferenceTrackingOnScroll = false,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -245,17 +246,34 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         return autoUpdate(
           refs.reference.current,
           refs.floating.current,
-          update
+          update,
+          { ancestorScroll: !disableReferenceTrackingOnScroll }
         );
-      }, [refs.reference, refs.floating, update]);
+      }, [
+        disableReferenceTrackingOnScroll,
+        refs.reference,
+        refs.floating,
+        update,
+      ]);
 
       // Add a new useEffect to update position when overlay content changes
       useEffect(() => {
-        if (mergedVisible && refs.floating.current) {
-          // Update the position when the overlay content changes
-          update();
+        if (
+          disableReferenceTrackingOnScroll ||
+          !mergedVisible ||
+          !refs.floating.current
+        ) {
+          return;
         }
-      }, [overlay, mergedVisible, update, refs.floating]);
+        // Update the position when the overlay content changes
+        update();
+      }, [
+        disableReferenceTrackingOnScroll,
+        overlay,
+        mergedVisible,
+        update,
+        refs.floating,
+      ]);
 
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
@@ -480,7 +498,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           const currentRole = ariaRef.current.getAttribute('role');
           const currentAriaHaspopup =
             ariaRef.current.getAttribute('aria-haspopup');
-          if (currentRole !== 'combobox' && !currentAriaHaspopup && ariaHaspopupValue) {
+          if (
+            currentRole !== 'combobox' &&
+            !currentAriaHaspopup &&
+            ariaHaspopupValue
+          ) {
             ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
           }
 
