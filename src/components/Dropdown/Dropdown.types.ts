@@ -201,7 +201,6 @@ export interface DropdownProps {
    * CAUTION - this suppresses dropdown's auto-flip if the space on
    * the configured side is less than the dropdown-overlay height.
    * If the side fixed doesn't have a scrollable region, then the dropdown overlay is stuck.
-   *
    * @default false
    */
   disableAutoFlip?: boolean;
