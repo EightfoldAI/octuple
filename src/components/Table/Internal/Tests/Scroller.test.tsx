@@ -3,11 +3,22 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Scroller } from '../Body/Scroller';
-import { Button } from '../../../Button';
+import { ColumnType, StickyOffsets } from '../OcTable.types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-let matchMedia: any;
+/** Minimal stand-in for the scroll body element the Scroller reads/writes. */
+interface MockScrollBody {
+  scrollLeft: number;
+  clientWidth: number;
+  scrollWidth: number;
+  scrollTo: jest.Mock;
+  getBoundingClientRect: () => Pick<DOMRect, 'top' | 'height'>;
+  addEventListener: jest.Mock;
+  removeEventListener: jest.Mock;
+}
+
+let matchMedia: MatchMediaMock;
 
 describe('Table.Scroller arrow navigation', () => {
   beforeAll(() => {
@@ -20,13 +31,13 @@ describe('Table.Scroller arrow navigation', () => {
 
   // Three unfixed 128px columns => the Scroller builds stop-points
   // scrollOffsets = [0, 128, 256, 384].
-  const columns: any = [
+  const columns: ColumnType<unknown>[] = [
     { title: 'C1', dataIndex: 'c1', key: 'c1', width: 128 },
     { title: 'C2', dataIndex: 'c2', key: 'c2', width: 128 },
     { title: 'C3', dataIndex: 'c3', key: 'c3', width: 128 },
   ];
 
-  const makeScrollBody = (scrollLeft: number): any => ({
+  const makeScrollBody = (scrollLeft: number): MockScrollBody => ({
     scrollLeft,
     clientWidth: 100,
     scrollWidth: 384,
@@ -37,12 +48,17 @@ describe('Table.Scroller arrow navigation', () => {
   });
 
   const createScroller = (
-    scrollBody: any,
+    scrollBody: MockScrollBody,
     direction: string = 'ltr'
   ): ReactWrapper => {
-    const scrollBodyRef = { current: scrollBody };
-    const stickyOffsets: any = { left: [0, 0, 0, 0], right: [0, 0, 0, 0] };
-    const titleRef: any = { current: null };
+    const scrollBodyRef: React.RefObject<HTMLDivElement> = {
+      current: scrollBody as unknown as HTMLDivElement,
+    };
+    const stickyOffsets: StickyOffsets = {
+      left: [0, 0, 0, 0],
+      right: [0, 0, 0, 0],
+    };
+    const titleRef: React.RefObject<HTMLDivElement> = { current: null };
     return mount(
       <Scroller
         columns={columns}
@@ -58,12 +74,7 @@ describe('Table.Scroller arrow navigation', () => {
   };
 
   const clickArrow = (wrapper: ReactWrapper, ariaLabel: string): void => {
-    const onClick = wrapper
-      .find(Button)
-      .filterWhere((node) => node.prop('ariaLabel') === ariaLabel)
-      .first()
-      .prop('onClick') as () => void;
-    onClick();
+    wrapper.find(`button[aria-label="${ariaLabel}"]`).first().simulate('click');
   };
 
   it('right arrow advances to the next column from the start', () => {
