@@ -269,11 +269,7 @@ const ComplexDropdownWithCustomAriaHaspopupComponent = (): JSX.Element => {
   return (
     <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue="dialog">
       <div>
-        <Button
-          ref={buttonRef}
-          data-testid="test-button-id"
-          text="Test button"
-        />
+        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
       </div>
     </Dropdown>
   );
