@@ -197,6 +197,11 @@ export interface DropdownProps {
    * When true, the dropdown will not auto-flip to the opposite side when the
    * preferred placement overflows. Use to keep a fixed placement (e.g. anchored
    * below a trigger toward a scrollable region).
+   *
+   * CAUTION - this suppresses dropdown's auto-flip if the space on
+   * the configured side is less than the dropdown-overlay height.
+   * If the side fixed doesn't have a scrollable region, then the dropdown overlay is stuck.
+   *
    * @default false
    */
   disableAutoFlip?: boolean;
@@ -207,6 +212,9 @@ export interface DropdownProps {
    * open — it stays where it opened. Element resize and layout-shift tracking via
    * autoUpdate are unaffected. Use alongside disableAutoFlip when the reference is
    * inside a container that scrolls out from under a fixed-placement dropdown.
+   *
+   * CAUTION: this also suppresses the reposition that would otherwise run when the
+   * overlay's own rendered content changes size while open.
    * @default false
    */
   disableReferenceTrackingOnScroll?: boolean;
