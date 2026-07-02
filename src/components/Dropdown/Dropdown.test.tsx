@@ -256,7 +256,11 @@ const ComplexDropdownWithoutAriaHaspopupComponent = (): JSX.Element => {
   return (
     <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue={null}>
       <div>
-        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+        <Button
+          ref={buttonRef}
+          data-testid="test-button-id"
+          text="Test button"
+        />
       </div>
     </Dropdown>
   );
@@ -269,7 +273,11 @@ const ComplexDropdownWithCustomAriaHaspopupComponent = (): JSX.Element => {
   return (
     <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue="dialog">
       <div>
-        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+        <Button
+          ref={buttonRef}
+          data-testid="test-button-id"
+          text="Test button"
+        />
       </div>
     </Dropdown>
   );
@@ -973,5 +981,35 @@ describe('Dropdown', () => {
     const referenceElement = getByTestId('test-button-id');
 
     expect(referenceElement.getAttribute('aria-haspopup')).toBe('dialog');
+  });
+
+  test('Should open normally with disableAutoFlip set', async () => {
+    const { container, getByTestId } = render(
+      <Dropdown {...dropdownProps} disableAutoFlip>
+        <Button data-testid="dropdown-reference" text="Dropdown menu test" />
+      </Dropdown>
+    );
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+  });
+
+  test('Should open normally with disableReferenceTrackingOnScroll set', async () => {
+    const { container, getByTestId } = render(
+      <Dropdown {...dropdownProps} disableReferenceTrackingOnScroll>
+        <Button data-testid="dropdown-reference" text="Dropdown menu test" />
+      </Dropdown>
+    );
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
   });
 });
