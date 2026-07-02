@@ -256,7 +256,7 @@ const ComplexDropdownWithoutAriaHaspopupComponent = (): JSX.Element => {
   return (
     <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue={null}>
       <div>
-          <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
       </div>
     </Dropdown>
   );
