@@ -1,9 +1,11 @@
 import React from 'react';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { act } from 'react-dom/test-utils';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Scroller } from '../Body/Scroller';
-import { ColumnType, StickyOffsets } from '../OcTable.types';
+import { Button } from '../../../Button';
+import { ColumnType, ScrollerRef, StickyOffsets } from '../OcTable.types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -16,6 +18,8 @@ interface MockScrollBody {
   getBoundingClientRect: () => Pick<DOMRect, 'top' | 'height'>;
   addEventListener: jest.Mock;
   removeEventListener: jest.Mock;
+  /** Captured listeners so tests can trigger mouseenter/mouseleave. */
+  listeners: Record<string, () => void>;
 }
 
 let matchMedia: MatchMediaMock;
@@ -37,19 +41,26 @@ describe('Table.Scroller arrow navigation', () => {
     { title: 'C3', dataIndex: 'c3', key: 'c3', width: 128 },
   ];
 
-  const makeScrollBody = (scrollLeft: number): MockScrollBody => ({
-    scrollLeft,
-    clientWidth: 100,
-    scrollWidth: 384,
-    scrollTo: jest.fn(),
-    getBoundingClientRect: () => ({ top: 0, height: 0 }),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-  });
+  const makeScrollBody = (scrollLeft: number): MockScrollBody => {
+    const listeners: Record<string, () => void> = {};
+    return {
+      scrollLeft,
+      clientWidth: 100,
+      scrollWidth: 384,
+      scrollTo: jest.fn(),
+      getBoundingClientRect: () => ({ top: 0, height: 0 }),
+      addEventListener: jest.fn((event: string, cb: () => void) => {
+        listeners[event] = cb;
+      }),
+      removeEventListener: jest.fn(),
+      listeners,
+    };
+  };
 
   const createScroller = (
     scrollBody: MockScrollBody,
-    direction: string = 'ltr'
+    direction: string = 'ltr',
+    ref?: React.Ref<ScrollerRef>
   ): ReactWrapper => {
     const scrollBodyRef: React.RefObject<HTMLDivElement> = {
       current: scrollBody as unknown as HTMLDivElement,
@@ -61,6 +72,7 @@ describe('Table.Scroller arrow navigation', () => {
     const titleRef: React.RefObject<HTMLDivElement> = { current: null };
     return mount(
       <Scroller
+        ref={ref}
         columns={columns}
         flattenColumns={columns}
         scrollBodyRef={scrollBodyRef}
@@ -76,6 +88,17 @@ describe('Table.Scroller arrow navigation', () => {
   const clickArrow = (wrapper: ReactWrapper, ariaLabel: string): void => {
     wrapper.find(`button[aria-label="${ariaLabel}"]`).first().simulate('click');
   };
+
+  /** Inline style the Scroller computes for the arrow with the given label. */
+  const arrowStyle = (
+    wrapper: ReactWrapper,
+    ariaLabel: string
+  ): React.CSSProperties =>
+    wrapper
+      .find(Button)
+      .filterWhere((node) => node.prop('ariaLabel') === ariaLabel)
+      .first()
+      .prop('style') as React.CSSProperties;
 
   it('right arrow advances to the next column from the start', () => {
     const scrollBody = makeScrollBody(0);
@@ -132,6 +155,58 @@ describe('Table.Scroller arrow navigation', () => {
     expect(scrollBody.scrollTo).toHaveBeenCalledWith({
       left: -256,
       behavior: 'smooth',
+    });
+  });
+
+  describe('arrow visibility at scroll extents', () => {
+    // Reveal the arrows (they are only shown while the body is hovered).
+    const reveal = (scrollBody: MockScrollBody): void => {
+      act(() => scrollBody.listeners.mouseenter?.());
+    };
+
+    // maxScroll = scrollWidth (384) - clientWidth (100) = 284.
+    it('hides the end arrow within tolerance of the scroll end (IMPL-203300)', () => {
+      const ref = React.createRef<ScrollerRef>();
+      const scrollBody = makeScrollBody(0);
+      const wrapper = createScroller(scrollBody, 'ltr', ref);
+      reveal(scrollBody);
+
+      // The browser snaps the max scroll position to a subpixel value, so the
+      // body settles just short of 284. An exact === check would keep the end
+      // arrow visible; the tolerance must hide it.
+      scrollBody.scrollLeft = 283.8;
+      act(() => ref.current?.onBodyScroll());
+      wrapper.update();
+
+      const style = arrowStyle(wrapper, 'Scroll right');
+      expect(style.visibility).toBe('hidden');
+      expect(style.opacity).toBe(0);
+    });
+
+    it('keeps the end arrow visible mid-scroll', () => {
+      const ref = React.createRef<ScrollerRef>();
+      const scrollBody = makeScrollBody(0);
+      const wrapper = createScroller(scrollBody, 'ltr', ref);
+      reveal(scrollBody);
+
+      scrollBody.scrollLeft = 128;
+      act(() => ref.current?.onBodyScroll());
+      wrapper.update();
+
+      expect(arrowStyle(wrapper, 'Scroll right').visibility).toBe('visible');
+    });
+
+    it('hides the start arrow within tolerance of the scroll start', () => {
+      const ref = React.createRef<ScrollerRef>();
+      const scrollBody = makeScrollBody(128);
+      const wrapper = createScroller(scrollBody, 'ltr', ref);
+      reveal(scrollBody);
+
+      scrollBody.scrollLeft = 0.2;
+      act(() => ref.current?.onBodyScroll());
+      wrapper.update();
+
+      expect(arrowStyle(wrapper, 'Scroll left').visibility).toBe('hidden');
     });
   });
 });

@@ -182,20 +182,11 @@ export const Scroller = React.forwardRef(
       const bodyScrollLeft: number = scrollBodyRef.current?.scrollLeft || 0;
       const bodyScrollWidth: number = scrollBodyRef.current?.scrollWidth || 0;
       const bodyWidth: number = scrollBodyRef.current?.clientWidth || 0;
-      const offset: 1 | -1 = direction === 'rtl' ? -1 : 1;
-      const threshold: number = offset * (bodyScrollWidth - bodyWidth);
+      const scrolled: number = Math.abs(bodyScrollLeft);
+      const maxScroll: number = bodyScrollWidth - bodyWidth;
 
-      if (bodyScrollLeft === 0) {
-        setStartButtonVisible(false);
-        setEndButtonVisible(true);
-      } else {
-        setStartButtonVisible(true);
-        if (bodyScrollLeft === threshold) {
-          setEndButtonVisible(false);
-        } else {
-          setEndButtonVisible(true);
-        }
-      }
+      setStartButtonVisible(scrolled > SCROLL_TOLERANCE);
+      setEndButtonVisible(scrolled < maxScroll - SCROLL_TOLERANCE);
     };
 
     useImperativeHandle(ref, () => ({
