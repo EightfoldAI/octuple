@@ -974,4 +974,34 @@ describe('Dropdown', () => {
 
     expect(referenceElement.getAttribute('aria-haspopup')).toBe('dialog');
   });
+
+  test('Should open normally with disableAutoFlip set', async () => {
+    const { container, getByTestId } = render(
+      <Dropdown {...dropdownProps} disableAutoFlip>
+        <Button data-testid="dropdown-reference" text="Dropdown menu test" />
+      </Dropdown>
+    );
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+  });
+
+  test('Should open normally with disableReferenceTrackingOnScroll set', async () => {
+    const { container, getByTestId } = render(
+      <Dropdown {...dropdownProps} disableReferenceTrackingOnScroll>
+        <Button data-testid="dropdown-reference" text="Dropdown menu test" />
+      </Dropdown>
+    );
+    const referenceElement = getByTestId('dropdown-reference');
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+  });
 });

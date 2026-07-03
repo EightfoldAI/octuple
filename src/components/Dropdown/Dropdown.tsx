@@ -82,6 +82,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         overlayTabIndex = -1,
         overlayProps,
         toggleDropdownOnShiftTab = false,
+        disableAutoFlip = false,
+        disableReferenceTrackingOnScroll = false,
       },
       ref: React.ForwardedRef<DropdownRef>
     ) => {
@@ -105,7 +107,11 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       const { x, y, strategy, update, refs, context } = useFloating({
         placement,
         strategy: positionStrategy,
-        middleware: [fOffset(offset), flip(), shift()],
+        middleware: [
+          fOffset(offset),
+          ...(disableAutoFlip ? [] : [flip()]),
+          shift(),
+        ],
       });
 
       const intervalRef: React.MutableRefObject<NodeJS.Timer> =
@@ -240,17 +246,34 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         return autoUpdate(
           refs.reference.current,
           refs.floating.current,
-          update
+          update,
+          { ancestorScroll: !disableReferenceTrackingOnScroll }
         );
-      }, [refs.reference, refs.floating, update]);
+      }, [
+        disableReferenceTrackingOnScroll,
+        refs.reference,
+        refs.floating,
+        update,
+      ]);
 
       // Add a new useEffect to update position when overlay content changes
       useEffect(() => {
-        if (mergedVisible && refs.floating.current) {
-          // Update the position when the overlay content changes
-          update();
+        if (
+          disableReferenceTrackingOnScroll ||
+          !mergedVisible ||
+          !refs.floating.current
+        ) {
+          return;
         }
-      }, [overlay, mergedVisible, update, refs.floating]);
+        // Update the position when the overlay content changes
+        update();
+      }, [
+        disableReferenceTrackingOnScroll,
+        overlay,
+        mergedVisible,
+        update,
+        refs.floating,
+      ]);
 
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
