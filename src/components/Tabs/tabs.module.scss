@@ -4,6 +4,14 @@
   &.scrollable {
     overflow-x: scroll;
     @include no-scrollbars;
+
+    // Keep each tab at its content width so labels aren't compressed/clipped
+    // when the bar is too narrow (resize/zoom/reflow); the bar scrolls instead.
+    // Scoped to .scrollable so non-scrollable variants (e.g. stat full-width,
+    // which rely on flex-shrink to share the row) are unaffected.
+    .tab {
+      flex: 0 0 auto;
+    }
   }
 
   &.underlined {
