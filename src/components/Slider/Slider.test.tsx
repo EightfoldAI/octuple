@@ -441,4 +441,40 @@ describe('Slider', () => {
     expect(thumbs[0]?.getAttribute('aria-valuetext')).toBe('20 percent');
     expect(thumbs[1]?.getAttribute('aria-valuetext')).toBe('80 percent');
   });
+
+  test('should render hidden handle label spans for range slider with ariaMinHandleLabel, ariaMaxHandleLabel and id', () => {
+    const { container } = render(
+      <Slider
+        value={[20, 80]}
+        id="test-slider"
+        ariaMinHandleLabel="Lower bound"
+        ariaMaxHandleLabel="Upper bound"
+      />
+    );
+    const lowerLabel = container.querySelector('#test-slider-0-handle-label');
+    const upperLabel = container.querySelector('#test-slider-1-handle-label');
+    expect(lowerLabel).toBeTruthy();
+    expect(lowerLabel.textContent).toBe('Lower bound');
+    expect(upperLabel).toBeTruthy();
+    expect(upperLabel.textContent).toBe('Upper bound');
+  });
+
+  test('should compose aria-labelledby with handle label id for range slider', () => {
+    const { container } = render(
+      <Slider
+        value={[20, 80]}
+        id="test-slider"
+        ariaMinHandleLabel="Lower bound"
+        ariaMaxHandleLabel="Upper bound"
+        ariaLabelledBy="external-label"
+      />
+    );
+    const thumbs = container.querySelectorAll('input[type="range"]');
+    expect(thumbs[0]?.getAttribute('aria-labelledby')).toBe(
+      'external-label test-slider-0-handle-label'
+    );
+    expect(thumbs[1]?.getAttribute('aria-labelledby')).toBe(
+      'external-label test-slider-1-handle-label'
+    );
+  });
 });

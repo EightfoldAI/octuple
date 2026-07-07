@@ -25,6 +25,7 @@ import styles from '../octable.module.scss';
 const BUTTON_HEIGHT: number = 36;
 const BUTTON_PADDING: number = 2;
 const DEFAULT_SCROLL_WIDTH: number = 100;
+const SCROLL_TOLERANCE: number = 1;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
@@ -138,14 +139,14 @@ export const Scroller = React.forwardRef(
             .reverse()
             .find(
               (leftOffset: number) =>
-                leftOffset > scrollBodyRef.current.scrollLeft
+                leftOffset > scrollBodyRef.current.scrollLeft + SCROLL_TOLERANCE
             );
         } else {
           scrollLeft = scrollOffsets
             .map((offset) => -offset)
             .find(
               (leftOffset: number) =>
-                leftOffset < scrollBodyRef.current.scrollLeft
+                leftOffset < scrollBodyRef.current.scrollLeft - SCROLL_TOLERANCE
             );
         }
       } else {
@@ -155,12 +156,12 @@ export const Scroller = React.forwardRef(
             .reverse()
             .find(
               (leftOffset: number) =>
-                leftOffset < scrollBodyRef.current.scrollLeft
+                leftOffset < scrollBodyRef.current.scrollLeft - SCROLL_TOLERANCE
             );
         } else {
           scrollLeft = scrollOffsets.find(
             (leftOffset: number) =>
-              leftOffset > scrollBodyRef.current.scrollLeft
+              leftOffset > scrollBodyRef.current.scrollLeft + SCROLL_TOLERANCE
           );
         }
       }
@@ -181,20 +182,11 @@ export const Scroller = React.forwardRef(
       const bodyScrollLeft: number = scrollBodyRef.current?.scrollLeft || 0;
       const bodyScrollWidth: number = scrollBodyRef.current?.scrollWidth || 0;
       const bodyWidth: number = scrollBodyRef.current?.clientWidth || 0;
-      const offset: 1 | -1 = direction === 'rtl' ? -1 : 1;
-      const threshold: number = offset * (bodyScrollWidth - bodyWidth);
+      const scrolled: number = Math.abs(bodyScrollLeft);
+      const maxScroll: number = bodyScrollWidth - bodyWidth;
 
-      if (bodyScrollLeft === 0) {
-        setStartButtonVisible(false);
-        setEndButtonVisible(true);
-      } else {
-        setStartButtonVisible(true);
-        if (bodyScrollLeft === threshold) {
-          setEndButtonVisible(false);
-        } else {
-          setEndButtonVisible(true);
-        }
-      }
+      setStartButtonVisible(scrolled > SCROLL_TOLERANCE);
+      setEndButtonVisible(scrolled < maxScroll - SCROLL_TOLERANCE);
     };
 
     useImperativeHandle(ref, () => ({

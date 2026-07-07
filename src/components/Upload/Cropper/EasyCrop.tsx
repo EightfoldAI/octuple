@@ -29,6 +29,11 @@ import { IconName } from '../../Icon';
 
 import styles from './cropper.module.scss';
 
+// Zoom is incremented by ZOOM_STEP (0.1), so repeated additions accumulate
+// float error 1 -> 1.1 -> 1.21 -> 1.331. Rounding to one decimal is
+// lossless for all valid zoom values and keeps the displayed value clean.
+const roundZoom = (z: number): number => Math.round(z * 10) / 10;
+
 const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
   const {
     aspect,
@@ -189,7 +194,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               onClick={() => {
                 setRotateButtonDirection('');
                 setZoomButtonDirection('out');
-                setZoomVal(zoomVal - ZOOM_STEP);
+                setZoomVal(roundZoom(zoomVal - ZOOM_STEP));
               }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
@@ -207,7 +212,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
                 zoomVal < Number(value)
                   ? setZoomButtonDirection('in')
                   : setZoomButtonDirection('out');
-                setZoomVal(Number(value));
+                setZoomVal(roundZoom(Number(value)));
               }}
               hideMax
               hideMin
@@ -228,7 +233,7 @@ const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
               onClick={() => {
                 setRotateButtonDirection('');
                 setZoomButtonDirection('in');
-                setZoomVal(zoomVal + ZOOM_STEP);
+                setZoomVal(roundZoom(zoomVal + ZOOM_STEP));
               }}
               shape={ButtonShape.Round}
               size={ButtonSize.Small}
