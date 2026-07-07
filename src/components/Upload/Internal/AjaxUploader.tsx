@@ -34,10 +34,10 @@ class AjaxUploader extends Component<OcUploadProps> {
   private _isMounted: boolean;
 
   onChange = (_event: React.ChangeEvent<HTMLInputElement>): void => {
-    const { accept } = this.props;
+    const { accept, directory } = this.props;
     const { files } = _event.target;
-    const acceptedFiles = [...(files as any)].filter((file: OcFile) =>
-      attrAccept(file, accept)
+    const acceptedFiles = [...(files as any)].filter(
+      (file: OcFile) => !directory || attrAccept(file, accept)
     );
     this.uploadFiles(acceptedFiles);
     this.reset();
