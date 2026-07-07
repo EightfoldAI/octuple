@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.58.0](https://github.com/EightfoldAI/octuple/compare/v2.57.6...v2.58.0) (2026-07-07)
+
+### Features
+
+- **Dropdown:** add disableAutoFlip & disableReferenceTrackingOnScroll as Props ([#1135](https://github.com/EightfoldAI/octuple/issues/1135)) ([87ad268](https://github.com/EightfoldAI/octuple/commits/87ad268f978f18afb799f037349431a79bebbb5d))
+
+### Bug Fixes
+
+- **Cropper:** round zoom value to avoid raw float in indicator ([d2f79bb](https://github.com/EightfoldAI/octuple/commits/d2f79bba04f27f12e8366c90c4a2d05d3476bcc2))
+- **Select:** announce option groups and positions in improvedA11y listbox ([f8bec0a](https://github.com/EightfoldAI/octuple/commits/f8bec0aa5a2898c13396c32fae1a1d9f312c3aa8))
+- **Slider:** handle visually hidden labels ([#1125](https://github.com/EightfoldAI/octuple/issues/1125)) ([#1143](https://github.com/EightfoldAI/octuple/issues/1143)) ([10c27f6](https://github.com/EightfoldAI/octuple/commits/10c27f6da66c74ac98c3a9eaac16d1c826972651))
+- **Table:** add scroll tolerance so Scroller arrows reach the last column at fractional zoom ([#1140](https://github.com/EightfoldAI/octuple/issues/1140)) ([6e191b9](https://github.com/EightfoldAI/octuple/commits/6e191b9f5e6594ecb69cde2aeb2e75c01e3f40bf))
+
 ### [2.57.9](https://github.com/EightfoldAI/octuple/compare/v2.57.6...v2.57.9) (2026-07-06)
 
 ### Features
