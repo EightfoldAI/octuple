@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'potrivire găsită.',
     resultsAvailableText: 'potriviri găsite.',
     noResultsFoundText: 'Nicio potrivire găsită pentru',
+    optionPositionSeparatorText: 'din',
   },
 };
 

@@ -367,9 +367,37 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const noResultsText = selectLocale?.lang?.noResultsFoundText;
         message = searchQuery ? `${noResultsText} ${searchQuery}` : '';
       }
+
+      // VoiceOver ignores aria-activedescendant, so announce the active option
+      // here. Tradeoff: NVDA hears it twice (native + this echo).
+      if (improvedA11y && activeDescendantId) {
+        const visibleOptions: SelectOption[] = (options || []).filter(
+          (opt: SelectOption) =>
+            !opt.hideOption && opt.type !== MenuItemType.subHeader
+        );
+        const activeIndex: number = visibleOptions.findIndex(
+          (opt: SelectOption) => opt.id === activeDescendantId
+        );
+        const activeOption: SelectOption = visibleOptions[activeIndex];
+        if (activeOption) {
+          const positionSeparator: string =
+            selectLocale?.lang?.optionPositionSeparatorText ?? 'of';
+          message = `${activeOption.text}, ${
+            activeIndex + 1
+          } ${positionSeparator} ${visibleOptionsCount}`;
+        }
+      }
+
       lastLiveRegionMessageRef.current = message;
       return message;
-    }, [dropdownVisible, options, searchQuery, selectLocale]);
+    }, [
+      dropdownVisible,
+      options,
+      searchQuery,
+      selectLocale,
+      improvedA11y,
+      activeDescendantId,
+    ]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -774,6 +802,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
             } else {
               item.renderAsListItem = true;
               item.active = opt.id === activeDescendantId;
+              // APG: single-select selection follows focus; multi-select keeps
+              // aria-selected on committed choices (set above from opt.selected).
+              if (!multiple) {
+                item['aria-selected'] = item.active;
+              }
               item['aria-setsize'] = optionCount;
               item['aria-posinset'] = ++position;
               item['aria-describedby'] = groupLabelId;

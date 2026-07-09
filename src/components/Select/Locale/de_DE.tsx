@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'Treffer gefunden.',
     resultsAvailableText: 'Treffer gefunden.',
     noResultsFoundText: 'Keine Treffer gefunden für',
+    optionPositionSeparatorText: 'von',
   },
 };
 

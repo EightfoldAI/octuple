@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'התאמה נמצאה.',
     resultsAvailableText: 'התאמות נמצאו.',
     noResultsFoundText: 'לא נמצאה התאמה עבור',
+    optionPositionSeparatorText: 'מתוך',
   },
 };
 

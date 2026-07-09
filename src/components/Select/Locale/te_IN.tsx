@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'సరిపోలిక కనుగొనబడింది.',
     resultsAvailableText: 'సరిపోలికలు కనుగొనబడ్డాయి.',
     noResultsFoundText: 'సరిపోలిక కనుగొనబడలేదు:',
+    optionPositionSeparatorText: '/',
   },
 };
 

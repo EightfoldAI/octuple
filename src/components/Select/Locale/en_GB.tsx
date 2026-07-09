@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'match found.',
     resultsAvailableText: 'matches found.',
     noResultsFoundText: 'No match found for',
+    optionPositionSeparatorText: 'of',
   },
 };
 

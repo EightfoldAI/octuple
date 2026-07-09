@@ -37,6 +37,7 @@ export const List = <T extends any>({
   id,
   applyCyclicNavigation = false,
   'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
   ...rest
 }: ListProps<T>) => {
   const htmlDir: string = useCanvasDirection();
@@ -263,6 +264,7 @@ export const List = <T extends any>({
           id={id}
           role={role}
           aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
         >
@@ -275,6 +277,7 @@ export const List = <T extends any>({
           id={id}
           role={role}
           aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
           className={containerClasses}
           style={{ ...listStyle }}
         >

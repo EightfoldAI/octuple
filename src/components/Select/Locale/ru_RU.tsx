@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'совпадение найдено.',
     resultsAvailableText: 'совпадения найдены.',
     noResultsFoundText: 'Совпадений не найдено для',
+    optionPositionSeparatorText: 'из',
   },
 };
 

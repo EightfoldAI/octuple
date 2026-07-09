@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'corrispondenza trovata.',
     resultsAvailableText: 'corrispondenze trovate.',
     noResultsFoundText: 'Nessuna corrispondenza trovata per',
+    optionPositionSeparatorText: 'di',
   },
 };
 
