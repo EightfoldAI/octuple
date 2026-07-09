@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'match jwenn.',
     resultsAvailableText: 'matches jwenn.',
     noResultsFoundText: 'Pa gen match jwenn pou',
+    optionPositionSeparatorText: 'sou',
   },
 };
 

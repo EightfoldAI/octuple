@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'shoda nalezena.',
     resultsAvailableText: 'shody nalezeny.',
     noResultsFoundText: 'Žádná shoda nenalezena pro',
+    optionPositionSeparatorText: 'z',
   },
 };
 

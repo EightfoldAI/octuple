@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: '个匹配项已找到。',
     resultsAvailableText: '个匹配项已找到。',
     noResultsFoundText: '未找到匹配项：',
+    optionPositionSeparatorText: '/',
   },
 };
 

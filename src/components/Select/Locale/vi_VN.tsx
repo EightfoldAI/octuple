@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'kết quả phù hợp tìm thấy.',
     resultsAvailableText: 'kết quả phù hợp tìm thấy.',
     noResultsFoundText: 'Không tìm thấy kết quả phù hợp cho',
+    optionPositionSeparatorText: 'trên',
   },
 };
 

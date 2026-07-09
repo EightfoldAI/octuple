@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'รายการที่ตรงกันพบแล้ว',
     resultsAvailableText: 'รายการที่ตรงกันพบแล้ว',
     noResultsFoundText: 'ไม่พบรายการที่ตรงกันสำหรับ',
+    optionPositionSeparatorText: 'จาก',
   },
 };
 

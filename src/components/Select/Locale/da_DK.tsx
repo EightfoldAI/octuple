@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'match fundet.',
     resultsAvailableText: 'matches fundet.',
     noResultsFoundText: 'Ingen match fundet for',
+    optionPositionSeparatorText: 'af',
   },
 };
 

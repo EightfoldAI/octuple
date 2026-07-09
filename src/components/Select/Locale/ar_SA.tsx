@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'تطابق موجود.',
     resultsAvailableText: 'تطابقات موجودة.',
     noResultsFoundText: 'لم يتم العثور على تطابق لـ',
+    optionPositionSeparatorText: 'من',
   },
 };
 

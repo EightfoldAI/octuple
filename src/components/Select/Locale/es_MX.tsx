@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'coincidencia encontrada.',
     resultsAvailableText: 'coincidencias encontradas.',
     noResultsFoundText: 'No se encontró ninguna coincidencia para',
+    optionPositionSeparatorText: 'de',
   },
 };
 

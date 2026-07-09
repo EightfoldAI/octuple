@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: 'dopasowanie znalezione.',
     resultsAvailableText: 'dopasowania znalezione.',
     noResultsFoundText: 'Nie znaleziono dopasowania dla',
+    optionPositionSeparatorText: 'z',
   },
 };
 

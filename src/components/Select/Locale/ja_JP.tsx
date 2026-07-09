@@ -6,6 +6,7 @@ const locale: SelectLocale = {
     resultAvailableText: '件の一致が見つかりました。',
     resultsAvailableText: '件の一致が見つかりました。',
     noResultsFoundText: '一致する結果が見つかりません:',
+    optionPositionSeparatorText: '/',
   },
 };
 
