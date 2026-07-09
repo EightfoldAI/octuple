@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.1](https://github.com/EightfoldAI/octuple/compare/v2.58.0...v2.58.1) (2026-07-09)
+
+### Reverts
+
+- **Upload:** revert "always apply accept filter in onChange handler ([#1102](https://github.com/EightfoldAI/octuple/issues/1102))" ([#1138](https://github.com/EightfoldAI/octuple/issues/1138)) ([8ce7f46](https://github.com/EightfoldAI/octuple/commits/8ce7f4613e15216a8c891aa2eee60e58f225b217))
+
 ## [2.58.0](https://github.com/EightfoldAI/octuple/compare/v2.57.6...v2.58.0) (2026-07-07)
 
 ### Features
