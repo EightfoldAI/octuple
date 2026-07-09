@@ -187,4 +187,34 @@ describe('List', () => {
     expect(item2).not.toHaveFocus();
     expect(item1).toHaveFocus();
   });
+
+  test('applies aria-labelledby to the list element (ul), not the wrapper div', () => {
+    const { container } = render(
+      <List
+        {...listProps}
+        listType="ul"
+        role="listbox"
+        aria-labelledby="external-label"
+      />
+    );
+    const list = container.querySelector('ul');
+    const wrapper = container.querySelector('div.my-ref-class');
+    expect(list).toHaveAttribute('aria-labelledby', 'external-label');
+    expect(wrapper).not.toHaveAttribute('aria-labelledby');
+  });
+
+  test('applies aria-labelledby to the ordered list element (ol), not the wrapper div', () => {
+    const { container } = render(
+      <List
+        {...listProps}
+        listType="ol"
+        role="listbox"
+        aria-labelledby="external-label"
+      />
+    );
+    const list = container.querySelector('ol');
+    const wrapper = container.querySelector('div.my-ref-class');
+    expect(list).toHaveAttribute('aria-labelledby', 'external-label');
+    expect(wrapper).not.toHaveAttribute('aria-labelledby');
+  });
 });
