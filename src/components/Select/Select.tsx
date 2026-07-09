@@ -774,6 +774,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
             } else {
               item.renderAsListItem = true;
               item.active = opt.id === activeDescendantId;
+              // APG combobox pattern: in a single-select listbox selection
+              // follows focus, so the active (highlighted) option is the one
+              // exposed as selected to assistive tech. Keep aria-selected in
+              // sync with aria-activedescendant as the user arrows through the
+              // options. Multi-select keeps aria-selected bound to each
+              // option's committed selection state.
+              if (!multiple) {
+                item['aria-selected'] = item.active;
+              }
               item['aria-setsize'] = optionCount;
               item['aria-posinset'] = ++position;
               item['aria-describedby'] = groupLabelId;
@@ -880,10 +889,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
 
     // Move the active descendant without moving DOM focus
-    const moveActiveDescendant = (
-      direction: 'down' | 'up'
-    ): void => {
-      const navigable: SelectOption[] = getNavigableOptions();  // pickable options
+    const moveActiveDescendant = (direction: 'down' | 'up'): void => {
+      const navigable: SelectOption[] = getNavigableOptions(); // pickable options
       if (navigable.length === 0) {
         return;
       }

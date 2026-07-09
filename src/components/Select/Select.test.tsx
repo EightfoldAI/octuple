@@ -681,7 +681,9 @@ describe('Select', () => {
     fireEvent.keyDown(select, { key: 'ArrowDown' });
 
     await waitFor(() =>
-      expect(select.getAttribute('aria-activedescendant')).toBe('list--option-0')
+      expect(select.getAttribute('aria-activedescendant')).toBe(
+        'list--option-0'
+      )
     );
   });
 
@@ -1198,12 +1200,7 @@ describe('Select improvedA11y', () => {
 
   test('moves id/role/aria-selected onto the <li> and drops the inner button', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit');
     fireEvent.click(input);
@@ -1250,12 +1247,7 @@ describe('Select improvedA11y', () => {
 
   test('keeps focus on the input and moves aria-activedescendant on ArrowDown/ArrowUp', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1282,14 +1274,47 @@ describe('Select improvedA11y', () => {
     expect(document.activeElement).toBe(input);
   });
 
+  test('moves aria-selected to the active option as the user arrows through the listbox', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    const optionEls = await waitFor(() => getAllByRole('option'));
+    // Option ids are stable; the <li> elements are re-rendered on navigation,
+    // so assert against freshly-fetched nodes by id rather than stale refs.
+    const [firstId, secondId] = optionEls.map((el: HTMLElement) => el.id);
+    const ariaSelectedById = (id: string): string | null =>
+      document.getElementById(id)?.getAttribute('aria-selected') ?? null;
+
+    // On open the first option is active and therefore the selected one.
+    await waitFor(() => {
+      expect(input.getAttribute('aria-activedescendant')).toBe(firstId);
+      expect(ariaSelectedById(firstId)).toBe('true');
+      expect(ariaSelectedById(secondId)).toBe('false');
+    });
+
+    // aria-selected follows aria-activedescendant on ArrowDown.
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    await waitFor(() => {
+      expect(input.getAttribute('aria-activedescendant')).toBe(secondId);
+      expect(ariaSelectedById(secondId)).toBe('true');
+      expect(ariaSelectedById(firstId)).toBe('false');
+    });
+
+    // ...and moves back on ArrowUp.
+    fireEvent.keyDown(input, { key: 'ArrowUp' });
+    await waitFor(() => {
+      expect(input.getAttribute('aria-activedescendant')).toBe(firstId);
+      expect(ariaSelectedById(firstId)).toBe('true');
+      expect(ariaSelectedById(secondId)).toBe('false');
+    });
+  });
+
   test('selects the highlighted option on Enter', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1304,12 +1329,7 @@ describe('Select improvedA11y', () => {
 
   test('clears aria-activedescendant when the dropdown closes', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1339,12 +1359,7 @@ describe('Select improvedA11y', () => {
 
   test('highlights the active option with the focus border, not a fill', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1401,12 +1416,7 @@ describe('Select improvedA11y', () => {
 
   test('keeps the highlighted option when the option set grows but it stays present', async () => {
     const { getAllByRole, getByPlaceholderText, rerender } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
