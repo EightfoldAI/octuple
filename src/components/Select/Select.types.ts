@@ -30,6 +30,11 @@ type SelectLang = {
    * Announced when no options are visible (e.g. after filtering yields zero results).
    */
   noResultsFoundText?: string;
+  /**
+   * Connector between an option's position and total in the live region
+   * announcement, e.g. the "of" in "Apple, 1 of 3". Defaults to "of".
+   */
+  optionPositionSeparatorText?: string;
 };
 
 export type SelectLocale = {

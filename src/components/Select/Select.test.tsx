@@ -1453,4 +1453,89 @@ describe('Select improvedA11y', () => {
       expect(getAllByRole('option')).toHaveLength(adOptions.length)
     );
   });
+
+  test('aria-selected follows the active descendant as arrow keys move focus (single-select)', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    const optionEls = await waitFor(() => getAllByRole('option'));
+
+    // Opening highlights the first option; aria-selected sits on it alone.
+    await waitFor(() => {
+      const current = getAllByRole('option');
+      expect(current[0]).toHaveAttribute('aria-selected', 'true');
+      expect(current[1]).toHaveAttribute('aria-selected', 'false');
+      expect(current[2]).toHaveAttribute('aria-selected', 'false');
+    });
+
+    // ArrowDown moves the highlight, and aria-selected moves with it.
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    await waitFor(() => {
+      const current = getAllByRole('option');
+      expect(current[0]).toHaveAttribute('aria-selected', 'false');
+      expect(current[1]).toHaveAttribute('aria-selected', 'true');
+      expect(current[2]).toHaveAttribute('aria-selected', 'false');
+    });
+    expect(optionEls).toHaveLength(3);
+  });
+
+  test('aria-selected reflects committed selection, not focus, in multiple mode', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select
+        improvedA11y
+        filterable
+        multiple
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    // Highlight the first option, then move focus to the second.
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+
+    // Nothing is committed yet, so no option should read as selected even
+    // though one is highlighted (selection must not follow focus here).
+    await waitFor(() => {
+      getAllByRole('option').forEach((el: HTMLElement) => {
+        expect(el).toHaveAttribute('aria-selected', 'false');
+      });
+    });
+  });
+
+  test('announces the highlighted option in the live region as focus moves', async () => {
+    const { getByPlaceholderText, getByRole, getAllByRole } = render(
+      <Select
+        improvedA11y
+        filterable
+        options={adOptions}
+        placeholder="Fruit"
+      />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    // Opening highlights the first option: announce its name and position.
+    await waitFor(() => {
+      expect(getByRole('status')).toHaveTextContent('Apple, 1 of 3');
+    });
+
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    await waitFor(() => {
+      expect(getByRole('status')).toHaveTextContent('Banana, 2 of 3');
+    });
+  });
 });
