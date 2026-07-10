@@ -19,10 +19,13 @@ export interface DropdownProps {
   /**
    * The value of the aria-haspopup attribute to be applied to the reference element, if not already set
    * and the role of the reference element is not 'combobox'.
-   * Pass `null` to omit the attribute entirely — the intended way to suppress it for
-   * disclosure-style triggers whose popup is not a menu/listbox/etc. (An empty string also
-   * omits it, but that is incidental; the type intentionally does not permit `false`.)
-   * @default 'true'
+   * aria-haspopup is opt-in: when omitted, the attribute is not rendered — the correct
+   * default for disclosure-style triggers (aria-expanded/aria-controls only).
+   * Only pass a value ('menu', 'listbox', 'tree', 'grid', 'dialog', or 'true') when the
+   * popup genuinely implements that ARIA pattern, including its full keyboard contract
+   * (for 'menu' this means e.g. `shouldCloseOnTab` and a popup whose container role
+   * matches the announced value).
+   * @default undefined
    */
   ariaHaspopupValue?: string | null;
   /**

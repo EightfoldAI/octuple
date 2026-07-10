@@ -256,7 +256,11 @@ const ComplexDropdownWithoutAriaHaspopupComponent = (): JSX.Element => {
   return (
     <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue={null}>
       <div>
-        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+        <Button
+          ref={buttonRef}
+          data-testid="test-button-id"
+          text="Test button"
+        />
       </div>
     </Dropdown>
   );
@@ -269,7 +273,28 @@ const ComplexDropdownWithCustomAriaHaspopupComponent = (): JSX.Element => {
   return (
     <Dropdown {...dropdownProps} ariaRef={buttonRef} ariaHaspopupValue="dialog">
       <div>
-        <Button ref={buttonRef} data-testid="test-button-id" text="Test button" />
+        <Button
+          ref={buttonRef}
+          data-testid="test-button-id"
+          text="Test button"
+        />
+      </div>
+    </Dropdown>
+  );
+};
+
+const ComplexDropdownDefaultAriaHaspopupComponent = (): JSX.Element => {
+  const buttonRef: React.MutableRefObject<HTMLButtonElement> =
+    useRef<HTMLButtonElement>(null);
+
+  return (
+    <Dropdown {...dropdownProps} ariaRef={buttonRef}>
+      <div>
+        <Button
+          ref={buttonRef}
+          data-testid="test-button-id"
+          text="Test button"
+        />
       </div>
     </Dropdown>
   );
@@ -973,6 +998,26 @@ describe('Dropdown', () => {
     const referenceElement = getByTestId('test-button-id');
 
     expect(referenceElement.getAttribute('aria-haspopup')).toBe('dialog');
+  });
+
+  test('Should not set aria-haspopup by default (opt-in only) on the cloned reference element', async () => {
+    const { getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
+    expect(referenceElement.getAttribute('aria-controls')).toBeTruthy();
+    expect(referenceElement.hasAttribute('aria-haspopup')).toBe(false);
+  });
+
+  test('Should not set aria-haspopup by default (opt-in only) on the ariaRef reference element', async () => {
+    const { getByTestId } = render(
+      <ComplexDropdownDefaultAriaHaspopupComponent />
+    );
+    const referenceElement = getByTestId('test-button-id');
+
+    expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
+    expect(referenceElement.getAttribute('aria-controls')).toBeTruthy();
+    expect(referenceElement.hasAttribute('aria-haspopup')).toBe(false);
   });
 
   test('Should open normally with disableAutoFlip set', async () => {
