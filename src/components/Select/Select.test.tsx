@@ -1514,7 +1514,7 @@ describe('Select improvedA11y', () => {
     });
   });
 
-  test('announces the highlighted option in the live region as focus moves', async () => {
+  test('announces the result count with the highlighted option, and only the option on arrow keys', async () => {
     const { getByPlaceholderText, getByRole, getAllByRole } = render(
       <Select
         improvedA11y
@@ -1528,14 +1528,44 @@ describe('Select improvedA11y', () => {
     fireEvent.click(input);
     await waitFor(() => getAllByRole('option'));
 
-    // Opening highlights the first option: announce its name and position.
     await waitFor(() => {
-      expect(getByRole('status')).toHaveTextContent('Apple, 1 of 3');
+      const status: string = getByRole('status').textContent;
+      expect(status).toContain('matches found');
+      expect(status).toContain('Apple, 1 of 3');
     });
 
     fireEvent.keyDown(input, { key: 'ArrowDown' });
     await waitFor(() => {
       expect(getByRole('status')).toHaveTextContent('Banana, 2 of 3');
     });
+    expect(getByRole('status').textContent).not.toContain('matches found');
+  });
+
+  test('announces the seeded option group on open, but not while arrowing', async () => {
+    const grouped = [
+      { text: 'With HRIS', value: 'hris', type: MenuItemType.subHeader },
+      { text: 'Apple', value: 'apple' },
+      { text: 'Others', value: 'others', type: MenuItemType.subHeader },
+      { text: 'Banana', value: 'banana' },
+    ];
+    const { getByPlaceholderText, getByRole, getAllByRole } = render(
+      <Select improvedA11y filterable options={grouped} placeholder="Fruit" />
+    );
+    const input = getByPlaceholderText('Fruit') as HTMLInputElement;
+    input.focus();
+    fireEvent.click(input);
+    await waitFor(() => getAllByRole('option'));
+
+    // Open: the seeded option carries its group (VoiceOver won't read it natively).
+    await waitFor(() => {
+      expect(getByRole('status')).toHaveTextContent('Apple, With HRIS');
+    });
+
+    // Arrow: group is left to VoiceOver's native reading, so the echo omits it.
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    await waitFor(() => {
+      expect(getByRole('status')).toHaveTextContent('Banana, 2 of 2');
+    });
+    expect(getByRole('status').textContent).not.toContain('Others');
   });
 });
