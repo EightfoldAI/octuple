@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.3](https://github.com/EightfoldAI/octuple/compare/v2.58.2...v2.58.3) (2026-07-14)
+
+### Bug Fixes
+
+- **Dropdown:** make ariaHaspopupValue opt-in, no aria-haspopup by default ([fe124ee](https://github.com/EightfoldAI/octuple/commits/fe124ee4c22dc9d2e3b214fe16eed7372569a4e1))
+- **Select:** announce result count with the active option for improvedA11y combobox ([60acd40](https://github.com/EightfoldAI/octuple/commits/60acd40da09e47bfbf507fdb84ed4ce97195e079))
+
 ### [2.58.2](https://github.com/EightfoldAI/octuple/compare/v2.58.1...v2.58.2) (2026-07-09)
 
 ### Bug Fixes
