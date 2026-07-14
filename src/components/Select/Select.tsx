@@ -34,6 +34,7 @@ import {
 import { Pill, PillSize, PillType } from '../Pills';
 import { IconName } from '../Icon';
 import {
+  ANNOUNCE_DEBOUNCE_DURATION,
   SelectOption,
   SelectProps,
   SelectShape,
@@ -340,8 +341,30 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [filterable, initialFocus]);
 
+    // Option id -> its group label (nearest preceding sub header).
+    const optionGroupById = useMemo<Record<string, string>>(() => {
+      if (!improvedA11y) {
+        return {};
+      }
+      const groups: Record<string, string> = {};
+      let group = '';
+      for (const opt of options || []) {
+        if (opt.hideOption) {
+          continue;
+        }
+        if (opt.type === MenuItemType.subHeader) {
+          group = opt.text ?? '';
+        } else if (opt.id) {
+          groups[opt.id] = group;
+        }
+      }
+      return groups;
+    }, [options, improvedA11y]);
+
     // Derive the live region message, memoized to prevent spurious
     const lastLiveRegionMessageRef = useRef<string>('');
+    // Mode: 'list' (open/filter) includes the count; 'nav' (arrows) omits it.
+    const announceModeRef = useRef<'list' | 'nav'>('list');
     const liveRegionMessage = useMemo<string>(() => {
       if (!dropdownVisible) {
         return lastLiveRegionMessageRef.current;
@@ -382,9 +405,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
         if (activeOption) {
           const positionSeparator: string =
             selectLocale?.lang?.optionPositionSeparatorText ?? 'of';
-          message = `${activeOption.text}, ${
+          const position: string = `${
             activeIndex + 1
           } ${positionSeparator} ${visibleOptionsCount}`;
+          // Group only on open/filter; the seeded option isn't announced natively.
+          const activeText: string =
+            announceModeRef.current === 'nav'
+              ? `${activeOption.text}, ${position}`
+              : [
+                  activeOption.text,
+                  optionGroupById[activeDescendantId] ?? '',
+                  position,
+                ]
+                  .filter(Boolean)
+                  .join(', ');
+          message =
+            announceModeRef.current === 'nav'
+              ? activeText
+              : `${message} ${activeText}`;
         }
       }
 
@@ -398,6 +436,21 @@ export const Select: FC<SelectProps> = React.forwardRef(
       improvedA11y,
       activeDescendantId,
     ]);
+
+    // Debounce open/filter so keystroke updates coalesce; arrow nav is immediate.
+    const [announcedMessage, setAnnouncedMessage] = useState<string>('');
+    useEffect(() => {
+      if (!improvedA11y) {
+        return undefined;
+      }
+      const delay: number =
+        announceModeRef.current === 'nav' ? 0 : ANNOUNCE_DEBOUNCE_DURATION;
+      const timer: ReturnType<typeof setTimeout> = setTimeout(
+        () => setAnnouncedMessage(liveRegionMessage),
+        delay
+      );
+      return () => clearTimeout(timer);
+    }, [liveRegionMessage, improvedA11y]);
 
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
@@ -934,6 +987,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (!nextId) {
         return;
       }
+      announceModeRef.current = 'nav';
       setActiveDescendantId(nextId);
       if (canUseDocElement()) {
         requestAnimationFrame(() => {
@@ -1149,6 +1203,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (!improvedA11y) {
         return;
       }
+      announceModeRef.current = 'list';
       if (!dropdownVisible) {
         setActiveDescendantId(null);
         return;
@@ -1192,7 +1247,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               className={styles.selectLiveRegion}
               role="status"
             >
-              {liveRegionMessage}
+              {improvedA11y ? announcedMessage : liveRegionMessage}
             </div>
             {/* When Dropdown is hidden, place Pills outside the reference element */}
             {!dropdownVisible && showPills() ? getPills() : null}

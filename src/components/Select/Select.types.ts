@@ -13,6 +13,8 @@ import { PillProps } from '../Pills';
 import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
 import { InputStatus } from '../../shared/utilities';
 
+export const ANNOUNCE_DEBOUNCE_DURATION: number = 400;
+
 type SelectLang = {
   /**
    * The Select locale.
