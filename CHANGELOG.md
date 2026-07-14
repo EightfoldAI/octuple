@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.4](https://github.com/EightfoldAI/octuple/compare/v2.58.3...v2.58.4) (2026-07-14)
+
+### Bug Fixes
+
+- **DatePicker:** make underline variant border override order-independent ([3e03f83](https://github.com/EightfoldAI/octuple/commits/3e03f83d7079894f11e1533d2077eafbc561e434))
+
 ### [2.58.3](https://github.com/EightfoldAI/octuple/compare/v2.58.2...v2.58.3) (2026-07-14)
 
 ### Bug Fixes
