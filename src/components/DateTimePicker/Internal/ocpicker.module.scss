@@ -9,7 +9,7 @@
   border-radius: $picker-border-radius;
   display: inline-flex;
   font-family: var(--font-stack-full);
-  
+
   .pickerLabel {
     position: relative;
   }
@@ -1705,6 +1705,10 @@
   }
 
   &-underline {
+    // Must live in this file: overriding `.picker`'s border from another file
+    // (equal specificity) depends on the consuming app's CSS emission order.
+    border-color: transparent;
+
     .picker-input {
       &:before {
         border-bottom: 1px solid var(--input-border-color);
