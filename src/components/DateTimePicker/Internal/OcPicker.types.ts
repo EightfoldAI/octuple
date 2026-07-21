@@ -1024,6 +1024,10 @@ export type OcRangePickerSharedProps<DateType> = {
    * Allow start or end input leave empty.
    */
   allowEmpty?: [boolean, boolean];
+  /** Aria label for the range's start-date input. */
+  startDateInputAriaLabel?: string;
+  /** Aria label for the range's end-date input. */
+  endDateInputAriaLabel?: string;
   /**
    * Configure how to provide automated assistance in filling out form field values.
    * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
