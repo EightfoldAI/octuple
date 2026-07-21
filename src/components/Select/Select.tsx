@@ -1098,8 +1098,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
               ? toggleButtonAriaLabel
               : 'Toggle dropdown',
             htmlType: 'button',
-            // Decorative chevron hidden from AT via aria-hidden; the role="combobox"
-            // input is the interaction surface. No role="presentation" (WCAG 4.1.2).
             tabIndex: -1,
             ariaHidden: true,
             iconProps: {
