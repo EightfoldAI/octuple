@@ -966,10 +966,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
 
     // Move the active descendant without moving DOM focus
-    const moveActiveDescendant = (
-      direction: 'down' | 'up'
-    ): void => {
-      const navigable: SelectOption[] = getNavigableOptions();  // pickable options
+    const moveActiveDescendant = (direction: 'down' | 'up'): void => {
+      const navigable: SelectOption[] = getNavigableOptions(); // pickable options
       if (navigable.length === 0) {
         return;
       }
@@ -1100,10 +1098,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               ? toggleButtonAriaLabel
               : 'Toggle dropdown',
             htmlType: 'button',
-            // The button does not need to be the tab order as
-            // the input itself provides the focus and action.
             tabIndex: -1,
-            role: 'presentation',
             ariaHidden: true,
             iconProps: {
               path: dropdownVisible
