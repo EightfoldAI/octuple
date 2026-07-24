@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '../index';
@@ -75,6 +76,27 @@ describe('Table.table-pagination', () => {
 
     wrapper.setProps({ pagination: { pageSize: 1 } });
     expect(renderedNames(wrapper)).toEqual(['Lola']);
+  });
+
+  it('keeps rendering rows when a dynamic pageSizes prop changes value', () => {
+    // act() flushes Pagination's mount effect, which persists the initial size (the bug trigger)
+    let wrapper;
+    act(() => {
+      wrapper = mount(
+        createTable({
+          dataSource: longData,
+          pagination: { pageSizes: [10] },
+        })
+      );
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toHaveLength(10);
+
+    act(() => {
+      wrapper.setProps({ pagination: { pageSizes: [9] } });
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toHaveLength(9);
   });
 
   it('should not crash when trigger onChange in render', () => {
