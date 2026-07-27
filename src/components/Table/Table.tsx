@@ -579,6 +579,14 @@ function InternalTable<RecordType extends object = any>(
           );
         }
       }
+
+      // pageSize not in pageSizes: fall back to the first size instead of rendering empty
+      const fallbackPageSize: number = pageSizes[0] ?? DEFAULT_PAGE_SIZE;
+      mergedPagination.pageSize = fallbackPageSize;
+      return mergedData.slice(
+        (currentPage - 1) * fallbackPageSize,
+        currentPage * fallbackPageSize
+      );
     } else {
       if (mergedData.length < total!) {
         if (mergedData.length > pageSize) {

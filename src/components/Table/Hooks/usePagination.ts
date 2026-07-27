@@ -80,6 +80,12 @@ export default function usePagination(
     }
   );
 
+  // A changed pageSizes prop can orphan the pageSize persisted by Pagination's mount effect
+  const { pageSize, pageSizes } = mergedPagination;
+  if (pageSizes && pageSize !== undefined && !pageSizes.includes(pageSize)) {
+    mergedPagination.pageSize = pageSizes[0];
+  }
+
   // Reset `current` if data length or pageSize changed
   const pages: number[] = mergedPagination.pageSizes!;
   let maxPage: number;
