@@ -79,7 +79,7 @@ describe('Table.table-pagination', () => {
   });
 
   it('keeps rendering rows when a dynamic pageSizes prop changes value', () => {
-    // act() flushes Pagination's mount effect, which persists the initial size (the bug trigger)
+    // act() flushes Pagination's mount effect, which persists the initial size
     let wrapper;
     act(() => {
       wrapper = mount(
