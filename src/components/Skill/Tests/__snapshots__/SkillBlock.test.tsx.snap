@@ -107,6 +107,10 @@ exports[`SkillBlock Skill block has no border 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -221,6 +225,10 @@ exports[`SkillBlock Skill block is bordered 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -334,6 +342,10 @@ exports[`SkillBlock Skill block is disabled 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -448,6 +460,10 @@ exports[`SkillBlock Skill block is readonly 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -562,6 +578,10 @@ exports[`SkillBlock Skill block renders 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -700,6 +720,10 @@ exports[`SkillBlock Skill block uses custom props 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
       <div
@@ -933,6 +957,10 @@ exports[`SkillBlock Skill is a below and upskilling assessment block and the ico
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1047,6 +1075,10 @@ exports[`SkillBlock Skill is a below and upskilling assessment block and the ico
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1186,6 +1218,10 @@ exports[`SkillBlock Skill is a below assessment block and the icon is enabled 1`
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1300,6 +1336,10 @@ exports[`SkillBlock Skill is a below assessment block and the icon is not enable
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1416,6 +1456,10 @@ exports[`SkillBlock Skill is a clickable block 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1530,6 +1574,10 @@ exports[`SkillBlock Skill is a default block 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1658,6 +1706,10 @@ exports[`SkillBlock Skill is a default block with custom iconProps 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1783,6 +1835,10 @@ exports[`SkillBlock Skill is a default block with custom inlineSvgProps 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -1897,6 +1953,10 @@ exports[`SkillBlock Skill is a default block with customButtonProps 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
       <div
@@ -2042,6 +2102,10 @@ exports[`SkillBlock Skill is a default block with endorseButtonProps 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
       <div
@@ -2195,6 +2259,10 @@ exports[`SkillBlock Skill is a default block with highlightButtonProps 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
       <div
@@ -2379,6 +2447,10 @@ exports[`SkillBlock Skill is a exceed and upskilling assessment block and the ic
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -2493,6 +2565,10 @@ exports[`SkillBlock Skill is a exceed and upskilling assessment block and the ic
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -2632,6 +2708,10 @@ exports[`SkillBlock Skill is a exceed assessment block and the icon is enabled 1
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -2746,6 +2826,10 @@ exports[`SkillBlock Skill is a exceed assessment block and the icon is not enabl
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -2874,6 +2958,10 @@ exports[`SkillBlock Skill is a highlight block 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3002,6 +3090,10 @@ exports[`SkillBlock Skill is a match block 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3154,6 +3246,10 @@ exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3268,6 +3364,10 @@ exports[`SkillBlock Skill is a meet and upskilling assessment block and the icon
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3407,6 +3507,10 @@ exports[`SkillBlock Skill is a meet assessment block and the icon is enabled 1`]
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3521,6 +3625,10 @@ exports[`SkillBlock Skill is a meet assessment block and the icon is not enabled
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3635,6 +3743,10 @@ exports[`SkillBlock Skill is a required block 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -3756,6 +3868,10 @@ exports[`SkillBlock Skill is a required block with lineClamp and long text 1`] =
                 </div>
               </div>
             </div>
+            <span
+              aria-hidden="true"
+              hidden=""
+            />
           </div>
         </div>
       </div>
@@ -3871,6 +3987,10 @@ exports[`SkillBlock Skill is a required block with the required mark hidden 1`] 
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -4010,6 +4130,10 @@ exports[`SkillBlock Skill is a upskilling assessment block and the icon is enabl
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -4124,6 +4248,10 @@ exports[`SkillBlock Skill is a upskilling assessment block and the icon is not e
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
     </div>
@@ -4240,6 +4368,10 @@ exports[`SkillBlock Skill overflow item menu 1`] = `
               </div>
             </div>
           </div>
+          <span
+            aria-hidden="true"
+            hidden=""
+          />
         </div>
       </div>
       <div

@@ -373,43 +373,12 @@ export function generateTrigger(
       return this.popupRef.current?.getElement() || null;
     }
 
-   getRootDomNode = (): HTMLElement | null => {
-  const { getTriggerDOMNode } = this.props;
-  if (getTriggerDOMNode && this.triggerRef.current) {
-    return getTriggerDOMNode(this.triggerRef.current);
-  }
+    getRootDomNode = (): HTMLElement | null => {
+      const { getTriggerDOMNode } = this.props;
+      if (getTriggerDOMNode && this.triggerRef.current) {
+        return getTriggerDOMNode(this.triggerRef.current);
+      }
 
-  try {
-    const domNode = findDOMNode<HTMLElement>(this.triggerRef.current);
-    if (domNode) {
-      return domNode;
-    }
-  } catch (err) {
-    // Do nothing
-  }
-
-  return null;
-};
-
-  try {
-    const domNode = findDOMNode<HTMLElement>(this.triggerRef.current);
-    if (domNode) {
-      return domNode;
-    }
-  } catch (err) {
-    // Do nothing
-  }
-
-  return null;
-};
-
-      // `triggerRef` is composed onto the (cloned) child in `render()`
-      // below, so it already resolves to a real DOM node whenever the
-      // child accepts a ref (host elements, class components, and
-      // `forwardRef` components all do). React 19 removed
-      // `ReactDOM.findDOMNode`, which used to be a last-resort fallback
-      // here for children that don't accept a ref directly — there is no
-      // replacement for that case, so we return `null` instead.
       try {
         const domNode = findDOMNode<HTMLElement>(this.triggerRef.current);
         if (domNode) {
@@ -421,6 +390,14 @@ export function generateTrigger(
 
       return null;
     };
+
+    // `triggerRef` is composed onto the (cloned) child in `render()`
+    // below, so it already resolves to a real DOM node whenever the
+    // child accepts a ref (host elements, class components, and
+    // `forwardRef` components all do). React 19 removed
+    // `ReactDOM.findDOMNode`, which used to be a last-resort fallback
+    // here for children that don't accept a ref directly — there is no
+    // replacement for that case, so we return `null` instead.
 
     getPopupClassNameFromAlign = (align: AlignType) => {
       const classNames = [];

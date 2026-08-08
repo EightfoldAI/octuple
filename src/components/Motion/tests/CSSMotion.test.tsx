@@ -4,7 +4,6 @@ import { mergeClasses } from '../../../shared/utilities';
 import { render, fireEvent } from '@testing-library/react';
 import type { CSSMotionProps } from '../CSSMotion.types';
 import RefCSSMotion, { genCSSMotion } from '../CSSMotion';
-import ReactDOM from 'react-dom';
 
 describe('CSSMotion', () => {
   const CSSMotion = genCSSMotion();
@@ -145,18 +144,15 @@ describe('CSSMotion', () => {
     expect(onLeaveEnd).toHaveBeenCalled();
   });
 
-  describe('strict mode', () => {
-    beforeEach(() => {
-      jest.spyOn(ReactDOM, 'findDOMNode');
-    });
-
-    afterEach(() => {
-      jest.resetAllMocks();
-    });
-
-    it('calls findDOMNode when no refs are passed', () => {
-      const Div = () => <div />;
-      render(
+  // React 19 removed `ReactDOM.findDOMNode`, so `CSSMotion` no longer relies
+  // on it. These cases now assert on the DOM shape directly: a plain
+  // function component child (no ref support) falls back to `DomWrapper`'s
+  // hidden marker node, while a ref-able child (a host element) renders
+  // without any extra marker node.
+  describe('dom resolution without findDOMNode', () => {
+    it('falls back to DomWrapper marker when no refs are passed', () => {
+      const Div = () => <div className="target" />;
+      const { container } = render(
         <CSSMotion motionName="transition" visible>
           {() => <Div />}
         </CSSMotion>
@@ -166,13 +162,15 @@ describe('CSSMotion', () => {
         jest.runAllTimers();
       });
 
-      expect(ReactDOM.findDOMNode).toHaveBeenCalled();
+      // Hidden marker precedes the un-refable child.
+      expect(container.querySelector('span[hidden]')).toBeTruthy();
+      expect(container.querySelector('.target')).toBeTruthy();
     });
 
-    it('does not call findDOMNode when ref is passed internally', () => {
-      render(
+    it('renders without a marker when ref is passed internally', () => {
+      const { container } = render(
         <CSSMotion motionName="transition" visible>
-          {(props, ref) => <div ref={ref} {...props} />}
+          {(props, ref) => <div ref={ref} {...props} className="target" />}
         </CSSMotion>
       );
 
@@ -180,14 +178,15 @@ describe('CSSMotion', () => {
         jest.runAllTimers();
       });
 
-      expect(ReactDOM.findDOMNode).not.toHaveBeenCalled();
+      expect(container.querySelector('span[hidden]')).toBeFalsy();
+      expect(container.querySelector('.target')).toBeTruthy();
     });
 
-    it('calls findDOMNode when refs are forwarded but not assigned', () => {
+    it('falls back to DomWrapper marker when refs are forwarded but not assigned', () => {
       const domRef = React.createRef();
-      const Div = () => <div />;
+      const Div = () => <div className="target" />;
 
-      render(
+      const { container } = render(
         <CSSMotion motionName="transition" visible ref={domRef}>
           {() => <Div />}
         </CSSMotion>
@@ -197,15 +196,15 @@ describe('CSSMotion', () => {
         jest.runAllTimers();
       });
 
-      expect(ReactDOM.findDOMNode).toHaveBeenCalled();
+      expect(container.querySelector('span[hidden]')).toBeTruthy();
     });
 
-    it('does not call findDOMNode when refs are forwarded and assigned', () => {
+    it('renders without a marker when refs are forwarded and assigned', () => {
       const domRef = React.createRef();
 
-      render(
+      const { container } = render(
         <CSSMotion motionName="transition" visible ref={domRef}>
-          {(props, ref) => <div ref={ref} {...props} />}
+          {(props, ref) => <div ref={ref} {...props} className="target" />}
         </CSSMotion>
       );
 
@@ -213,7 +212,8 @@ describe('CSSMotion', () => {
         jest.runAllTimers();
       });
 
-      expect(ReactDOM.findDOMNode).not.toHaveBeenCalled();
+      expect(container.querySelector('span[hidden]')).toBeFalsy();
+      expect(domRef.current instanceof HTMLElement).toBeTruthy();
     });
   });
 });

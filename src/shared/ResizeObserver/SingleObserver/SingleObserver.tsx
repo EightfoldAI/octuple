@@ -9,7 +9,13 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { composeRef, DomWrapper, findDOMNode } from '../../utilities';
+import {
+  canAttachRef,
+  composeRef,
+  DomWrapper,
+  DomWrapperRef,
+  getElementRef,
+} from '../../utilities';
 import { observe, unobserve } from '../utils/observerUtil';
 import type { ResizeObserverProps } from '../ResizeObserver';
 import { CollectionContext } from '../Collection';
@@ -20,10 +26,16 @@ export interface SingleObserverProps extends ResizeObserverProps {
     | ((ref: React.RefObject<Element>) => React.ReactElement);
 }
 
+/** Shape of the subset of element props we care about when resolving a ref. */
+interface ElementWithRefProps {
+  ref?: React.Ref<Element>;
+  [key: string]: unknown;
+}
+
 export function SingleObserver(props: SingleObserverProps): JSX.Element {
   const { children, disabled } = props;
   const elementRef = useRef<Element>(null);
-  const wrapperRef = useRef<DomWrapper>(null);
+  const wrapperRef = useRef<DomWrapperRef>(null);
 
   const onCollectionResize = useContext(CollectionContext);
 
@@ -40,8 +52,24 @@ export function SingleObserver(props: SingleObserverProps): JSX.Element {
   });
 
   // ============================= Ref ==============================
-  const canRef = !isRenderProps && isValidElement(mergedChildren);
-  const originRef: Ref<Element> = canRef ? (mergedChildren as any).ref : null;
+  // `canRef` tells us whether we can attach a ref directly to `mergedChildren`
+  // and rely on it for measurement. React 19 removed `ReactDOM.findDOMNode`,
+  // which used to let us fall back to resolving the DOM node from *any*
+  // component instance (even ones that can't accept a ref, like a plain
+  // function component — e.g. `Select.tsx`'s `ThemeContextProvider` child).
+  // For that fallback case we render `DomWrapper`, which resolves the DOM
+  // node via a hidden marker sibling instead of `findDOMNode` (see
+  // `domWrapper.tsx`). When a direct ref is attachable we skip `DomWrapper`
+  // entirely so no extra DOM node is introduced — this matters for children
+  // like `<td>` that must remain a direct child of `<tr>` (see `Table`'s
+  // `MeasureCell`).
+  const isValidRefElement = isValidElement<ElementWithRefProps>(mergedChildren);
+  const canRef =
+    !isRenderProps && isValidRefElement && canAttachRef(mergedChildren);
+  const originRef: Ref<Element> =
+    canRef && isValidRefElement
+      ? getElementRef<Element>(mergedChildren) ?? null
+      : null;
 
   const mergedRef = useMemo(
     () => composeRef<Element>(originRef, elementRef),
@@ -107,24 +135,28 @@ export function SingleObserver(props: SingleObserverProps): JSX.Element {
 
   // Dynamic observe
   useEffect(() => {
-    const currentElement: HTMLElement =
-      findDOMNode?.(elementRef.current) || findDOMNode?.(wrapperRef.current);
+    const currentElement: HTMLElement | null =
+      (elementRef.current as unknown as HTMLElement) ||
+      wrapperRef.current?.getDOMNode() ||
+      null;
 
     if (currentElement && !disabled) {
       observe(currentElement, onInternalResize);
     }
 
-    return () => unobserve(currentElement, onInternalResize);
+    return () => {
+      if (currentElement) {
+        unobserve(currentElement, onInternalResize);
+      }
+    };
   }, [elementRef.current, disabled]);
 
   // ============================ Render ============================
-  return (
-    <DomWrapper ref={wrapperRef}>
-      {canRef
-        ? React.cloneElement(mergedChildren as any, {
-            ref: mergedRef,
-          })
-        : mergedChildren}
-    </DomWrapper>
-  );
+  if (canRef) {
+    return React.cloneElement(mergedChildren as React.ReactElement, {
+      ref: mergedRef,
+    });
+  }
+
+  return <DomWrapper ref={wrapperRef}>{mergedChildren}</DomWrapper>;
 }

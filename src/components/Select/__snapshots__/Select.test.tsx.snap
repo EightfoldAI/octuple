@@ -76,6 +76,10 @@ exports[`Select Renders empty options in multiple mode without crashing 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -155,6 +159,10 @@ exports[`Select Renders empty options in single mode without crashing 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -234,6 +242,10 @@ exports[`Select Renders null options in multiple mode without crashing 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -313,6 +325,10 @@ exports[`Select Renders null options in single mode without crashing 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -392,6 +408,10 @@ exports[`Select Renders with default value 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -539,6 +559,10 @@ exports[`Select Renders with default values when multiple 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -618,6 +642,10 @@ exports[`Select Renders without crashing 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    hidden=""
+  />
 </div>
 `;
 

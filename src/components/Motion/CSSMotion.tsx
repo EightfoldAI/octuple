@@ -2,9 +2,11 @@
 
 import React, { useRef } from 'react';
 import {
+  canAttachRef,
   DomWrapper,
-  findDOMNode,
+  DomWrapperRef,
   fillRef,
+  getElementRef,
   mergeClasses,
 } from '../../shared/utilities';
 import { getTransitionName } from './util/motion';
@@ -29,18 +31,20 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
 
     // Ref to the react node, it may be a HTMLElement
     const nodeRef: React.MutableRefObject<any> = useRef<any>();
-    // Ref to the dom wrapper in case ref can not pass to HTMLElement
-    const wrapperNodeRef: React.MutableRefObject<undefined> = useRef();
+    // Ref to the dom wrapper in case ref can not be passed to the HTMLElement
+    // (e.g. `motionChildren`'s type does not accept a ref — see
+    // `canAttachRef` in `shared/utilities/ref.ts`).
+    const wrapperNodeRef = useRef<DomWrapperRef>(null);
 
     function getDomElement(): HTMLElement {
       try {
-        // Here we're avoiding call for findDOMNode since it's deprecated
-        // in strict mode. We're calling it only when node ref is not
-        // an instance of DOM HTMLElement. Otherwise use
-        // findDOMNode as a final resort
+        // React 19 removed `ReactDOM.findDOMNode`, so we no longer fall
+        // back to it here. When `nodeRef` did not resolve to a real
+        // HTMLElement, `DomWrapper` resolves it via a hidden marker
+        // sibling instead (see `domWrapper.tsx`).
         return nodeRef.current instanceof HTMLElement
           ? nodeRef.current
-          : findDOMNode<HTMLElement>(wrapperNodeRef.current);
+          : wrapperNodeRef.current?.getDOMNode() ?? null;
       } catch (e) {
         // Only happen when `motionDeadline` trigger but element removed.
         return null;
@@ -123,15 +127,30 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
       );
     }
 
-    // Auto inject ref if child node doesn't have `ref` props
-    if (React.isValidElement(motionChildren)) {
-      const { ref: originNodeRef } = motionChildren as any;
+    // Auto inject ref if the child node doesn't already have one and can
+    // accept it.
+    const canRefMotionChildren =
+      React.isValidElement(motionChildren) &&
+      canAttachRef(motionChildren as React.ReactElement);
+
+    if (canRefMotionChildren) {
+      const originNodeRef = getElementRef(motionChildren as React.ReactElement);
 
       if (!originNodeRef) {
-        motionChildren = React.cloneElement(motionChildren, {
-          ref: setNodeRef,
-        });
+        motionChildren = React.cloneElement(
+          motionChildren as React.ReactElement,
+          {
+            ref: setNodeRef,
+          }
+        );
       }
+    }
+
+    // Only reach for the `DomWrapper` marker fallback when the child can't
+    // accept a ref directly — most children are DOM elements or forwardRef
+    // components, so this keeps the common case free of any extra DOM node.
+    if (canRefMotionChildren) {
+      return motionChildren as React.ReactElement;
     }
 
     return <DomWrapper ref={wrapperNodeRef}>{motionChildren}</DomWrapper>;

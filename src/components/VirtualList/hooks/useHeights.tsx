@@ -1,8 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import {
-  findDOMNode,
-  requestAnimationFrameWrapper,
-} from '../../../shared/utilities';
+import { requestAnimationFrameWrapper } from '../../../shared/utilities';
 import type { GetKey } from '../VirtualList.types';
 import CacheMap from '../utils/CacheMap';
 
@@ -25,11 +22,13 @@ export default function useHeights<T>(
 
     collectRafRef.current = requestAnimationFrameWrapper(() => {
       instanceRef.current.forEach((element, key) => {
+        // `element` is always a real HTMLElement here — it comes directly
+        // from a DOM ref callback (see `setInstanceRef` below) — so no
+        // `findDOMNode` resolution is needed (it was removed in React 19).
         if (element && element.offsetParent) {
-          const htmlElement = findDOMNode<HTMLElement>(element);
-          const { offsetHeight } = htmlElement;
+          const { offsetHeight } = element;
           if (heightsRef.current.get(key) !== offsetHeight) {
-            heightsRef.current.set(key, htmlElement.offsetHeight);
+            heightsRef.current.set(key, offsetHeight);
           }
         }
       });
