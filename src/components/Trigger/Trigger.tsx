@@ -2,7 +2,6 @@
 
 import React from 'react';
 import type { HTMLAttributes } from 'react';
-import ReactDOM from 'react-dom';
 import {
   addEventListenerWrapper,
   canUseDom,
@@ -10,7 +9,7 @@ import {
   findDOMNode,
   requestAnimationFrameWrapper,
 } from '../../shared/utilities';
-import { composeRef } from '../../shared/utilities/ref';
+import { composeRef, getElementRef } from '../../shared/utilities/ref';
 import { Portal } from '../Portal';
 import { mergeClasses } from '../../shared/utilities';
 import {
@@ -374,12 +373,43 @@ export function generateTrigger(
       return this.popupRef.current?.getElement() || null;
     }
 
-    getRootDomNode = (): HTMLElement => {
-      const { getTriggerDOMNode } = this.props;
-      if (getTriggerDOMNode) {
-        return getTriggerDOMNode(this.triggerRef.current);
-      }
+   getRootDomNode = (): HTMLElement | null => {
+  const { getTriggerDOMNode } = this.props;
+  if (getTriggerDOMNode && this.triggerRef.current) {
+    return getTriggerDOMNode(this.triggerRef.current);
+  }
 
+  try {
+    const domNode = findDOMNode<HTMLElement>(this.triggerRef.current);
+    if (domNode) {
+      return domNode;
+    }
+  } catch (err) {
+    // Do nothing
+  }
+
+  return null;
+};
+
+  try {
+    const domNode = findDOMNode<HTMLElement>(this.triggerRef.current);
+    if (domNode) {
+      return domNode;
+    }
+  } catch (err) {
+    // Do nothing
+  }
+
+  return null;
+};
+
+      // `triggerRef` is composed onto the (cloned) child in `render()`
+      // below, so it already resolves to a real DOM node whenever the
+      // child accepts a ref (host elements, class components, and
+      // `forwardRef` components all do). React 19 removed
+      // `ReactDOM.findDOMNode`, which used to be a last-resort fallback
+      // here for children that don't accept a ref directly — there is no
+      // replacement for that case, so we return `null` instead.
       try {
         const domNode = findDOMNode<HTMLElement>(this.triggerRef.current);
         if (domNode) {
@@ -389,7 +419,7 @@ export function generateTrigger(
         // Do nothing
       }
 
-      return ReactDOM.findDOMNode(this) as HTMLElement;
+      return null;
     };
 
     getPopupClassNameFromAlign = (align: AlignType) => {
@@ -782,7 +812,8 @@ export function generateTrigger(
         ...newChildProps,
       };
 
-      cloneProps.ref = composeRef(this.triggerRef, (child as any).ref);
+      // React 19 moved `ref` off the element object and onto `props.ref`.
+      cloneProps.ref = composeRef(this.triggerRef, getElementRef(child));
       const trigger = React.cloneElement(child, cloneProps);
 
       let portal: React.ReactElement;
