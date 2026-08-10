@@ -89,6 +89,17 @@ const MemoTableContent = memo<MemoTableContentProps>(
   }
 );
 
+// React 19 removed `defaultProps` support for function components —
+// `OcTable` is a plain function component (not a class), so its previous
+// `OcTable.defaultProps` assignment (see removed code below) silently
+// stopped applying under React 19. `rowKey`/`emptyText` are now defaulted
+// via parameter defaults on destructuring instead, which behaves
+// identically on React 17: a default only applies when the prop is
+// `undefined`. Kept as a stable module-level reference (rather than an
+// inline arrow function) so repeated renders without an explicit
+// `emptyText` don't allocate a new function every time.
+const DEFAULT_EMPTY_TEXT = () => 'No data found';
+
 function OcTable<RecordType extends DefaultRecordType>(
   props: OcTableProps<RecordType>
 ) {
@@ -99,7 +110,10 @@ function OcTable<RecordType extends DefaultRecordType>(
     rowClassName,
     style,
     data,
-    rowKey,
+    // React 19 removed `defaultProps` support for function components.
+    // `rowKey`/`emptyText` are defaulted via parameter defaults instead;
+    // see the removed `OcTable.defaultProps` assignment below.
+    rowKey = 'key',
     scroll,
     tableLayout,
     direction,
@@ -113,7 +127,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     id,
     showHeader,
     components,
-    emptyText,
+    emptyText = DEFAULT_EMPTY_TEXT,
     onRow,
     onHeaderRow,
     transformColumns,
@@ -899,10 +913,5 @@ OcTable.Column = Column;
 OcTable.ColumnGroup = ColumnGroup;
 
 OcTable.Summary = FooterComponents;
-
-OcTable.defaultProps = {
-  rowKey: 'key',
-  emptyText: () => 'No data found',
-};
 
 export default OcTable;

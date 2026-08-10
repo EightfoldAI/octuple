@@ -10,6 +10,7 @@ import {
   GetKey,
   FieldNames,
   BasicDataNode,
+  DEFAULT_TREE_NODE_TITLE,
 } from '../OcTree.types';
 import { TreeNodeProps } from '../OcTree.types';
 
@@ -80,9 +81,20 @@ export function convertTreeToData(rootNodes: React.ReactNode): DataNode[] {
         const { key } = treeNode;
         const { children, ...rest } = treeNode.props;
 
+        // `title`'s default ('---', see `TreeNode.tsx`) used to be applied
+        // by React itself at `createElement` time via `ContextTreeNode
+        // .defaultProps` — which ran even for elements (like this one)
+        // that are only ever inspected for their raw `.props`, never
+        // rendered. React 19 removed that createElement-time defaultProps
+        // merge for function components entirely (the same reason
+        // `ContextTreeNode.defaultProps` itself had to be migrated to a
+        // parameter default — see `TreeNode.tsx`), so it must be applied
+        // explicitly here for this raw-props read path too.
         const dataNode: DataNode = {
           key,
           ...rest,
+          title:
+            rest.title === undefined ? DEFAULT_TREE_NODE_TITLE : rest.title,
         };
 
         const parsedChildren = dig(children);

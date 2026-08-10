@@ -48,9 +48,23 @@ const DirectoryTree: React.ForwardRefRenderFunction<
   OcTree,
   DirectoryTreeProps
 > = (
-  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
+  {
+    defaultExpandAll,
+    defaultExpandParent,
+    defaultExpandedKeys,
+    showIcon = true,
+    expandAction = 'click' as DirectoryTreeProps['expandAction'],
+    ...restProps
+  },
   ref
 ) => {
+  // React 19 removed `defaultProps` support for `forwardRef` components
+  // (`ForwardDirectoryTree` below). `showIcon`/`expandAction` are defaulted
+  // via destructuring above instead and folded back into `props` here, so
+  // the rest of this function — which reads `props.showIcon` /
+  // `props.expandAction` and spreads `props` down to `BaseTree` — is
+  // otherwise unchanged.
+  const props: DirectoryTreeProps = { ...restProps, showIcon, expandAction };
   // Shift click usage
   const lastSelectedKey = React.useRef<Key>();
 
@@ -255,10 +269,5 @@ const DirectoryTree: React.ForwardRefRenderFunction<
 
 const ForwardDirectoryTree = React.forwardRef(DirectoryTree);
 ForwardDirectoryTree.displayName = 'DirectoryTree';
-
-ForwardDirectoryTree.defaultProps = {
-  showIcon: true,
-  expandAction: 'click' as DirectoryTreeProps['expandAction'],
-};
 
 export default ForwardDirectoryTree;

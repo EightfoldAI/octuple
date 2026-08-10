@@ -107,7 +107,11 @@ function InternalTable<RecordType extends object = any>(
     rowBordered = false,
     rowClassName,
     rowHoverBackgroundEnabled = true,
-    rowKey,
+    // React 19 removed `defaultProps` support for `forwardRef` components
+    // (`Table` below is `forwardRef(InternalTable)`) — defaulted here via
+    // a parameter default instead; see `Table.tsx`'s removed
+    // `Table.defaultProps` assignment.
+    rowKey = 'key',
     rowSelection,
     scroll,
     selectAllRowsText: defaultSelectAllRowsText,
@@ -899,10 +903,6 @@ interface TableInterface extends InternalTableType {
 }
 
 const Table = ForwardTable as TableInterface;
-
-Table.defaultProps = {
-  rowKey: 'key',
-};
 
 Table.SELECTION_COLUMN = SELECTION_COLUMN;
 Table.EXPAND_COLUMN = OcTable.EXPAND_COLUMN;

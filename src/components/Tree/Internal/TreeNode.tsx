@@ -614,17 +614,21 @@ class InternalTreeNode extends React.Component<
   }
 }
 
-const ContextTreeNode: React.FC<TreeNodeProps> = (props) => (
+// React 19 removed `defaultProps` support for function components. `title`
+// is defaulted via a parameter default instead — this only applies when
+// `title` is `undefined`, matching `defaultProps`'s prior behavior exactly.
+const ContextTreeNode: React.FC<TreeNodeProps> = ({
+  title = DEFAULT_TREE_NODE_TITLE,
+  ...props
+}) => (
   <TreeContext.Consumer>
-    {(context) => <InternalTreeNode {...props} context={context} />}
+    {(context) => (
+      <InternalTreeNode {...props} title={title} context={context} />
+    )}
   </TreeContext.Consumer>
 );
 
 ContextTreeNode.displayName = 'TreeNode';
-
-ContextTreeNode.defaultProps = {
-  title: DEFAULT_TREE_NODE_TITLE,
-};
 
 (ContextTreeNode as any).isTreeNode = 1;
 
