@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.5](https://github.com/EightfoldAI/octuple/compare/v2.58.4...v2.58.5) (2026-08-11)
+
+
+### Bug Fixes
+
+* **a11y:** correct select chevron role and type rangepicker aria-label props ([#1156](https://github.com/EightfoldAI/octuple/issues/1156)) ([f22fb38](https://github.com/EightfoldAI/octuple/commits/f22fb38e6b2d7602dd2a8535a69dfa04c14b3d99))
+* **table:** keep rows rendered when pageSizes prop changes at runtime ([fac8548](https://github.com/EightfoldAI/octuple/commits/fac854849fa2731fb5328c67658522d90ecc8fff))
+
 ### [2.58.4](https://github.com/EightfoldAI/octuple/compare/v2.58.3...v2.58.4) (2026-07-14)
 
 ### Bug Fixes
