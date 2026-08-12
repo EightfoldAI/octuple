@@ -1,6 +1,13 @@
 'use client';
 
-import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import React, {
+  FC,
+  Ref,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
@@ -196,6 +203,29 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       setCurrentPage(currentPage);
     }, [currentPage]);
 
+    // Mount normalization is handled above; this only tracks later prop changes
+    const skipInitialSizeSyncRef = useRef<boolean>(true);
+
+    useEffect((): void => {
+      if (skipInitialSizeSyncRef.current) {
+        skipInitialSizeSyncRef.current = false;
+        return;
+      }
+      const nextPageSize: number =
+        !pageSizes.length || pageSizes.includes(pageSize)
+          ? pageSize
+          : pageSizes[0];
+      setPageSize(nextPageSize);
+      setPageSizes(pageSizes);
+      if (total > 0) {
+        const nextPageCount: number = Math.ceil(total / nextPageSize);
+        setPageCount(nextPageCount);
+        if (_currentPage > nextPageCount) {
+          handleCurrentChange(nextPageCount);
+        }
+      }
+    }, [pageSize, pageSizes.join(',')]);
+
     useEffect((): void => {
       if (loop) {
         setPageCount(pageCount);
@@ -285,7 +315,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
 
     const onSizeChangeHandler = (val: number): void => {
       setPageSize(val);
-      setPageCount(Math.ceil(total / _pageSize));
+      setPageCount(Math.ceil(total / val));
       onSizeChange && onSizeChange(val);
 
       // TODO: Improve this to find _currentPage in newly calc'd _pageSize.
