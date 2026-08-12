@@ -1,5 +1,5 @@
 import React from 'react';
-import { composeRef } from '../../../shared/utilities';
+import { composeRef, getElementRef } from '../../../shared/utilities';
 import { FormContext } from '../Context';
 import type { InternalOcNamePath } from '../Form.types';
 
@@ -13,7 +13,7 @@ export default function useItemRef() {
 
   function getRef(name: InternalOcNamePath, children: any) {
     const childrenRef: React.Ref<React.ReactElement> =
-      children && typeof children === 'object' && children.ref;
+      children && typeof children === 'object' && getElementRef(children);
     const nameStr = name.join('_');
     if (
       cacheRef.current.name !== nameStr ||

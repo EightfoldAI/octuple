@@ -3,8 +3,9 @@
 import React, { useRef } from 'react';
 import {
   DomWrapper,
-  findDOMNode,
   fillRef,
+  getElementRef,
+  isDomRefable,
   mergeClasses,
 } from '../../shared/utilities';
 import { getTransitionName } from './util/motion';
@@ -30,17 +31,13 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
     // Ref to the react node, it may be a HTMLElement
     const nodeRef: React.MutableRefObject<any> = useRef<any>();
     // Ref to the dom wrapper in case ref can not pass to HTMLElement
-    const wrapperNodeRef: React.MutableRefObject<undefined> = useRef();
+    const wrapperNodeRef = useRef<DomWrapper>(null);
 
     function getDomElement(): HTMLElement {
       try {
-        // Here we're avoiding call for findDOMNode since it's deprecated
-        // in strict mode. We're calling it only when node ref is not
-        // an instance of DOM HTMLElement. Otherwise use
-        // findDOMNode as a final resort
         return nodeRef.current instanceof HTMLElement
           ? nodeRef.current
-          : findDOMNode<HTMLElement>(wrapperNodeRef.current);
+          : wrapperNodeRef.current?.getDOMNode();
       } catch (e) {
         // Only happen when `motionDeadline` trigger but element removed.
         return null;
@@ -124,17 +121,23 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
     }
 
     // Auto inject ref if child node doesn't have `ref` props
+    let injectedDomRef = false;
     if (React.isValidElement(motionChildren)) {
-      const { ref: originNodeRef } = motionChildren as any;
+      const originNodeRef = getElementRef(motionChildren);
 
       if (!originNodeRef) {
+        injectedDomRef = isDomRefable(motionChildren);
         motionChildren = React.cloneElement(motionChildren, {
           ref: setNodeRef,
         });
       }
     }
 
-    return <DomWrapper ref={wrapperNodeRef}>{motionChildren}</DomWrapper>;
+    return (
+      <DomWrapper ref={wrapperNodeRef} renderMarker={!injectedDomRef}>
+        {motionChildren}
+      </DomWrapper>
+    );
   });
 
   CSSMotion.displayName = 'CSSMotion';
