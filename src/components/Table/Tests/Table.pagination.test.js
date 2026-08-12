@@ -99,6 +99,33 @@ describe('Table.table-pagination', () => {
     expect(renderedNames(wrapper)).toHaveLength(9);
   });
 
+  it('recomputes page count when a dynamic pageSize prop changes value', () => {
+    const resizableData = [];
+    for (let i = 0; i < 37; i += 1) {
+      resizableData.push({ key: i, name: `${i}` });
+    }
+
+    let wrapper;
+    act(() => {
+      wrapper = mount(
+        createTable({
+          dataSource: resizableData,
+          pagination: { pageSize: 11, pageSizes: [11] },
+        })
+      );
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toHaveLength(11);
+    expect(wrapper.find('ul.pager li')).toHaveLength(4);
+
+    act(() => {
+      wrapper.setProps({ pagination: { pageSize: 6, pageSizes: [6] } });
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toHaveLength(6);
+    expect(wrapper.find('ul.pager li')).toHaveLength(7);
+  });
+
   it('should not crash when trigger onChange in render', () => {
     function App() {
       const [page, setPage] = React.useState({

@@ -171,4 +171,77 @@ describe('Pagination', () => {
         .hasAttribute('disabled')
     ).toBe(true);
   });
+
+  test('Pagination should recompute page count when pageSize prop changes', () => {
+    const { container, rerender } = render(
+      <Pagination
+        currentPage={1}
+        onCurrentChange={() => {}}
+        pageSize={11}
+        pageSizes={[11]}
+        total={37}
+      />
+    );
+    expect(container.querySelectorAll('.pager li')).toHaveLength(4);
+
+    rerender(
+      <Pagination
+        currentPage={1}
+        onCurrentChange={() => {}}
+        pageSize={6}
+        pageSizes={[6]}
+        total={37}
+      />
+    );
+    expect(container.querySelectorAll('.pager li')).toHaveLength(7);
+  });
+
+  test('Pagination should recompute page count when only pageSizes prop changes', () => {
+    const { container, rerender } = render(
+      <Pagination
+        currentPage={1}
+        onCurrentChange={() => {}}
+        pageSizes={[11]}
+        total={37}
+      />
+    );
+    expect(container.querySelectorAll('.pager li')).toHaveLength(4);
+
+    rerender(
+      <Pagination
+        currentPage={1}
+        onCurrentChange={() => {}}
+        pageSizes={[6]}
+        total={37}
+      />
+    );
+    expect(container.querySelectorAll('.pager li')).toHaveLength(7);
+  });
+
+  test('Pagination should clamp current page when a pageSize change shrinks page count', () => {
+    const onCurrentChange = jest.fn();
+    const { rerender } = render(
+      <Pagination
+        currentPage={7}
+        onCurrentChange={onCurrentChange}
+        pageSize={6}
+        pageSizes={[6]}
+        selfControlled={false}
+        total={37}
+      />
+    );
+    expect(onCurrentChange).not.toHaveBeenCalled();
+
+    rerender(
+      <Pagination
+        currentPage={7}
+        onCurrentChange={onCurrentChange}
+        pageSize={11}
+        pageSizes={[11]}
+        selfControlled={false}
+        total={37}
+      />
+    );
+    expect(onCurrentChange).toHaveBeenCalledWith(4);
+  });
 });
