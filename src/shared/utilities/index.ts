@@ -32,6 +32,7 @@ export * from './stopPropagation';
 export * from './styleChecker';
 export { default as toArray } from './toArray';
 export * from './types';
+export * from './unstableSetRender';
 export * from './uniqueId';
 export * from './utilities.types';
 export { default as visuallyHidden } from './visuallyHidden';

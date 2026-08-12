@@ -288,6 +288,7 @@ import {
   hasHorizontalOverflow,
   hasOverflow,
   hasVerticalOverflow,
+  unstableSetRender,
 } from './shared/utilities';
 
 import { Loader, LoaderSize } from './components/Loader';
@@ -586,6 +587,7 @@ export {
   TooltipSize,
   TooltipTouchInteraction,
   Truncate,
+  unstableSetRender,
   TwoStateButton,
   Upload,
   UploadFile,
