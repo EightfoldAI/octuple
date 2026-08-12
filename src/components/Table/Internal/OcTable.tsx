@@ -72,6 +72,8 @@ import styles from './octable.module.scss';
 // Used for conditions cache
 const EMPTY_DATA: any[] = [];
 
+const DEFAULT_EMPTY_TEXT = () => 'No data found';
+
 // Used for customize scroll
 const EMPTY_SCROLL_TARGET: Object = {};
 
@@ -99,7 +101,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     rowClassName,
     style,
     data,
-    rowKey,
+    rowKey = 'key',
     scroll,
     tableLayout,
     direction,
@@ -113,7 +115,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     id,
     showHeader,
     components,
-    emptyText,
+    emptyText = DEFAULT_EMPTY_TEXT,
     onRow,
     onHeaderRow,
     transformColumns,
@@ -899,10 +901,5 @@ OcTable.Column = Column;
 OcTable.ColumnGroup = ColumnGroup;
 
 OcTable.Summary = FooterComponents;
-
-OcTable.defaultProps = {
-  rowKey: 'key',
-  emptyText: () => 'No data found',
-};
 
 export default OcTable;

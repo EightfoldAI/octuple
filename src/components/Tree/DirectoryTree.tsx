@@ -58,6 +58,8 @@ const DirectoryTree: React.ForwardRefRenderFunction<
 
   const treeRef = React.createRef<OcTree>();
 
+  const { expandAction = 'click', showIcon = true } = props;
+
   React.useImperativeHandle(ref, () => treeRef.current!);
 
   const getInitExpandedKeys = () => {
@@ -131,7 +133,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<
     event: React.MouseEvent<HTMLElement>,
     node: EventDataNode<DataNode>
   ) => {
-    const { expandAction } = props;
 
     // Expand the tree
     if (expandAction === 'click') {
@@ -145,7 +146,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<
     event: React.MouseEvent<HTMLElement>,
     node: EventDataNode<DataNode>
   ) => {
-    const { expandAction } = props;
 
     // Expand the tree
     if (expandAction === 'doubleClick') {
@@ -242,6 +242,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<
       ref={treeRef}
       blockNode
       {...otherProps}
+      {...{ expandAction, showIcon }}
       classNames={connectClassNames}
       expandedKeys={expandedKeys}
       selectedKeys={selectedKeys}
@@ -255,10 +256,5 @@ const DirectoryTree: React.ForwardRefRenderFunction<
 
 const ForwardDirectoryTree = React.forwardRef(DirectoryTree);
 ForwardDirectoryTree.displayName = 'DirectoryTree';
-
-ForwardDirectoryTree.defaultProps = {
-  showIcon: true,
-  expandAction: 'click' as DirectoryTreeProps['expandAction'],
-};
 
 export default ForwardDirectoryTree;
