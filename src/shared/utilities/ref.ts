@@ -1,5 +1,42 @@
-import type * as React from 'react';
+import * as React from 'react';
 import { useMemo } from '../../hooks/useMemo';
+
+const isReact19Plus: boolean =
+  Number.parseInt((React.version || '').split('.')[0], 10) >= 19;
+
+// React 19 moved element refs onto props.ref; earlier majors keep the
+// legacy top-level element.ref, where props.ref never exists.
+export const getElementRef = <T = unknown>(
+  element: React.ReactElement | null | undefined
+): React.Ref<T> | null => {
+  if (!element) {
+    return null;
+  }
+  if (isReact19Plus) {
+    return (element.props as { ref?: React.Ref<T> })?.ref ?? null;
+  }
+  return (element as unknown as { ref?: React.Ref<T> }).ref ?? null;
+};
+
+const REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
+
+// A ref on these lands on a real DOM node (host elements, forwardRef that
+// forwards to one). Class refs yield instances and plain function
+// components drop refs, so both still need the DomWrapper marker on 19.
+export const isDomRefable = (
+  element: React.ReactElement | null | undefined
+): boolean => {
+  if (!element || !React.isValidElement(element)) {
+    return false;
+  }
+  const { type } = element as { type: unknown };
+  return (
+    typeof type === 'string' ||
+    (typeof type === 'object' &&
+      type !== null &&
+      (type as { $$typeof?: symbol }).$$typeof === REACT_FORWARD_REF_TYPE)
+  );
+};
 
 export const fillRef = <T>(ref: React.Ref<T>, node: T): void => {
   if (typeof ref === 'function') {

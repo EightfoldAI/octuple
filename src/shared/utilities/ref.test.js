@@ -37,3 +37,57 @@ describe('ref', () => {
     });
   });
 });
+
+describe('getElementRef', () => {
+  const { getElementRef } = require('./ref');
+
+  it('returns null for null and undefined element', () => {
+    expect(getElementRef(null)).toBeNull();
+    expect(getElementRef(undefined)).toBeNull();
+  });
+
+  it('reads the legacy element.ref on React <19', () => {
+    const ref = React.createRef();
+    const element = React.createElement('div', { ref });
+    expect(getElementRef(element)).toBe(ref);
+  });
+
+  it('returns null when no ref is set', () => {
+    expect(getElementRef(React.createElement('div'))).toBeNull();
+  });
+
+  it('reads props.ref when React major is >=19', () => {
+    jest.resetModules();
+    jest.doMock('react', () => {
+      const actual = jest.requireActual('react');
+      return { ...actual, version: '19.2.0' };
+    });
+    const { getElementRef: getElementRef19 } = require('./ref');
+    const ref = () => {};
+    expect(getElementRef19({ props: { ref } })).toBe(ref);
+    jest.dontMock('react');
+    jest.resetModules();
+  });
+});
+
+describe('isDomRefable', () => {
+  const { isDomRefable } = require('./ref');
+
+  it('is true for host elements and forwardRef components', () => {
+    const Fwd = React.forwardRef((props, ref) => <div ref={ref} />);
+    expect(isDomRefable(<div />)).toBe(true);
+    expect(isDomRefable(<Fwd />)).toBe(true);
+  });
+
+  it('is false for class components, plain function components, and null', () => {
+    class Klass extends React.Component {
+      render() {
+        return <div />;
+      }
+    }
+    const Fn = () => <div />;
+    expect(isDomRefable(<Klass />)).toBe(false);
+    expect(isDomRefable(<Fn />)).toBe(false);
+    expect(isDomRefable(null)).toBe(false);
+  });
+});
