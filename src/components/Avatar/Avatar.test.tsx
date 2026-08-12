@@ -2,7 +2,8 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Avatar, AvatarGroup } from './';
+import { Avatar, AvatarGroup, StatusItemsPosition } from './';
+import { IconName } from '../Icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -177,5 +178,42 @@ describe('Avatar', () => {
       </Avatar>
     );
     expect(wrapper.find('img').prop('tabIndex')).toBeUndefined();
+  });
+
+  const statusItems = {
+    [StatusItemsPosition.Bottom]: {
+      ariaLabel: 'Status',
+      path: IconName.mdiClock,
+      size: '8px',
+    },
+  };
+
+  test('Avatar with image renders status items inside the animated root', () => {
+    const wrapper = mount(
+      <Avatar src="test.jpg" alt="test" statusItems={statusItems} />
+    );
+    const root = wrapper.find('.avatar-root').first();
+    // The animated element must contain both the image and the status items,
+    // otherwise hover animations detach the status items from the Avatar.
+    expect(root.find('img').length).toEqual(1);
+    expect(root.find('.avatar-status-item').length).toEqual(1);
+    expect(wrapper.find('img').hasClass('avatar-root')).toBeFalsy();
+  });
+
+  test('Fallback Avatar renders status items inside the animated root', () => {
+    const wrapper = mount(<Avatar statusItems={statusItems}>AB</Avatar>);
+    const root = wrapper.find('.avatar-root').first();
+    expect(root.find('.avatar-status-item').length).toEqual(1);
+  });
+
+  test('Icon Avatar renders status items inside the animated root', () => {
+    const wrapper = mount(
+      <Avatar
+        iconProps={{ path: IconName.mdiAccount }}
+        statusItems={statusItems}
+      />
+    );
+    const root = wrapper.find('.avatar-root').first();
+    expect(root.find('.avatar-status-item').length).toEqual(1);
   });
 });

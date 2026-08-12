@@ -413,6 +413,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
     ]);
 
     const wrapperContainerClassNames: string = mergeClasses([
+      styles.avatarRoot,
       styles.avatarImgWrapper,
       popupClassNames,
       classNames,
@@ -504,6 +505,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
     }
 
     const wrapperClassNames: string = mergeClasses([
+      styles.avatarRoot,
       imageClassNames,
       classNames,
     ]);
