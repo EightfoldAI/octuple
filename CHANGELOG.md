@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.7](https://github.com/EightfoldAI/octuple/compare/v2.58.6...v2.58.7) (2026-08-12)
+
+### Bug Fixes
+
+- **Avatar:** hover styling ([#1162](https://github.com/EightfoldAI/octuple/issues/1162)) ([1876abf](https://github.com/EightfoldAI/octuple/commits/1876abf83bc596a9023840a577799d2e3e39eed0))
+
 ### [2.58.6](https://github.com/EightfoldAI/octuple/compare/v2.58.5...v2.58.6) (2026-08-12)
 
 ### Bug Fixes
