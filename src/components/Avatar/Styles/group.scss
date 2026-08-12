@@ -14,6 +14,10 @@
   .avatar {
     border: $space-xxxs solid var(--background-color);
     position: relative;
+  }
+
+  .avatar-root {
+    position: relative;
 
     &:hover {
       z-index: $z-index-500;
@@ -21,7 +25,7 @@
   }
 
   &.animate {
-    .avatar {
+    .avatar-root {
       transition: transform $motion-duration-extra-fast $motion-easing-easeout;
 
       &:hover:not(.avatar-popup-hidden):not(.avatar-popup-visible):not(:focus-visible) {
