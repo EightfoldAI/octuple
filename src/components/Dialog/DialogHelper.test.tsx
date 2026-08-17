@@ -42,7 +42,6 @@ describe('DialogHelper', () => {
         });
       }).not.toThrow();
     });
-  });
 
     it('the dialog close button still works after its container div is removed', () => {
       act(() => {
@@ -74,11 +73,14 @@ describe('DialogHelper', () => {
       expect(closed).toBe(true);
       expect(DialogHelper.close('never-shown')).toBe(false);
     });
+  });
 
   describe('registered renderer path (React 19 apps)', () => {
     it('uses the registered renderer and its unmount closure', () => {
       const unmount = jest.fn();
-      const renderFn = jest.fn((_node: unknown, _container: unknown) => unmount);
+      const renderFn = jest.fn(
+        (_node: unknown, _container: unknown) => unmount
+      );
       const previous = unstableSetRender(renderFn);
 
       act(() => {
@@ -98,28 +100,25 @@ describe('DialogHelper', () => {
       expect(unstableSetRender()).toBe(previous);
     });
 
-    it('defers re-show mount until an async unmount resolves', async () => {
-      let resolveUnmount: () => void;
-      const unmountDone = new Promise<void>((r) => (resolveUnmount = r));
-      const unmount = jest.fn(() => unmountDone);
-      const renderFn = jest.fn(() => unmount);
+    it('re-show renders into the same container without unmounting', () => {
+      const unmount = jest.fn();
+      const renderFn = jest.fn(
+        (_node: unknown, _container: unknown) => unmount
+      );
       const previous = unstableSetRender(renderFn);
 
       act(() => {
         DialogHelper.show({ body: 'One' }, containerId);
         DialogHelper.show({ body: 'Two' }, containerId);
       });
-      expect(renderFn).toHaveBeenCalledTimes(1);
-      expect(unmount).toHaveBeenCalledTimes(1);
-
-      resolveUnmount();
-      await act(async () => unmountDone);
       expect(renderFn).toHaveBeenCalledTimes(2);
+      expect(unmount).not.toHaveBeenCalled();
+      expect((renderFn.mock.calls[1][0] as any).props.body).toBe('Two');
 
       unstableSetRender(previous);
     });
 
-    it('close() during a deferred re-show cancels the pending mount', async () => {
+    it('close() during a deferred show cancels the pending mount', async () => {
       let resolveUnmount: () => void;
       const unmountDone = new Promise<void>((r) => (resolveUnmount = r));
       const renderFn = jest.fn(() => () => unmountDone);
@@ -127,6 +126,7 @@ describe('DialogHelper', () => {
 
       act(() => {
         DialogHelper.show({ body: 'One' }, containerId);
+        DialogHelper.close(containerId);
         DialogHelper.show({ body: 'Two' }, containerId);
         DialogHelper.close(containerId);
       });
@@ -157,7 +157,7 @@ describe('DialogHelper', () => {
       unstableSetRender(previous);
     });
 
-    it('a newer show() supersedes a deferred mount without close()', async () => {
+    it('a newer show() supersedes a deferred mount', async () => {
       let resolveUnmount: () => void;
       const unmountDone = new Promise<void>((r) => (resolveUnmount = r));
       const renderFn = jest.fn(
@@ -167,6 +167,7 @@ describe('DialogHelper', () => {
 
       act(() => {
         DialogHelper.show({ body: 'One' }, containerId);
+        DialogHelper.close(containerId);
         DialogHelper.show({ body: 'Two' }, containerId);
         DialogHelper.show({ body: 'Three' }, containerId);
       });
@@ -179,20 +180,53 @@ describe('DialogHelper', () => {
 
       unstableSetRender(previous);
     });
+  });
+});
 
-    it('re-show on the same container unmounts the previous render first', () => {
-      const unmount = jest.fn();
-      const renderFn = jest.fn(() => unmount);
-      const previous = unstableSetRender(renderFn);
+describe('DialogHelper on React 19 with no registered renderer', () => {
+  const containerId = 'dialog-helper-unregistered';
+  let Helper: typeof DialogHelper;
+  let matchMedia: MatchMediaMock;
+  let errorSpy: jest.SpyInstance;
 
-      act(() => {
-        DialogHelper.show({ body: 'One' }, containerId);
-        DialogHelper.show({ body: 'Two' }, containerId);
-      });
-      expect(renderFn).toHaveBeenCalledTimes(2);
-      expect(unmount).toHaveBeenCalledTimes(1);
-
-      unstableSetRender(previous);
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+    jest.resetModules();
+    jest.doMock('react-dom', () => {
+      const actual = jest.requireActual('react-dom');
+      return {
+        ...actual,
+        render: undefined,
+        unmountComponentAtNode: undefined,
+      };
     });
+    ({ DialogHelper: Helper } = require('./DialogHelper'));
+  });
+
+  beforeEach(() => {
+    errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    errorSpy.mockRestore();
+    document.getElementById(containerId)?.remove();
+    document.body.innerHTML = '';
+  });
+
+  afterAll(() => {
+    matchMedia.clear();
+    jest.dontMock('react-dom');
+    jest.resetModules();
+  });
+
+  it('reports the setup step instead of throwing', () => {
+    expect(() => Helper.show({ body: 'Body' }, containerId)).not.toThrow();
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('unstableSetRender')
+    );
+  });
+
+  it('close() reports false instead of throwing', () => {
+    expect(Helper.close(containerId)).toBe(false);
   });
 });

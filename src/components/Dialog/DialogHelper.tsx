@@ -106,18 +106,15 @@ const $dialog = (props: DialogProps, containerId: string = uniqueId) => {
   if (registeredRender) {
     const token = {};
     showTokens.set(resolvedContainerId, token);
+    // No unmount on re-show: a root-caching renderer re-renders the same
+    // container in place, which is what ReactDOM.render did on React <=18.
     const mount = () => {
       if (showTokens.get(resolvedContainerId) === token) {
         unmounts.set(resolvedContainerId, registeredRender(dialog, element));
       }
     };
-    const previousUnmount = unmounts.get(resolvedContainerId);
-    if (previousUnmount) {
-      unmounts.delete(resolvedContainerId);
-      runUnmount(resolvedContainerId, previousUnmount);
-    }
-    // antd-style renderers may resolve unmount a tick later; mounting
-    // before that clears the fresh render from the same container.
+    // A close() may still be unmounting a tick later; mounting before that
+    // resolves would let the stale unmount clear this fresh render.
     const pending = pendingUnmounts.get(resolvedContainerId);
     if (pending) {
       pending.then(mount);

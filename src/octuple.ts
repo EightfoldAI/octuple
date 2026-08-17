@@ -285,6 +285,7 @@ import { Truncate } from './components/Truncate';
 import { useTruncate } from './hooks/useTruncate';
 
 import {
+  createRootRenderer,
   hasHorizontalOverflow,
   hasOverflow,
   hasVerticalOverflow,
@@ -401,6 +402,7 @@ export {
   CopilotIconLargeSolidColor,
   CopilotIconMediumSolidColor,
   CopilotIconSmallSolidColor,
+  createRootRenderer,
   Cropper,
   CustomFont,
   DatePicker,
