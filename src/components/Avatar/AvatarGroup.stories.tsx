@@ -2,7 +2,14 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Avatar, AvatarGroup, AvatarGroupVariant, AvatarPopupProps } from '.';
+import {
+  Avatar,
+  AvatarGroup,
+  AvatarGroupVariant,
+  AvatarPopupProps,
+  StatusItemsPosition,
+} from '.';
+import { IconName } from '../Icon';
 import { TooltipSize, TooltipTheme } from '../Tooltip';
 
 export default {
@@ -38,6 +45,18 @@ export default {
 const imageProps = {
   src: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg',
   alt: 'random profile image',
+};
+
+// Status items should follow the Avatar when it animates on hover.
+const statusItems = {
+  [StatusItemsPosition.Bottom]: {
+    ariaLabel: 'Clock icon',
+    backgroundColor: 'var(--grey-background1-color)',
+    color: 'var(--grey-secondary-color)',
+    path: IconName.mdiClock,
+    size: '8px',
+    wrapperStyle: { padding: '2px' },
+  },
 };
 
 interface User {
@@ -97,6 +116,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       onMouseLeave={action('avatar-mouseleave')}
       src={imageProps.src}
       size={args.size}
+      statusItems={statusItems}
       tabIndex={0}
       theme={'blue'}
       tooltipProps={{
@@ -113,6 +133,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
+      statusItems={statusItems}
       tabIndex={0}
       theme={'green'}
       tooltipProps={{
