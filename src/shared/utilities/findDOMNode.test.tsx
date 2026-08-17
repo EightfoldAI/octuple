@@ -45,8 +45,10 @@ describe('findDOMNode (legacy fallback absent)', () => {
       const actual = jest.requireActual('react-dom');
       return { ...actual, findDOMNode: undefined };
     });
-    ({ findDOMNode: findDOMNodeFresh, supportsFindDOMNode: supportsFresh } =
-      require('./findDOMNode'));
+    ({
+      findDOMNode: findDOMNodeFresh,
+      supportsFindDOMNode: supportsFresh,
+    } = require('./findDOMNode'));
   });
 
   afterAll(() => {
@@ -61,6 +63,11 @@ describe('findDOMNode (legacy fallback absent)', () => {
   it('still passes through DOM nodes', () => {
     const div = document.createElement('div');
     expect(findDOMNodeFresh(div)).toBe(div);
+  });
+
+  it('passes through svg elements, which are not HTMLElements', () => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    expect(findDOMNodeFresh(svg)).toBe(svg);
   });
 
   it('returns null for a component instance instead of throwing', () => {

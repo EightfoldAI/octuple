@@ -73,21 +73,29 @@ describe('getElementRef', () => {
 describe('isDomRefable', () => {
   const { isDomRefable } = require('./ref');
 
-  it('is true for host elements and forwardRef components', () => {
-    const Fwd = React.forwardRef((props, ref) => <div ref={ref} />);
+  it('is true for host elements, including svg', () => {
     expect(isDomRefable(<div />)).toBe(true);
-    expect(isDomRefable(<Fwd />)).toBe(true);
+    expect(isDomRefable(<svg />)).toBe(true);
   });
 
-  it('is false for class components, plain function components, and null', () => {
+  it('is false for every component type, so the marker is kept', () => {
     class Klass extends React.Component {
       render() {
         return <div />;
       }
     }
     const Fn = () => <div />;
+    const Fwd = React.forwardRef((props, ref) => <div ref={ref} />);
+    // forwardRef is not trusted: it may expose an imperative handle rather
+    // than a DOM node, which would leave the node unresolvable on React 19.
+    const FwdHandle = React.forwardRef((props, ref) => {
+      React.useImperativeHandle(ref, () => ({ focus() {} }));
+      return <div />;
+    });
     expect(isDomRefable(<Klass />)).toBe(false);
     expect(isDomRefable(<Fn />)).toBe(false);
+    expect(isDomRefable(<Fwd />)).toBe(false);
+    expect(isDomRefable(<FwdHandle />)).toBe(false);
     expect(isDomRefable(null)).toBe(false);
   });
 });

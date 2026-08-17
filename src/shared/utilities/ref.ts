@@ -18,25 +18,16 @@ export const getElementRef = <T = unknown>(
   return (element as unknown as { ref?: React.Ref<T> }).ref ?? null;
 };
 
-const REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
-
-// A ref on these lands on a real DOM node (host elements, forwardRef that
-// forwards to one). Class refs yield instances and plain function
-// components drop refs, so both still need the DomWrapper marker on 19.
+// Host elements are the only children whose ref is guaranteed to land on a
+// DOM node. Every component type can send a ref elsewhere -- classes yield
+// instances, plain functions drop it, and forwardRef may expose an imperative
+// handle -- so they all keep the DomWrapper marker on React 19.
 export const isDomRefable = (
   element: React.ReactElement | null | undefined
-): boolean => {
-  if (!element || !React.isValidElement(element)) {
-    return false;
-  }
-  const { type } = element as { type: unknown };
-  return (
-    typeof type === 'string' ||
-    (typeof type === 'object' &&
-      type !== null &&
-      (type as { $$typeof?: symbol }).$$typeof === REACT_FORWARD_REF_TYPE)
-  );
-};
+): boolean =>
+  !!element &&
+  React.isValidElement(element) &&
+  typeof (element as { type: unknown }).type === 'string';
 
 export const fillRef = <T>(ref: React.Ref<T>, node: T): void => {
   if (typeof ref === 'function') {
