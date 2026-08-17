@@ -24,13 +24,9 @@ const legacyReactDOM = ReactDOM as LegacyReactDOM;
 
 const MISSING_RENDERER_ERROR =
   '[Octuple] DialogHelper needs a renderer on React 19. Register one at app startup:\n' +
-  "  import { unstableSetRender } from '@eightfold.ai/octuple';\n" +
+  "  import { unstableSetRender, createRootRenderer } from '@eightfold.ai/octuple';\n" +
   "  import { createRoot } from 'react-dom/client';\n" +
-  '  unstableSetRender((node, container) => {\n' +
-  '    const root = createRoot(container);\n' +
-  '    root.render(node);\n' +
-  '    return () => root.unmount();\n' +
-  '  });';
+  '  unstableSetRender(createRootRenderer(createRoot));';
 
 const unmounts = new Map<string, OctupleUnmount>();
 const showTokens = new Map<string, object>();
