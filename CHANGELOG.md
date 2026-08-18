@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.59.0](https://github.com/EightfoldAI/octuple/compare/v2.58.7...v2.59.0) (2026-08-18)
+
+
+### Bug Fixes
+
+* **react19:** react 19 compatibility with guarded fallbacks, zero change for react <=18 ([#1161](https://github.com/EightfoldAI/octuple/issues/1161)) ([2ccc2b6](https://github.com/EightfoldAI/octuple/commits/2ccc2b687102251bbb47a6c016091a8ffda318bd))
+
 ### [2.58.7](https://github.com/EightfoldAI/octuple/compare/v2.58.6...v2.58.7) (2026-08-12)
 
 ### Bug Fixes
