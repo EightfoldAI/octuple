@@ -11,23 +11,32 @@ import { collapseMotion, mergeClasses } from '../../shared/utilities';
 
 import styles from './Styles/tree.module.scss';
 
+const defaultTreeMotion = {
+  ...collapseMotion,
+  motionAppear: false,
+};
+
 const BaseTree = React.forwardRef<OcTree, TreeProps>((props, ref) => {
   const {
     classNames,
-    showIcon,
+    showIcon = false,
     showLine,
     switcherIcon,
-    blockNode,
+    blockNode = false,
     children,
-    checkable,
-    selectable,
+    checkable = false,
+    selectable = true,
     draggable,
     virtual,
+    motion = defaultTreeMotion,
   } = props;
   const htmlDir: string = useCanvasDirection();
   const newProps = {
     ...props,
     showLine: Boolean(showLine),
+    showIcon,
+    blockNode,
+    motion,
     dropIndicatorRender,
   };
 
@@ -90,16 +99,5 @@ const BaseTree = React.forwardRef<OcTree, TreeProps>((props, ref) => {
     </OcTree>
   );
 });
-
-BaseTree.defaultProps = {
-  checkable: false,
-  selectable: true,
-  showIcon: false,
-  motion: {
-    ...collapseMotion,
-    motionAppear: false,
-  },
-  blockNode: false,
-};
 
 export default BaseTree;

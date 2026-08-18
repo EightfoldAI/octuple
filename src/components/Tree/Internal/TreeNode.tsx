@@ -614,17 +614,18 @@ class InternalTreeNode extends React.Component<
   }
 }
 
-const ContextTreeNode: React.FC<TreeNodeProps> = (props) => (
+const ContextTreeNode: React.FC<TreeNodeProps> = ({
+  title = DEFAULT_TREE_NODE_TITLE,
+  ...props
+}) => (
   <TreeContext.Consumer>
-    {(context) => <InternalTreeNode {...props} context={context} />}
+    {(context) => (
+      <InternalTreeNode {...props} title={title} context={context} />
+    )}
   </TreeContext.Consumer>
 );
 
 ContextTreeNode.displayName = 'TreeNode';
-
-ContextTreeNode.defaultProps = {
-  title: DEFAULT_TREE_NODE_TITLE,
-};
 
 (ContextTreeNode as any).isTreeNode = 1;
 

@@ -285,9 +285,11 @@ import { Truncate } from './components/Truncate';
 import { useTruncate } from './hooks/useTruncate';
 
 import {
+  createRootRenderer,
   hasHorizontalOverflow,
   hasOverflow,
   hasVerticalOverflow,
+  unstableSetRender,
 } from './shared/utilities';
 
 import { Loader, LoaderSize } from './components/Loader';
@@ -400,6 +402,7 @@ export {
   CopilotIconLargeSolidColor,
   CopilotIconMediumSolidColor,
   CopilotIconSmallSolidColor,
+  createRootRenderer,
   Cropper,
   CustomFont,
   DatePicker,
@@ -586,6 +589,7 @@ export {
   TooltipSize,
   TooltipTouchInteraction,
   Truncate,
+  unstableSetRender,
   TwoStateButton,
   Upload,
   UploadFile,

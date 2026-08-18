@@ -9,7 +9,13 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { composeRef, DomWrapper, findDOMNode } from '../../utilities';
+import {
+  composeRef,
+  DomWrapper,
+  findDOMNode,
+  getElementRef,
+  isDomRefable,
+} from '../../utilities';
 import { observe, unobserve } from '../utils/observerUtil';
 import type { ResizeObserverProps } from '../ResizeObserver';
 import { CollectionContext } from '../Collection';
@@ -41,7 +47,9 @@ export function SingleObserver(props: SingleObserverProps): JSX.Element {
 
   // ============================= Ref ==============================
   const canRef = !isRenderProps && isValidElement(mergedChildren);
-  const originRef: Ref<Element> = canRef ? (mergedChildren as any).ref : null;
+  const originRef: Ref<Element> = canRef
+    ? getElementRef<Element>(mergedChildren as React.ReactElement)
+    : null;
 
   const mergedRef = useMemo(
     () => composeRef<Element>(originRef, elementRef),
@@ -108,18 +116,27 @@ export function SingleObserver(props: SingleObserverProps): JSX.Element {
   // Dynamic observe
   useEffect(() => {
     const currentElement: HTMLElement =
-      findDOMNode?.(elementRef.current) || findDOMNode?.(wrapperRef.current);
+      findDOMNode?.(elementRef.current) || wrapperRef.current?.getDOMNode();
 
     if (currentElement && !disabled) {
       observe(currentElement, onInternalResize);
     }
 
-    return () => unobserve(currentElement, onInternalResize);
+    return () => {
+      if (currentElement) {
+        unobserve(currentElement, onInternalResize);
+      }
+    };
   }, [elementRef.current, disabled]);
 
   // ============================ Render ============================
   return (
-    <DomWrapper ref={wrapperRef}>
+    <DomWrapper
+      ref={wrapperRef}
+      renderMarker={
+        !(canRef && isDomRefable(mergedChildren as React.ReactElement))
+      }
+    >
       {canRef
         ? React.cloneElement(mergedChildren as any, {
             ref: mergedRef,

@@ -6,6 +6,7 @@ import {
   canUseDocElement,
   canUseDom,
   composeRef,
+  getElementRef,
   isVisible,
 } from '../../shared/utilities';
 import { alignElement, alignPoint } from 'dom-align';
@@ -215,7 +216,7 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
   // ===================== Render =====================
   if (React.isValidElement(childNode)) {
     childNode = React.cloneElement(childNode, {
-      ref: composeRef((childNode as any).ref, nodeRef),
+      ref: composeRef(getElementRef(childNode), nodeRef),
     } as React.Attributes & { ref?: React.Ref<unknown> });
   }
 

@@ -2,15 +2,16 @@
 
 import React from 'react';
 import type { HTMLAttributes } from 'react';
-import ReactDOM from 'react-dom';
 import {
   addEventListenerWrapper,
   canUseDom,
   contains,
   findDOMNode,
   requestAnimationFrameWrapper,
+  supportsFindDOMNode,
+  warningOnce,
 } from '../../shared/utilities';
-import { composeRef } from '../../shared/utilities/ref';
+import { composeRef, getElementRef } from '../../shared/utilities/ref';
 import { Portal } from '../Portal';
 import { mergeClasses } from '../../shared/utilities';
 import {
@@ -389,7 +390,15 @@ export function generateTrigger(
         // Do nothing
       }
 
-      return ReactDOM.findDOMNode(this) as HTMLElement;
+      if (supportsFindDOMNode()) {
+        return findDOMNode<HTMLElement>(this as unknown as React.ReactInstance);
+      }
+
+      warningOnce(
+        false,
+        'Trigger cannot resolve its DOM node on React 19; pass a child that accepts a ref (host element or forwardRef).'
+      );
+      return null;
     };
 
     getPopupClassNameFromAlign = (align: AlignType) => {
@@ -782,7 +791,7 @@ export function generateTrigger(
         ...newChildProps,
       };
 
-      cloneProps.ref = composeRef(this.triggerRef, (child as any).ref);
+      cloneProps.ref = composeRef(this.triggerRef, getElementRef(child));
       const trigger = React.cloneElement(child, cloneProps);
 
       let portal: React.ReactElement;

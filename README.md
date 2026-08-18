@@ -65,6 +65,39 @@ And import styles manually:
 import '@eightfold.ai/octuple/lib/octuple.css';
 ```
 
+## React 19
+
+Octuple supports React 16.8 and up, including React 19. Components need no
+extra setup.
+
+The one exception is `DialogHelper`, which renders imperatively. React 19
+removed `ReactDOM.render`, so a React 19 app has to tell Octuple how to
+render. Register a renderer once at startup, before any `DialogHelper` call:
+
+```tsx
+import { unstableSetRender, createRootRenderer } from '@eightfold.ai/octuple';
+import { createRoot } from 'react-dom/client';
+
+unstableSetRender(createRootRenderer(createRoot));
+```
+
+Without it, `DialogHelper.show()` logs the setup step and does nothing.
+`createRootRenderer` caches one root per container, so re-showing a dialog on
+the same container updates it in place rather than remounting. A custom
+renderer is fine as long as it does the same:
+
+```tsx
+unstableSetRender((node, container) => {
+  // Must reuse an existing root for this container.
+  const root = getOrCreateRoot(container);
+  root.render(node);
+  return () => root.unmount();
+});
+```
+
+On React 18 and below nothing needs registering — the legacy path is used
+automatically.
+
 ## How can I contribute?
 
 There are many ways to contribute to the Octuple project. Review the following sections to find out which one is right for you.

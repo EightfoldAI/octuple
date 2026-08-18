@@ -11,7 +11,7 @@ import {
   FieldNames,
   BasicDataNode,
 } from '../OcTree.types';
-import { TreeNodeProps } from '../OcTree.types';
+import { DEFAULT_TREE_NODE_TITLE, TreeNodeProps } from '../OcTree.types';
 
 export function isTreeNode(node: NodeElement) {
   return node && node.type && node.type.isTreeNode;
@@ -78,10 +78,15 @@ export function convertTreeToData(rootNodes: React.ReactNode): DataNode[] {
         }
 
         const { key } = treeNode;
-        const { children, ...rest } = treeNode.props;
+        const {
+          children,
+          title = DEFAULT_TREE_NODE_TITLE,
+          ...rest
+        } = treeNode.props;
 
         const dataNode: DataNode = {
           key,
+          title,
           ...rest,
         };
 

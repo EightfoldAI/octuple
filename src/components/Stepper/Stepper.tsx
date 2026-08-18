@@ -949,8 +949,9 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                             <div
                               className={styles.content}
                               ref={
-                                index === currentActiveStep &&
-                                currentActiveStepRef
+                                index === currentActiveStep
+                                  ? currentActiveStepRef
+                                  : null
                               }
                             >
                               {stepItem}

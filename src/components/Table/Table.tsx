@@ -107,7 +107,7 @@ function InternalTable<RecordType extends object = any>(
     rowBordered = false,
     rowClassName,
     rowHoverBackgroundEnabled = true,
-    rowKey,
+    rowKey = 'key',
     rowSelection,
     scroll,
     selectAllRowsText: defaultSelectAllRowsText,
@@ -886,7 +886,6 @@ const ForwardTable = forwardRef(InternalTable) as <
 type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
-  defaultProps?: Partial<TableProps<any>>;
   displayName?: string;
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof OcTable.EXPAND_COLUMN;
@@ -899,10 +898,6 @@ interface TableInterface extends InternalTableType {
 }
 
 const Table = ForwardTable as TableInterface;
-
-Table.defaultProps = {
-  rowKey: 'key',
-};
 
 Table.SELECTION_COLUMN = SELECTION_COLUMN;
 Table.EXPAND_COLUMN = OcTable.EXPAND_COLUMN;

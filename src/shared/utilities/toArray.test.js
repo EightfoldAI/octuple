@@ -104,3 +104,39 @@ describe('toArray', () => {
     ]);
   });
 });
+
+describe('fragment detection across React element generations', () => {
+  const React = require('react');
+  const toArray = require('./toArray').default;
+  const { isReactFragment } = require('./toArray');
+
+  it('recognizes fragments from both element generations', () => {
+    const base = {
+      type: Symbol.for('react.fragment'),
+      key: null,
+      props: { children: [] },
+    };
+    const legacy = { ...base, $$typeof: Symbol.for('react.element') };
+    const react19 = {
+      ...base,
+      $$typeof: Symbol.for('react.transitional.element'),
+    };
+    expect(isReactFragment(legacy)).toBe(true);
+    expect(isReactFragment(react19)).toBe(true);
+    expect(isReactFragment({ ...legacy, type: 'div' })).toBe(false);
+    expect(isReactFragment(null)).toBe(false);
+    expect(isReactFragment('text')).toBe(false);
+  });
+
+  it('still flattens a native fragment of the installed React', () => {
+    const children = toArray(
+      React.createElement(
+        React.Fragment,
+        null,
+        React.createElement('a', { key: 'a' }),
+        React.createElement('b', { key: 'b' })
+      )
+    );
+    expect(children).toHaveLength(2);
+  });
+});
