@@ -1441,6 +1441,9 @@ export const Virtual_List: FC = () => {
   );
 };
 
+export const Caption = Table_Base_Story.bind({});
+export const Caption_Bottom = Table_Base_Story.bind({});
+
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
 // this line ensures they are exported in the desired order.
 // See https://www.npmjs.com/package/babel-plugin-named-exports-order
@@ -1460,6 +1463,8 @@ export const __namedExportsOrder = [
   'Empty',
   'Header_Grouping',
   'Header_And_Footer',
+  'Caption',
+  'Caption_Bottom',
   'Fixed_Header',
   'Fixed_Columns',
   'Fixed_Columns_and_Header',
@@ -1824,4 +1829,17 @@ Page_Sizes.args = {
     selfControlled: false,
     total: 1000,
   },
+};
+
+Caption.args = {
+  ...tableArgs,
+  bordered: false,
+  caption: 'Sales Team Members - Q4 2024',
+};
+
+Caption_Bottom.args = {
+  ...tableArgs,
+  bordered: false,
+  caption: 'Sales Team Members - Q4 2024',
+  captionSide: 'bottom',
 };
