@@ -335,6 +335,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
           aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
+          aria-haspopup="listbox"
           aria-label="Selected page size"
           class="pagination-button button button-neutral button-medium icon-right"
           id="dropdown-reference"
