@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useLayoutEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { useSafeState } from '../../../hooks/useState';
 import {
   STATUS_APPEAR,
@@ -82,8 +83,10 @@ export const useStatus = (
 
     // Only update status when `canEnd` and not destroyed
     if (status !== STATUS_NONE && currentActive && canEnd !== false) {
-      setStatus(STATUS_NONE, true);
-      setStyle(null, true);
+      flushSync(() => {
+        setStatus(STATUS_NONE, true);
+        setStyle(null, true);
+      });
     }
   }
 

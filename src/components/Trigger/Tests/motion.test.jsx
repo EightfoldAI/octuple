@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import Trigger from '../Trigger';
 import CSSMotion from '../../Motion/CSSMotion';
 import { placementAlignMap } from './util';
@@ -104,5 +104,25 @@ describe('Trigger.Motion', () => {
     expect(document.querySelector('.trigger-popup')).toHaveStyle({
       pointerEvents: 'none',
     });
+  });
+
+  it('popup should not animate until it is measured and aligned', () => {
+    render(
+      <Trigger
+        popupAlign={placementAlignMap.left}
+        popup={<strong className="x-content" />}
+        popupMotion={{ motionName: 'bamboo' }}
+        popupVisible
+      >
+        <span />
+      </Trigger>
+    );
+
+    expect(document.querySelector('.trigger-popup')).toHaveStyle({
+      opacity: '0',
+      animationName: 'none',
+    });
+
+    act(() => jest.runAllTimers());
   });
 });

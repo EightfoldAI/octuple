@@ -102,7 +102,7 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
   useLayoutEffect(() => {
     if (status === 'align') {
       // Repeat until no more align needed
-      if (alignTimes < 2) {
+      if (visible && alignTimes < 2) {
         forceAlign();
       } else {
         goNextStatus(function () {
@@ -144,6 +144,10 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
     zIndex,
     opacity:
       status === 'motion' || status === 'stable' || !visible ? undefined : 0,
+    animationName:
+      status === 'motion' || status === 'stable' || !visible
+        ? undefined
+        : 'none',
     // Cannot interact with disappearing elements
     pointerEvents: !visible && status !== 'stable' ? 'none' : undefined,
     ...style,
@@ -151,7 +155,7 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
 
   // Align status
   let alignDisabled = true;
-  if (align?.points && (status === 'align' || status === 'stable')) {
+  if (align?.points && visible && (status === 'align' || status === 'stable')) {
     alignDisabled = false;
   }
 
