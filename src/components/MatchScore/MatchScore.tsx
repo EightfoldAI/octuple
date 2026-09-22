@@ -41,7 +41,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
 
     const absTotal: number = Math.abs(total);
     const clampedScore: number = Math.max(0, score);
-    const absScore: number = Math.round(clampedScore);
+    const displayScore: number = Math.round(clampedScore);
     const fullCircles: number = Math.trunc(
       Math.round(clampedScore * 2.0) / 2.0
     );
@@ -84,7 +84,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
 
           {!hideLabel && (
             <p className={matchScoreLabelClasses}>
-              {label} {!hideValues && absScore + '/' + absTotal}
+              {label} {!hideValues && displayScore + '/' + absTotal}
             </p>
           )}
         </Atom>
