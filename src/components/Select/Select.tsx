@@ -151,8 +151,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
 
     const [options, setOptions] = useState<SelectOption[]>(
+      // Match the `[defaultValue]` effect's own selection logic below so `options` is
+      // already correct on the very first render. Without this, `selected` starts
+      // hardcoded `false` regardless of `defaultValue`, and the "Update options on
+      // change" effect further down fires `onOptionsChange` once with that wrong,
+      // empty selection before a later render corrects it -- consumers who write
+      // that first (wrong) value into their own state can end up clobbering an
+      // already-set value with nothing to visibly indicate anything went wrong.
       (_options || []).map((option: SelectOption, index: number) => ({
-        selected: false,
+        selected:
+          defaultValue !== undefined &&
+          (multiple
+            ? defaultValue.includes(option.value)
+            : option.value === defaultValue),
         hideOption: false,
         id: `${selectMenuId.current}-option-${index}`,
         object: option.object,
@@ -279,6 +290,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setClearInput(false);
       }
     }, [getSelectedOptionValues().join('')]);
+
+    // The effect above intentionally skips `getSelectedOptionText()` on its very first
+    // run via `firstRender` -- historically correct, because that first run always saw
+    // an empty selection regardless of `defaultValue` (the `options` initializer above
+    // used to hardcode `selected: false`). Now that `options` starts already reflecting
+    // `defaultValue`, ensure the displayed text matches it from the first render too,
+    // without touching any of that effect's other `firstRender`-guarded behavior.
+    useEffect(() => {
+      getSelectedOptionText();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
       const updatedOptions = (options || []).map((opt) => ({

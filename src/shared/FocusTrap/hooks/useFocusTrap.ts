@@ -68,6 +68,15 @@ export function useFocusTrap(
       return;
     }
     restoreFocusRef.current = document.activeElement;
+
+    // If focus is already somewhere inside the trap -- e.g. a consumer activates `trap`
+    // from its own `onFocus` callback in response to an explicit `someElement.focus()`
+    // call -- respect it instead of redirecting to `firstFocusableSelector`/the first
+    // focusable element. Only take over focus when nothing inside the trap has it yet.
+    if (elRef.current.contains(document.activeElement)) {
+      return;
+    }
+
     let elementToFocus: HTMLElement = getFocusableElements()?.[0];
     if (firstFocusableSelector) {
       elementToFocus = elRef.current?.querySelector(firstFocusableSelector);

@@ -96,6 +96,29 @@ describe('Tooltip', () => {
     expect(container.querySelector('.tooltip')).toBeFalsy();
   });
 
+  test('Tooltip does not get stuck visible when blur arrives before the pending show commits', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    // Focus requests a show, but nothing lets its delayed `toggle` timeout commit
+    // before blur fires -- `mergedVisible` is still stale/false at this instant.
+    fireEvent.focus(container.querySelector('.test-div'));
+    fireEvent.blur(container.querySelector('.test-div'));
+
+    // Let every pending timer run out. If the close handler failed to attach (the
+    // bug), the show timeout still commits here with nothing left to reverse it.
+    jest.advanceTimersByTime(1000);
+    await waitFor(() =>
+      expect(screen.queryByTestId('tooltip')).not.toBeInTheDocument()
+    );
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
   test('Tooltip is dismissed on escape when hover only', async () => {
     const { container } = render(
       <Tooltip
