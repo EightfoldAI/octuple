@@ -1,13 +1,6 @@
 'use client';
 
-import React, {
-  FC,
-  Ref,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
@@ -344,6 +337,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       const getItems = (): MenuItemButtonProps[] => {
         return pageSizes.map((item?: number, idx?: number) => ({
           rowkey: idx,
+          role: 'option',
+          'aria-selected': item === _pageSize,
           text:
             htmlDir === 'ltr'
               ? `${item} / ${pageSizeText}`
@@ -351,7 +346,13 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
           value: item,
         }));
       };
-      return <Menu onChange={onSizeChangeHandler} items={getItems()} />;
+      return (
+        <Menu
+          onChange={onSizeChangeHandler}
+          items={getItems()}
+          role="presentation"
+        />
+      );
     };
 
     const moreThanOnePage: boolean = getPageCount() > 1;
@@ -391,6 +392,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                       ) && (
                         <span className={styles.sizes} key="sizes">
                           <Dropdown
+                            ariaHaspopupValue="listbox"
                             overlay={Overlay(_pageSizes)}
                             onVisibleChange={setToggle}
                           >

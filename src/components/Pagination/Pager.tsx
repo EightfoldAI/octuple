@@ -173,7 +173,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
         {pageCount > 0 && (
           <li>
             <Button
-              aria-current={currentPage === 1}
+              aria-current={currentPage === 1 ? 'page' : undefined}
               classNames={mergeClasses([
                 styles.paginationButton,
                 { [styles.active]: currentPage === 1 },
@@ -231,7 +231,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
         {_pagers?.map((pager, idx) => (
           <li key={idx}>
             <Button
-              aria-current={currentPage === pager}
+              aria-current={currentPage === pager ? 'page' : undefined}
               classNames={mergeClasses([
                 styles.paginationButton,
                 {
@@ -294,7 +294,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
         {pageCount > 1 && showLast && (
           <li>
             <Button
-              aria-current={currentPage === pageCount}
+              aria-current={currentPage === pageCount ? 'page' : undefined}
               classNames={mergeClasses([
                 styles.paginationButton,
                 {
