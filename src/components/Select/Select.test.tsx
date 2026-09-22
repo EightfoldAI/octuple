@@ -256,7 +256,9 @@ describe('Select', () => {
     fireEvent.click(select);
     const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith([], []);
+    // `options` now reflects `defaultValue` from the very first render, so the initial
+    // call already reports the real selection instead of firing once with an empty
+    // selection first (the bug this behavior previously encoded and relied on).
     expect(handleChange).toHaveBeenCalledWith(
       ['option2'],
       [
@@ -286,6 +288,27 @@ describe('Select', () => {
           value: 'option1',
         },
       ]
+    );
+  });
+
+  test('does not fire onOptionsChange with an empty selection before reporting defaultValue', () => {
+    const defaultValue = 'option2';
+    const handleChange = jest.fn();
+    render(
+      <Select
+        options={options}
+        defaultValue={defaultValue}
+        onOptionsChange={handleChange}
+      />
+    );
+    // The very first (and, with nothing else changing, only) call must already report
+    // the real selection -- not `[], []` followed by a corrective second call.
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      expect.arrayContaining([
+        expect.objectContaining({ value: 'option2', selected: true }),
+      ])
     );
   });
 

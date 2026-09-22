@@ -151,13 +151,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
 
     const [options, setOptions] = useState<SelectOption[]>(
-      // Match the `[defaultValue]` effect's own selection logic below so `options` is
-      // already correct on the very first render. Without this, `selected` starts
-      // hardcoded `false` regardless of `defaultValue`, and the "Update options on
-      // change" effect further down fires `onOptionsChange` once with that wrong,
-      // empty selection before a later render corrects it -- consumers who write
-      // that first (wrong) value into their own state can end up clobbering an
-      // already-set value with nothing to visibly indicate anything went wrong.
       (_options || []).map((option: SelectOption, index: number) => ({
         selected:
           defaultValue !== undefined &&
@@ -173,7 +166,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }))
     );
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [selectedOptionText, setSelectedOptionText] = useState<string>('');
+    const [selectedOptionText, setSelectedOptionText] = useState<string>(() =>
+      multiple
+        ? ''
+        : (options || [])
+            .filter((option: SelectOption) => option.selected)
+            .map((option: SelectOption) => option.text)
+            .join(', ')
+            .toLocaleString()
+    );
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
     const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
