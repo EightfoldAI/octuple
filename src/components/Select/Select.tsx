@@ -164,9 +164,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
           id: `${selectMenuId.current}-option-${index}`,
           object: option.object,
           role: 'option',
-          'aria-selected': isSelected,
           ...option,
           selected: isSelected,
+          'aria-selected': isSelected,
         };
       })
     );
@@ -237,17 +237,18 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
       setOptions(
         (_options || []).map((option: SelectOption, index: number) => {
-          const isSelected = !!selected.find(
-            (opt) => opt.value === option.value
+          const isSelected = !!(
+            selected.find((opt) => opt.value === option.value) ||
+            option.selected
           );
           return {
-            selected: isSelected,
             hideOption: false,
             id: `${selectMenuId.current}-option-${index}`,
             object: option.object,
             role: 'option',
-            'aria-selected': isSelected,
             ...option,
+            selected: isSelected,
+            'aria-selected': isSelected,
           };
         })
       );
@@ -260,17 +261,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
       setOptions(
         (_options || []).map((option: SelectOption, index: number) => {
-          const isSelected: boolean =
-            !!selected.find((opt) => opt.value === option.value) ||
-            option.value === defaultValue;
+          const isSelected = !!(
+            selected.find((opt) => opt.value === option.value) ||
+            option.value === defaultValue ||
+            option.selected
+          );
           return {
-            selected: isSelected,
             hideOption: false,
             id: `${selectMenuId.current}-option-${index}`,
             object: option.object,
             role: 'option',
-            'aria-selected': isSelected,
             ...option,
+            selected: isSelected,
+            'aria-selected': isSelected,
           };
         })
       );
@@ -306,15 +309,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }, [getSelectedOptionValues().join('')]);
 
     useEffect(() => {
-      const updatedOptions = (options || []).map((opt) => ({
-        ...opt,
-        selected:
+      const updatedOptions = (options || []).map((opt) => {
+        const isSelected = !!(
           (defaultValue !== undefined &&
             (multiple
               ? defaultValue.includes(opt.value)
               : opt.value === defaultValue)) ||
-          opt.selected,
-      }));
+          opt.selected
+        );
+        return {
+          ...opt,
+          selected: isSelected,
+          'aria-selected': isSelected,
+        };
+      });
       setOptions(updatedOptions);
     }, [defaultValue]);
 
@@ -536,6 +544,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ...opt,
             hideOption: false,
             selected: false,
+            'aria-selected': false,
           }))
         );
       } else {
@@ -543,6 +552,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           (options || []).map((opt: SelectOption) => ({
             ...opt,
             selected: false,
+            'aria-selected': false,
           }))
         );
       }
@@ -595,6 +605,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               ...opt,
               hideOption: false,
               selected: selected,
+              'aria-selected': selected,
             };
           })
         );
