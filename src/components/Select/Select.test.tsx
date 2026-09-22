@@ -164,6 +164,7 @@ describe('Select', () => {
       ['option1'],
       [
         {
+          'aria-selected': true,
           'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'list--option-0',
@@ -197,6 +198,7 @@ describe('Select', () => {
       ['option1', 'option2'],
       [
         {
+          'aria-selected': true,
           'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'list--option-0',
@@ -207,6 +209,7 @@ describe('Select', () => {
           value: 'option1',
         },
         {
+          'aria-selected': true,
           'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'list--option-1',
@@ -256,11 +259,14 @@ describe('Select', () => {
     fireEvent.click(select);
     const option1 = await waitFor(() => getByText('Option 1'));
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith([], []);
+    // `options` now reflects `defaultValue` from the very first render, so the initial
+    // call already reports the real selection instead of firing once with an empty
+    // selection first (the bug this behavior previously encoded and relied on).
     expect(handleChange).toHaveBeenCalledWith(
       ['option2'],
       [
         {
+          'aria-selected': true,
           'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'list--option-1',
@@ -276,6 +282,7 @@ describe('Select', () => {
       ['option1'],
       [
         {
+          'aria-selected': true,
           'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'list--option-0',
@@ -286,6 +293,51 @@ describe('Select', () => {
           value: 'option1',
         },
       ]
+    );
+  });
+
+  test('does not fire onOptionsChange with an empty selection before reporting defaultValue', () => {
+    const defaultValue = 'option2';
+    const handleChange = jest.fn();
+    render(
+      <Select
+        options={options}
+        defaultValue={defaultValue}
+        onOptionsChange={handleChange}
+      />
+    );
+    // The very first (and, with nothing else changing, only) call must already report
+    // the real selection -- not `[], []` followed by a corrective second call.
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      expect.arrayContaining([
+        expect.objectContaining({ value: 'option2', selected: true }),
+      ])
+    );
+  });
+
+  test('does not let a raw `selected` field on the options prop override defaultValue on mount', () => {
+    const optionsWithSelected = [
+      { text: 'Option 1', value: 'option1', selected: false },
+      { text: 'Option 2', value: 'option2', selected: false },
+      { text: 'Option 3', value: 'option3', selected: false },
+    ];
+    const defaultValue = 'option2';
+    const handleChange = jest.fn();
+    render(
+      <Select
+        options={optionsWithSelected}
+        defaultValue={defaultValue}
+        onOptionsChange={handleChange}
+      />
+    );
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      expect.arrayContaining([
+        expect.objectContaining({ value: 'option2', selected: true }),
+      ])
     );
   });
 
@@ -321,6 +373,7 @@ describe('Select', () => {
       ['option1', 'option2', 'option3'],
       [
         {
+          'aria-selected': true,
           'data-testid': 'option1-test-id',
           hideOption: false,
           id: 'list--option-0',
@@ -331,6 +384,7 @@ describe('Select', () => {
           value: 'option1',
         },
         {
+          'aria-selected': true,
           'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'list--option-1',
@@ -341,6 +395,7 @@ describe('Select', () => {
           value: 'option2',
         },
         {
+          'aria-selected': true,
           'data-testid': 'option3-test-id',
           hideOption: false,
           id: 'list--option-2',
@@ -385,6 +440,7 @@ describe('Select', () => {
       ['option2'],
       [
         {
+          'aria-selected': true,
           'data-testid': 'option2-test-id',
           hideOption: false,
           id: 'list--option-1',
@@ -681,7 +737,9 @@ describe('Select', () => {
     fireEvent.keyDown(select, { key: 'ArrowDown' });
 
     await waitFor(() =>
-      expect(select.getAttribute('aria-activedescendant')).toBe('list--option-0')
+      expect(select.getAttribute('aria-activedescendant')).toBe(
+        'list--option-0'
+      )
     );
   });
 
@@ -1198,12 +1256,7 @@ describe('Select improvedA11y', () => {
 
   test('moves id/role/aria-selected onto the <li> and drops the inner button', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit');
     fireEvent.click(input);
@@ -1250,12 +1303,7 @@ describe('Select improvedA11y', () => {
 
   test('keeps focus on the input and moves aria-activedescendant on ArrowDown/ArrowUp', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1284,12 +1332,7 @@ describe('Select improvedA11y', () => {
 
   test('selects the highlighted option on Enter', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1304,12 +1347,7 @@ describe('Select improvedA11y', () => {
 
   test('clears aria-activedescendant when the dropdown closes', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1339,12 +1377,7 @@ describe('Select improvedA11y', () => {
 
   test('highlights the active option with the focus border, not a fill', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1401,12 +1434,7 @@ describe('Select improvedA11y', () => {
 
   test('keeps the highlighted option when the option set grows but it stays present', async () => {
     const { getAllByRole, getByPlaceholderText, rerender } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1456,12 +1484,7 @@ describe('Select improvedA11y', () => {
 
   test('aria-selected follows the active descendant as arrow keys move focus (single-select)', async () => {
     const { getAllByRole, getByPlaceholderText } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();
@@ -1516,12 +1539,7 @@ describe('Select improvedA11y', () => {
 
   test('announces the result count with the highlighted option, and only the option on arrow keys', async () => {
     const { getByPlaceholderText, getByRole, getAllByRole } = render(
-      <Select
-        improvedA11y
-        filterable
-        options={adOptions}
-        placeholder="Fruit"
-      />
+      <Select improvedA11y filterable options={adOptions} placeholder="Fruit" />
     );
     const input = getByPlaceholderText('Fruit') as HTMLInputElement;
     input.focus();

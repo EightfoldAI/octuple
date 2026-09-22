@@ -151,18 +151,35 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
 
     const [options, setOptions] = useState<SelectOption[]>(
-      (_options || []).map((option: SelectOption, index: number) => ({
-        selected: false,
-        hideOption: false,
-        id: `${selectMenuId.current}-option-${index}`,
-        object: option.object,
-        role: 'option',
-        'aria-selected': option.selected,
-        ...option,
-      }))
+      (_options || []).map((option: SelectOption, index: number) => {
+        const isSelected = !!(
+          (defaultValue !== undefined &&
+            (multiple
+              ? defaultValue.includes(option.value)
+              : option.value === defaultValue)) ||
+          option.selected
+        );
+        return {
+          hideOption: false,
+          id: `${selectMenuId.current}-option-${index}`,
+          object: option.object,
+          role: 'option',
+          ...option,
+          selected: isSelected,
+          'aria-selected': isSelected,
+        };
+      })
     );
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [selectedOptionText, setSelectedOptionText] = useState<string>('');
+    const [selectedOptionText, setSelectedOptionText] = useState<string>(() =>
+      multiple
+        ? ''
+        : (options || [])
+            .filter((option: SelectOption) => option.selected)
+            .map((option: SelectOption) => option.text)
+            .join(', ')
+            .toLocaleString()
+    );
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
     const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
@@ -219,15 +236,25 @@ export const Select: FC<SelectProps> = React.forwardRef(
         (opt: SelectOption) => opt.selected
       );
       setOptions(
-        (_options || []).map((option: SelectOption, index: number) => ({
-          selected: !!selected.find((opt) => opt.value === option.value),
-          hideOption: false,
-          id: `${selectMenuId.current}-option-${index}`,
-          object: option.object,
-          role: 'option',
-          'aria-selected': option.selected,
-          ...option,
-        }))
+        (_options || []).map((option: SelectOption, index: number) => {
+          // A `selected` field explicitly present on the incoming option is the
+          // consumer's instruction for this option and must win either way (it
+          // can deselect something that was previously selected) -- only fall
+          // back to the carried-forward value when the option doesn't specify one.
+          const isSelected: boolean =
+            option.selected !== undefined
+              ? option.selected
+              : !!selected.find((opt) => opt.value === option.value);
+          return {
+            hideOption: false,
+            id: `${selectMenuId.current}-option-${index}`,
+            object: option.object,
+            role: 'option',
+            ...option,
+            selected: isSelected,
+            'aria-selected': isSelected,
+          };
+        })
       );
     }, [_options]);
 
@@ -237,17 +264,25 @@ export const Select: FC<SelectProps> = React.forwardRef(
         (opt: SelectOption) => opt.selected
       );
       setOptions(
-        (_options || []).map((option: SelectOption, index: number) => ({
-          selected:
-            !!selected.find((opt) => opt.value === option.value) ||
-            option.value === defaultValue,
-          hideOption: false,
-          id: `${selectMenuId.current}-option-${index}`,
-          object: option.object,
-          role: 'option',
-          'aria-selected': option.selected,
-          ...option,
-        }))
+        (_options || []).map((option: SelectOption, index: number) => {
+          // Same coalesce as the `[_options]` effect above -- an explicit
+          // `selected` on the incoming option wins over the carried-forward/
+          // defaultValue fallback either way.
+          const isSelected: boolean =
+            option.selected !== undefined
+              ? option.selected
+              : !!selected.find((opt) => opt.value === option.value) ||
+                option.value === defaultValue;
+          return {
+            hideOption: false,
+            id: `${selectMenuId.current}-option-${index}`,
+            object: option.object,
+            role: 'option',
+            ...option,
+            selected: isSelected,
+            'aria-selected': isSelected,
+          };
+        })
       );
     }, [isLoading]);
 
@@ -281,15 +316,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }, [getSelectedOptionValues().join('')]);
 
     useEffect(() => {
-      const updatedOptions = (options || []).map((opt) => ({
-        ...opt,
-        selected:
+      const updatedOptions = (options || []).map((opt) => {
+        const isSelected = !!(
           (defaultValue !== undefined &&
             (multiple
               ? defaultValue.includes(opt.value)
               : opt.value === defaultValue)) ||
-          opt.selected,
-      }));
+          opt.selected
+        );
+        return {
+          ...opt,
+          selected: isSelected,
+          'aria-selected': isSelected,
+        };
+      });
       setOptions(updatedOptions);
     }, [defaultValue]);
 
@@ -465,6 +505,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           ...opt,
           hideOption,
           selected,
+          'aria-selected': selected,
         };
       });
 
@@ -510,6 +551,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ...opt,
             hideOption: false,
             selected: false,
+            'aria-selected': false,
           }))
         );
       } else {
@@ -517,6 +559,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           (options || []).map((opt: SelectOption) => ({
             ...opt,
             selected: false,
+            'aria-selected': false,
           }))
         );
       }
@@ -569,6 +612,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               ...opt,
               hideOption: false,
               selected: selected,
+              'aria-selected': selected,
             };
           })
         );

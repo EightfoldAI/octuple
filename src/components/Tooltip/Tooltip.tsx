@@ -112,6 +112,20 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
       const [hiding, setHiding] = useState<boolean>(false);
 
+      // Track visible state synchronously so close handlers can react to an in-flight show immediately,
+      // instead of only after it has visually committed.
+      const intendedVisibleRef: React.MutableRefObject<boolean> =
+        useRef<boolean>(false);
+
+      // Keep the ref in sync with a controlled `visible` prop too -- `toggle()` is the
+      // only other writer, so without this a tooltip opened purely via `visible` (no
+      // `toggle()` call) would leave close handlers gated on a stale `false`.
+      useEffect(() => {
+        if (visible !== undefined) {
+          intendedVisibleRef.current = visible;
+        }
+      }, [visible]);
+
       // TODO: Upgrade to React 18 and use the new `useId` hook.
       // This way the id will match on the server and client.
       // For now, pass an id via props if using SSR.
@@ -126,7 +140,11 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         `${tooltipId?.current}-wrapper`
       );
 
-      let timeout: ReturnType<typeof setTimeout>;
+      // Preserves timeouts for when the component unmounts or the user toggles visibility quickly, we need to keep a ref to the timeout ID.
+      const timeoutRef: React.MutableRefObject<ReturnType<typeof setTimeout>> =
+        useRef<ReturnType<typeof setTimeout>>(null);
+
+      useEffect(() => () => clearTimeout(timeoutRef.current), []);
       const {
         x,
         y,
@@ -164,12 +182,13 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           }
           // to control the toggle behaviour
           const updatedShow: boolean = showTooltip(show);
+          intendedVisibleRef.current = updatedShow;
           if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
             e?.preventDefault();
           }
           setHiding(!updatedShow);
-          timeout && clearTimeout(timeout);
-          timeout = setTimeout(
+          timeoutRef.current && clearTimeout(timeoutRef.current);
+          timeoutRef.current = setTimeout(
             () => {
               setVisible(updatedShow);
               onVisibleChange?.(updatedShow);
@@ -262,8 +281,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         if (disabled) {
           return;
         }
-        timeout && clearTimeout(timeout);
-        timeout = setTimeout(() => {
+        timeoutRef.current && clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => {
           if (mergedVisible && closeOnReferenceClick) {
             toggle(false)(event);
           } else {
@@ -283,8 +302,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           canUseDocElement() &&
           document.activeElement === event.target
         ) {
-          timeout && clearTimeout(timeout);
-          timeout = setTimeout(() => {
+          timeoutRef.current && clearTimeout(timeoutRef.current);
+          timeoutRef.current = setTimeout(() => {
             if (mergedVisible && closeOnReferenceClick) {
               toggle(false)(event);
             } else {
@@ -307,16 +326,16 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           toggle(false)(event);
         }
         if (event?.key === eventKeys.TAB) {
-          timeout && clearTimeout(timeout);
-          timeout = setTimeout(() => {
+          timeoutRef.current && clearTimeout(timeoutRef.current);
+          timeoutRef.current = setTimeout(() => {
             if (!refs.floating.current.matches(':focus-within')) {
               toggle(false)(event);
             }
           }, NO_ANIMATION_DURATION);
         }
         if (event?.key === eventKeys.TAB && event.shiftKey) {
-          timeout && clearTimeout(timeout);
-          timeout = setTimeout(() => {
+          timeoutRef.current && clearTimeout(timeoutRef.current);
+          timeoutRef.current = setTimeout(() => {
             if (refs.floating.current.matches(':focus-within')) {
               toggle(true)(event);
             }
@@ -646,16 +665,26 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               }
             }}
             onKeyDown={!gestureType ? handleReferenceKeyDown : null}
-            onMouseEnter={
-              trigger.includes('hover') && !mergedVisible && !gestureType
-                ? toggle(true, showTooltip)
-                : null
-            }
+            onMouseEnter={(
+              event: React.MouseEvent<HTMLDivElement, MouseEvent>
+            ): void => {
+              if (
+                trigger.includes('hover') &&
+                !intendedVisibleRef.current &&
+                !gestureType
+              ) {
+                toggle(true, showTooltip)(event);
+              }
+            }}
             onMouseLeave={(
               event: React.MouseEvent<HTMLDivElement, MouseEvent>
             ): void => {
               const floatingElement: HTMLElement = refs.floating.current;
-              if (trigger.includes('hover') && mergedVisible && !gestureType) {
+              if (
+                trigger.includes('hover') &&
+                intendedVisibleRef.current &&
+                !gestureType
+              ) {
                 toggle(
                   !event.currentTarget &&
                     event.relatedTarget !== floatingElement,
@@ -663,16 +692,24 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 )(event);
               }
             }}
-            onFocus={
-              trigger.includes('hover') && !mergedVisible && !gestureType
-                ? toggle(true, showTooltip)
-                : null
-            }
-            onBlur={
-              trigger.includes('hover') && mergedVisible && !gestureType
-                ? toggle(false, showTooltip)
-                : null
-            }
+            onFocus={(event: React.FocusEvent<HTMLDivElement>): void => {
+              if (
+                trigger.includes('hover') &&
+                !intendedVisibleRef.current &&
+                !gestureType
+              ) {
+                toggle(true, showTooltip)(event);
+              }
+            }}
+            onBlur={(event: React.FocusEvent<HTMLDivElement>): void => {
+              if (
+                trigger.includes('hover') &&
+                intendedVisibleRef.current &&
+                !gestureType
+              ) {
+                toggle(false, showTooltip)(event);
+              }
+            }}
             ref={reference}
           >
             {getDefaultReferenceElement(children)}

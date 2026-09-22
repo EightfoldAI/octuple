@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.59.0](https://github.com/EightfoldAI/octuple/compare/v2.58.7...v2.59.0) (2026-08-18)
-
+### [2.59.1](https://github.com/EightfoldAI/octuple/compare/v2.59.0...v2.59.1) (2026-09-22)
 
 ### Bug Fixes
 
-* **react19:** react 19 compatibility with guarded fallbacks, zero change for react <=18 ([#1161](https://github.com/EightfoldAI/octuple/issues/1161)) ([2ccc2b6](https://github.com/EightfoldAI/octuple/commits/2ccc2b687102251bbb47a6c016091a8ffda318bd))
+- **Tooltip, FocusTrap, Select:** fix show/hide race, focus stealing on trap activation, and phantom onOptionsChange call ([#1169](https://github.com/EightfoldAI/octuple/issues/1169)) ([fa16c4b](https://github.com/EightfoldAI/octuple/commits/fa16c4b7a04db3c6cab2cfdfc5e0bf2cf73a7a8d))
+- **Trigger:** popup animation restarts while it is measured and aligned (ENG-212057) ([#1168](https://github.com/EightfoldAI/octuple/issues/1168)) ([74512bf](https://github.com/EightfoldAI/octuple/commits/74512bf27a67c5a21030571f414bba23661f8034))
+
+## [2.59.0](https://github.com/EightfoldAI/octuple/compare/v2.58.7...v2.59.0) (2026-08-18)
+
+### Bug Fixes
+
+- **react19:** react 19 compatibility with guarded fallbacks, zero change for react <=18 ([#1161](https://github.com/EightfoldAI/octuple/issues/1161)) ([2ccc2b6](https://github.com/EightfoldAI/octuple/commits/2ccc2b687102251bbb47a6c016091a8ffda318bd))
 
 ### [2.58.7](https://github.com/EightfoldAI/octuple/compare/v2.58.6...v2.58.7) (2026-08-12)
 

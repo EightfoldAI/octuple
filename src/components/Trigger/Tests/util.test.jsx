@@ -71,7 +71,7 @@ describe('Trigger.Util', () => {
       );
 
       expect(container.innerHTML).toEqual(
-        '<div>light</div><div><div class="trigger-popup" style="opacity: 0;"><div>bamboo</div></div></div>'
+        '<div>light</div><div><div class="trigger-popup" style="opacity: 0; animation-name: none;"><div>bamboo</div></div></div>'
       );
     });
   });

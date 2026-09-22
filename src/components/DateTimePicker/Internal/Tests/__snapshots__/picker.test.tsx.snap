@@ -828,7 +828,7 @@ LoadedCheerio {
         Node {
           "attribs": Object {
             "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left",
-            "style": "opacity: 0;",
+            "style": "opacity: 0; animation-name: none;",
           },
           "children": Array [
             Node {
@@ -927,7 +927,7 @@ LoadedCheerio {
             Node {
               "attribs": Object {
                 "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left",
-                "style": "opacity: 0;",
+                "style": "opacity: 0; animation-name: none;",
               },
               "children": Array [
                 Node {
@@ -1029,7 +1029,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left",
-          "style": "opacity: 0;",
+          "style": "opacity: 0; animation-name: none;",
         },
         "children": Array [
           Node {
