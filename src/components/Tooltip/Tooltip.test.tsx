@@ -180,6 +180,27 @@ describe('Tooltip', () => {
     expect(container.querySelector('.tooltip')).toBeTruthy();
   });
 
+  test('unmounting while a toggle is pending does not call onVisibleChange or update state afterward', () => {
+    const handleVisibleChange = jest.fn();
+    const { container, unmount } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+        onVisibleChange={handleVisibleChange}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    // Requests a show, which queues `toggle`'s pending timeout, then unmounts
+    // before that timeout fires. Without clearing it on unmount, the timeout
+    // still commits afterward and calls `setVisible`/`onVisibleChange` against
+    // a component that's gone.
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    unmount();
+    jest.advanceTimersByTime(1000);
+    expect(handleVisibleChange).not.toHaveBeenCalled();
+  });
+
   test('Tooltip is dismissed on escape when hover only', async () => {
     const { container } = render(
       <Tooltip

@@ -100,6 +100,15 @@ describe('useFocusTrap', () => {
     // the first focusable element just because `trap` turned on.
     await waitFor(() => expect(secondButton.matches(':focus')).toBe(true));
     expect(secondButton.matches(':focus')).toBe(true);
+
+    // The buggy version doesn't skip the redirect -- it sets up the same
+    // `FOCUS_DELAY_INTERVAL`-based retry used to focus a target that isn't
+    // immediately focusable, which steals focus to the first element a beat
+    // later. Asserting only immediately after the click (as above) can't tell
+    // the two apart, since that steal hasn't fired yet at t=0. Wait past the
+    // interval and confirm focus is still where it should be.
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    expect(secondButton.matches(':focus')).toBe(true);
   });
 
   test('setUpFocus still honors firstFocusableSelector when a different element inside the trap already has focus', async () => {
