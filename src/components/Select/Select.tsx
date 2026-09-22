@@ -151,21 +151,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
 
     const [options, setOptions] = useState<SelectOption[]>(
-      (_options || []).map((option: SelectOption, index: number) => ({
-        hideOption: false,
-        id: `${selectMenuId.current}-option-${index}`,
-        object: option.object,
-        role: 'option',
-        'aria-selected': option.selected,
-        ...option,
-        selected: !!(
+      (_options || []).map((option: SelectOption, index: number) => {
+        const isSelected = !!(
           (defaultValue !== undefined &&
             (multiple
               ? defaultValue.includes(option.value)
               : option.value === defaultValue)) ||
           option.selected
-        ),
-      }))
+        );
+        return {
+          hideOption: false,
+          id: `${selectMenuId.current}-option-${index}`,
+          object: option.object,
+          role: 'option',
+          'aria-selected': isSelected,
+          ...option,
+          selected: isSelected,
+        };
+      })
     );
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [selectedOptionText, setSelectedOptionText] = useState<string>(() =>
@@ -233,15 +236,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
         (opt: SelectOption) => opt.selected
       );
       setOptions(
-        (_options || []).map((option: SelectOption, index: number) => ({
-          selected: !!selected.find((opt) => opt.value === option.value),
-          hideOption: false,
-          id: `${selectMenuId.current}-option-${index}`,
-          object: option.object,
-          role: 'option',
-          'aria-selected': option.selected,
-          ...option,
-        }))
+        (_options || []).map((option: SelectOption, index: number) => {
+          const isSelected = !!selected.find(
+            (opt) => opt.value === option.value
+          );
+          return {
+            selected: isSelected,
+            hideOption: false,
+            id: `${selectMenuId.current}-option-${index}`,
+            object: option.object,
+            role: 'option',
+            'aria-selected': isSelected,
+            ...option,
+          };
+        })
       );
     }, [_options]);
 
@@ -251,17 +259,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
         (opt: SelectOption) => opt.selected
       );
       setOptions(
-        (_options || []).map((option: SelectOption, index: number) => ({
-          selected:
+        (_options || []).map((option: SelectOption, index: number) => {
+          const isSelected: boolean =
             !!selected.find((opt) => opt.value === option.value) ||
-            option.value === defaultValue,
-          hideOption: false,
-          id: `${selectMenuId.current}-option-${index}`,
-          object: option.object,
-          role: 'option',
-          'aria-selected': option.selected,
-          ...option,
-        }))
+            option.value === defaultValue;
+          return {
+            selected: isSelected,
+            hideOption: false,
+            id: `${selectMenuId.current}-option-${index}`,
+            object: option.object,
+            role: 'option',
+            'aria-selected': isSelected,
+            ...option,
+          };
+        })
       );
     }, [isLoading]);
 
@@ -479,6 +490,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
           ...opt,
           hideOption,
           selected,
+          'aria-selected': selected,
         };
       });
 

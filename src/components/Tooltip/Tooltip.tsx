@@ -665,13 +665,17 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               }
             }}
             onKeyDown={!gestureType ? handleReferenceKeyDown : null}
-            onMouseEnter={
-              trigger.includes('hover') &&
-              !intendedVisibleRef.current &&
-              !gestureType
-                ? toggle(true, showTooltip)
-                : null
-            }
+            onMouseEnter={(
+              event: React.MouseEvent<HTMLDivElement, MouseEvent>
+            ): void => {
+              if (
+                trigger.includes('hover') &&
+                !intendedVisibleRef.current &&
+                !gestureType
+              ) {
+                toggle(true, showTooltip)(event);
+              }
+            }}
             onMouseLeave={(
               event: React.MouseEvent<HTMLDivElement, MouseEvent>
             ): void => {
@@ -688,13 +692,15 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 )(event);
               }
             }}
-            onFocus={
-              trigger.includes('hover') &&
-              !intendedVisibleRef.current &&
-              !gestureType
-                ? toggle(true, showTooltip)
-                : null
-            }
+            onFocus={(event: React.FocusEvent<HTMLDivElement>): void => {
+              if (
+                trigger.includes('hover') &&
+                !intendedVisibleRef.current &&
+                !gestureType
+              ) {
+                toggle(true, showTooltip)(event);
+              }
+            }}
             onBlur={(event: React.FocusEvent<HTMLDivElement>): void => {
               if (
                 trigger.includes('hover') &&

@@ -73,9 +73,13 @@ export function useFocusTrap(
     );
 
     // Only capture a restore target when focus is truly outside the trap -- if it's
-    // already inside, there's no prior external focus state worth restoring on close.
+    // already inside, there's no prior external focus state worth restoring on close,
+    // and a stale target from an earlier activation must be cleared so close doesn't
+    // yank focus to it.
     if (!focusIsAlreadyInside) {
       restoreFocusRef.current = document.activeElement;
+    } else {
+      restoreFocusRef.current = null;
     }
 
     let elementToFocus: HTMLElement = getFocusableElements()?.[0];
@@ -103,10 +107,15 @@ export function useFocusTrap(
   };
 
   useEffect(() => {
-    if (visible) {
-      setUpFocus();
-      elRef.current?.addEventListener('keydown', handleFocus);
+    // Only register a cleanup when this effect instance actually activated the
+    // trap -- otherwise a run with `visible` false still tears down as though it
+    // had, restoring focus and clearing the interval for an activation that
+    // isn't its own (and racing a subsequent activation's own setup).
+    if (!visible) {
+      return undefined;
     }
+    setUpFocus();
+    elRef.current?.addEventListener('keydown', handleFocus);
     return () => {
       restoreFocusRef.current?.focus();
       elRef.current?.removeEventListener('keydown', handleFocus);

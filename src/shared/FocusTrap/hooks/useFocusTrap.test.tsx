@@ -77,11 +77,7 @@ describe('useFocusTrap', () => {
               <button className="button-1" id="button1">
                 Button 1
               </button>
-              <button
-                className="button-2"
-                id="button2"
-                ref={secondButtonRef}
-              >
+              <button className="button-2" id="button2" ref={secondButtonRef}>
                 Button 2
               </button>
             </>
@@ -151,11 +147,7 @@ describe('useFocusTrap', () => {
               <button className="button-1" id="button1">
                 Button 1
               </button>
-              <button
-                className="button-2"
-                id="button2"
-                ref={secondButtonRef}
-              >
+              <button className="button-2" id="button2" ref={secondButtonRef}>
                 Button 2
               </button>
             </>
@@ -190,5 +182,71 @@ describe('useFocusTrap', () => {
     // Deactivating must not force focus back onto the in-trap element.
     fireEvent.click(container.getElementsByClassName('deactivate')[0]);
     expect(elsewhere.matches(':focus')).toBe(true);
+  });
+
+  test('does not restore focus to a stale target from an earlier activation when re-activated with focus already inside', async () => {
+    const ExplicitFocusFC = () => {
+      const [trap, setTrap] = React.useState(false);
+      const secondButtonRef = React.useRef<HTMLButtonElement>(null);
+      return (
+        <>
+          <FocusTrap trap={trap} onFocus={() => setTrap(true)}>
+            <>
+              <button className="button-1" id="button1">
+                Button 1
+              </button>
+              <button className="button-2" id="button2" ref={secondButtonRef}>
+                Button 2
+              </button>
+            </>
+          </FocusTrap>
+          <button className="outside" id="outside">
+            Outside
+          </button>
+          {/* Toggles `trap` directly, without moving focus itself, so the
+              activation genuinely originates from focus outside the trap. */}
+          <button className="activate" onClick={() => setTrap(true)}>
+            Activate
+          </button>
+          <button
+            className="reactivate"
+            onClick={() => secondButtonRef.current?.focus()}
+          >
+            Reactivate
+          </button>
+          <button className="deactivate" onClick={() => setTrap(false)}>
+            Deactivate
+          </button>
+        </>
+      );
+    };
+    const { container } = render(<ExplicitFocusFC />);
+
+    const outside = container.getElementsByClassName(
+      'outside'
+    )[0] as HTMLElement;
+    outside.focus();
+    expect(outside.matches(':focus')).toBe(true);
+
+    // Activate from outside the trap -- captures `outside` as the restore target.
+    fireEvent.click(container.getElementsByClassName('activate')[0]);
+    const firstButton = container.getElementsByClassName('button-1')[0];
+    await waitFor(() => expect(firstButton.matches(':focus')).toBe(true));
+
+    // Deactivate -- restores focus to `outside`, as expected.
+    fireEvent.click(container.getElementsByClassName('deactivate')[0]);
+    await waitFor(() => expect(outside.matches(':focus')).toBe(true));
+
+    // Re-activate with focus already inside the trap -- there is no new
+    // external focus to capture, so the stale `outside` target left over
+    // from the earlier activation must be discarded.
+    fireEvent.click(container.getElementsByClassName('reactivate')[0]);
+    const secondButton = container.getElementsByClassName('button-2')[0];
+    await waitFor(() => expect(secondButton.matches(':focus')).toBe(true));
+
+    // Deactivating again must not yank focus back to the stale `outside`
+    // target -- there was nothing to restore for this activation.
+    fireEvent.click(container.getElementsByClassName('deactivate')[0]);
+    expect(secondButton.matches(':focus')).toBe(true);
   });
 });
