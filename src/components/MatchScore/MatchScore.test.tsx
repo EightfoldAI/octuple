@@ -43,4 +43,10 @@ describe('MatchScore', () => {
     );
     expect(container.querySelector('.label').textContent).toBe('Some label ');
   });
+
+  test('MatchScore clamps a negative score instead of throwing', () => {
+    const { container } = render(<MatchScore score={-1} total={5} />);
+    expect(container.querySelector('.match-score-container')).toBeTruthy();
+    expect(container.querySelector('.label').textContent).toContain('0/5');
+  });
 });

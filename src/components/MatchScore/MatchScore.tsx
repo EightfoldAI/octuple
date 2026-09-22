@@ -40,10 +40,13 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
       : contextualTheme || theme;
 
     const absTotal: number = Math.abs(total);
-    const absScore: number = Math.round(score);
-    const fullCircles: number = Math.trunc(Math.round(score * 2.0) / 2.0);
+    const clampedScore: number = Math.max(0, score);
+    const absScore: number = Math.round(clampedScore);
+    const fullCircles: number = Math.trunc(
+      Math.round(clampedScore * 2.0) / 2.0
+    );
     const halfCircle: number = Math.trunc(
-      Math.ceil(score - fullCircles - 0.25)
+      Math.ceil(clampedScore - fullCircles - 0.25)
     );
     const emptyCircles: number = total - fullCircles - halfCircle;
     const matchScoreLabelClasses: string = mergeClasses(styles.label);
