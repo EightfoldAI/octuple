@@ -29,6 +29,7 @@ export const useStatus = (
     motionAppear = true,
     motionLeave = true,
     motionDeadline,
+    flushOnMotionEnd,
     motionLeaveImmediately,
     onAppearPrepare,
     onEnterPrepare,
@@ -83,10 +84,15 @@ export const useStatus = (
 
     // Only update status when `canEnd` and not destroyed
     if (status !== STATUS_NONE && currentActive && canEnd !== false) {
-      flushSync(() => {
+      const end = () => {
         setStatus(STATUS_NONE, true);
         setStyle(null, true);
-      });
+      };
+      if (flushOnMotionEnd) {
+        flushSync(end);
+      } else {
+        end();
+      }
     }
   }
 

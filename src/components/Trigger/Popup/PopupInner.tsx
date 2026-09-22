@@ -174,6 +174,7 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
       {...motion}
       onAppearPrepare={onShowPrepare}
       onEnterPrepare={onShowPrepare}
+      flushOnMotionEnd
       removeOnLeave={destroyPopupOnHide}
       forceRender={forceRender}
     >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import Trigger from '../Trigger';
 import CSSMotion from '../../Motion/CSSMotion';
 import { placementAlignMap } from './util';
@@ -106,23 +106,28 @@ describe('Trigger.Motion', () => {
     });
   });
 
-  it('popup should not animate until it is measured and aligned', () => {
-    render(
+  it('popup animation gate is applied and released with the opacity gate', () => {
+    const genTrigger = (props) => (
       <Trigger
         popupAlign={placementAlignMap.left}
         popup={<strong className="x-content" />}
         popupMotion={{ motionName: 'bamboo' }}
         popupVisible
+        {...props}
       >
         <span />
       </Trigger>
     );
 
-    expect(document.querySelector('.trigger-popup')).toHaveStyle({
-      opacity: '0',
-      animationName: 'none',
-    });
+    const { rerender } = render(genTrigger());
+    const popup = () => document.querySelector('.trigger-popup');
 
-    act(() => jest.runAllTimers());
+    expect(popup().style.opacity).toBe('0');
+    expect(popup().style.animationName).toBe('none');
+
+    rerender(genTrigger({ popupVisible: false }));
+
+    expect(popup().style.opacity).toBe('');
+    expect(popup().style.animationName).toBe('');
   });
 });
