@@ -20,6 +20,20 @@ import 'window-resizeto/polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+class ResizeObserver {
+  observe() {
+    // do nothing
+  }
+  unobserve() {
+    // do nothing
+  }
+  disconnect() {
+    // do nothing
+  }
+}
+
+window.ResizeObserver = ResizeObserver;
+
 let matchMedia: any;
 
 const mockNavigator = (agent: string): void => {
@@ -94,6 +108,97 @@ describe('Tooltip', () => {
     fireEvent.blur(container.querySelector('.test-div'));
     await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
     expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('Tooltip does not get stuck visible when blur arrives before the pending show commits', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    // Focus requests a show, but nothing lets its delayed `toggle` timeout commit
+    // before blur fires -- `mergedVisible` is still stale/false at this instant.
+    fireEvent.focus(container.querySelector('.test-div'));
+    fireEvent.blur(container.querySelector('.test-div'));
+
+    // Let every pending timer run out. If the close handler failed to attach (the
+    // bug), the show timeout still commits here with nothing left to reverse it.
+    jest.advanceTimersByTime(1000);
+    await waitFor(() =>
+      expect(screen.queryByTestId('tooltip')).not.toBeInTheDocument()
+    );
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('fires onVisibleChange on blur even when the hover-triggered tooltip is also controlled via the visible prop', async () => {
+    const handleVisibleChange = jest.fn();
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+        visible={true}
+        onVisibleChange={handleVisibleChange}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    await waitFor(() => screen.getByTestId('tooltip'));
+    // A tooltip shown purely via the controlled `visible` prop never runs `toggle()`
+    // on mount, so `intendedVisibleRef` starts out stale unless it's kept in sync
+    // with the prop -- without that, blur silently drops this call.
+    fireEvent.blur(container.querySelector('.test-div'));
+    jest.advanceTimersByTime(1000);
+    await waitFor(() =>
+      expect(handleVisibleChange).toHaveBeenCalledWith(false)
+    );
+  });
+
+  test('re-entering the trigger cancels a pending hide instead of letting the tooltip vanish under the pointer', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+
+    // Leave, then re-enter before the default 200ms `hideAfter` delay elapses.
+    fireEvent.mouseOut(container.querySelector('.test-div'));
+    jest.advanceTimersByTime(100);
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+
+    // Run out the rest of the original hide window (and then some). If re-entry
+    // failed to cancel the pending hide, the tooltip disappears here anyway.
+    jest.advanceTimersByTime(1000);
+    expect(screen.queryByTestId('tooltip')).toBeInTheDocument();
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+  });
+
+  test('unmounting while a toggle is pending does not call onVisibleChange or update state afterward', () => {
+    const handleVisibleChange = jest.fn();
+    const { container, unmount } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+        onVisibleChange={handleVisibleChange}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    // Requests a show, which queues `toggle`'s pending timeout, then unmounts
+    // before that timeout fires. Without clearing it on unmount, the timeout
+    // still commits afterward and calls `setVisible`/`onVisibleChange` against
+    // a component that's gone.
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    unmount();
+    jest.advanceTimersByTime(1000);
+    expect(handleVisibleChange).not.toHaveBeenCalled();
   });
 
   test('Tooltip is dismissed on escape when hover only', async () => {
