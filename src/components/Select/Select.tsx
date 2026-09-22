@@ -237,10 +237,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
       setOptions(
         (_options || []).map((option: SelectOption, index: number) => {
-          const isSelected = !!(
-            selected.find((opt) => opt.value === option.value) ||
-            option.selected
-          );
+          // A `selected` field explicitly present on the incoming option is the
+          // consumer's instruction for this option and must win either way (it
+          // can deselect something that was previously selected) -- only fall
+          // back to the carried-forward value when the option doesn't specify one.
+          const isSelected: boolean =
+            option.selected !== undefined
+              ? option.selected
+              : !!selected.find((opt) => opt.value === option.value);
           return {
             hideOption: false,
             id: `${selectMenuId.current}-option-${index}`,
@@ -261,11 +265,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
       setOptions(
         (_options || []).map((option: SelectOption, index: number) => {
-          const isSelected = !!(
-            selected.find((opt) => opt.value === option.value) ||
-            option.value === defaultValue ||
-            option.selected
-          );
+          // Same coalesce as the `[_options]` effect above -- an explicit
+          // `selected` on the incoming option wins over the carried-forward/
+          // defaultValue fallback either way.
+          const isSelected: boolean =
+            option.selected !== undefined
+              ? option.selected
+              : !!selected.find((opt) => opt.value === option.value) ||
+                option.value === defaultValue;
           return {
             hideOption: false,
             id: `${selectMenuId.current}-option-${index}`,
