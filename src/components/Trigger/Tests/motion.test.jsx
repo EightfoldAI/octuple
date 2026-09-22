@@ -105,4 +105,29 @@ describe('Trigger.Motion', () => {
       pointerEvents: 'none',
     });
   });
+
+  it('popup animation gate is applied and released with the opacity gate', () => {
+    const genTrigger = (props) => (
+      <Trigger
+        popupAlign={placementAlignMap.left}
+        popup={<strong className="x-content" />}
+        popupMotion={{ motionName: 'bamboo' }}
+        popupVisible
+        {...props}
+      >
+        <span />
+      </Trigger>
+    );
+
+    const { rerender } = render(genTrigger());
+    const popup = () => document.querySelector('.trigger-popup');
+
+    expect(popup().style.opacity).toBe('0');
+    expect(popup().style.animationName).toBe('none');
+
+    rerender(genTrigger({ popupVisible: false }));
+
+    expect(popup().style.opacity).toBe('');
+    expect(popup().style.animationName).toBe('');
+  });
 });

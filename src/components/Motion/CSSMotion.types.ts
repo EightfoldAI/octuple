@@ -100,6 +100,7 @@ export interface CSSMotionProps {
   motionLeave?: boolean;
   motionLeaveImmediately?: boolean;
   motionDeadline?: number;
+  flushOnMotionEnd?: boolean;
   /**
    * Create element in view even the element is invisible.
    * Will patch `display: none` style on it.
