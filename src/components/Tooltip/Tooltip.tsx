@@ -112,10 +112,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
       const [hiding, setHiding] = useState<boolean>(false);
 
-      // `mergedVisible` only updates once the delayed `toggle` timeout commits, so a
-      // blur/mouseleave arriving while a show is still pending sees `mergedVisible` as
-      // stale (still `false`) and its close handler never attaches. Track the requested
-      // state synchronously so close handlers can react to an in-flight show immediately,
+      // Track visible state synchronously so close handlers can react to an in-flight show immediately,
       // instead of only after it has visually committed.
       const intendedVisibleRef: React.MutableRefObject<boolean> =
         useRef<boolean>(false);
@@ -134,11 +131,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         `${tooltipId?.current}-wrapper`
       );
 
-      // A plain local variable here would be re-created every render, so a `toggle` call
-      // from a later render could never `clearTimeout` a still-pending timer scheduled by
-      // an earlier render's closure -- exactly the case when a close handler now correctly
-      // fires (see `intendedVisibleRef` above) but the earlier show it should cancel was
-      // scheduled before that render happened. A ref persists across renders instead.
+      // Preserves timeouts for when the component unmounts or the user toggles visibility quickly, we need to keep a ref to the timeout ID.
       const timeoutRef: React.MutableRefObject<ReturnType<typeof setTimeout>> =
         useRef<ReturnType<typeof setTimeout>>(null);
       const {
@@ -688,13 +681,6 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 : null
             }
             onBlur={(event: React.FocusEvent<HTMLDivElement>): void => {
-              // Must stay an always-attached function that reads the ref at invocation
-              // time, not a ternary evaluated at render time: a `toggle(true, ...)` call
-              // whose `setHiding` doesn't actually change `hiding` (e.g. the very first
-              // show, from `false` to `false`) causes React to skip re-rendering, so a
-              // ternary gated on `intendedVisibleRef.current` would keep whatever handler
-              // was attached at the last render that did re-run -- stale, same as the
-              // `mergedVisible` bug this replaces.
               if (
                 trigger.includes('hover') &&
                 intendedVisibleRef.current &&

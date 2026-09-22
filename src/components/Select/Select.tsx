@@ -292,17 +292,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     }, [getSelectedOptionValues().join('')]);
 
-    // The effect above intentionally skips `getSelectedOptionText()` on its very first
-    // run via `firstRender` -- historically correct, because that first run always saw
-    // an empty selection regardless of `defaultValue` (the `options` initializer above
-    // used to hardcode `selected: false`). Now that `options` starts already reflecting
-    // `defaultValue`, ensure the displayed text matches it from the first render too,
-    // without touching any of that effect's other `firstRender`-guarded behavior.
-    useEffect(() => {
-      getSelectedOptionText();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
     useEffect(() => {
       const updatedOptions = (options || []).map((opt) => ({
         ...opt,
