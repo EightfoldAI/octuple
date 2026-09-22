@@ -312,6 +312,30 @@ describe('Select', () => {
     );
   });
 
+  test('does not let a raw `selected` field on the options prop override defaultValue on mount', () => {
+    const optionsWithSelected = [
+      { text: 'Option 1', value: 'option1', selected: false },
+      { text: 'Option 2', value: 'option2', selected: false },
+      { text: 'Option 3', value: 'option3', selected: false },
+    ];
+    const defaultValue = 'option2';
+    const handleChange = jest.fn();
+    render(
+      <Select
+        options={optionsWithSelected}
+        defaultValue={defaultValue}
+        onOptionsChange={handleChange}
+      />
+    );
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      expect.arrayContaining([
+        expect.objectContaining({ value: 'option2', selected: true }),
+      ])
+    );
+  });
+
   test('Renders with default values when multiple', () => {
     const defaultValue = ['option2', 'option3'];
     const { container, getByText } = render(

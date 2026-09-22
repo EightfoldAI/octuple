@@ -152,17 +152,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const [options, setOptions] = useState<SelectOption[]>(
       (_options || []).map((option: SelectOption, index: number) => ({
-        selected:
-          defaultValue !== undefined &&
-          (multiple
-            ? defaultValue.includes(option.value)
-            : option.value === defaultValue),
         hideOption: false,
         id: `${selectMenuId.current}-option-${index}`,
         object: option.object,
         role: 'option',
         'aria-selected': option.selected,
         ...option,
+        selected: !!(
+          (defaultValue !== undefined &&
+            (multiple
+              ? defaultValue.includes(option.value)
+              : option.value === defaultValue)) ||
+          option.selected
+        ),
       }))
     );
     const [searchQuery, setSearchQuery] = useState<string>('');

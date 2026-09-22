@@ -117,6 +117,15 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const intendedVisibleRef: React.MutableRefObject<boolean> =
         useRef<boolean>(false);
 
+      // Keep the ref in sync with a controlled `visible` prop too -- `toggle()` is the
+      // only other writer, so without this a tooltip opened purely via `visible` (no
+      // `toggle()` call) would leave close handlers gated on a stale `false`.
+      useEffect(() => {
+        if (visible !== undefined) {
+          intendedVisibleRef.current = visible;
+        }
+      }, [visible]);
+
       // TODO: Upgrade to React 18 and use the new `useId` hook.
       // This way the id will match on the server and client.
       // For now, pass an id via props if using SSR.
@@ -134,6 +143,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       // Preserves timeouts for when the component unmounts or the user toggles visibility quickly, we need to keep a ref to the timeout ID.
       const timeoutRef: React.MutableRefObject<ReturnType<typeof setTimeout>> =
         useRef<ReturnType<typeof setTimeout>>(null);
+
+      useEffect(() => () => clearTimeout(timeoutRef.current), []);
       const {
         x,
         y,
@@ -655,7 +666,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             }}
             onKeyDown={!gestureType ? handleReferenceKeyDown : null}
             onMouseEnter={
-              trigger.includes('hover') && !mergedVisible && !gestureType
+              trigger.includes('hover') &&
+              !intendedVisibleRef.current &&
+              !gestureType
                 ? toggle(true, showTooltip)
                 : null
             }
@@ -676,7 +689,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               }
             }}
             onFocus={
-              trigger.includes('hover') && !mergedVisible && !gestureType
+              trigger.includes('hover') &&
+              !intendedVisibleRef.current &&
+              !gestureType
                 ? toggle(true, showTooltip)
                 : null
             }

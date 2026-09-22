@@ -67,18 +67,32 @@ export function useFocusTrap(
     if (!elRef.current || !canUseDocElement()) {
       return;
     }
-    restoreFocusRef.current = document.activeElement;
 
-    // If focus is already somewhere inside the trap -- respect it instead of redirecting
-    // to `firstFocusableSelector`
-    if (elRef.current.contains(document.activeElement)) {
-      return;
+    const focusIsAlreadyInside: boolean = elRef.current.contains(
+      document.activeElement
+    );
+
+    // Only capture a restore target when focus is truly outside the trap -- if it's
+    // already inside, there's no prior external focus state worth restoring on close.
+    if (!focusIsAlreadyInside) {
+      restoreFocusRef.current = document.activeElement;
     }
 
     let elementToFocus: HTMLElement = getFocusableElements()?.[0];
     if (firstFocusableSelector) {
       elementToFocus = elRef.current?.querySelector(firstFocusableSelector);
     }
+
+    // If focus is already inside the trap and either no specific target was
+    // requested, or it's already on the resolved target -- respect it instead of
+    // redirecting.
+    if (
+      focusIsAlreadyInside &&
+      (!firstFocusableSelector || document.activeElement === elementToFocus)
+    ) {
+      return;
+    }
+
     clearInterval(intervalRef?.current);
     intervalRef.current = setInterval((): void => {
       elementToFocus?.focus();

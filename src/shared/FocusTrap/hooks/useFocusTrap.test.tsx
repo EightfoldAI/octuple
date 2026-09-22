@@ -105,4 +105,90 @@ describe('useFocusTrap', () => {
     await waitFor(() => expect(secondButton.matches(':focus')).toBe(true));
     expect(secondButton.matches(':focus')).toBe(true);
   });
+
+  test('setUpFocus still honors firstFocusableSelector when a different element inside the trap already has focus', async () => {
+    const AutoFocusFC = () => {
+      const [trap, setTrap] = React.useState(false);
+      return (
+        <>
+          <FocusTrap
+            firstFocusableSelector=".button-2"
+            trap={trap}
+            onFocus={() => setTrap(true)}
+          >
+            <>
+              {/* Mirrors a native `autoFocus` child grabbing focus on mount,
+                  before `firstFocusableSelector` gets a say. */}
+              <button className="button-1" id="button1" autoFocus>
+                Button 1
+              </button>
+              <button className="button-2" id="button2">
+                Button 2
+              </button>
+            </>
+          </FocusTrap>
+        </>
+      );
+    };
+    const { container } = render(<AutoFocusFC />);
+    const firstButton = container.getElementsByClassName('button-1')[0];
+    await waitFor(() => expect(firstButton.matches(':focus')).toBe(true));
+
+    const secondButton = container.getElementsByClassName('button-2')[0];
+    // `firstFocusableSelector` must still win over whatever already grabbed focus.
+    await waitFor(() => expect(secondButton.matches(':focus')).toBe(true));
+    expect(secondButton.matches(':focus')).toBe(true);
+  });
+
+  test('setUpFocus does not capture a restore target when the trap activates via focus already inside it', async () => {
+    const ExplicitFocusFC = () => {
+      const [trap, setTrap] = React.useState(false);
+      const secondButtonRef = React.useRef<HTMLButtonElement>(null);
+      return (
+        <>
+          <FocusTrap trap={trap} onFocus={() => setTrap(true)}>
+            <>
+              <button className="button-1" id="button1">
+                Button 1
+              </button>
+              <button
+                className="button-2"
+                id="button2"
+                ref={secondButtonRef}
+              >
+                Button 2
+              </button>
+            </>
+          </FocusTrap>
+          <button
+            className="activate"
+            onClick={() => secondButtonRef.current?.focus()}
+          >
+            Activate
+          </button>
+          <button className="elsewhere">Elsewhere</button>
+          <button className="deactivate" onClick={() => setTrap(false)}>
+            Deactivate
+          </button>
+        </>
+      );
+    };
+    const { container } = render(<ExplicitFocusFC />);
+    fireEvent.click(container.getElementsByClassName('activate')[0]);
+    const secondButton = container.getElementsByClassName('button-2')[0];
+    await waitFor(() => expect(secondButton.matches(':focus')).toBe(true));
+
+    // Move focus elsewhere before the trap deactivates -- there was never a
+    // captured "outside" focus target, since focus was already inside the trap
+    // when it activated.
+    const elsewhere = container.getElementsByClassName(
+      'elsewhere'
+    )[0] as HTMLElement;
+    elsewhere.focus();
+    expect(elsewhere.matches(':focus')).toBe(true);
+
+    // Deactivating must not force focus back onto the in-trap element.
+    fireEvent.click(container.getElementsByClassName('deactivate')[0]);
+    expect(elsewhere.matches(':focus')).toBe(true);
+  });
 });
