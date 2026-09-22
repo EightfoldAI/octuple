@@ -35,7 +35,7 @@ exports[`Slide loads and displays Carousel component 1`] = `
       >
         <li>
           <button
-            aria-current="true"
+            aria-current="page"
             aria-disabled="false"
             aria-label="page 1 of 3"
             class="pagination-button active button button-neutral button-medium"
@@ -49,7 +49,6 @@ exports[`Slide loads and displays Carousel component 1`] = `
         </li>
         <li>
           <button
-            aria-current="false"
             aria-disabled="false"
             aria-label="page 2 of 3"
             class="pagination-button button button-neutral button-medium"
@@ -63,7 +62,6 @@ exports[`Slide loads and displays Carousel component 1`] = `
         </li>
         <li>
           <button
-            aria-current="false"
             aria-disabled="false"
             aria-label="page 3 of 3"
             class="pagination-button button button-neutral button-medium"

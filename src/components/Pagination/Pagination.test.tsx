@@ -244,4 +244,26 @@ describe('Pagination', () => {
     );
     expect(onCurrentChange).toHaveBeenCalledWith(4);
   });
+
+  test('Pagination active pager button uses aria-current="page"', () => {
+    const assertAriaCurrent = (currentPage: number, activeText: string) => {
+      const { container, unmount } = render(
+        <Pagination
+          currentPage={currentPage}
+          onCurrentChange={() => {}}
+          pageSize={10}
+          total={50}
+        />
+      );
+      const current = container.querySelectorAll('.pager li [aria-current]');
+      expect(current).toHaveLength(1);
+      expect(current[0].getAttribute('aria-current')).toBe('page');
+      expect(current[0].textContent).toBe(activeText);
+      unmount();
+    };
+
+    assertAriaCurrent(1, '1');
+    assertAriaCurrent(3, '3');
+    assertAriaCurrent(5, '5');
+  });
 });

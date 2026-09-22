@@ -3552,7 +3552,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-current": "true",
+                          "aria-current": "page",
                           "aria-disabled": "false",
                           "aria-label": "page 1 of 1",
                           "class": "pagination-button active button button-neutral button-medium",
@@ -3644,7 +3644,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-current": "true",
+                        "aria-current": "page",
                         "aria-disabled": "false",
                         "aria-label": "page 1 of 1",
                         "class": "pagination-button active button button-neutral button-medium",
@@ -3778,7 +3778,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-current": "true",
+                        "aria-current": "page",
                         "aria-disabled": "false",
                         "aria-label": "page 1 of 1",
                         "class": "pagination-button active button button-neutral button-medium",
@@ -3870,7 +3870,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-current": "true",
+                      "aria-current": "page",
                       "aria-disabled": "false",
                       "aria-label": "page 1 of 1",
                       "class": "pagination-button active button button-neutral button-medium",
