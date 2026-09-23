@@ -13,6 +13,9 @@ import { mergeClasses } from '../../shared/utilities';
 import styles from './matchScore.module.scss';
 import themedComponentStyles from './matchScore.theme.module.scss';
 
+const DEFAULT_SCORE = 0;
+const DEFAULT_TOTAL = 5;
+
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
   (
     {
@@ -24,10 +27,10 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
       hideLabel = false,
       hideValues = false,
       label,
-      score = 0,
+      score = DEFAULT_SCORE,
       theme,
       themeContainerId,
-      total = 5,
+      total = DEFAULT_TOTAL,
       ...rest
     },
     ref: Ref<HTMLDivElement>
@@ -39,8 +42,10 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
       ? theme
       : contextualTheme || theme;
 
-    const absTotal: number = Math.abs(total);
-    const clampedScore: number = Math.max(0, Math.min(score, absTotal));
+    const safeTotal: number = Number.isFinite(total) ? total : DEFAULT_TOTAL;
+    const absTotal: number = Math.trunc(Math.abs(safeTotal));
+    const safeScore: number = Number.isFinite(score) ? score : DEFAULT_SCORE;
+    const clampedScore: number = Math.max(0, Math.min(safeScore, absTotal));
     const displayScore: number = Math.round(clampedScore);
     const fullCircles: number = Math.trunc(
       Math.round(clampedScore * 2.0) / 2.0

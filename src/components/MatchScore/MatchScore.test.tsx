@@ -46,13 +46,41 @@ describe('MatchScore', () => {
 
   test('MatchScore clamps a negative score instead of throwing', () => {
     const { container } = render(<MatchScore score={-1} total={5} />);
-    expect(container.querySelector('.match-score-container')).toBeTruthy();
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(0);
+    expect(container.querySelectorAll('.half').length).toBe(0);
     expect(container.querySelector('.label').textContent).toContain('0/5');
   });
 
   test('MatchScore clamps a score above total instead of throwing', () => {
     const { container } = render(<MatchScore score={5.5} total={5} />);
-    expect(container.querySelector('.match-score-container')).toBeTruthy();
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(5);
+    expect(container.querySelectorAll('.half').length).toBe(0);
     expect(container.querySelector('.label').textContent).toContain('5/5');
+  });
+
+  test('MatchScore treats a NaN score as 0 instead of throwing', () => {
+    const { container } = render(<MatchScore score={NaN} total={5} />);
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(0);
+    expect(container.querySelectorAll('.half').length).toBe(0);
+    expect(container.querySelector('.label').textContent).toContain('0/5');
+  });
+
+  test('MatchScore falls back to the default total when total is NaN', () => {
+    const { container } = render(<MatchScore score={3} total={NaN} />);
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(3);
+    expect(container.querySelectorAll('.half').length).toBe(0);
+    expect(container.querySelector('.label').textContent).toContain('3/5');
+  });
+
+  test('MatchScore truncates a fractional total instead of throwing', () => {
+    const { container } = render(<MatchScore score={3} total={5.5} />);
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(3);
+    expect(container.querySelectorAll('.half').length).toBe(0);
+    expect(container.querySelector('.label').textContent).toContain('3/5');
   });
 });
