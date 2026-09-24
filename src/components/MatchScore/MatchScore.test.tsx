@@ -83,4 +83,34 @@ describe('MatchScore', () => {
     expect(container.querySelectorAll('.half').length).toBe(0);
     expect(container.querySelector('.label').textContent).toContain('3/5');
   });
+
+  test('MatchScore renders a half circle for a half-point score', () => {
+    const { container } = render(<MatchScore score={2.5} total={5} />);
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(2);
+    expect(container.querySelectorAll('.half').length).toBe(1);
+    expect(container.querySelector('.label').textContent).toContain('3/5');
+  });
+
+  test('MatchScore defaults total to 5 when omitted', () => {
+    const { container } = render(<MatchScore score={3} />);
+    expect(container.querySelectorAll('.match-score-circle').length).toBe(5);
+    expect(container.querySelectorAll('.full').length).toBe(3);
+    expect(container.querySelectorAll('.half').length).toBe(0);
+    expect(container.querySelector('.label').textContent).toContain('3/5');
+  });
+
+  test('MatchScore applies an explicit theme when noThemeContext is set', () => {
+    const { container } = render(
+      <MatchScore
+        score={3}
+        total={5}
+        theme={'blue'}
+        configContextProps={{ noThemeContext: true }}
+      />
+    );
+    expect(
+      container.querySelector('.match-score-container').classList
+    ).toContain('theme');
+  });
 });
