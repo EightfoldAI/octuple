@@ -530,7 +530,7 @@ describe('Dropdown', () => {
   test('Should support ariaRef prop for complex dropdown references', async () => {
     const { container } = render(<ComplexDropdownComponent />);
     const dropdownAriaRef = screen.getByTestId('test-input-id');
-    expect(dropdownAriaRef.getAttribute('aria-controls')).toBeTruthy();
+    expect(dropdownAriaRef.hasAttribute('aria-controls')).toBe(false);
     expect(dropdownAriaRef.getAttribute('aria-expanded')).toBe('false');
     expect(dropdownAriaRef.getAttribute('aria-haspopup')).toBeNull();
     expect(dropdownAriaRef.getAttribute('role')).toBe('combobox');
@@ -542,6 +542,9 @@ describe('Dropdown', () => {
       'my-dropdown-class'
     );
     expect(dropdownAriaRef.getAttribute('aria-expanded')).toBe('true');
+    expect(
+      document.getElementById(dropdownAriaRef.getAttribute('aria-controls'))
+    ).toContainElement(option1);
   });
 
   test('Should support visible prop toggle via external element', async () => {
@@ -987,7 +990,7 @@ describe('Dropdown', () => {
     const referenceElement = getByTestId('test-button-id');
 
     expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
-    expect(referenceElement.getAttribute('aria-controls')).toBeTruthy();
+    expect(referenceElement.hasAttribute('aria-controls')).toBe(false);
     expect(referenceElement.hasAttribute('aria-haspopup')).toBe(false);
   });
 
@@ -1005,7 +1008,7 @@ describe('Dropdown', () => {
     const referenceElement = getByTestId('dropdown-reference');
 
     expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
-    expect(referenceElement.getAttribute('aria-controls')).toBeTruthy();
+    expect(referenceElement.hasAttribute('aria-controls')).toBe(false);
     expect(referenceElement.hasAttribute('aria-haspopup')).toBe(false);
   });
 
@@ -1016,7 +1019,7 @@ describe('Dropdown', () => {
     const referenceElement = getByTestId('test-button-id');
 
     expect(referenceElement.getAttribute('aria-expanded')).toBe('false');
-    expect(referenceElement.getAttribute('aria-controls')).toBeTruthy();
+    expect(referenceElement.hasAttribute('aria-controls')).toBe(false);
     expect(referenceElement.hasAttribute('aria-haspopup')).toBe(false);
   });
 
@@ -1048,5 +1051,82 @@ describe('Dropdown', () => {
     await waitFor(() => screen.getByText('User profile 1'));
     expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
     expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
+  });
+
+  test('Should only set aria-controls on the cloned reference element while the overlay is rendered', async () => {
+    const { getByTestId } = render(<DropdownComponent />);
+    const referenceElement = getByTestId('dropdown-reference');
+    expect(referenceElement.hasAttribute('aria-controls')).toBe(false);
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(
+      document.getElementById(referenceElement.getAttribute('aria-controls'))
+    ).toContainElement(screen.getByText('User profile 1'));
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(referenceElement.hasAttribute('aria-controls')).toBe(false);
+  });
+
+  test('Should remove aria-controls from the ariaRef reference element when the overlay closes', async () => {
+    const { getByTestId } = render(
+      <ComplexDropdownDefaultAriaHaspopupComponent />
+    );
+    const referenceElement = getByTestId('test-button-id');
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(
+      document.getElementById(referenceElement.getAttribute('aria-controls'))
+    ).toContainElement(screen.getByText('User profile 1'));
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() =>
+      expect(referenceElement.getAttribute('aria-expanded')).toBe('false')
+    );
+    expect(referenceElement.hasAttribute('aria-controls')).toBe(false);
+  });
+
+  test('Should keep a consumer-provided aria-controls on the ariaRef reference element', async () => {
+    const CustomAriaControlsDropdown = (): JSX.Element => {
+      const buttonRef: React.MutableRefObject<HTMLButtonElement> =
+        useRef<HTMLButtonElement>(null);
+      return (
+        <Dropdown {...dropdownProps} ariaRef={buttonRef}>
+          <div>
+            <Button
+              ref={buttonRef}
+              data-testid="test-button-id"
+              text="Test button"
+              aria-controls="consumer-listbox"
+            />
+          </div>
+        </Dropdown>
+      );
+    };
+    const { getByTestId } = render(<CustomAriaControlsDropdown />);
+    const referenceElement = getByTestId('test-button-id');
+    expect(referenceElement.getAttribute('aria-controls')).toBe(
+      'consumer-listbox'
+    );
+
+    act(() => {
+      userEvent.click(referenceElement);
+    });
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(referenceElement.getAttribute('aria-controls')).toBe(
+      'consumer-listbox'
+    );
   });
 });
