@@ -362,6 +362,20 @@ describe('Picker.Basic', () => {
     });
   });
 
+  it('input is not read only before or on first focus', () => {
+    const wrapper = mount(<DayjsPicker />);
+    expect(wrapper.find('input').prop('readOnly')).toBeFalsy();
+    wrapper.find('input').simulate('focus');
+    expect(wrapper.find('input').prop('readOnly')).toBeFalsy();
+  });
+
+  it('input is read only while keyboard is forwarded to the panel', () => {
+    const wrapper = mount(<DayjsPicker trapFocus={false} />);
+    wrapper.openPicker();
+    wrapper.find('input').simulate('keyDown', { key: eventKeys.TAB });
+    expect(wrapper.find('input').prop('readOnly')).toBeTruthy();
+  });
+
   describe('focus test', () => {
     let domMock: ReturnType<typeof spyElementPrototypes>;
     let focused = false;
