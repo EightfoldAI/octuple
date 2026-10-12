@@ -558,6 +558,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                   transparent
                   allowDisabledFocus={iconButtonProps.allowDisabledFocus}
                   ariaLabel={iconButtonProps.ariaLabel}
+                  aria-hidden={iconButtonProps.ariaHidden}
                   checked={iconButtonProps.checked}
                   disabled={iconButtonProps.disabled || mergedDisabled}
                   htmlType={iconButtonProps.htmlType}

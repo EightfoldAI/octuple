@@ -70,6 +70,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       reset = false,
       role = 'combobox',
       searchButtonAriaLabel,
+      searchLandmark = true,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,
       status,
@@ -108,7 +109,10 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       : contextualTheme || theme;
 
     return (
-      <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
+      <form
+        role={searchLandmark ? 'search' : undefined}
+        onSubmit={(_event) => onSubmit?.(_event)}
+      >
         <TextInput
           {...rest}
           ref={ref}
