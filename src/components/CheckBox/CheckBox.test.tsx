@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
+import { render, screen } from '@testing-library/react';
 import {
   CheckBox,
   CheckBoxGroup,
@@ -82,6 +83,14 @@ describe('CheckBox', () => {
       <CheckBox size={SelectorSize.Small} label="test label" />
     );
     expect(wrapper.find('.selector-small')).toBeTruthy();
+  });
+
+  test('CheckBox label is exposed only as the input accessible name', () => {
+    const { container } = render(<CheckBox label="Confirmed" />);
+    expect(screen.getByRole('checkbox', { name: 'Confirmed' })).toBeTruthy();
+    expect(container.querySelector('label').getAttribute('aria-hidden')).toBe(
+      'true'
+    );
   });
 
   test('CheckBoxGroup renders', () => {

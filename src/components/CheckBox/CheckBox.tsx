@@ -78,6 +78,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     // This way the id will match on the server and client.
     // For now, pass an id via props if using SSR.
     const checkBoxId = useRef<string>(id || generateId());
+    const labelId: string = `${checkBoxId.current}-label`;
 
     const [isChecked, setIsChecked] = useState<boolean>(
       defaultChecked || checked
@@ -200,6 +201,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             ref={mergedRef}
             aria-disabled={mergedDisabled}
             aria-label={ariaLabel}
+            aria-labelledby={!ariaLabel && label ? labelId : undefined}
             aria-describedby={ariaDescribedBy}
             checked={isChecked}
             disabled={!allowDisabledFocus && mergedDisabled}
@@ -211,13 +213,21 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             role={toggle ? 'switch' : undefined}
             {...rest}
           />
-          <label htmlFor={checkBoxId.current} className={labelClassNames}>
+          <label
+            htmlFor={checkBoxId.current}
+            className={labelClassNames}
+            aria-hidden="true"
+          >
             {labelPosition == LabelPosition.Start && (
-              <span className={selectorLabelClassNames}>{label}</span>
+              <span id={labelId} className={selectorLabelClassNames}>
+                {label}
+              </span>
             )}
             <span className={checkBoxCheckClassNames} />
             {labelPosition == LabelPosition.End && (
-              <span className={selectorLabelClassNames}>{label}</span>
+              <span id={labelId} className={selectorLabelClassNames}>
+                {label}
+              </span>
             )}
           </label>
         </div>
