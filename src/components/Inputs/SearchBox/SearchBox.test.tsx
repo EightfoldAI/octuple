@@ -39,6 +39,13 @@ describe('SearchBox', () => {
     expect(button.prop('aria-label')).toBeUndefined();
   });
 
+  test('Expandable thumb is aria-hidden and not tabbable by default', () => {
+    const { container } = render(<SearchBox expandable />);
+    const thumb = container.querySelector('.expandable-thumb');
+    expect(thumb).toHaveAttribute('aria-hidden', 'true');
+    expect(thumb).toHaveAttribute('tabindex', '-1');
+  });
+
   test('Expandable thumb uses ariaHidden and tabIndex from iconButtonProps', () => {
     const { container } = render(
       <SearchBox
