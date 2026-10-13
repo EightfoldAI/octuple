@@ -1221,6 +1221,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
       triggerChange(values, null);
       triggerOpen(false, mergedActivePickerIndex, 'clear');
+      (mergedDisabled[0] ? endInputRef : startInputRef).current?.focus();
     };
 
     const handleClearKeyDown = (
@@ -1240,6 +1241,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
         triggerChange(values, null);
         triggerOpen(false, mergedActivePickerIndex, 'clear');
+        (mergedDisabled[0] ? endInputRef : startInputRef).current?.focus();
       }
     };
 
