@@ -27,4 +27,51 @@ describe('useDebounce', () => {
 
     expect(func).toBeCalledTimes(1);
   });
+
+  it('debounces calls made across re-renders', () => {
+    const { result, rerender } = renderHook(() => useDebounce(func, 1000));
+    for (let i = 0; i < 5; i++) {
+      result.current(i);
+      rerender();
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(func).toBeCalledTimes(1);
+    expect(func).toHaveBeenCalledWith(4);
+  });
+
+  it('calls the latest fn passed to it', () => {
+    const first = jest.fn();
+    const latest = jest.fn();
+    const { result, rerender } = renderHook(({ fn }) => useDebounce(fn, 1000), {
+      initialProps: { fn: first },
+    });
+    result.current(undefined);
+    rerender({ fn: latest });
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(first).not.toHaveBeenCalled();
+    expect(latest).toBeCalledTimes(1);
+  });
+
+  it('drops a pending call on unmount', () => {
+    const { result, unmount } = renderHook(() => useDebounce(func, 1000));
+    result.current(undefined);
+    unmount();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(func).not.toHaveBeenCalled();
+  });
 });
