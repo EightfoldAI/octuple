@@ -46,14 +46,15 @@ describe('useDebounce', () => {
     expect(func).toHaveBeenCalledWith(4);
   });
 
-  it('calls the latest fn passed to it', () => {
+  it('calls the fn from the render that made the last call', () => {
     const first = jest.fn();
     const latest = jest.fn();
     const { result, rerender } = renderHook(({ fn }) => useDebounce(fn, 1000), {
       initialProps: { fn: first },
     });
-    result.current(undefined);
+    result.current(1);
     rerender({ fn: latest });
+    result.current(2);
 
     act(() => {
       jest.runAllTimers();
@@ -61,6 +62,7 @@ describe('useDebounce', () => {
 
     expect(first).not.toHaveBeenCalled();
     expect(latest).toBeCalledTimes(1);
+    expect(latest).toHaveBeenCalledWith(2);
   });
 
   it('drops a pending call on unmount', () => {
