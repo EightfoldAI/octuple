@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.59.2](https://github.com/EightfoldAI/octuple/compare/v2.59.1...v2.59.2) (2026-10-14)
+
+### Bug Fixes
+
+- **MatchScore:** clamp score to avoid invalid array length runtime error ([#1171](https://github.com/EightfoldAI/octuple/issues/1171)) ([f39c1bf](https://github.com/EightfoldAI/octuple/commits/f39c1bfd27c6fc7e1c5f4b9831530ea133938dd4))
+- **TextInput, TextArea, useDebounce:** stop dropping keystrokes under React 18 ([#1176](https://github.com/EightfoldAI/octuple/issues/1176)) ([fa712ea](https://github.com/EightfoldAI/octuple/commits/fa712eab69265cb4142676f7fb551affe4bb2d82))
+
 ### [2.59.1](https://github.com/EightfoldAI/octuple/compare/v2.59.0...v2.59.1) (2026-09-22)
 
 ### Bug Fixes
