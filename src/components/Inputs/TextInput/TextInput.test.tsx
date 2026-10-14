@@ -87,7 +87,7 @@ describe('TextInput', () => {
     test('a late echo of an emitted value does not overwrite newer typing', () => {
       // The parent stores what onChange emits but applies it only when told to, standing in for a
       // value prop that arrives after the user has typed more (React 18 legacy root timing).
-      let emitted: string[] = [];
+      const emitted: string[] = [];
       const Parent: React.FC<{ value: string }> = ({ value }) => (
         <TextInput
           waitInterval={10}
@@ -110,7 +110,33 @@ describe('TextInput', () => {
 
       rerender(<Parent value="reset" />); // a genuine parent update still applies
       expect(input.value).toBe('reset');
-      emitted = [];
+    });
+
+    test('the clear button counts as an emit', () => {
+      // The parent never echoes, so without recording the clear's '' the earlier 'foo' would still
+      // be remembered and a later value prop of 'foo' would be mistaken for its echo.
+      const onChange = jest.fn();
+      const Parent: React.FC<{ value: string }> = ({ value }) => (
+        <TextInput
+          clearable
+          clearButtonAriaLabel="Clear"
+          waitInterval={10}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      );
+      const { container, getByLabelText, rerender } = render(
+        <Parent value="" />
+      );
+      const input = container.getElementsByTagName('input')[0];
+
+      type(input, 'foo');
+      fireEvent.click(getByLabelText('Clear'));
+      expect(onChange).toHaveBeenLastCalledWith('');
+      expect(input.value).toBe('');
+
+      rerender(<Parent value="foo" />);
+      expect(input.value).toBe('foo');
     });
   });
 });

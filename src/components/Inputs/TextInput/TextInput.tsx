@@ -390,6 +390,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       _event.stopPropagation();
       if (!!inputField) {
         (inputField as HTMLInputElement).value = '';
+        lastEmittedValueRef.current = '';
         resolveOnChange(
           inputField as HTMLInputElement,
           _event as React.MouseEvent<HTMLElement, MouseEvent>,
