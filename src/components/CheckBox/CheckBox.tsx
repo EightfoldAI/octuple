@@ -6,7 +6,7 @@ import { SizeContext, Size, OcThemeName, ThemeNames } from '../ConfigProvider';
 import ThemeContext, {
   ThemeContextProvider,
 } from '../ConfigProvider/ThemeContext';
-import { generateId, mergeClasses } from '../../shared/utilities';
+import { generateId, isTextOnly, mergeClasses } from '../../shared/utilities';
 import {
   CheckboxProps,
   LabelAlign,
@@ -79,6 +79,9 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     // For now, pass an id via props if using SSR.
     const checkBoxId = useRef<string>(id || generateId());
     const labelId: string = `${checkBoxId.current}-label`;
+    // Hide the label from the a11y tree to avoid a duplicate browse-mode stop,
+    // but only when it's plain text; rich labels may contain links etc.
+    const hideLabel: boolean = isTextOnly(label);
 
     const [isChecked, setIsChecked] = useState<boolean>(
       defaultChecked || checked
@@ -201,7 +204,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             ref={mergedRef}
             aria-disabled={mergedDisabled}
             aria-label={ariaLabel}
-            aria-labelledby={!ariaLabel && label ? labelId : undefined}
+            aria-labelledby={!ariaLabel && hideLabel ? labelId : undefined}
             aria-describedby={ariaDescribedBy}
             checked={isChecked}
             disabled={!allowDisabledFocus && mergedDisabled}
@@ -216,7 +219,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
           <label
             htmlFor={checkBoxId.current}
             className={labelClassNames}
-            aria-hidden="true"
+            aria-hidden={hideLabel || undefined}
           >
             {labelPosition == LabelPosition.Start && (
               <span id={labelId} className={selectorLabelClassNames}>

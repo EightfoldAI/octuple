@@ -14,7 +14,7 @@ import {
   SelectorVariant,
   SelectorWidth,
 } from '../CheckBox';
-import { mergeClasses, generateId } from '../../shared/utilities';
+import { mergeClasses, generateId, isTextOnly } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
@@ -67,6 +67,10 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     // This way the id will match on the server and client.
     // For now, pass an id via props if using SSR.
     const radioButtonId = useRef<string>(id || generateId());
+    const labelId: string = `${radioButtonId.current}-label`;
+    // Hide the label from the a11y tree to avoid a duplicate browse-mode stop,
+    // but only when it's plain text; rich labels may contain links etc.
+    const hideLabel: boolean = isTextOnly(label);
 
     const radioGroupContext = useRadioGroup();
     const [isActive, setIsActive] = useState<boolean>(
@@ -185,6 +189,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             ref={ref}
             aria-disabled={mergedDisabled}
             aria-label={ariaLabel}
+            aria-labelledby={!ariaLabel && hideLabel ? labelId : undefined}
             aria-describedby={ariaDescribedBy}
             checked={
               radioGroupContext ? isActive : selectedValue === value && checked
@@ -198,16 +203,24 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             readOnly
             {...rest}
           />
-          <label htmlFor={radioButtonId.current} className={labelClassNames}>
+          <label
+            htmlFor={radioButtonId.current}
+            className={labelClassNames}
+            aria-hidden={hideLabel || undefined}
+          >
             {labelPosition == LabelPosition.Start && (
-              <span className={selectorLabelClassNames}>{label}</span>
+              <span id={labelId} className={selectorLabelClassNames}>
+                {label}
+              </span>
             )}
             <span
               id={`${radioButtonId.current}-custom-radio`}
               className={radioButtonClassNames}
             />
             {labelPosition == LabelPosition.End && (
-              <span className={selectorLabelClassNames}>{label}</span>
+              <span id={labelId} className={selectorLabelClassNames}>
+                {label}
+              </span>
             )}
           </label>
         </div>
