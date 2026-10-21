@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
@@ -107,6 +107,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
     const textAreaId: string = !!id ? id : uniqueId('textarea-');
 
     const [inputValue, setInputValue] = useState(value);
+    // The value last handed to onChange, so its echo through the value prop can be told apart.
+    const lastEmittedValueRef = useRef<string>();
 
     const {
       status: contextStatus,
@@ -230,7 +232,15 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       { [styles.aiAgent]: mergedTheme === ThemeNames.AIAgent },
     ]);
 
-    useEffect(() => setInputValue(value), [value]);
+    useEffect(() => {
+      const emitted = lastEmittedValueRef.current;
+      lastEmittedValueRef.current = undefined;
+      // A parent echoing back what we just emitted carries nothing new, and applying it can
+      // overwrite a keystroke typed since: React 18's legacy root runs this effect late.
+      if (emitted === undefined || value?.toString() !== emitted) {
+        setInputValue(value);
+      }
+    }, [value]);
 
     useEffect(() => {
       if (clear) {
@@ -253,8 +263,10 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
     }, [reset]);
 
     const debouncedChange = useDebounce<React.ChangeEvent<HTMLTextAreaElement>>(
-      (_event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
-        onChange?.(_event),
+      (_event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        lastEmittedValueRef.current = _event?.target?.value;
+        onChange?.(_event);
+      },
       waitInterval
     );
 
