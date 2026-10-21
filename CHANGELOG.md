@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.59.4](https://github.com/EightfoldAI/octuple/compare/v2.59.3...v2.59.4) (2026-10-21)
+
+### Bug Fixes
+
+- **checkbox:** remove duplicate screen reader browse mode stop on CheckBox label ([#1175](https://github.com/EightfoldAI/octuple/issues/1175)) ([5faae9c](https://github.com/EightfoldAI/octuple/commits/5faae9c59a07173d5eb76d77f2e61da1a1bd59d9))
+- **DatePicker:** improve screen reader support and clear button focus ([#1173](https://github.com/EightfoldAI/octuple/issues/1173)) ([6e28518](https://github.com/EightfoldAI/octuple/commits/6e28518e88dcad0ef0f382e8afd032d407977e2d))
+- **SearchBox:** add searchLandmark prop and pass ariaHidden to icon button ([#1174](https://github.com/EightfoldAI/octuple/issues/1174)) ([f389cf0](https://github.com/EightfoldAI/octuple/commits/f389cf001b3859b657bfcbb8d0f7c5319ded3db3))
+
 ### [2.59.3](https://github.com/EightfoldAI/octuple/compare/v2.59.2...v2.59.3) (2026-10-14)
 
 ### [2.59.2](https://github.com/EightfoldAI/octuple/compare/v2.59.1...v2.59.2) (2026-10-14)
