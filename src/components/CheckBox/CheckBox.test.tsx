@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
+import { render, screen } from '@testing-library/react';
 import {
   CheckBox,
   CheckBoxGroup,
@@ -82,6 +83,54 @@ describe('CheckBox', () => {
       <CheckBox size={SelectorSize.Small} label="test label" />
     );
     expect(wrapper.find('.selector-small')).toBeTruthy();
+  });
+
+  test('CheckBox label is exposed only as the input accessible name', () => {
+    const { container } = render(<CheckBox label="Confirmed" />);
+    expect(screen.getByRole('checkbox', { name: 'Confirmed' })).toBeTruthy();
+    expect(container.querySelector('label').getAttribute('aria-hidden')).toBe(
+      'true'
+    );
+  });
+
+  test('CheckBox ariaLabel takes precedence over the visible label', () => {
+    const { container } = render(
+      <CheckBox ariaLabel="Accept terms" label="Confirmed" />
+    );
+    expect(screen.getByRole('checkbox', { name: 'Accept terms' })).toBeTruthy();
+    expect(
+      container.querySelector('input').hasAttribute('aria-labelledby')
+    ).toBe(false);
+    expect(container.querySelector('label').getAttribute('aria-hidden')).toBe(
+      'true'
+    );
+  });
+
+  test('CheckBox toggle label is exposed only as the switch accessible name', () => {
+    const { container } = render(<CheckBox toggle label="Notifications" />);
+    expect(screen.getByRole('switch', { name: 'Notifications' })).toBeTruthy();
+    expect(container.querySelector('label').getAttribute('aria-hidden')).toBe(
+      'true'
+    );
+  });
+
+  test('CheckBox rich label stays in the a11y tree', () => {
+    const { container } = render(
+      <CheckBox
+        label={
+          <>
+            I agree to the <a href="#terms">terms</a>
+          </>
+        }
+      />
+    );
+    expect(container.querySelector('label').hasAttribute('aria-hidden')).toBe(
+      false
+    );
+    expect(
+      container.querySelector('input').hasAttribute('aria-labelledby')
+    ).toBe(false);
+    expect(screen.getByRole('link', { name: 'terms' })).toBeTruthy();
   });
 
   test('CheckBoxGroup renders', () => {

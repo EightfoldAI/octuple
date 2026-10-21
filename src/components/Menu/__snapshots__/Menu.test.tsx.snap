@@ -160,6 +160,7 @@ exports[`Menu Menu is large 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-1-label"
                   checked=""
                   id="oea2exk-1"
                   name="group"
@@ -168,6 +169,7 @@ exports[`Menu Menu is large 1`] = `
                   value="Radio1"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-1"
                 >
@@ -177,6 +179,7 @@ exports[`Menu Menu is large 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-1-label"
                   >
                     Radio1
                   </span>
@@ -187,6 +190,7 @@ exports[`Menu Menu is large 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-2-label"
                   id="oea2exk-2"
                   name="group"
                   readonly=""
@@ -194,6 +198,7 @@ exports[`Menu Menu is large 1`] = `
                   value="Radio2"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-2"
                 >
@@ -203,6 +208,7 @@ exports[`Menu Menu is large 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-2-label"
                   >
                     Radio2
                   </span>
@@ -213,6 +219,7 @@ exports[`Menu Menu is large 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-3-label"
                   id="oea2exk-3"
                   name="group"
                   readonly=""
@@ -220,6 +227,7 @@ exports[`Menu Menu is large 1`] = `
                   value="Radio3"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-3"
                 >
@@ -229,6 +237,7 @@ exports[`Menu Menu is large 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-3-label"
                   >
                     Radio3
                   </span>
@@ -403,6 +412,7 @@ exports[`Menu Menu is medium 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-1-label"
                   checked=""
                   id="oea2exk-1"
                   name="group"
@@ -411,6 +421,7 @@ exports[`Menu Menu is medium 1`] = `
                   value="Radio1"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-1"
                 >
@@ -420,6 +431,7 @@ exports[`Menu Menu is medium 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-1-label"
                   >
                     Radio1
                   </span>
@@ -430,6 +442,7 @@ exports[`Menu Menu is medium 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-2-label"
                   id="oea2exk-2"
                   name="group"
                   readonly=""
@@ -437,6 +450,7 @@ exports[`Menu Menu is medium 1`] = `
                   value="Radio2"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-2"
                 >
@@ -446,6 +460,7 @@ exports[`Menu Menu is medium 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-2-label"
                   >
                     Radio2
                   </span>
@@ -456,6 +471,7 @@ exports[`Menu Menu is medium 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-3-label"
                   id="oea2exk-3"
                   name="group"
                   readonly=""
@@ -463,6 +479,7 @@ exports[`Menu Menu is medium 1`] = `
                   value="Radio3"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-3"
                 >
@@ -472,6 +489,7 @@ exports[`Menu Menu is medium 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-3-label"
                   >
                     Radio3
                   </span>
@@ -646,6 +664,7 @@ exports[`Menu Menu is small 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-1-label"
                   checked=""
                   id="oea2exk-1"
                   name="group"
@@ -654,6 +673,7 @@ exports[`Menu Menu is small 1`] = `
                   value="Radio1"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-1"
                 >
@@ -663,6 +683,7 @@ exports[`Menu Menu is small 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-1-label"
                   >
                     Radio1
                   </span>
@@ -673,6 +694,7 @@ exports[`Menu Menu is small 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-2-label"
                   id="oea2exk-2"
                   name="group"
                   readonly=""
@@ -680,6 +702,7 @@ exports[`Menu Menu is small 1`] = `
                   value="Radio2"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-2"
                 >
@@ -689,6 +712,7 @@ exports[`Menu Menu is small 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-2-label"
                   >
                     Radio2
                   </span>
@@ -699,6 +723,7 @@ exports[`Menu Menu is small 1`] = `
               >
                 <input
                   aria-disabled="false"
+                  aria-labelledby="oea2exk-3-label"
                   id="oea2exk-3"
                   name="group"
                   readonly=""
@@ -706,6 +731,7 @@ exports[`Menu Menu is small 1`] = `
                   value="Radio3"
                 />
                 <label
+                  aria-hidden="true"
                   class=""
                   for="oea2exk-3"
                 >
@@ -715,6 +741,7 @@ exports[`Menu Menu is small 1`] = `
                   />
                   <span
                     class="selector-label selector-label-end"
+                    id="oea2exk-3-label"
                   >
                     Radio3
                   </span>

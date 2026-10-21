@@ -80,6 +80,7 @@ LoadedCheerio {
                                 Node {
                                   "attribs": Object {
                                     "aria-disabled": "true",
+                                    "aria-labelledby": "disableCheckBox-label",
                                     "disabled": "",
                                     "id": "disableCheckBox",
                                     "type": "checkbox",
@@ -90,6 +91,7 @@ LoadedCheerio {
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
+                                      "aria-hidden": "true",
                                       "class": "",
                                       "for": "disableCheckBox",
                                     },
@@ -104,6 +106,7 @@ LoadedCheerio {
                                         "next": Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -122,9 +125,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                         "parent": [Circular],
@@ -140,6 +145,7 @@ LoadedCheerio {
                                       Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -175,9 +181,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                     ],
@@ -188,10 +196,12 @@ LoadedCheerio {
                                     "prev": [Circular],
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
                                     "x-attribsPrefix": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
@@ -201,6 +211,7 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "aria-disabled": undefined,
+                                    "aria-labelledby": undefined,
                                     "disabled": undefined,
                                     "id": undefined,
                                     "type": undefined,
@@ -208,6 +219,7 @@ LoadedCheerio {
                                   },
                                   "x-attribsPrefix": Object {
                                     "aria-disabled": undefined,
+                                    "aria-labelledby": undefined,
                                     "disabled": undefined,
                                     "id": undefined,
                                     "type": undefined,
@@ -216,6 +228,7 @@ LoadedCheerio {
                                 },
                                 Node {
                                   "attribs": Object {
+                                    "aria-hidden": "true",
                                     "class": "",
                                     "for": "disableCheckBox",
                                   },
@@ -230,6 +243,7 @@ LoadedCheerio {
                                       "next": Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -248,9 +262,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                       "parent": [Circular],
@@ -266,6 +282,7 @@ LoadedCheerio {
                                     Node {
                                       "attribs": Object {
                                         "class": "selector-label selector-label-end",
+                                        "id": "disableCheckBox-label",
                                       },
                                       "children": Array [
                                         Node {
@@ -301,9 +318,11 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                       "x-attribsPrefix": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                     },
                                   ],
@@ -314,6 +333,7 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "aria-disabled": "true",
+                                      "aria-labelledby": "disableCheckBox-label",
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "type": "checkbox",
@@ -328,6 +348,7 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -335,6 +356,7 @@ LoadedCheerio {
                                     },
                                     "x-attribsPrefix": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -343,10 +365,12 @@ LoadedCheerio {
                                   },
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
+                                    "aria-hidden": undefined,
                                     "class": undefined,
                                     "for": undefined,
                                   },
                                   "x-attribsPrefix": Object {
+                                    "aria-hidden": undefined,
                                     "class": undefined,
                                     "for": undefined,
                                   },
@@ -440,6 +464,7 @@ LoadedCheerio {
                               Node {
                                 "attribs": Object {
                                   "aria-disabled": "true",
+                                  "aria-labelledby": "disableCheckBox-label",
                                   "disabled": "",
                                   "id": "disableCheckBox",
                                   "type": "checkbox",
@@ -450,6 +475,7 @@ LoadedCheerio {
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
+                                    "aria-hidden": "true",
                                     "class": "",
                                     "for": "disableCheckBox",
                                   },
@@ -464,6 +490,7 @@ LoadedCheerio {
                                       "next": Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -482,9 +509,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                       "parent": [Circular],
@@ -500,6 +529,7 @@ LoadedCheerio {
                                     Node {
                                       "attribs": Object {
                                         "class": "selector-label selector-label-end",
+                                        "id": "disableCheckBox-label",
                                       },
                                       "children": Array [
                                         Node {
@@ -535,9 +565,11 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                       "x-attribsPrefix": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                     },
                                   ],
@@ -548,10 +580,12 @@ LoadedCheerio {
                                   "prev": [Circular],
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
+                                    "aria-hidden": undefined,
                                     "class": undefined,
                                     "for": undefined,
                                   },
                                   "x-attribsPrefix": Object {
+                                    "aria-hidden": undefined,
                                     "class": undefined,
                                     "for": undefined,
                                   },
@@ -561,6 +595,7 @@ LoadedCheerio {
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
                                   "aria-disabled": undefined,
+                                  "aria-labelledby": undefined,
                                   "disabled": undefined,
                                   "id": undefined,
                                   "type": undefined,
@@ -568,6 +603,7 @@ LoadedCheerio {
                                 },
                                 "x-attribsPrefix": Object {
                                   "aria-disabled": undefined,
+                                  "aria-labelledby": undefined,
                                   "disabled": undefined,
                                   "id": undefined,
                                   "type": undefined,
@@ -576,6 +612,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
+                                  "aria-hidden": "true",
                                   "class": "",
                                   "for": "disableCheckBox",
                                 },
@@ -590,6 +627,7 @@ LoadedCheerio {
                                     "next": Node {
                                       "attribs": Object {
                                         "class": "selector-label selector-label-end",
+                                        "id": "disableCheckBox-label",
                                       },
                                       "children": Array [
                                         Node {
@@ -608,9 +646,11 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                       "x-attribsPrefix": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                     },
                                     "parent": [Circular],
@@ -626,6 +666,7 @@ LoadedCheerio {
                                   Node {
                                     "attribs": Object {
                                       "class": "selector-label selector-label-end",
+                                      "id": "disableCheckBox-label",
                                     },
                                     "children": Array [
                                       Node {
@@ -661,9 +702,11 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "class": undefined,
+                                      "id": undefined,
                                     },
                                     "x-attribsPrefix": Object {
                                       "class": undefined,
+                                      "id": undefined,
                                     },
                                   },
                                 ],
@@ -674,6 +717,7 @@ LoadedCheerio {
                                 "prev": Node {
                                   "attribs": Object {
                                     "aria-disabled": "true",
+                                    "aria-labelledby": "disableCheckBox-label",
                                     "disabled": "",
                                     "id": "disableCheckBox",
                                     "type": "checkbox",
@@ -688,6 +732,7 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "aria-disabled": undefined,
+                                    "aria-labelledby": undefined,
                                     "disabled": undefined,
                                     "id": undefined,
                                     "type": undefined,
@@ -695,6 +740,7 @@ LoadedCheerio {
                                   },
                                   "x-attribsPrefix": Object {
                                     "aria-disabled": undefined,
+                                    "aria-labelledby": undefined,
                                     "disabled": undefined,
                                     "id": undefined,
                                     "type": undefined,
@@ -703,10 +749,12 @@ LoadedCheerio {
                                 },
                                 "type": "tag",
                                 "x-attribsNamespace": Object {
+                                  "aria-hidden": undefined,
                                   "class": undefined,
                                   "for": undefined,
                                 },
                                 "x-attribsPrefix": Object {
+                                  "aria-hidden": undefined,
                                   "class": undefined,
                                   "for": undefined,
                                 },
@@ -2874,6 +2922,7 @@ LoadedCheerio {
                                   Node {
                                     "attribs": Object {
                                       "aria-disabled": "true",
+                                      "aria-labelledby": "disableCheckBox-label",
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "type": "checkbox",
@@ -2884,6 +2933,7 @@ LoadedCheerio {
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
+                                        "aria-hidden": "true",
                                         "class": "",
                                         "for": "disableCheckBox",
                                       },
@@ -2898,6 +2948,7 @@ LoadedCheerio {
                                           "next": Node {
                                             "attribs": Object {
                                               "class": "selector-label selector-label-end",
+                                              "id": "disableCheckBox-label",
                                             },
                                             "children": Array [
                                               Node {
@@ -2916,9 +2967,11 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                           "parent": [Circular],
@@ -2934,6 +2987,7 @@ LoadedCheerio {
                                         Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -2969,9 +3023,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -2982,10 +3038,12 @@ LoadedCheerio {
                                       "prev": [Circular],
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
+                                        "aria-hidden": undefined,
                                         "class": undefined,
                                         "for": undefined,
                                       },
                                       "x-attribsPrefix": Object {
+                                        "aria-hidden": undefined,
                                         "class": undefined,
                                         "for": undefined,
                                       },
@@ -2995,6 +3053,7 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -3002,6 +3061,7 @@ LoadedCheerio {
                                     },
                                     "x-attribsPrefix": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -3010,6 +3070,7 @@ LoadedCheerio {
                                   },
                                   Node {
                                     "attribs": Object {
+                                      "aria-hidden": "true",
                                       "class": "",
                                       "for": "disableCheckBox",
                                     },
@@ -3024,6 +3085,7 @@ LoadedCheerio {
                                         "next": Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -3042,9 +3104,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                         "parent": [Circular],
@@ -3060,6 +3124,7 @@ LoadedCheerio {
                                       Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -3095,9 +3160,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                     ],
@@ -3108,6 +3175,7 @@ LoadedCheerio {
                                     "prev": Node {
                                       "attribs": Object {
                                         "aria-disabled": "true",
+                                        "aria-labelledby": "disableCheckBox-label",
                                         "disabled": "",
                                         "id": "disableCheckBox",
                                         "type": "checkbox",
@@ -3122,6 +3190,7 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "aria-disabled": undefined,
+                                        "aria-labelledby": undefined,
                                         "disabled": undefined,
                                         "id": undefined,
                                         "type": undefined,
@@ -3129,6 +3198,7 @@ LoadedCheerio {
                                       },
                                       "x-attribsPrefix": Object {
                                         "aria-disabled": undefined,
+                                        "aria-labelledby": undefined,
                                         "disabled": undefined,
                                         "id": undefined,
                                         "type": undefined,
@@ -3137,10 +3207,12 @@ LoadedCheerio {
                                     },
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
                                     "x-attribsPrefix": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
@@ -3234,6 +3306,7 @@ LoadedCheerio {
                                 Node {
                                   "attribs": Object {
                                     "aria-disabled": "true",
+                                    "aria-labelledby": "disableCheckBox-label",
                                     "disabled": "",
                                     "id": "disableCheckBox",
                                     "type": "checkbox",
@@ -3244,6 +3317,7 @@ LoadedCheerio {
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
+                                      "aria-hidden": "true",
                                       "class": "",
                                       "for": "disableCheckBox",
                                     },
@@ -3258,6 +3332,7 @@ LoadedCheerio {
                                         "next": Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -3276,9 +3351,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                         "parent": [Circular],
@@ -3294,6 +3371,7 @@ LoadedCheerio {
                                       Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -3329,9 +3407,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                     ],
@@ -3342,10 +3422,12 @@ LoadedCheerio {
                                     "prev": [Circular],
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
                                     "x-attribsPrefix": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
@@ -3355,6 +3437,7 @@ LoadedCheerio {
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
                                     "aria-disabled": undefined,
+                                    "aria-labelledby": undefined,
                                     "disabled": undefined,
                                     "id": undefined,
                                     "type": undefined,
@@ -3362,6 +3445,7 @@ LoadedCheerio {
                                   },
                                   "x-attribsPrefix": Object {
                                     "aria-disabled": undefined,
+                                    "aria-labelledby": undefined,
                                     "disabled": undefined,
                                     "id": undefined,
                                     "type": undefined,
@@ -3370,6 +3454,7 @@ LoadedCheerio {
                                 },
                                 Node {
                                   "attribs": Object {
+                                    "aria-hidden": "true",
                                     "class": "",
                                     "for": "disableCheckBox",
                                   },
@@ -3384,6 +3469,7 @@ LoadedCheerio {
                                       "next": Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -3402,9 +3488,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                       "parent": [Circular],
@@ -3420,6 +3508,7 @@ LoadedCheerio {
                                     Node {
                                       "attribs": Object {
                                         "class": "selector-label selector-label-end",
+                                        "id": "disableCheckBox-label",
                                       },
                                       "children": Array [
                                         Node {
@@ -3455,9 +3544,11 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                       "x-attribsPrefix": Object {
                                         "class": undefined,
+                                        "id": undefined,
                                       },
                                     },
                                   ],
@@ -3468,6 +3559,7 @@ LoadedCheerio {
                                   "prev": Node {
                                     "attribs": Object {
                                       "aria-disabled": "true",
+                                      "aria-labelledby": "disableCheckBox-label",
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "type": "checkbox",
@@ -3482,6 +3574,7 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -3489,6 +3582,7 @@ LoadedCheerio {
                                     },
                                     "x-attribsPrefix": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -3497,10 +3591,12 @@ LoadedCheerio {
                                   },
                                   "type": "tag",
                                   "x-attribsNamespace": Object {
+                                    "aria-hidden": undefined,
                                     "class": undefined,
                                     "for": undefined,
                                   },
                                   "x-attribsPrefix": Object {
+                                    "aria-hidden": undefined,
                                     "class": undefined,
                                     "for": undefined,
                                   },
@@ -4686,6 +4782,7 @@ LoadedCheerio {
                                     Node {
                                       "attribs": Object {
                                         "aria-disabled": "true",
+                                        "aria-labelledby": "disableCheckBox-label",
                                         "disabled": "",
                                         "id": "disableCheckBox",
                                         "type": "checkbox",
@@ -4696,6 +4793,7 @@ LoadedCheerio {
                                       "namespace": "http://www.w3.org/1999/xhtml",
                                       "next": Node {
                                         "attribs": Object {
+                                          "aria-hidden": "true",
                                           "class": "",
                                           "for": "disableCheckBox",
                                         },
@@ -4710,6 +4808,7 @@ LoadedCheerio {
                                             "next": Node {
                                               "attribs": Object {
                                                 "class": "selector-label selector-label-end",
+                                                "id": "disableCheckBox-label",
                                               },
                                               "children": Array [
                                                 Node {
@@ -4728,9 +4827,11 @@ LoadedCheerio {
                                               "type": "tag",
                                               "x-attribsNamespace": Object {
                                                 "class": undefined,
+                                                "id": undefined,
                                               },
                                               "x-attribsPrefix": Object {
                                                 "class": undefined,
+                                                "id": undefined,
                                               },
                                             },
                                             "parent": [Circular],
@@ -4746,6 +4847,7 @@ LoadedCheerio {
                                           Node {
                                             "attribs": Object {
                                               "class": "selector-label selector-label-end",
+                                              "id": "disableCheckBox-label",
                                             },
                                             "children": Array [
                                               Node {
@@ -4781,9 +4883,11 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                         ],
@@ -4794,10 +4898,12 @@ LoadedCheerio {
                                         "prev": [Circular],
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
+                                          "aria-hidden": undefined,
                                           "class": undefined,
                                           "for": undefined,
                                         },
                                         "x-attribsPrefix": Object {
+                                          "aria-hidden": undefined,
                                           "class": undefined,
                                           "for": undefined,
                                         },
@@ -4807,6 +4913,7 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "aria-disabled": undefined,
+                                        "aria-labelledby": undefined,
                                         "disabled": undefined,
                                         "id": undefined,
                                         "type": undefined,
@@ -4814,6 +4921,7 @@ LoadedCheerio {
                                       },
                                       "x-attribsPrefix": Object {
                                         "aria-disabled": undefined,
+                                        "aria-labelledby": undefined,
                                         "disabled": undefined,
                                         "id": undefined,
                                         "type": undefined,
@@ -4822,6 +4930,7 @@ LoadedCheerio {
                                     },
                                     Node {
                                       "attribs": Object {
+                                        "aria-hidden": "true",
                                         "class": "",
                                         "for": "disableCheckBox",
                                       },
@@ -4836,6 +4945,7 @@ LoadedCheerio {
                                           "next": Node {
                                             "attribs": Object {
                                               "class": "selector-label selector-label-end",
+                                              "id": "disableCheckBox-label",
                                             },
                                             "children": Array [
                                               Node {
@@ -4854,9 +4964,11 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                           "parent": [Circular],
@@ -4872,6 +4984,7 @@ LoadedCheerio {
                                         Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -4907,9 +5020,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -4920,6 +5035,7 @@ LoadedCheerio {
                                       "prev": Node {
                                         "attribs": Object {
                                           "aria-disabled": "true",
+                                          "aria-labelledby": "disableCheckBox-label",
                                           "disabled": "",
                                           "id": "disableCheckBox",
                                           "type": "checkbox",
@@ -4934,6 +5050,7 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "aria-disabled": undefined,
+                                          "aria-labelledby": undefined,
                                           "disabled": undefined,
                                           "id": undefined,
                                           "type": undefined,
@@ -4941,6 +5058,7 @@ LoadedCheerio {
                                         },
                                         "x-attribsPrefix": Object {
                                           "aria-disabled": undefined,
+                                          "aria-labelledby": undefined,
                                           "disabled": undefined,
                                           "id": undefined,
                                           "type": undefined,
@@ -4949,10 +5067,12 @@ LoadedCheerio {
                                       },
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
+                                        "aria-hidden": undefined,
                                         "class": undefined,
                                         "for": undefined,
                                       },
                                       "x-attribsPrefix": Object {
+                                        "aria-hidden": undefined,
                                         "class": undefined,
                                         "for": undefined,
                                       },
@@ -5046,6 +5166,7 @@ LoadedCheerio {
                                   Node {
                                     "attribs": Object {
                                       "aria-disabled": "true",
+                                      "aria-labelledby": "disableCheckBox-label",
                                       "disabled": "",
                                       "id": "disableCheckBox",
                                       "type": "checkbox",
@@ -5056,6 +5177,7 @@ LoadedCheerio {
                                     "namespace": "http://www.w3.org/1999/xhtml",
                                     "next": Node {
                                       "attribs": Object {
+                                        "aria-hidden": "true",
                                         "class": "",
                                         "for": "disableCheckBox",
                                       },
@@ -5070,6 +5192,7 @@ LoadedCheerio {
                                           "next": Node {
                                             "attribs": Object {
                                               "class": "selector-label selector-label-end",
+                                              "id": "disableCheckBox-label",
                                             },
                                             "children": Array [
                                               Node {
@@ -5088,9 +5211,11 @@ LoadedCheerio {
                                             "type": "tag",
                                             "x-attribsNamespace": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                             "x-attribsPrefix": Object {
                                               "class": undefined,
+                                              "id": undefined,
                                             },
                                           },
                                           "parent": [Circular],
@@ -5106,6 +5231,7 @@ LoadedCheerio {
                                         Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -5141,9 +5267,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                       ],
@@ -5154,10 +5282,12 @@ LoadedCheerio {
                                       "prev": [Circular],
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
+                                        "aria-hidden": undefined,
                                         "class": undefined,
                                         "for": undefined,
                                       },
                                       "x-attribsPrefix": Object {
+                                        "aria-hidden": undefined,
                                         "class": undefined,
                                         "for": undefined,
                                       },
@@ -5167,6 +5297,7 @@ LoadedCheerio {
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -5174,6 +5305,7 @@ LoadedCheerio {
                                     },
                                     "x-attribsPrefix": Object {
                                       "aria-disabled": undefined,
+                                      "aria-labelledby": undefined,
                                       "disabled": undefined,
                                       "id": undefined,
                                       "type": undefined,
@@ -5182,6 +5314,7 @@ LoadedCheerio {
                                   },
                                   Node {
                                     "attribs": Object {
+                                      "aria-hidden": "true",
                                       "class": "",
                                       "for": "disableCheckBox",
                                     },
@@ -5196,6 +5329,7 @@ LoadedCheerio {
                                         "next": Node {
                                           "attribs": Object {
                                             "class": "selector-label selector-label-end",
+                                            "id": "disableCheckBox-label",
                                           },
                                           "children": Array [
                                             Node {
@@ -5214,9 +5348,11 @@ LoadedCheerio {
                                           "type": "tag",
                                           "x-attribsNamespace": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                           "x-attribsPrefix": Object {
                                             "class": undefined,
+                                            "id": undefined,
                                           },
                                         },
                                         "parent": [Circular],
@@ -5232,6 +5368,7 @@ LoadedCheerio {
                                       Node {
                                         "attribs": Object {
                                           "class": "selector-label selector-label-end",
+                                          "id": "disableCheckBox-label",
                                         },
                                         "children": Array [
                                           Node {
@@ -5267,9 +5404,11 @@ LoadedCheerio {
                                         "type": "tag",
                                         "x-attribsNamespace": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                         "x-attribsPrefix": Object {
                                           "class": undefined,
+                                          "id": undefined,
                                         },
                                       },
                                     ],
@@ -5280,6 +5419,7 @@ LoadedCheerio {
                                     "prev": Node {
                                       "attribs": Object {
                                         "aria-disabled": "true",
+                                        "aria-labelledby": "disableCheckBox-label",
                                         "disabled": "",
                                         "id": "disableCheckBox",
                                         "type": "checkbox",
@@ -5294,6 +5434,7 @@ LoadedCheerio {
                                       "type": "tag",
                                       "x-attribsNamespace": Object {
                                         "aria-disabled": undefined,
+                                        "aria-labelledby": undefined,
                                         "disabled": undefined,
                                         "id": undefined,
                                         "type": undefined,
@@ -5301,6 +5442,7 @@ LoadedCheerio {
                                       },
                                       "x-attribsPrefix": Object {
                                         "aria-disabled": undefined,
+                                        "aria-labelledby": undefined,
                                         "disabled": undefined,
                                         "id": undefined,
                                         "type": undefined,
@@ -5309,10 +5451,12 @@ LoadedCheerio {
                                     },
                                     "type": "tag",
                                     "x-attribsNamespace": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },
                                     "x-attribsPrefix": Object {
+                                      "aria-hidden": undefined,
                                       "class": undefined,
                                       "for": undefined,
                                     },

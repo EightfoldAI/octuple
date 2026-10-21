@@ -28,3 +28,11 @@ export function cloneElement(
 ): React.ReactElement {
   return replaceElement(element, element, props) as React.ReactElement;
 }
+
+/**
+ * Whether the node renders only text (no elements that may be interactive).
+ * @param node The React node to check.
+ */
+export function isTextOnly(node: React.ReactNode): boolean {
+  return (typeof node === 'string' && node !== '') || typeof node === 'number';
+}
