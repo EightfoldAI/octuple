@@ -3,7 +3,9 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SearchBox } from './SearchBox';
+import { IconName } from '../../Icon';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -35,6 +37,39 @@ describe('SearchBox', () => {
     expect(button.prop('disabled')).toBe(true);
     expect(button.prop('aria-hidden')).toBe(true);
     expect(button.prop('aria-label')).toBeUndefined();
+  });
+
+  test('Expandable thumb is aria-hidden and not tabbable by default', () => {
+    const { container } = render(<SearchBox expandable />);
+    const thumb = container.querySelector('.expandable-thumb');
+    expect(thumb).toHaveAttribute('aria-hidden', 'true');
+    expect(thumb).toHaveAttribute('tabindex', '-1');
+  });
+
+  test('Expandable thumb uses ariaHidden and tabIndex from iconButtonProps', () => {
+    const { container } = render(
+      <SearchBox
+        expandable
+        iconButtonProps={{
+          ariaHidden: true,
+          iconProps: { path: IconName.mdiMagnify },
+          tabIndex: -1,
+        }}
+      />
+    );
+    const thumb = container.querySelector('.expandable-thumb');
+    expect(thumb).toHaveAttribute('aria-hidden', 'true');
+    expect(thumb).toHaveAttribute('tabindex', '-1');
+  });
+
+  test('Form is a search landmark by default', () => {
+    const { container } = render(<SearchBox />);
+    expect(container.querySelector('form')).toHaveAttribute('role', 'search');
+  });
+
+  test('Form is not a landmark when searchLandmark is false', () => {
+    const { container } = render(<SearchBox searchLandmark={false} />);
+    expect(container.querySelector('form')).not.toHaveAttribute('role');
   });
 
   test('Text input is readonly', () => {

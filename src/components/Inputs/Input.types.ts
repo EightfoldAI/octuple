@@ -139,6 +139,12 @@ export interface SearchBoxProps
    */
   onSubmit?: FormEventHandler<HTMLFormElement | HTMLInputElement>;
   /**
+   * Renders the wrapping form as a `search` landmark.
+   * Set to false when the box is not a page-level search region.
+   * @default true
+   */
+  searchLandmark?: boolean;
+  /**
    * The search box value.
    */
   value?: string;

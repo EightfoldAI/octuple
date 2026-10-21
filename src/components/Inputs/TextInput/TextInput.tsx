@@ -568,6 +568,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                   transparent
                   allowDisabledFocus={iconButtonProps.allowDisabledFocus}
                   ariaLabel={iconButtonProps.ariaLabel}
+                  aria-hidden={iconButtonProps.ariaHidden ?? true}
                   checked={iconButtonProps.checked}
                   disabled={iconButtonProps.disabled || mergedDisabled}
                   htmlType={iconButtonProps.htmlType}
@@ -578,7 +579,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                   role={iconButtonProps.role}
                   shape={inputShapeToButtonShapeMap.get(shape)}
                   size={inputSizeToButtonSizeMap.get(mergedSize)}
-                  tabIndex={iconButtonProps.tabIndex}
+                  tabIndex={iconButtonProps.tabIndex ?? -1}
                   variant={ButtonVariant.SystemUI}
                 />
               )}
