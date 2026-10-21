@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { debounce } from '../shared/utilities';
+import { useEffect, useRef } from 'react';
 
 /**
  *
@@ -11,9 +10,15 @@ export const useDebounce = <A = unknown, R = void>(
   fn: (args: A) => R,
   ms: number
 ): ((args: A) => Promise<R>) => {
-  const [debouncedFun, teardown] = debounce<A, R>(fn, ms);
+  // The timer lives in a ref so it outlives re-renders: calls made across renders cancel each
+  // other and only the last one fires, with the `fn` from the render that made it.
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  useEffect(() => () => teardown(), []);
+  useEffect(() => () => clearTimeout(timerRef.current), []);
 
-  return debouncedFun;
+  return (args: A): Promise<R> =>
+    new Promise((resolve) => {
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => resolve(fn(args)), ms);
+    });
 };

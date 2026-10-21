@@ -112,6 +112,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     const htmlDir: string = useCanvasDirection();
 
     const [inputValue, setInputValue] = useState(value);
+    // The value last handed to onChange, so its echo through the value prop can be told apart.
+    const lastEmittedValueRef = useRef<string>();
 
     const [clearButtonShown, _setClearButtonShown] = useState<boolean>(false);
 
@@ -337,7 +339,13 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     ]);
 
     useEffect(() => {
-      setInputValue(value);
+      const emitted = lastEmittedValueRef.current;
+      lastEmittedValueRef.current = undefined;
+      // A parent echoing back what we just emitted carries nothing new, and applying it can
+      // overwrite a keystroke typed since: React 18's legacy root runs this effect late.
+      if (emitted === undefined || value?.toString() !== emitted) {
+        setInputValue(value);
+      }
       if (value?.toString()?.length > 0) {
         return setClearButtonShown(true);
       }
@@ -382,6 +390,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       _event.stopPropagation();
       if (!!inputField) {
         (inputField as HTMLInputElement).value = '';
+        lastEmittedValueRef.current = '';
         resolveOnChange(
           inputField as HTMLInputElement,
           _event as React.MouseEvent<HTMLElement, MouseEvent>,
@@ -397,6 +406,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       (_event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const { target } = _event;
 
+        lastEmittedValueRef.current = target?.value;
         onChange?.(_event);
 
         if (target?.value.length === 0 && clearButtonShown) {
