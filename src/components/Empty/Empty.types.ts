@@ -48,8 +48,9 @@ export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
    */
   titleClassNames?: string;
   /**
-   * Optional heading level (1-6) for the title default is 2
-   * @deprecated Unused prop
+   * Optional heading level (1-6) for the title. When set, the title is
+   * exposed to assistive technology as an ARIA heading of that level
+   * (role="heading", aria-level). No heading role is applied when omitted.
    */
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 }
