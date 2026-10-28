@@ -74,4 +74,23 @@ describe('Empty', () => {
     expect(imgElement).toBeInTheDocument();
     expect(imgElement).toHaveAttribute('alt', '');
   });
+
+  test('empty renders title without heading attributes when headingLevel is undefined', () => {
+    const { container } = render(<Empty title="No results" />);
+    const titleElement = container.querySelector('.empty-title');
+    expect(titleElement).not.toHaveAttribute('role');
+    expect(titleElement).not.toHaveAttribute('aria-level');
+  });
+
+  test('empty renders title with heading attributes when headingLevel is provided', () => {
+    const { container } = render(<Empty title="No results" headingLevel={2} />);
+    const titleElement = container.querySelector('.empty-title');
+    expect(titleElement).toHaveAttribute('role', 'heading');
+    expect(titleElement).toHaveAttribute('aria-level', '2');
+  });
+
+  test('empty does not apply heading attributes when title is not provided even if headingLevel is set', () => {
+    const { container } = render(<Empty description="Test" headingLevel={2} />);
+    expect(container.querySelector('.empty-title')).toBeNull();
+  });
 });
