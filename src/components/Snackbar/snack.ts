@@ -23,7 +23,7 @@ export const serve = (props: SnackbarProps): VoidFunction => {
   const id = props.id ?? generateId();
   const serveSnackEvent = new CustomEvent<SnackbarProps>(SNACK_EVENTS.SERVE, {
     bubbles: true,
-    cancelable: false,
+    cancelable: true,
     detail: {
       position: DEFAULT_POSITION,
       ...props,

@@ -407,7 +407,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const announceModeRef = useRef<'list' | 'nav'>('list');
     const liveRegionMessage = useMemo<string>(() => {
       if (!dropdownVisible) {
-        return lastLiveRegionMessageRef.current;
+        return improvedA11y ? '' : lastLiveRegionMessageRef.current;
       }
 
       // Sub header options are presentational group labels (role="presentation"),
