@@ -253,6 +253,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     e.stopPropagation();
     triggerChange(null);
     triggerOpen(false);
+    inputRef.current?.focus();
   };
 
   const handleClearKeyDown = (
@@ -263,6 +264,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       e.stopPropagation();
       triggerChange(null);
       triggerOpen(false);
+      inputRef.current?.focus();
     }
   };
 
@@ -504,7 +506,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
       readonly ||
       inputReadOnly ||
       typeof formatList[0] === 'function' ||
-      !typing,
+      // Only lock input while keyboard is forwarded to the panel, otherwise
+      // screen readers announce an editable field as "read only" on first focus.
+      (focused && !typing),
     value: hoverValue || text,
     onChange: (e) => {
       triggerTextChange(e.target.value);

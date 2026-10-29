@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { DayjsPicker } from './util/commonUtil';
+import { DayjsPicker, DayjsRangePicker, getDayjs } from './util/commonUtil';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -260,6 +260,24 @@ describe('DatePicker Accessibility Announcements', () => {
       expect(announcementDiv).toHaveAttribute('aria-live', 'polite');
       expect(announcementDiv).toHaveClass('sr-only');
     });
+
+    test('should expose full weekday names on calendar column headers', () => {
+      const { container } = render(<DayjsPicker />);
+
+      const input = container.querySelector('input')!;
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+
+      const headers = document.querySelectorAll('th[role="columnheader"]');
+      expect(headers).toHaveLength(7);
+      expect(
+        headers[0].querySelector('[aria-hidden="true"]')
+      ).toHaveTextContent('Su');
+      expect(headers[0].querySelector('.sr-only')).toHaveTextContent('Sunday');
+      expect(headers[6].querySelector('.sr-only')).toHaveTextContent(
+        'Saturday'
+      );
+    });
   });
 
   describe('announcement content verification', () => {
@@ -446,6 +464,75 @@ describe('DatePicker Accessibility Announcements', () => {
 
       // Should trigger onChange on blur
       expect(onChange).toHaveBeenCalled();
+    });
+  });
+
+  describe('clear button focus', () => {
+    const renderAndGetClearButton = () => {
+      const { container } = render(
+        <DayjsPicker allowClear defaultValue={getDayjs('2000-01-01')} />
+      );
+      const clearButton = container.querySelector(
+        '[role="button"].picker-clear'
+      ) as HTMLElement;
+      clearButton.focus();
+      return { container, clearButton };
+    };
+
+    test('should move focus to the input after clearing with a click', () => {
+      const { container, clearButton } = renderAndGetClearButton();
+      fireEvent.mouseUp(clearButton);
+
+      expect(container.querySelector('.picker-clear')).not.toBeInTheDocument();
+      expect(container.querySelector('input')).toHaveFocus();
+    });
+
+    test('should move focus to the input after clearing with Enter', () => {
+      const { container, clearButton } = renderAndGetClearButton();
+      fireEvent.keyDown(clearButton, { key: 'Enter' });
+
+      expect(container.querySelector('.picker-clear')).not.toBeInTheDocument();
+      expect(container.querySelector('input')).toHaveFocus();
+    });
+  });
+
+  describe('range picker clear button focus', () => {
+    const renderAndGetClearButton = (disabled?: [boolean, boolean]) => {
+      const { container } = render(
+        <DayjsRangePicker
+          allowClear
+          disabled={disabled}
+          defaultValue={[getDayjs('2000-01-01'), getDayjs('2000-01-10')]}
+        />
+      );
+      const clearButton = container.querySelector(
+        '[role="button"].picker-clear'
+      ) as HTMLElement;
+      clearButton.focus();
+      return { container, clearButton };
+    };
+
+    test('should move focus to the start input after clearing with a click', () => {
+      const { container, clearButton } = renderAndGetClearButton();
+      fireEvent.mouseUp(clearButton);
+
+      expect(container.querySelector('.picker-clear')).not.toBeInTheDocument();
+      expect(container.querySelectorAll('input')[0]).toHaveFocus();
+    });
+
+    test('should move focus to the start input after clearing with Enter', () => {
+      const { container, clearButton } = renderAndGetClearButton();
+      fireEvent.keyDown(clearButton, { key: 'Enter' });
+
+      expect(container.querySelector('.picker-clear')).not.toBeInTheDocument();
+      expect(container.querySelectorAll('input')[0]).toHaveFocus();
+    });
+
+    test('should move focus to the end input when the start input is disabled', () => {
+      const { container, clearButton } = renderAndGetClearButton([true, false]);
+      fireEvent.keyDown(clearButton, { key: 'Enter' });
+
+      expect(container.querySelectorAll('input')[1]).toHaveFocus();
     });
   });
 });

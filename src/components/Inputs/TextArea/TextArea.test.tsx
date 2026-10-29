@@ -3,7 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { TextArea } from './TextArea';
-import { render, fireEvent } from '@testing-library/react';
+import { act, render, fireEvent } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -72,5 +72,65 @@ describe('TextArea', () => {
       <TextArea showCloseButton value="Hello world" id="snapshot-textarea" />
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  describe('waitInterval', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
+    const type = (textArea: HTMLTextAreaElement, text: string) => {
+      fireEvent.change(textArea, { target: { value: text } });
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
+    };
+
+    test('calls onChange once for keystrokes typed within the interval', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <TextArea
+          waitInterval={1000}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      );
+      const textArea = container.getElementsByTagName('textarea')[0];
+      ['a', 'ab', 'abc', 'abcd', 'abcde'].forEach((v) => type(textArea, v));
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith('abcde');
+    });
+
+    test('a late echo of an emitted value does not overwrite newer typing', () => {
+      // The parent stores what onChange emits but applies it only when told to, standing in for a
+      // value prop that arrives after the user has typed more (React 18 legacy root timing).
+      const emitted: string[] = [];
+      const Parent: React.FC<{ value: string }> = ({ value }) => (
+        <TextArea
+          waitInterval={10}
+          value={value}
+          onChange={(e) => emitted.push(e.target.value)}
+        />
+      );
+      const { container, rerender } = render(<Parent value="" />);
+      const textArea = container.getElementsByTagName('textarea')[0];
+
+      type(textArea, 'a');
+      expect(emitted).toEqual(['a']);
+      fireEvent.change(textArea, { target: { value: 'ab' } }); // its own emit is still pending
+      rerender(<Parent value="a" />); // the echo of 'a' lands after 'b' was typed
+      expect(textArea.value).toBe('ab');
+      act(() => {
+        jest.advanceTimersByTime(10);
+      });
+      expect(emitted).toEqual(['a', 'ab']);
+
+      rerender(<Parent value="reset" />); // a genuine parent update still applies
+      expect(textArea.value).toBe('reset');
+    });
   });
 });
