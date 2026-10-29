@@ -1,6 +1,5 @@
 import React from 'react';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { fireEvent, render } from '@testing-library/react';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { Modal } from './Modal';
@@ -111,65 +110,5 @@ describe('Modal', () => {
       overlay: false,
     });
     expect(wrapper.find('.modeless').length).toBeTruthy();
-  });
-
-  test('closes on Escape', () => {
-    const onClose = jest.fn();
-    const { getByText } = render(
-      <Modal
-        visible
-        closeOnEscape
-        onClose={onClose}
-        body={<button>Inside</button>}
-      />
-    );
-    fireEvent.keyDown(getByText('Inside'), { key: 'Escape' });
-    expect(onClose).toHaveBeenCalledTimes(1);
-  });
-
-  test('leaves Escape to an open popup inside it', () => {
-    const onClose = jest.fn();
-    const { getByRole } = render(
-      <Modal
-        visible
-        closeOnEscape
-        onClose={onClose}
-        body={<input role="combobox" aria-expanded="true" aria-label="Stage" />}
-      />
-    );
-    fireEvent.keyDown(getByRole('combobox'), { key: 'Escape' });
-    expect(onClose).not.toHaveBeenCalled();
-  });
-
-  test('only the innermost dialog closes on Escape', () => {
-    const onOuterClose = jest.fn();
-    const onInnerClose = jest.fn();
-    const { getByText } = render(
-      <Modal
-        visible
-        closeOnEscape
-        onClose={onOuterClose}
-        body={
-          <Modal
-            visible
-            closeOnEscape
-            onClose={onInnerClose}
-            body={<button>Nested</button>}
-          />
-        }
-      />
-    );
-    fireEvent.keyDown(getByText('Nested'), { key: 'Escape' });
-    expect(onInnerClose).toHaveBeenCalledTimes(1);
-    expect(onOuterClose).not.toHaveBeenCalled();
-  });
-
-  test('stays open on Escape by default', () => {
-    const onClose = jest.fn();
-    const { getByText } = render(
-      <Modal visible onClose={onClose} body={<button>Inside</button>} />
-    );
-    fireEvent.keyDown(getByText('Inside'), { key: 'Escape' });
-    expect(onClose).not.toHaveBeenCalled();
   });
 });

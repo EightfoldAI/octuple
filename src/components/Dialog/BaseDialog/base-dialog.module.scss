@@ -149,25 +149,3 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px
     opacity: 0;
   }
 }
-
-// Short viewports (e.g. 400% zoom): scroll the whole dialog, not a sliver of its body.
-@media (max-height: 400px) {
-  .dialog-backdrop:not(.modeless) {
-    align-items: flex-start;
-    overflow-y: auto;
-    padding: $space-xs;
-
-    .dialog {
-      position: relative;
-      max-height: none;
-    }
-
-    .body {
-      overflow: visible;
-    }
-
-    .footer {
-      flex-wrap: wrap;
-    }
-  }
-}

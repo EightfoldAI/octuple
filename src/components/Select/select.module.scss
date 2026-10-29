@@ -7,11 +7,6 @@ $multi-select-count-offset: 54px;
   multiSelectCountOffset: strip-units($multi-select-count-offset);
 }
 
-// Top level: the overlay is usually portaled out of .select-wrapper.
-.select-dropdown-overlay {
-  max-width: calc(100vw - #{$space-m} * 2);
-}
-
 .select-wrapper {
   font-family: var(--font-stack-full);
   position: relative;

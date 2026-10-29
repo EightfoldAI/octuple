@@ -94,11 +94,6 @@ export interface BaseDialogProps
    */
   closeIcon?: IconName;
   /**
-   * Pressing Escape inside the dialog calls `onClose`
-   * @default false
-   */
-  closeOnEscape?: boolean;
-  /**
    * Configure how contextual props are consumed
    */
   configContextProps?: ConfigContextProps;

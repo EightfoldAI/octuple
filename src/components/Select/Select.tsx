@@ -401,11 +401,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
       return groups;
     }, [options, improvedA11y]);
 
+    // Derive the live region message, memoized to prevent spurious
+    const lastLiveRegionMessageRef = useRef<string>('');
     // Mode: 'list' (open/filter) includes the count; 'nav' (arrows) omits it.
     const announceModeRef = useRef<'list' | 'nav'>('list');
     const liveRegionMessage = useMemo<string>(() => {
       if (!dropdownVisible) {
-        return '';
+        return improvedA11y ? '' : lastLiveRegionMessageRef.current;
       }
 
       // Sub header options are presentational group labels (role="presentation"),
@@ -464,6 +466,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }
       }
 
+      lastLiveRegionMessageRef.current = message;
       return message;
     }, [
       dropdownVisible,
