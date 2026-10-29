@@ -94,6 +94,11 @@ export interface BaseDialogProps
    */
   closeIcon?: IconName;
   /**
+   * Pressing Escape inside the dialog calls `onClose`
+   * @default closable
+   */
+  closeOnEscape?: boolean;
+  /**
    * Configure how contextual props are consumed
    */
   configContextProps?: ConfigContextProps;
@@ -105,6 +110,11 @@ export interface BaseDialogProps
    * Custom classes for the dialog wrapper
    */
   dialogWrapperClassNames?: string;
+  /**
+   * Elements that keep Escape for themselves (open popups) instead of closing the dialog
+   * @default '[role="listbox"], [role="menu"], [role="tooltip"], [role="combobox"][aria-expanded="true"], [aria-haspopup][aria-expanded="true"]'
+   */
+  escapeTargetSelector?: string;
   /**
    * Prepend a specific selector to the beginning
    * of the focus loop generated list of selectors.

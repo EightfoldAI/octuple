@@ -402,12 +402,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
     }, [options, improvedA11y]);
 
     // Derive the live region message, memoized to prevent spurious
-    const lastLiveRegionMessageRef = useRef<string>('');
     // Mode: 'list' (open/filter) includes the count; 'nav' (arrows) omits it.
     const announceModeRef = useRef<'list' | 'nav'>('list');
     const liveRegionMessage = useMemo<string>(() => {
+      // A message kept after closing stays readable in browse mode.
       if (!dropdownVisible) {
-        return lastLiveRegionMessageRef.current;
+        return '';
       }
 
       // Sub header options are presentational group labels (role="presentation"),
@@ -466,7 +466,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }
       }
 
-      lastLiveRegionMessageRef.current = message;
       return message;
     }, [
       dropdownVisible,
@@ -484,7 +483,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return undefined;
       }
       const delay: number =
-        announceModeRef.current === 'nav' ? 0 : ANNOUNCE_DEBOUNCE_DURATION;
+        !liveRegionMessage || announceModeRef.current === 'nav'
+          ? 0
+          : ANNOUNCE_DEBOUNCE_DURATION;
       const timer: ReturnType<typeof setTimeout> = setTimeout(
         () => setAnnouncedMessage(liveRegionMessage),
         delay

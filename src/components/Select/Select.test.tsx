@@ -1111,23 +1111,22 @@ describe('Select', () => {
       });
     });
 
-    test('Retains last message in live region when dropdown closes', async () => {
+    test('Clears the live region when the dropdown closes', async () => {
       const { getByPlaceholderText, getByRole } = render(
         <Select options={options} filterable placeholder="Select test" />
       );
       const input = getByPlaceholderText('Select test');
       fireEvent.click(input);
 
-      let lastMessage: string;
       await waitFor(() => {
-        lastMessage = getByRole('status').textContent;
-        expect(lastMessage).not.toBe('');
+        expect(getByRole('status').textContent).not.toBe('');
       });
 
-      fireEvent.mouseDown(document.body);
+      fireEvent.keyDown(input, { key: 'Escape' });
 
       await waitFor(() => {
-        expect(getByRole('status').textContent).toBe(lastMessage);
+        expect(input.getAttribute('aria-expanded')).toBe('false');
+        expect(getByRole('status').textContent).toBe('');
       });
     });
 

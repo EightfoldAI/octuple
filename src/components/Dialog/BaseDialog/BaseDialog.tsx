@@ -2,6 +2,7 @@ import React, { FC, Ref, useEffect, useRef } from 'react';
 import { BaseDialogProps } from './BaseDialog.types';
 import { Portal } from '../../Portal';
 import {
+  eventKeys,
   mergeClasses,
   stopPropagation,
   uniqueId,
@@ -31,12 +32,14 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       closeButtonAriaLabelText,
       closeButtonProps,
       closeIcon = IconName.mdiClose,
+      closeOnEscape = closable,
       configContextProps = {
         noGradientContext: false,
         noThemeContext: false,
       },
       dialogClassNames,
       dialogWrapperClassNames,
+      escapeTargetSelector = '[role="listbox"], [role="menu"], [role="tooltip"], [role="combobox"][aria-expanded="true"], [aria-haspopup][aria-expanded="true"]',
       firstFocusableSelector,
       focusTrap = true,
       gradient = false,
@@ -126,6 +129,21 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       onVisibleChange?.(visible);
     }, [visible]);
 
+    // Capture phase, while an open popup inside still reports aria-expanded.
+    const handleEscape = (event: React.KeyboardEvent<HTMLDivElement>): void => {
+      const target = event.target as HTMLElement;
+      if (
+        event.key !== eventKeys.ESCAPE ||
+        !onClose ||
+        target.closest('[role="dialog"]') !== event.currentTarget ||
+        target.closest(escapeTargetSelector)
+      ) {
+        return;
+      }
+      event.stopPropagation();
+      onClose(event);
+    };
+
     const getDialog = (): JSX.Element => (
       <NoFormStyle status override>
         <FocusTrap
@@ -133,6 +151,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
           lastFocusableSelector={lastFocusableSelector}
           skipFocusableSelectorsFromIndex={skipFocusableSelectorsFromIndex}
           trap={visible && focusTrap}
+          onKeyDownCapture={closeOnEscape ? handleEscape : undefined}
           {...rest}
           ref={ref}
           role="dialog"

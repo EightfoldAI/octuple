@@ -258,4 +258,26 @@ describe('useFocusTrap', () => {
     fireEvent.click(container.getElementsByClassName('deactivate')[0]);
     expect(secondButton.matches(':focus')).toBe(true);
   });
+
+  test('focuses a firstFocusableSelector target that mounts after the trap', async () => {
+    const Late = () => {
+      const [ready, setReady] = React.useState(false);
+      React.useEffect(() => {
+        const timer = setTimeout(() => setReady(true), 150);
+        return () => clearTimeout(timer);
+      }, []);
+      return (
+        <FocusTrap trap firstFocusableSelector="#late-input">
+          <button>Close</button>
+          {ready && <input id="late-input" aria-label="Stage" />}
+        </FocusTrap>
+      );
+    };
+    const { container } = render(<Late />);
+    await waitFor(() =>
+      expect(container.querySelector('#late-input').matches(':focus')).toBe(
+        true
+      )
+    );
+  });
 });
