@@ -150,8 +150,8 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px
   }
 }
 
-// Reflow (WCAG 1.4.10): at high zoom, scroll the whole dialog rather than a sliver of body.
-@media (max-height: 400px), (max-width: 359px) {
+// Short viewports (e.g. 400% zoom): scroll the whole dialog, not a sliver of its body.
+@media (max-height: 400px) {
   .dialog-backdrop:not(.modeless) {
     align-items: flex-start;
     overflow-y: auto;

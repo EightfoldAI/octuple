@@ -100,7 +100,7 @@ export function useFocusTrap(
 
     clearInterval(intervalRef?.current);
     intervalRef.current = setInterval((): void => {
-      // Resolved per tick: the target may mount after the trap.
+      // The target may mount after the trap.
       const elementToFocus: HTMLElement = getElementToFocus();
       elementToFocus?.focus();
       if (elementToFocus && document.activeElement === elementToFocus) {

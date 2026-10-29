@@ -405,7 +405,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     // Mode: 'list' (open/filter) includes the count; 'nav' (arrows) omits it.
     const announceModeRef = useRef<'list' | 'nav'>('list');
     const liveRegionMessage = useMemo<string>(() => {
-      // A message kept after closing stays readable in browse mode.
       if (!dropdownVisible) {
         return '';
       }
@@ -483,9 +482,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return undefined;
       }
       const delay: number =
-        !liveRegionMessage || announceModeRef.current === 'nav'
-          ? 0
-          : ANNOUNCE_DEBOUNCE_DURATION;
+        announceModeRef.current === 'nav' ? 0 : ANNOUNCE_DEBOUNCE_DURATION;
       const timer: ReturnType<typeof setTimeout> = setTimeout(
         () => setAnnouncedMessage(liveRegionMessage),
         delay
