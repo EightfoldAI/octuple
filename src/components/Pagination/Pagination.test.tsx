@@ -4,7 +4,13 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Pagination, PaginationLayoutOptions } from '.';
 import { Button } from '../Button';
-import { fireEvent, getByTestId, render } from '@testing-library/react';
+import {
+  fireEvent,
+  getByTestId,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -120,6 +126,26 @@ describe('Pagination', () => {
       />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  test('Pagination should visually indicate the selected page size option', async () => {
+    const { container } = render(
+      <Pagination
+        layout={[PaginationLayoutOptions.Sizes, PaginationLayoutOptions.Pager]}
+        pageSize={20}
+        pageSizes={[10, 20]}
+        total={100}
+      />
+    );
+    fireEvent.click(container.querySelector('.sizes button'));
+    await waitFor(() => screen.getByText('10 / page'));
+    const getMenuItem = (text: string): Element =>
+      screen
+        .getAllByText(text)
+        .map((el: HTMLElement) => el.closest('.menu-item'))
+        .find(Boolean);
+    expect(getMenuItem('20 / page').classList).toContain('active');
+    expect(getMenuItem('10 / page').classList).not.toContain('active');
   });
 
   test('Pagination next and previous buttons should render as expected', () => {
