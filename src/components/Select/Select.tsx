@@ -401,7 +401,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       return groups;
     }, [options, improvedA11y]);
 
-    // Derive the live region message, memoized to prevent spurious
     // Mode: 'list' (open/filter) includes the count; 'nav' (arrows) omits it.
     const announceModeRef = useRef<'list' | 'nav'>('list');
     const liveRegionMessage = useMemo<string>(() => {

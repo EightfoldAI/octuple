@@ -82,28 +82,25 @@ export function useFocusTrap(
       restoreFocusRef.current = null;
     }
 
-    const getElementToFocus = (): HTMLElement =>
-      firstFocusableSelector
-        ? elRef.current?.querySelector(firstFocusableSelector)
-        : getFocusableElements()?.[0];
+    let elementToFocus: HTMLElement = getFocusableElements()?.[0];
+    if (firstFocusableSelector) {
+      elementToFocus = elRef.current?.querySelector(firstFocusableSelector);
+    }
 
     // If focus is already inside the trap and either no specific target was
     // requested, or it's already on the resolved target -- respect it instead of
     // redirecting.
     if (
       focusIsAlreadyInside &&
-      (!firstFocusableSelector ||
-        document.activeElement === getElementToFocus())
+      (!firstFocusableSelector || document.activeElement === elementToFocus)
     ) {
       return;
     }
 
     clearInterval(intervalRef?.current);
     intervalRef.current = setInterval((): void => {
-      // The target may mount after the trap.
-      const elementToFocus: HTMLElement = getElementToFocus();
       elementToFocus?.focus();
-      if (elementToFocus && document.activeElement === elementToFocus) {
+      if (document.activeElement === elementToFocus) {
         clearInterval(intervalRef?.current);
       }
     }, FOCUS_DELAY_INTERVAL);

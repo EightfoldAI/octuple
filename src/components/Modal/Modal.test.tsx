@@ -116,7 +116,12 @@ describe('Modal', () => {
   test('closes on Escape', () => {
     const onClose = jest.fn();
     const { getByText } = render(
-      <Modal visible onClose={onClose} body={<button>Inside</button>} />
+      <Modal
+        visible
+        closeOnEscape
+        onClose={onClose}
+        body={<button>Inside</button>}
+      />
     );
     fireEvent.keyDown(getByText('Inside'), { key: 'Escape' });
     expect(onClose).toHaveBeenCalledTimes(1);
@@ -127,6 +132,7 @@ describe('Modal', () => {
     const { getByRole } = render(
       <Modal
         visible
+        closeOnEscape
         onClose={onClose}
         body={<input role="combobox" aria-expanded="true" aria-label="Stage" />}
       />
@@ -141,10 +147,12 @@ describe('Modal', () => {
     const { getByText } = render(
       <Modal
         visible
+        closeOnEscape
         onClose={onOuterClose}
         body={
           <Modal
             visible
+            closeOnEscape
             onClose={onInnerClose}
             body={<button>Nested</button>}
           />
@@ -156,29 +164,10 @@ describe('Modal', () => {
     expect(onOuterClose).not.toHaveBeenCalled();
   });
 
-  test('stays open on Escape when closeOnEscape is false', () => {
+  test('stays open on Escape by default', () => {
     const onClose = jest.fn();
     const { getByText } = render(
-      <Modal
-        visible
-        closeOnEscape={false}
-        onClose={onClose}
-        body={<button>Inside</button>}
-      />
-    );
-    fireEvent.keyDown(getByText('Inside'), { key: 'Escape' });
-    expect(onClose).not.toHaveBeenCalled();
-  });
-
-  test('stays open on Escape when it is not closable', () => {
-    const onClose = jest.fn();
-    const { getByText } = render(
-      <Modal
-        visible
-        closable={false}
-        onClose={onClose}
-        body={<button>Inside</button>}
-      />
+      <Modal visible onClose={onClose} body={<button>Inside</button>} />
     );
     fireEvent.keyDown(getByText('Inside'), { key: 'Escape' });
     expect(onClose).not.toHaveBeenCalled();

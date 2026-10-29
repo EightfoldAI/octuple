@@ -158,7 +158,7 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px
     padding: $space-xs;
 
     .dialog {
-      position: static;
+      position: relative;
       max-height: none;
     }
 

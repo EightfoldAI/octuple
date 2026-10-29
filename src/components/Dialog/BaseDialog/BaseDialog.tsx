@@ -17,6 +17,10 @@ import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import styles from './base-dialog.module.scss';
 import { useScrollShadow } from '../../../hooks/useScrollShadows';
 
+// Open popups inside the dialog keep Escape for themselves.
+const OPEN_POPUP_SELECTOR =
+  '[role="listbox"], [role="menu"], [role="tooltip"], [role="combobox"][aria-expanded="true"], [aria-haspopup][aria-expanded="true"]';
+
 export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
   (
     {
@@ -32,14 +36,13 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
       closeButtonAriaLabelText,
       closeButtonProps,
       closeIcon = IconName.mdiClose,
-      closeOnEscape = closable,
+      closeOnEscape = false,
       configContextProps = {
         noGradientContext: false,
         noThemeContext: false,
       },
       dialogClassNames,
       dialogWrapperClassNames,
-      escapeTargetSelector = '[role="listbox"], [role="menu"], [role="tooltip"], [role="combobox"][aria-expanded="true"], [aria-haspopup][aria-expanded="true"]',
       firstFocusableSelector,
       focusTrap = true,
       gradient = false,
@@ -136,7 +139,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         event.key !== eventKeys.ESCAPE ||
         !onClose ||
         target.closest('[role="dialog"]') !== event.currentTarget ||
-        target.closest(escapeTargetSelector)
+        target.closest(OPEN_POPUP_SELECTOR)
       ) {
         return;
       }
