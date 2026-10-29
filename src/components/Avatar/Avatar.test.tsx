@@ -218,9 +218,9 @@ describe('Avatar', () => {
     expect(root.find('.avatar-status-item').length).toEqual(1);
   });
 
-  test('Avatar forwards aria-hidden to its root', () => {
+  test('Avatar ariaHidden hides its root', () => {
     const { container } = render(
-      <Avatar aria-hidden="true" tabIndex={-1}>
+      <Avatar ariaHidden tabIndex={-1}>
         AB
       </Avatar>
     );
