@@ -3062,7 +3062,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "dp-dialog-1",
+                "aria-controls": "date-picker--dialog",
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "true",
                 "aria-label": "select date",
@@ -3237,7 +3237,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "dp-dialog-1",
+              "aria-controls": "date-picker--dialog",
               "aria-describedby": "date-picker--format-hint",
               "aria-expanded": "true",
               "aria-label": "select date",
@@ -3522,7 +3522,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "dp-dialog-1",
+                "aria-controls": "date-picker--dialog",
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "true",
                 "aria-label": "select date",
@@ -3705,7 +3705,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "dp-dialog-1",
+                  "aria-controls": "date-picker--dialog",
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "true",
                   "aria-label": "select date",
@@ -3886,7 +3886,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "aria-controls": "dp-dialog-1",
+                    "aria-controls": "date-picker--dialog",
                     "aria-describedby": "date-picker--format-hint",
                     "aria-expanded": "true",
                     "aria-label": "select date",
@@ -4008,7 +4008,10 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "aria-label": "select date",
                 "class": "picker-range-wrapper picker-date-range-wrapper",
+                "id": "date-picker--dialog",
+                "role": "dialog",
                 "style": "min-width: 0;",
               },
               "children": Array [
@@ -4062,11 +4065,17 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-label": undefined,
                 "class": undefined,
+                "id": undefined,
+                "role": undefined,
                 "style": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-label": undefined,
                 "class": undefined,
+                "id": undefined,
+                "role": undefined,
                 "style": undefined,
               },
             },
@@ -4120,7 +4129,10 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-label": "select date",
                     "class": "picker-range-wrapper picker-date-range-wrapper",
+                    "id": "date-picker--dialog",
+                    "role": "dialog",
                     "style": "min-width: 0;",
                   },
                   "children": Array [
@@ -4174,11 +4186,17 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-label": undefined,
                     "class": undefined,
+                    "id": undefined,
+                    "role": undefined,
                     "style": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-label": undefined,
                     "class": undefined,
+                    "id": undefined,
+                    "role": undefined,
                     "style": undefined,
                   },
                 },
@@ -4235,7 +4253,10 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "aria-label": "select date",
               "class": "picker-range-wrapper picker-date-range-wrapper",
+              "id": "date-picker--dialog",
+              "role": "dialog",
               "style": "min-width: 0;",
             },
             "children": Array [
@@ -4289,11 +4310,17 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-label": undefined,
               "class": undefined,
+              "id": undefined,
+              "role": undefined,
               "style": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-label": undefined,
               "class": undefined,
+              "id": undefined,
+              "role": undefined,
               "style": undefined,
             },
           },
@@ -4347,7 +4374,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-controls": "dp-dialog-1",
+                      "aria-controls": "date-picker--dialog",
                       "aria-describedby": "date-picker--format-hint",
                       "aria-expanded": "true",
                       "aria-label": "select date",
@@ -4522,7 +4549,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "aria-controls": "dp-dialog-1",
+                    "aria-controls": "date-picker--dialog",
                     "aria-describedby": "date-picker--format-hint",
                     "aria-expanded": "true",
                     "aria-label": "select date",
@@ -4807,7 +4834,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-controls": "dp-dialog-1",
+                      "aria-controls": "date-picker--dialog",
                       "aria-describedby": "date-picker--format-hint",
                       "aria-expanded": "true",
                       "aria-label": "select date",
@@ -4990,7 +5017,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-controls": "dp-dialog-1",
+                        "aria-controls": "date-picker--dialog",
                         "aria-describedby": "date-picker--format-hint",
                         "aria-expanded": "true",
                         "aria-label": "select date",
@@ -5171,7 +5198,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-controls": "dp-dialog-1",
+                          "aria-controls": "date-picker--dialog",
                           "aria-describedby": "date-picker--format-hint",
                           "aria-expanded": "true",
                           "aria-label": "select date",
@@ -5329,7 +5356,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "dp-dialog-1",
+                  "aria-controls": "date-picker--dialog",
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "true",
                   "aria-label": "select date",
@@ -5504,7 +5531,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "dp-dialog-1",
+                "aria-controls": "date-picker--dialog",
                 "aria-describedby": "date-picker--format-hint",
                 "aria-expanded": "true",
                 "aria-label": "select date",
@@ -5789,7 +5816,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "dp-dialog-1",
+                  "aria-controls": "date-picker--dialog",
                   "aria-describedby": "date-picker--format-hint",
                   "aria-expanded": "true",
                   "aria-label": "select date",
@@ -5972,7 +5999,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "aria-controls": "dp-dialog-1",
+                    "aria-controls": "date-picker--dialog",
                     "aria-describedby": "date-picker--format-hint",
                     "aria-expanded": "true",
                     "aria-label": "select date",
@@ -6153,7 +6180,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-controls": "dp-dialog-1",
+                      "aria-controls": "date-picker--dialog",
                       "aria-describedby": "date-picker--format-hint",
                       "aria-expanded": "true",
                       "aria-label": "select date",

@@ -235,6 +235,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
   // Generate listbox ID for time picker
   const isTimePicker: boolean = picker === 'time';
   const listboxId: string = isTimePicker ? `${datePickerId}-listbox` : '';
+  const dialogId: string = `${datePickerId}-dialog`;
 
   // Operation ref
   const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
@@ -1144,13 +1145,18 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     );
   }
 
+  const dialogProps = !isTimePicker && {
+    id: dialogId,
+    role: 'dialog',
+    'aria-label': locale.dateSelect,
+  };
+
   const rangePartial: JSX.Element = trapFocus ? (
     <FocusTrap
       data-testid="picker-dialog"
-      {...(!isTimePicker && { role: 'dialog' })}
+      {...dialogProps}
       {...(isTimePicker && { id: 'dp-dialog-1' })}
       {...(!isTimePicker && { 'aria-modal': 'true' })}
-      {...(!isTimePicker && { 'aria-labelledby': 'dp-dialog-1-label' })}
       trap={startTrap || endTrap}
       onMouseDown={(e) => {
         e.preventDefault();
@@ -1180,6 +1186,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     </FocusTrap>
   ) : (
     <div
+      {...dialogProps}
       className={mergeClasses([
         styles.pickerRangeWrapper,
         `picker-${picker}-range-wrapper`,
@@ -1263,7 +1270,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     );
   }
 
-  const popupId: string = isTimePicker ? listboxId : 'dp-dialog-1';
+  const popupId: string = isTimePicker ? listboxId : dialogId;
 
   const inputSharedProps = {
     size: getInputSize(picker, formatList[0], generateConfig),

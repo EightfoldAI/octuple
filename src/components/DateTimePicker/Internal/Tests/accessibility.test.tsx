@@ -278,6 +278,51 @@ describe('DatePicker Accessibility Announcements', () => {
         'Saturday'
       );
     });
+    test('should link range picker inputs to a named modal dialog', () => {
+      const { container } = render(
+        <DayjsRangePicker
+          id="rp"
+          trapFocus
+          role="combobox"
+          aria-haspopup="dialog"
+        />
+      );
+
+      const [startInput, endInput] = Array.from(
+        container.querySelectorAll('input')
+      );
+      expect(startInput).toHaveAttribute('aria-expanded', 'false');
+      expect(startInput).not.toHaveAttribute('aria-controls');
+
+      fireEvent.mouseDown(startInput);
+      fireEvent.click(startInput);
+
+      const dialog = document.querySelector('[role="dialog"]')!;
+      expect(startInput).toHaveAttribute('aria-expanded', 'true');
+      expect(startInput).toHaveAttribute('aria-controls', 'rp-dialog');
+      expect(endInput).toHaveAttribute('aria-expanded', 'false');
+      expect(dialog).toHaveAttribute('id', 'rp-dialog');
+      expect(dialog).toHaveAttribute('aria-modal', 'true');
+      expect(dialog.getAttribute('aria-label')).toMatch(/select date/i);
+      expect(dialog).not.toHaveAttribute('aria-labelledby');
+    });
+
+    test('should link range picker inputs to a named dialog without trapFocus', () => {
+      const { container } = render(
+        <DayjsRangePicker id="rp" role="combobox" aria-haspopup="dialog" />
+      );
+
+      const startInput = container.querySelector('input')!;
+      fireEvent.mouseDown(startInput);
+      fireEvent.click(startInput);
+
+      const dialog = document.getElementById('rp-dialog')!;
+      expect(startInput).toHaveAttribute('aria-expanded', 'true');
+      expect(startInput).toHaveAttribute('aria-controls', 'rp-dialog');
+      expect(dialog).toHaveAttribute('role', 'dialog');
+      expect(dialog.getAttribute('aria-label')).toMatch(/select date/i);
+      expect(dialog).not.toHaveAttribute('aria-modal');
+    });
   });
 
   describe('announcement content verification', () => {
