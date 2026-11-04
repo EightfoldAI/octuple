@@ -1155,7 +1155,6 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     <FocusTrap
       data-testid="picker-dialog"
       {...dialogProps}
-      {...(isTimePicker && { id: 'dp-dialog-1' })}
       {...(!isTimePicker && { 'aria-modal': 'true' })}
       trap={startTrap || endTrap}
       onMouseDown={(e) => {
