@@ -246,6 +246,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
   (
     {
+      ariaHidden,
       children,
       classNames,
       hashingFunction,
@@ -290,6 +291,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
     return (
       <div
+        aria-hidden={ariaHidden}
         ref={ref}
         className={avatarClasses}
         onClick={onClick}
@@ -308,6 +310,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
   (
     {
+      ariaHidden,
       children,
       classNames,
       fontSize,
@@ -328,6 +331,7 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
 
     return (
       <div
+        aria-hidden={ariaHidden}
         ref={ref}
         className={wrapperClasses}
         onClick={onClick}
@@ -348,6 +352,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
   (
     {
       alt,
+      ariaHidden,
       children,
       classNames,
       fontSize = '18px',
@@ -478,6 +483,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           )}
         >
           <div
+            aria-hidden={ariaHidden}
             className={wrapperContainerClassNames}
             ref={ref}
             style={wrapperContainerStyle}
@@ -539,6 +545,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           )}
         >
           <AvatarIcon
+            ariaHidden={ariaHidden}
             classNames={wrapperClassNames}
             fontSize={fontSize}
             iconProps={iconProps}
@@ -583,6 +590,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         )}
       >
         <AvatarFallback
+          ariaHidden={ariaHidden}
           classNames={wrapperClassNames}
           hashingFunction={hashingFunction}
           onClick={onClick}
