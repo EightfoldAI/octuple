@@ -93,6 +93,11 @@ export interface StatusItemsProps extends IconProps {
 
 export interface BaseAvatarProps extends OcBaseProps<HTMLDivElement> {
   /**
+   * The avatar is aria-hidden.
+   * @default false
+   */
+  ariaHidden?: boolean;
+  /**
    * Avatar fallback font size
    * @default '18px'
    */

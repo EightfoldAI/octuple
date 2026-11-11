@@ -307,4 +307,12 @@ describe('Snackbar', () => {
       expect(alert).toBeTruthy();
     });
   });
+
+  test('renders a snack once when several containers are mounted', () => {
+    render(<SnackbarContainer />);
+    act(() => {
+      snack.serve({ content: 'Shown once' });
+    });
+    expect(wrapper.getAllByText('Shown once')).toHaveLength(1);
+  });
 });
