@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.59.6](https://github.com/EightfoldAI/octuple/compare/v2.59.5...v2.59.6) (2026-11-11)
+
+### Bug Fixes
+
+- **a11y:** give RangePicker popup a dialog role, unique id and accessible name ([#1181](https://github.com/EightfoldAI/octuple/issues/1181)) ([914d52f](https://github.com/EightfoldAI/octuple/commits/914d52f13ee195f990bd8f219120ff1def246241))
+
 ### [2.59.5](https://github.com/EightfoldAI/octuple/compare/v2.59.4...v2.59.5) (2026-11-10)
 
 ### Bug Fixes
