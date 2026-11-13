@@ -1,13 +1,6 @@
 'use client';
 
-import React, {
-  FC,
-  Ref,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
@@ -344,6 +337,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       const getItems = (): MenuItemButtonProps[] => {
         return pageSizes.map((item?: number, idx?: number) => ({
           rowkey: idx,
+          active: item === _pageSize,
           text:
             htmlDir === 'ltr'
               ? `${item} / ${pageSizeText}`
