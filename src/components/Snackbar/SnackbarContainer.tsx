@@ -32,7 +32,12 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
     mergedLocale = snackbarLocale || locale;
   }
 
+  // Several containers may be mounted; the first to receive a snack renders it.
   const addSnack = (e: CustomEvent<SnackbarProps>): void => {
+    if (e.defaultPrevented) {
+      return;
+    }
+    e.preventDefault();
     setSnacks((s) => [...s, e.detail]);
   };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
+import { render } from '@testing-library/react';
 import { Avatar, AvatarGroup, StatusItemsPosition } from './';
 import { IconName } from '../Icon';
 
@@ -215,5 +216,17 @@ describe('Avatar', () => {
     );
     const root = wrapper.find('.avatar-root').first();
     expect(root.find('.avatar-status-item').length).toEqual(1);
+  });
+
+  test('Avatar ariaHidden hides its root', () => {
+    const { container } = render(
+      <Avatar ariaHidden tabIndex={-1}>
+        AB
+      </Avatar>
+    );
+    expect(container.firstElementChild.getAttribute('aria-hidden')).toBe(
+      'true'
+    );
+    expect(container.firstElementChild.getAttribute('tabindex')).toBe('-1');
   });
 });

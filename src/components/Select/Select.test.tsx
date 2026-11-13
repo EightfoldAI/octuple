@@ -1131,6 +1131,30 @@ describe('Select', () => {
       });
     });
 
+    test('Clears the live region when an improvedA11y dropdown closes', async () => {
+      const { getByPlaceholderText, getByRole } = render(
+        <Select
+          options={options}
+          filterable
+          improvedA11y
+          placeholder="Select test"
+        />
+      );
+      const input = getByPlaceholderText('Select test');
+      fireEvent.click(input);
+
+      await waitFor(() => {
+        expect(getByRole('status').textContent).not.toBe('');
+      });
+
+      fireEvent.keyDown(input, { key: 'Escape' });
+
+      await waitFor(() => {
+        expect(input.getAttribute('aria-expanded')).toBe('false');
+        expect(getByRole('status').textContent).toBe('');
+      });
+    });
+
     describe('Grouped options with sub headers', () => {
       const groupedOptions = [
         { text: 'Group One', value: 'group-one', type: MenuItemType.subHeader },
