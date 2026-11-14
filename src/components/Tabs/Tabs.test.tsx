@@ -1208,7 +1208,7 @@ describe('Tabs internal logic edge cases', () => {
       }
     });
 
-    test('Should set aria-controls for dropdown tabs', () => {
+    test('Should not set aria-controls on a dropdown tab while its menu is closed', () => {
       const { container } = render(
         <Tabs onChange={dropdownTabClick} value={'tab1'}>
           {dropdownTabs.map((tab) => (
@@ -1218,11 +1218,8 @@ describe('Tabs internal logic edge cases', () => {
       );
       // The button is inside the dropdown wrapper, find it directly
       const button = container.querySelector('button[data-value="tab2"]') as HTMLElement;
-      // The aria-controls should be set (either by our code or by Dropdown component)
-      const ariaControls = button?.getAttribute('aria-controls');
-      expect(ariaControls).toBeTruthy();
-      // It should either be our custom ID or the dropdown's generated ID
-      expect(ariaControls?.includes('tab2') || ariaControls?.includes('dropdown')).toBe(true);
+      expect(button.getAttribute('aria-expanded')).toBe('false');
+      expect(button.hasAttribute('aria-controls')).toBe(false);
     });
 
     test('Should handle custom dropdownProps', async () => {

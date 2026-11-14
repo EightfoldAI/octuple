@@ -137,6 +137,21 @@ describe('Select', () => {
     expect(container.querySelector('.dropdown-wrapper')).toBeFalsy();
   });
 
+  test('Only sets aria-controls on the combobox while the menu is rendered', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    expect(select).toHaveAttribute('role', 'combobox');
+    expect(select).not.toHaveAttribute('aria-controls');
+
+    fireEvent.click(select);
+    await waitFor(() => getByText('Option 1'));
+    expect(
+      document.getElementById(select.getAttribute('aria-controls'))
+    ).toContainElement(getByText('Option 1'));
+  });
+
   test('Opens the dropdown when clicked', async () => {
     const { getByPlaceholderText, getByText } = render(
       <Select options={options} placeholder="Select test" />
