@@ -214,6 +214,7 @@ export const Options_Disabled: SelectStory = Basic_Story.bind({});
 export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
 export const Multiple_With_No_Filter: SelectStory = Basic_Story.bind({});
+export const Multiple_Improved_A11y: SelectStory = Basic_Story.bind({});
 export const Dynamic: SelectStory = Dynamic_Story.bind({});
 
 // Storybook 6.5 using Webpack >= 5.76.0 automatically alphabetizes exports,
@@ -230,6 +231,7 @@ export const __namedExportsOrder = [
   'Filterable',
   'Multiple',
   'Multiple_With_No_Filter',
+  'Multiple_Improved_A11y',
   'Dynamic',
 ];
 
@@ -348,6 +350,21 @@ Multiple_With_No_Filter.args = {
   },
   style: {
     width: '100%',
+  },
+};
+
+Multiple_Improved_A11y.args = {
+  ...SelectArgs,
+  'aria-label': 'Select options',
+  defaultValue: ['verylarge', 'account', 'hat'],
+  filterable: true,
+  improvedA11y: true,
+  multiple: true,
+  textInputProps: {
+    clearable: true,
+  },
+  style: {
+    width: 324,
   },
 };
 

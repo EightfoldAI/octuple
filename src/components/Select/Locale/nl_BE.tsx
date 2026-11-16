@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'overeenkomsten gevonden.',
     noResultsFoundText: 'Geen overeenkomst gevonden voor',
     optionPositionSeparatorText: 'van',
+    optionSelectedText: 'geselecteerd',
+    optionDeselectedText: 'niet geselecteerd',
+    selectedCountText: 'geselecteerd',
+    selectedOptionsText: 'Geselecteerde opties',
   },
 };
 

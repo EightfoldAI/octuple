@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'találatok megtalálva.',
     noResultsFoundText: 'Nincs találat erre:',
     optionPositionSeparatorText: '/',
+    optionSelectedText: 'kiválasztva',
+    optionDeselectedText: 'nincs kiválasztva',
+    selectedCountText: 'kiválasztva',
+    selectedOptionsText: 'Kiválasztott beállítások',
   },
 };
 

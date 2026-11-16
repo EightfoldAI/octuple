@@ -183,6 +183,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
     const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
+    const [selectionMessage, setSelectionMessage] = useState<string>('');
+    const restoreFocusRef: React.MutableRefObject<boolean> =
+      useRef<boolean>(false);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -512,10 +515,35 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // Update the state with the updated options
       setOptions(updatedOptions);
 
+      if (improvedA11y && multiple) {
+        const lang = selectLocale?.lang;
+        const stateText: string = option.selected
+          ? lang?.optionDeselectedText ?? 'not selected'
+          : lang?.optionSelectedText ?? 'selected';
+        const selectedCount: number = updatedOptions.filter(
+          (opt: SelectOption) => opt.selected
+        ).length;
+        setSelectionMessage(
+          `${option.text} ${stateText}, ${selectedCount} ${
+            lang?.selectedCountText ?? 'selected'
+          }`
+        );
+      }
+
       if (filterable && multiple && inputRef.current?.value !== '') {
         setClearInput(true);
       }
     };
+
+    useEffect(() => {
+      if (!restoreFocusRef.current) {
+        return;
+      }
+      restoreFocusRef.current = false;
+      if (!document.activeElement || document.activeElement === document.body) {
+        inputRef.current?.focus();
+      }
+    }, [options, dropdownVisible]);
 
     const resetSelectOnDropdownHide = (): void => {
       setSearchQuery('');
@@ -747,6 +775,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             label={opt.text}
             onClose={(event) => {
               if (contains(document.activeElement, event.target as Node)) {
+                restoreFocusRef.current = improvedA11y;
                 toggleOption(opt);
               }
             }}
@@ -809,23 +838,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
               tabIndex={0}
               theme={'blueGreen'}
               size={selectSizeToPillSizeMap.get(mergedSize)}
-              onClick={() => {
-                if (!dropdownVisible) {
-                  setDropdownVisibility(true);
-                }
-              }}
+              onClick={openFromCountPill}
               onKeyDown={(event) => {
                 if (
                   event.key === eventKeys.ENTER ||
                   event.key === eventKeys.SPACE
                 ) {
                   event.preventDefault();
-                  if (!dropdownVisible) {
-                    setDropdownVisibility(true);
-                  }
+                  openFromCountPill();
                 }
               }}
               aria-label={accessibleLabel}
+              aria-expanded={improvedA11y ? dropdownVisible : undefined}
+              aria-controls={improvedA11y ? selectMenuId.current : undefined}
               role="button"
               {...updatedPillProps}
             />
@@ -833,7 +858,27 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }
       });
 
-      return <div className={styles.multiSelectPills}>{pills}</div>;
+      return (
+        <div
+          className={styles.multiSelectPills}
+          role={improvedA11y ? 'group' : undefined}
+          aria-label={
+            improvedA11y
+              ? selectLocale?.lang?.selectedOptionsText ?? 'Selected options'
+              : undefined
+          }
+        >
+          {pills}
+        </div>
+      );
+    };
+
+    const openFromCountPill = (): void => {
+      if (dropdownVisible) {
+        return;
+      }
+      restoreFocusRef.current = improvedA11y;
+      setDropdownVisibility(true);
     };
 
     const getSelectedOptionText = (): void => {
@@ -917,6 +962,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return (
           <Menu
             aria-label={ariaLabel || undefined}
+            aria-multiselectable={improvedA11y && multiple ? true : undefined}
             id={selectMenuId?.current}
             {...restMenuProps}
             itemProps={menuItemRole ? { role: menuItemRole } : undefined}
@@ -1288,6 +1334,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
             >
               {improvedA11y ? announcedMessage : liveRegionMessage}
             </div>
+            {improvedA11y && multiple && (
+              <div
+                aria-atomic="true"
+                aria-live="polite"
+                className={styles.selectLiveRegion}
+                role="status"
+              >
+                {selectionMessage}
+              </div>
+            )}
             {/* When Dropdown is hidden, place Pills outside the reference element */}
             {!dropdownVisible && showPills() ? getPills() : null}
             <Dropdown

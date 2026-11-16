@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'osumia löytyi.',
     noResultsFoundText: 'Osumia ei löydy haulle',
     optionPositionSeparatorText: '/',
+    optionSelectedText: 'valittu',
+    optionDeselectedText: 'ei valittu',
+    selectedCountText: 'valittu',
+    selectedOptionsText: 'Valitut vaihtoehdot',
   },
 };
 

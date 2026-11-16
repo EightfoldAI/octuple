@@ -37,6 +37,22 @@ type SelectLang = {
    * announcement, e.g. the "of" in "Apple, 1 of 3". Defaults to "of".
    */
   optionPositionSeparatorText?: string;
+  /**
+   * Announced after an option is selected, e.g. "Apple selected". Defaults to "selected".
+   */
+  optionSelectedText?: string;
+  /**
+   * Announced after an option is deselected, e.g. "Apple not selected". Defaults to "not selected".
+   */
+  optionDeselectedText?: string;
+  /**
+   * Appended after the selected count, e.g. "2 selected". Defaults to "selected".
+   */
+  selectedCountText?: string;
+  /**
+   * Accessible name of the selected option pills group. Defaults to "Selected options".
+   */
+  selectedOptionsText?: string;
 };
 
 export type SelectLocale = {

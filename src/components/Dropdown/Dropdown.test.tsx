@@ -521,6 +521,20 @@ describe('Dropdown', () => {
     ).toContain('red');
   });
 
+  test('Should render a portaled dropdown into portalRoot', async () => {
+    const portalRoot = document.createElement('div');
+    document.body.appendChild(portalRoot);
+    render(
+      <Dropdown {...dropdownProps} portal portalRoot={portalRoot}>
+        <Button text="Open portaled dropdown" />
+      </Dropdown>
+    );
+    screen.getByRole('button').click();
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(portalRoot).toContainElement(screen.getByText('User profile 1'));
+    portalRoot.remove();
+  });
+
   test('Should support cloned element id from its props', async () => {
     render(<DropdownComponent />);
     const dropdownButton = screen.getByRole('button');

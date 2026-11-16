@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'Treffer gefunden.',
     noResultsFoundText: 'Keine Treffer gefunden für',
     optionPositionSeparatorText: 'von',
+    optionSelectedText: 'ausgewählt',
+    optionDeselectedText: 'nicht ausgewählt',
+    selectedCountText: 'ausgewählt',
+    selectedOptionsText: 'Ausgewählte Optionen',
   },
 };
 

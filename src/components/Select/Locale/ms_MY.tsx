@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'padanan ditemui.',
     noResultsFoundText: 'Tiada padanan ditemui untuk',
     optionPositionSeparatorText: 'daripada',
+    optionSelectedText: 'dipilih',
+    optionDeselectedText: 'tidak dipilih',
+    selectedCountText: 'dipilih',
+    selectedOptionsText: 'Pilihan yang dipilih',
   },
 };
 

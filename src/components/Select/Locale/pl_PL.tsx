@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'dopasowania znalezione.',
     noResultsFoundText: 'Nie znaleziono dopasowania dla',
     optionPositionSeparatorText: 'z',
+    optionSelectedText: 'zaznaczone',
+    optionDeselectedText: 'niezaznaczone',
+    selectedCountText: 'zaznaczono',
+    selectedOptionsText: 'Wybrane opcje',
   },
 };
 
