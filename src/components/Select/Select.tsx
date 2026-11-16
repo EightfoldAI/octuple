@@ -117,7 +117,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
       'data-test-id': dataTestId,
       keepCountPillFocus = true,
       improvedA11y = false,
-      announceSelection = false,
       restoreFocusOnPillAction = false,
       'aria-label': ariaLabel,
     },
@@ -185,7 +184,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
     const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
-    const [selectionMessage, setSelectionMessage] = useState<string>('');
     const restoreFocusRef: React.MutableRefObject<boolean> =
       useRef<boolean>(false);
 
@@ -516,21 +514,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
       // Update the state with the updated options
       setOptions(updatedOptions);
-
-      if (announceSelection && multiple) {
-        const lang = selectLocale?.lang;
-        const stateText: string = option.selected
-          ? lang?.optionDeselectedText ?? 'not selected'
-          : lang?.optionSelectedText ?? 'selected';
-        const selectedCount: number = updatedOptions.filter(
-          (opt: SelectOption) => opt.selected
-        ).length;
-        setSelectionMessage(
-          `${option.text} ${stateText}, ${selectedCount} ${
-            lang?.selectedCountText ?? 'selected'
-          }`
-        );
-      }
 
       if (filterable && multiple && inputRef.current?.value !== '') {
         setClearInput(true);
@@ -1336,16 +1319,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             >
               {improvedA11y ? announcedMessage : liveRegionMessage}
             </div>
-            {announceSelection && multiple && (
-              <div
-                aria-atomic="true"
-                aria-live="polite"
-                className={styles.selectLiveRegion}
-                role="status"
-              >
-                {selectionMessage}
-              </div>
-            )}
             {/* When Dropdown is hidden, place Pills outside the reference element */}
             {!dropdownVisible && showPills() ? getPills() : null}
             <Dropdown

@@ -7,9 +7,6 @@ const locale: SelectLocale = {
     resultsAvailableText: 'збіги знайдено.',
     noResultsFoundText: 'Збігів не знайдено для',
     optionPositionSeparatorText: 'з',
-    optionSelectedText: 'вибрано',
-    optionDeselectedText: 'не вибрано',
-    selectedCountText: 'вибрано',
     selectedOptionsText: 'Вибрані параметри',
   },
 };

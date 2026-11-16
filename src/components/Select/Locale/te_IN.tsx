@@ -7,9 +7,6 @@ const locale: SelectLocale = {
     resultsAvailableText: 'సరిపోలికలు కనుగొనబడ్డాయి.',
     noResultsFoundText: 'సరిపోలిక కనుగొనబడలేదు:',
     optionPositionSeparatorText: '/',
-    optionSelectedText: 'ఎంచుకోబడింది',
-    optionDeselectedText: 'ఎంచుకోబడలేదు',
-    selectedCountText: 'ఎంచుకోబడ్డాయి',
     selectedOptionsText: 'ఎంచుకున్న ఎంపికలు',
   },
 };

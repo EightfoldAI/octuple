@@ -7,9 +7,6 @@ const locale: SelectLocale = {
     resultsAvailableText: 'coincidencias encontradas.',
     noResultsFoundText: 'No se encontró ninguna coincidencia para',
     optionPositionSeparatorText: 'de',
-    optionSelectedText: 'seleccionado',
-    optionDeselectedText: 'no seleccionado',
-    selectedCountText: 'seleccionados',
     selectedOptionsText: 'Opciones seleccionadas',
   },
 };

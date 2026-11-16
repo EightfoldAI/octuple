@@ -1660,41 +1660,6 @@ describe('Select improvedA11y', () => {
       );
     });
 
-    test('announces each selection change with the selected count', async () => {
-      const { getByPlaceholderText, getAllByRole } = render(
-        <Select
-          improvedA11y
-          announceSelection
-          multiple
-          filterable
-          options={adOptions}
-          placeholder="Fruit"
-        />
-      );
-      const input = getByPlaceholderText('Fruit') as HTMLInputElement;
-      input.focus();
-      fireEvent.click(input);
-      await waitFor(() => getAllByRole('option'));
-      const selectionStatus = () =>
-        getAllByRole('status').find((el) =>
-          el.textContent.includes(' selected')
-        );
-
-      fireEvent.keyDown(input, { key: 'Enter' });
-      await waitFor(() =>
-        expect(selectionStatus()).toHaveTextContent(
-          'Apple selected, 1 selected'
-        )
-      );
-
-      fireEvent.keyDown(input, { key: 'Enter' });
-      await waitFor(() =>
-        expect(selectionStatus()).toHaveTextContent(
-          'Apple not selected, 0 selected'
-        )
-      );
-    });
-
     test('groups the selected pills under an accessible name', () => {
       const { getByRole } = render(
         <Select improvedA11y multiple filterable options={selectedOptions} />
@@ -1748,8 +1713,8 @@ describe('Select improvedA11y', () => {
       await waitFor(() => expect(getByRole('combobox')).toHaveFocus());
     });
 
-    test('does not announce or move focus without the opt-in props', async () => {
-      const { getAllByRole, getByLabelText, getByRole } = render(
+    test('does not move focus without restoreFocusOnPillAction', async () => {
+      const { getByLabelText, getByRole } = render(
         <Select
           improvedA11y
           multiple
@@ -1757,8 +1722,6 @@ describe('Select improvedA11y', () => {
           options={[{ text: 'Apple', value: 'apple', selected: true }]}
         />
       );
-      expect(getAllByRole('status')).toHaveLength(1);
-
       const removeApple = getByLabelText('Remove Apple');
       removeApple.focus();
       fireEvent.click(removeApple);
@@ -1771,7 +1734,7 @@ describe('Select improvedA11y', () => {
 
     test('leaves the multi-select markup unchanged without improvedA11y', async () => {
       mockWidthsForCountPill();
-      const { container, getByRole, getAllByRole } = render(
+      const { container, getByRole } = render(
         <Select multiple filterable options={selectedOptions} />
       );
       const countPill = await waitFor(() => {
@@ -1781,7 +1744,6 @@ describe('Select improvedA11y', () => {
       });
       expect(container.querySelector('[role="group"]')).toBeNull();
       expect(countPill).not.toHaveAttribute('aria-expanded');
-      expect(getAllByRole('status')).toHaveLength(1);
 
       fireEvent.click(getByRole('combobox'));
       await waitFor(() =>

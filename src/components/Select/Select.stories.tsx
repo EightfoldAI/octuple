@@ -357,7 +357,6 @@ Multiple_Improved_A11y.args = {
   ...SelectArgs,
   'aria-label': 'Select options',
   defaultValue: ['verylarge', 'account', 'hat'],
-  announceSelection: true,
   filterable: true,
   improvedA11y: true,
   multiple: true,
