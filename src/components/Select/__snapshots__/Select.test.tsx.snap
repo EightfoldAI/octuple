@@ -410,6 +410,19 @@ exports[`Select Renders with default values when multiple 1`] = `
       class="multi-select-pills"
     >
       <div
+        aria-label="2 options selected"
+        class="tag-pills multi-select-count blue-green medium read-only"
+        id="select-pill-count"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="label medium"
+        >
+          +2
+        </span>
+      </div>
+      <div
         class="tag-pills multi-select-pill blue-green medium"
         id="selectPilllist--option-1"
         style="visibility: hidden;"

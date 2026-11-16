@@ -748,6 +748,59 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const pills: React.ReactElement[] = [];
       let moreOptionsCount: number = selectedCount;
 
+      const getCountPill = (
+        remainingCount: number,
+        accessibleLabel: string
+      ): JSX.Element => {
+        // if keepCountPillFocus is true, keep the count pill focusable
+        const updatedPillProps = {
+          ...pillProps,
+          ...(keepCountPillFocus &&
+          'tabIndex' in pillProps &&
+          pillProps.tabIndex === -1
+            ? { tabIndex: 0 }
+            : {}),
+        };
+        return (
+          <Pill
+            classNames={countPillClassNames}
+            disabled={mergedDisabled}
+            id="select-pill-count"
+            key="select-count"
+            label={'+' + remainingCount}
+            tabIndex={0}
+            theme={'blueGreen'}
+            size={selectSizeToPillSizeMap.get(mergedSize)}
+            onClick={openFromCountPill}
+            onKeyDown={(event) => {
+              if (
+                event.key === eventKeys.ENTER ||
+                event.key === eventKeys.SPACE
+              ) {
+                event.preventDefault();
+                openFromCountPill();
+              }
+            }}
+            aria-label={accessibleLabel}
+            aria-expanded={improvedA11y ? dropdownVisible : undefined}
+            aria-controls={improvedA11y ? selectMenuId.current : undefined}
+            role="button"
+            {...updatedPillProps}
+          />
+        );
+      };
+
+      if (count === 0 && filled) {
+        pills.push(
+          getCountPill(
+            selectedCount,
+            `${selectedCount} ${
+              selectedCount === 1 ? 'option' : 'options'
+            } selected`
+          )
+        );
+      }
+
       // TODO: Mutate Array based on order of selection.
       selected.forEach((opt: SelectOption, index: number) => {
         const pill = (): JSX.Element => (
@@ -801,44 +854,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }
         if (pills?.length === count && filled) {
           const remainingCount = moreOptionsCount - count;
-          const accessibleLabel = `and ${remainingCount} more ${
-            remainingCount === 1 ? 'option' : 'options'
-          } selected`;
-          // if keepCountPillFocus is true, keep the count pill focusable
-          const updatedPillProps = {
-            ...pillProps,
-            ...(keepCountPillFocus &&
-            'tabIndex' in pillProps &&
-            pillProps.tabIndex === -1
-              ? { tabIndex: 0 }
-              : {}),
-          };
           pills.push(
-            <Pill
-              classNames={countPillClassNames}
-              disabled={mergedDisabled}
-              id="select-pill-count"
-              key="select-count"
-              label={'+' + remainingCount}
-              tabIndex={0}
-              theme={'blueGreen'}
-              size={selectSizeToPillSizeMap.get(mergedSize)}
-              onClick={openFromCountPill}
-              onKeyDown={(event) => {
-                if (
-                  event.key === eventKeys.ENTER ||
-                  event.key === eventKeys.SPACE
-                ) {
-                  event.preventDefault();
-                  openFromCountPill();
-                }
-              }}
-              aria-label={accessibleLabel}
-              aria-expanded={improvedA11y ? dropdownVisible : undefined}
-              aria-controls={improvedA11y ? selectMenuId.current : undefined}
-              role="button"
-              {...updatedPillProps}
-            />
+            getCountPill(
+              remainingCount,
+              `and ${remainingCount} more ${
+                remainingCount === 1 ? 'option' : 'options'
+              } selected`
+            )
           );
         }
       });

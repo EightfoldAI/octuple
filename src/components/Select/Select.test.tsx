@@ -1732,6 +1732,35 @@ describe('Select improvedA11y', () => {
       expect(getByRole('combobox')).not.toHaveFocus();
     });
 
+    test('shows the count pill alone when no pill fits', async () => {
+      jest
+        .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+        .mockImplementation(function (this: HTMLElement) {
+          const width: number = this.tagName === 'INPUT' ? 200 : 100;
+          return {
+            width,
+            height: 0,
+            top: 0,
+            left: 0,
+            right: width,
+            bottom: 0,
+            x: 0,
+            y: 0,
+            toJSON: () => ({}),
+          } as DOMRect;
+        });
+      const { container } = render(
+        <Select multiple filterable options={selectedOptions} />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+      expect(countPill).toHaveTextContent('+2');
+      expect(countPill).toHaveAttribute('aria-label', '2 options selected');
+    });
+
     test('leaves the multi-select markup unchanged without improvedA11y', async () => {
       mockWidthsForCountPill();
       const { container, getByRole } = render(
