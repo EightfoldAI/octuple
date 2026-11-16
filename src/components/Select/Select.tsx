@@ -117,6 +117,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
       'data-test-id': dataTestId,
       keepCountPillFocus = true,
       improvedA11y = false,
+      announceSelection = false,
+      restoreFocusOnPillAction = false,
       'aria-label': ariaLabel,
     },
     ref: Ref<HTMLDivElement>
@@ -515,7 +517,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // Update the state with the updated options
       setOptions(updatedOptions);
 
-      if (improvedA11y && multiple) {
+      if (announceSelection && multiple) {
         const lang = selectLocale?.lang;
         const stateText: string = option.selected
           ? lang?.optionDeselectedText ?? 'not selected'
@@ -775,7 +777,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             label={opt.text}
             onClose={(event) => {
               if (contains(document.activeElement, event.target as Node)) {
-                restoreFocusRef.current = improvedA11y;
+                restoreFocusRef.current = restoreFocusOnPillAction;
                 toggleOption(opt);
               }
             }}
@@ -877,7 +879,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       if (dropdownVisible) {
         return;
       }
-      restoreFocusRef.current = improvedA11y;
+      restoreFocusRef.current = restoreFocusOnPillAction;
       setDropdownVisibility(true);
     };
 
@@ -1334,7 +1336,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             >
               {improvedA11y ? announcedMessage : liveRegionMessage}
             </div>
-            {improvedA11y && multiple && (
+            {announceSelection && multiple && (
               <div
                 aria-atomic="true"
                 aria-live="polite"

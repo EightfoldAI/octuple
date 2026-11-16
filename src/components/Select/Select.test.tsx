@@ -1664,6 +1664,7 @@ describe('Select improvedA11y', () => {
       const { getByPlaceholderText, getAllByRole } = render(
         <Select
           improvedA11y
+          announceSelection
           multiple
           filterable
           options={adOptions}
@@ -1706,7 +1707,13 @@ describe('Select improvedA11y', () => {
     test('exposes the count pill state and keeps focus in the select when it opens the list', async () => {
       mockWidthsForCountPill();
       const { container, getByRole } = render(
-        <Select improvedA11y multiple filterable options={selectedOptions} />
+        <Select
+          improvedA11y
+          restoreFocusOnPillAction
+          multiple
+          filterable
+          options={selectedOptions}
+        />
       );
       const countPill = await waitFor(() => {
         const pill = container.querySelector('#select-pill-count');
@@ -1728,6 +1735,7 @@ describe('Select improvedA11y', () => {
       const { getByRole, getByLabelText } = render(
         <Select
           improvedA11y
+          restoreFocusOnPillAction
           multiple
           filterable
           options={[{ text: 'Apple', value: 'apple', selected: true }]}
@@ -1738,6 +1746,27 @@ describe('Select improvedA11y', () => {
       fireEvent.click(removeApple);
 
       await waitFor(() => expect(getByRole('combobox')).toHaveFocus());
+    });
+
+    test('does not announce or move focus without the opt-in props', async () => {
+      const { getAllByRole, getByLabelText, getByRole } = render(
+        <Select
+          improvedA11y
+          multiple
+          filterable
+          options={[{ text: 'Apple', value: 'apple', selected: true }]}
+        />
+      );
+      expect(getAllByRole('status')).toHaveLength(1);
+
+      const removeApple = getByLabelText('Remove Apple');
+      removeApple.focus();
+      fireEvent.click(removeApple);
+
+      await waitFor(() =>
+        expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'false')
+      );
+      expect(getByRole('combobox')).not.toHaveFocus();
     });
 
     test('leaves the multi-select markup unchanged without improvedA11y', async () => {

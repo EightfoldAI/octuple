@@ -291,4 +291,16 @@ export interface SelectProps
    * @default false
    */
   improvedA11y?: boolean;
+  /**
+   * Announces each selection change of a `multiple` select in a live region,
+   * e.g. "Apple selected, 1 selected".
+   * @default false
+   */
+  announceSelection?: boolean;
+  /**
+   * Returns focus to the input when removing a pill, or opening the list from
+   * the count pill, drops it to the body.
+   * @default false
+   */
+  restoreFocusOnPillAction?: boolean;
 }
