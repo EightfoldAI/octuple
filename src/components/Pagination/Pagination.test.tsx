@@ -146,6 +146,12 @@ describe('Pagination', () => {
         .find(Boolean);
     expect(getMenuItem('20 / page').classList).toContain('active');
     expect(getMenuItem('10 / page').classList).not.toContain('active');
+    const getOption = (text: string): Element =>
+      getMenuItem(text).querySelector('[role="menuitemradio"]');
+    expect(getOption('20 / page').getAttribute('aria-checked')).toBe('true');
+    expect(getOption('10 / page').getAttribute('aria-checked')).toBe('false');
+    expect(getOption('20 / page').querySelector('svg')).not.toBeNull();
+    expect(getOption('10 / page').querySelector('svg')).toBeNull();
   });
 
   test('Pagination next and previous buttons should render as expected', () => {
