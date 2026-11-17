@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'trên',
     selectedOptionsText: 'Các tùy chọn đã chọn',
     optionSelectedStateText: 'đã chọn',
+    selectedCountText: 'Đã chọn: {0}',
+    moreSelectedCountText: 'Cũng đã chọn: {0}',
   },
 };
 

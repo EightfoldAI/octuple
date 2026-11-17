@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: '已选选项',
     optionSelectedStateText: '已选',
+    selectedCountText: '已选: {0}',
+    moreSelectedCountText: '另外已选: {0}',
   },
 };
 

@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'van',
     selectedOptionsText: 'Geselecteerde opties',
     optionSelectedStateText: 'geselecteerd',
+    selectedCountText: 'Geselecteerd: {0}',
+    moreSelectedCountText: 'Ook geselecteerd: {0}',
   },
 };
 

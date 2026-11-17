@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: '選択済みのオプション',
     optionSelectedStateText: '選択済み',
+    selectedCountText: '選択済み: {0}',
+    moreSelectedCountText: 'その他の選択済み: {0}',
   },
 };
 

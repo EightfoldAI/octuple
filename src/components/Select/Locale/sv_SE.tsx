@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'av',
     selectedOptionsText: 'Valda alternativ',
     optionSelectedStateText: 'vald',
+    selectedCountText: 'Valda: {0}',
+    moreSelectedCountText: 'Även valda: {0}',
   },
 };
 

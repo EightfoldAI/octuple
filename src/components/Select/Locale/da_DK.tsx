@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'af',
     selectedOptionsText: 'Valgte indstillinger',
     optionSelectedStateText: 'valgt',
+    selectedCountText: 'Valgt: {0}',
+    moreSelectedCountText: 'Også valgt: {0}',
   },
 };
 

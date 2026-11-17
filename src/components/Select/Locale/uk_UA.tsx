@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'з',
     selectedOptionsText: 'Вибрані параметри',
     optionSelectedStateText: 'вибрано',
+    selectedCountText: 'Вибрано: {0}',
+    moreSelectedCountText: 'Також вибрано: {0}',
   },
 };
 

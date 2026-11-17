@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'ఎంచుకున్న ఎంపికలు',
     optionSelectedStateText: 'ఎంచుకోబడింది',
+    selectedCountText: 'ఎంచుకున్నవి: {0}',
+    moreSelectedCountText: 'ఇంకా ఎంచుకున్నవి: {0}',
   },
 };
 

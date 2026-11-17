@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'Seçili seçenekler',
     optionSelectedStateText: 'seçili',
+    selectedCountText: 'Seçili: {0}',
+    moreSelectedCountText: 'Ayrıca seçili: {0}',
   },
 };
 

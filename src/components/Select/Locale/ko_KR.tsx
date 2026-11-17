@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: '선택된 옵션',
     optionSelectedStateText: '선택됨',
+    selectedCountText: '선택됨: {0}',
+    moreSelectedCountText: '추가 선택됨: {0}',
   },
 };
 

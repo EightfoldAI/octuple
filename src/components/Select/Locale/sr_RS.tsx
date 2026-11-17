@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'од',
     selectedOptionsText: 'Изабране опције',
     optionSelectedStateText: 'изабрано',
+    selectedCountText: 'Изабрано: {0}',
+    moreSelectedCountText: 'Такође изабрано: {0}',
   },
 };
 

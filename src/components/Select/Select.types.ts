@@ -46,6 +46,14 @@ type SelectLang = {
    * announcement, e.g. the "selected" in "Apple, selected, 1 of 3". Defaults to "selected".
    */
   optionSelectedStateText?: string;
+  /**
+   * Accessible name of the count pill when no option pills fit. {0} is the count. Defaults to "Selected: {0}".
+   */
+  selectedCountText?: string;
+  /**
+   * Accessible name of the "+N" pill after the visible option pills. {0} is N. Defaults to "Also selected: {0}".
+   */
+  moreSelectedCountText?: string;
 };
 
 export type SelectLocale = {

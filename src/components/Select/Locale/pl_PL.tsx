@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'z',
     selectedOptionsText: 'Wybrane opcje',
     optionSelectedStateText: 'wybrano',
+    selectedCountText: 'Wybrano: {0}',
+    moreSelectedCountText: 'Wybrano także: {0}',
   },
 };
 

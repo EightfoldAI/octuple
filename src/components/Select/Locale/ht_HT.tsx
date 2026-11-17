@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'sou',
     selectedOptionsText: 'Opsyon ki chwazi',
     optionSelectedStateText: 'chwazi',
+    selectedCountText: 'Chwazi: {0}',
+    moreSelectedCountText: 'Chwazi tou: {0}',
   },
 };
 

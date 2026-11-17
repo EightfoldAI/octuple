@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'Valitut vaihtoehdot',
     optionSelectedStateText: 'valittu',
+    selectedCountText: 'Valittu: {0}',
+    moreSelectedCountText: 'Valittu myös: {0}',
   },
 };
 

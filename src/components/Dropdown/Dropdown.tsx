@@ -618,7 +618,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           <ConditionalWrapper
             condition={portal}
             wrapper={(children) => (
-              <FloatingPortal preserveTabOrder root={portalRoot}>
+              // Remount when the root arrives so the focus guards follow it.
+              <FloatingPortal
+                key={portalRoot ? 'root' : 'body'}
+                preserveTabOrder
+                root={portalRoot}
+              >
                 {children}
               </FloatingPortal>
             )}

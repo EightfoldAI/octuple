@@ -1780,7 +1780,7 @@ describe('Select improvedA11y', () => {
         return pill;
       });
       expect(countPill).toHaveTextContent('+2');
-      expect(countPill).toHaveAttribute('aria-label', '2 options selected');
+      expect(countPill).toHaveAttribute('aria-label', 'Selected: 2');
     });
 
     test('opens the list and keeps focus in the select when the count pill is clicked', async () => {
@@ -1807,6 +1807,28 @@ describe('Select improvedA11y', () => {
         expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'true')
       );
       expect(getByRole('combobox')).toHaveFocus();
+    });
+
+    test('does not open a disabled select from the count pill', async () => {
+      mockWidthsForCountPill();
+      const { container, getByRole } = render(
+        <Select
+          improvedA11y
+          disabled
+          multiple
+          filterable
+          options={selectedOptions}
+        />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+
+      fireEvent.click(countPill);
+
+      expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'false');
     });
 
     test('moves focus past the select with one Tab when shouldCloseOnTab is set', async () => {

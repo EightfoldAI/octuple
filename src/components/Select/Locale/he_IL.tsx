@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'מתוך',
     selectedOptionsText: 'אפשרויות שנבחרו',
     optionSelectedStateText: 'נבחר',
+    selectedCountText: 'נבחרו: {0}',
+    moreSelectedCountText: 'נבחרו גם: {0}',
   },
 };
 

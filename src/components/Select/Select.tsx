@@ -810,9 +810,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
         pills.push(
           getCountPill(
             selectedCount,
-            `${selectedCount} ${
-              selectedCount === 1 ? 'option' : 'options'
-            } selected`
+            (selectLocale?.lang?.selectedCountText ?? 'Selected: {0}').replace(
+              '{0}',
+              `${selectedCount}`
+            )
           )
         );
       }
@@ -873,9 +874,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
           pills.push(
             getCountPill(
               remainingCount,
-              `and ${remainingCount} more ${
-                remainingCount === 1 ? 'option' : 'options'
-              } selected`
+              (
+                selectLocale?.lang?.moreSelectedCountText ??
+                'Also selected: {0}'
+              ).replace('{0}', `${remainingCount}`)
             )
           );
         }
@@ -897,7 +899,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     };
 
     const openFromCountPill = (): void => {
-      if (dropdownVisible) {
+      if (dropdownVisible || mergedDisabled || readonly) {
         return;
       }
       restoreFocusRef.current = restoreFocusOnPillAction;

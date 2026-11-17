@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'Kiválasztott beállítások',
     optionSelectedStateText: 'kiválasztva',
+    selectedCountText: 'Kiválasztva: {0}',
+    moreSelectedCountText: 'További kiválasztott: {0}',
   },
 };
 

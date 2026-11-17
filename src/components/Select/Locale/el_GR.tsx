@@ -9,6 +9,8 @@ const locale: SelectLocale = {
     optionPositionSeparatorText: 'από',
     selectedOptionsText: 'Επιλεγμένες επιλογές',
     optionSelectedStateText: 'επιλεγμένο',
+    selectedCountText: 'Επιλεγμένα: {0}',
+    moreSelectedCountText: 'Επίσης επιλεγμένα: {0}',
   },
 };
 
