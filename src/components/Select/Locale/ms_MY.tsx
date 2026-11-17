@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Tiada padanan ditemui untuk',
     optionPositionSeparatorText: 'daripada',
     selectedOptionsText: 'Pilihan yang dipilih',
+    optionSelectedStateText: 'dipilih',
   },
 };
 

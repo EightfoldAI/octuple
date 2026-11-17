@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'ไม่พบรายการที่ตรงกันสำหรับ',
     optionPositionSeparatorText: 'จาก',
     selectedOptionsText: 'ตัวเลือกที่เลือก',
+    optionSelectedStateText: 'เลือกแล้ว',
   },
 };
 

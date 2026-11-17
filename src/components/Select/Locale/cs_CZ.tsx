@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Žádná shoda nenalezena pro',
     optionPositionSeparatorText: 'z',
     selectedOptionsText: 'Vybrané možnosti',
+    optionSelectedStateText: 'vybráno',
   },
 };
 

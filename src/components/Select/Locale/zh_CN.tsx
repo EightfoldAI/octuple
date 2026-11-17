@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: '未找到匹配项：',
     optionPositionSeparatorText: '/',
     selectedOptionsText: '已选选项',
+    optionSelectedStateText: '已选',
   },
 };
 

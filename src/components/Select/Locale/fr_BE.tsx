@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Aucune correspondance trouvée pour',
     optionPositionSeparatorText: 'sur',
     selectedOptionsText: 'Options sélectionnées',
+    optionSelectedStateText: 'sélectionnée',
   },
 };
 

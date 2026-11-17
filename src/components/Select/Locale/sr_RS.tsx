@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Није пронађено подударање за',
     optionPositionSeparatorText: 'од',
     selectedOptionsText: 'Изабране опције',
+    optionSelectedStateText: 'изабрано',
   },
 };
 

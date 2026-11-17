@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: '일치하는 항목을 찾을 수 없습니다:',
     optionPositionSeparatorText: '/',
     selectedOptionsText: '선택된 옵션',
+    optionSelectedStateText: '선택됨',
   },
 };
 

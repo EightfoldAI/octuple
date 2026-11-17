@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Không tìm thấy kết quả phù hợp cho',
     optionPositionSeparatorText: 'trên',
     selectedOptionsText: 'Các tùy chọn đã chọn',
+    optionSelectedStateText: 'đã chọn',
   },
 };
 

@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Nie znaleziono dopasowania dla',
     optionPositionSeparatorText: 'z',
     selectedOptionsText: 'Wybrane opcje',
+    optionSelectedStateText: 'wybrano',
   },
 };
 

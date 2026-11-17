@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Δεν βρέθηκε αποτέλεσμα για',
     optionPositionSeparatorText: 'από',
     selectedOptionsText: 'Επιλεγμένες επιλογές',
+    optionSelectedStateText: 'επιλεγμένο',
   },
 };
 

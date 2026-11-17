@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Osumia ei löydy haulle',
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'Valitut vaihtoehdot',
+    optionSelectedStateText: 'valittu',
   },
 };
 

@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Nicio potrivire găsită pentru',
     optionPositionSeparatorText: 'din',
     selectedOptionsText: 'Opțiuni selectate',
+    optionSelectedStateText: 'selectată',
   },
 };
 

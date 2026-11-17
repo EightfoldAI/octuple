@@ -186,6 +186,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
     const restoreFocusRef: React.MutableRefObject<boolean> =
       useRef<boolean>(false);
+    const tabbedOutRef: React.MutableRefObject<boolean> =
+      useRef<boolean>(false);
+    const countPillRef: React.MutableRefObject<HTMLDivElement> =
+      useRef<HTMLDivElement>(null);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -367,7 +371,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setDropdownVisibility(false);
       }
       if (!dropdownVisible && prevDropdownVisible) {
-        inputRef.current?.focus();
+        if (!tabbedOutRef.current) {
+          inputRef.current?.focus();
+        }
+        tabbedOutRef.current = false;
       }
     }, [readonly, dropdownVisible, prevDropdownVisible]);
 
@@ -451,12 +458,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
           const position: string = `${
             activeIndex + 1
           } ${positionSeparator} ${visibleOptionsCount}`;
+          // VoiceOver doesn't read aria-selected here, so say it for multi-select.
+          const optionText: string =
+            multiple && activeOption.selected
+              ? `${activeOption.text}, ${
+                  selectLocale?.lang?.optionSelectedStateText ?? 'selected'
+                }`
+              : activeOption.text;
           // Group only on open/filter; the seeded option isn't announced natively.
           const activeText: string =
             announceModeRef.current === 'nav'
-              ? `${activeOption.text}, ${position}`
+              ? `${optionText}, ${position}`
               : [
-                  activeOption.text,
+                  optionText,
                   optionGroupById[activeDescendantId] ?? '',
                   position,
                 ]
@@ -478,6 +492,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       selectLocale,
       improvedA11y,
       activeDescendantId,
+      multiple,
     ]);
 
     // Debounce open/filter so keystroke updates coalesce; arrow nav is immediate.
@@ -767,11 +782,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
             disabled={mergedDisabled}
             id="select-pill-count"
             key="select-count"
+            ref={countPillRef}
             label={'+' + remainingCount}
             tabIndex={0}
             theme={'blueGreen'}
             size={selectSizeToPillSizeMap.get(mergedSize)}
-            onClick={openFromCountPill}
+            onClickCapture={openFromCountPill}
             onKeyDown={(event) => {
               if (
                 event.key === eventKeys.ENTER ||
@@ -1000,10 +1016,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const getStyle = (): React.CSSProperties => {
       if (filterable && multiple && dropdownVisible && showPills()) {
+        // The count pill can be wider than the fixed offset, e.g. "+249".
+        const pillRect: DOMRect = countPillRef.current?.getBoundingClientRect();
+        const inputRect: DOMRect = inputRef.current?.getBoundingClientRect();
+        const countPillEnd: number =
+          pillRect && inputRect
+            ? (htmlDir === 'rtl'
+                ? inputRect.right - pillRect.left
+                : pillRect.right - inputRect.left) + inputPaddingHorizontal
+            : 0;
         const paddingValue: number =
-          width > 0
+          width > 0 || filled
             ? filled
-              ? width + multiSelectCountOffset
+              ? Math.max(width + multiSelectCountOffset, countPillEnd)
               : width + inputPaddingHorizontal
             : inputPaddingHorizontal;
         if (htmlDir === 'rtl') {
@@ -1119,6 +1144,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
       // set keydown behaviors
       if (improvedA11y && dropdownVisible) {
+        // Tab leaves the select, so don't pull focus back when the list closes.
+        tabbedOutRef.current = event?.key === eventKeys.TAB && !event.shiftKey;
         if (event?.key === eventKeys.ARROWDOWN) {
           event.preventDefault();
           event.stopPropagation();

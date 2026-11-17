@@ -41,6 +41,11 @@ type SelectLang = {
    * Accessible name of the selected option pills group. Defaults to "Selected options".
    */
   selectedOptionsText?: string;
+  /**
+   * State read after a selected option in the multi-select active option
+   * announcement, e.g. the "selected" in "Apple, selected, 1 of 3". Defaults to "selected".
+   */
+  optionSelectedStateText?: string;
 };
 
 export type SelectLocale = {

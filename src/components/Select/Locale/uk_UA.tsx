@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Збігів не знайдено для',
     optionPositionSeparatorText: 'з',
     selectedOptionsText: 'Вибрані параметри',
+    optionSelectedStateText: 'вибрано',
   },
 };
 

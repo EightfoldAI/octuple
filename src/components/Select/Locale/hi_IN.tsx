@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'कोई मिलान नहीं मिला:',
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'चयनित विकल्प',
+    optionSelectedStateText: 'चयनित',
   },
 };
 

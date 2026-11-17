@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Nincs találat erre:',
     optionPositionSeparatorText: '/',
     selectedOptionsText: 'Kiválasztott beállítások',
+    optionSelectedStateText: 'kiválasztva',
   },
 };
 

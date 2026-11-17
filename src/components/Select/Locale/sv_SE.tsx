@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Ingen träff hittad för',
     optionPositionSeparatorText: 'av',
     selectedOptionsText: 'Valda alternativ',
+    optionSelectedStateText: 'vald',
   },
 };
 

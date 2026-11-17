@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: 'Ingen treff funnet for',
     optionPositionSeparatorText: 'av',
     selectedOptionsText: 'Valgte alternativer',
+    optionSelectedStateText: 'valgt',
   },
 };
 

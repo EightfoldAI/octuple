@@ -8,6 +8,7 @@ const locale: SelectLocale = {
     noResultsFoundText: '一致する結果が見つかりません:',
     optionPositionSeparatorText: '/',
     selectedOptionsText: '選択済みのオプション',
+    optionSelectedStateText: '選択済み',
   },
 };
 
