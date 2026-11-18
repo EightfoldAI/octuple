@@ -1862,6 +1862,28 @@ describe('Select improvedA11y', () => {
       expect(next).toHaveFocus();
     });
 
+    test('still refocuses the input after a Tab when shouldCloseOnTab is off', async () => {
+      const { getByRole, getByText } = render(
+        <Select improvedA11y options={selectedOptions} />
+      );
+      const input = getByRole('combobox');
+      input.focus();
+      fireEvent.click(input);
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'true')
+      );
+
+      // Tab keeps the list open here; a later mouse pick closes it.
+      fireEvent.keyDown(input, { key: 'Tab' });
+      input.blur();
+      fireEvent.click(getByText('Cherry'));
+
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'false')
+      );
+      expect(input).toHaveFocus();
+    });
+
     test('leaves the multi-select markup unchanged without improvedA11y', async () => {
       mockWidthsForCountPill();
       const { container, getByRole } = render(

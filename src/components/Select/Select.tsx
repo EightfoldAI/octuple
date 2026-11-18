@@ -1147,7 +1147,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
       // set keydown behaviors
       if (improvedA11y && dropdownVisible) {
         // Tab leaves the select, so don't pull focus back when the list closes.
-        tabbedOutRef.current = event?.key === eventKeys.TAB && !event.shiftKey;
+        tabbedOutRef.current =
+          !!dropdownProps.shouldCloseOnTab &&
+          event?.key === eventKeys.TAB &&
+          !event.shiftKey;
         if (event?.key === eventKeys.ARROWDOWN) {
           event.preventDefault();
           event.stopPropagation();
