@@ -117,6 +117,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       'data-test-id': dataTestId,
       keepCountPillFocus = true,
       improvedA11y = false,
+      restoreFocusOnPillAction = false,
       'aria-label': ariaLabel,
     },
     ref: Ref<HTMLDivElement>
@@ -183,6 +184,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [resetTextInput, setResetTextInput] = useState<boolean>(false);
     const [_initialFocus, setInitialFocus] = useState<boolean>(false);
     const [activeDescendantId, setActiveDescendantId] = useState<string>(null);
+    const restoreFocusRef: React.MutableRefObject<boolean> =
+      useRef<boolean>(false);
+    const tabbedOutRef: React.MutableRefObject<boolean> =
+      useRef<boolean>(false);
+    const countPillRef: React.MutableRefObject<HTMLDivElement> =
+      useRef<HTMLDivElement>(null);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -364,7 +371,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setDropdownVisibility(false);
       }
       if (!dropdownVisible && prevDropdownVisible) {
-        inputRef.current?.focus();
+        if (!tabbedOutRef.current) {
+          inputRef.current?.focus();
+        }
+        tabbedOutRef.current = false;
       }
     }, [readonly, dropdownVisible, prevDropdownVisible]);
 
@@ -448,12 +458,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
           const position: string = `${
             activeIndex + 1
           } ${positionSeparator} ${visibleOptionsCount}`;
+          // VoiceOver doesn't read aria-selected here, so say it for multi-select.
+          const optionText: string =
+            multiple && activeOption.selected
+              ? `${activeOption.text}, ${
+                  selectLocale?.lang?.optionSelectedStateText ?? 'selected'
+                }`
+              : activeOption.text;
           // Group only on open/filter; the seeded option isn't announced natively.
           const activeText: string =
             announceModeRef.current === 'nav'
-              ? `${activeOption.text}, ${position}`
+              ? `${optionText}, ${position}`
               : [
-                  activeOption.text,
+                  optionText,
                   optionGroupById[activeDescendantId] ?? '',
                   position,
                 ]
@@ -475,6 +492,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       selectLocale,
       improvedA11y,
       activeDescendantId,
+      multiple,
     ]);
 
     // Debounce open/filter so keystroke updates coalesce; arrow nav is immediate.
@@ -516,6 +534,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
         setClearInput(true);
       }
     };
+
+    useEffect(() => {
+      if (!restoreFocusRef.current) {
+        return;
+      }
+      restoreFocusRef.current = false;
+      if (!document.activeElement || document.activeElement === document.body) {
+        inputRef.current?.focus();
+      }
+    }, [options, dropdownVisible]);
 
     const resetSelectOnDropdownHide = (): void => {
       setSearchQuery('');
@@ -735,6 +763,61 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const pills: React.ReactElement[] = [];
       let moreOptionsCount: number = selectedCount;
 
+      const getCountPill = (
+        remainingCount: number,
+        accessibleLabel: string
+      ): JSX.Element => {
+        // if keepCountPillFocus is true, keep the count pill focusable
+        const updatedPillProps = {
+          ...pillProps,
+          ...(keepCountPillFocus &&
+          'tabIndex' in pillProps &&
+          pillProps.tabIndex === -1
+            ? { tabIndex: 0 }
+            : {}),
+        };
+        return (
+          <Pill
+            classNames={countPillClassNames}
+            disabled={mergedDisabled}
+            id="select-pill-count"
+            key="select-count"
+            ref={countPillRef}
+            label={'+' + remainingCount}
+            tabIndex={0}
+            theme={'blueGreen'}
+            size={selectSizeToPillSizeMap.get(mergedSize)}
+            onClickCapture={openFromCountPill}
+            onKeyDown={(event) => {
+              if (
+                event.key === eventKeys.ENTER ||
+                event.key === eventKeys.SPACE
+              ) {
+                event.preventDefault();
+                openFromCountPill();
+              }
+            }}
+            aria-label={accessibleLabel}
+            aria-expanded={improvedA11y ? dropdownVisible : undefined}
+            aria-controls={improvedA11y ? selectMenuId.current : undefined}
+            role="button"
+            {...updatedPillProps}
+          />
+        );
+      };
+
+      if (count === 0 && filled) {
+        pills.push(
+          getCountPill(
+            selectedCount,
+            (selectLocale?.lang?.selectedCountText ?? 'Selected: {0}').replace(
+              '{0}',
+              `${selectedCount}`
+            )
+          )
+        );
+      }
+
       // TODO: Mutate Array based on order of selection.
       selected.forEach((opt: SelectOption, index: number) => {
         const pill = (): JSX.Element => (
@@ -747,6 +830,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             label={opt.text}
             onClose={(event) => {
               if (contains(document.activeElement, event.target as Node)) {
+                restoreFocusRef.current = restoreFocusOnPillAction;
                 toggleOption(opt);
               }
             }}
@@ -787,53 +871,39 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }
         if (pills?.length === count && filled) {
           const remainingCount = moreOptionsCount - count;
-          const accessibleLabel = `and ${remainingCount} more ${
-            remainingCount === 1 ? 'option' : 'options'
-          } selected`;
-          // if keepCountPillFocus is true, keep the count pill focusable
-          const updatedPillProps = {
-            ...pillProps,
-            ...(keepCountPillFocus &&
-            'tabIndex' in pillProps &&
-            pillProps.tabIndex === -1
-              ? { tabIndex: 0 }
-              : {}),
-          };
           pills.push(
-            <Pill
-              classNames={countPillClassNames}
-              disabled={mergedDisabled}
-              id="select-pill-count"
-              key="select-count"
-              label={'+' + remainingCount}
-              tabIndex={0}
-              theme={'blueGreen'}
-              size={selectSizeToPillSizeMap.get(mergedSize)}
-              onClick={() => {
-                if (!dropdownVisible) {
-                  setDropdownVisibility(true);
-                }
-              }}
-              onKeyDown={(event) => {
-                if (
-                  event.key === eventKeys.ENTER ||
-                  event.key === eventKeys.SPACE
-                ) {
-                  event.preventDefault();
-                  if (!dropdownVisible) {
-                    setDropdownVisibility(true);
-                  }
-                }
-              }}
-              aria-label={accessibleLabel}
-              role="button"
-              {...updatedPillProps}
-            />
+            getCountPill(
+              remainingCount,
+              (
+                selectLocale?.lang?.moreSelectedCountText ??
+                'Also selected: {0}'
+              ).replace('{0}', `${remainingCount}`)
+            )
           );
         }
       });
 
-      return <div className={styles.multiSelectPills}>{pills}</div>;
+      return (
+        <div
+          className={styles.multiSelectPills}
+          role={improvedA11y ? 'group' : undefined}
+          aria-label={
+            improvedA11y
+              ? selectLocale?.lang?.selectedOptionsText ?? 'Selected options'
+              : undefined
+          }
+        >
+          {pills}
+        </div>
+      );
+    };
+
+    const openFromCountPill = (): void => {
+      if (dropdownVisible || mergedDisabled || readonly) {
+        return;
+      }
+      restoreFocusRef.current = restoreFocusOnPillAction;
+      setDropdownVisibility(true);
     };
 
     const getSelectedOptionText = (): void => {
@@ -917,6 +987,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return (
           <Menu
             aria-label={ariaLabel || undefined}
+            aria-multiselectable={improvedA11y && multiple ? true : undefined}
             id={selectMenuId?.current}
             {...restMenuProps}
             itemProps={menuItemRole ? { role: menuItemRole } : undefined}
@@ -947,10 +1018,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const getStyle = (): React.CSSProperties => {
       if (filterable && multiple && dropdownVisible && showPills()) {
+        // The count pill can be wider than the fixed offset, e.g. "+249".
+        const pillRect: DOMRect = countPillRef.current?.getBoundingClientRect();
+        const inputRect: DOMRect = inputRef.current?.getBoundingClientRect();
+        const countPillEnd: number =
+          pillRect && inputRect
+            ? (htmlDir === 'rtl'
+                ? inputRect.right - pillRect.left
+                : pillRect.right - inputRect.left) + inputPaddingHorizontal
+            : 0;
         const paddingValue: number =
-          width > 0
+          width > 0 || filled
             ? filled
-              ? width + multiSelectCountOffset
+              ? Math.max(width + multiSelectCountOffset, countPillEnd)
               : width + inputPaddingHorizontal
             : inputPaddingHorizontal;
         if (htmlDir === 'rtl') {
@@ -1066,6 +1146,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
       // set keydown behaviors
       if (improvedA11y && dropdownVisible) {
+        // Tab leaves the select, so don't pull focus back when the list closes.
+        tabbedOutRef.current =
+          !!dropdownProps.shouldCloseOnTab &&
+          event?.key === eventKeys.TAB &&
+          !event.shiftKey;
         if (event?.key === eventKeys.ARROWDOWN) {
           event.preventDefault();
           event.stopPropagation();

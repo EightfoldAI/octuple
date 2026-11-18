@@ -37,6 +37,23 @@ type SelectLang = {
    * announcement, e.g. the "of" in "Apple, 1 of 3". Defaults to "of".
    */
   optionPositionSeparatorText?: string;
+  /**
+   * Accessible name of the selected option pills group. Defaults to "Selected options".
+   */
+  selectedOptionsText?: string;
+  /**
+   * State read after a selected option in the multi-select active option
+   * announcement, e.g. the "selected" in "Apple, selected, 1 of 3". Defaults to "selected".
+   */
+  optionSelectedStateText?: string;
+  /**
+   * Accessible name of the count pill when no option pills fit. {0} is the count. Defaults to "Selected: {0}".
+   */
+  selectedCountText?: string;
+  /**
+   * Accessible name of the "+N" pill after the visible option pills. {0} is N. Defaults to "Also selected: {0}".
+   */
+  moreSelectedCountText?: string;
 };
 
 export type SelectLocale = {
@@ -275,4 +292,10 @@ export interface SelectProps
    * @default false
    */
   improvedA11y?: boolean;
+  /**
+   * Returns focus to the input when removing a pill, or opening the list from
+   * the count pill, drops it to the body.
+   * @default false
+   */
+  restoreFocusOnPillAction?: boolean;
 }

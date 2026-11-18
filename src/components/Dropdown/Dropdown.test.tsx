@@ -521,6 +521,24 @@ describe('Dropdown', () => {
     ).toContain('red');
   });
 
+  test('Should render a portaled dropdown into a portalRoot set after mount', async () => {
+    const portalRoot = document.createElement('div');
+    document.body.appendChild(portalRoot);
+    const dropdown = (root?: HTMLElement) => (
+      <Dropdown {...dropdownProps} portal portalRoot={root}>
+        <Button text="Open portaled dropdown" />
+      </Dropdown>
+    );
+    const { rerender } = render(dropdown());
+    rerender(dropdown(portalRoot));
+    screen.getByRole('button').click();
+    await waitFor(() => screen.getByText('User profile 1'));
+    expect(portalRoot).toContainElement(screen.getByText('User profile 1'));
+    // No focus guards left on the detached body container.
+    expect(document.querySelector('[data-type="outside"]')).toBeNull();
+    portalRoot.remove();
+  });
+
   test('Should support cloned element id from its props', async () => {
     render(<DropdownComponent />);
     const dropdownButton = screen.getByRole('button');

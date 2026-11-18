@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'eşleşme bulundu.',
     noResultsFoundText: 'Eşleşme bulunamadı:',
     optionPositionSeparatorText: '/',
+    selectedOptionsText: 'Seçili seçenekler',
+    optionSelectedStateText: 'seçili',
+    selectedCountText: 'Seçili: {0}',
+    moreSelectedCountText: 'Ayrıca seçili: {0}',
   },
 };
 

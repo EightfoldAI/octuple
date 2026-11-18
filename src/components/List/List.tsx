@@ -38,6 +38,7 @@ export const List = <T extends any>({
   applyCyclicNavigation = false,
   'aria-label': ariaLabel,
   'aria-labelledby': ariaLabelledBy,
+  'aria-multiselectable': ariaMultiselectable,
   ...rest
 }: ListProps<T>) => {
   const htmlDir: string = useCanvasDirection();
@@ -265,6 +266,7 @@ export const List = <T extends any>({
           role={role}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
+          aria-multiselectable={ariaMultiselectable}
           className={containerClasses}
           style={{ ...listStyle }}
         >
@@ -278,6 +280,7 @@ export const List = <T extends any>({
           role={role}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
+          aria-multiselectable={ariaMultiselectable}
           className={containerClasses}
           style={{ ...listStyle }}
         >

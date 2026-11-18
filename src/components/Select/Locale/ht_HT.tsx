@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'matches jwenn.',
     noResultsFoundText: 'Pa gen match jwenn pou',
     optionPositionSeparatorText: 'sou',
+    selectedOptionsText: 'Opsyon ki chwazi',
+    optionSelectedStateText: 'chwazi',
+    selectedCountText: 'Chwazi: {0}',
+    moreSelectedCountText: 'Chwazi tou: {0}',
   },
 };
 

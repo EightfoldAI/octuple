@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'podudaranja pronađena.',
     noResultsFoundText: 'Nije pronađeno podudaranje za',
     optionPositionSeparatorText: 'od',
+    selectedOptionsText: 'Odabrane opcije',
+    optionSelectedStateText: 'odabrano',
+    selectedCountText: 'Odabrano: {0}',
+    moreSelectedCountText: 'Također odabrano: {0}',
   },
 };
 

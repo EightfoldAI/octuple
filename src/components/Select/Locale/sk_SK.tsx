@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'zhody nájdené.',
     noResultsFoundText: 'Žiadna zhoda nenájdená pre',
     optionPositionSeparatorText: 'z',
+    selectedOptionsText: 'Vybraté možnosti',
+    optionSelectedStateText: 'vybraté',
+    selectedCountText: 'Vybraté: {0}',
+    moreSelectedCountText: 'Ďalej vybraté: {0}',
   },
 };
 
