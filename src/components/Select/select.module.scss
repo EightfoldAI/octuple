@@ -12,11 +12,11 @@ $multi-select-count-offset: 54px;
   position: relative;
   width: 100%;
 
-  min-width: 276px;
+  min-width: min(276px, 100%);
 
   // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
   &-multiple {
-    min-width: 324px;
+    min-width: min(324px, 100%);
   }
 
   &-disabled {
@@ -166,6 +166,10 @@ $multi-select-count-offset: 54px;
 .selected-option {
   background-color: var(--primary-background1-color);
   color: var(--primary-color);
+}
+
+.select-dropdown-overlay {
+  max-width: calc(100vw - 32px);
 }
 
 .select-live-region {
