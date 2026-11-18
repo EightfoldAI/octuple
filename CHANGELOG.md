@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.59.7](https://github.com/EightfoldAI/octuple/compare/v2.59.6...v2.59.7) (2026-11-18)
+
+### Bug Fixes
+
+- **Pagination:** visually indicate selected page size option (ENG-209973) ([#1177](https://github.com/EightfoldAI/octuple/issues/1177)) ([cabe3f1](https://github.com/EightfoldAI/octuple/commits/cabe3f1577a6c3d1045383290250482b5e15cc1f))
+
 ### [2.59.6](https://github.com/EightfoldAI/octuple/compare/v2.59.5...v2.59.6) (2026-11-11)
 
 ### Bug Fixes
