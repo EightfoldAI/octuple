@@ -1,13 +1,6 @@
 'use client';
 
-import React, {
-  FC,
-  Ref,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import GradientContext, { Gradient } from '../ConfigProvider/GradientContext';
 import { OcThemeName } from '../ConfigProvider';
 import ThemeContext, {
@@ -29,7 +22,7 @@ import {
 } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { IconName } from '../Icon';
-import { Menu, MenuItemButtonProps } from '../Menu';
+import { Menu, MenuItemButtonProps, MenuItemIconAlign } from '../Menu';
 import { TextInput, TextInputShape } from '../Inputs';
 import { mergeClasses } from '../../shared/utilities';
 import { useBoolean } from '../../hooks/useBoolean';
@@ -344,6 +337,12 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       const getItems = (): MenuItemButtonProps[] => {
         return pageSizes.map((item?: number, idx?: number) => ({
           rowkey: idx,
+          active: item === _pageSize,
+          role: 'menuitemradio',
+          'aria-checked': item === _pageSize,
+          alignIcon: MenuItemIconAlign.Right,
+          iconProps:
+            item === _pageSize ? { path: IconName.mdiCheck } : undefined,
           text:
             htmlDir === 'ltr'
               ? `${item} / ${pageSizeText}`
