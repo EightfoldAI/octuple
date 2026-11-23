@@ -128,6 +128,12 @@ export interface DropdownProps {
    */
   portal?: boolean;
   /**
+   * Element the portaled dropdown renders into, e.g. an open dialog.
+   * Applies when `portal` is true.
+   * @default document.body
+   */
+  portalRoot?: HTMLElement | null;
+  /**
    * Positioning strategy for the dropdown
    * @default absolute
    */

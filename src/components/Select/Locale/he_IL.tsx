@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'התאמות נמצאו.',
     noResultsFoundText: 'לא נמצאה התאמה עבור',
     optionPositionSeparatorText: 'מתוך',
+    selectedOptionsText: 'אפשרויות שנבחרו',
+    optionSelectedStateText: 'נבחר',
+    selectedCountText: 'נבחרו: {0}',
+    moreSelectedCountText: 'נבחרו גם: {0}',
   },
 };
 
