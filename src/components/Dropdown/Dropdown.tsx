@@ -71,7 +71,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         referenceOnClick,
         referenceOnKeydown,
         referenceWrapperClassNames,
-        role = 'listbox',
+        role,
         showDropdown,
         style,
         tabIndex = 0,
