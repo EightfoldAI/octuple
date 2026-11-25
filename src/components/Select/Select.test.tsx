@@ -1610,4 +1610,297 @@ describe('Select improvedA11y', () => {
     });
     expect(getByRole('status').textContent).not.toContain('Others');
   });
+
+  describe('multiple', () => {
+    const selectedOptions = [
+      { text: 'Apple', value: 'apple', selected: true },
+      { text: 'Banana', value: 'banana', selected: true },
+      { text: 'Cherry', value: 'cherry' },
+    ];
+
+    const mockWidthsForCountPill = (): void => {
+      jest
+        .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+        .mockImplementation(function (this: HTMLElement) {
+          const width: number = this.tagName === 'INPUT' ? 300 : 100;
+          return {
+            width,
+            height: 0,
+            top: 0,
+            left: 0,
+            right: width,
+            bottom: 0,
+            x: 0,
+            y: 0,
+            toJSON: () => ({}),
+          } as DOMRect;
+        });
+    };
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    test('marks the listbox as multi-select', async () => {
+      const { getByPlaceholderText, getByRole } = render(
+        <Select
+          improvedA11y
+          multiple
+          filterable
+          options={adOptions}
+          placeholder="Fruit"
+        />
+      );
+      fireEvent.click(getByPlaceholderText('Fruit'));
+      await waitFor(() =>
+        expect(getByRole('listbox')).toHaveAttribute(
+          'aria-multiselectable',
+          'true'
+        )
+      );
+    });
+
+    test('announces the selected state of the highlighted option', async () => {
+      const { getByRole } = render(
+        <Select improvedA11y multiple filterable options={selectedOptions} />
+      );
+      const input = getByRole('combobox');
+      fireEvent.click(input);
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'true')
+      );
+
+      fireEvent.keyDown(input, { key: 'ArrowDown' });
+      await waitFor(() =>
+        expect(getByRole('status')).toHaveTextContent(
+          'Banana, selected, 2 of 3'
+        )
+      );
+      fireEvent.keyDown(input, { key: 'ArrowDown' });
+      await waitFor(() =>
+        expect(getByRole('status')).toHaveTextContent('Cherry, 3 of 3')
+      );
+    });
+
+    test('groups the selected pills under an accessible name', () => {
+      const { getByRole } = render(
+        <Select improvedA11y multiple filterable options={selectedOptions} />
+      );
+      expect(
+        getByRole('group', { name: 'Selected options' })
+      ).toBeInTheDocument();
+    });
+
+    test('exposes the count pill state and keeps focus in the select when it opens the list', async () => {
+      mockWidthsForCountPill();
+      const { container, getByRole } = render(
+        <Select
+          improvedA11y
+          restoreFocusOnPillAction
+          multiple
+          filterable
+          options={selectedOptions}
+        />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+      expect(countPill).toHaveAttribute('aria-expanded', 'false');
+
+      (countPill as HTMLElement).focus();
+      fireEvent.keyDown(countPill, { key: 'Enter' });
+
+      await waitFor(() =>
+        expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'true')
+      );
+      expect(getByRole('combobox')).toHaveFocus();
+    });
+
+    test('returns focus to the input when removing a pill drops it', async () => {
+      const { getByRole, getByLabelText } = render(
+        <Select
+          improvedA11y
+          restoreFocusOnPillAction
+          multiple
+          filterable
+          options={[{ text: 'Apple', value: 'apple', selected: true }]}
+        />
+      );
+      const removeApple = getByLabelText('Remove Apple');
+      removeApple.focus();
+      fireEvent.click(removeApple);
+
+      await waitFor(() => expect(getByRole('combobox')).toHaveFocus());
+    });
+
+    test('does not move focus without restoreFocusOnPillAction', async () => {
+      const { getByLabelText, getByRole } = render(
+        <Select
+          improvedA11y
+          multiple
+          filterable
+          options={[{ text: 'Apple', value: 'apple', selected: true }]}
+        />
+      );
+      const removeApple = getByLabelText('Remove Apple');
+      removeApple.focus();
+      fireEvent.click(removeApple);
+
+      await waitFor(() =>
+        expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'false')
+      );
+      expect(getByRole('combobox')).not.toHaveFocus();
+    });
+
+    test('shows the count pill alone when no pill fits', async () => {
+      jest
+        .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+        .mockImplementation(function (this: HTMLElement) {
+          const width: number = this.tagName === 'INPUT' ? 200 : 100;
+          return {
+            width,
+            height: 0,
+            top: 0,
+            left: 0,
+            right: width,
+            bottom: 0,
+            x: 0,
+            y: 0,
+            toJSON: () => ({}),
+          } as DOMRect;
+        });
+      const { container } = render(
+        <Select multiple filterable options={selectedOptions} />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+      expect(countPill).toHaveTextContent('+2');
+      expect(countPill).toHaveAttribute('aria-label', 'Selected: 2');
+    });
+
+    test('opens the list and keeps focus in the select when the count pill is clicked', async () => {
+      mockWidthsForCountPill();
+      const { container, getByRole } = render(
+        <Select
+          improvedA11y
+          restoreFocusOnPillAction
+          multiple
+          filterable
+          options={selectedOptions}
+        />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+
+      (countPill as HTMLElement).focus();
+      fireEvent.click(countPill);
+
+      await waitFor(() =>
+        expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'true')
+      );
+      expect(getByRole('combobox')).toHaveFocus();
+    });
+
+    test('does not open a disabled select from the count pill', async () => {
+      mockWidthsForCountPill();
+      const { container, getByRole } = render(
+        <Select
+          improvedA11y
+          disabled
+          multiple
+          filterable
+          options={selectedOptions}
+        />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+
+      fireEvent.click(countPill);
+
+      expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    test('moves focus past the select with one Tab when shouldCloseOnTab is set', async () => {
+      const { getByRole } = render(
+        <>
+          <Select
+            improvedA11y
+            multiple
+            filterable
+            options={selectedOptions}
+            dropdownProps={{ shouldCloseOnTab: true }}
+          />
+          <button>Next</button>
+        </>
+      );
+      const input = getByRole('combobox');
+      input.focus();
+      fireEvent.click(input);
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'true')
+      );
+
+      // jsdom has no default Tab action, so move focus as the browser would.
+      const next = getByRole('button', { name: 'Next' });
+      fireEvent.keyDown(input, { key: 'Tab' });
+      next.focus();
+
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'false')
+      );
+      expect(next).toHaveFocus();
+    });
+
+    test('still refocuses the input after a Tab when shouldCloseOnTab is off', async () => {
+      const { getByRole, getByText } = render(
+        <Select improvedA11y options={selectedOptions} />
+      );
+      const input = getByRole('combobox');
+      input.focus();
+      fireEvent.click(input);
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'true')
+      );
+
+      // Tab keeps the list open here; a later mouse pick closes it.
+      fireEvent.keyDown(input, { key: 'Tab' });
+      input.blur();
+      fireEvent.click(getByText('Cherry'));
+
+      await waitFor(() =>
+        expect(input).toHaveAttribute('aria-expanded', 'false')
+      );
+      expect(input).toHaveFocus();
+    });
+
+    test('leaves the multi-select markup unchanged without improvedA11y', async () => {
+      mockWidthsForCountPill();
+      const { container, getByRole } = render(
+        <Select multiple filterable options={selectedOptions} />
+      );
+      const countPill = await waitFor(() => {
+        const pill = container.querySelector('#select-pill-count');
+        expect(pill).toBeTruthy();
+        return pill;
+      });
+      expect(container.querySelector('[role="group"]')).toBeNull();
+      expect(countPill).not.toHaveAttribute('aria-expanded');
+
+      fireEvent.click(getByRole('combobox'));
+      await waitFor(() =>
+        expect(getByRole('listbox')).not.toHaveAttribute('aria-multiselectable')
+      );
+    });
+  });
 });

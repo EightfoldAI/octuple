@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'träffar hittade.',
     noResultsFoundText: 'Ingen träff hittad för',
     optionPositionSeparatorText: 'av',
+    selectedOptionsText: 'Valda alternativ',
+    optionSelectedStateText: 'vald',
+    selectedCountText: 'Valda: {0}',
+    moreSelectedCountText: 'Även valda: {0}',
   },
 };
 

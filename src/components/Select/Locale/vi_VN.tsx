@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'kết quả phù hợp tìm thấy.',
     noResultsFoundText: 'Không tìm thấy kết quả phù hợp cho',
     optionPositionSeparatorText: 'trên',
+    selectedOptionsText: 'Các tùy chọn đã chọn',
+    optionSelectedStateText: 'đã chọn',
+    selectedCountText: 'Đã chọn: {0}',
+    moreSelectedCountText: 'Cũng đã chọn: {0}',
   },
 };
 

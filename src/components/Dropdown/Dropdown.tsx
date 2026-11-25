@@ -66,6 +66,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         overlay,
         placement = 'bottom-start',
         portal = false,
+        portalRoot,
         positionStrategy = 'absolute',
         referenceRole = 'button',
         referenceOnClick,
@@ -617,7 +618,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           <ConditionalWrapper
             condition={portal}
             wrapper={(children) => (
-              <FloatingPortal preserveTabOrder>{children}</FloatingPortal>
+              // Remount when the root arrives so the focus guards follow it.
+              <FloatingPortal
+                key={portalRoot ? 'root' : 'body'}
+                preserveTabOrder
+                root={portalRoot}
+              >
+                {children}
+              </FloatingPortal>
             )}
           >
             {getDropdown()}

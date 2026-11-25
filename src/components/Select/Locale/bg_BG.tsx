@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: 'съвпадения намерени.',
     noResultsFoundText: 'Няма намерено съвпадение за',
     optionPositionSeparatorText: 'от',
+    selectedOptionsText: 'Избрани опции',
+    optionSelectedStateText: 'избрана',
+    selectedCountText: 'Избрани: {0}',
+    moreSelectedCountText: 'Също избрани: {0}',
   },
 };
 

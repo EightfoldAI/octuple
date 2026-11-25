@@ -7,6 +7,10 @@ const locale: SelectLocale = {
     resultsAvailableText: '개 일치 항목 찾음.',
     noResultsFoundText: '일치하는 항목을 찾을 수 없습니다:',
     optionPositionSeparatorText: '/',
+    selectedOptionsText: '선택된 옵션',
+    optionSelectedStateText: '선택됨',
+    selectedCountText: '선택됨: {0}',
+    moreSelectedCountText: '추가 선택됨: {0}',
   },
 };
 
