@@ -1405,7 +1405,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                   aria-activedescendant={
                     improvedA11y ? activeDescendantId ?? undefined : undefined
                   }
-                  aria-controls={selectMenuId?.current}
+                  aria-controls={
+                    dropdownVisible ? selectMenuId?.current : undefined
+                  }
                   aria-expanded={dropdownVisible}
                   configContextProps={configContextProps}
                   status={status}

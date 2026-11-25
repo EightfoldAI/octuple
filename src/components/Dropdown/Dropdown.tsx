@@ -507,8 +507,13 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             ariaRef.current.setAttribute('aria-haspopup', ariaHaspopupValue);
           }
 
-          if (!ariaRef.current.hasAttribute('aria-controls')) {
+          if (mergedVisible && !ariaRef.current.hasAttribute('aria-controls')) {
             ariaRef.current.setAttribute('aria-controls', dropdownId);
+          } else if (
+            !mergedVisible &&
+            ariaRef.current.getAttribute('aria-controls') === dropdownId
+          ) {
+            ariaRef.current.removeAttribute('aria-controls');
           }
 
           if (!ariaRef.current.hasAttribute('role')) {
@@ -534,7 +539,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           onClick: handleReferenceClick,
           onKeyDown: handleReferenceKeyDown,
           className: referenceWrapperClasses,
-          'aria-controls': dropdownId,
+          'aria-controls': mergedVisible ? dropdownId : undefined,
           'aria-expanded': mergedVisible,
           'aria-haspopup':
             child.props?.['aria-haspopup'] ??
