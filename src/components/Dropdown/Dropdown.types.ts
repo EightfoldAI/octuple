@@ -160,9 +160,8 @@ export interface DropdownProps {
    */
   referenceWrapperClassNames?: string;
   /**
-   * The dropdown aria role.
-   * If null, the role will not be applied to the reference element.
-   * @default 'listbox'
+   * Aria role of the overlay wrapper. Unset by default; set it only when the
+   * overlay content has no role of its own.
    */
   role?: string | null;
   /**

@@ -23,7 +23,6 @@ exports[`Menu Menu is large 1`] = `
     <div
       class="dropdown-wrapper no-padding open"
       id="dropdown-"
-      role="listbox"
       style="position: absolute; top: 4px; left: 0px;"
       tabindex="-1"
     >
@@ -275,7 +274,6 @@ exports[`Menu Menu is medium 1`] = `
     <div
       class="dropdown-wrapper no-padding open"
       id="dropdown-"
-      role="listbox"
       style="position: absolute; top: 4px; left: 0px;"
       tabindex="-1"
     >
@@ -527,7 +525,6 @@ exports[`Menu Menu is small 1`] = `
     <div
       class="dropdown-wrapper no-padding open"
       id="dropdown-"
-      role="listbox"
       style="position: absolute; top: 4px; left: 0px;"
       tabindex="-1"
     >
