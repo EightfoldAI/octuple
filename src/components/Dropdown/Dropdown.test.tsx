@@ -1067,4 +1067,40 @@ describe('Dropdown', () => {
     expect(referenceElement.getAttribute('aria-expanded')).toBe('true');
     expect(container.querySelector('.dropdown-wrapper')).toBeTruthy();
   });
+
+  describe('overlay wrapper role', () => {
+    const openOverlay = async (props: object = {}): Promise<HTMLElement> => {
+      render(
+        <Dropdown {...dropdownProps} {...props}>
+          <Button data-testid="dropdown-reference" text="Dropdown menu test" />
+        </Dropdown>
+      );
+      const referenceElement = screen.getByTestId('dropdown-reference');
+      act(() => {
+        userEvent.click(referenceElement);
+      });
+      await waitFor(() => screen.getByText('User profile 1'));
+      return document.getElementById(
+        referenceElement.getAttribute('aria-controls')
+      );
+    };
+
+    test('Should not set a role on the overlay wrapper by default', async () => {
+      const overlayWrapper = await openOverlay();
+      expect(overlayWrapper).toBeTruthy();
+      expect(overlayWrapper.hasAttribute('role')).toBe(false);
+    });
+
+    test('Should apply the role prop to the overlay wrapper', async () => {
+      const overlayWrapper = await openOverlay({ role: 'listbox' });
+      expect(overlayWrapper.getAttribute('role')).toBe('listbox');
+    });
+
+    test('Should apply overlayProps.role to the overlay wrapper', async () => {
+      const overlayWrapper = await openOverlay({
+        overlayProps: { role: 'dialog' },
+      });
+      expect(overlayWrapper.getAttribute('role')).toBe('dialog');
+    });
+  });
 });
