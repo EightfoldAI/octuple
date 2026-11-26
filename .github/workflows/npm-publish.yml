@@ -7,6 +7,8 @@ on:
 
 env:
   NODE_VERSION: 20.13.0
+  # npm trusted publishing requires Node >= 22.14.0
+  PUBLISH_NODE_VERSION: 22
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,6 +23,9 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # ncipollo/release-action creates the GitHub release
+      id-token: write # OIDC token for npm trusted publishing
     steps:
       - name: Get version from tag
         id: tag_name
@@ -34,22 +39,23 @@ jobs:
           echo ::set-output name=prerelease::true
       - name: Checkout code
         uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ env.PUBLISH_NODE_VERSION }}
           registry-url: https://registry.npmjs.org/
+      # Trusted publishing (OIDC) needs npm >= 11.5.1; Node 22 bundles npm 10.
+      - name: Upgrade npm
+        run: npm install -g npm@11
       - name: Run Yarn
         run: yarn
+      # Auth comes from npm trusted publishing (OIDC), not a stored token.
+      # Provenance is generated automatically for this public repo.
       - name: Publish release to npm
         if: steps.prerelease_check.outputs.prerelease != 'true'
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Publish prerelease to npm
         if: steps.prerelease_check.outputs.prerelease == 'true'
         run: npm publish --tag prerelease
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Get Changelog Entry
         id: changelog_reader
         uses: artlaman/conventional-changelog-reader-action@v1.1.0
